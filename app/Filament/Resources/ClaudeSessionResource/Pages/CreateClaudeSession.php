@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\ClaudeSessionResource\Pages;
 
 use App\Filament\Resources\ClaudeSessionResource;
-use App\Jobs\RunClaudeCode;
 use App\Models\ClaudeSession;
 use Filament\Forms;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -65,7 +64,14 @@ class CreateClaudeSession extends Page implements HasForms {
             'created_by' => auth()->user()?->name ?? 'Unknown',
         ]);
 
-        RunClaudeCode::dispatch($session->id);
+        // Launch as a background process so the browser isn't blocked.
+        // The sync queue driver would run the entire Claude session inside
+        // this HTTP request, causing a 10+ minute hang with no response.
+        $artisan = base_path('artisan');
+        $logFile = storage_path('logs/claude-sessions/'.$session->id.'.bg.log');
+        $cmd = 'php '.escapeshellarg($artisan).' claude:run-session '.escapeshellarg($session->id)
+            .' > '.escapeshellarg($logFile).' 2>&1 &';
+        exec($cmd);
 
         return redirect()->to(ClaudeSessionResource::getUrl('view', ['record' => $session]));
     }
