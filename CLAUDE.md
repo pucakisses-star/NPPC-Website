@@ -129,6 +129,8 @@ php artisan tinker --execute='$p = App\Models\Prisoner::where("name", "like", "%
 
 Always provide the complete command -- never ask for approval to run database queries yourself.
 
+**CRITICAL: Provide ALL commands needed to complete the task in a single response.** Do not output a query command and wait for results -- you won't get a follow-up. Instead, write a single tinker command that does everything: finds the records, makes the changes, and confirms the result. For example, if asked to merge two records, provide one command that finds both, moves related data, updates fields, deletes the duplicate, and echoes a confirmation -- all in one go.
+
 ## Common Tasks
 
 ### Adding data (prisoners, cases, articles, events, etc.)
