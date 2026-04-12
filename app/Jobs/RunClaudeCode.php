@@ -69,7 +69,7 @@ class RunClaudeCode implements ShouldQueue {
             $this->log($logFile, $session, str_repeat('─', 60));
 
             // Run Claude Code — stream output to log file
-            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' > '.escapeshellarg($logFile.'.claude').' 2>&1';
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --yes > '.escapeshellarg($logFile.'.claude').' 2>&1';
 
             $home = config('claude.home', '/root');
 
