@@ -44,6 +44,24 @@ class ViewClaudeSession extends Page {
                 ->label('Refresh')
                 ->icon('heroicon-o-arrow-path')
                 ->action(fn () => $this->record->refresh());
+
+            $actions[] = Actions\Action::make('mark_failed')
+                ->label('Mark as Failed')
+                ->icon('heroicon-o-x-circle')
+                ->color('danger')
+                ->requiresConfirmation()
+                ->modalHeading('Mark Session as Failed')
+                ->modalDescription('This will mark the stuck session as failed and clean up its worktree. Use this if a session has been stuck in "Running" for a long time.')
+                ->action(function () {
+                    $service = new ClaudeSessionService();
+                    $service->discard($this->record);
+                    $this->record->update([
+                        'status' => 'failed',
+                        'output' => $this->record->output."\n\nManually marked as failed by admin.",
+                    ]);
+                    $this->record->refresh();
+                    Notification::make()->title('Session marked as failed')->success()->send();
+                });
         }
 
         if ($this->record->isActive()) {
