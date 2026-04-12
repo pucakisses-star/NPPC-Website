@@ -73,6 +73,6 @@ class CreateClaudeSession extends Page implements HasForms {
             ->success()
             ->send();
 
-        $this->redirect(ClaudeSessionResource::getUrl('view', ['record' => $session]));
+        $this->redirect(ClaudeSessionResource::getUrl('view', ['record' => $session]), navigate: true);
     }
 }

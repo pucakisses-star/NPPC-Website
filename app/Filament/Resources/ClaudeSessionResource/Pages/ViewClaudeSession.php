@@ -152,6 +152,9 @@ class ViewClaudeSession extends Page {
     }
 
     public function getViewData(): array {
+        // Refresh from DB so poll cycles pick up status changes
+        $this->record->refresh();
+
         return [
             'record' => $this->record,
         ];
