@@ -41,7 +41,9 @@ class CasesRelationManager extends RelationManager {
                     ->maxLength(255),
                 Forms\Components\Textarea::make('sentence'),
                 Forms\Components\TextInput::make('imprisoned_for_days')
-                    ->numeric(),
+                    ->numeric()
+                    ->disabled()
+                    ->helperText('Auto-calculated from incarceration and release dates'),
                 Forms\Components\TextInput::make('in_exile_for_days')
                     ->numeric(),
             ]);
