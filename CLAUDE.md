@@ -136,26 +136,16 @@ vue/                    # Separate Vue 3 dashboard app
 
 ## Important: Database Access
 
-You are running in a worktree with `--permission-mode acceptEdits`. You can read and edit files, but you **cannot run artisan tinker, migrate, or other database commands** directly.
+You have **full database access** via artisan commands. You can run `php artisan tinker`, `php artisan migrate`, `php artisan prisoner:add`, and any other artisan command directly. Do NOT ask for permission -- just run the commands yourself.
 
-When a task requires database changes (inserting, updating, or deleting records), **output a ready-to-run `php artisan tinker` command** that the admin can copy and paste on the VPS. Format it as a single-line command using single quotes:
+**NEVER use migrations to insert data.** Migrations are only for schema changes (adding tables, columns, indexes).
 
-```bash
-php artisan tinker --execute='$p = App\Models\Prisoner::where("name", "like", "%Example%")->first(); echo $p->toJSON(JSON_PRETTY_PRINT);'
-```
-
-Always provide the complete command -- never ask for approval to run database queries yourself.
-
-**CRITICAL: Provide ALL commands needed to complete the task in a single response.** Do not output a query command and wait for results -- you won't get a follow-up. Instead, write a single tinker command that does everything: finds the records, makes the changes, and confirms the result. For example, if asked to merge two records, provide one command that finds both, moves related data, updates fields, deletes the duplicate, and echoes a confirmation -- all in one go.
+To query or modify data, use `php artisan tinker --execute='...'` or `php artisan prisoner:add '{...}'` directly.
 
 ## Common Tasks
 
 ### Adding data (prisoners, cases, articles, events, etc.)
-**NEVER use migrations to insert data.** Migrations are only for schema changes (adding tables, columns, indexes). To add data, provide a `php artisan tinker` command using Eloquent:
-
-```bash
-php artisan tinker --execute='$p = App\Models\Prisoner::create([...]); echo $p->name." created.";'
-```
+Use `php artisan prisoner:add` for prisoners, or `php artisan tinker --execute='...'` for other data. Run these commands directly -- do not just output them for the user.
 
 This applies to all content: prisoners, cases, articles, events, pages, staff, quotes, FAQs, etc. Always use the model's `::create()` method or `::firstOrCreate()` to insert records.
 
