@@ -1,5 +1,7 @@
 # NPPC Website - Claude Code Context
 
+> **Server:** 104.238.162.40 | **Admin:** /admin | **Deploy:** `cd /var/www/NPPC-Website && git pull origin main`
+
 ## Project Overview
 
 Laravel 10 website for the **National Political Prisoner Coalition** (NPPC). Public-facing advocacy site + Filament 3 admin panel. Manages prisoner profiles, articles, events, petitions, podcasts, and more.
