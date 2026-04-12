@@ -71,9 +71,14 @@ class RunClaudeSession extends Command {
             $this->log($logFile, str_repeat('─', 60));
 
             // Run Claude Code — stream output to log file
+            // acceptEdits allows file changes; allowedTools grants Bash
+            // access for artisan commands (prisoner:add, tinker, etc.)
             $claudeLog = $logFile.'.claude';
             $continueFlag = $isContinue ? ' --continue' : '';
-            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --permission-mode acceptEdits'.$continueFlag.' > '.escapeshellarg($claudeLog).' 2>&1';
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt)
+                .' --permission-mode acceptEdits'
+                .' --allowedTools "Bash(php artisan *)"'
+                .$continueFlag.' > '.escapeshellarg($claudeLog).' 2>&1';
 
             $home = config('claude.home', '/root');
 
