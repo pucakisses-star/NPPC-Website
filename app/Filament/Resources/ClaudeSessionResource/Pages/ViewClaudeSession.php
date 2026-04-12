@@ -6,7 +6,6 @@ use App\Filament\Resources\ClaudeSessionResource;
 use App\Models\ClaudeSession;
 use App\Services\ClaudeSessionService;
 use Filament\Actions;
-use Filament\Forms;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\Page;
 
@@ -15,7 +14,6 @@ class ViewClaudeSession extends Page {
     protected static string $view = 'filament.pages.claude-view';
 
     public ClaudeSession $record;
-    public string $testOutput = '';
     public string $actionOutput = '';
     public string $reply = '';
 
@@ -66,55 +64,25 @@ class ViewClaudeSession extends Page {
         }
 
         if ($this->record->isActive()) {
-            $actions[] = Actions\Action::make('commit')
-                ->label('Commit Changes')
-                ->icon('heroicon-o-check')
-                ->color('info')
-                ->requiresConfirmation()
-                ->modalHeading('Commit Changes')
-                ->modalDescription('This will commit all changes in the worktree branch.')
-                ->form([
-                    Forms\Components\TextInput::make('message')
-                        ->label('Commit Message')
-                        ->default(fn () => 'Claude Code: '.substr($this->record->prompt, 0, 72))
-                        ->required(),
-                ])
-                ->action(function (array $data) {
-                    $service = new ClaudeSessionService();
-                    $this->actionOutput = $service->commitChanges($this->record, $data['message']);
-                    Notification::make()->title('Changes committed')->success()->send();
-                });
-
-            $actions[] = Actions\Action::make('push')
-                ->label('Push Branch')
-                ->icon('heroicon-o-arrow-up-tray')
-                ->color('info')
-                ->requiresConfirmation()
-                ->modalDescription("This will push branch '{$this->record->branch_name}' to the remote.")
-                ->action(function () {
-                    $service = new ClaudeSessionService();
-                    $this->actionOutput = $service->pushBranch($this->record);
-                    Notification::make()->title('Branch pushed')->success()->send();
-                });
-
-            $actions[] = Actions\Action::make('merge')
-                ->label('Merge to Main')
-                ->icon('heroicon-o-arrow-down-on-square-stack')
+            $actions[] = Actions\Action::make('deploy')
+                ->label('Deploy Changes')
+                ->icon('heroicon-o-rocket-launch')
                 ->color('success')
                 ->requiresConfirmation()
-                ->modalHeading('Merge to Production')
-                ->modalDescription('This will commit all changes, merge the branch into main, and clean up the worktree. This affects the live site.')
+                ->modalHeading('Deploy Changes to Live Site')
+                ->modalDescription('This will merge the changes into main, push them to GitHub, and clean up the worktree. The site will immediately reflect these changes.')
+                ->modalSubmitActionLabel('Yes, deploy to live site')
                 ->action(function () {
                     $service = new ClaudeSessionService();
-                    $result = $service->mergeToMain($this->record);
+                    $result = $service->deployChanges($this->record);
                     $this->record->refresh();
 
                     if ($this->record->isMerged()) {
                         $this->actionOutput = $result;
-                        Notification::make()->title('Merged to main successfully')->success()->send();
+                        Notification::make()->title('Deployed successfully')->success()->send();
                     } else {
                         $this->actionOutput = $result;
-                        Notification::make()->title('Merge failed')->body('Check the output below for details.')->danger()->send();
+                        Notification::make()->title('Deploy failed')->body('Check the output below for details.')->danger()->send();
                     }
                 });
 
@@ -134,15 +102,6 @@ class ViewClaudeSession extends Page {
         }
 
         return $actions;
-    }
-
-    public function runTest(string $command): void {
-        if (! $this->record->isActive()) {
-            return;
-        }
-
-        $service = new ClaudeSessionService();
-        $this->testOutput = $service->runTest($this->record, $command);
     }
 
     public function sendReply(): void {
@@ -174,13 +133,6 @@ class ViewClaudeSession extends Page {
         $this->reply = '';
         $this->record->refresh();
         Notification::make()->title('Follow-up sent')->success()->send();
-    }
-
-    public function refreshDiff(): void {
-        $service = new ClaudeSessionService();
-        $service->refreshDiff($this->record);
-        $this->record->refresh();
-        Notification::make()->title('Diff refreshed')->success()->send();
     }
 
     public function getViewData(): array {
