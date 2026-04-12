@@ -73,7 +73,9 @@ class RunClaudeSession extends Command {
             // Run Claude Code — stream output to log file
             $claudeLog = $logFile.'.claude';
             $continueFlag = $isContinue ? ' --continue' : '';
-            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --permission-mode acceptEdits'.$continueFlag.' > '.escapeshellarg($claudeLog).' 2>&1';
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt)
+                .' --dangerously-skip-permissions'
+                .$continueFlag.' > '.escapeshellarg($claudeLog).' 2>&1';
 
             $home = config('claude.home', '/root');
 
