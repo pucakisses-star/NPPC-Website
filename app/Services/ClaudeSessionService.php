@@ -80,6 +80,35 @@ class ClaudeSessionService {
     }
 
     /**
+     * Deploy changes: merge the worktree branch to main AND push to origin.
+     * This is the one-click "make it live" action for non-technical admins.
+     */
+    public function deployChanges(ClaudeSession $session): string {
+        $output = "=== Merging to main ===\n";
+        $output .= $this->mergeToMain($session);
+
+        if (! $session->isMerged()) {
+            return $output."\n\nDeploy stopped: merge failed.";
+        }
+
+        $output .= "\n\n=== Pushing to GitHub ===\n";
+
+        $result = Process::path($this->repoPath)
+            ->timeout(60)
+            ->run('git push origin main');
+
+        $output .= $result->output().$result->errorOutput();
+
+        if (! $result->successful()) {
+            $output .= "\n\nWARNING: Merge succeeded but push to GitHub failed. The changes are live on the server but not on GitHub yet. You may need to push manually.";
+        } else {
+            $output .= "\n\n✓ Changes are now live and synced with GitHub.";
+        }
+
+        return $output;
+    }
+
+    /**
      * Run artisan commands in the worktree for testing.
      */
     public function runTest(ClaudeSession $session, string $command = 'test'): string {

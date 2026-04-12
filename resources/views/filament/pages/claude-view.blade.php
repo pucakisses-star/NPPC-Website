@@ -70,39 +70,6 @@
         <div class="whitespace-pre-wrap text-sm font-mono bg-gray-900 text-gray-100 rounded-lg p-4">{{ $record->prompt }}</div>
     </x-filament::section>
 
-    {{-- Test Buttons --}}
-    @if($record->isActive())
-        <x-filament::section heading="Quick Actions">
-            <div class="flex flex-wrap gap-2">
-                <x-filament::button size="sm" color="gray" wire:click="runTest('test')" icon="heroicon-o-beaker">
-                    Run Tests
-                </x-filament::button>
-                <x-filament::button size="sm" color="gray" wire:click="runTest('cache:clear')" icon="heroicon-o-trash">
-                    Clear Cache
-                </x-filament::button>
-                <x-filament::button size="sm" color="gray" wire:click="runTest('config:clear')" icon="heroicon-o-cog-6-tooth">
-                    Clear Config
-                </x-filament::button>
-                <x-filament::button size="sm" color="gray" wire:click="runTest('route:list')" icon="heroicon-o-map">
-                    Route List
-                </x-filament::button>
-                <x-filament::button size="sm" color="gray" wire:click="runTest('migrate:status')" icon="heroicon-o-circle-stack">
-                    Migration Status
-                </x-filament::button>
-                <x-filament::button size="sm" color="gray" wire:click="refreshDiff" icon="heroicon-o-arrow-path">
-                    Refresh Diff
-                </x-filament::button>
-            </div>
-
-            @if($testOutput)
-                <div class="mt-4">
-                    <div class="text-sm font-semibold mb-2">Output:</div>
-                    <pre class="whitespace-pre-wrap text-xs font-mono bg-gray-900 text-green-400 rounded-lg p-4 max-h-96 overflow-y-auto">{{ $testOutput }}</pre>
-                </div>
-            @endif
-        </x-filament::section>
-    @endif
-
     {{-- Action Output --}}
     @if($actionOutput)
         <x-filament::section heading="Action Output">
