@@ -42,7 +42,7 @@ class CreateClaudeSession extends Page implements HasForms {
             ->statePath('data');
     }
 
-    public function submit(): void {
+    public function submit(): mixed {
         $data = $this->form->getState();
 
         // Check for already-running sessions
@@ -56,7 +56,7 @@ class CreateClaudeSession extends Page implements HasForms {
                 ->danger()
                 ->send();
 
-            return;
+            return null;
         }
 
         $session = ClaudeSession::create([
@@ -67,12 +67,6 @@ class CreateClaudeSession extends Page implements HasForms {
 
         RunClaudeCode::dispatch($session->id);
 
-        Notification::make()
-            ->title('Session started')
-            ->body('Claude is working on your request. You\'ll see the results here shortly.')
-            ->success()
-            ->send();
-
-        $this->redirect(ClaudeSessionResource::getUrl('view', ['record' => $session]), navigate: true);
+        return redirect()->to(ClaudeSessionResource::getUrl('view', ['record' => $session]));
     }
 }
