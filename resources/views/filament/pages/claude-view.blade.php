@@ -70,11 +70,29 @@
         <div class="whitespace-pre-wrap text-sm font-mono bg-gray-900 text-gray-100 rounded-lg p-4">{{ $record->prompt }}</div>
     </x-filament::section>
 
-    {{-- Action Output --}}
+    {{-- Action Output (shown after Deploy or Discard) --}}
     @if($actionOutput)
-        <x-filament::section heading="Action Output">
-            <pre class="whitespace-pre-wrap text-xs font-mono bg-gray-900 text-gray-100 rounded-lg p-4 max-h-64 overflow-y-auto">{{ $actionOutput }}</pre>
-        </x-filament::section>
+        @php
+            $deploySuccess = str_contains($actionOutput, '✓ SUCCESS');
+            $deployFailed = str_contains($actionOutput, 'DEPLOY FAILED') || str_contains($actionOutput, 'ERROR:');
+            $bannerClass = $deploySuccess
+                ? 'bg-success-500/10 border-success-500/30 text-success-700 dark:text-success-400'
+                : ($deployFailed
+                    ? 'bg-danger-500/10 border-danger-500/30 text-danger-700 dark:text-danger-400'
+                    : 'bg-info-500/10 border-info-500/30 text-info-700 dark:text-info-400');
+        @endphp
+        <div class="rounded-lg border p-4 mb-6 {{ $bannerClass }}">
+            <div class="text-base font-bold mb-2">
+                @if($deploySuccess)
+                    ✓ Deployed successfully
+                @elseif($deployFailed)
+                    ✗ Deploy failed
+                @else
+                    Action output
+                @endif
+            </div>
+            <pre class="whitespace-pre-wrap text-xs font-mono bg-gray-900 text-gray-100 rounded-lg p-4 max-h-96 overflow-y-auto">{{ $actionOutput }}</pre>
+        </div>
     @endif
 
     {{-- Files Changed --}}
