@@ -45,4 +45,17 @@ return [
     |
     */
     'max_concurrent' => env('CLAUDE_MAX_CONCURRENT', 1),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Home Directory
+    |--------------------------------------------------------------------------
+    |
+    | The home directory of the user that ran `claude login`. Claude stores
+    | its auth tokens in ~/.claude/. When the web server runs as a different
+    | user (e.g. www-data), this must point to the home directory of the
+    | user who authenticated the CLI (typically /root).
+    |
+    */
+    'home' => env('CLAUDE_HOME', '/root'),
 ];
