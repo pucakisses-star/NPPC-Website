@@ -156,8 +156,14 @@ class ViewClaudeSession extends Page {
             return;
         }
 
-        // Store the follow-up prompt and re-launch
-        $this->record->update(['prompt' => $reply]);
+        // Build a prompt that includes the previous conversation for context
+        $contextPrompt = "Here is the previous conversation in this session:\n\n"
+            ."ORIGINAL PROMPT: {$this->record->prompt}\n\n"
+            ."CLAUDE'S RESPONSE:\n{$this->record->output}\n\n"
+            ."---\n\n"
+            ."FOLLOW-UP INSTRUCTION: {$reply}";
+
+        $this->record->update(['prompt' => $contextPrompt]);
 
         $artisan = base_path('artisan');
         $logFile = storage_path('logs/claude-sessions/'.$this->record->id.'.bg.log');
