@@ -119,11 +119,20 @@ vue/                    # Separate Vue 3 dashboard app
 
 ## Common Tasks
 
-### Adding a new prisoner
-Create via Filament admin (`/admin/prisoners/create`) or via `airtable:import` command. Slug is auto-generated from name. Cases are managed via the relation manager on the prisoner edit page.
+### Adding data (prisoners, cases, articles, events, etc.)
+**NEVER use migrations to insert data.** Migrations are only for schema changes (adding tables, columns, indexes). To add data, use Eloquent directly:
+
+```php
+// Example: adding a prisoner with a case
+$prisoner = Prisoner::create([...]);
+$institution = Institution::firstOrCreate(['name' => '...'], [...]);
+PrisonerCase::create(['prisoner_id' => $prisoner->id, 'institution_id' => $institution->id, ...]);
+```
+
+This applies to all content: prisoners, cases, articles, events, pages, staff, quotes, FAQs, etc. Always use the model's `::create()` method or `::firstOrCreate()` to insert records.
 
 ### Adding content (articles, pages, events)
-Use the Filament admin. Articles need a title and body (required). Pages use a slug-based routing system -- the `/{slug}` catch-all route serves DB pages.
+Use Eloquent `::create()`. Articles need a title and body (required). Pages use a slug-based routing system -- the `/{slug}` catch-all route serves DB pages.
 
 ### Working with images
 Always use `Storage::url($path)` in Blade templates. In Filament, always add `->disk('public')` to FileUpload and ImageColumn components. Images are stored in `storage/app/public/` and symlinked to `public/storage/`.
