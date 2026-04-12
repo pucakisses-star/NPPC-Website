@@ -168,6 +168,26 @@ class RunClaudeCode implements ShouldQueue {
         }
     }
 
+    /**
+     * Handle job failure (e.g. timeout, worker crash).
+     * This ensures stuck sessions get marked as failed.
+     */
+    public function failed(?\Throwable $exception): void {
+        $session = ClaudeSession::find($this->sessionId);
+        if ($session && $session->isRunning()) {
+            $session->update([
+                'status' => 'failed',
+                'output' => $session->output."\n\nERROR: Job failed — ".($exception ? $exception->getMessage() : 'unknown error (possible timeout)'),
+            ]);
+
+            // Attempt cleanup
+            $repoPath = config('claude.repo_path', base_path());
+            if ($session->worktree_path && $session->branch_name) {
+                $this->cleanupWorktree($repoPath, $session->worktree_path, $session->branch_name);
+            }
+        }
+    }
+
     private function log(string $logFile, ClaudeSession $session, string $message): void {
         $timestamp = now()->format('H:i:s');
         $line = "[{$timestamp}] {$message}\n";
