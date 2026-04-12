@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -36,6 +37,20 @@ final class PrisonerCase extends Model {
         'in_exile_since'        => 'date',
         'end_of_exile'          => 'date',
     ];
+
+    public static function booted(): void {
+        static::saving(function (self $case) {
+            if ($case->incarceration_date && $case->release_date) {
+                $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
+                    ->diffInDays(Carbon::parse($case->release_date));
+            } elseif ($case->incarceration_date && ! $case->release_date) {
+                $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
+                    ->diffInDays(Carbon::today());
+            } else {
+                $case->imprisoned_for_days = null;
+            }
+        });
+    }
 
     public function prisoner(): BelongsTo {
         return $this->belongsTo(Prisoner::class);
