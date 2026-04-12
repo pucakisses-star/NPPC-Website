@@ -55,8 +55,11 @@ class RunClaudeSession extends Command {
             $this->log($logFile, str_repeat('─', 60));
 
             // Run Claude Code — stream output to log file
+            // --yes auto-approves tool permissions since we can't interact
+            // with the CLI in background mode. This is safe because it runs
+            // in an isolated worktree — nothing touches production.
             $claudeLog = $logFile.'.claude';
-            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' > '.escapeshellarg($claudeLog).' 2>&1';
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --yes > '.escapeshellarg($claudeLog).' 2>&1';
 
             $home = config('claude.home', '/root');
 
