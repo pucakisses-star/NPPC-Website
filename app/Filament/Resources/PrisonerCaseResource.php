@@ -68,7 +68,9 @@ class PrisonerCaseResource extends Resource {
                 Forms\Components\Section::make('Duration')
                     ->schema([
                         Forms\Components\TextInput::make('imprisoned_for_days')
-                            ->numeric(),
+                            ->numeric()
+                            ->disabled()
+                            ->helperText('Auto-calculated from incarceration and release dates'),
                         Forms\Components\TextInput::make('in_exile_for_days')
                             ->numeric(),
                     ])
