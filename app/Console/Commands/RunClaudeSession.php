@@ -59,7 +59,7 @@ class RunClaudeSession extends Command {
             // with the CLI in background mode. This is safe because it runs
             // in an isolated worktree — nothing touches production.
             $claudeLog = $logFile.'.claude';
-            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --yes > '.escapeshellarg($claudeLog).' 2>&1';
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --permission-mode acceptEdits > '.escapeshellarg($claudeLog).' 2>&1';
 
             $home = config('claude.home', '/root');
 
