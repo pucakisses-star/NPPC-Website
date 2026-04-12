@@ -71,11 +71,13 @@ class RunClaudeCode implements ShouldQueue {
             // Run Claude Code — stream output to log file
             $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' > '.escapeshellarg($logFile.'.claude').' 2>&1';
 
+            $home = config('claude.home', '/root');
+
             $process = Process::path($worktreePath)
                 ->timeout(1500)
                 ->env([
-                    'HOME' => env('HOME', '/root'),
-                    'PATH' => env('PATH', '/usr/local/bin:/usr/bin:/bin'),
+                    'HOME' => $home,
+                    'PATH' => '/usr/local/bin:/usr/bin:/bin:'.($home.'/.local/bin'),
                 ])
                 ->start($cmd);
 
