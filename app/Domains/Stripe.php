@@ -10,7 +10,11 @@ final class Stripe {
     private StripeClient $client;
 
     public function __construct() {
-        $this->client = new StripeClient(config('stripe.sk'));
+        $key = config('stripe.sk');
+        if (empty($key)) {
+            throw new \RuntimeException('Stripe secret key is not configured. Set STRIPE_SK in your .env file.');
+        }
+        $this->client = new StripeClient($key);
     }
 
     public function getSessionDetails(string $sessionId) {

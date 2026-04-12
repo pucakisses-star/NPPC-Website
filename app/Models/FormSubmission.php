@@ -26,8 +26,18 @@ class FormSubmission extends BaseModel {
     }
 
     public function getNameAttribute(): ?string {
-        $data = $this->data;
-        return $data['name'] ?? ($data['first_name'] ?? '').($data['last_name'] ? ' '.($data['last_name'] ?? '') : '') ?: null;
+        $data = $this->data ?? [];
+
+        if (! empty($data['name'])) {
+            return $data['name'];
+        }
+
+        $first = $data['first_name'] ?? '';
+        $last = $data['last_name'] ?? '';
+
+        $fullName = trim($first.' '.$last);
+
+        return $fullName !== '' ? $fullName : null;
     }
 
     public function getEmailAttribute(): ?string {

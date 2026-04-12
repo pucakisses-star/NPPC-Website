@@ -79,7 +79,7 @@
                             </div>
                             <div class="event-divider"></div>
                             @if($event->image)
-                                <img src="{{ Storage::url($event->image) }}" class="event-image" alt="">
+                                <img src="{{ Storage::url($event->image) }}" class="event-image" alt="{{ $event->title }}">
                             @endif
                             <div class="event-info">
                                 <div class="event-info-title">{{ $event->title }}</div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="event-divider"></div>
                             @if($event->image)
-                                <img src="{{ Storage::url($event->image) }}" class="event-image" alt="">
+                                <img src="{{ Storage::url($event->image) }}" class="event-image" alt="{{ $event->title }}">
                             @endif
                             <div class="event-info">
                                 <div class="event-info-title">{{ $event->title }}</div>

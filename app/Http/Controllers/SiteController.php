@@ -175,10 +175,6 @@ final class SiteController extends Controller {
         return view('pages.faq');
     }
 
-    public function articles() {
-        return view('articles', ['articles' => Article::all()]);
-    }
-
     public function article(string $slug) {
         $article = Article::getBySlug($slug);
 
@@ -303,13 +299,27 @@ final class SiteController extends Controller {
     }
 
     public function petitionSign(Request $request, string $slug) {
-        $petition = \App\Models\Petition::where('slug', $slug)->firstOrFail();
+        $petition = \App\Models\Petition::where('slug', $slug)->where('published', true)->firstOrFail();
 
         $request->validate([
-            'first_name' => 'required|max:100',
-            'last_name'  => 'required|max:100',
-            'email'      => 'required|email',
+            'first_name'     => 'required|string|max:100',
+            'last_name'      => 'required|string|max:100',
+            'email'          => 'required|email|max:255',
+            'city'           => 'nullable|string|max:100',
+            'state'          => 'nullable|string|max:100',
+            'zip_code'       => 'nullable|string|max:20',
+            'phone'          => 'nullable|string|max:30',
+            'custom_message' => 'nullable|string|max:2000',
         ]);
+
+        // Prevent duplicate signatures from the same email
+        $alreadySigned = \App\Models\PetitionSignature::where('petition_id', $petition->id)
+            ->where('email', $request->input('email'))
+            ->exists();
+
+        if ($alreadySigned) {
+            return redirect("/petition/{$slug}?signed=true");
+        }
 
         \App\Models\PetitionSignature::create([
             'petition_id'    => $petition->id,

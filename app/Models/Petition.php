@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 final class Petition extends Model {
     use HasSlug;
 
+    protected $appends = ['image_url'];
+
     protected $casts = ['published' => 'boolean'];
 
     public function signatures(): HasMany {
@@ -20,11 +22,14 @@ final class Petition extends Model {
     }
 
     public function getSignatureCountAttribute(): int {
-        return $this->signatures()->count();
+        return $this->signatures_count ?? $this->signatures()->count();
     }
 
     public function getProgressPercentAttribute(): float {
-        if ($this->signature_goal <= 0) return 0;
+        if (! $this->signature_goal || $this->signature_goal <= 0) {
+            return 0;
+        }
+
         return min(100, round(($this->signature_count / $this->signature_goal) * 100, 1));
     }
 }

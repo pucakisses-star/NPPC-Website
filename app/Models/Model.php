@@ -7,11 +7,7 @@ use Illuminate\Support\Str;
 abstract class Model extends \Illuminate\Database\Eloquent\Model {
     public $incrementing = false;
     protected $keyType   = 'string';
-
-    public static function boot(): void {
-        parent::boot();
-        self::unguard();
-    }
+    protected $guarded   = [];
 
     public static function booted(): void {
         parent::booted();

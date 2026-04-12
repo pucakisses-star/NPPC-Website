@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 final class Topic extends Model {
     use HasSlug;
 
+    protected $appends = ['image_url'];
+
     protected $casts = [
         'published' => 'boolean',
     ];

@@ -9,27 +9,35 @@ use Illuminate\Support\Facades\Mail;
 
 final class FormSubmissionController extends Controller {
     public function submit(Request $request, string $form) {
+        // Validate the form type against an allowed list
+        $allowedForms = ['contact', 'volunteer'];
+        if (! in_array($form, $allowedForms, true)) {
+            abort(404);
+        }
+
         // reCAPTCHA validation (only if secret is configured)
         $secretKey = config('services.recaptcha.secret');
         if ($secretKey) {
             $recaptchaResponse = $request->input('g-recaptcha-response');
-            if ($recaptchaResponse) {
-                $client   = new Client();
-                $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
-                    'form_params' => ['secret' => $secretKey, 'response' => $recaptchaResponse, 'remoteip' => $request->ip()],
-                ]);
+            if (! $recaptchaResponse) {
+                return redirect()->back()->withErrors(['captcha' => 'ReCAPTCHA verification is required.'])->withInput();
+            }
 
-                $body = json_decode((string) $response->getBody());
+            $client   = new Client();
+            $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => ['secret' => $secretKey, 'response' => $recaptchaResponse, 'remoteip' => $request->ip()],
+            ]);
 
-                if (! $body->success) {
-                    return redirect()->back()->withErrors(['captcha' => 'ReCAPTCHA validation failed.'])->withInput();
-                }
+            $body = json_decode((string) $response->getBody());
+
+            if (! $body->success) {
+                return redirect()->back()->withErrors(['captcha' => 'ReCAPTCHA validation failed.'])->withInput();
             }
         }
 
         $data = [];
         foreach ($request->all() as $k => $v) {
-            if (in_array($k, ['/form/volunteer', '/form/contact', '_token', 'Token', 'g-recaptcha-response'])) {
+            if (in_array($k, ['_token', 'g-recaptcha-response'], true)) {
                 continue;
             }
             $data[$k] = $v;

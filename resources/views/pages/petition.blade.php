@@ -53,7 +53,7 @@
         {{-- Left: Content --}}
         <div class="pet-left">
             @if($petition->image)
-                <img src="{{ Storage::url($petition->image) }}" class="pet-image" alt="">
+                <img src="{{ Storage::url($petition->image) }}" class="pet-image" alt="{{ $petition->title }}">
             @endif
 
             {{-- Progress --}}

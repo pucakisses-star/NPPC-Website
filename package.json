@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "npx tailwindcss -i ./resources/css/app.css -o ./public/app.css --watch",
+        "dev": "vite",
         "build": "vite build"
     },
     "devDependencies": {
@@ -14,6 +14,5 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "flowbite": "^2.3.0"
     }
 }

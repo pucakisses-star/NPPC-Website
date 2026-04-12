@@ -55,19 +55,21 @@ class Donation extends Component {
         $this->updateSetAmount();
     }
 
-    /**
-     * @throws ApiErrorException
-     */
     public function donate(): void {
-        if (! $this->setAmount || $this->setAmount < 1) {
+        if (! $this->setAmount || $this->setAmount < 1 || $this->setAmount > 100000) {
             return;
         }
 
-        $stripe  = new Stripe();
-        $amount  = $this->setAmount * 100;
-        $session = $stripe->createPaymentSession($this->interval, $amount);
+        try {
+            $stripe  = new Stripe();
+            $amount  = $this->setAmount * 100;
+            $session = $stripe->createPaymentSession($this->interval, $amount);
 
-        $this->dispatch('open-payment-tab', $session->url);
+            $this->dispatch('open-payment-tab', $session->url);
+        } catch (ApiErrorException $e) {
+            report($e);
+            session()->flash('error', 'Payment setup failed. Please try again.');
+        }
     }
 
     public function render(): View {

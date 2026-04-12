@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 
 final class PodcastEpisode extends Model {
+    protected $appends = ['cover_url'];
+
     protected $casts = [
         'published' => 'boolean',
     ];
