@@ -16,6 +16,13 @@ class ClaudeSessionResource extends Resource {
     protected static ?string $modelLabel = 'Claude Session';
     protected static ?int $navigationSort = 200;
 
+    // Hidden from navigation and access for now
+    protected static bool $shouldRegisterNavigation = false;
+
+    public static function canViewAny(): bool {
+        return false;
+    }
+
     public static function table(Table $table): Table {
         return $table
             ->columns([
