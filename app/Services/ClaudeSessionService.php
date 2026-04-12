@@ -84,25 +84,56 @@ class ClaudeSessionService {
      * This is the one-click "make it live" action for non-technical admins.
      */
     public function deployChanges(ClaudeSession $session): string {
-        $output = "=== Merging to main ===\n";
+        $output = '';
+
+        // Verify worktree still exists
+        if (! $session->worktree_path || ! is_dir($session->worktree_path)) {
+            return "ERROR: Worktree no longer exists at {$session->worktree_path}. This session cannot be deployed. The worktree was probably cleaned up. Try running the prompt in a new session.";
+        }
+
+        // Verify branch still exists
+        $branchCheck = Process::path($this->repoPath)
+            ->timeout(10)
+            ->run('git show-ref --verify --quiet refs/heads/'.escapeshellarg($session->branch_name).' && echo exists || echo missing');
+        if (str_contains($branchCheck->output(), 'missing')) {
+            return "ERROR: Branch '{$session->branch_name}' no longer exists. This session cannot be deployed.";
+        }
+
+        // Make sure we're on main before merging
+        $currentBranch = trim(Process::path($this->repoPath)->run('git branch --show-current')->output());
+        $output .= "Current branch: {$currentBranch}\n";
+
+        if ($currentBranch !== 'main') {
+            $output .= "Switching to main...\n";
+            $checkoutResult = Process::path($this->repoPath)
+                ->timeout(30)
+                ->run('git checkout main 2>&1');
+            $output .= $checkoutResult->output().$checkoutResult->errorOutput()."\n";
+
+            if (! $checkoutResult->successful()) {
+                return $output."\nERROR: Could not switch to main branch. Deploy aborted.";
+            }
+        }
+
+        $output .= "\n=== Merging to main ===\n";
         $output .= $this->mergeToMain($session);
 
-        if (! $session->isMerged()) {
-            return $output."\n\nDeploy stopped: merge failed.";
+        if (! $session->fresh()->isMerged()) {
+            return $output."\n\nDEPLOY FAILED: Merge did not complete. No changes were deployed.";
         }
 
         $output .= "\n\n=== Pushing to GitHub ===\n";
 
         $result = Process::path($this->repoPath)
             ->timeout(60)
-            ->run('git push origin main');
+            ->run('git push origin main 2>&1');
 
         $output .= $result->output().$result->errorOutput();
 
         if (! $result->successful()) {
-            $output .= "\n\nWARNING: Merge succeeded but push to GitHub failed. The changes are live on the server but not on GitHub yet. You may need to push manually.";
+            $output .= "\n\nWARNING: Merge succeeded (changes are live on the server) but push to GitHub failed. You may need to run 'git push origin main' on the server manually.";
         } else {
-            $output .= "\n\n✓ Changes are now live and synced with GitHub.";
+            $output .= "\n\n✓ SUCCESS: Changes are now live on the site and synced with GitHub.";
         }
 
         return $output;
