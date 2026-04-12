@@ -1,7 +1,7 @@
 <x-filament-panels::page>
     {{-- Auto-refresh while running --}}
     @if($record->isPending() || $record->isRunning())
-        <div wire:poll.3s></div>
+        <div wire:poll.3s="$refresh"></div>
     @endif
 
     {{-- Status Banner --}}
@@ -135,7 +135,7 @@
 
     {{-- Claude Output --}}
     @if($record->output && !$record->isRunning())
-        <x-filament::section heading="Claude Output" collapsed>
+        <x-filament::section heading="Claude Output">
             <pre class="whitespace-pre-wrap text-sm font-mono bg-gray-900 text-gray-100 rounded-lg p-4 max-h-[600px] overflow-y-auto">{{ $record->output }}</pre>
         </x-filament::section>
     @endif
