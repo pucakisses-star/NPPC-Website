@@ -117,16 +117,25 @@ config/claude.php       # Claude Code integration config
 vue/                    # Separate Vue 3 dashboard app
 ```
 
+## Important: Database Access
+
+You are running in a worktree with `--permission-mode acceptEdits`. You can read and edit files, but you **cannot run artisan tinker, migrate, or other database commands** directly.
+
+When a task requires database changes (inserting, updating, or deleting records), **output a ready-to-run `php artisan tinker` command** that the admin can copy and paste on the VPS. Format it as a single-line command using single quotes:
+
+```bash
+php artisan tinker --execute='$p = App\Models\Prisoner::where("name", "like", "%Example%")->first(); echo $p->toJSON(JSON_PRETTY_PRINT);'
+```
+
+Always provide the complete command -- never ask for approval to run database queries yourself.
+
 ## Common Tasks
 
 ### Adding data (prisoners, cases, articles, events, etc.)
-**NEVER use migrations to insert data.** Migrations are only for schema changes (adding tables, columns, indexes). To add data, use Eloquent directly:
+**NEVER use migrations to insert data.** Migrations are only for schema changes (adding tables, columns, indexes). To add data, provide a `php artisan tinker` command using Eloquent:
 
-```php
-// Example: adding a prisoner with a case
-$prisoner = Prisoner::create([...]);
-$institution = Institution::firstOrCreate(['name' => '...'], [...]);
-PrisonerCase::create(['prisoner_id' => $prisoner->id, 'institution_id' => $institution->id, ...]);
+```bash
+php artisan tinker --execute='$p = App\Models\Prisoner::create([...]); echo $p->name." created.";'
 ```
 
 This applies to all content: prisoners, cases, articles, events, pages, staff, quotes, FAQs, etc. Always use the model's `::create()` method or `::firstOrCreate()` to insert records.
