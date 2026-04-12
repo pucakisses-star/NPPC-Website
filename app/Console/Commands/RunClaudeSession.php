@@ -7,18 +7,25 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Process;
 
 class RunClaudeSession extends Command {
-    protected $signature = 'claude:run-session {session_id}';
+    protected $signature = 'claude:run-session {session_id} {--continue : Continue an existing conversation with a follow-up prompt}';
     protected $description = 'Run a Claude Code session in the background';
 
     public function handle(): int {
         $session = ClaudeSession::findOrFail($this->argument('session_id'));
+        $isContinue = $this->option('continue');
 
         $repoPath = config('claude.repo_path', base_path());
         $worktreeBase = config('claude.worktree_base', '/tmp/claude-worktrees');
         $claudeBinary = config('claude.binary', 'claude');
 
-        $branchName = 'claude/session-'.substr($session->id, 0, 8).'-'.time();
-        $worktreePath = $worktreeBase.'/'.$branchName;
+        // For continue, reuse existing worktree; for new, create one
+        if ($isContinue) {
+            $branchName = $session->branch_name;
+            $worktreePath = $session->worktree_path;
+        } else {
+            $branchName = 'claude/session-'.substr($session->id, 0, 8).'-'.time();
+            $worktreePath = $worktreeBase.'/'.$branchName;
+        }
 
         // Log file for real-time output streaming
         $logDir = storage_path('logs/claude-sessions');
@@ -27,39 +34,46 @@ class RunClaudeSession extends Command {
         }
         $logFile = $logDir.'/'.$session->id.'.log';
 
-        $session->update([
-            'status'        => 'running',
+        $previousOutput = $isContinue ? $session->output : '';
+
+        $session->update(array_merge([
+            'status' => 'running',
+            'output' => $previousOutput,
+        ], $isContinue ? [] : [
             'branch_name'   => $branchName,
             'worktree_path' => $worktreePath,
-            'output'        => '',
-        ]);
+        ]));
 
         try {
-            if (! is_dir($worktreeBase)) {
-                mkdir($worktreeBase, 0755, true);
+            if (! $isContinue) {
+                if (! is_dir($worktreeBase)) {
+                    mkdir($worktreeBase, 0755, true);
+                }
+
+                $this->log($logFile, "Creating worktree: {$branchName}");
+
+                $result = Process::path($repoPath)
+                    ->timeout(30)
+                    ->run('git worktree add -b '.escapeshellarg($branchName).' '.escapeshellarg($worktreePath).' HEAD 2>&1');
+
+                if (! $result->successful()) {
+                    throw new \RuntimeException('Failed to create worktree: '.$result->output().$result->errorOutput());
+                }
+
+                $this->log($logFile, "Worktree created at: {$worktreePath}");
+            } else {
+                $this->log($logFile, str_repeat('─', 60));
+                $this->log($logFile, "Follow-up message sent...");
             }
 
-            $this->log($logFile, "Creating worktree: {$branchName}");
-
-            $result = Process::path($repoPath)
-                ->timeout(30)
-                ->run('git worktree add -b '.escapeshellarg($branchName).' '.escapeshellarg($worktreePath).' HEAD 2>&1');
-
-            if (! $result->successful()) {
-                throw new \RuntimeException('Failed to create worktree: '.$result->output().$result->errorOutput());
-            }
-
-            $this->log($logFile, "Worktree created at: {$worktreePath}");
             $this->log($logFile, "Running Claude Code...");
             $this->log($logFile, "Prompt: {$session->prompt}");
             $this->log($logFile, str_repeat('─', 60));
 
             // Run Claude Code — stream output to log file
-            // --yes auto-approves tool permissions since we can't interact
-            // with the CLI in background mode. This is safe because it runs
-            // in an isolated worktree — nothing touches production.
             $claudeLog = $logFile.'.claude';
-            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --permission-mode acceptEdits > '.escapeshellarg($claudeLog).' 2>&1';
+            $continueFlag = $isContinue ? ' --continue' : '';
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' --permission-mode acceptEdits'.$continueFlag.' > '.escapeshellarg($claudeLog).' 2>&1';
 
             $home = config('claude.home', '/root');
 
@@ -132,9 +146,13 @@ class RunClaudeSession extends Command {
             $filesChanged = array_values(array_unique($filesChanged));
             $this->log($logFile, count($filesChanged).' file(s) changed.');
 
+            $finalOutput = $isContinue
+                ? $previousOutput."\n\n--- Follow-up ---\n\n".$output
+                : $output;
+
             $session->update([
                 'status'        => 'completed',
-                'output'        => $output,
+                'output'        => $finalOutput,
                 'diff'          => $diff,
                 'files_changed' => $filesChanged,
             ]);

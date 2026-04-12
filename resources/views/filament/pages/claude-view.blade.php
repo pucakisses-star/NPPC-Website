@@ -139,4 +139,23 @@
             <pre class="whitespace-pre-wrap text-sm font-mono bg-gray-900 text-gray-100 rounded-lg p-4 max-h-[600px] overflow-y-auto">{{ $record->output }}</pre>
         </x-filament::section>
     @endif
+
+    {{-- Reply / Follow-up (show when completed and not merged/discarded) --}}
+    @if($record->isCompleted() && !$record->isMerged() && !$record->isDiscarded())
+        <x-filament::section heading="Send Follow-up">
+            <form wire:submit="sendReply">
+                <div class="space-y-3">
+                    <textarea
+                        wire:model="reply"
+                        rows="3"
+                        class="w-full rounded-lg border-gray-600 bg-gray-900 text-gray-100 text-sm font-mono placeholder-gray-500 focus:border-primary-500 focus:ring-primary-500"
+                        placeholder="Give clarifying instructions, ask for changes, or request additional work..."
+                    ></textarea>
+                    <x-filament::button type="submit" icon="heroicon-o-paper-airplane">
+                        Send to Claude
+                    </x-filament::button>
+                </div>
+            </form>
+        </x-filament::section>
+    @endif
 </x-filament-panels::page>

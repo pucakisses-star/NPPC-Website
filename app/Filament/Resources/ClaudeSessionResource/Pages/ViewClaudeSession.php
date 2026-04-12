@@ -17,6 +17,7 @@ class ViewClaudeSession extends Page {
     public ClaudeSession $record;
     public string $testOutput = '';
     public string $actionOutput = '';
+    public string $reply = '';
 
     public function mount(ClaudeSession $record): void {
         $this->record = $record;
@@ -142,6 +143,31 @@ class ViewClaudeSession extends Page {
 
         $service = new ClaudeSessionService();
         $this->testOutput = $service->runTest($this->record, $command);
+    }
+
+    public function sendReply(): void {
+        $reply = trim($this->reply);
+        if (! $reply) {
+            return;
+        }
+
+        if ($this->record->isRunning()) {
+            Notification::make()->title('Session is already running')->danger()->send();
+            return;
+        }
+
+        // Store the follow-up prompt and re-launch
+        $this->record->update(['prompt' => $reply]);
+
+        $artisan = base_path('artisan');
+        $logFile = storage_path('logs/claude-sessions/'.$this->record->id.'.bg.log');
+        $cmd = 'php '.escapeshellarg($artisan).' claude:run-session '.escapeshellarg($this->record->id)
+            .' --continue > '.escapeshellarg($logFile).' 2>&1 &';
+        exec($cmd);
+
+        $this->reply = '';
+        $this->record->refresh();
+        Notification::make()->title('Follow-up sent')->success()->send();
     }
 
     public function refreshDiff(): void {
