@@ -86,6 +86,7 @@ AnnualReport, Article, Author, CalendarEntry, Category, ClaudeSession, ContactSu
 
 ## Artisan Commands
 
+- `prisoner:add '{json}'` -- **add a prisoner with cases from JSON** (see below)
 - `airtable:import` -- import prisoners from Airtable proxy
 - `calendar:generate` -- auto-generate calendar entries from case dates
 - `articles:import-from-site` -- scrape articles from live site
@@ -93,6 +94,22 @@ AnnualReport, Article, Author, CalendarEntry, Category, ClaudeSession, ContactSu
 - `prisoners:generate-slugs` -- generate URL slugs for prisoners
 - `prisoners:split-names` -- split full names into first/middle/last
 - `prisoners:match-photos` -- match local photo files to prisoners
+
+### Adding a prisoner (preferred method)
+
+When asked to research and add a prisoner, use the `prisoner:add` command. Research the person thoroughly using your knowledge, then output a ready-to-run command:
+
+```bash
+php artisan prisoner:add '{"name":"Full Name","first_name":"First","last_name":"Last","description":"Bio text...","state":"State","race":"Race","gender":"Male","birthdate":"YYYY-MM-DD","death_date":"YYYY-MM-DD","ideologies":["Ideology1","Ideology2"],"affiliation":["Group1"],"era":"Era name","in_custody":false,"released":true,"cases":[{"institution_name":"Prison Name","institution_city":"City","institution_state":"State","charges":"Charges text","arrest_date":"YYYY-MM-DD","incarceration_date":"YYYY-MM-DD","release_date":"YYYY-MM-DD","convicted":"No — acquitted","prosecutor":"Name","judge":"Name","sentence":"Sentence text","imprisoned_for_days":123}]}'
+```
+
+Key rules:
+- Research the prisoner thoroughly and fill in as many fields as possible
+- Leave fields out of the JSON entirely if the information is unknown (do not set them to null)
+- Always include `name`, `first_name`, `last_name`, and `description`
+- The `cases` array can contain multiple cases, each with its own institution
+- Institutions are auto-created or matched by name
+- The command checks for duplicates by name and refuses to create if one exists
 
 ## File Structure
 
