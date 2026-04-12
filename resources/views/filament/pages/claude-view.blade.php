@@ -148,7 +148,7 @@
                     <textarea
                         wire:model="reply"
                         rows="3"
-                        class="w-full rounded-lg border-gray-600 bg-gray-900 text-gray-100 text-sm font-mono placeholder-gray-500 focus:border-primary-500 focus:ring-primary-500"
+                        class="fi-textarea block w-full rounded-lg border-none bg-white/5 text-sm text-gray-950 shadow-sm ring-1 ring-gray-950/10 transition duration-75 focus:ring-2 focus:ring-primary-600 dark:bg-white/5 dark:text-white dark:ring-white/20 dark:focus:ring-primary-500"
                         placeholder="Give clarifying instructions, ask for changes, or request additional work..."
                     ></textarea>
                     <x-filament::button type="submit" icon="heroicon-o-paper-airplane">
