@@ -57,7 +57,7 @@ class RunClaudeCode implements ShouldQueue {
 
             $result = Process::path($repoPath)
                 ->timeout(30)
-                ->run("git worktree add -b {$branchName} {$worktreePath} HEAD 2>&1");
+                ->run('git worktree add -b '.escapeshellarg($branchName).' '.escapeshellarg($worktreePath).' HEAD 2>&1');
 
             if (! $result->successful()) {
                 throw new \RuntimeException('Failed to create worktree: '.$result->output().$result->errorOutput());
@@ -69,8 +69,7 @@ class RunClaudeCode implements ShouldQueue {
             $this->log($logFile, $session, str_repeat('─', 60));
 
             // Run Claude Code — stream output to log file
-            $escapedPrompt = str_replace("'", "'\\''", $session->prompt);
-            $cmd = "{$claudeBinary} -p '{$escapedPrompt}' > ".escapeshellarg($logFile.'.claude')." 2>&1";
+            $cmd = escapeshellarg($claudeBinary).' -p '.escapeshellarg($session->prompt).' > '.escapeshellarg($logFile.'.claude').' 2>&1';
 
             $process = Process::path($worktreePath)
                 ->timeout(1500)
@@ -177,8 +176,8 @@ class RunClaudeCode implements ShouldQueue {
 
     private function cleanupWorktree(string $repoPath, string $worktreePath, string $branchName): void {
         if (is_dir($worktreePath)) {
-            Process::path($repoPath)->timeout(30)->run("git worktree remove --force {$worktreePath}");
+            Process::path($repoPath)->timeout(30)->run('git worktree remove --force '.escapeshellarg($worktreePath));
         }
-        Process::path($repoPath)->timeout(30)->run("git branch -D {$branchName}");
+        Process::path($repoPath)->timeout(30)->run('git branch -D '.escapeshellarg($branchName));
     }
 }

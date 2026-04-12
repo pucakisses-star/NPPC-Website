@@ -42,8 +42,8 @@
                         <span id="count"> 1 of 18 </span>
                         <button class="btn" id="next-btn">Next</button>
                     </div>
-                    <button class="info-close" id="info-close" data-element="close" aria-label="Close system info" aria-controls="systems-dashboard-info" aria-expanded="true">
-                        <svg aria-hidden="true" role="presentation" focusable="false" data-icon="cross"> <use xlink:href="icons-438c8e6fad.svg#cross"></use> </svg>
+                    <button class="info-close" id="info-close" data-element="close" aria-label="Close info panel" aria-expanded="true">
+                        <svg aria-hidden="true" role="presentation" focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
                     </button>
                 </div>
 
@@ -65,7 +65,7 @@
 
 <script type="module">
     import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0eXVzaGE3Nzc3IiwiYSI6ImNtMDV2dHJ2OTBxcmoyanNoZTgzZG1xbnIifQ.Y7-xNyxyEwAHD_5oZmDB-w';
+    mapboxgl.accessToken = @json(config('services.mapbox.token', ''));
     const map = new mapboxgl.Map({
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -230,48 +230,54 @@
         loadPrisoners();
     });
 
+    function esc(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
     function renderCardContent(entries) {
         let contentEntries = entries.map(entry => {
             let props = {...entry};
             props.description = props.Description ? props.Description : "";
-            props.Photo = props.Photo ? props.Photo : "https://v5.airtableusercontent.com/v3/u/31/31/1723046400000/DD4Z3AxL4BdPLvO7CO4sLg/Ut4IlzOnVS-T3tsGaYQUqe896GvPwMtKBMrYRO3gvovBRuuIYhm7YTXP0Ez7yonY2KvUHuiJZYlVHJODL_FRn-RbpPxtOYi-bFSV20Rd5uS8p942wgANeOf93ua5FC1mehEFyMXZnB4u0tfZmyIjIQ/p_guxq40p9Ub-q4srQi_aJIM-ypK8WWd0tQyTbCulJQ";
+            props.Photo = props.Photo ? props.Photo : "";
 
             let content = `
                 <div class="content">
                     <figure>
                         <div data-element="figure" data-visible="true">
-                            <img src="${props.Photo}" alt="" />
+                            ${props.Photo ? `<img src="${esc(props.Photo)}" alt="${esc(props.name || '')}" />` : ''}
                         </div>
                     </figure>
 
                     <header class="systems-dashboard-info__header">
                         <h2>
-                            <span>${props.name}</span>
+                            <span>${esc(props.name || '')}</span>
                         </h2>
                         <span></span>
-                        <span>Race: ${props.Race}</span> <br>
-                        <span>Age: ${props.Age.error ? 'Unknown' : `${props.Age} years`}</span> <br>
+                        <span>Race: ${esc(props.Race || '')}</span> <br>
+                        <span>Age: ${props.Age && !props.Age.error ? `${esc(String(props.Age))} years` : 'Unknown'}</span> <br>
                     </header>
 
                     ${ props.calculatedPunishment ? `<section>
                         <div class="title">Calculated Punishment</div>
-                        <div>${props.calculatedPunishment}</div>
+                        <div>${esc(props.calculatedPunishment)}</div>
                     </section>` : "" }
 
                     ${ props.Ideologies ? `<section>
                         <div class="title">Ideologies</div>
-                        <div>${props.Ideologies}</div>
+                        <div>${esc(props.Ideologies)}</div>
                     </section>` : "" }
 
 
                     ${ props.Affiliation ? `<section>
                         <div class="title">Affiliation</div>
-                        <div>${props.Affiliation}</div>
+                        <div>${esc(props.Affiliation)}</div>
                     </section>` : "" }
 
                     ${props.description ? `<section>
                         <div class="title">Description</div>
-                        ${props.description.split("\n").map(p => `<p>${p}</p>`).join("")}
+                        ${props.description.split("\n").map(p => `<p>${esc(p)}</p>`).join("")}
                     </section>` : ""}
 
                 </div>
@@ -534,7 +540,7 @@
             this._container.className = "mapboxgl-ctrl";
 
             const homeBtn = document.createElement("button");
-            homeBtn.innerHTML = `<img src="home-icon.png" alt="home" width="20px" />`;
+            homeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>`;
 
             homeBtn.classList.add("home-btn");
 

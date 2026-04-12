@@ -24,6 +24,7 @@ class ArticleResource extends Resource {
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('articles'),
                 Forms\Components\TextInput::make('image_caption')
                     ->maxLength(500)
@@ -31,6 +32,7 @@ class ArticleResource extends Resource {
                     ->placeholder('e.g. Photo by John Doe / Reuters')
                     ->helperText('Credit or caption displayed below the article image.'),
                 \FilamentTiptapEditor\TiptapEditor::make('body')
+                    ->required()
                     ->profile('default')
                     ->columnSpanFull(),
                 Forms\Components\DatePicker::make('published_at'),
@@ -51,6 +53,7 @@ class ArticleResource extends Resource {
                         Forms\Components\Textarea::make('about'),
                         Forms\Components\FileUpload::make('avatar')
                             ->image()
+                            ->disk('public')
                             ->directory('authors'),
                     ]),
                 Forms\Components\SpatieTagsInput::make('tags'),

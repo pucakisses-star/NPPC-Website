@@ -40,6 +40,8 @@ use Illuminate\Support\Facades\Storage;
  * @property bool        $awaiting_trial
  */
 final class Prisoner extends Model {
+    protected $appends = ['url', 'photo_url'];
+
     protected $casts = [
         'ideologies'          => 'array',
         'affiliation'         => 'array',
@@ -118,6 +120,14 @@ final class Prisoner extends Model {
 
     public function cases(): HasMany {
         return $this->hasMany(PrisonerCase::class);
+    }
+
+    public function podcastEpisodes(): HasMany {
+        return $this->hasMany(PodcastEpisode::class);
+    }
+
+    public function calendarEntries(): HasMany {
+        return $this->hasMany(CalendarEntry::class);
     }
 
     public function getPhotoUrlAttribute(): ?string {

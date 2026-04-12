@@ -35,4 +35,8 @@ return [
         'secret' => env('RECAPTCHA_SECRET'),
     ],
 
+    'mapbox' => [
+        'token' => env('MAPBOX_TOKEN'),
+    ],
+
 ];

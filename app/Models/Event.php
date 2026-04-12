@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 final class Event extends Model {
     use HasSlug;
 
+    protected $appends = ['image_url'];
+
     protected $casts = [
         'event_date' => 'date',
         'published'  => 'boolean',

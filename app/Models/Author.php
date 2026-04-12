@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 /**
  * @property string $name
  * @property string $avatar
@@ -10,6 +12,10 @@ namespace App\Models;
 final class Author extends Model {
     public $timestamps = false;
     protected $appends = ['avatar_url'];
+
+    public function articles(): HasMany {
+        return $this->hasMany(Article::class);
+    }
 
     public function getAvatarUrlAttribute(): ?string {
         if (! $this->avatar) {

@@ -68,9 +68,10 @@ class GenerateCalendarEntries extends Command {
                 $day = (int) $event['date']->format('j');
                 $year = (int) $event['date']->format('Y');
 
-                // Check if entry already exists for this month/day
+                // Check if entry already exists for this month/day/year
                 $exists = CalendarEntry::where('month', $month)
                     ->where('day', $day)
+                    ->where('year', $year)
                     ->exists();
 
                 if ($exists) {

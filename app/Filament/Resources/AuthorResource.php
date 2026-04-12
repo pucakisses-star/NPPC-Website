@@ -26,6 +26,7 @@ class AuthorResource extends Resource {
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('avatar')
                     ->image()
+                    ->disk('public')
                     ->directory('authors'),
             ]);
     }
@@ -34,6 +35,7 @@ class AuthorResource extends Resource {
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('avatar')
+                    ->disk('public')
                     ->circular(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()

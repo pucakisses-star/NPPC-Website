@@ -6,6 +6,7 @@ use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class ImportFromAirtable extends Command {
@@ -63,6 +64,9 @@ class ImportFromAirtable extends Command {
         $casesCreated = 0;
         $institutionsCreated = 0;
 
+        DB::beginTransaction();
+
+        try {
         foreach ($records as $record) {
             $prisoner = Prisoner::create([
                 'name'                 => $this->str($record['name'] ?? '') ?: 'Unknown',
@@ -141,14 +145,22 @@ class ImportFromAirtable extends Command {
                     'prosecutor'            => $this->str($caseData['Prosecutor'] ?? null),
                     'judge'                 => $this->str($caseData['Judge'] ?? null),
                     'sentence'              => $this->str($caseData['Sentence'] ?? null),
-                    'imprisoned_for_days'   => is_numeric($record['imprisonedFor'] ?? null) ? (int) $record['imprisonedFor'] : null,
-                    'in_exile_for_days'     => is_numeric($record['inExileFor'] ?? null) ? (int) $record['inExileFor'] : null,
+                    'imprisoned_for_days'   => is_numeric($caseData['imprisonedFor'] ?? null) ? (int) $caseData['imprisonedFor'] : null,
+                    'in_exile_for_days'     => is_numeric($caseData['inExileFor'] ?? null) ? (int) $caseData['inExileFor'] : null,
                 ]);
 
                 $casesCreated++;
             }
 
             $bar->advance();
+        }
+
+        DB::commit();
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            $this->error("Import failed: {$e->getMessage()}");
+
+            return self::FAILURE;
         }
 
         $bar->finish();

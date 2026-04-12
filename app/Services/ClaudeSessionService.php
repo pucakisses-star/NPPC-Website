@@ -31,7 +31,11 @@ class ClaudeSessionService {
     public function pushBranch(ClaudeSession $session): string {
         $result = Process::path($session->worktree_path)
             ->timeout(60)
-            ->run("git push -u origin {$session->branch_name}");
+            ->run('git push -u origin '.escapeshellarg($session->branch_name));
+
+        if (! $result->successful()) {
+            return "PUSH FAILED:\n".$result->output().$result->errorOutput();
+        }
 
         return $result->output().$result->errorOutput();
     }
@@ -48,7 +52,7 @@ class ClaudeSessionService {
         // Switch to main in the main repo and merge
         $result = Process::path($this->repoPath)
             ->timeout(60)
-            ->run("git merge {$session->branch_name} --no-ff -m ".escapeshellarg("Merge Claude session: {$session->prompt}"));
+            ->run('git merge '.escapeshellarg($session->branch_name).' --no-ff -m '.escapeshellarg("Merge Claude session: {$session->prompt}"));
 
         $output .= $result->output().$result->errorOutput();
 
@@ -132,7 +136,7 @@ class ClaudeSessionService {
         if ($session->worktree_path && is_dir($session->worktree_path)) {
             $result = Process::path($this->repoPath)
                 ->timeout(30)
-                ->run("git worktree remove --force {$session->worktree_path}");
+                ->run('git worktree remove --force '.escapeshellarg($session->worktree_path));
 
             $output .= $result->output().$result->errorOutput();
         }
@@ -140,7 +144,7 @@ class ClaudeSessionService {
         if ($session->branch_name) {
             $result = Process::path($this->repoPath)
                 ->timeout(30)
-                ->run("git branch -D {$session->branch_name}");
+                ->run('git branch -D '.escapeshellarg($session->branch_name));
 
             $output .= $result->output().$result->errorOutput();
         }

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 final class Product extends Model {
     use HasSlug;
 
+    protected $appends = ['image_url'];
+
     protected $casts = [
         'price'     => 'decimal:2',
         'featured'  => 'boolean',

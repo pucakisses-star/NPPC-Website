@@ -27,6 +27,7 @@ class QuoteResource extends Resource {
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('author_image')
                     ->image()
+                    ->disk('public')
                     ->directory('quotes'),
             ]);
     }
@@ -35,6 +36,7 @@ class QuoteResource extends Resource {
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('author_image')
+                    ->disk('public')
                     ->circular(),
                 Tables\Columns\TextColumn::make('author_name')
                     ->searchable()

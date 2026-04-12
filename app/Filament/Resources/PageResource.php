@@ -28,6 +28,7 @@ class PageResource extends Resource {
                     ->label('Parent Page'),
                 Forms\Components\FileUpload::make('header_image')
                     ->image()
+                    ->disk('public')
                     ->directory('pages'),
                 Forms\Components\Toggle::make('show_in_nav')
                     ->label('Show in navigation')
