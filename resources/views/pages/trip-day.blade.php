@@ -238,7 +238,9 @@
                         @foreach($attachments as $attachment)
                             <div class="attachment-card">
                                 <a href="{{ Storage::url($attachment->file_path) }}" target="_blank">
-                                    @if(str_starts_with($attachment->file_type, 'image') || str_ends_with($attachment->file_path, '.jpg') || str_ends_with($attachment->file_path, '.png') || str_ends_with($attachment->file_path, '.jpeg'))
+                                    @if($attachment->isPdf() && $attachment->preview_image)
+                                        <img src="{{ Storage::url($attachment->preview_image) }}" alt="{{ $attachment->label ?? 'PDF Preview' }}">
+                                    @elseif(!$attachment->isPdf())
                                         <img src="{{ Storage::url($attachment->file_path) }}" alt="{{ $attachment->label ?? 'Attachment' }}">
                                     @else
                                         <div class="pdf-preview">📄</div>

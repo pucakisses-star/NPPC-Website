@@ -7,4 +7,8 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateTripAttachment extends CreateRecord {
     protected static string $resource = TripAttachmentResource::class;
+
+    protected function afterCreate(): void {
+        $this->record->generatePdfPreview();
+    }
 }

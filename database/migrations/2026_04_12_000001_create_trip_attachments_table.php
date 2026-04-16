@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('label')->nullable();
             $table->string('file_path');
             $table->string('file_type')->default('image');
+            $table->string('preview_image')->nullable();
             $table->integer('sort_order')->default(0);
             $table->timestamps();
         });
