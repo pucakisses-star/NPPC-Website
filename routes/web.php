@@ -3,7 +3,12 @@
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\FormSubmissionController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\TripController;
 use Illuminate\Support\Facades\Route;
+
+// London trip (temporary)
+Route::get('/london', [TripController::class, 'index']);
+Route::get('/london/day/{day}', [TripController::class, 'day'])->where('day', '[1-6]');
 
 Route::controller(DonateController::class)
     ->group(function () {
