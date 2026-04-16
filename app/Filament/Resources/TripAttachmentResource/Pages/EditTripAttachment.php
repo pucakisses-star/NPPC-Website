@@ -9,6 +9,10 @@ use Filament\Resources\Pages\EditRecord;
 class EditTripAttachment extends EditRecord {
     protected static string $resource = TripAttachmentResource::class;
 
+    protected function afterSave(): void {
+        $this->record->generatePdfPreview();
+    }
+
     protected function getHeaderActions(): array {
         return [
             Actions\DeleteAction::make(),
