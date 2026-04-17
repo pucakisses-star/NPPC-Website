@@ -31,7 +31,7 @@
     .prisoner-badge-trial { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
 
     /* Counter */
-    .prisoner-counter-label { font-size: 1.25rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+    .prisoner-counter-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
     .prisoner-counter-nums { font-size: 1.25rem; font-weight: 900; color: #fff; margin-bottom: 24px; }
 
     /* Social */
@@ -151,7 +151,7 @@
                     if ($months > 0) $parts[] = $months . ' ' . ($months === 1 ? 'Month' : 'Months');
                     if ($days > 0) $parts[] = $days . ' ' . ($days === 1 ? 'Day' : 'Days');
                 @endphp
-                <div class="prisoner-counter-label">{{ $label }}</div>
+                <div class="prisoner-counter-label">Time {{ $totalDays > 0 ? 'Imprisoned' : 'in Exile' }}:</div>
                 <div class="prisoner-counter-nums">
                     @if($years > 0){{ $years }} {{ $years === 1 ? 'Year' : 'Years' }} @endif
                     @if($months > 0){{ $months }} {{ $months === 1 ? 'Month' : 'Months' }} @endif
