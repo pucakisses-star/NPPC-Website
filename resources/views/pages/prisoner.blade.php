@@ -31,10 +31,7 @@
     .prisoner-badge-trial { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
 
     /* Counter */
-    .prisoner-counter { display: flex; gap: 4px; margin-bottom: 24px; }
-    .prisoner-counter-box { border: 1px solid rgba(255,255,255,0.15); padding: 12px 16px; text-align: center; min-width: 80px; }
-    .prisoner-counter-num { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; }
-    .prisoner-counter-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .prisoner-counter-line { font-size: 1.5rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 24px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
 
     /* Social */
     .prisoner-social { display: flex; gap: 12px; margin-bottom: 24px; }
@@ -134,9 +131,6 @@
                 @if($prisoner->address)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Address:</span><span class="prisoner-meta-value">{{ $prisoner->address }}</span></div>
                 @endif
-                @if($prisoner->years_in_prison)
-                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Years in prison:</span><span class="prisoner-meta-value">{{ $prisoner->years_in_prison }}</span></div>
-                @endif
             </div>
 
             {{-- Imprisonment counter --}}
@@ -150,14 +144,14 @@
                     $years = intdiv($displayDays, 365);
                     $months = intdiv($displayDays % 365, 30);
                     $days = $displayDays % 30;
+                    $label = $totalDays > 0 ? 'Imprisoned for' : 'In exile for';
+                    $parts = [];
+                    if ($years > 0) $parts[] = $years . ' ' . ($years === 1 ? 'Year' : 'Years');
+                    if ($months > 0) $parts[] = $months . ' ' . ($months === 1 ? 'Month' : 'Months');
+                    if ($days > 0) $parts[] = $days . ' ' . ($days === 1 ? 'Day' : 'Days');
                 @endphp
-                <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 8px;">
-                    {{ $totalDays > 0 ? 'Time Imprisoned:' : 'Time in Exile:' }}
-                </div>
-                <div class="prisoner-counter">
-                    <div class="prisoner-counter-box"><div class="prisoner-counter-num">{{ $years }}</div><div class="prisoner-counter-label">years</div></div>
-                    <div class="prisoner-counter-box"><div class="prisoner-counter-num">{{ $months }}</div><div class="prisoner-counter-label">months</div></div>
-                    <div class="prisoner-counter-box"><div class="prisoner-counter-num">{{ $days }}</div><div class="prisoner-counter-label">days</div></div>
+                <div class="prisoner-counter-line">
+                    {{ $label }} {{ implode(' ', $parts) }}
                 </div>
             @endif
 
