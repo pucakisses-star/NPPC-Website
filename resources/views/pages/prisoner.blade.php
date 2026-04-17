@@ -31,9 +31,9 @@
     .prisoner-badge-trial { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
 
     /* Counter */
-    .prisoner-counter-label { font-size: 1.25rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
-    .prisoner-counter { display: flex; gap: 4px; margin-bottom: 24px; }
-    .prisoner-counter-box { border: 1px solid rgba(255,255,255,0.15); padding: 12px 16px; text-align: center; min-width: 80px; }
+    .prisoner-counter-label { font-size: 1.25rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .prisoner-counter { display: flex; gap: 16px; margin-bottom: 24px; }
+    .prisoner-counter-box { text-align: center; }
     .prisoner-counter-num { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; }
     .prisoner-counter-unit { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
 
