@@ -31,11 +31,8 @@
     .prisoner-badge-trial { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
 
     /* Counter */
-    .prisoner-counter-label { font-size: 1.25rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
-    .prisoner-counter { display: flex; gap: 16px; margin-bottom: 24px; }
-    .prisoner-counter-box { text-align: center; }
-    .prisoner-counter-num { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; }
-    .prisoner-counter-unit { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .prisoner-counter-label { font-size: 1.25rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+    .prisoner-counter-nums { font-size: 1.25rem; font-weight: 900; color: #fff; margin-bottom: 24px; }
 
     /* Social */
     .prisoner-social { display: flex; gap: 12px; margin-bottom: 24px; }
@@ -155,10 +152,10 @@
                     if ($days > 0) $parts[] = $days . ' ' . ($days === 1 ? 'Day' : 'Days');
                 @endphp
                 <div class="prisoner-counter-label">{{ $label }}</div>
-                <div class="prisoner-counter">
-                    @if($years > 0)<div class="prisoner-counter-box"><div class="prisoner-counter-num">{{ $years }}</div><div class="prisoner-counter-unit">{{ $years === 1 ? 'year' : 'years' }}</div></div>@endif
-                    @if($months > 0)<div class="prisoner-counter-box"><div class="prisoner-counter-num">{{ $months }}</div><div class="prisoner-counter-unit">{{ $months === 1 ? 'month' : 'months' }}</div></div>@endif
-                    <div class="prisoner-counter-box"><div class="prisoner-counter-num">{{ $days }}</div><div class="prisoner-counter-unit">{{ $days === 1 ? 'day' : 'days' }}</div></div>
+                <div class="prisoner-counter-nums">
+                    @if($years > 0){{ $years }} {{ $years === 1 ? 'Year' : 'Years' }} @endif
+                    @if($months > 0){{ $months }} {{ $months === 1 ? 'Month' : 'Months' }} @endif
+                    {{ $days }} {{ $days === 1 ? 'Day' : 'Days' }}
                 </div>
             @endif
 
