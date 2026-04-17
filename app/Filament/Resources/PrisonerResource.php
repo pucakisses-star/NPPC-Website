@@ -56,9 +56,23 @@ class PrisonerResource extends Resource {
                     ->schema([
                         Forms\Components\FileUpload::make('photo')
                             ->image()
+                            ->disk('public')
                             ->directory('prisoners'),
                         Forms\Components\Textarea::make('description')
-                            ->rows(6)
+                            ->label('Short Description')
+                            ->helperText('Brief summary shown in listings and search results.')
+                            ->rows(4)
+                            ->columnSpanFull(),
+                    ]),
+
+                Forms\Components\Section::make('Page Content')
+                    ->description('Rich text content displayed on the prisoner\'s public page. Use this for detailed case information, embedded PDFs, images, and other media.')
+                    ->schema([
+                        \FilamentTiptapEditor\TiptapEditor::make('body')
+                            ->label('')
+                            ->profile('default')
+                            ->disk('public')
+                            ->directory('prisoners/content')
                             ->columnSpanFull(),
                     ]),
 
