@@ -79,7 +79,13 @@
     $featuredPrisoners = \App\Models\Prisoner::with('cases')
         ->whereNotNull('description')
         ->where('description','!=','')
-        ->inRandomOrder()
+        ->where(function ($q) {
+            $q->where('in_custody', true)
+              ->orWhere('in_exile', true)
+              ->orWhere('currently_in_exile', true)
+              ->orWhere('awaiting_trial', true);
+        })
+        ->orderByDesc('created_at')
         ->limit(6)
         ->get();
     $prisonerCount = \App\Models\Prisoner::count();
