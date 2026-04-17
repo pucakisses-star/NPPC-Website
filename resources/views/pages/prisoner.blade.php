@@ -67,6 +67,20 @@
     .prisoner-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
     .prisoner-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 4px 12px; font-size: 12px; color: rgba(255,255,255,0.6); border-radius: 4px; }
 
+    /* Rich content */
+    .prose-content { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; }
+    .prose-content p { margin-bottom: 1.25em; }
+    .prose-content a { color: #5660fe; text-decoration: underline; }
+    .prose-content a:hover { color: #7880ff; }
+    .prose-content h2 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 32px 0 12px; }
+    .prose-content h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 24px 0 8px; }
+    .prose-content ul, .prose-content ol { margin: 0 0 1.25em 1.5em; }
+    .prose-content li { margin-bottom: 0.4em; }
+    .prose-content blockquote { border-left: 3px solid #5660fe; padding: 12px 20px; margin: 1.5em 0; color: rgba(255,255,255,0.6); font-style: italic; }
+    .prose-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 16px 0; }
+    .prose-content iframe, .prose-content embed, .prose-content object { max-width: 100%; margin: 16px 0; border-radius: 8px; }
+    .prose-content strong { color: #fff; font-weight: 700; }
+
     @media (max-width: 768px) {
         .prisoner-hero { flex-direction: column-reverse; }
         .prisoner-photo-col { flex: auto; width: 100%; }
@@ -201,6 +215,16 @@
                 @endforeach
             </div>
         </div>
+    @endif
+
+    {{-- Page Content (rich text body) --}}
+    @if($prisoner->body)
+        <div style="max-width: 800px; padding-bottom: 48px;">
+            <div class="prisoner-bio-content prose-content">
+                {!! $prisoner->body !!}
+            </div>
+        </div>
+        <div class="prisoner-divider"></div>
     @endif
 
     {{-- Podcast Episodes --}}
