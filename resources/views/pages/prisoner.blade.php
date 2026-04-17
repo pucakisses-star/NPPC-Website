@@ -131,9 +131,6 @@
                 @if($prisoner->address)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Address:</span><span class="prisoner-meta-value">{{ $prisoner->address }}</span></div>
                 @endif
-                @if($prisoner->years_in_prison)
-                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Years in prison:</span><span class="prisoner-meta-value">{{ $prisoner->years_in_prison }}</span></div>
-                @endif
             </div>
 
             {{-- Imprisonment counter --}}
