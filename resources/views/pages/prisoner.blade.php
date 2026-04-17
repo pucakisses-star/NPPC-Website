@@ -10,7 +10,7 @@
 <meta property="og:url" content="{{ url('/prisoner/'.$prisoner->slug) }}">
 <meta property="og:type" content="profile">
 <style>
-    .prisoner-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .prisoner-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; font-family: Avenir, Helvetica, Arial, sans-serif; }
     .prisoner-hero { display: flex; gap: 48px; padding: 48px 0 40px; align-items: flex-start; }
     .prisoner-info { flex: 1; }
     .prisoner-photo-col { flex: 0 0 380px; }
