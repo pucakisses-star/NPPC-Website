@@ -6,16 +6,25 @@
 
     /* Hero */
     .lm-hero { position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; }
-    .lm-hero-photos { position: absolute; inset: 0; display: flex; }
+    .lm-hero-photos { position: absolute; inset: 0; display: flex; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
     .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(30%); }
     .lm-hero-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.25) 100%); }
-    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 0 24px 64px; }
+    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 0 24px 64px; opacity: 0; animation: fadeInUp 1.2s ease-out 1.5s forwards; }
     .lm-hero-title { font-size: 3rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 24px; }
     .lm-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 32px; }
     .lm-hero-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .lm-hero-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-size: 14px; font-weight: 700; border: 1px solid rgba(255,255,255,0.4); color: #fff; text-decoration: none; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s; }
     .lm-hero-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
     .lm-hero-btn svg { width: 18px; height: 18px; }
+
+    @keyframes revealSweep {
+        from { clip-path: inset(0 100% 0 0); }
+        to { clip-path: inset(0 0 0 0); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
     /* Editorial sections */
     .lm-section { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
