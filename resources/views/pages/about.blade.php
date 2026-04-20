@@ -58,6 +58,31 @@
     .about-value-name { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 12px; }
     .about-value-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; }
 
+    /* Searchlight */
+    .spotlight-section {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        cursor: none;
+    }
+    .spotlight-overlay {
+        position: absolute;
+        inset: 0;
+        background: #000;
+        opacity: 0.92;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+    .spotlight-section.active .spotlight-overlay {
+        opacity: 1;
+        background: #000;
+        mask-image: radial-gradient(circle 200px at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
+        -webkit-mask-image: radial-gradient(circle 200px at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
+    }
+
     @media (max-width: 768px) {
         .about-hero { flex-direction: column; padding: 48px 24px 32px; }
         .about-title { font-size: 3.5rem; }
@@ -232,6 +257,20 @@
     {{-- Organizational Partners --}}
     @include('sections.partners-carousel')
 
+    {{-- Searchlight Image --}}
+    @php
+        $spotlightEnabled = \App\Models\SiteSetting::get('about_spotlight_enabled', '1') === '1';
+        $spotlightImage = \App\Models\SiteSetting::get('about_spotlight_image');
+        $spotlightBrightness = \App\Models\SiteSetting::get('about_spotlight_brightness', '60');
+    @endphp
+    @if($spotlightEnabled && $spotlightImage)
+        <div class="spotlight-section" id="spotlight-section"
+             style="background-image: url('{{ asset('storage/'.$spotlightImage) }}');"
+             data-brightness="{{ $spotlightBrightness }}">
+            <div class="spotlight-overlay" id="spotlight-overlay"></div>
+        </div>
+    @endif
+
     {{-- FAQ --}}
     @include('sections.faq', ['type' => 'faq'])
 </div>
@@ -256,6 +295,33 @@ document.addEventListener('DOMContentLoaded', function() {
             var offset = Math.min(progress * maxScroll * scrollSpeed, maxScroll);
             carousel.style.transform = 'translateX(-' + offset + 'px)';
         }
+    });
+});
+
+// Searchlight effect
+document.addEventListener('DOMContentLoaded', function() {
+    var section = document.getElementById('spotlight-section');
+    if (!section) return;
+
+    var overlay = document.getElementById('spotlight-overlay');
+    var brightness = parseInt(section.dataset.brightness || '60');
+    var baseOpacity = 1 - (brightness / 100);
+
+    section.addEventListener('mouseenter', function() {
+        section.classList.add('active');
+    });
+
+    section.addEventListener('mouseleave', function() {
+        section.classList.remove('active');
+        overlay.style.opacity = '0.92';
+    });
+
+    section.addEventListener('mousemove', function(e) {
+        var rect = section.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        section.style.setProperty('--mx', x + 'px');
+        section.style.setProperty('--my', y + 'px');
     });
 });
 </script>
