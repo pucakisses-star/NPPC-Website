@@ -72,15 +72,14 @@
         position: absolute;
         inset: 0;
         background: #000;
-        opacity: 0.92;
         transition: opacity 0.3s;
         pointer-events: none;
     }
     .spotlight-section.active .spotlight-overlay {
-        opacity: 1;
+        opacity: 1 !important;
         background: #000;
-        mask-image: radial-gradient(circle 200px at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
-        -webkit-mask-image: radial-gradient(circle 200px at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
+        mask-image: radial-gradient(circle var(--radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
+        -webkit-mask-image: radial-gradient(circle var(--radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
     }
 
     @media (max-width: 768px) {
@@ -262,12 +261,16 @@
         $spotlightEnabled = \App\Models\SiteSetting::get('about_spotlight_enabled', '1') === '1';
         $spotlightImage = \App\Models\SiteSetting::get('about_spotlight_image');
         $spotlightBrightness = \App\Models\SiteSetting::get('about_spotlight_brightness', '60');
+        $spotlightRadius = \App\Models\SiteSetting::get('about_spotlight_radius', '200');
+        $spotlightDimming = \App\Models\SiteSetting::get('about_spotlight_dimming', '0');
     @endphp
     @if($spotlightEnabled && $spotlightImage)
         <div class="spotlight-section" id="spotlight-section"
              style="background-image: url('{{ asset('storage/'.$spotlightImage) }}');"
-             data-brightness="{{ $spotlightBrightness }}">
-            <div class="spotlight-overlay" id="spotlight-overlay"></div>
+             data-brightness="{{ $spotlightBrightness }}"
+             data-radius="{{ $spotlightRadius }}"
+             data-dimming="{{ $spotlightDimming }}">
+            <div class="spotlight-overlay" id="spotlight-overlay" style="opacity: {{ (int)$spotlightDimming / 100 }};"></div>
         </div>
     @endif
 
@@ -304,8 +307,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!section) return;
 
     var overlay = document.getElementById('spotlight-overlay');
-    var brightness = parseInt(section.dataset.brightness || '60');
-    var baseOpacity = 1 - (brightness / 100);
+    var radius = (section.dataset.radius || '200') + 'px';
+    var dimming = parseInt(section.dataset.dimming || '0') / 100;
+
+    section.style.setProperty('--radius', radius);
 
     section.addEventListener('mouseenter', function() {
         section.classList.add('active');
@@ -313,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     section.addEventListener('mouseleave', function() {
         section.classList.remove('active');
-        overlay.style.opacity = '0.92';
+        overlay.style.opacity = dimming;
     });
 
     section.addEventListener('mousemove', function(e) {

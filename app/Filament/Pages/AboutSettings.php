@@ -24,6 +24,8 @@ class AboutSettings extends Page implements HasForms {
     private const SETTINGS_KEYS = [
         'about_spotlight_image',
         'about_spotlight_brightness',
+        'about_spotlight_radius',
+        'about_spotlight_dimming',
         'about_spotlight_enabled',
     ];
 
@@ -35,6 +37,8 @@ class AboutSettings extends Page implements HasForms {
 
         $settings['about_spotlight_enabled'] ??= '1';
         $settings['about_spotlight_brightness'] ??= '60';
+        $settings['about_spotlight_radius'] ??= '200';
+        $settings['about_spotlight_dimming'] ??= '0';
 
         $this->form->fill($settings);
     }
@@ -68,6 +72,32 @@ class AboutSettings extends Page implements HasForms {
                             ])
                             ->default('60')
                             ->helperText('How bright the image appears under the searchlight cursor'),
+                        Forms\Components\Select::make('about_spotlight_radius')
+                            ->label('Searchlight Size')
+                            ->options([
+                                '100' => 'Small',
+                                '150' => 'Medium-Small',
+                                '200' => 'Medium (default)',
+                                '250' => 'Medium-Large',
+                                '300' => 'Large',
+                                '400' => 'Very Large',
+                                '500' => 'Extra Large',
+                            ])
+                            ->default('200')
+                            ->helperText('Radius of the searchlight circle in pixels'),
+                        Forms\Components\Select::make('about_spotlight_dimming')
+                            ->label('Image Dimming')
+                            ->options([
+                                '0' => 'No dimming (fully visible)',
+                                '20' => 'Slight dim',
+                                '40' => 'Light dim',
+                                '60' => 'Medium dim',
+                                '75' => 'Heavy dim',
+                                '85' => 'Very dark',
+                                '92' => 'Near black (default)',
+                            ])
+                            ->default('0')
+                            ->helperText('How dark the image appears before hovering. "No dimming" shows the full image; higher values make it darker.'),
                     ]),
             ])
             ->statePath('data');
