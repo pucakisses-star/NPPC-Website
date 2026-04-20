@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "node -e \"fs.rmSync('../public/vue',{recursive:true,force:true})\" && vue-cli-service build && node -e \"fs.renameSync('dist','../public/vue')\"",
+    "build": "node -e \"fs.rmSync('../public/vue',{recursive:true,force:true});fs.rmSync('node_modules/.cache',{recursive:true,force:true});fs.rmSync('dist',{recursive:true,force:true})\" && vue-cli-service build && node -e \"fs.renameSync('dist','../public/vue')\"",
     "deploy": "yarn build && cd .. && hugo",
     "lint": "vue-cli-service lint"
   },
