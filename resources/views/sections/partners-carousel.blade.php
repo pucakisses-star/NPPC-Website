@@ -14,25 +14,25 @@
     <div class="partners-row" id="partners-row-top">
         <div class="partners-track partners-track-left">
             @foreach($topRow as $partner)
-                <div class="partner-box">
+                <a href="{{ $partner->url ?? '#' }}" target="_blank" rel="noopener" class="partner-box">
                     @if($partner->logo)
                         <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }}">
                     @else
                         <span class="partner-initials">{{ strtoupper(substr($partner->name, 0, 2)) }}</span>
                     @endif
                     <div class="partner-name">{{ $partner->name }}</div>
-                </div>
+                </a>
             @endforeach
             {{-- Duplicate for seamless loop --}}
             @foreach($topRow as $partner)
-                <div class="partner-box">
+                <a href="{{ $partner->url ?? '#' }}" target="_blank" rel="noopener" class="partner-box">
                     @if($partner->logo)
                         <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }}">
                     @else
                         <span class="partner-initials">{{ strtoupper(substr($partner->name, 0, 2)) }}</span>
                     @endif
                     <div class="partner-name">{{ $partner->name }}</div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>
@@ -42,25 +42,25 @@
         <div class="partners-row" id="partners-row-bottom">
             <div class="partners-track partners-track-right">
                 @foreach($bottomRow as $partner)
-                    <div class="partner-box">
+                    <a href="{{ $partner->url ?? '#' }}" target="_blank" rel="noopener" class="partner-box">
                         @if($partner->logo)
                             <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }}">
                         @else
                             <span class="partner-initials">{{ strtoupper(substr($partner->name, 0, 2)) }}</span>
                         @endif
                         <div class="partner-name">{{ $partner->name }}</div>
-                    </div>
+                    </a>
                 @endforeach
                 {{-- Duplicate for seamless loop --}}
                 @foreach($bottomRow as $partner)
-                    <div class="partner-box">
+                    <a href="{{ $partner->url ?? '#' }}" target="_blank" rel="noopener" class="partner-box">
                         @if($partner->logo)
                             <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }}">
                         @else
                             <span class="partner-initials">{{ strtoupper(substr($partner->name, 0, 2)) }}</span>
                         @endif
                         <div class="partner-name">{{ $partner->name }}</div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
@@ -87,6 +87,8 @@
         transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
         position: relative;
         overflow: hidden;
+        text-decoration: none;
+        color: inherit;
     }
     .partner-box img {
         max-width: 70%;
