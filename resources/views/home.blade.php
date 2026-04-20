@@ -20,9 +20,11 @@
         </video>
         <div class="video-bg-fade"></div>
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
-        <div class="absolute bottom-10 left-10 text-white font-bold">
-            <span class="text-9xl block">{{ $heroHeadline }}</span>
-            <span class="flood-std block text-7xl">{{ $heroSubheadline }}</span>
+        <div class="absolute inset-0 flex items-end" style="z-index: 2; padding: 0 40px 40px;">
+            <div class="text-white font-bold">
+                <span class="text-9xl block">{{ $heroHeadline }}</span>
+                <span class="flood-std block text-7xl">{{ $heroSubheadline }}</span>
+            </div>
         </div>
     </div>
 
