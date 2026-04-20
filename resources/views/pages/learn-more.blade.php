@@ -9,10 +9,15 @@
     .lm-hero-photos { position: absolute; inset: 0; display: flex; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
     .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(30%); }
     .lm-hero-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.25) 100%); }
-    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 0 24px 64px; opacity: 0; animation: fadeInUp 1.2s ease-out 1.5s forwards; }
+    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 0 24px 64px; }
     .lm-hero-title { font-size: 3rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 24px; }
-    .lm-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 32px; }
-    .lm-hero-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .lm-hero-title .lm-line { display: block; overflow: hidden; }
+    .lm-hero-title .lm-line > span { display: inline-block; clip-path: inset(0 100% 0 0); animation: revealSweep 1.5s ease-out forwards; }
+    .lm-hero-title .lm-line:nth-child(1) > span { animation-delay: 0.4s; }
+    .lm-hero-title .lm-line:nth-child(2) > span { animation-delay: 1.1s; }
+    .lm-hero-title .lm-line:nth-child(3) > span { animation-delay: 1.8s; }
+    .lm-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 32px; opacity: 0; animation: fadeInUp 1s ease-out 2.8s forwards; }
+    .lm-hero-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeInUp 1s ease-out 3.2s forwards; }
     .lm-hero-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-size: 14px; font-weight: 700; border: 1px solid rgba(255,255,255,0.4); color: #fff; text-decoration: none; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s; }
     .lm-hero-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
     .lm-hero-btn svg { width: 18px; height: 18px; }
@@ -115,7 +120,11 @@
     </div>
     <div class="lm-hero-overlay"></div>
     <div class="lm-hero-content">
-        <h1 class="lm-hero-title lm-serif">Documenting Political Imprisonment in the United States</h1>
+        <h1 class="lm-hero-title lm-serif">
+            <span class="lm-line"><span>Documenting Political</span></span>
+            <span class="lm-line"><span>Imprisonment in the</span></span>
+            <span class="lm-line"><span>United States</span></span>
+        </h1>
         <p class="lm-hero-sub">Identifying and supporting those who have been imprisoned for their political beliefs, activism, and dissent across the United States.</p>
         <div class="lm-hero-btns">
             <a href="/database" class="lm-hero-btn">
