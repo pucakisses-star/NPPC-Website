@@ -91,10 +91,9 @@
         color: inherit;
     }
     .partner-box img {
-        max-width: 70%;
-        max-height: 70%;
+        max-width: 80%;
+        max-height: 80%;
         object-fit: contain;
-        border-radius: 50%;
         opacity: 0.7;
         transition: opacity 0.3s;
     }
