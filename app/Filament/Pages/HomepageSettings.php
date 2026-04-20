@@ -27,6 +27,8 @@ class HomepageSettings extends Page implements HasForms {
         'hero_video_webm',
         'hero_headline',
         'hero_subheadline',
+        'hero_headline_size',
+        'hero_subheadline_size',
         'hero_height',
         'hero_overlay_opacity',
         // Impact Stats
@@ -66,6 +68,8 @@ class HomepageSettings extends Page implements HasForms {
         // Defaults
         $settings['hero_headline'] ??= 'Justice';
         $settings['hero_subheadline'] ??= 'No matter what';
+        $settings['hero_headline_size'] ??= '8';
+        $settings['hero_subheadline_size'] ??= '5';
         $settings['hero_height'] ??= '100';
         $settings['hero_overlay_opacity'] ??= '30';
         $settings['stats_enabled'] ??= '1';
@@ -127,6 +131,24 @@ class HomepageSettings extends Page implements HasForms {
                                             ->label('Sub-headline')
                                             ->maxLength(200)
                                             ->helperText('Smaller text below the headline (e.g. "No matter what")'),
+                                        Forms\Components\TextInput::make('hero_headline_size')
+                                            ->label('Headline Size (rem)')
+                                            ->numeric()
+                                            ->step(0.5)
+                                            ->minValue(2)
+                                            ->maxValue(20)
+                                            ->suffix('rem')
+                                            ->default(8)
+                                            ->helperText('Font size for the main headline. Default is 8rem.'),
+                                        Forms\Components\TextInput::make('hero_subheadline_size')
+                                            ->label('Sub-headline Size (rem)')
+                                            ->numeric()
+                                            ->step(0.5)
+                                            ->minValue(1)
+                                            ->maxValue(15)
+                                            ->suffix('rem')
+                                            ->default(5)
+                                            ->helperText('Font size for the sub-headline. Default is 5rem.'),
                                     ])
                                     ->columns(2),
 

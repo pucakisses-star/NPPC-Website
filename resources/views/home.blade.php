@@ -5,6 +5,8 @@
     @php
         $heroHeadline = SiteSetting::get('hero_headline', 'Justice');
         $heroSubheadline = SiteSetting::get('hero_subheadline', 'No matter what');
+        $heroHeadlineSize = SiteSetting::get('hero_headline_size', '8');
+        $heroSubheadlineSize = SiteSetting::get('hero_subheadline_size', '5');
         $heroHeight = SiteSetting::get('hero_height', '100');
         $heroOverlay = SiteSetting::get('hero_overlay_opacity', '30');
         $heroVideoMp4 = SiteSetting::get('hero_video_mp4');
@@ -22,8 +24,8 @@
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
         <div class="absolute inset-0 flex items-end" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
-                <span class="text-9xl block">{{ $heroHeadline }}</span>
-                <span class="flood-std block text-7xl">{{ $heroSubheadline }}</span>
+                <span class="block" style="font-size: {{ $heroHeadlineSize }}rem; line-height: 1.1;">{{ $heroHeadline }}</span>
+                <span class="flood-std block" style="font-size: {{ $heroSubheadlineSize }}rem; line-height: 1.2;">{{ $heroSubheadline }}</span>
             </div>
         </div>
     </div>
