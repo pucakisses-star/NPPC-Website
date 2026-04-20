@@ -229,6 +229,9 @@
         </div>
     </div>
 
+    {{-- Organizational Partners --}}
+    @include('sections.partners-carousel')
+
     {{-- FAQ --}}
     @include('sections.faq', ['type' => 'faq'])
 </div>
