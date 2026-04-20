@@ -75,6 +75,9 @@ class AboutSettings extends Page implements HasForms {
                         Forms\Components\Select::make('about_spotlight_radius')
                             ->label('Searchlight Size')
                             ->options([
+                                '30'  => 'Tiny',
+                                '50'  => 'Very Small',
+                                '75'  => 'Extra Small',
                                 '100' => 'Small',
                                 '150' => 'Medium-Small',
                                 '200' => 'Medium (default)',

@@ -76,10 +76,20 @@
         pointer-events: none;
     }
     .spotlight-section.active .spotlight-overlay {
-        opacity: 1 !important;
-        background: #000;
         mask-image: radial-gradient(circle var(--radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
         -webkit-mask-image: radial-gradient(circle var(--radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 70%, #000 100%);
+    }
+    .spotlight-highlight {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        mix-blend-mode: overlay;
+        transition: opacity 0.3s;
+    }
+    .spotlight-section.active .spotlight-highlight {
+        opacity: var(--brightness);
+        background: radial-gradient(circle var(--radius) at var(--mx) var(--my), rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 40%, transparent 70%);
     }
 
     @media (max-width: 768px) {
@@ -271,6 +281,7 @@
              data-radius="{{ $spotlightRadius }}"
              data-dimming="{{ $spotlightDimming }}">
             <div class="spotlight-overlay" id="spotlight-overlay" style="opacity: {{ (int)$spotlightDimming / 100 }};"></div>
+            <div class="spotlight-highlight" id="spotlight-highlight" style="--brightness: {{ (int)$spotlightBrightness / 100 }};"></div>
         </div>
     @endif
 
