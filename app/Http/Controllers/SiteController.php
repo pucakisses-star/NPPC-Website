@@ -163,6 +163,12 @@ final class SiteController extends Controller {
         return view('pages.board-of-directors', ['directors' => Staff::getBoardMembers()]);
     }
 
+    public function partners() {
+        $partners = \App\Models\Partner::published()->orderBy('sort_order')->get();
+
+        return view('pages.partners', compact('partners'));
+    }
+
     public function annualReport() {
         return view('pages.annual_reports', ['reports' => AnnualReport::all()]);
     }

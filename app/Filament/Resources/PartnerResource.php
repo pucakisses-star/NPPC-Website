@@ -30,6 +30,13 @@ class PartnerResource extends Resource {
                     ->label('Website URL')
                     ->url()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->rows(3)
+                    ->helperText('Short description shown on the partners page'),
+                Forms\Components\TextInput::make('category')
+                    ->maxLength(100)
+                    ->placeholder('e.g. Legal, Advocacy, Research')
+                    ->helperText('Optional category for grouping partners'),
                 Forms\Components\TextInput::make('sort_order')
                     ->numeric()
                     ->default(0),
