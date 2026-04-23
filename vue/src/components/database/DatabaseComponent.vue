@@ -16,13 +16,45 @@ const buttonFilter = ref<string>('imprisonedOrExiled')
 
 const {checkPrisonerFilter} = useFilter()
 
-
+const visibleCount = ref(20);
+const loadMoreTrigger = ref<HTMLElement | null>(null);
+let observer: IntersectionObserver | null = null;
 
 // Computed property to generate filtered records
 const filteredRecords = computed(() => {
   return records.value.filter((record) => {
     return checkPrisonerFilter(record, buttonFilter, cleanFilterObject, nameSearch)
   });
+});
+
+const visibleRecords = computed(() => {
+  return filteredRecords.value.slice(0, visibleCount.value);
+});
+
+const hasMore = computed(() => {
+  return visibleCount.value < filteredRecords.value.length;
+});
+
+// Reset visible count when filters change
+watch([buttonFilter, cleanFilterObject, nameSearch], () => {
+  visibleCount.value = 20;
+});
+
+onMounted(() => {
+  observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && hasMore.value) {
+      visibleCount.value += 20;
+    }
+  }, { rootMargin: '200px' });
+});
+
+onUnmounted(() => {
+  observer?.disconnect();
+});
+
+watch(loadMoreTrigger, (el) => {
+  observer?.disconnect();
+  if (el) observer?.observe(el);
 });
 
 
@@ -81,9 +113,11 @@ watch(filterObject, (newValue, oldValue) => {
         <FiltersComponent class="flex-1" :key="filterKey" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
         <button v-if="hasActiveFilters" @click="clearFilters" class="clear-filters-btn">Clear Filters</button>
       </div>
-      <template v-for="record in filteredRecords" >
+      <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
+      <template v-for="record in visibleRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
+      <div v-if="hasMore" ref="loadMoreTrigger" class="load-more-sentinel"></div>
     </div>
   </section>
 </template>
@@ -104,6 +138,14 @@ watch(filterObject, (newValue, oldValue) => {
 .clear-filters-btn:hover {
   border-color: #fff;
   background: rgba(255,255,255,0.1);
+}
+.results-count {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+.load-more-sentinel {
+  height: 1px;
 }
 </style>
 
