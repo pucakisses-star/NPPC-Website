@@ -47,14 +47,14 @@ export function useFilter(): {
             }
         }
 
-        if(!cleanFilterObject) return true
+        if(!cleanFilterObject || !cleanFilterObject.value) return true
 
-        const keys = Object.keys(cleanFilterObject)
+        const keys = Object.keys(cleanFilterObject.value)
         for (const key of keys) {
             const field = fieldFiltersRel[key]
             // @ts-ignore
             const prisonerValue: string|Array<string> = prisoner[field]
-            const filterValues = cleanFilterObject[key]
+            const filterValues = cleanFilterObject.value[key]
 
             if(!filterValues || !filterValues.length) continue
             if(!prisonerValue) return false

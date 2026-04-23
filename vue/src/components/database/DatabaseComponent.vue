@@ -27,6 +27,22 @@ const filteredRecords = computed(() => {
 
 
 
+const hasActiveFilters = computed(() => {
+  if (nameSearch.value) return true;
+  return Object.keys(cleanFilterObject.value).length > 0;
+});
+
+const clearFilters = () => {
+  nameSearch.value = '';
+  filterObject.value = {};
+  cleanFilterObject.value = {};
+  buttonFilter.value = 'imprisonedOrExiled';
+  // Force FiltersComponent to reset by incrementing a key
+  filterKey.value++;
+};
+
+const filterKey = ref(0);
+
 watch(filterObject, (newValue, oldValue) => {
   const _filters: Record<string, string[]> = {}
   Object.keys(filterObject.value).forEach((key) => {
@@ -61,11 +77,33 @@ watch(filterObject, (newValue, oldValue) => {
       <label for="prisoner-search" class="sr-only">Search prisoners by name</label>
       <input type="search" id="prisoner-search" placeholder="Search by name" v-model="nameSearch" aria-label="Search prisoners by name"/>
 
-      <FiltersComponent class="mb-12" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
+      <div class="flex items-center gap-4 mb-12">
+        <FiltersComponent class="flex-1" :key="filterKey" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
+        <button v-if="hasActiveFilters" @click="clearFilters" class="clear-filters-btn">Clear Filters</button>
+      </div>
       <template v-for="record in filteredRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
     </div>
   </section>
 </template>
+
+<style scoped>
+.clear-filters-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  height: 37px;
+}
+.clear-filters-btn:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+</style>
 
