@@ -1479,11 +1479,10 @@ body.page-history main.container {
   position: absolute;
   left: 10px;
   top: 10px;
-  bottom: 0;
-  /* height: calc(100vh - 70px); */
-  /* top: 10px; */
-  width: 300px;
-  height: 442px;
+  width: 360px;
+  max-width: calc(100vw - 20px);
+  height: calc(100vh - 180px);
+  max-height: 700px;
   border-radius: 4px;
   background: #000;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
