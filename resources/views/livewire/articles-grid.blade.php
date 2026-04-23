@@ -9,13 +9,13 @@ function renderArticle(Article $article, bool $large = false): string {
     $imgUrl = $article->image ? $article->image_url : '';
     $bgStyle = $imgUrl ? "background-image: url('{$imgUrl}');" : 'background-color: #1a1a1a;';
     $category = $article->category?->title;
-    $date = $article->published_at?->format('M j, Y');
+    $date = $article->published_at?->format('F j, Y');
 
     $meta = '';
     if ($category && $date) {
-        $meta = "{$category} &nbsp;|&nbsp; {$date}";
+        $meta = "<span style='text-transform:uppercase;'>{$category}</span> &nbsp;|&nbsp; {$date}";
     } elseif ($category) {
-        $meta = $category;
+        $meta = "<span style='text-transform:uppercase;'>{$category}</span>";
     } elseif ($date) {
         $meta = $date;
     }
@@ -24,7 +24,7 @@ function renderArticle(Article $article, bool $large = false): string {
 <div class="article-item" style="margin-bottom: 24px;">
     <a href="{$article->url}" style="display: block; height: {$imgHeight}; overflow: hidden; background-size: cover; background-position: center; {$bgStyle}"></a>
     <div class="line"></div>
-    <h5 style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;">{$meta}</h5>
+    <h5 style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.02em;">{$meta}</h5>
     <a style="font-size: 18px; color: #fff; display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
 </div>
 EOB;
