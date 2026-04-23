@@ -464,6 +464,14 @@
                         zoom: 10
                     });
 
+                    map.setPaintProperty("unclustered-point", "circle-color", [
+                        'match',
+                        ['get', 'id'],
+                        prisoner.id,
+                        'green',
+                        'orange',
+                    ]);
+
                     renderCardContent([prisoner]);
                     document.getElementById("info-container").style.display = "block";
                 };
