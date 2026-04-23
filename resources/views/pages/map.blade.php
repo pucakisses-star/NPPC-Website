@@ -161,15 +161,8 @@
         });
 
         map.on('click', 'unclustered-point', (e) => {
-            let features = map.queryRenderedFeatures(e.point, {
-                layers: ["unclustered-point"]
-            });
-
-            features = features.map(ft => ft.toJSON());
-
             let feature = e.features[0].toJSON();
-
-            const coordinates =feature.geometry.coordinates.slice();
+            const coordinates = feature.geometry.coordinates.slice();
 
             map.setPaintProperty("unclustered-point", "circle-color", [
                 'match',
@@ -178,35 +171,15 @@
                 'green',
                 'orange',
             ]);
-            let ids = features.map(ft =>  ft.properties.id);
-            let prisonersAtLocation = window.prisoners.filter(vessel => ids.includes(vessel.id));
 
-            let vessel = window.prisoners.find(vessel => vessel.id == feature.properties.id);
-            let props = vessel;
+            // Pass all prisoners so prev/next cycles through entire database,
+            // starting at the clicked one
+            let clickedIndex = window.prisoners.findIndex(p => p.id === feature.properties.id);
+            if (clickedIndex < 0) clickedIndex = 0;
+            let ordered = window.prisoners.slice(clickedIndex).concat(window.prisoners.slice(0, clickedIndex));
 
-
-            let images = []
-            let popupContent = `<div class="popup-content">
-                <div class="popup-header">
-                    ${props.name}
-
-
-                </div>
-                <div class="popup-body">
-                    <div class="images-section">
-                       <img src="${props.Photo}" alt="" />
-                    </div>
-                </div>
-            </div>`;
-
-            renderCardContent(prisonersAtLocation);
+            renderCardContent(ordered);
             document.getElementById("info-container").style.display = "block";
-            // new mapboxgl.Popup()
-            //     .setLngLat(coordinates)
-            //     .setHTML(
-            //         popupContent
-            //     )
-            //     .addTo(map);
             initializeLightbox();
         });
 
@@ -312,12 +285,23 @@
         }
 
         function updateCount(index) {
-            if(entries.length > 1) {
-                document.getElementById("count").innerHTML = `${index + 1} of ${contentEntries.length}`;
-                document.querySelector(".control-wrapper").style.display = "block";
+            document.getElementById("count").innerHTML = `${index + 1} of ${contentEntries.length}`;
+            if (contentEntries.length > 1) {
+                document.querySelector(".control-wrapper").style.display = "";
             } else {
                 document.querySelector(".control-wrapper").style.display = "none";
-                document.getElementById("count").innerHTML = `${index + 1} of ${contentEntries.length}`;
+            }
+
+            // Update the highlighted point on the map to match the current entry
+            const currentId = entries[index] && entries[index].id;
+            if (currentId && window.map && window.map.getLayer && window.map.getLayer('unclustered-point')) {
+                window.map.setPaintProperty("unclustered-point", "circle-color", [
+                    'match',
+                    ['get', 'id'],
+                    currentId,
+                    'green',
+                    'orange',
+                ]);
             }
         }
 
