@@ -38,6 +38,10 @@ $isHome = request()->segment(1) == ''
             overflow:hidden;
         }
 
+        .grecaptcha-badge {
+            visibility: hidden !important;
+        }
+
         .page-news .container {
             overflow: visible;
         }
