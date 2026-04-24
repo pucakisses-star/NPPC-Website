@@ -27,6 +27,11 @@ $isHome = request()->segment(1) == ''
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/vue/app.js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted) window.location.reload();
+        });
+    </script>
 
     <style>
         .container {
