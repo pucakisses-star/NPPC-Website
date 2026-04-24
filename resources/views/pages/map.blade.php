@@ -77,6 +77,14 @@
 
     window.map = map;
 
+    window.highlightMarkers = function(ids) {
+        if (!map.getLayer('unclustered-point')) return;
+        let matchExpr = ['match', ['get', 'id']];
+        ids.forEach(id => { matchExpr.push(id, 'green'); });
+        matchExpr.push('orange');
+        map.setPaintProperty("unclustered-point", "circle-color", matchExpr);
+    };
+
     var prisoners = [];
 
     const navigationControl = new mapboxgl.NavigationControl({
@@ -164,13 +172,13 @@
             let feature = e.features[0].toJSON();
             const coordinates = feature.geometry.coordinates.slice();
 
-            map.setPaintProperty("unclustered-point", "circle-color", [
-                'match',
-                ['get', 'id'],
-                feature.properties.id,
-                'green',
-                'orange',
-            ]);
+            // Find all prisoners at this location
+            let clickedPrisoner = window.prisoners.find(p => p.id === feature.properties.id);
+            let idsAtLocation = window.prisoners
+                .filter(p => p.latitude === clickedPrisoner.latitude && p.longitude === clickedPrisoner.longitude)
+                .map(p => p.id);
+
+            highlightMarkers(idsAtLocation);
 
             // Pass all prisoners so prev/next cycles through entire database,
             // starting at the clicked one
@@ -293,15 +301,12 @@
             }
 
             // Update the highlighted point on the map to match the current entry
-            const currentId = entries[index] && entries[index].id;
-            if (currentId && window.map && window.map.getLayer && window.map.getLayer('unclustered-point')) {
-                window.map.setPaintProperty("unclustered-point", "circle-color", [
-                    'match',
-                    ['get', 'id'],
-                    currentId,
-                    'green',
-                    'orange',
-                ]);
+            const current = entries[index];
+            if (current && window.highlightMarkers) {
+                let idsAtLoc = window.prisoners
+                    .filter(p => p.latitude === current.latitude && p.longitude === current.longitude)
+                    .map(p => p.id);
+                window.highlightMarkers(idsAtLoc);
             }
         }
 
@@ -463,6 +468,11 @@
                         center: [prisoner.longitude, prisoner.latitude],
                         zoom: 10
                     });
+
+                    let idsAtLoc = window.prisoners
+                        .filter(p => p.latitude === prisoner.latitude && p.longitude === prisoner.longitude)
+                        .map(p => p.id);
+                    highlightMarkers(idsAtLoc);
 
                     renderCardContent([prisoner]);
                     document.getElementById("info-container").style.display = "block";
