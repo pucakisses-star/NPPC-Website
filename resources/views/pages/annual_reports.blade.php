@@ -13,7 +13,7 @@
 
             @foreach($reports as $report)
                 <div class="article-item mb-6">
-                    <a href="/storage/{{$report->file}}" class="h-[410px] rounded bg-no-repeat block overflow-hidden justify-center items-center bg-center bg-cover" style="background-image: url('/storage/{{$report->image}}')"></a>
+                    <a href="/storage/{{$report->file}}" style="display:block; height:410px; border-radius:4px; background:no-repeat center/cover; background-image:url('/storage/{{$report->image}}'); background-color:#1a1a2e;"></a>
                     <div class="line my-2"></div>
                     <a class="text-xl text-white text-center block" href="/storage/{{$report->file}}">{{$report->title}}</a>
                 </div>
