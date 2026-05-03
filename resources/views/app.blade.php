@@ -9,16 +9,15 @@ $isHome = request()->segment(1) == ''
 
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/app.css?v={{md5(now())}}" rel="stylesheet"/>
-    <link href="/styles.css?v={{md5(now())}}" rel="stylesheet"/>
+    <link href="/app.css?v={{ @filemtime(public_path('app.css')) }}" rel="stylesheet"/>
+    <link href="/styles.css?v={{ @filemtime(public_path('styles.css')) }}" rel="stylesheet"/>
     <link href="/fontawesome/css/all.min.css" rel="stylesheet"/>
     <link href="/fontawesome/css/thin.css" rel="stylesheet"/>
-    <link href="/fonts/verlag/stylesheet.css" rel="stylesheet"/>
     <link href="/fonts/verlag/stylesheet.css" rel="stylesheet"/>
     <link href="/fonts/flood-std.css" rel="stylesheet"/>
     <link href="/style/nav.css" rel="stylesheet"/>
     <link href="/style/basics.css" rel="stylesheet"/>
-    <link href="/style/scss/app.css?v={{md5(now())}}" rel="stylesheet"/>
+    <link href="/style/scss/app.css?v={{ @filemtime(public_path('style/scss/app.css')) }}" rel="stylesheet"/>
 
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -85,10 +84,16 @@ $isHome = request()->segment(1) == ''
         var overlay = document.getElementById('page-transition');
         if (!overlay) return;
 
-        // Fade in: remove black overlay after page loads
-        window.addEventListener('load', function() {
+        // Fade in: remove black overlay as soon as the DOM is ready,
+        // so the page isn't gated on slow assets like the hero video.
+        function revealPage() {
             setTimeout(function() { overlay.style.opacity = '0'; }, 50);
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', revealPage);
+        } else {
+            revealPage();
+        }
 
         // Fade out: show black overlay before navigating
         document.addEventListener('click', function(e) {
