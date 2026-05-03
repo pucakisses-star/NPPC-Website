@@ -209,6 +209,9 @@ class PrisonerResource extends Resource {
             ])
             ->defaultSort('sort_order')
             ->reorderable('sort_order')
+            ->paginatedWhileReordering()
+            ->paginationPageOptions([25, 50, 100, 250, 'all'])
+            ->defaultPaginationPageOption(50)
             ->filters([
                 // Status filter group matching Airtable's button filters
                 Tables\Filters\Filter::make('imprisoned_or_exiled')
