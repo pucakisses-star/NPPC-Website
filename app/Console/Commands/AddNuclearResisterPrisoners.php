@@ -50,6 +50,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Anne Montgomery', 'first_name' => 'Anne', 'last_name' => 'Montgomery',
+                'inmate_number' => '03827-018',
                 'aka' => 'Anne Montgomery RSCJ',
                 'birthdate' => '1926-09-29', 'death_date' => '2012-08-27',
                 'gender' => 'Female', 'race' => 'White', 'state' => 'New York', 'era' => '1980s',
@@ -152,6 +153,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Lynne Greenwald', 'first_name' => 'Lynne', 'last_name' => 'Greenwald',
+                'inmate_number' => '40672-086',
                 'birthdate' => null, 'death_date' => null,
                 'gender' => 'Female', 'race' => 'White', 'state' => 'Washington', 'era' => '2010s',
                 'ideologies' => ['Anti-nuclear', 'Pacifist'],
@@ -174,6 +176,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Jackie Hudson', 'first_name' => 'Jacqueline', 'last_name' => 'Hudson',
+                'inmate_number' => '08808-039',
                 'aka' => 'Jackie Hudson OP',
                 'birthdate' => '1934-09-19', 'death_date' => '2011-08-03',
                 'gender' => 'Female', 'race' => 'White', 'state' => 'Michigan', 'era' => '2000s',
@@ -197,6 +200,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Michael Walli', 'first_name' => 'Michael', 'last_name' => 'Walli',
+                'inmate_number' => '92108-020',
                 'birthdate' => '1949-01-01', 'death_date' => null,
                 'gender' => 'Male', 'race' => 'White', 'state' => 'Tennessee', 'era' => '2010s',
                 'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
@@ -262,6 +266,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Brian Terrell', 'first_name' => 'Brian', 'last_name' => 'Terrell',
+                'inmate_number' => '06125-026',
                 'birthdate' => '1956-01-01', 'death_date' => null,
                 'gender' => 'Male', 'race' => 'White', 'state' => 'Iowa', 'era' => '2010s',
                 'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
@@ -303,6 +308,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Mary Anne Grady-Flores', 'first_name' => 'Mary Anne', 'last_name' => 'Grady-Flores',
+                'inmate_number' => '12001966',
                 'birthdate' => '1957-01-01', 'death_date' => null,
                 'gender' => 'Female', 'race' => 'White', 'state' => 'New York', 'era' => '2010s',
                 'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
@@ -324,6 +330,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Teresa Grady', 'first_name' => 'Teresa', 'last_name' => 'Grady',
+                'inmate_number' => '13183-052',
                 'birthdate' => null, 'death_date' => null,
                 'gender' => 'Female', 'race' => 'White', 'state' => 'New York', 'era' => '2010s',
                 'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
@@ -345,6 +352,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Steve Baggarly', 'first_name' => 'Steve', 'last_name' => 'Baggarly',
+                'inmate_number' => '03611-036',
                 'birthdate' => null, 'death_date' => null,
                 'gender' => 'Male', 'race' => 'White', 'state' => 'Virginia', 'era' => '2000s',
                 'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
@@ -447,6 +455,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Luis Barrios', 'first_name' => 'Luis', 'last_name' => 'Barrios',
+                'inmate_number' => '93613-020',
                 'aka' => 'Father Luis Barrios',
                 'birthdate' => '1952-01-01', 'death_date' => null,
                 'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'New York', 'era' => '2000s',
@@ -642,6 +651,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'José Vélez Acosta', 'first_name' => 'José', 'last_name' => 'Vélez Acosta',
+                'inmate_number' => '23883-069',
                 'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
@@ -658,6 +668,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'José Pérez González', 'first_name' => 'José', 'last_name' => 'Pérez González',
+                'inmate_number' => '21519-069',
                 'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
@@ -674,6 +685,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Jorge Cruz Hernandez', 'first_name' => 'Jorge', 'last_name' => 'Cruz Hernandez',
+                'inmate_number' => '26318-069',
                 'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
@@ -690,6 +702,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'José Montañez Sanes', 'first_name' => 'José', 'last_name' => 'Montañez Sanes',
+                'inmate_number' => '26317-069',
                 'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
@@ -723,6 +736,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Brendan Walsh', 'first_name' => 'Brendan', 'last_name' => 'Walsh',
+                'inmate_number' => '12473-052',
                 'gender' => 'Male', 'race' => 'White', 'state' => 'Pennsylvania', 'era' => '2000s',
                 'ideologies' => ['Anti-war', 'Pacifist'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
@@ -756,6 +770,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Daniel Burns', 'first_name' => 'Daniel', 'last_name' => 'Burns',
+                'inmate_number' => '13182-052',
                 'gender' => 'Male', 'race' => 'White', 'state' => 'New York', 'era' => '2000s',
                 'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
                 'affiliation' => ["St. Patrick's Four", 'Ithaca Catholic Worker'],
@@ -886,6 +901,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Nancy Epling', 'first_name' => 'Nancy', 'last_name' => 'Epling',
+                'inmate_number' => '00003367',
                 'gender' => 'Female', 'race' => 'White', 'state' => 'Ohio', 'era' => '2020s',
                 'ideologies' => ['Anti-war', 'Palestine solidarity'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
@@ -903,6 +919,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Mark Kenney', 'first_name' => 'Mark', 'last_name' => 'Kenney',
+                'inmate_number' => '14018-047',
                 'gender' => 'Male', 'race' => 'White', 'state' => 'Minnesota', 'era' => '2010s',
                 'ideologies' => ['Anti-nuclear', 'Pacifist'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
