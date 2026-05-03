@@ -166,7 +166,7 @@ class AddPre1900Prisoners extends Command
                     'era'         => 'Antebellum',
                     'ideologies'  => ['Abolitionist'],
                     'in_custody'  => false,
-                    'released'    => false,
+                    'released'    => true, // executed; no longer in custody (death_date and death_in_custody_date capture the actual fate)
                 ], fn ($v) => $v !== null));
 
                 PrisonerCase::create([
@@ -305,7 +305,7 @@ class AddPre1900Prisoners extends Command
                     'ideologies'  => ['Anarchist', 'Labor'],
                     'affiliation' => ['International Working People\'s Association'],
                     'in_custody'  => false,
-                    'released'    => isset($d['release']),
+                    'released'    => true, // pardoned (Fielden/Schwab/Neebe), executed, or died in cell — none currently in custody
                 ], fn ($v) => $v !== null));
 
                 $institutionId = $d['institution'] === 'joliet' ? $joliet->id : $cookCountyJail->id;

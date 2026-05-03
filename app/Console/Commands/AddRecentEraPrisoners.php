@@ -139,7 +139,7 @@ class AddRecentEraPrisoners extends Command
                 'gender' => 'Female', 'state' => 'District of Columbia', 'era' => '2020s',
                 'ideologies' => ['Anti-abortion', 'Catholic'],
                 'affiliation' => ['Progressive Anti-Abortion Uprising'],
-                'in_custody' => true, 'released' => false,
+                'in_custody' => false, 'released' => true, // pardoned by President Trump January 23, 2025; FACE Act conviction vacated
                 'description' => "Lauren Handy is a Catholic anti-abortion activist who organized a coordinated October 22, 2020 blockade of the Washington Surgi-Clinic in Washington, D.C., chaining herself and other activists to the doors and to one another to prevent patients from entering. Several patients and a clinic nurse were physically obstructed during the blockade. She and nine co-defendants were charged in federal court with conspiracy against rights and violations of the Freedom of Access to Clinic Entrances Act of 1994. She was convicted by a federal jury in August 2023.\n\nOn May 14, 2024, she was sentenced to 57 months (4 years, 9 months) in federal prison and three years of supervised release. The case became a major flashpoint in conservative legal circles, drawing arguments that the FACE Act has been unevenly enforced; on January 23, 2025, President Trump pardoned Handy along with 22 other anti-abortion activists prosecuted under the Act. She was released from federal custody and the FACE Act-related convictions were vacated. Her case is included here for parallel coverage with the Caleb Freestone-style abortion-rights prosecutions already documented in the database.",
             ],
             'cases' => [[
