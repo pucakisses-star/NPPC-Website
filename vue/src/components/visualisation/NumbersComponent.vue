@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from 'vue';
 import { DoughnutChart } from 'vue-chart-3';
+import AnimatedNumber from './AnimatedNumber.vue';
 import {PrisonerRecord} from "@/@types/types";
 
 interface Props {
@@ -162,15 +163,17 @@ const sumElements: Array<IDisplayElement> = [
 <template>
   <section id="stats-component">
     <div class="" id="counters">
-      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-for="element in sumElements" :key="element.key">
+      <template v-for="element in sumElements" :key="element.key">
+      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-if="sumCounts[element.key] > 0">
         <div class="w-full md:w-1/2 text-left">
           <div class="counter-label title-label"><sub>collective</sub>{{element.label}}</div>
           <div class="counter-info pr-16"><p>{{element.info}}</p></div>
         </div>
         <div class="w-full md:w-1/2 text-right counter-value pt-12">
-          {{ sumCounts[element.key]?.toLocaleString() || '0' }}
+          <AnimatedNumber :value="sumCounts[element.key] || 0" />
         </div>
       </div>
+      </template>
     </div>
 
     <div id="charts">
@@ -196,15 +199,17 @@ const sumElements: Array<IDisplayElement> = [
     </div>
 
     <div class="" id="counters-small">
-      <div class="counter block md:flex md:justify-between mb-24 md:mb-32" v-for="element in sumElementsSmallNumbers" :key="element.key">
+      <template v-for="element in sumElementsSmallNumbers" :key="element.key">
+      <div class="counter block md:flex md:justify-between mb-24 md:mb-32" v-if="sumCounts[element.key] > 0">
         <div class="w-full md:w-2/5  counter-value">
-          {{ sumCounts[element.key]?.toLocaleString() || '0' }}
+          <AnimatedNumber :value="sumCounts[element.key] || 0" />
         </div>
        <div class="w-full md:w-3/5 text-left">
          <div class="counter-label title-label">{{element.label}}</div>
          <div class="counter-info"><p>{{element.info}}</p></div>
        </div>
       </div>
+      </template>
     </div>
   </section>
 </template>
