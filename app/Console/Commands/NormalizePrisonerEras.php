@@ -82,10 +82,11 @@ class NormalizePrisonerEras extends Command
     }
 
     /**
-     * Derive a "{decade}s" era for the prisoner using, in order:
-     *   1. earliest case year (incarceration_date | arrest_date | sentenced_date)
-     *   2. birthdate + 30 years (rough adult-activism age)
-     * Returns null if no usable date data exists.
+     * Derive an era for the prisoner from the earliest case year:
+     *   - incarceration_date → arrest_date → sentenced_date → release_date → death_in_custody_date
+     * Returns null if no usable case-date data exists. Does NOT fall
+     * back to birthdate; per user editorial decision such prisoners
+     * are reported in the "no date data" bucket for manual review.
      */
     private function deriveEra(Prisoner $p): ?string
     {
@@ -106,17 +107,13 @@ class NormalizePrisonerEras extends Command
             }
         }
 
-        if ($earliest === null && $p->birthdate) {
-            $earliest = ((int) $p->birthdate->format('Y')) + 30;
-        }
-
         if ($earliest === null) return null;
-        return $this->yearToDecade($earliest);
+        return $this->yearToEra($earliest);
     }
 
     /**
-     * Returns the set of decades that any of the prisoner's known dates
-     * fall in. Used to validate an existing decade era.
+     * Returns the set of eras that any of the prisoner's known case
+     * dates fall in. Used to validate an existing era.
      */
     private function plausibleDecades(Prisoner $p): array
     {
@@ -127,21 +124,22 @@ class NormalizePrisonerEras extends Command
                       $case->death_in_custody_date] as $d) {
                 if (! $d) continue;
                 $y = (int) $d->format('Y');
-                if ($y >= 1700 && $y <= 2100) $set[$this->yearToDecade($y)] = true;
-            }
-        }
-        if ($p->birthdate) {
-            $by = (int) $p->birthdate->format('Y');
-            // Span birthdate+18 through birthdate+50 as plausible activism years
-            for ($y = $by + 18; $y <= $by + 50; $y += 10) {
-                $set[$this->yearToDecade($y)] = true;
+                if ($y >= 1700 && $y <= 2100) $set[$this->yearToEra($y)] = true;
             }
         }
         return array_keys($set);
     }
 
-    private function yearToDecade(int $year): string
+    /**
+     * Project policy:
+     *   - Pre-1900 years collapse to the century: 1798 → "1700s", 1859 → "1800s"
+     *   - 1900 and later use the decade: 1917 → "1910s", 2025 → "2020s"
+     */
+    private function yearToEra(int $year): string
     {
+        if ($year < 1900) {
+            return ((int) floor($year / 100) * 100).'s';
+        }
         return ((int) floor($year / 10) * 10).'s';
     }
 }
