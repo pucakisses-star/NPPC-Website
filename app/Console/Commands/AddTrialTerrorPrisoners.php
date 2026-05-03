@@ -16,32 +16,33 @@ use Illuminate\Support\Facades\DB;
  *   https://github.com/theintercept/trial-and-terror-data
  *
  * The bundled JSON file (database/data/trial_terror_candidates.json)
- * contains 347 candidates already filtered for political-prosecution
- * characteristics: at least 1 year of imprisonment, non-trivial sentence,
- * no completed deadly attacks, and a clear marker (FBI sting/informant
- * involvement, material support for charity, professional/speech case,
- * or pre-9/11 conduct prosecuted post-9/11).
+ * is a hand-curated subset of the 950-entry dataset, narrowed to people
+ * whose prosecution targeted them for pre-existing political/religious
+ * activities or beliefs — speech, publishing, organizing, charity work,
+ * professional roles, or diaspora solidarity. Specifically excluded:
  *
- * Each candidate has a `tier` of either:
- *   - "marquee"  (35 widely cited cases — Newburgh Four, Liberty City
- *                 Seven, Fort Dix Five, Daniel Boyd cell, Lakhani,
- *                 Mohamud, Osmakac, El-Khalifi, Shareef, Finton,
- *                 Hosam Smadi, Hayat, Hafiz Khan, etc.)
- *   - "expanded" (312 additional fits)
+ *   - Cases where the defendant actively pursued violence (the FBI
+ *     just provided the means)
+ *   - People who actually traveled abroad to fight or train
+ *   - Operational al-Qaeda / ISIS / Shabab figures
+ *   - Random sting victims with no prior political involvement
+ *   - Arms-trade and drug-cartel cases swept into terror enforcement
  *
- * Default behavior imports the 35 marquee cases. Pass --tier=all to
- * import every candidate.
+ * Categories of who's IN: Tamil-Tigers diaspora support cases,
+ * FARC-solidarity defendants from Operation White Terror, Bosnian-
+ * immigrant fundraisers, the Holy Land Foundation cluster's lesser-
+ * known co-defendants, the Hafiz Khan South Florida imam family, and
+ * professional/speech/translation cases (Hassoun, Jayyousi, Chandia,
+ * Al-Timimi, Abu-Jihaad, Malki, Muhtorov, Niazi, Al-Wahaidy, etc.).
  */
 class AddTrialTerrorPrisoners extends Command
 {
-    protected $signature = 'prisoners:add-trial-terror {--tier=marquee : marquee | all}
-                            {--dry-run : Print what would be added without writing}';
+    protected $signature = 'prisoners:add-trial-terror {--dry-run : Print what would be added without writing}';
 
-    protected $description = "Import prisoners from The Intercept's Trial and Terror dataset (curated subset).";
+    protected $description = "Import prisoners from The Intercept's Trial and Terror dataset (curated for political-prosecution profile).";
 
     public function handle(): int
     {
-        $tier = $this->option('tier');
         $path = database_path('data/trial_terror_candidates.json');
 
         if (! file_exists($path)) {
@@ -49,17 +50,12 @@ class AddTrialTerrorPrisoners extends Command
             return self::FAILURE;
         }
 
-        $all = json_decode(file_get_contents($path), true);
-        if (! is_array($all)) {
+        $records = json_decode(file_get_contents($path), true);
+        if (! is_array($records)) {
             $this->error('Failed to decode JSON');
             return self::FAILURE;
         }
 
-        $records = $tier === 'all'
-            ? $all
-            : array_values(array_filter($all, fn ($r) => $r['tier'] === 'marquee'));
-
-        $this->info("Tier: {$tier}");
         $this->info("Records to process: ".count($records));
 
         $created = 0;
