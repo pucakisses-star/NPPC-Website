@@ -166,6 +166,105 @@ class PlaceAllZeroSortPrisoners extends Command
         ['samuel-fielden',             'louis-lingg'],
         ['michael-schwab',             'samuel-fielden'],
         ['oscar-neebe',                'michael-schwab'],
+
+        // ── Trump-era ICE / Palestine activism (after the existing
+        //    student-visa cluster at the top) ──────────────────────
+        ['yaakub-ira-vijandre',        'badar-khan-suri'],
+
+        // ── Anti-police violence / 2020s BLM-era police-criticism ─
+        ['gamaly-hollis',              'brittany-martin'],
+
+        // ── Civil rights / SNCC additions (chained) ──────────────
+        ['james-bevel',                'stokely-carmichael'],
+
+        // ── Catholic Worker / Labor (after Dorothy Day) ──────────
+        ['cesar-chavez',               'dorothy-day'],
+
+        // ── Plowshares / anti-nuclear cluster (after the existing
+        //    Plowshares figures) ─────────────────────────────────
+        ['megan-rice',                 'anne-montgomery'],
+        ['ardeth-platte',              'megan-rice'],
+        ['carol-gilbert',              'ardeth-platte'],
+        ['william-bichsel',            'carol-gilbert'],
+        ['john-dear',                  'william-bichsel'],
+        ['louis-vitale',               'john-dear'],
+
+        // ── Anti-war activists (after the Catonsville/Berrigan
+        //    cluster) ─────────────────────────────────────────────
+        ['tom-cornell',                'david-eberhardt'],
+        ['brian-willson',              'tom-cornell'],
+        ['kathy-kelly',                'brian-willson'],
+        ['frances-crowe',              'kathy-kelly'],
+
+        // ── Older ELF / animal rights additions ──────────────────
+        ['daniel-andreas-san-diego',   'tre-arrow'],
+        ['camille-marino',             'daniel-andreas-san-diego'],
+
+        // ── Trial-and-Terror post-9/11 cluster (after Tarik Shah,
+        //    chained as a group) ─────────────────────────────────
+        ['adham-hassoun',              'tarik-shah'],
+        ['kifah-wael-jayyousi',        'adham-hassoun'],
+        ['hafiz-muhammad-sher-ali-khan', 'kifah-wael-jayyousi'],
+        ['irfan-khan',                 'hafiz-muhammad-sher-ali-khan'],
+        ['izhar-khan',                 'irfan-khan'],
+        ['ali-rehman',                 'izhar-khan'],
+        ['alam-zeb',                   'ali-rehman'],
+        ['mohamed-shorbagi',           'alam-zeb'],
+        ['mubarak-hamed',              'mohamed-shorbagi'],
+        ['khalid-al-sudanee',          'mubarak-hamed'],
+        ['ali-mohamed-bagegni',        'khalid-al-sudanee'],
+        ['ahmad-mustafa',              'ali-mohamed-bagegni'],
+        ['enaam-m-arnaout',            'ahmad-mustafa'],
+        ['emadeddin-muntasser',        'enaam-m-arnaout'],
+        ['akram-abdallah',             'emadeddin-muntasser'],
+        ['mohamed-mustapha-ali-masfaka', 'akram-abdallah'],
+        ['soliman-s-biheiri',          'mohamed-mustapha-ali-masfaka'],
+        ['omar-abdi-mohamed',          'soliman-s-biheiri'],
+        ['zuhair-hamed-el-shwehdi',    'omar-abdi-mohamed'],
+        ['osameh-al-wahaidy',          'zuhair-hamed-el-shwehdi'],
+        ['ali-al-timimi',              'osameh-al-wahaidy'],
+        ['ali-asad-chandia',           'ali-al-timimi'],
+        ['sabri-benkahla',             'ali-asad-chandia'],
+        ['hassan-abu-jihaad',          'sabri-benkahla'],
+        ['noureddine-malki',           'hassan-abu-jihaad'],
+        ['jamshid-muhtorov',           'noureddine-malki'],
+        ['ahmadullah-sais-niazi',      'jamshid-muhtorov'],
+        ['october-martinique-lewis',   'ahmadullah-sais-niazi'],
+        // Tamil Tigers diaspora subcluster
+        ['sathajhan-sarachandran',     'october-martinique-lewis'],
+        ['sahilal-sabaratnam',         'sathajhan-sarachandran'],
+        ['thiruthanikan-thanigasalam', 'sahilal-sabaratnam'],
+        ['nadarasa-yogarasa',          'thiruthanikan-thanigasalam'],
+        ['pratheepan-thavaraja',       'nadarasa-yogarasa'],
+        ['suresh-sriskandarajah',      'pratheepan-thavaraja'],
+        ['piratheepan-nadarajah',      'suresh-sriskandarajah'],
+        ['thirunavukkarasu-varatharasa', 'piratheepan-nadarajah'],
+        ['nachimuthu-socrates',        'thirunavukkarasu-varatharasa'],
+        ['murugesu-vinayagamoorthy',   'nachimuthu-socrates'],
+        ['vijayshanthar-patpanathan',  'murugesu-vinayagamoorthy'],
+        ['ramanan-mylvaganam',         'vijayshanthar-patpanathan'],
+        ['karunakaran-kandasamy',      'ramanan-mylvaganam'],
+        // FARC solidarity subcluster
+        ['elkin-alberto-arroyave-ruiz', 'karunakaran-kandasamy'],
+        ['carlos-adolfo-romero-panchano', 'elkin-alberto-arroyave-ruiz'],
+        ['jorge-de-los-reyes-bautista-martinez', 'carlos-adolfo-romero-panchano'],
+        ['bernardo-valdes-londono',    'jorge-de-los-reyes-bautista-martinez'],
+        ['nicolas-tapasco-romero',     'bernardo-valdes-londono'],
+        // Bosnian fundraisers subcluster
+        ['ramiz-zijad-hodzic',         'nicolas-tapasco-romero'],
+        ['sedina-unkic-hodzic',        'ramiz-zijad-hodzic'],
+        ['mediha-medy-salkicevic',     'sedina-unkic-hodzic'],
+        ['nihad-rosic',                'mediha-medy-salkicevic'],
+        ['armin-harcevic',             'nihad-rosic'],
+
+        // ── Stop Cop City defendants (after John Mazurek, the
+        //    existing Cop City entry) ────────────────────────────
+        ['victor-puertas',             'john-mazurek'],
+        ['luke-harper',                'victor-puertas'],
+        ['priscilla-grim',             'luke-harper'],
+        ['marlon-kautz',               'priscilla-grim'],
+        ['adele-maclean',              'marlon-kautz'],
+        ['savannah-patterson',         'adele-maclean'],
     ];
 
     public function handle(): int
