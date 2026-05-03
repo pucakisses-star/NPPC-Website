@@ -73,7 +73,31 @@ TXT;
             return self::SUCCESS;
         }
 
-        $keith->fill($changes)->save();
+        $oldLen = strlen((string) $keith->description);
+
+        // Direct property assignment + save (avoids any fill() filtering surprises).
+        foreach ($changes as $field => $value) {
+            $keith->{$field} = $value;
+        }
+        $saved = $keith->save();
+
+        // Read back from the DB through a brand-new query to verify the write
+        // actually landed (not just that save() returned true).
+        $reloaded = Prisoner::query()->where('id', $keith->id)->first();
+        $newLen = strlen((string) $reloaded->description);
+        $matches = $reloaded->description === self::BIO;
+
+        $this->info("save() returned: ".($saved ? 'true' : 'false'));
+        $this->info("description length before: {$oldLen} -> after re-fetch: {$newLen}");
+        $this->info("DB description matches expected bio: ".($matches ? 'YES' : 'NO'));
+
+        if (! $matches) {
+            $this->error('Description in DB does not match what we tried to write.');
+            $this->line('First 200 chars actually in DB:');
+            $this->line(substr((string) $reloaded->description, 0, 200));
+            return self::FAILURE;
+        }
+
         $this->info("Done. Updated {$keith->name}.");
 
         return self::SUCCESS;
