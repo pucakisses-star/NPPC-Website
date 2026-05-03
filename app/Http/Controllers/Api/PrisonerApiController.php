@@ -74,7 +74,7 @@ class PrisonerApiController extends Controller {
                 'Website'               => $prisoner->website,
                 'Twitter'               => $prisoner->twitter,
                 'Facebook'              => $prisoner->facebook,
-                'Years Spent In Prison' => $this->getYearsInPrison($prisoner),
+                'Years Spent In Prison' => array_map('strval', $prisoner->getIncarcerationYearsArray()),
                 'SortOrder'             => $prisoner->sort_order,
                 'cases'                 => $cases,
                 'imprisonedFor'         => $daysImprisoned,
@@ -90,35 +90,6 @@ class PrisonerApiController extends Controller {
         });
 
         return response()->json($data);
-    }
-
-    /**
-     * Compute the array of all years a prisoner was incarcerated across all cases.
-     * Uses incarceration_date (or arrest_date) as start and release_date
-     * (or death_in_custody_date, or today) as end.
-     */
-    private function getYearsInPrison(Prisoner $prisoner): array {
-        $years = [];
-
-        foreach ($prisoner->cases as $case) {
-            $start = $case->incarceration_date ?? $case->arrest_date ?? $case->sentenced_date;
-            if (! $start) {
-                continue;
-            }
-
-            $end = $case->release_date
-                ?? $case->death_in_custody_date
-                ?? now();
-
-            $startYear = (int) $start->format('Y');
-            $endYear = (int) $end->format('Y');
-
-            for ($y = $startYear; $y <= $endYear; $y++) {
-                $years[] = (string) $y;
-            }
-        }
-
-        return array_values(array_unique($years));
     }
 
     private function calculatePunishment(int $daysImprisoned, int $daysInExile): string {

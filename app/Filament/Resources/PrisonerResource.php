@@ -101,8 +101,12 @@ class PrisonerResource extends Resource {
 
                 Forms\Components\Section::make('Incarceration Details')
                     ->schema([
-                        Forms\Components\TextInput::make('years_in_prison')
-                            ->numeric(),
+                        Forms\Components\Placeholder::make('years_in_prison_display')
+                            ->label('Years in Prison')
+                            ->content(fn ($record) => $record
+                                ? (count($record->years_in_prison) ? implode(', ', $record->years_in_prison) : '—')
+                                : '—')
+                            ->helperText('Auto-calculated from each case\'s incarceration and release dates.'),
                         Forms\Components\TextInput::make('inmate_number')
                             ->maxLength(255),
                     ])
@@ -203,9 +207,24 @@ class PrisonerResource extends Resource {
                         default                          => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('years_in_prison')
-                    ->sortable()
-                    ->label('Years')
-                    ->alignCenter(),
+                    ->label('Years in Prison')
+                    ->alignCenter()
+                    ->wrap()
+                    ->getStateUsing(function ($record) {
+                        $years = $record->years_in_prison;
+                        if (! $years) return '—';
+                        if (count($years) === 1) return (string) $years[0];
+                        // Compress consecutive runs into ranges (2002–2008)
+                        $ranges = [];
+                        $start = $prev = $years[0];
+                        foreach (array_slice($years, 1) as $y) {
+                            if ($y === $prev + 1) { $prev = $y; continue; }
+                            $ranges[] = $start === $prev ? (string) $start : "{$start}–{$prev}";
+                            $start = $prev = $y;
+                        }
+                        $ranges[] = $start === $prev ? (string) $start : "{$start}–{$prev}";
+                        return implode(', ', $ranges);
+                    }),
             ])
             ->defaultSort('sort_order')
             ->reorderable('sort_order')
@@ -358,7 +377,10 @@ class PrisonerResource extends Resource {
                         Infolists\Components\IconEntry::make('awaiting_trial')
                             ->boolean(),
                         Infolists\Components\TextEntry::make('years_in_prison')
-                            ->suffix(' years'),
+                            ->label('Years in Prison')
+                            ->getStateUsing(fn ($record) => count($record->years_in_prison)
+                                ? implode(', ', $record->years_in_prison)
+                                : '—'),
                     ])
                     ->columns(3),
 
