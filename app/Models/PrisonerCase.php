@@ -39,6 +39,8 @@ final class PrisonerCase extends Model {
     ];
 
     public static function booted(): void {
+        parent::booted();
+
         static::saving(function (self $case) {
             if ($case->incarceration_date && $case->release_date) {
                 $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
