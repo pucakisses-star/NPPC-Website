@@ -139,6 +139,56 @@ final class Prisoner extends Model {
         return (int) $this->birthdate->diffInYears($end);
     }
 
+    /**
+     * Return every calendar year (as an int) the prisoner spent any
+     * portion of incarcerated, derived from each case's start and end
+     * dates. Used by the Vue stats chart and by the admin display.
+     *
+     * Falls back through start = incarceration_date → arrest_date →
+     * sentenced_date and end = release_date → death_in_custody_date →
+     * today (if still in custody).
+     */
+    public function getIncarcerationYearsArray(): array {
+        $years = [];
+
+        foreach ($this->cases as $case) {
+            $start = $case->incarceration_date ?? $case->arrest_date ?? $case->sentenced_date;
+            if (! $start) {
+                continue;
+            }
+
+            $end = $case->release_date ?? $case->death_in_custody_date ?? \Carbon\Carbon::now();
+
+            $startYear = (int) $start->format('Y');
+            $endYear   = (int) $end->format('Y');
+
+            for ($y = $startYear; $y <= $endYear; $y++) {
+                $years[$y] = $y;
+            }
+        }
+
+        ksort($years);
+
+        return array_values($years);
+    }
+
+    /**
+     * Override the stored integer years_in_prison so reads always
+     * return the array of every year incarcerated. Falls back to the
+     * stored integer (cast to a single-element array) if no cases have
+     * date information.
+     */
+    public function getYearsInPrisonAttribute($value): array {
+        $computed = $this->getIncarcerationYearsArray();
+        if ($computed) {
+            return $computed;
+        }
+        if ($value !== null && $value > 0) {
+            return [(int) $value];
+        }
+        return [];
+    }
+
     public function cases(): HasMany {
         return $this->hasMany(PrisonerCase::class);
     }
