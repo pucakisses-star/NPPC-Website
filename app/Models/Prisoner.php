@@ -69,6 +69,17 @@ final class Prisoner extends Model {
                 $model->slug = self::generateUniqueSlug($model->name, $model->middle_name, $model->aka, $model->id);
             }
         });
+
+        static::saving(function ($model) {
+            if ($model->birthdate) {
+                $end = $model->death_date ?? \Carbon\Carbon::now();
+                $birth = $model->birthdate instanceof \Carbon\Carbon
+                    ? $model->birthdate
+                    : \Carbon\Carbon::parse($model->birthdate);
+                $endC = $end instanceof \Carbon\Carbon ? $end : \Carbon\Carbon::parse($end);
+                $model->attributes['age'] = (int) $birth->diffInYears($endC);
+            }
+        });
     }
 
     private static function generateUniqueSlug(string $name, ?string $middleName = null, ?string $aka = null, ?string $excludeId = null): string {
@@ -116,6 +127,16 @@ final class Prisoner extends Model {
 
     public function getUrlAttribute(): string {
         return '/prisoner/'.($this->slug ?: $this->id);
+    }
+
+    public function getAgeAttribute($value): ?int {
+        if (! $this->birthdate) {
+            return $value !== null ? (int) $value : null;
+        }
+
+        $end = $this->death_date ?? \Carbon\Carbon::now();
+
+        return (int) $this->birthdate->diffInYears($end);
     }
 
     public function cases(): HasMany {
