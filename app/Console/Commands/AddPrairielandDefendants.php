@@ -6,6 +6,7 @@ use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class AddPrairielandDefendants extends Command
 {
@@ -132,29 +133,37 @@ TXT;
         $skipped = 0;
 
         foreach ($defendants as $d) {
-            if (Prisoner::where('name', $d['name'])->exists()) {
-                $this->warn("Skipping {$d['name']} — already exists.");
-                $skipped++;
-                continue;
-            }
-
             $caseOverrides = $d['case'] ?? [];
             unset($d['case']);
 
-            $prisoner = Prisoner::create(array_merge($shared, $d, [
-                'description' => $d['description']."\n\n".self::INCIDENT,
-            ]));
-
-            PrisonerCase::create([
-                'prisoner_id'    => $prisoner->id,
+            $caseAttrs = [
                 'institution_id' => $institution->id,
                 'charges'        => $caseOverrides['charges']  ?? $sharedCharges,
                 'convicted'      => $caseOverrides['convicted'] ?? $sharedConv,
                 'sentence'       => $caseOverrides['sentence']  ?? $sharedSent,
-            ]);
+            ];
 
-            $this->info("Added {$prisoner->name} (slug: {$prisoner->slug})");
-            $created++;
+            DB::transaction(function () use ($d, $shared, $caseAttrs, &$created, &$skipped) {
+                $prisoner = Prisoner::where('name', $d['name'])->first();
+
+                if ($prisoner && $prisoner->cases()->exists()) {
+                    $this->warn("Skipping {$d['name']} — already exists with a case.");
+                    $skipped++;
+                    return;
+                }
+
+                if (! $prisoner) {
+                    $prisoner = Prisoner::create(array_merge($shared, $d, [
+                        'description' => $d['description']."\n\n".self::INCIDENT,
+                    ]));
+                    $this->info("Added {$prisoner->name} (slug: {$prisoner->slug})");
+                } else {
+                    $this->info("Found existing {$prisoner->name} without a case — adding case.");
+                }
+
+                PrisonerCase::create(array_merge($caseAttrs, ['prisoner_id' => $prisoner->id]));
+                $created++;
+            });
         }
 
         $this->info("\nDone. Created {$created}, skipped {$skipped}.");
