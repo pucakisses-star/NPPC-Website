@@ -972,16 +972,10 @@ class AddNuclearResisterPrisoners extends Command
         }
 
         // ─── Round 3: extracted from background-agent crawl of nr115-207 + static archive ───
-
-        $tahitiPeak  = Institution::firstOrCreate(['name' => 'Nuutania Prison'], ['city' => 'Faaa', 'state' => 'Tahiti']);
         $jejuPrison  = Institution::firstOrCreate(['name' => 'Jeju Prison'], ['city' => 'Jeju City', 'state' => 'South Korea']);
         $italyPrison = Institution::firstOrCreate(['name' => 'Sicilian Prison']);
         $germanyPrison = Institution::firstOrCreate(['name' => 'German Federal Prison']);
-        $swedenPrison = Institution::firstOrCreate(['name' => 'Swedish Prison']);
         $ukPrison    = Institution::firstOrCreate(['name' => 'UK HM Prison']);
-        $belarusPenalColony = Institution::firstOrCreate(['name' => 'Belarus Penal Colony'], ['state' => 'Belarus']);
-        $russiaPrison = Institution::firstOrCreate(['name' => 'Russian Federal Prison'], ['state' => 'Russia']);
-        $israelPrison = Institution::firstOrCreate(['name' => 'Ashkelon Prison'], ['state' => 'Israel']);
         $sciDallas3  = Institution::firstOrCreate(['name' => 'SCI Dallas'], ['city' => 'Dallas', 'state' => 'Pennsylvania']);
         $whitemanArea = Institution::firstOrCreate(['name' => 'Western District of Missouri (Plowshares prosecution)']);
         $kazakhPrison = Institution::firstOrCreate(['name' => 'Kazakhstan Prison'], ['state' => 'Kazakhstan']);
@@ -990,72 +984,7 @@ class AddNuclearResisterPrisoners extends Command
         $nairobiPrison = Institution::firstOrCreate(['name' => 'Federal Court (anti-drone prosecution)']);
 
         // International Plowshares & whistleblowers
-        $defendants[] = [
-            'data' => [
-                'name' => 'Mordechai Vanunu', 'first_name' => 'Mordechai', 'last_name' => 'Vanunu',
-                'birthdate' => '1954-10-13', 'gender' => 'Male', 'race' => 'White',
-                'state' => 'Israel', 'era' => '1990s',
-                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
-                'affiliation' => null, 'in_custody' => false, 'released' => true,
-                'description' => "Mordechai Vanunu is the Israeli nuclear technician who in 1986 disclosed details of Israel's clandestine nuclear weapons program to the Sunday Times of London — the first credible technical evidence that Israel possessed an arsenal of nuclear weapons. Lured from London to Rome by Israeli intelligence, he was kidnapped, returned to Israel, and tried in secret. Convicted of treason and espionage, he served 18 years in Ashkelon Prison, including roughly 11 years in solitary confinement. After his 2004 release, he has been repeatedly re-imprisoned for short terms for violating restrictions on speaking with foreign media — including a three-month sentence served beginning May 23, 2010.",
-            ],
-            'cases' => [[
-                'institution_id' => $israelPrison->id,
-                'charges' => 'Treason and espionage (Israel); subsequent re-imprisonments for violating speech restrictions',
-                'arrest_date' => '1986-09-30', 'release_date' => '2004-04-21',
-                'sentence' => '18 years (1986–2004); plus subsequent short re-imprisonments for speech-restriction violations',
-            ]],
-        ];
-
-        $defendants[] = [
-            'data' => [
-                'name' => 'Yuri Bandazhevsky', 'first_name' => 'Yuri', 'middle_name' => 'I.', 'last_name' => 'Bandazhevsky',
-                'gender' => 'Male', 'state' => 'Belarus', 'era' => '2000s',
-                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
-                'affiliation' => null, 'in_custody' => false, 'released' => true,
-                'description' => "Dr. Yuri Bandazhevsky is a Belarusian medical scientist who founded the Gomel State Medical Institute in the heart of the Chernobyl-contaminated zone and conducted pioneering research demonstrating the systemic health effects of Cesium-137 contamination on children downwind of Chernobyl. After publishing findings critical of the Lukashenko government's handling of the disaster, he was arrested in 1999 on what international observers called fraudulent corruption charges and convicted in June 2001. He was relegated to a penal colony in June 2004 and released in 2005 after sustained international pressure including Amnesty International's recognition of him as a prisoner of conscience.",
-            ],
-            'cases' => [[
-                'institution_id' => $belarusPenalColony->id,
-                'charges' => 'Corruption (widely regarded as fraudulent) — for publishing scientific research on Chernobyl health effects critical of the Lukashenko government',
-                'arrest_date' => '1999-07-13', 'release_date' => '2005-08-05',
-                'sentence' => '8 years; recognized by Amnesty International as a prisoner of conscience',
-            ]],
-        ];
-
-        $defendants[] = [
-            'data' => [
-                'name' => 'Igor Sutyagin', 'first_name' => 'Igor', 'middle_name' => 'V.', 'last_name' => 'Sutyagin',
-                'gender' => 'Male', 'state' => 'Russia', 'era' => '2000s',
-                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
-                'affiliation' => null, 'in_custody' => false, 'released' => true,
-                'description' => "Igor Sutyagin is a Russian arms-control researcher at the USA and Canada Institute of the Russian Academy of Sciences who was arrested on October 27, 1999 and convicted of espionage in April 2004 for compiling reports based entirely on publicly available sources about Russian nuclear weapons systems. International observers consistently characterized the case as a politically motivated prosecution of independent research. He was sentenced to 15 years and was released July 9, 2010 in a U.S.–Russia spy swap.",
-            ],
-            'cases' => [[
-                'institution_id' => $russiaPrison->id,
-                'charges' => 'Espionage (Russia) — for arms-control research using publicly available sources',
-                'arrest_date' => '1999-10-27', 'release_date' => '2010-07-09',
-                'sentence' => '15 years; released in U.S.–Russia spy swap',
-            ]],
-        ];
-
-        $defendants[] = [
-            'data' => [
-                'name' => 'Grigory Pasko', 'first_name' => 'Grigory', 'last_name' => 'Pasko',
-                'gender' => 'Male', 'state' => 'Russia', 'era' => '2000s',
-                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
-                'affiliation' => null, 'in_custody' => false, 'released' => true,
-                'description' => "Grigory Pasko is a Russian military journalist and Pacific Fleet officer who exposed the Russian Navy's dumping of nuclear waste in the Sea of Japan. Arrested in November 1997 on espionage charges, he was tried twice in closed proceedings and ultimately sentenced to four years in 2001. International press-freedom groups treated him as a leading example of post-Soviet whistleblower prosecution. He was paroled in 2003.",
-            ],
-            'cases' => [[
-                'institution_id' => $russiaPrison->id,
-                'charges' => 'Espionage / state secrets (Russia) — for nuclear-waste-dumping reporting',
-                'arrest_date' => '1997-11-20', 'release_date' => '2003-01-23',
-                'sentence' => '4 years; paroled 2003',
-            ]],
-        ];
-
-        // Italian Plowshares
+                                        // Italian Plowshares
         $defendants[] = [
             'data' => [
                 'name' => 'Salvatore Vaccaro', 'first_name' => 'Salvatore', 'last_name' => 'Vaccaro',
@@ -1087,31 +1016,6 @@ class AddNuclearResisterPrisoners extends Command
                 'sentence' => 'Multiple short sentences cumulatively totaling several years across Dutch, Belgian, and Italian custody',
             ]],
         ];
-
-        // Swedish Plowshares
-        foreach ([
-            ['Annika Spalde', 'Annika', 'Spalde', 'Female'],
-            ['Pelle Strindlund', 'Pelle', 'Strindlund', 'Male'],
-            ['Martin Smedjeback', 'Martin', 'Smedjeback', 'Male'],
-        ] as [$name, $first, $last, $gender]) {
-            $defendants[] = [
-                'data' => [
-                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
-                    'gender' => $gender, 'state' => 'Sweden', 'era' => '2000s',
-                    'ideologies' => ['Anti-nuclear', 'Anti-war', 'Pacifist'],
-                    'affiliation' => ['Swedish disarmament', 'Plowshares'],
-                    'in_custody' => false, 'released' => true,
-                    'description' => "{$name} is a Swedish nonviolent disarmament activist. With co-defendants Pelle Strindlund, Annika Spalde, and Martin Smedjeback, attempted sabotage of weapons being manufactured for export at the Saab Bofors plant in Sweden on March 22, 2009 — part of the Swedish Plowshares tradition of directly disarming weapons sold to dictatorships. The three were convicted of attempted sabotage, unlawful entry, and civil security violations. They served sentences ranging from 4 to 6 months in Swedish prisons.",
-                ],
-                'cases' => [[
-                    'institution_id' => $swedenPrison->id,
-                    'charges' => 'Attempted sabotage and unlawful entry — direct disarmament of Swedish weapons being manufactured for export',
-                    'arrest_date' => '2009-03-22', 'release_date' => '2009-09-22',
-                    'sentence' => '4–6 months in Swedish prison',
-                ]],
-            ];
-        }
-
         // German Büchel anti-nuclear
         $defendants[] = [
             'data' => [
@@ -1130,24 +1034,7 @@ class AddNuclearResisterPrisoners extends Command
             ]],
         ];
 
-        $defendants[] = [
-            'data' => [
-                'name' => 'Franziska Wittig', 'first_name' => 'Franziska', 'last_name' => 'Wittig',
-                'gender' => 'Female', 'state' => 'Germany', 'era' => '2010s',
-                'ideologies' => ['Anti-nuclear', 'Pacifist'],
-                'affiliation' => ['German anti-nuclear'],
-                'in_custody' => false, 'released' => true,
-                'description' => "Franziska Wittig is a German anti-nuclear activist who refused to pay the fine for blocking a nuclear waste train on November 8, 2008. She served 80 days in German federal prison beginning October 14, 2011.",
-            ],
-            'cases' => [[
-                'institution_id' => $germanyPrison->id,
-                'charges' => 'Refusing to pay fine for blocking nuclear waste train (Germany)',
-                'arrest_date' => '2008-11-08', 'incarceration_date' => '2011-10-14', 'release_date' => '2012-01-02',
-                'sentence' => '80 days German federal prison',
-            ]],
-        ];
-
-        // UK
+                // UK
         $defendants[] = [
             'data' => [
                 'name' => 'Lindis Percy', 'first_name' => 'Lindis', 'last_name' => 'Percy',
@@ -1218,38 +1105,6 @@ class AddNuclearResisterPrisoners extends Command
                 ]],
             ];
         }
-
-        // 1995 Tahiti French nuclear test protesters (Mururoa atoll testing)
-        $tahitiContext = "On September 5, 1995, France resumed underground nuclear testing at the Mururoa Atoll in French Polynesia, breaking the international moratorium and provoking massive protests across the South Pacific. At Faa'a International Airport in Papeete, Tahiti, demonstrators stormed the runway. Dozens were arrested. After three years of legal proceedings the French colonial courts handed down sentences ranging from one month to 18 months, with the convicted Tahitian protesters jailed beginning October 1998 at the Nuutania Prison in Faa'a.";
-
-        foreach ([
-            ['Hiro Tefaarere', 'Hiro', 'Tefaarere', '18 months'],
-            ['Albert Temataholoa', 'Albert', 'Temataholoa', '6 months'],
-            ['Henri Temaititahio', 'Henri', 'Temaititahio', '6 months'],
-            ['Henri Moana', 'Henri', 'Moana', '2 months'],
-            ['Alexandre Puupuu', 'Alexandre', 'Puupuu', '3 months'],
-            ['Emile Teuahau', 'Emile', 'Teuahau', '3 months'],
-            ['Eugene Teriitua Yao Tham Sao', 'Eugene', 'Teriitua Yao Tham Sao', '3 months'],
-            ['Georges Mendiola', 'Georges', 'Mendiola', '1 month'],
-        ] as [$name, $first, $last, $sentence]) {
-            $defendants[] = [
-                'data' => [
-                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
-                    'gender' => 'Male', 'state' => 'French Polynesia', 'era' => '1990s',
-                    'ideologies' => ['Anti-nuclear', 'Anti-colonial'],
-                    'affiliation' => ['Tahitian anti-French nuclear test'],
-                    'in_custody' => false, 'released' => true,
-                    'description' => "{$name} was arrested at the September 1995 protest at Faa'a International Airport in Papeete, Tahiti, against France's resumption of underground nuclear testing at Mururoa Atoll. After three years of French colonial court proceedings, he was sentenced to {$sentence} and jailed at Nuutania Prison beginning October 1998.\n\n{$tahitiContext}",
-                ],
-                'cases' => [[
-                    'institution_id' => $tahitiPeak->id,
-                    'charges' => 'Protest of French nuclear tests at Faa\'a International Airport, Papeete, Tahiti',
-                    'arrest_date' => '1995-09-08', 'incarceration_date' => '1998-10-01',
-                    'sentence' => $sentence,
-                ]],
-            ];
-        }
-
         // Major Plowshares — Frank Cordaro (Minuteman III Plowshares)
         $defendants[] = [
             'data' => [
@@ -1430,24 +1285,7 @@ class AddNuclearResisterPrisoners extends Command
         $milesNYJail     = Institution::firstOrCreate(['name' => 'Federal Court — SOA Watch prosecution']);
 
         // Major individual entries
-        $defendants[] = [
-            'data' => [
-                'name' => 'Yvonne Margarula', 'first_name' => 'Yvonne', 'last_name' => 'Margarula',
-                'gender' => 'Female', 'race' => 'Aboriginal Australian', 'state' => 'Australia', 'era' => '1990s',
-                'ideologies' => ['Indigenous land defense', 'Anti-nuclear'],
-                'affiliation' => ['Mirarr Traditional Owners', 'Jabiluka Plowshares'],
-                'in_custody' => false, 'released' => true,
-                'description' => "Yvonne Margarula was the senior Mirarr traditional owner of the Jabiluka country in the Northern Territory of Australia and the leader of the Indigenous campaign against the proposed Jabiluka uranium mine — a campaign that drew thousands of Australians and supporters from around the world to the Jabiluka blockade in 1998. She was tried for trespass on her own ancestral land at the Jabiluka mine site and was a co-defendant in the Jabiluka Plowshares anti-uranium mining action. The Mirarr campaign succeeded: the Jabiluka mine was never developed.",
-            ],
-            'cases' => [[
-                'institution_id' => $australiaPrison->id,
-                'charges' => 'Trespass and trial for Jabiluka Plowshares anti-uranium-mine action on Mirarr ancestral land',
-                'arrest_date' => '1998-07-14',
-                'sentence' => 'Convicted of trespass on Mirarr ancestral land',
-            ]],
-        ];
-
-        $defendants[] = [
+                $defendants[] = [
             'data' => [
                 'name' => 'Ulla Roder', 'first_name' => 'Ulla', 'last_name' => 'Roder',
                 'gender' => 'Female', 'state' => 'Denmark', 'era' => '2000s',
@@ -1770,35 +1608,6 @@ class AddNuclearResisterPrisoners extends Command
                 ]],
             ];
         }
-
-        // Tahitian additional protesters
-        foreach ([
-            ['Irvine Paro', 'Irvine', 'Paro', '3 months'],
-            ['Ronald Terorotua', 'Ronald', 'Terorotua', '1 year'],
-            ['Rosette Pautu', 'Rosette', 'Pautu', '1 month', 'Female'],
-            ['Timau Heitaa', 'Timau', 'Heitaa', '3 months'],
-            ['Winfred Lacour', 'Winfred', 'Lacour', '6 months'],
-        ] as $row) {
-            $name = $row[0]; $first = $row[1]; $last = $row[2]; $sentence = $row[3];
-            $gender = $row[4] ?? 'Male';
-            $defendants[] = [
-                'data' => [
-                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
-                    'gender' => $gender, 'state' => 'French Polynesia', 'era' => '1990s',
-                    'ideologies' => ['Anti-nuclear', 'Anti-colonial'],
-                    'affiliation' => ['Tahitian anti-French nuclear test'],
-                    'in_custody' => false, 'released' => true,
-                    'description' => "{$name} was arrested at the September 1995 protest at Faa'a International Airport in Papeete, Tahiti, against France's resumption of underground nuclear testing at Mururoa Atoll. Sentenced to {$sentence} and jailed at Nuutania Prison beginning October 1998.\n\n{$tahitiContext}",
-                ],
-                'cases' => [[
-                    'institution_id' => $tahitiPeak->id,
-                    'charges' => 'Protest of French nuclear tests at Faa\'a International Airport, Papeete, Tahiti',
-                    'arrest_date' => '1995-09-08', 'incarceration_date' => '1998-10-01',
-                    'sentence' => $sentence,
-                ]],
-            ];
-        }
-
         // SOA Watch repeat line-crossers — November 2002 batch (sentenced 12/02 and 3/03)
         foreach ([
             ['Charles Booker-Hirsch', 'Charles', null, 'Booker-Hirsch', 'Male', '6 months'],
