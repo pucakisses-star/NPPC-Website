@@ -954,7 +954,454 @@ class AddNuclearResisterPrisoners extends Command
             ];
         }
 
-        // ─── Process all defendants ───
+        // ─── Round 3: extracted from background-agent crawl of nr115-207 + static archive ───
+
+        $tahitiPeak  = Institution::firstOrCreate(['name' => 'Nuutania Prison'], ['city' => 'Faaa', 'state' => 'Tahiti']);
+        $jejuPrison  = Institution::firstOrCreate(['name' => 'Jeju Prison'], ['city' => 'Jeju City', 'state' => 'South Korea']);
+        $italyPrison = Institution::firstOrCreate(['name' => 'Sicilian Prison']);
+        $germanyPrison = Institution::firstOrCreate(['name' => 'German Federal Prison']);
+        $swedenPrison = Institution::firstOrCreate(['name' => 'Swedish Prison']);
+        $ukPrison    = Institution::firstOrCreate(['name' => 'UK HM Prison']);
+        $belarusPenalColony = Institution::firstOrCreate(['name' => 'Belarus Penal Colony'], ['state' => 'Belarus']);
+        $russiaPrison = Institution::firstOrCreate(['name' => 'Russian Federal Prison'], ['state' => 'Russia']);
+        $israelPrison = Institution::firstOrCreate(['name' => 'Ashkelon Prison'], ['state' => 'Israel']);
+        $sciDallas3  = Institution::firstOrCreate(['name' => 'SCI Dallas'], ['city' => 'Dallas', 'state' => 'Pennsylvania']);
+        $whitemanArea = Institution::firstOrCreate(['name' => 'Western District of Missouri (Plowshares prosecution)']);
+        $kazakhPrison = Institution::firstOrCreate(['name' => 'Kazakhstan Prison'], ['state' => 'Kazakhstan']);
+        $ftMooreFCI   = Institution::firstOrCreate(['name' => 'Fort Benning federal court (SOA Watch prosecutions)']);
+        $whitehallNYC = Institution::firstOrCreate(['name' => 'United States District Court, Southern District of New York']);
+        $nairobiPrison = Institution::firstOrCreate(['name' => 'Federal Court (anti-drone prosecution)']);
+
+        // International Plowshares & whistleblowers
+        $defendants[] = [
+            'data' => [
+                'name' => 'Mordechai Vanunu', 'first_name' => 'Mordechai', 'last_name' => 'Vanunu',
+                'birthdate' => '1954-10-13', 'gender' => 'Male', 'race' => 'White',
+                'state' => 'Israel', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Mordechai Vanunu is the Israeli nuclear technician who in 1986 disclosed details of Israel's clandestine nuclear weapons program to the Sunday Times of London — the first credible technical evidence that Israel possessed an arsenal of nuclear weapons. Lured from London to Rome by Israeli intelligence, he was kidnapped, returned to Israel, and tried in secret. Convicted of treason and espionage, he served 18 years in Ashkelon Prison, including roughly 11 years in solitary confinement. After his 2004 release, he has been repeatedly re-imprisoned for short terms for violating restrictions on speaking with foreign media — including a three-month sentence served beginning May 23, 2010.",
+            ],
+            'cases' => [[
+                'institution_id' => $israelPrison->id,
+                'charges' => 'Treason and espionage (Israel); subsequent re-imprisonments for violating speech restrictions',
+                'arrest_date' => '1986-09-30', 'release_date' => '2004-04-21',
+                'sentence' => '18 years (1986–2004); plus subsequent short re-imprisonments for speech-restriction violations',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Yuri Bandazhevsky', 'first_name' => 'Yuri', 'middle_name' => 'I.', 'last_name' => 'Bandazhevsky',
+                'gender' => 'Male', 'state' => 'Belarus', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Dr. Yuri Bandazhevsky is a Belarusian medical scientist who founded the Gomel State Medical Institute in the heart of the Chernobyl-contaminated zone and conducted pioneering research demonstrating the systemic health effects of Cesium-137 contamination on children downwind of Chernobyl. After publishing findings critical of the Lukashenko government's handling of the disaster, he was arrested in 1999 on what international observers called fraudulent corruption charges and convicted in June 2001. He was relegated to a penal colony in June 2004 and released in 2005 after sustained international pressure including Amnesty International's recognition of him as a prisoner of conscience.",
+            ],
+            'cases' => [[
+                'institution_id' => $belarusPenalColony->id,
+                'charges' => 'Corruption (widely regarded as fraudulent) — for publishing scientific research on Chernobyl health effects critical of the Lukashenko government',
+                'arrest_date' => '1999-07-13', 'release_date' => '2005-08-05',
+                'sentence' => '8 years; recognized by Amnesty International as a prisoner of conscience',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Igor Sutyagin', 'first_name' => 'Igor', 'middle_name' => 'V.', 'last_name' => 'Sutyagin',
+                'gender' => 'Male', 'state' => 'Russia', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Igor Sutyagin is a Russian arms-control researcher at the USA and Canada Institute of the Russian Academy of Sciences who was arrested on October 27, 1999 and convicted of espionage in April 2004 for compiling reports based entirely on publicly available sources about Russian nuclear weapons systems. International observers consistently characterized the case as a politically motivated prosecution of independent research. He was sentenced to 15 years and was released July 9, 2010 in a U.S.–Russia spy swap.",
+            ],
+            'cases' => [[
+                'institution_id' => $russiaPrison->id,
+                'charges' => 'Espionage (Russia) — for arms-control research using publicly available sources',
+                'arrest_date' => '1999-10-27', 'release_date' => '2010-07-09',
+                'sentence' => '15 years; released in U.S.–Russia spy swap',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Grigory Pasko', 'first_name' => 'Grigory', 'last_name' => 'Pasko',
+                'gender' => 'Male', 'state' => 'Russia', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Whistleblower'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Grigory Pasko is a Russian military journalist and Pacific Fleet officer who exposed the Russian Navy's dumping of nuclear waste in the Sea of Japan. Arrested in November 1997 on espionage charges, he was tried twice in closed proceedings and ultimately sentenced to four years in 2001. International press-freedom groups treated him as a leading example of post-Soviet whistleblower prosecution. He was paroled in 2003.",
+            ],
+            'cases' => [[
+                'institution_id' => $russiaPrison->id,
+                'charges' => 'Espionage / state secrets (Russia) — for nuclear-waste-dumping reporting',
+                'arrest_date' => '1997-11-20', 'release_date' => '2003-01-23',
+                'sentence' => '4 years; paroled 2003',
+            ]],
+        ];
+
+        // Italian Plowshares
+        $defendants[] = [
+            'data' => [
+                'name' => 'Salvatore Vaccaro', 'first_name' => 'Salvatore', 'last_name' => 'Vaccaro',
+                'gender' => 'Male', 'state' => 'Italy', 'era' => '2010s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Plowshares'],
+                'affiliation' => ['Italian Plowshares'], 'in_custody' => false, 'released' => true,
+                'description' => "Salvatore Vaccaro is a Sicilian Plowshares activist who damaged equipment at the U.S. military's MUOS (Mobile User Objective System) satellite-communications ground station in Niscemi, Sicily, in December 2014, and was sentenced in Italy to 11 months and 27 days. He began serving his sentence on August 5, 2018.",
+            ],
+            'cases' => [[
+                'institution_id' => $italyPrison->id,
+                'charges' => 'Criminal damage to U.S. military satellite communications equipment in Sicily',
+                'arrest_date' => '2014-12-15', 'incarceration_date' => '2018-08-05', 'release_date' => '2019-08-01',
+                'sentence' => '11 months, 27 days',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Turi Vaccaro', 'first_name' => 'Turi', 'last_name' => 'Vaccaro',
+                'gender' => 'Male', 'state' => 'Italy', 'era' => '2010s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Plowshares'],
+                'affiliation' => ['Italian Plowshares'], 'in_custody' => false, 'released' => true,
+                'description' => "Turi Vaccaro is one of the most prolific living European Plowshares activists. In 2005 he carried out a Plowshares disarmament action against F-16 nuclear bombers at Woensdrecht Air Force Base in the Netherlands. He has subsequently served multiple short prison sentences across Europe — in the Netherlands, Belgium, and Italy — for symbolic disarmament actions, including the 2018 Sicilian MUOS prosecution. He was released from a Sicilian prison in April 2020.",
+            ],
+            'cases' => [[
+                'institution_id' => $italyPrison->id,
+                'charges' => 'Plowshares disarmament — multiple actions across Europe (Woensdrecht AFB Netherlands 2005, MUOS Sicily 2014)',
+                'arrest_date' => '2005-08-10', 'release_date' => '2020-04-15',
+                'sentence' => 'Multiple short sentences cumulatively totaling several years across Dutch, Belgian, and Italian custody',
+            ]],
+        ];
+
+        // Swedish Plowshares
+        foreach ([
+            ['Annika Spalde', 'Annika', 'Spalde', 'Female'],
+            ['Pelle Strindlund', 'Pelle', 'Strindlund', 'Male'],
+            ['Martin Smedjeback', 'Martin', 'Smedjeback', 'Male'],
+        ] as [$name, $first, $last, $gender]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'state' => 'Sweden', 'era' => '2000s',
+                    'ideologies' => ['Anti-nuclear', 'Anti-war', 'Pacifist'],
+                    'affiliation' => ['Swedish disarmament', 'Plowshares'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} is a Swedish nonviolent disarmament activist. With co-defendants Pelle Strindlund, Annika Spalde, and Martin Smedjeback, attempted sabotage of weapons being manufactured for export at the Saab Bofors plant in Sweden on March 22, 2009 — part of the Swedish Plowshares tradition of directly disarming weapons sold to dictatorships. The three were convicted of attempted sabotage, unlawful entry, and civil security violations. They served sentences ranging from 4 to 6 months in Swedish prisons.",
+                ],
+                'cases' => [[
+                    'institution_id' => $swedenPrison->id,
+                    'charges' => 'Attempted sabotage and unlawful entry — direct disarmament of Swedish weapons being manufactured for export',
+                    'arrest_date' => '2009-03-22', 'release_date' => '2009-09-22',
+                    'sentence' => '4–6 months in Swedish prison',
+                ]],
+            ];
+        }
+
+        // German Büchel anti-nuclear
+        $defendants[] = [
+            'data' => [
+                'name' => 'Gerd Büntzly', 'first_name' => 'Gerd', 'last_name' => 'Büntzly',
+                'gender' => 'Male', 'state' => 'Germany', 'era' => '2020s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['German anti-nuclear', 'GAAA'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Gerd Büntzly is a German anti-nuclear activist with the Gewaltfreie Aktion Atomwaffen Abschaffen (GAAA). He has been arrested repeatedly for nonviolent civil disobedience at Büchel Air Base in western Germany, the U.S. Air Force facility that stores approximately 20 B61 nuclear bombs as part of NATO nuclear sharing. He was sentenced to 45 days in German federal prison for an April 30, 2019 trespass action and served his sentence in 2024.",
+            ],
+            'cases' => [[
+                'institution_id' => $germanyPrison->id,
+                'charges' => 'Trespass at Büchel Air Base, Germany (Hausfriedensbruch)',
+                'arrest_date' => '2019-04-30', 'release_date' => '2024-11-27',
+                'sentence' => '45 days German federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Franziska Wittig', 'first_name' => 'Franziska', 'last_name' => 'Wittig',
+                'gender' => 'Female', 'state' => 'Germany', 'era' => '2010s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['German anti-nuclear'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Franziska Wittig is a German anti-nuclear activist who refused to pay the fine for blocking a nuclear waste train on November 8, 2008. She served 80 days in German federal prison beginning October 14, 2011.",
+            ],
+            'cases' => [[
+                'institution_id' => $germanyPrison->id,
+                'charges' => 'Refusing to pay fine for blocking nuclear waste train (Germany)',
+                'arrest_date' => '2008-11-08', 'incarceration_date' => '2011-10-14', 'release_date' => '2012-01-02',
+                'sentence' => '80 days German federal prison',
+            ]],
+        ];
+
+        // UK
+        $defendants[] = [
+            'data' => [
+                'name' => 'Lindis Percy', 'first_name' => 'Lindis', 'last_name' => 'Percy',
+                'gender' => 'Female', 'state' => 'United Kingdom', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Campaign for the Accountability of American Bases (CAAB)'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Lindis Percy is a UK anti-nuclear and anti-base activist and co-founder of the Campaign for the Accountability of American Bases (CAAB). She has been arrested repeatedly for trespass at the U.S. military space-warfare bases at Menwith Hill (the largest U.S. signals-intelligence facility outside the United States) and Fylingdales in Yorkshire. She served 45 days in HM prison beginning April 21, 2009 for refusing to pay accumulated fines from those trespasses.",
+            ],
+            'cases' => [[
+                'institution_id' => $ukPrison->id,
+                'charges' => 'Trespass at Menwith Hill and Fylingdales space-warfare bases (UK)',
+                'arrest_date' => '2008-01-15', 'incarceration_date' => '2009-04-21', 'release_date' => '2009-06-05',
+                'sentence' => '45 days UK prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Sylvia Boyes', 'first_name' => 'Sylvia', 'last_name' => 'Boyes',
+                'gender' => 'Female', 'state' => 'United Kingdom', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Trident Ploughshares'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Sylvia Boyes is a UK Trident Ploughshares activist who attempted to disarm U.S. military radar in England on August 6, 2008 (the Hiroshima anniversary). She was convicted of criminal damage and sentenced to 3 months in HM prison beginning December 18, 2008.",
+            ],
+            'cases' => [[
+                'institution_id' => $ukPrison->id,
+                'charges' => 'Criminal damage — attempted disarmament of U.S. military radar in England',
+                'arrest_date' => '2008-08-06', 'incarceration_date' => '2008-12-18', 'release_date' => '2009-03-18',
+                'sentence' => '3 months UK prison',
+            ]],
+        ];
+
+        // Korean Jeju Naval Base resisters
+        $jejuContext = "Since 2007, the South Korean government has been constructing a major naval base on Gangjeong village, Jeju Island — a UNESCO biosphere reserve and South Korea's southernmost island. The base, designed to host U.S. and South Korean Aegis destroyers and a port-of-call for U.S. nuclear-powered aircraft carriers, is widely understood as a forward-deployment site for the U.S. military's posture against China. Local Gangjeong residents and Korean peace activists have maintained continuous nonviolent resistance at the construction gates since 2010; hundreds have been arrested and dozens have served Korean prison sentences for trespass, obstruction, and civil disobedience.";
+
+        foreach ([
+            ['Yang Yoon-Mo', 'Yang', 'Yoon-Mo', 'Male', '18 months', '2014-02-01', null, 'Obstruction of business of military port contractors, Jeju'],
+            ['Song Kang-Ho', 'Song', 'Kang-Ho', 'Male', '40 days', '2013-08-21', '2013-09-30', 'Trespass and obstruction of business during naval base construction on Jeju'],
+            ['Park Yong-Sung', 'Park', 'Yong-Sung', 'Male', '40 days', '2013-08-21', '2013-09-30', 'Trespass and obstruction of business during naval base construction on Jeju'],
+            ['Park Do-Hyun', 'Park', 'Do-Hyun', 'Male', '40 days', '2013-08-21', '2013-09-30', 'Trespass and obstruction of business during naval base construction on Jeju'],
+            ['Mr. Kim Bok-Chul', 'Kim', 'Bok-Chul', 'Male', '4 months', '2012-04-01', '2012-08-01', 'Interfering with businesses building navy port, Jeju Island'],
+            ['Mr. Kim Dong-Won', 'Kim', 'Dong-Won', 'Male', '4 months', '2012-04-01', '2012-08-01', 'Interfering with businesses building navy port, Jeju Island'],
+            ['Mr. Kim Guk-Nam', 'Kim', 'Guk-Nam', 'Male', '50 days', '2016-01-27', '2016-03-17', 'Refusal to pay fines for resistance to naval base construction'],
+            ['Mr. Park Suk-Jin', 'Park', 'Suk-Jin', 'Male', '90 days', '2014-09-06', '2014-12-05', 'Protest on base-related caisson dock in Hwasoon port'],
+            ['Rev. Jeong Yeon-Gil', 'Jeong', 'Yeon-Gil', 'Male', '90 days', '2014-09-06', '2014-12-05', 'Protest on base-related caisson dock in Hwasoon port'],
+            ['Lee Jong-Hwa', 'Lee', 'Jong-Hwa', 'Male', '90 days', '2013-05-07', '2013-08-05', 'Violating bail conditions after occupying naval base construction equipment in Hwasoon Port'],
+            ['Kim Eun-Hye', 'Kim', 'Eun-Hye', 'Female', '8 months', '2013-10-15', '2014-06-15', 'Multiple charges related to protests opposing the naval base'],
+            ['Kim Young-Jae', 'Kim', 'Young-Jae', 'Male', '60 days', '2014-04-28', '2014-06-27', 'Blocking a truck on the road leading into the naval base construction site'],
+            ['Oh Cheol-Geun', 'Oh', 'Cheol-Geun', 'Male', '38 days', '2014-05-26', '2014-07-03', 'Refusal to pay fine for protest against Jeju naval base'],
+            ['Fr. Lee Young-Chan', 'Lee', 'Young-Chan', 'Male', 'unknown', '2023-10-01', null, 'Naval base resistance, Jeju'],
+        ] as [$name, $first, $last, $gender, $sentence, $arrest, $release, $action]) {
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'Asian', 'state' => 'South Korea', 'era' => '2010s',
+                    'ideologies' => ['Anti-war', 'Anti-imperialist', 'Indigenous-territory defense'],
+                    'affiliation' => ['Jeju Naval Base resistance', 'Gangjeong village'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} is a Korean Jeju Naval Base resister. {$action}.\n\n{$jejuContext}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $jejuPrison->id,
+                    'charges' => $action,
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // 1995 Tahiti French nuclear test protesters (Mururoa atoll testing)
+        $tahitiContext = "On September 5, 1995, France resumed underground nuclear testing at the Mururoa Atoll in French Polynesia, breaking the international moratorium and provoking massive protests across the South Pacific. At Faa'a International Airport in Papeete, Tahiti, demonstrators stormed the runway. Dozens were arrested. After three years of legal proceedings the French colonial courts handed down sentences ranging from one month to 18 months, with the convicted Tahitian protesters jailed beginning October 1998 at the Nuutania Prison in Faa'a.";
+
+        foreach ([
+            ['Hiro Tefaarere', 'Hiro', 'Tefaarere', '18 months'],
+            ['Albert Temataholoa', 'Albert', 'Temataholoa', '6 months'],
+            ['Henri Temaititahio', 'Henri', 'Temaititahio', '6 months'],
+            ['Henri Moana', 'Henri', 'Moana', '2 months'],
+            ['Alexandre Puupuu', 'Alexandre', 'Puupuu', '3 months'],
+            ['Emile Teuahau', 'Emile', 'Teuahau', '3 months'],
+            ['Eugene Teriitua Yao Tham Sao', 'Eugene', 'Teriitua Yao Tham Sao', '3 months'],
+            ['Georges Mendiola', 'Georges', 'Mendiola', '1 month'],
+        ] as [$name, $first, $last, $sentence]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => 'Male', 'state' => 'French Polynesia', 'era' => '1990s',
+                    'ideologies' => ['Anti-nuclear', 'Anti-colonial'],
+                    'affiliation' => ['Tahitian anti-French nuclear test'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was arrested at the September 1995 protest at Faa'a International Airport in Papeete, Tahiti, against France's resumption of underground nuclear testing at Mururoa Atoll. After three years of French colonial court proceedings, he was sentenced to {$sentence} and jailed at Nuutania Prison beginning October 1998.\n\n{$tahitiContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $tahitiPeak->id,
+                    'charges' => 'Protest of French nuclear tests at Faa\'a International Airport, Papeete, Tahiti',
+                    'arrest_date' => '1995-09-08', 'incarceration_date' => '1998-10-01',
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Major Plowshares — Frank Cordaro (Minuteman III Plowshares)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Frank Cordaro', 'first_name' => 'Frank', 'last_name' => 'Cordaro',
+                'aka' => 'Father Frank Cordaro',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Iowa', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Des Moines Catholic Worker', 'Plowshares movement'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Father Frank Cordaro is a former Catholic priest, longtime Des Moines Catholic Worker, and Plowshares activist who has been arrested more than 100 times across his life. On August 6, 1998 — the Hiroshima anniversary — he and three others carried out the Minuteman III Plowshares disarmament action at a North Dakota intercontinental ballistic missile silo. He was convicted and served multiple federal sentences for that and many subsequent actions including SOA Watch line-crossings and STRATCOM/Offutt AFB protests.",
+            ],
+            'cases' => [[
+                'institution_id' => $whitemanArea->id,
+                'charges' => 'Sabotage and depredation of government property — Minuteman III Plowshares action; plus dozens of subsequent civil-disobedience convictions',
+                'arrest_date' => '1998-08-06', 'release_date' => '2018-12-31',
+                'sentence' => 'Cumulative years across multiple Plowshares and SOA Watch sentences',
+            ]],
+        ];
+
+        // Helen John — UK / SOA Watch / Pentagon
+        $defendants[] = [
+            'data' => [
+                'name' => 'Helen John', 'first_name' => 'Helen', 'last_name' => 'John',
+                'gender' => 'Female', 'state' => 'United Kingdom', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Greenham Common Women', 'SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Helen John was a founding member of the Greenham Common Women's Peace Camp in 1981 and one of the most prolific UK anti-nuclear activists of her generation. In 1998 she was arrested at SOA Watch protests at the Pentagon and at Fort Benning and sentenced in U.S. federal court to two years — among the longest sentences imposed on a foreign national for SOA-related civil disobedience. She died in 2017.",
+            ],
+            'cases' => [[
+                'institution_id' => $ftMooreFCI->id,
+                'charges' => 'Trespass at the Pentagon and at the U.S. Army School of the Americas, Fort Benning',
+                'arrest_date' => '1998-06-19', 'release_date' => '2000-06-19',
+                'sentence' => '2 years federal prison',
+            ]],
+        ];
+
+        // Iraq War-era military refusers (additional)
+        foreach ([
+            ['David Travis Bishop', 'David', 'Travis Bishop', 'Male', '1 year', '2009-08-14', '2010-08-14', "Convicted of missing movement, disobeying a lawful order, and going AWOL"],
+            ['Robert Weiss', 'Robert', 'Weiss', 'Male', '7 months', '2008-05-15', '2008-12-15', "Pled guilty to desertion and missing movement after CO application denied"],
+            ['Sara Beining', 'Sara', 'Beining', 'Female', 'awaiting court martial', '2014-08-27', null, "Iraq war veteran and public military refuser jailed pending court-martial"],
+            ['Dustin Stevens', 'Dustin', 'Stevens', 'Male', 'pending', '2010-01-15', null, "Confined to base pending court martial for AWOL/desertion"],
+        ] as [$name, $first, $last, $gender, $sentence, $arrest, $release, $action]) {
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'United States', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Conscientious objector'],
+                    'affiliation' => null, 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was a U.S. servicemember who refused deployment during the Iraq/Afghanistan wars. {$action}. Sentenced to {$sentence}.",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $bopVaried->id,
+                    'charges' => 'Desertion / missing movement (UCMJ)',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Anti-war pieing of Senator Levin
+        $pieContext = "On August 12, 2010, anti-war activists Ahlam Mohsen and Max Kantar threw cherry pies at U.S. Senator Carl Levin (D-MI), then chair of the Senate Armed Services Committee, at a public event in Big Rapids, Michigan, in protest of his role in U.S. drone warfare against civilians in Yemen. Both pleaded guilty to anti-war charges and were sentenced to 30 days in federal custody beginning August 30, 2011.";
+
+        foreach ([
+            ['Ahlam Mohsen', 'Ahlam', 'Mohsen', 'Female', 'Yemeni-American'],
+            ['Max Kantar', 'Max', 'Kantar', 'Male', 'White'],
+        ] as [$name, $first, $last, $gender, $race]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => $race, 'state' => 'Michigan', 'era' => '2010s',
+                    'ideologies' => ['Anti-war'],
+                    'affiliation' => null, 'in_custody' => false, 'released' => true,
+                    'description' => "{$pieContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $bopVaried->id,
+                    'charges' => 'Anti-war pieing of U.S. Senator Carl Levin in protest of Yemen drone warfare',
+                    'arrest_date' => '2010-08-12', 'incarceration_date' => '2011-08-30', 'release_date' => '2011-09-30',
+                    'sentence' => '30 days federal custody',
+                ]],
+            ];
+        }
+
+        // Erin Sieber — 2001 Pentagon Plowshares
+        $defendants[] = [
+            'data' => [
+                'name' => 'Erin Sieber', 'first_name' => 'Erin', 'last_name' => 'Sieber',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Virginia', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Plowshares movement', 'Catholic Worker'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Erin Sieber was a Catholic Worker who in April 2001 carried out a symbolic disarmament action at the Pentagon. She was arrested July 20, 2001 and sentenced to six months in federal prison.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Damage to property at Pentagon — Plowshares-style action',
+                'arrest_date' => '2001-04-15', 'incarceration_date' => '2001-07-20', 'release_date' => '2002-01-20',
+                'sentence' => '6 months federal prison',
+            ]],
+        ];
+
+        // SOA Watch April 2006 batch (additional defendants beyond round 2)
+        $soaContextLong = "Each year on the November anniversary of the assassination of six Jesuits, their housekeeper, and her daughter at the University of Central America in San Salvador in 1989, peace activists gather at the gates of Fort Benning, Georgia, site of the U.S. Army School of the Americas / Western Hemisphere Institute for Security Cooperation (WHINSEC), to commemorate the dead and to call for the school's closure. Hundreds have crossed the line onto the base over four decades of vigils; many have served federal sentences ranging from 30 days to a year for trespass.";
+
+        foreach ([
+            ['David A. Sylvester', 'David', 'A.', 'Sylvester', 'Male', '90 days'],
+            ['Donte Smith', 'Donte', null, 'Smith', 'Male', '90 days'],
+            ['Edward Smith', 'Edward', null, 'Smith', 'Male', '6 months'],
+            ['Edwin R. Lewinson', 'Edwin', 'R.', 'Lewinson', 'Male', '90 days'],
+            ['Francis Woolever', 'Francis', null, 'Woolever', 'Male', '90 days'],
+            ['Fredrick Brancel', 'Fredrick', null, 'Brancel', 'Male', '90 days'],
+            ['Kenneth F. Crowley', 'Kenneth', 'F.', 'Crowley', 'Male', '6 months'],
+            ['Linda Mashburn', 'Linda', null, 'Mashburn', 'Female', '90 days'],
+            ['Michael Lee Gayman', 'Michael', 'Lee', 'Gayman', 'Male', '6 months'],
+            ['Robert Call', 'Robert', null, 'Call', 'Male', '90 days'],
+            ['Samuel Foster', 'Samuel', null, 'Foster', 'Male', '6 months'],
+            ['Scott Dempsky', 'Scott', null, 'Dempsky', 'Male', '90 days'],
+            ['Stephen Douglas Clements', 'Stephen', 'Douglas', 'Clements', 'Male', '90 days'],
+            ['Joseph DeRaymond', 'Joseph', null, 'DeRaymond', 'Male', '90 days'],
+            ['Lelia Mattingly', 'Lelia', null, 'Mattingly', 'Female', '6 months'],
+            ['Albert L. Simmons', 'Albert', 'L.', 'Simmons', 'Male', '2 months'],
+            ['Carna Yipe', 'Carna', null, 'Yipe', 'Female', '30 days'],
+            ['Augustine Roddy', 'Augustine', null, 'Roddy', 'Male', '30 days'],
+            ['Joan Anderson', 'Joan', null, 'Anderson', 'Female', '30 days'],
+            ['Leeanne Clausen', 'Leeanne', null, 'Clausen', 'Female', '30 days'],
+            ['Ozone Bhaguan', 'Ozone', null, 'Bhaguan', 'Male', '90 days'],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $sentence] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Georgia', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} crossed the line at Fort Benning, Georgia during an SOA Watch vigil to close the U.S. Army School of the Americas / WHINSEC. Sentenced to {$sentence} in federal custody for trespass on a military installation.\n\n{$soaContextLong}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $ftMooreFCI->id,
+                    'charges' => 'Trespass at the U.S. Army School of the Americas / WHINSEC, Fort Benning, Georgia',
+                    'arrest_date' => '2005-11-19',
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Catholic Worker / Pentagon resistance
+        $defendants[] = [
+            'data' => [
+                'name' => 'Felton Davis', 'first_name' => 'Felton', 'last_name' => 'Davis',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'New York', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Anti-war', 'Catholic Worker'],
+                'affiliation' => ['New York Catholic Worker'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Felton Davis is a New York Catholic Worker arrested at the Pentagon on August 1999 for refusing to leave the Pentagon steps. He served 90 days in federal custody beginning October 24, 1999.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Trespass at the Pentagon — refusing to leave the steps',
+                'arrest_date' => '1999-08-09', 'incarceration_date' => '1999-10-24', 'release_date' => '2000-01-22',
+                'sentence' => '90 days',
+            ]],
+        ];
+
+        // Stephen Kelly Fort Huachuca anti-torture
+        // Already in DB as Steve Kelly — skip
+
+        // Process all defendants ───
         foreach ($defendants as $entry) {
             DB::transaction(function () use ($entry, &$created, &$skipped) {
                 $name = $entry['data']['name'];
