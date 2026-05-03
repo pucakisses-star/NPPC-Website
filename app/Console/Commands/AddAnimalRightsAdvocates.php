@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class AddAnimalRightsAdvocates extends Command
 {
     protected $signature = 'prisoners:add-animal-rights-trio';
-    protected $description = 'Add Daniel Andreas San Diego, Gary Yourofsky, and Camille Marino — three US animal-rights advocates who served prison time but are not yet in the database.';
+    protected $description = 'Add Daniel Andreas San Diego and Camille Marino — US animal-rights advocates who served prison time but are not yet in the database.';
 
     public function handle(): int
     {
@@ -21,11 +21,6 @@ class AddAnimalRightsAdvocates extends Command
         $ukJail = Institution::firstOrCreate(
             ['name' => 'HMP Wandsworth (UK pretrial detention pending US extradition)'],
             ['city' => 'London', 'state' => 'England, United Kingdom']
-        );
-
-        $emdc = Institution::firstOrCreate(
-            ['name' => 'Elgin-Middlesex Detention Centre'],
-            ['city' => 'London', 'state' => 'Ontario, Canada']
         );
 
         $detroit = Institution::firstOrCreate(
@@ -62,35 +57,6 @@ class AddAnimalRightsAdvocates extends Command
                     'convicted'      => "Not yet — held in UK pretrial detention since November 25, 2024. UK extradition proceedings: Westminster Magistrates' Court judge Samuel Goozee ruled February 6, 2026 that extradition to the U.S. could proceed; Home Secretary's final decision pending",
                     'sentence'       => 'No sentence yet — awaiting US extradition. If convicted in the U.S. on all charges he could face a mandatory minimum of 30 years',
                     'judge'          => 'Samuel Goozee (Westminster Magistrates\' Court, UK extradition)',
-                ],
-            ],
-
-            // ── Gary Yourofsky ────────────────────────────────────────
-            [
-                'data' => [
-                    'name'           => 'Gary Yourofsky',
-                    'first_name'     => 'Gary',
-                    'last_name'      => 'Yourofsky',
-                    'birthdate'      => '1970-08-19',
-                    'death_date'     => null,
-                    'gender'         => 'Male',
-                    'state'          => 'Michigan',
-                    'era'            => '1990s',
-                    'ideologies'     => ['Animal rights', 'Vegan'],
-                    'affiliation'    => ['Animals Deserve Absolute Protection Today and Tomorrow (ADAPTT)', 'Animal Liberation Front'],
-                    'in_custody'     => false,
-                    'released'       => true,
-                    'awaiting_trial' => false,
-                    'description' => "Gary Yourofsky is an American animal-rights organizer best known as the founder of Animals Deserve Absolute Protection Today and Tomorrow (ADAPTT) and as one of the most widely viewed pro-vegan public lecturers of the 2000s — his 2010 'Best Speech You Will Ever Hear' lecture at Georgia Tech has been viewed tens of millions of times worldwide.\n\nOn the night of March 30, 1997, Yourofsky and four other Animal Liberation Front activists raided the Eberts Fur Farm near Blenheim, Ontario, releasing 1,542 mink and causing approximately C\$500,000 in damage to the operation. He was arrested by Canadian authorities and prosecuted in Ontario provincial court. He was convicted of conspiracy to commit break-and-enter, break-and-enter, and mischief. In 1999 he was sentenced to six months in the Elgin-Middlesex Detention Centre, a Canadian maximum-security facility, and served 77 days before release. He was permanently banned from entering Canada and was later also barred from entry to the United Kingdom.\n\nFollowing his release he was sponsored by People for the Ethical Treatment of Animals from 2002 to 2005 and gave more than 2,500 public lectures on veganism and animal rights at universities across the United States, becoming one of the most prolific traveling lecturers in the modern animal-rights movement. He semi-retired from public organizing in the late 2010s.",
-                ],
-                'case' => [
-                    'institution_id' => $emdc->id,
-                    'charges'        => 'Conspiracy to commit break-and-enter; break-and-enter; mischief (Canadian Criminal Code) — for the March 30, 1997 Animal Liberation Front raid that released 1,542 mink from the Eberts Fur Farm in Blenheim, Ontario',
-                    'arrest_date'    => '1997-03-31',
-                    'incarceration_date' => '1999-01-01',
-                    'release_date'   => '1999-03-19',
-                    'convicted'      => 'Yes — Ontario provincial court, 1999',
-                    'sentence'       => 'Six months at the Elgin-Middlesex Detention Centre (a Canadian maximum-security prison); 77 days served before release; permanent ban on entry to Canada and the United Kingdom',
                 ],
             ],
 
