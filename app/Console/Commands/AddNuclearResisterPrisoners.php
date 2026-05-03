@@ -1967,6 +1967,508 @@ class AddNuclearResisterPrisoners extends Command
             ];
         }
 
+        // ─── Round 6: from agent v3 crawl of static archive nr112-133 (1998-2003) ───
+
+        $njFortDix         = Institution::firstOrCreate(['name' => 'FCI Fort Dix'], ['city' => 'Fort Dix', 'state' => 'New Jersey']);
+        $netherlandsPrison = Institution::firstOrCreate(['name' => 'Netherlands Prison'], ['state' => 'Netherlands']);
+        $rottenburgPrison  = Institution::firstOrCreate(['name' => 'Justizvollzugsanstalt Rottenburg'], ['city' => 'Rottenburg', 'state' => 'Germany']);
+        $hmpGloucester     = Institution::firstOrCreate(['name' => 'HMP Gloucester'], ['city' => 'Gloucester', 'state' => 'United Kingdom']);
+        $enfieldJailCT     = Institution::firstOrCreate(['name' => 'Carl Robinson Correctional Institution'], ['city' => 'Enfield', 'state' => 'Connecticut']);
+        $nashuaJail        = Institution::firstOrCreate(['name' => 'Hillsborough County House of Corrections (Nashua)'], ['city' => 'Nashua', 'state' => 'New Hampshire']);
+        $ashlandWIJail     = Institution::firstOrCreate(['name' => 'Ashland County Jail'], ['city' => 'Ashland', 'state' => 'Wisconsin']);
+        $rockyMountainArea = Institution::firstOrCreate(['name' => 'Federal Court (Rocky Flats prosecution)']);
+
+        // Vieques 2002-2003 mass arrests (with concrete sentences from nr128/nr133)
+        foreach ([
+            ['Mariel Torres Lara', 'Mariel', 'Torres Lara', 'Female', '1 week', '2003-01-15', '2003-01-22', null, 'MST brigade occupation of Vieques bombing range'],
+            ['Ricardo Santos Ortiz', 'Ricardo', 'Santos Ortiz', 'Male', '1 week', '2003-01-15', '2003-01-22', null, 'MST brigade occupation of Vieques bombing range'],
+            ['Andrés Santos Ortiz', 'Andrés', 'Santos Ortiz', 'Male', '1 week', '2003-01-15', '2003-01-22', null, 'MST brigade occupation of Vieques bombing range'],
+            ['Angel Quiles', 'Angel', 'Quiles', 'Male', '60 days', '2003-01-14', '2003-03-15', null, 'Pablo Soto Brigade trespass on Navy bombing range'],
+            ['Javier Sterling', 'Javier', 'Sterling', 'Male', '60 days', '2003-01-14', '2003-03-15', null, 'Pablo Soto Brigade trespass on Navy bombing range (university student)'],
+            ['Luis A. Amely Martínez', 'Luis', 'Amely Martínez', 'Male', '7-9 days', '2003-01-18', '2003-01-27', null, 'PR Independence Party brigade trespass on Vieques'],
+            ['Francisco Bartolomei Crespo', 'Francisco', 'Bartolomei Crespo', 'Male', '7-9 days', '2003-01-18', '2003-01-27', null, 'PR Independence Party brigade trespass on Vieques'],
+            ['Edwin Vargas Becerril', 'Edwin', 'Vargas Becerril', 'Male', '7-9 days', '2003-01-18', '2003-01-27', null, 'PR Independence Party brigade trespass on Vieques'],
+            ['Abraham Ayala Ortiz', 'Abraham', 'Ayala Ortiz', 'Male', '7-9 days', '2003-01-18', '2003-01-27', null, 'PR Independence Party brigade trespass on Vieques'],
+            ['Angel Rubén Santiago Aponte', 'Angel', 'Santiago Aponte', 'Male', '7-9 days', '2003-01-18', '2003-01-27', null, 'PR Independence Party brigade trespass on Vieques'],
+            ['Gustavo Dávila Cardona', 'Gustavo', 'Dávila Cardona', 'Male', '40 days', '2003-01-22', '2003-03-03', null, 'Minerva Bermúdez / MLK brigade trespass on Vieques range'],
+            ['Leonardo Estrada Ferrer', 'Leonardo', 'Estrada Ferrer', 'Male', '60 days', '2003-01-22', '2003-03-23', null, 'Minerva Bermúdez / MLK brigade trespass on Vieques range'],
+            ['Orlando Soto Morales', 'Orlando', 'Soto Morales', 'Male', '40 days', '2003-01-22', '2003-03-03', null, 'Minerva Bermúdez / MLK brigade trespass on Vieques range'],
+            ['Grego Marcano Vázquez', 'Grego', 'Marcano Vázquez', 'Male', '60 days', '2003-01-22', '2003-03-23', null, 'Minerva Bermúdez / MLK brigade trespass on Vieques range'],
+            ['Néstor de Jesús', 'Néstor', 'de Jesús', 'Male', '30 days', '2003-01-23', '2003-02-22', null, 'MST second brigade trespass on Vieques range'],
+            ['Martín Castro Avila', 'Martín', 'Castro Avila', 'Male', '30 days', '2003-01-23', '2003-02-22', null, 'MST second brigade trespass on Vieques range'],
+            ['César Pacheco Rodríguez', 'César', 'Pacheco Rodríguez', 'Male', '30 days', '2003-01-23', '2003-02-22', null, 'MST second brigade trespass on Vieques range'],
+            ['Cacimar Zenón', 'Cacimar', 'Zenón', 'Male', '4 months (free on bond, appealing)', '2002-04-15', '2002-08-15', null, 'Vieques Zenón fishing family resistance'],
+            ['Regalado Miró', 'Regalado', 'Miró', 'Male', '4 months (free on bond, appealing)', '2002-04-15', '2002-08-15', null, 'Resistance activity on Vieques'],
+            ['Luis Angel Torres', 'Luis', 'Torres', 'Male', '1 week', '2003-01-08', '2003-01-15', null, 'MST brigade member, Vieques'],
+            ['Pedro Colón Almenas', 'Pedro', 'Colón Almenas', 'Male', '1 year + 3 years probation', '2001-04-30', '2003-02-22', '22192-069', 'Aggravated assault on ROTC official at University of Puerto Rico Río Piedras anti-ROTC protest'],
+            ['María Elena Negrón', 'María', 'Negrón', 'Female', '30 days', '2002-04-01', '2002-05-01', '21690-069', 'Trespass on Vieques bombing range'],
+            ['Juan Ramón Cruz Pérez', 'Juan', 'Cruz Pérez', 'Male', '20 days', '2002-04-04', '2002-04-24', '21692-069', 'Trespass on Vieques bombing range'],
+            ['Humberto Núñez', 'Humberto', 'Núñez', 'Male', 'denied bond, awaiting trial', '2002-04-10', null, '21697-069', 'Trespass on Vieques bombing range'],
+            ['Tania Hernández Carrión', 'Tania', 'Hernández Carrión', 'Female', 'denied bond, awaiting trial', '2002-04-12', null, '19505-069', 'Trespass on Vieques bombing range'],
+            ['Carlos Zenón', 'Carlos', 'Zenón', 'Male', '6 months', '2002-01-15', '2002-07-15', '23214-069', 'Vieques boating actions to stop bombing of inhabited island'],
+            ['Yabureibo Zenón', 'Yabureibo', 'Zenón', 'Male', '6 months', '2002-01-15', '2002-07-15', '23213-069', 'Vieques boating actions to stop bombing of inhabited island'],
+            ['Andy Rivera', 'Andy', 'Rivera', 'Male', 'denied bond, awaiting trial', '2002-04-10', null, null, 'Trespass on Vieques bombing range'],
+        ] as $row) {
+            [$name, $first, $last, $gender, $sentence, $arrest, $release, $bopId, $action] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                    'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
+                    'affiliation' => ['Vieques resistance'], 'in_custody' => false, 'released' => true,
+                    'inmate_number' => $bopId,
+                    'description' => "{$name} was arrested for {$action} as part of the sustained 1999-2003 civil-disobedience campaign that forced the U.S. Navy to withdraw from the inhabited island of Vieques in May 2003. Sentenced to {$sentence}.\n\n{$viequesContext}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $prSanJuan->id,
+                    'charges' => "Vieques resistance - {$action}",
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // SOA Watch 2002-2003 additional named defendants
+        foreach ([
+            ['Patrick Lincoln', 'Patrick', null, 'Lincoln', 'Male', '6 months', '2002-11-17', 'Virginia Tech student, age 21'],
+            ['Lee Mickey', 'Lee', null, 'Mickey', 'Female', '30 days', '2002-11-17', '67-year-old caring for ill sister'],
+            ['Eloy Garcia', 'Eloy', null, 'Garcia', 'Male', '3 months', '2002-11-17', null],
+            ['Scott Schaeffer-Duffy', 'Scott', null, 'Schaeffer-Duffy', 'Male', '3 months', '2002-11-17', 'Catholic Worker (Worcester MA)'],
+            ['Rachel Montgomery', 'Rachel', null, 'Montgomery', 'Female', '6 months', '2002-11-17', null],
+            ['Judith Kelly', 'Judith', null, 'Kelly', 'Female', '6 months', '2002-11-17', null],
+            ['Mimi Lavalley', 'Mimi', null, 'Lavalley', 'Female', '6 months', '2002-11-17', null],
+            ['Carey Martin', 'Carey', null, 'Martin', 'Male', '6 months', '2002-11-17', null],
+            ['J.C. Orton', 'J.C.', null, 'Orton', 'Male', '6 months', '2002-11-17', null],
+            ['Laura Slattery', 'Laura', null, 'Slattery', 'Female', '6 months', '2002-11-17', null],
+            ['Corbin Street', 'Corbin', null, 'Street', 'Male', '6 months', '2002-11-17', null],
+            ['Mike Wisniewski', 'Mike', null, 'Wisniewski', 'Male', '6 months', '2002-11-17', null],
+            ['Sonja Andreas', 'Sonja', null, 'Andreas', 'Female', '6 months', '2002-11-17', null],
+            ['Cliff Frazier', 'Cliff', null, 'Frazier', 'Male', '6 months', '2002-11-17', null],
+            ['Derrlyn Tom', 'Derrlyn', null, 'Tom', 'Female', '6 months', '2002-11-17', null],
+            ['Bud Combs', 'Bud', null, 'Combs', 'Male', '3 months', '2002-11-17', null],
+            ['Bruce Triggs', 'Bruce', null, 'Triggs', 'Male', '6 months', '2000-03-01', 'Reentry trespass at Fort Benning planting crosses'],
+            ['Sister Mary Dennis Lentsch', 'Mary Dennis', null, 'Lentsch', 'Female', '6 months', '2000-03-01', 'Catholic nun'],
+            ['Sister Kathleen McCabe', 'Kathleen', null, 'McCabe', 'Female', '6 months', '2000-03-01', 'Catholic nun'],
+            ['Kathleen Fisher', 'Kathleen', null, 'Fisher', 'Female', '6 months', '1999-11-01', 'Repeat trespass at Fort Benning'],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $sentence, $arrest, $note] = $row;
+            $bio = "{$name} crossed the line at Fort Benning, Georgia during an SOA Watch vigil. Sentenced to {$sentence}.";
+            if ($note) $bio .= " {$note}.";
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Georgia', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'description' => $bio . "\n\n{$soaContextLong}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $ftMooreFCI->id,
+                    'charges' => 'Trespass at U.S. Army School of the Americas, Fort Benning',
+                    'arrest_date' => $arrest, 'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Bill Frankel-Streit (Pentagon Holy Innocents)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Bill Frankel-Streit', 'first_name' => 'Bill', 'last_name' => 'Frankel-Streit',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Virginia', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Atlantic Life Community'],
+                'inmate_number' => '03809-052',
+                'in_custody' => false, 'released' => true,
+                'description' => "Bill Frankel-Streit was an Atlantic Life Community / Catholic Worker activist who poured human blood on the Pentagon entrance during the Holy Innocents witness on December 30, 2002, on the eve of the U.S. invasion of Iraq. Sentenced to 6 months in federal prison.",
+            ],
+            'cases' => [[
+                'institution_id' => $njFortDix->id,
+                'charges' => 'Damage to government property - Holy Innocents witness, blood-pouring at Pentagon entrance',
+                'arrest_date' => '2002-12-30', 'incarceration_date' => '2003-04-15', 'release_date' => '2003-10-15',
+                'sentence' => '6 months federal prison',
+            ]],
+        ];
+
+        // Ed Bloomer
+        $defendants[] = [
+            'data' => [
+                'name' => 'Ed Bloomer', 'first_name' => 'Ed', 'last_name' => 'Bloomer',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Iowa', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Des Moines Catholic Worker'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Ed Bloomer was a Des Moines Catholic Worker arrested for re-entry trespass at Offutt Air Force Base / U.S. Strategic Command on Nagasaki Day (August 9, 2001). Sentenced to 30 days plus a fine and one year probation in March 2002.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Re-entry trespass at Offutt AFB / U.S. Strategic Command - Nagasaki Day witness',
+                'arrest_date' => '2001-08-09', 'incarceration_date' => '2002-03-06', 'release_date' => '2002-04-05',
+                'sentence' => '30 days + fine + 1 year probation',
+            ]],
+        ];
+
+        // RAF Fairford UK B-52 actions
+        foreach ([
+            ['Margaret Jones', 'Margaret', 'Jones', 'Female', 'Disabled 30 bomber support vehicles at RAF Fairford on the eve of the Iraq invasion'],
+            ['Paul Arthur Milling', 'Paul', 'Milling', 'Male', 'Disabled 30 bomber support vehicles at RAF Fairford with Margaret Jones'],
+            ['Josh Richards', 'Josh', 'Richards', 'Male', 'Possessed explosive substance with intent to endanger life and damaged base fence at RAF Fairford'],
+        ] as [$name, $first, $last, $gender, $action]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'state' => 'United Kingdom', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Anti-nuclear', 'Pacifist'],
+                    'affiliation' => ['Trident Ploughshares', 'Anti-Iraq-war UK'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was a UK anti-war / Plowshares activist who acted at RAF Fairford in Gloucestershire on the eve of the U.S./UK invasion of Iraq, March 2003. {$action}. Held at HMP Gloucester pending trial.",
+                ],
+                'cases' => [[
+                    'institution_id' => $hmpGloucester->id,
+                    'charges' => 'Conspiracy to commit criminal damage at RAF Fairford (US B-52 base)',
+                    'arrest_date' => '2003-03-13', 'release_date' => '2003-12-31',
+                    'sentence' => 'Held in pretrial detention; multiple subsequent trials',
+                ]],
+            ];
+        }
+
+        // Mary Kelly - Shannon Airport
+        $defendants[] = [
+            'data' => [
+                'name' => 'Mary Kelly', 'first_name' => 'Mary', 'last_name' => 'Kelly',
+                'gender' => 'Female', 'state' => 'Ireland', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Pacifist'],
+                'affiliation' => ['Anti-Iraq-war Ireland'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Mary Kelly was an Irish anti-war activist who hammered a U.S. Navy weapons / troop transport aircraft at Shannon Airport, Ireland, on January 29, 2003 - one of the earliest direct-action interventions in the long-running Shannon Airport US warplane transit campaign. Refused bail and held at Limerick Prison until March 2003.",
+            ],
+            'cases' => [[
+                'institution_id' => $limerick->id,
+                'charges' => 'Damage to U.S. Navy aircraft at Shannon Airport, Ireland',
+                'arrest_date' => '2003-01-29', 'release_date' => '2003-03-15',
+                'sentence' => 'Approximately 6 weeks pretrial detention',
+            ]],
+        ];
+
+        // Jeff Dietrich - LA Catholic Worker
+        $defendants[] = [
+            'data' => [
+                'name' => 'Jeff Dietrich', 'first_name' => 'Jeff', 'last_name' => 'Dietrich',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'California', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Los Angeles Catholic Worker'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Jeff Dietrich is a longtime Los Angeles Catholic Worker and editor of the Catholic Agitator. In March 2003 - on the eve of the U.S. invasion of Iraq - he was arrested at the downtown LA federal building and at the Ash Wednesday blockade. Sentenced to 45 days at MDC-Los Angeles.",
+            ],
+            'cases' => [[
+                'institution_id' => $laCountyJail->id,
+                'charges' => 'Federal trespass and Ash Wednesday blockade of LA federal building',
+                'arrest_date' => '2003-03-12', 'release_date' => '2003-05-01',
+                'sentence' => '45 days',
+            ]],
+        ];
+
+        // Project ELF 2002-2003
+        foreach ([
+            ['John Bachman', 'John', 'Bachman', 'Male', '6 months unsupervised probation + 85 hrs community service', '2002-05-15', '2002-11-15', 'Attorney; trespass at Project ELF'],
+            ['Jeff Leys', 'Jeff', 'Leys', 'Male', '60 days', '2002-05-15', '2003-04-15', 'Trespass at Project ELF; jailed after refusing community service'],
+            ['Scott Mathern-Jacobson', 'Scott', 'Mathern-Jacobson', 'Male', '9 days', '2002-05-15', '2003-01-24', 'Project ELF trespass; jailed for nonpayment of fine'],
+        ] as [$name, $first, $last, $gender, $sentence, $arrest, $release, $action]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Wisconsin', 'era' => '2000s',
+                    'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                    'affiliation' => ['Project ELF resistance'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was arrested for trespass at Project ELF, the U.S. Navy's extremely-low-frequency submarine command system. {$action}. Sentenced to {$sentence}.",
+                ],
+                'cases' => [[
+                    'institution_id' => $ashlandWIJail->id,
+                    'charges' => 'Trespass at Project ELF (U.S. Navy ELF submarine command system)',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // UK Trident Ploughshares (US D-5 missiles)
+        $tridentContext = "Trident Ploughshares is the UK direct-disarmament campaign founded in 1998 to nonviolently dismantle the UK's Trident nuclear weapons system. Trident submarines are based at HMNB Clyde (Faslane) and HMNB Coulport, equipped with Trident D-5 missiles leased from the U.S. Navy and warheads built at AWE Aldermaston with U.S. design assistance - making the system a direct extension of U.S. nuclear posture in the North Atlantic.";
+
+        foreach ([
+            ['Angie Zelter', 'Angie', 'Zelter', 'Female', 'Multiple short jail terms', '1998-06-15', '2003-12-31', 'Trident Ploughshares co-founder; Loch Goil Plowshares Trident Three acquittal 1999'],
+            ['Ellen Moxley', 'Ellen', 'Moxley', 'Female', 'Held on remand; acquitted 1999', '1999-06-08', '1999-12-15', 'Loch Goil Plowshares - disarmed Maytime sonar test lab'],
+            ['Rosie James', 'Rosie', 'James', 'Female', 'Multiple mistrials', '1999-02-10', '2001-04-30', 'Aldermaston Women Trash Trident - hammered HMS Vengeance'],
+            ['Rachel Wenham', 'Rachel', 'Wenham', 'Female', 'Multiple mistrials', '1999-02-10', '2001-04-30', 'Aldermaston Women Trash Trident - hammered HMS Vengeance'],
+            ['Joan Meredith', 'Joan', 'Meredith', 'Female', 'Cautioned, fined £50 (refused), held briefly', '1999-08-09', '2000-11-15', 'Northumbrian TP2000 fence-cutting at Albemarle'],
+            ['Joy Mitchell', 'Joy', 'Mitchell', 'Female', '7 days', '2000-11-15', '2000-11-22', 'Coulport demo (TP2000); retired teacher'],
+            ['Ian Thompson', 'Ian', 'Thompson', 'Male', '12 days pretrial + 7 days for unpaid fine', '1999-08-09', '2000-12-31', 'Faslane / Coulport fence-cutting'],
+            ['Brian Quail', 'Brian', 'Quail', 'Male', 'Brief detention', '1999-04-15', '1999-05-01', 'Joint Secretary, Scottish CND; blockading nuclear weapons convoy'],
+            ['Marjan Willemsen', 'Marjan', 'Willemsen', 'Female', '4 days + several days for fine refusal', '1999-08-09', '2000-11-15', 'Cut Faslane base fence and climbed light tower (Dutch)'],
+            ['Zoe Weir', 'Zoe', 'Weir', 'Female', '7 days', '2000-10-25', '2000-11-22', 'Cut Faslane base fence and climbed light tower'],
+            ['Tommy Sheridan', 'Tommy', 'Sheridan', 'Male', '5 days', '2000-12-17', '2000-12-22', 'Member of Scottish Parliament jailed for unpaid Faslane fine'],
+            ['Clive Fudge', 'Clive', 'Fudge', 'Male', '7 days', '2000-12-15', '2000-12-22', 'Coulport blockade; jailed for unpaid fine'],
+            ['Rupert Eris', 'Rupert', 'Eris', 'Male', '~10 days', '1998-11-01', '1998-11-11', 'Cut into nuclear weapons store at Coulport'],
+            ['Stellan Vinthagen', 'Stellan', 'Vinthagen', 'Male', '6+ months pretrial; sentenced to time served', '1998-09-14', '1999-10-15', 'Bread Not Bombs Plowshares - HMS Vengeance (Swedish)'],
+            ['Ann-Britt Sternfeldt', 'Ann-Britt', 'Sternfeldt', 'Female', '6+ months pretrial', '1998-09-14', '1999-10-15', 'Bread Not Bombs Plowshares - Barrow-in-Furness (Swedish)'],
+        ] as [$name, $first, $last, $gender, $sentence, $arrest, $release, $action]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'state' => 'United Kingdom', 'era' => '2000s',
+                    'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                    'affiliation' => ['Trident Ploughshares'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was a Trident Ploughshares activist. {$action}. Sentenced to {$sentence}.\n\n{$tridentContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $ukFaslane->id,
+                    'charges' => 'Criminal damage / trespass at UK Trident installations',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Volkel/Kleine Brogel
+        $defendants[] = [
+            'data' => [
+                'name' => 'Barbara Smedema', 'first_name' => 'Barbara', 'last_name' => 'Smedema',
+                'gender' => 'Female', 'state' => 'Netherlands', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Plowshares'],
+                'affiliation' => ['Plowshares (Dutch)'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Barbara Smedema is a Dutch Plowshares activist who hammered three dish antennas controlling U.S. nuclear weapons at Volkel Air Base in the Netherlands on February 9, 2003. Volkel hosts approximately 20 U.S. B61 nuclear bombs as part of NATO nuclear sharing.",
+            ],
+            'cases' => [[
+                'institution_id' => $netherlandsPrison->id,
+                'charges' => 'Criminal damage to U.S. nuclear weapons control infrastructure at Volkel Air Base',
+                'arrest_date' => '2003-02-09', 'release_date' => '2003-04-17',
+                'sentence' => 'Approximately 2 months custody',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'David Heller', 'first_name' => 'David', 'last_name' => 'Heller',
+                'gender' => 'Male', 'state' => 'United Kingdom', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Citizens Inspection'], 'in_custody' => false, 'released' => true,
+                'description' => "David Heller was a UK anti-nuclear activist arrested for citizen weapons inspection at Volkel Air Force Base, Netherlands (US B61 nuclear bombs). Sentenced to 7 days and deported to the UK.",
+            ],
+            'cases' => [[
+                'institution_id' => $netherlandsPrison->id,
+                'charges' => 'Citizen weapons inspection at Volkel AFB',
+                'arrest_date' => '2000-12-27', 'release_date' => '2001-01-03',
+                'sentence' => '7 days + deportation',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Tooker Gomberg', 'first_name' => 'Tooker', 'last_name' => 'Gomberg',
+                'gender' => 'Male', 'state' => 'Canada', 'era' => '2000s',
+                'death_date' => '2004-03-03',
+                'ideologies' => ['Anti-nuclear', 'Environmental', 'Pacifist'],
+                'affiliation' => ['Citizens Inspection'], 'in_custody' => false, 'released' => true,
+                'description' => "Tooker Gomberg was a Canadian environmental and anti-nuclear activist arrested for citizen weapons inspection at Volkel Air Force Base, Netherlands in December 2000. Sentenced to 7 days. Died in 2004.",
+            ],
+            'cases' => [[
+                'institution_id' => $netherlandsPrison->id,
+                'charges' => 'Citizen weapons inspection at Volkel AFB, Netherlands',
+                'arrest_date' => '2000-12-27', 'release_date' => '2001-01-03',
+                'sentence' => '7 days + deportation',
+            ]],
+        ];
+
+        // Lieberman Five 1999
+        $liebermanContext = "On July 2, 1999, the Lieberman Five - Hartford Catholic Workers - held a sit-in at Senator Joseph Lieberman's Hartford office to protest U.S. sanctions on Iraq, ringing a bell every twelve minutes for an Iraqi child who had died from sanctions-related malnutrition. Most received 30-day jail sentences served at the Carl Robinson Correctional Institution in Enfield, Connecticut.";
+
+        foreach ([
+            ['Brian Kavanagh', 'Brian', 'Kavanagh'],
+            ['Cal Robertson', 'Cal', 'Robertson'],
+            ['Hillel Arnold', 'Hillel', 'Arnold'],
+            ['Jim Noonan', 'Jim', 'Noonan'],
+        ] as [$name, $first, $last]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => 'Male', 'race' => 'White', 'state' => 'Connecticut', 'era' => '1990s',
+                    'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
+                    'affiliation' => ['Hartford Catholic Worker', 'Lieberman Five'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was a Hartford Catholic Worker arrested in the July 2, 1999 sit-in at Senator Joseph Lieberman's Hartford office to protest U.S. sanctions on Iraq. Sentenced to 30 days.\n\n{$liebermanContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $enfieldJailCT->id,
+                    'charges' => "Trespass / sit-in at Senator Lieberman's Hartford office",
+                    'arrest_date' => '1999-07-02', 'incarceration_date' => '1999-11-15', 'release_date' => '1999-12-15',
+                    'sentence' => '30 days',
+                ]],
+            ];
+        }
+
+        // Citizen Weapons Inspectors at Johns Hopkins APL
+        foreach ([
+            ['Jen Kipka', 'Jen', 'Kipka', 'Female', '5 days'],
+            ['Max Obuszewski', 'Max', 'Obuszewski', 'Male', '10 days'],
+        ] as [$name, $first, $last, $gender, $sentence]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Maryland', 'era' => '1990s',
+                    'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                    'affiliation' => ['Baltimore Emergency Response Network'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was arrested in a Citizen Weapons Inspection at Johns Hopkins University Applied Physics Laboratory in Baltimore on March 1, 1999. Sentenced to {$sentence}.",
+                ],
+                'cases' => [[
+                    'institution_id' => $bopVaried->id,
+                    'charges' => 'Citizen Weapons Inspection at Johns Hopkins APL',
+                    'arrest_date' => '1999-03-01', 'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Mary Alice Shemo
+        $defendants[] = [
+            'data' => [
+                'name' => 'Mary Alice Shemo', 'first_name' => 'Mary Alice', 'last_name' => 'Shemo',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Wisconsin', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Mary Alice Shemo was arrested for King Day trespass at Project ELF on January 17, 1999. Sentenced to 9 days in jail.",
+            ],
+            'cases' => [[
+                'institution_id' => $ashlandWIJail->id,
+                'charges' => 'Trespass at Project ELF on Martin Luther King Day',
+                'arrest_date' => '1999-01-17', 'incarceration_date' => '1999-05-11', 'release_date' => '1999-05-20',
+                'sentence' => '9 days',
+            ]],
+        ];
+
+        // Operation Desert Fox protests Syracuse 1998
+        foreach ([
+            ['Jerry Berrigan', 'Jerry', 'Berrigan', 'Male', 'Berrigan family elder; uncle of Daniel and Philip'],
+            ['Dick Keough', 'Dick', 'Keough', 'Male', null],
+            ['Audrey Stewart', 'Audrey', 'Stewart', 'Female', null],
+        ] as [$name, $first, $last, $gender, $note]) {
+            $bio = "{$name} painted anti-Iraq-war messages on the Syracuse federal building during Operation Desert Fox (December 1998 U.S./UK bombing of Iraq). " . ($note ? $note . '. ' : '') . "Charged with felony plus misdemeanors.";
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'New York', 'era' => '1990s',
+                    'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
+                    'affiliation' => ['Syracuse Catholic Worker'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => $bio,
+                ],
+                'cases' => [[
+                    'institution_id' => $bopVaried->id,
+                    'charges' => 'Property damage to federal building during anti-Iraq-war witness',
+                    'arrest_date' => '1998-12-16', 'release_date' => '1999-09-15',
+                    'sentence' => 'Felony + misdemeanor convictions',
+                ]],
+            ];
+        }
+
+        // Wolfgang Sternstein - US European Command HQ
+        $defendants[] = [
+            'data' => [
+                'name' => 'Dr. Wolfgang Sternstein', 'first_name' => 'Wolfgang', 'last_name' => 'Sternstein',
+                'gender' => 'Male', 'state' => 'Germany', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Plowshares'],
+                'affiliation' => ['EUCOMmunity', 'German Plowshares'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Dr. Wolfgang Sternstein was a German Plowshares activist who in 1998 cut the perimeter fence at U.S. European Command Center (EUCOM) headquarters in Stuttgart, Germany - the operational command for U.S. military forces in Europe and a base hosting more than 150 U.S. atomic weapons. Sentenced to 140 days at Justizvollzugsanstalt Rottenburg, beginning November 22, 1999.",
+            ],
+            'cases' => [[
+                'institution_id' => $rottenburgPrison->id,
+                'charges' => 'Cutting perimeter fence at U.S. European Command HQ, Stuttgart',
+                'arrest_date' => '1998-08-01', 'incarceration_date' => '1999-11-22', 'release_date' => '2000-04-10',
+                'sentence' => '140 days German prison',
+            ]],
+        ];
+
+        // Allison Hunter - Rocky Flats
+        $defendants[] = [
+            'data' => [
+                'name' => 'Allison Hunter', 'first_name' => 'Allison', 'last_name' => 'Hunter',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Colorado', 'era' => '1970s',
+                'death_date' => '1999-09-24',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Allison (Allyson) Hunter was a Seattle-based anti-nuclear activist arrested repeatedly at the Rocky Flats Plant outside Denver, Colorado - where U.S. plutonium pits for nuclear weapons were manufactured - in 1978. A foundational figure in the Pacific Northwest anti-nuclear movement. Died in 1999.",
+            ],
+            'cases' => [[
+                'institution_id' => $rockyMountainArea->id,
+                'charges' => 'Multiple trespass arrests at Rocky Flats Plant',
+                'arrest_date' => '1978-04-29', 'release_date' => '1980-12-31',
+                'sentence' => 'Months of cumulative jail time',
+            ]],
+        ];
+
+        // Larry Morlan - Gods of Metal Plowshares
+        $defendants[] = [
+            'data' => [
+                'name' => 'Father Larry Morlan', 'first_name' => 'Larry', 'last_name' => 'Morlan',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Maryland', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic'],
+                'affiliation' => ['Plowshares movement', 'Diocese of Peoria'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Father Larry Morlan was a Catholic priest of the Diocese of Peoria, Illinois who participated in the Gods of Metal Plowshares action at Andrews Air Force Base Open House in May 1998 - hammering on a B-52 bomber. Sentenced to 4 months in federal prison on January 4, 1999.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Damage to B-52 bomber at Andrews AFB - Gods of Metal Plowshares',
+                'arrest_date' => '1998-05-17', 'incarceration_date' => '1999-01-04', 'release_date' => '1999-05-04',
+                'sentence' => '4 months federal prison',
+            ]],
+        ];
+
+        // NH Peace Action - British Aerospace Nashua
+        foreach ([
+            ['Ruth McKay', 'Ruth', 'McKay', '10 days', 'Age 81; refused $260 fine'],
+            ['Hattie Nestle', 'Hattie', 'Nestle', '6 days', 'Refused fine'],
+            ['Dade Singapuri', 'Dade', 'Singapuri', '6 days', null],
+        ] as [$name, $first, $last, $sentence, $note]) {
+            $bio = "{$name} was arrested December 4, 2000 for trespass / disorderly conduct at the British Aerospace plant in Nashua, New Hampshire during the long-running weekly anti-war vigil. Sentenced to {$sentence}." . ($note ? " {$note}." : '');
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => 'Female', 'race' => 'White', 'state' => 'New Hampshire', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Pacifist'],
+                    'affiliation' => ['New Hampshire Peace Action'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => $bio,
+                ],
+                'cases' => [[
+                    'institution_id' => $nashuaJail->id,
+                    'charges' => 'Trespass / disorderly conduct at British Aerospace plant Nashua',
+                    'arrest_date' => '2000-12-04', 'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Anni Rainbow - UK Menwith Hill
+        $defendants[] = [
+            'data' => [
+                'name' => 'Anni Rainbow', 'first_name' => 'Anni', 'last_name' => 'Rainbow',
+                'gender' => 'Female', 'state' => 'United Kingdom', 'era' => '2000s',
+                'death_date' => '2022-04-29',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Campaign for the Accountability of American Bases (CAAB)'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Anni Rainbow was a UK anti-nuclear and anti-base activist with CAAB. Repeatedly arrested at NSA Menwith Hill (largest U.S. signals-intelligence facility outside the United States) and at USAF Fylingdales in Yorkshire. Died 2022.",
+            ],
+            'cases' => [[
+                'institution_id' => $ukPrison->id,
+                'charges' => 'Aggravated trespass at NSA Menwith Hill and USAF Fylingdales',
+                'arrest_date' => '2002-02-26', 'release_date' => '2002-02-27',
+                'sentence' => 'Multiple short jail terms; jailed overnight',
+            ]],
+        ];
+
+
         // Process all defendants ───
         foreach ($defendants as $entry) {
             DB::transaction(function () use ($entry, &$created, &$skipped) {
