@@ -613,6 +613,347 @@ class AddNuclearResisterPrisoners extends Command
             ]],
         ];
 
+        // ─── Round 2: extracted from nukeresister Inside & Out sections ───
+
+        // Additional institutions for Round 2
+        $coleman      = Institution::firstOrCreate(['name' => 'United States Penitentiary, Coleman'], ['city' => 'Coleman', 'state' => 'Florida']);
+        $edgefield    = Institution::firstOrCreate(['name' => 'FCI Edgefield'], ['city' => 'Edgefield', 'state' => 'South Carolina']);
+        $yazoo        = Institution::firstOrCreate(['name' => 'FCI Yazoo City Medium'], ['city' => 'Yazoo City', 'state' => 'Mississippi']);
+        $guaynabo     = Institution::firstOrCreate(['name' => 'MDC Guaynabo'], ['city' => 'San Juan', 'state' => 'Puerto Rico']);
+        $sheridan2    = Institution::firstOrCreate(['name' => 'FPC Sheridan'], ['city' => 'Sheridan', 'state' => 'Oregon']);
+        $allenwoodLow = Institution::firstOrCreate(['name' => 'FCI Allenwood Low'], ['city' => 'White Deer', 'state' => 'Pennsylvania']);
+        $victoriaJail = Institution::firstOrCreate(['name' => 'Victoria County Jail'], ['city' => 'Victoria', 'state' => 'Texas']);
+        $mdcBrooklyn  = Institution::firstOrCreate(['name' => 'MDC Brooklyn'], ['city' => 'Brooklyn', 'state' => 'New York']);
+        $lejeune      = Institution::firstOrCreate(['name' => 'Camp Lejeune brig'], ['city' => 'Camp Lejeune', 'state' => 'North Carolina']);
+        $fortSill     = Institution::firstOrCreate(['name' => 'Fort Sill brig'], ['city' => 'Fort Sill', 'state' => 'Oklahoma']);
+        $hillsboroNH  = Institution::firstOrCreate(['name' => 'Hillsborough County House of Corrections'], ['city' => 'Manchester', 'state' => 'New Hampshire']);
+        $lickingOH    = Institution::firstOrCreate(['name' => 'Licking County Justice Center'], ['city' => 'Newark', 'state' => 'Ohio']);
+        $duluth       = Institution::firstOrCreate(['name' => 'FPC Duluth'], ['city' => 'Duluth', 'state' => 'Minnesota']);
+        $pekin2       = Institution::firstOrCreate(['name' => 'FCI Pekin Satellite Camp'], ['city' => 'Pekin', 'state' => 'Illinois']);
+        $memphisCamp  = Institution::firstOrCreate(['name' => 'FCI Memphis Satellite Camp'], ['city' => 'Millington', 'state' => 'Tennessee']);
+        $dublinCA     = Institution::firstOrCreate(['name' => 'FCI Dublin Satellite Camp'], ['city' => 'Dublin', 'state' => 'California']);
+        $lexCamp      = Institution::firstOrCreate(['name' => 'FMC Lexington Satellite Camp'], ['city' => 'Lexington', 'state' => 'Kentucky']);
+        $clearwater   = Institution::firstOrCreate(['name' => 'Pinellas County Jail'], ['city' => 'Clearwater', 'state' => 'Florida']);
+        $fortCarson   = Institution::firstOrCreate(['name' => 'Fort Carson brig'], ['city' => 'Fort Carson', 'state' => 'Colorado']);
+
+        // Vieques resisters (1999-2003 Puerto Rico bombing protests)
+        $viequesContext = "From 1941 to 2003, the U.S. Navy used the inhabited Puerto Rican island of Vieques as a live-fire bombing range. After Navy bombs killed civilian security guard David Sanes in 1999, a sustained civil-disobedience movement of Puerto Rican residents and U.S. solidarity activists repeatedly entered Navy land to halt training. Hundreds were arrested and dozens served federal prison sentences for trespass, conspiracy, and damage to federal property. The Navy finally withdrew from Vieques in May 2003 — the largest victory in U.S. anti-base activism in a generation.";
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'José Vélez Acosta', 'first_name' => 'José', 'last_name' => 'Vélez Acosta',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "José Vélez Acosta was one of dozens of Puerto Rican residents and solidarity activists who served substantial federal prison time for civil disobedience halting U.S. Navy bombing exercises on the inhabited island of Vieques. He was sentenced to 33 months in federal prison and held at the United States Penitentiary at Coleman, Florida.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $coleman->id,
+                'charges' => 'Conspiracy, damage to federal property, and/or probation violation — resisting U.S. military bombardment of Vieques, Puerto Rico',
+                'arrest_date' => '2003-05-01', 'release_date' => '2006-01-27',
+                'sentence' => '33 months federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'José Pérez González', 'first_name' => 'José', 'last_name' => 'Pérez González',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "José Pérez González received the longest federal sentence among the Vieques resisters: five years in federal prison for conspiracy, damage to federal property, and probation violation in connection with civil disobedience halting U.S. Navy bombing of the inhabited Puerto Rican island. He served at FCI Edgefield in South Carolina and later at FCI Yazoo City Medium in Mississippi.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $edgefield->id,
+                'charges' => 'Conspiracy, damage to federal property, and probation violation — resisting U.S. military bombardment of Vieques, Puerto Rico',
+                'arrest_date' => '2003-05-01', 'release_date' => '2008-01-17',
+                'sentence' => '5 years federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Jorge Cruz Hernandez', 'first_name' => 'Jorge', 'last_name' => 'Cruz Hernandez',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Jorge Cruz Hernandez served 18 months in federal prison at FCI Edgefield, South Carolina for civil disobedience halting U.S. Navy bombing on Vieques.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $edgefield->id,
+                'charges' => 'Conspiracy, damage to federal property — resisting U.S. military bombardment of Vieques, Puerto Rico',
+                'arrest_date' => '2003-05-01', 'release_date' => '2005-06-06',
+                'sentence' => '18 months federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'José Montañez Sanes', 'first_name' => 'José', 'last_name' => 'Montañez Sanes',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "José Montañez Sanes served 18 months in federal custody at MDC Guaynabo in Puerto Rico for civil disobedience halting U.S. Navy bombing on Vieques.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $guaynabo->id,
+                'charges' => 'Conspiracy, damage to federal property — resisting U.S. military bombardment of Vieques, Puerto Rico',
+                'arrest_date' => '2003-05-01', 'release_date' => '2005-05-29',
+                'sentence' => '18 months federal custody',
+            ]],
+        ];
+
+        // Anti-war / anti-empire actions
+        $defendants[] = [
+            'data' => [
+                'name' => 'Michael D. Poulin', 'first_name' => 'Michael', 'middle_name' => 'D.', 'last_name' => 'Poulin',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Washington', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Anti-imperialist', 'Anarchist'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Michael D. Poulin was convicted in 2003 of damaging electricity transmission towers in Washington state in a symbolic action that he and supporters described as exposing the fragility of U.S. empire. He served 27 months in federal prison at FPC Sheridan, Oregon.",
+            ],
+            'cases' => [[
+                'institution_id' => $sheridan2->id,
+                'charges' => 'Damaging energy transmission infrastructure — symbolic anti-imperialist sabotage',
+                'arrest_date' => '2003-11-01', 'release_date' => '2006-01-25',
+                'sentence' => '27 months federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Brendan Walsh', 'first_name' => 'Brendan', 'last_name' => 'Walsh',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Pennsylvania', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Pacifist'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Brendan Walsh was sentenced to five years in federal prison for an arson at a U.S. military recruiting station in April 2002, in protest of the post-9/11 military buildup. He served at FCI Allenwood Low and later at FCI Elkton.",
+            ],
+            'cases' => [[
+                'institution_id' => $allenwoodLow->id,
+                'charges' => 'Arson at military recruiting station',
+                'arrest_date' => '2002-04-15', 'release_date' => '2008-07-15',
+                'sentence' => '5 years federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Sylvia Diane Wilson', 'first_name' => 'Sylvia Diane', 'last_name' => 'Wilson',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Texas', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Environmental'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Sylvia Diane Wilson was arrested in December 2005 for heckling Vice President Dick Cheney at a public event. She was held at the Victoria County Jail in Texas to serve 150 days on an outstanding sentence for an earlier environmental banner-hanging action.",
+            ],
+            'cases' => [[
+                'institution_id' => $victoriaJail->id,
+                'charges' => 'Anti-war heckling of VP Cheney; held to serve sentence for environmental banner-hanging',
+                'arrest_date' => '2005-12-05', 'release_date' => '2006-03-18',
+                'sentence' => '150 days',
+            ]],
+        ];
+
+        // St. Patrick's Four (additional defendant beyond Peter DeMott / Teresa Grady / Clare Grady)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Daniel Burns', 'first_name' => 'Daniel', 'last_name' => 'Burns',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'New York', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ["St. Patrick's Four", 'Ithaca Catholic Worker'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Daniel Burns was one of the St. Patrick's Four — Catholic Worker activists Peter DeMott, Teresa Grady, Clare Grady, and Daniel Burns — who on March 17, 2003, on the eve of the U.S. invasion of Iraq, entered the Ithaca, New York Army Recruiting Station and poured their own blood inside the office in symbolic protest. Burns served six months at MDC Brooklyn for the action.",
+            ],
+            'cases' => [[
+                'institution_id' => $mdcBrooklyn->id,
+                'charges' => "Conspiracy and damage to federal property — St. Patrick's Four blood-pouring at Ithaca Army Recruiting Station",
+                'arrest_date' => '2003-03-17', 'release_date' => '2006-07-17',
+                'sentence' => '6 months federal',
+            ]],
+        ];
+
+        // Iraq War military refusers (additional)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Joel Klimkewicz', 'first_name' => 'Joel', 'last_name' => 'Klimkewicz',
+                'aka' => 'Pvt. Joel Klimkewicz',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'North Carolina', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Conscientious objector'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Private Joel Klimkewicz was a U.S. Marine who refused to train for combat after his conscientious-objector application was denied. He was court-martialed at Camp Lejeune in late 2004 and sentenced to seven months in military confinement.",
+            ],
+            'cases' => [[
+                'institution_id' => $lejeune->id,
+                'charges' => 'Refusing combat training (UCMJ); conscientious-objector petition denied',
+                'arrest_date' => '2004-12-01',
+                'sentence' => '7 months military confinement',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Dale Bartell', 'first_name' => 'Dale', 'last_name' => 'Bartell',
+                'aka' => 'Spc. Dale Bartell',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Oklahoma', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Conscientious objector'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Specialist Dale Bartell was a U.S. Army soldier who refused to deploy to Iraq in May 2005 to preserve his pending conscientious-objector claim. He pled guilty to facts of desertion at Fort Sill and served four months in military confinement.",
+            ],
+            'cases' => [[
+                'institution_id' => $fortSill->id,
+                'charges' => 'Desertion (UCMJ Article 85)',
+                'arrest_date' => '2005-05-15', 'release_date' => '2005-11-12',
+                'sentence' => '4 months military confinement',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Neil Quentin Lucas', 'first_name' => 'Neil Quentin', 'last_name' => 'Lucas',
+                'aka' => 'Pvt. Neil Quentin Lucas',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Oklahoma', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Conscientious objector'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Private Neil Quentin Lucas was a U.S. Army soldier who refused to deploy after his conscientious-objector claim was ignored. He was court-martialed on June 22, 2005 and sentenced to 13 months in military confinement at Fort Sill.",
+            ],
+            'cases' => [[
+                'institution_id' => $fortSill->id,
+                'charges' => 'Desertion / refusing deployment after CO claim ignored',
+                'arrest_date' => '2005-06-22', 'release_date' => '2006-08-22',
+                'sentence' => '13 months military confinement',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Anthony Michael Anderson', 'first_name' => 'Anthony Michael', 'last_name' => 'Anderson',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Oklahoma', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Conscientious objector'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Anthony Michael Anderson was a U.S. Army soldier who pled guilty to desertion and disobeying an order in November 2008 and was sentenced to 14 months in military confinement at Fort Sill.",
+            ],
+            'cases' => [[
+                'institution_id' => $fortSill->id,
+                'charges' => 'Desertion and disobeying an order (UCMJ Articles 85 and 92)',
+                'arrest_date' => '2008-11-01', 'release_date' => '2009-11-30',
+                'sentence' => '14 months military confinement',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Jerry Texiero', 'first_name' => 'Jerry', 'last_name' => 'Texiero',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Florida', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Conscientious objector'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Jerry Texiero was a Vietnam-era Marine Corps deserter who lived underground for decades on grounds of conscience. He was arrested on August 16, 2005 and held at Pinellas County Jail in Clearwater, Florida pending court-martial.",
+            ],
+            'cases' => [[
+                'institution_id' => $clearwater->id,
+                'charges' => 'Desertion (Vietnam era)',
+                'arrest_date' => '2005-08-16',
+                'sentence' => 'Held pending court-martial',
+            ]],
+        ];
+
+        // Merrimack Four — Boston Elbit Systems action November 2023
+        $merrimackContext = "On November 30, 2023, four young women — Calla Walsh, Sophie Ross, Bridget Shergalis, and Paige Belanger — entered the Elbit Systems of America facility in Merrimack, New Hampshire and damaged equipment as a protest against Elbit's role as Israel's largest weapons manufacturer during the war in Gaza. Elbit produces military drones and components used in Israeli operations. The four pleaded guilty to misdemeanor criminal mischief in late 2024 and were each sentenced to 60 days in the Hillsborough County House of Corrections, beginning November 14, 2024.";
+
+        foreach ([
+            ['Calla Walsh', 'Calla', 'Walsh'],
+            ['Sophie Ross', 'Sophie', 'Ross'],
+            ['Bridget Shergalis', 'Bridget', 'Shergalis'],
+            ['Paige Belanger', 'Paige', 'Belanger'],
+        ] as [$name, $first, $last]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => 'Female', 'race' => 'White', 'state' => 'New Hampshire', 'era' => '2020s',
+                    'ideologies' => ['Anti-war', 'Palestine solidarity', 'Anti-imperialist'],
+                    'affiliation' => ['Merrimack Four', 'Palestine Action US'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} is one of the Merrimack Four. {$merrimackContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $hillsboroNH->id,
+                    'charges' => 'Misdemeanor criminal mischief — property damage at Elbit Systems of America facility in Merrimack, New Hampshire',
+                    'arrest_date' => '2023-11-30',
+                    'incarceration_date' => '2024-11-14', 'release_date' => '2025-01-13',
+                    'sentence' => '60 days in Hillsborough County House of Corrections',
+                ]],
+            ];
+        }
+
+        // Boeing plant blockade
+        $defendants[] = [
+            'data' => [
+                'name' => 'Nancy Epling', 'first_name' => 'Nancy', 'last_name' => 'Epling',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Ohio', 'era' => '2020s',
+                'ideologies' => ['Anti-war', 'Palestine solidarity'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Nancy Epling was sentenced to 30 days in the Licking County Justice Center for participating in a blockade of the Boeing plant in Heath, Ohio in protest of U.S. weapons production for Israel's war in Gaza.",
+            ],
+            'cases' => [[
+                'institution_id' => $lickingOH->id,
+                'charges' => 'Trespass / blockade of Boeing plant in Heath, Ohio',
+                'arrest_date' => '2024-10-28', 'release_date' => '2024-11-27',
+                'sentence' => '30 days',
+            ]],
+        ];
+
+        // Anti-nuclear (Offutt AFB / STRATCOM)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Mark Kenney', 'first_name' => 'Mark', 'last_name' => 'Kenney',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Minnesota', 'era' => '2010s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Mark Kenney was sentenced to six months in federal prison at FPC Duluth for trespass at Offutt Air Force Base in Nebraska, the home of U.S. Strategic Command, on August 9, 2010.",
+            ],
+            'cases' => [[
+                'institution_id' => $duluth->id,
+                'charges' => 'Trespass at Offutt Air Force Base (home of U.S. Strategic Command)',
+                'arrest_date' => '2010-08-09', 'incarceration_date' => '2011-04-27', 'release_date' => '2011-10-25',
+                'sentence' => '6 months federal prison',
+            ]],
+        ];
+
+        // SOA Watch line-crossers — 2006 sentencing batch
+        $soaContext = "Each year on the November anniversary of the assassination of six Jesuits, their housekeeper, and her daughter at the University of Central America in San Salvador in 1989, peace activists gather at the gates of Fort Benning, Georgia (now Fort Moore), site of the U.S. Army School of the Americas / Western Hemisphere Institute for Security Cooperation (WHINSEC), to commemorate the dead and to call for the school's closure. Hundreds have crossed the line onto the base over four decades of vigils; many have served federal sentences ranging from 30 days to a year for trespass.";
+
+        foreach ([
+            ['Anika D. Cunningham', 'Anika', 'D.', 'Cunningham', 'Female', '92567-020', '30 days', '2006-04-11', '2006-05-10', null],
+            ['Elizabeth Ann Lentsch', 'Elizabeth', 'Ann', 'Lentsch', 'Female', '30147-074', '6 months', '2006-04-11', '2006-10-10', $lexCamp->id],
+            ['Joanne Cowan', 'Joanne', null, 'Cowan', 'Female', '92566-020', '60 days', '2006-04-11', '2006-06-09', null],
+            ['Sarah C. Harper', 'Sarah', 'C.', 'Harper', 'Female', '92571-020', '90 days', '2006-04-11', '2006-07-09', null],
+            ['Cheryl Sommers', 'Cheryl', null, 'Sommers', 'Female', '91437-020', '90 days', '2006-04-11', '2006-07-09', $dublinCA->id],
+            ['Judith Ruland', 'Judith', null, 'Ruland', 'Female', '91434-020', '60 days', '2006-04-11', '2006-06-09', null],
+            ['Robin Lloyd', 'Robin', null, 'Lloyd', 'Female', '92572-020', '90 days', '2006-04-11', '2006-07-09', $danbury->id],
+            ['Rita Hohenshell', 'Rita', null, 'Hohenshell', 'Female', '90280-020', '60 days', '2006-04-11', '2006-06-09', $pekin2->id],
+            ['Jane Hosking', 'Jane', null, 'Hosking', 'Female', '05331-090', '6 months', '2006-04-11', '2006-10-10', $pekin2->id],
+            ['Dorothy Parker', 'Dorothy', null, 'Parker', 'Female', '91432-020', '60 days', '2006-04-11', '2006-06-09', $pekin2->id],
+            ['Christine Gaunt', 'Christine', null, 'Gaunt', 'Female', '91356-020', '6 months', '2005-11-19', '2006-05-19', $pekin2->id],
+            ['Donald W. Nelson', 'Donald', 'W.', 'Nelson', 'Male', '92559-020', '3 months', '2005-11-19', '2006-02-19', $memphisCamp->id],
+            ['Christopher Spicer', 'Christopher', null, 'Spicer', 'Male', '94642-020', '6 months', '2010-11-21', '2011-05-21', $pekin2->id],
+            ['Michael David Omondi', 'Michael David', null, 'Omondi', 'Male', '94638-020', '6 months', '2010-11-21', '2011-05-21', null],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $bopId, $sentence, $arrest, $release, $instId] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Georgia', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'inmate_number' => $bopId,
+                    'description' => "{$name} crossed the line at Fort Benning, Georgia during the annual SOA Watch vigil to close the U.S. Army School of the Americas / Western Hemisphere Institute for Security Cooperation. Convicted of trespass on a military installation and sentenced to {$sentence} in federal custody.\n\n{$soaContext}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $instId,
+                    'charges' => 'Trespass at the U.S. Army School of the Americas / WHINSEC, Fort Benning, Georgia',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
         // ─── Process all defendants ───
         foreach ($defendants as $entry) {
             DB::transaction(function () use ($entry, &$created, &$skipped) {
