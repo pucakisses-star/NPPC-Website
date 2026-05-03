@@ -31,7 +31,7 @@ class AddBlackPowerEraPrisoners extends Command
         $defendants = [];
 
         // ─── Chicago 7/8 ───
-        $chicagoTrial = "The Chicago conspiracy trial (September 24, 1969 – February 20, 1970) prosecuted eight organizers of the demonstrations outside the 1968 Democratic National Convention under the new federal anti-riot provisions of the 1968 Civil Rights Act. The proceedings before Judge Julius Hoffman became one of the most chaotic and politically charged trials in American history. Bobby Seale's case was severed after Hoffman ordered him bound and gagged in court for demanding the right to represent himself; the remaining seven became known as the Chicago Seven. The jury acquitted all seven of conspiracy and acquitted Froines and Weiner on all charges, but convicted Davis, Dellinger, Hayden, Hoffman, and Rubin of crossing state lines with intent to incite a riot. Each was sentenced to five years and a $5,000 fine. The Seventh Circuit Court of Appeals reversed all convictions in November 1972, citing prosecutorial and judicial misconduct, and the government declined to retry. Judge Hoffman also handed down 159 contempt citations against the defendants and their attorneys; those convictions were also reversed on appeal in May 1972.";
+        $chicagoTrial = "The Chicago conspiracy trial (September 24, 1969 – February 20, 1970) prosecuted eight organizers of the demonstrations outside the 1968 Democratic National Convention under the new federal anti-riot provisions of the 1968 Civil Rights Act. The proceedings before Judge Julius Hoffman became one of the most chaotic and politically charged trials in American history. Bobby Seale's case was severed after Hoffman ordered him bound and gagged in court for demanding the right to represent himself; the remaining seven became known as the Chicago Seven. The jury acquitted all seven of conspiracy and acquitted Froines and Weiner on all charges, but convicted Davis, Dellinger, Hayden, Hoffman, and Rubin of crossing state lines with intent to incite a riot.\n\nThe defendants were arrested in March 1969, booked, and held in the Cook County Jail before posting bail in the days that followed. During the trial itself Judge Hoffman repeatedly held them in contempt and ordered them taken into custody from the courtroom — Bobby Seale most famously, but the other seven and their attorneys as well, accumulating 159 contempt citations between them. Each convicted defendant was sentenced to five years in prison and a $5,000 fine, with bail pending appeal granted within weeks; the Seventh Circuit Court of Appeals reversed all the riot-act convictions in November 1972 and the contempt convictions in May 1972, and the government declined to retry, so the underlying five-year sentences were never served.";
 
         $c8 = function (string $name, string $first, string $last, string $birth, ?string $death, string $bio, ?int $contemptMonths = null) use ($cookCounty, $chicagoTrial) {
             return [
@@ -44,11 +44,11 @@ class AddBlackPowerEraPrisoners extends Command
                 ],
                 'cases' => [[
                     'institution_id' => $cookCounty->id,
-                    'charges'        => 'Conspiracy and crossing state lines with intent to incite a riot (Anti-Riot Act of 1968)',
+                    'charges'        => 'Conspiracy and crossing state lines with intent to incite a riot (Anti-Riot Act of 1968); contempt of court (during trial)',
                     'arrest_date'    => '1969-03-20',
                     'release_date'   => '1972-11-21',
-                    'convicted'      => 'Initially convicted (where applicable); all convictions reversed by U.S. Court of Appeals for the Seventh Circuit, November 1972',
-                    'sentence'       => '5 years and $5,000 fine; reversed on appeal'.($contemptMonths ? "; additionally cited for {$contemptMonths} months of contempt by Judge Hoffman, also reversed on appeal" : ''),
+                    'convicted'      => 'Convicted by jury (where applicable) of crossing state lines to incite a riot; all riot-act convictions reversed by the U.S. Court of Appeals for the Seventh Circuit in November 1972 and all contempt convictions reversed in May 1972',
+                    'sentence'       => 'Initial booking custody after March 1969 arrest before bail was posted'.($contemptMonths ? "; cited for approximately {$contemptMonths} months of contempt by Judge Hoffman during trial (also reversed on appeal)" : '').'; sentenced to 5 years and a $5,000 fine on the riot-act count but released on bail pending appeal and never served the underlying sentence after convictions were reversed',
                     'judge'          => 'Julius J. Hoffman',
                 ]],
             ];
@@ -162,15 +162,15 @@ class AddBlackPowerEraPrisoners extends Command
                 'ideologies' => ['Indigenous sovereignty', 'Anti-colonial'],
                 'affiliation' => ['American Indian Movement', 'Oglala Lakota Nation'],
                 'in_custody' => false, 'released' => true,
-                'description' => "Russell Means was an Oglala Lakota leader of the American Indian Movement and one of the most visible Indigenous activists of his generation. He led major AIM actions including the 1969–71 occupation of Alcatraz, the 1972 Trail of Broken Treaties march and occupation of the Bureau of Indian Affairs in Washington, the 1972 occupation of Mount Rushmore, and — most prominently — the 1973 occupation of Wounded Knee, South Dakota. Federal prosecutors brought Means and Dennis Banks to trial in St. Paul on conspiracy, assault, and other charges; after a nine-month trial Judge Fred Nichol dismissed all charges on grounds of governmental misconduct.\n\nMeans was arrested more than a dozen times across his life on politically related charges, including a 1975 South Dakota state prosecution for assault arising from a Sioux Falls protest, for which he served roughly a year at the South Dakota State Penitentiary in 1979–80.\n\n".$woundedKnee,
+                'description' => "Russell Means was an Oglala Lakota leader of the American Indian Movement and one of the most visible Indigenous activists of his generation. He led major AIM actions including the 1969–71 occupation of Alcatraz, the 1972 Trail of Broken Treaties march and occupation of the Bureau of Indian Affairs in Washington, the 1972 occupation of Mount Rushmore, and — most prominently — the 1973 occupation of Wounded Knee, South Dakota. Federal prosecutors brought Means and Dennis Banks to trial in St. Paul on conspiracy, assault, and other charges; after a nine-month trial Judge Fred Nichol dismissed all charges on grounds of governmental misconduct.\n\nMeans was arrested more than a dozen times across his life on politically related charges. After a chaotic protest at the Sioux Falls courthouse in April 1974, he was prosecuted under South Dakota state law for assault and riot; he was convicted and, after his appeals were exhausted, served roughly a year at the South Dakota State Penitentiary at Sioux Falls beginning in 1979.\n\n".$woundedKnee,
             ],
             'cases' => [[
                 'institution_id' => $stPaul->id,
-                'charges'        => 'Conspiracy, assault, larceny, possession of firearms, interfering with federal officers (Wounded Knee occupation)',
+                'charges'        => 'Conspiracy, assault, larceny, possession of firearms, interfering with federal officers (Wounded Knee occupation); plus subsequent South Dakota state prosecution for the 1974 Sioux Falls courthouse protest',
                 'arrest_date'    => '1973-05-08',
-                'release_date'   => '1974-09-16',
-                'convicted'      => 'No — all charges dismissed by Chief Judge Fred Nichol on September 16, 1974, citing FBI perjury, evidence tampering, and illegal surveillance',
-                'sentence'       => 'No conviction',
+                'release_date'   => '1980-12-01',
+                'convicted'      => 'Wounded Knee charges dismissed September 16, 1974 by Chief Judge Fred Nichol citing FBI perjury, evidence tampering, and illegal surveillance; later convicted in South Dakota state court for the Sioux Falls courthouse protest',
+                'sentence'       => 'Held briefly during initial arrests and pretrial detention; later served approximately one year at South Dakota State Penitentiary, Sioux Falls (1979–1980) on the state Sioux Falls protest conviction',
             ]],
         ];
 
@@ -182,15 +182,15 @@ class AddBlackPowerEraPrisoners extends Command
                 'ideologies' => ['Indigenous sovereignty', 'Anti-colonial'],
                 'affiliation' => ['American Indian Movement', 'Anishinaabe Nation'],
                 'in_custody' => false, 'released' => true,
-                'description' => "Dennis Banks was an Anishinaabe organizer and a co-founder of the American Indian Movement in Minneapolis in 1968. With Russell Means he led the 1972 Trail of Broken Treaties and the 1973 Wounded Knee occupation, and faced the same nine-month federal prosecution that ended in dismissal of all charges in September 1974. He later faced an unrelated South Dakota state prosecution arising from a 1973 incident in Custer, South Dakota; rather than surrender to that sentence he went on the run, lived under sanctuary in California (granted by Governor Jerry Brown) and later in the Onondaga Nation in New York, before finally surrendering in 1985 and serving 18 months in South Dakota state prison.\n\n".$woundedKnee,
+                'description' => "Dennis Banks was an Anishinaabe organizer and a co-founder of the American Indian Movement in Minneapolis in 1968. With Russell Means he led the 1972 Trail of Broken Treaties and the 1973 Wounded Knee occupation, and faced the same nine-month federal prosecution that ended in dismissal of all charges in September 1974. He later faced an unrelated South Dakota state prosecution arising from a 1973 protest at the Custer County courthouse; rather than surrender to that sentence he went on the run in 1975, living under sanctuary in California (granted by Governor Jerry Brown) and later on the Onondaga Nation in New York. He finally surrendered in 1984 and served 18 months at the South Dakota State Penitentiary at Sioux Falls.\n\n".$woundedKnee,
             ],
             'cases' => [[
                 'institution_id' => $stPaul->id,
-                'charges'        => 'Conspiracy, assault, larceny, possession of firearms, interfering with federal officers (Wounded Knee occupation)',
+                'charges'        => 'Conspiracy, assault, larceny, possession of firearms, interfering with federal officers (Wounded Knee occupation); plus separate South Dakota state prosecution for the 1973 Custer County courthouse protest',
                 'arrest_date'    => '1973-05-08',
-                'release_date'   => '1974-09-16',
-                'convicted'      => 'No — all charges dismissed by Chief Judge Fred Nichol on September 16, 1974',
-                'sentence'       => 'No conviction',
+                'release_date'   => '1986-04-01',
+                'convicted'      => 'Wounded Knee charges dismissed by Chief Judge Fred Nichol on September 16, 1974; convicted in South Dakota state court for the Custer protest, served sentence after surrendering in 1984',
+                'sentence'       => 'Held briefly during initial 1973 arrest and pretrial detention; later served 18 months at South Dakota State Penitentiary (1984–1986) on the state Custer protest conviction',
             ]],
         ];
 
@@ -222,15 +222,15 @@ class AddBlackPowerEraPrisoners extends Command
                 'ideologies' => ['Indigenous sovereignty', 'Anti-colonial'],
                 'affiliation' => ['American Indian Movement', "Mi'kmaq Nation"],
                 'in_custody' => false, 'released' => false,
-                'description' => "Anna Mae Pictou Aquash was a Mi'kmaq organizer from Nova Scotia who became one of the most prominent women in the American Indian Movement during the early 1970s, participating in the 1973 Wounded Knee occupation and traveling extensively for AIM. She was arrested several times and was being heavily pressured by the FBI to become an informant, which she repeatedly refused.\n\nIn February 1976 her body was found at the bottom of an embankment on the Pine Ridge Reservation. The original autopsy ordered by the FBI ruled the death exposure; her hands were severed before her family could identify her. A second autopsy demanded by her family found that she had been killed by a single execution-style gunshot to the back of the head. Her death was investigated for decades; in 2003 and 2010, two AIM members — Arlo Looking Cloud and John Graham — were ultimately convicted of her murder. Significant evidence, much of it unresolved, has long pointed to a wider conspiracy involving allegations that she had been killed because AIM leadership came to suspect (incorrectly, in the view of her family) that she was an FBI informant.",
+                'description' => "Anna Mae Pictou Aquash was a Mi'kmaq organizer from Nova Scotia who became one of the most prominent women in the American Indian Movement during the early 1970s, participating in the 1973 Wounded Knee occupation and traveling extensively for AIM. She was arrested multiple times during the period of intense FBI pressure on AIM. After a September 5, 1975 raid in Pine Ridge she was held in federal custody at the Pennington County Jail in Rapid City for several days on weapons charges before being released on bond; she was arrested again in November 1975 in Oregon and held briefly before once more being released. The FBI repeatedly tried to recruit her as an informant; she refused.\n\nShe disappeared shortly after that second release. In February 1976 her body was found at the bottom of an embankment on the Pine Ridge Reservation. The original autopsy ordered by the FBI ruled the death exposure; her hands were severed before her family could identify her. A second autopsy demanded by her family found that she had been killed by a single execution-style gunshot to the back of the head. Her death was investigated for decades; in 2004 and 2010, two AIM members — Arlo Looking Cloud and John Graham — were ultimately convicted of her murder. Significant evidence, much of it unresolved, has long pointed to a wider conspiracy involving allegations that she had been killed because AIM leadership came to suspect (incorrectly, in the view of her family) that she was an FBI informant.",
             ],
             'cases' => [[
                 'institution_id'        => $sdJail->id,
-                'charges'               => 'Various charges related to AIM organizing in the early 1970s',
+                'charges'               => 'Weapons and explosives charges arising from the September 5, 1975 federal raid on the AIM property at Pine Ridge; later additional charges in Oregon',
                 'arrest_date'           => '1975-09-05',
                 'death_in_custody_date' => '1975-12-12',
-                'convicted'             => 'Held repeatedly on minor charges; killed in unresolved circumstances on or about December 12, 1975 on the Pine Ridge Reservation',
-                'sentence'              => 'Murdered while at liberty awaiting trial; her killing has been the subject of multiple criminal prosecutions stretching across four decades',
+                'convicted'             => 'Held in pretrial federal custody before release on bond; never tried',
+                'sentence'              => 'Several days at Pennington County Jail on the September 1975 charges; further brief custody after the November 1975 Oregon arrest; killed shortly after her second release in unresolved circumstances on or about December 12, 1975',
             ]],
         ];
 

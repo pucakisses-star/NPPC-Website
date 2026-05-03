@@ -38,11 +38,6 @@ class AddIWWAndAnarchistPrisoners extends Command
             ['city' => 'Newark', 'state' => 'New Jersey']
         );
 
-        $butteVigilantes = Institution::firstOrCreate(
-            ['name' => 'Lynched by Anaconda-aligned vigilantes (extrajudicial)'],
-            ['city' => 'Butte', 'state' => 'Montana']
-        );
-
         $westernPen = Institution::firstOrCreate(
             ['name' => 'Western Penitentiary'],
             ['city' => 'Pittsburgh', 'state' => 'Pennsylvania']
@@ -75,34 +70,6 @@ class AddIWWAndAnarchistPrisoners extends Command
                 'death_in_custody_date' => '1915-11-19',
                 'convicted'             => 'Yes — Utah jury verdict, June 27, 1914 (case based entirely on circumstantial evidence; conviction widely regarded as a political prosecution)',
                 'sentence'              => 'Death by firing squad — executed November 19, 1915',
-            ],
-        ];
-
-        // Frank Little
-        $defendants[] = [
-            'data' => [
-                'name'        => 'Frank Little',
-                'first_name'  => 'Frank',
-                'middle_name' => 'Henry',
-                'last_name'   => 'Little',
-                'birthdate'   => '1878-01-01',
-                'death_date'  => '1917-08-01',
-                'gender'      => 'Male',
-                'race'        => 'Native American', // Cherokee mother
-                'state'       => 'Montana',
-                'era'         => '1910s',
-                'ideologies'  => ['Anarchist', 'Labor', 'Anti-war'],
-                'affiliation' => ['Industrial Workers of the World'],
-                'in_custody'  => false,
-                'released'    => false,
-                'description' => "Frank Henry Little was a half-Cherokee American labor organizer who joined the Industrial Workers of the World at its founding in 1905 and spent the next twelve years leading free-speech fights, lumber strikes, oil-field organizing, and mining campaigns across the western United States. He was repeatedly beaten and jailed and on the IWW general executive board he led the faction that opposed U.S. entry into World War I, arguing that workers had no interest in fighting a 'capitalist war.'\n\nIn the summer of 1917 he traveled to Butte, Montana, to support a strike of copper miners against the Anaconda Copper Mining Company in the wake of the June 8 Speculator Mine fire that killed 168 men. He delivered fiery speeches against the war and against the company. On the night of August 1, 1917, six masked men broke into the boarding house where he was staying, dragged him from his bed, tied him by a rope to the rear of an automobile, and dragged him through the streets of Butte before hanging him from a railroad trestle on the edge of town. A note pinned to his body listed initials of other IWW organizers under the threat 'Others take notice! First and last warning.' No one was ever charged with the lynching, which was widely understood to have been carried out at the direction of Anaconda Copper. His funeral procession, with an estimated 6,000–10,000 mourners, remains the largest in the history of Butte. His gravestone reads: 'Slain by capitalist interests for organizing and inspiring his fellow men.'",
-            ],
-            'case' => [
-                'institution_id'        => $butteVigilantes->id,
-                'charges'               => 'No legal charges — extrajudicially murdered by masked vigilantes in retaliation for IWW organizing and antiwar speech',
-                'death_in_custody_date' => '1917-08-01',
-                'convicted'             => 'No — extrajudicial lynching, August 1, 1917; no perpetrators ever charged',
-                'sentence'              => 'Death by lynching',
             ],
         ];
 
