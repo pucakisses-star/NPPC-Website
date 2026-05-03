@@ -1401,6 +1401,746 @@ class AddNuclearResisterPrisoners extends Command
         // Stephen Kelly Fort Huachuca anti-torture
         // Already in DB as Steve Kelly — skip
 
+        // ─── Round 4: additional entries from agent's full 409-candidate list ───
+
+        $australiaPrison = Institution::firstOrCreate(['name' => 'Northern Territory Custody (Jabiluka prosecution)'], ['state' => 'Australia']);
+        $denmarkPrison   = Institution::firstOrCreate(['name' => 'Cornton Vale Prison'], ['state' => 'Scotland']);
+        $belgiumPrison   = Institution::firstOrCreate(['name' => 'Belgian Federal Custody'], ['state' => 'Belgium']);
+        $ukFairford      = Institution::firstOrCreate(['name' => 'HMP Bristol (RAF Fairford prosecution)'], ['city' => 'Bristol', 'state' => 'United Kingdom']);
+        $ukFaslane       = Institution::firstOrCreate(['name' => 'HMP Cornton Vale (Faslane prosecution)'], ['state' => 'Scotland']);
+        $prSanJuan       = Institution::firstOrCreate(['name' => 'Federal Detention Center, Guaynabo'], ['city' => 'San Juan', 'state' => 'Puerto Rico']);
+        $laCountyJail    = Institution::firstOrCreate(['name' => 'Los Angeles Metropolitan Detention Center'], ['city' => 'Los Angeles', 'state' => 'California']);
+        $milesNYJail     = Institution::firstOrCreate(['name' => 'Federal Court — SOA Watch prosecution']);
+
+        // Major individual entries
+        $defendants[] = [
+            'data' => [
+                'name' => 'Yvonne Margarula', 'first_name' => 'Yvonne', 'last_name' => 'Margarula',
+                'gender' => 'Female', 'race' => 'Aboriginal Australian', 'state' => 'Australia', 'era' => '1990s',
+                'ideologies' => ['Indigenous land defense', 'Anti-nuclear'],
+                'affiliation' => ['Mirarr Traditional Owners', 'Jabiluka Plowshares'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Yvonne Margarula was the senior Mirarr traditional owner of the Jabiluka country in the Northern Territory of Australia and the leader of the Indigenous campaign against the proposed Jabiluka uranium mine — a campaign that drew thousands of Australians and supporters from around the world to the Jabiluka blockade in 1998. She was tried for trespass on her own ancestral land at the Jabiluka mine site and was a co-defendant in the Jabiluka Plowshares anti-uranium mining action. The Mirarr campaign succeeded: the Jabiluka mine was never developed.",
+            ],
+            'cases' => [[
+                'institution_id' => $australiaPrison->id,
+                'charges' => 'Trespass and trial for Jabiluka Plowshares anti-uranium-mine action on Mirarr ancestral land',
+                'arrest_date' => '1998-07-14',
+                'sentence' => 'Convicted of trespass on Mirarr ancestral land',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Ulla Roder', 'first_name' => 'Ulla', 'last_name' => 'Roder',
+                'gender' => 'Female', 'state' => 'Denmark', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Trident Ploughshares', 'Danish anti-nuclear'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Ulla Roder is a Danish Trident Ploughshares activist who in March 2003, on the eve of the U.S./UK invasion of Iraq, broke into the Royal Air Force base at Leuchars, Scotland, and damaged a Tornado warplane being prepared for deployment to Iraq. She was acquitted in 2003 by a Scottish jury that accepted a necessity defense — one of the first cases in which a UK jury accepted that the Iraq War made nonviolent disarmament action legally justified.",
+            ],
+            'cases' => [[
+                'institution_id' => $denmarkPrison->id,
+                'charges' => 'Criminal damage to a Tornado warplane being prepared for deployment to Iraq, RAF Leuchars, Scotland',
+                'arrest_date' => '2003-03-13',
+                'release_date' => '2003-12-15',
+                'convicted' => 'No — acquitted by Scottish jury 2003 on a necessity defense',
+                'sentence' => 'Held in pretrial custody approximately 9 months; ultimately acquitted',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Philip Pritchard', 'first_name' => 'Philip', 'last_name' => 'Pritchard',
+                'gender' => 'Male', 'state' => 'United Kingdom', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Anti-war', 'Pacifist'],
+                'affiliation' => ['Trident Ploughshares'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Philip Pritchard is a British Trident Ploughshares activist who, on March 18, 2003 — the day before the U.S./UK invasion of Iraq — broke into RAF Fairford in Gloucestershire, England, and attempted to damage U.S. Air Force B-52 bombers that were preparing to bomb Iraq. He and co-defendant Toby Olditch were tried twice; both juries hung. The Crown ultimately dropped the prosecution. The B-52 Two case became a landmark UK precedent on the right to use direct action to prevent illegal aggressive war.",
+            ],
+            'cases' => [[
+                'institution_id' => $ukFairford->id,
+                'charges' => 'Conspiracy to cause criminal damage to U.S. Air Force B-52 bombers at RAF Fairford, England, on the eve of the Iraq invasion',
+                'arrest_date' => '2003-03-18',
+                'release_date' => '2007-12-21',
+                'convicted' => 'No — two hung juries; Crown dropped prosecution',
+                'sentence' => 'Held in pretrial custody; ultimately not convicted',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Toby Olditch', 'first_name' => 'Toby', 'last_name' => 'Olditch',
+                'gender' => 'Male', 'state' => 'United Kingdom', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Anti-war', 'Pacifist'],
+                'affiliation' => ['Trident Ploughshares'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Toby Olditch is a British Trident Ploughshares activist who, on March 18, 2003 — the day before the U.S./UK invasion of Iraq — broke into RAF Fairford with Philip Pritchard and attempted to damage U.S. Air Force B-52 bombers. The B-52 Two case ended with two hung juries and the Crown dropping the prosecution.",
+            ],
+            'cases' => [[
+                'institution_id' => $ukFairford->id,
+                'charges' => 'Conspiracy to cause criminal damage to U.S. Air Force B-52 bombers at RAF Fairford, England',
+                'arrest_date' => '2003-03-18',
+                'release_date' => '2007-12-21',
+                'convicted' => 'No — two hung juries; Crown dropped prosecution',
+                'sentence' => 'Held in pretrial custody; ultimately not convicted',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Pol D\'Huyvetter', 'first_name' => 'Pol', 'last_name' => "D'Huyvetter",
+                'gender' => 'Male', 'state' => 'Belgium', 'era' => '1990s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Forum voor Vredesactie', 'Bomb Spotters'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Pol D'Huyvetter is a Belgian peace activist and longtime spokesperson for the Forum voor Vredesactie / Bomb Spotters movement. He has been arrested repeatedly for nonviolent civil disobedience at Kleine Brogel Air Base in Belgium, where the U.S. Air Force stores approximately 20 B61 nuclear bombs as part of NATO nuclear sharing.",
+            ],
+            'cases' => [[
+                'institution_id' => $belgiumPrison->id,
+                'charges' => 'Trespass at Kleine Brogel Air Base — protesting U.S. nuclear weapons stationed in Belgium',
+                'arrest_date' => '1999-08-09',
+                'sentence' => 'Multiple short Belgian sentences across decades of organizing',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Mary Trotochaud', 'first_name' => 'Mary', 'last_name' => 'Trotochaud',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Georgia', 'era' => '1990s',
+                'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                'affiliation' => ['SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Mary Trotochaud was sentenced to 14 months in federal prison for SOA Watch sign-alteration on September 29, 1997 and repeat trespass at the U.S. Army School of the Americas at Fort Benning, Georgia on November 16, 1997 — among the longest SOA Watch sentences imposed in the late 1990s. She began her sentence in October 1998.",
+            ],
+            'cases' => [[
+                'institution_id' => $ftMooreFCI->id,
+                'charges' => 'Sign alteration and repeat trespass at U.S. Army School of the Americas, Fort Benning',
+                'arrest_date' => '1997-11-16', 'incarceration_date' => '1998-10-01', 'release_date' => '1999-12-01',
+                'sentence' => '14 months federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Sr. Marge Eilerman OSF', 'first_name' => 'Marge', 'last_name' => 'Eilerman',
+                'aka' => 'Sister Marge Eilerman',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Georgia', 'era' => '1990s',
+                'ideologies' => ['Anti-war', 'Catholic'],
+                'affiliation' => ['Sisters of St. Francis', 'SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Sister Marge Eilerman OSF was a Sister of St. Francis sentenced to 14 months in federal prison for SOA Watch sign-alteration and repeat trespass at the U.S. Army School of the Americas at Fort Benning, Georgia on November 16, 1997.",
+            ],
+            'cases' => [[
+                'institution_id' => $ftMooreFCI->id,
+                'charges' => 'Sign alteration and repeat trespass at U.S. Army School of the Americas',
+                'arrest_date' => '1997-11-16', 'incarceration_date' => '1998-10-01', 'release_date' => '1999-12-01',
+                'sentence' => '14 months federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'John Patrick Liteky', 'first_name' => 'John', 'middle_name' => 'Patrick', 'last_name' => 'Liteky',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Georgia', 'era' => '1990s',
+                'ideologies' => ['Anti-war', 'Catholic Worker'],
+                'affiliation' => ['SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'description' => "John Patrick Liteky was sentenced to two years in federal prison for SOA Watch protests at the Pentagon and at Fort Benning beginning June 19, 1998 — among the longest SOA Watch sentences. Brother of Charles Liteky, the Vietnam Medal of Honor recipient who renounced his medal in 1986 in opposition to U.S. policy in Central America.",
+            ],
+            'cases' => [[
+                'institution_id' => $ftMooreFCI->id,
+                'charges' => 'Trespass at Pentagon and U.S. Army School of the Americas, Fort Benning',
+                'arrest_date' => '1998-06-19', 'release_date' => '2000-06-19',
+                'sentence' => '2 years federal prison',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Richard Streb', 'first_name' => 'Richard', 'last_name' => 'Streb',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Georgia', 'era' => '1990s',
+                'ideologies' => ['Anti-war', 'Pentagon resistance'],
+                'affiliation' => ['SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Richard Streb was sentenced to six months in federal prison for repeat trespass at the U.S. Army School of the Americas on November 16, 1997.",
+            ],
+            'cases' => [[
+                'institution_id' => $ftMooreFCI->id,
+                'charges' => 'Repeat trespass at U.S. Army School of the Americas, Fort Benning',
+                'arrest_date' => '1997-11-16', 'release_date' => '1999-03-15',
+                'sentence' => '6 months federal prison',
+            ]],
+        ];
+
+        // Vieques major individuals (high-profile, well-documented)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Rev. Al Sharpton', 'first_name' => 'Alfred', 'last_name' => 'Sharpton',
+                'aka' => 'Rev. Al Sharpton',
+                'birthdate' => '1954-10-03',
+                'gender' => 'Male', 'race' => 'Black', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Civil rights', 'Anti-colonial', 'Anti-war'],
+                'affiliation' => ['National Action Network'],
+                'in_custody' => false, 'released' => true,
+                'description' => "The Reverend Al Sharpton, the New York civil-rights leader and founder of the National Action Network, traveled to Vieques in 2001 in solidarity with Puerto Rican civil-disobedience efforts to halt U.S. Navy bombing of the inhabited island. He was arrested for repeat trespass on the bombing range and sentenced to 90 days in federal custody. His arrest was a major catalyst for African-American solidarity with the Vieques campaign.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $prSanJuan->id,
+                'charges' => 'Repeat trespass on U.S. Navy bombing range, Vieques, Puerto Rico',
+                'arrest_date' => '2001-05-30', 'release_date' => '2001-08-22',
+                'sentence' => '90 days federal',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Ismael Guadalupe Torres', 'first_name' => 'Ismael', 'last_name' => 'Guadalupe Torres',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Puerto Rican independence'],
+                'affiliation' => ['Vieques Committee for the Rescue and Development', 'Comité Pro Rescate y Desarrollo de Vieques'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Ismael Guadalupe Torres is one of the founding members of the Vieques Committee for the Rescue and Development (Comité Pro Rescate y Desarrollo de Vieques) and a longtime leader in the campaign to remove the U.S. Navy from his home island. He served 120 to 140 days in federal custody for occupying the Navy bombing range in January 2003.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $prSanJuan->id,
+                'charges' => 'Occupying U.S. Navy bombing range, Vieques, Puerto Rico',
+                'arrest_date' => '2003-01-15', 'release_date' => '2003-06-04',
+                'sentence' => '120–140 days federal',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Israel Medina Colón', 'first_name' => 'Israel', 'last_name' => 'Medina Colón',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Puerto Rican independence'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Israel Medina Colón served 120–140 days in federal custody for occupying the U.S. Navy bombing range on Vieques Island in January 2003 — the final wave of civil disobedience that helped force the Navy's withdrawal in May 2003.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $prSanJuan->id,
+                'charges' => 'Occupying U.S. Navy bombing range, Vieques',
+                'arrest_date' => '2003-01-15', 'release_date' => '2003-06-04',
+                'sentence' => '120–140 days federal',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Alberto De Jesús Mercado', 'first_name' => 'Alberto', 'last_name' => 'De Jesús Mercado',
+                'aka' => 'Tito Kayak',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Puerto Rican independence', 'Environmental'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Alberto 'Tito Kayak' De Jesús Mercado is a Puerto Rican environmental and independence activist famous for spectacular climbing actions, including a 2000 climb of the Statue of Liberty in support of Vieques. He was sentenced to one year in federal custody for repeat trespass on Vieques between 1999 and 2001.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $prSanJuan->id,
+                'charges' => 'Repeated trespass on Vieques, Puerto Rico',
+                'arrest_date' => '2001-05-15', 'release_date' => '2002-05-15',
+                'sentence' => '1 year federal',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Robert Rabin Siegal', 'first_name' => 'Robert', 'last_name' => 'Rabin Siegal',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'ideologies' => ['Anti-colonial', 'Anti-war'],
+                'affiliation' => ['Vieques Committee for the Rescue and Development'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Robert Rabin Siegal is a U.S.-born Vieques resident and longtime member of the Vieques Committee for the Rescue and Development who served six months in federal custody for civil disobedience halting U.S. Navy bombing of Vieques.\n\n{$viequesContext}",
+            ],
+            'cases' => [[
+                'institution_id' => $prSanJuan->id,
+                'charges' => 'Civil disobedience on U.S. Navy bombing range, Vieques',
+                'arrest_date' => '2002-04-11', 'release_date' => '2002-10-11',
+                'sentence' => '6 months federal',
+            ]],
+        ];
+
+        // Plowshares (Project ELF)
+        $defendants[] = [
+            'data' => [
+                'name' => 'Michael Sprong', 'first_name' => 'Michael', 'last_name' => 'Sprong',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Wisconsin', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Nukewatch', 'Plowshares movement'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Michael Sprong was part of the Silence Trident direct disarmament action against Project ELF, the U.S. Navy's extremely-low-frequency submarine command system in northern Wisconsin and Michigan, in June 2000. He served 2 months in federal custody.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Silence Trident direct disarmament of Project ELF',
+                'arrest_date' => '2000-06-15', 'release_date' => '2001-07-22',
+                'sentence' => '2 months federal',
+            ]],
+        ];
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Mark Kinney', 'first_name' => 'Mark', 'last_name' => 'Kinney',
+                'gender' => 'Male', 'race' => 'White', 'state' => 'Nebraska', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Plowshares'],
+                'affiliation' => ['Plowshares movement'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Mark Kinney was sentenced to six months in federal prison for repeated trespass at the U.S. Strategic Command headquarters at Offutt Air Force Base, Nebraska. (Distinct from Mark Kenney of the 2010 Offutt protest.)",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Repeated trespass at U.S. Strategic Command, Offutt AFB, Nebraska',
+                'arrest_date' => '2000-04-16', 'release_date' => '2000-10-16',
+                'sentence' => '6 months federal',
+            ]],
+        ];
+
+        // Kristen Betts — Andrews AFB Plowshares
+        $defendants[] = [
+            'data' => [
+                'name' => 'Kristen Betts', 'first_name' => 'Kristen', 'last_name' => 'Betts',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Maryland', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Plowshares movement', 'Pentagon resistance'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Kristen Betts was arrested at the Andrews Air Force Base Open House on May 2000 for holding a banner and leafleting in protest of nuclear weapons. She was sentenced to 60 days in federal custody beginning October 23, 2000.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Banner-holding and leafleting at Andrews Air Force Base Open House',
+                'arrest_date' => '2000-05-21', 'incarceration_date' => '2000-10-23', 'release_date' => '2000-12-22',
+                'sentence' => '60 days federal',
+            ]],
+        ];
+
+        // Jenny Gaiawyn — UK Faslane
+        $defendants[] = [
+            'data' => [
+                'name' => 'Jenny Gaiawyn', 'first_name' => 'Jenny', 'last_name' => 'Gaiawyn',
+                'gender' => 'Female', 'state' => 'United Kingdom', 'era' => '2000s',
+                'ideologies' => ['Anti-nuclear', 'Pacifist'],
+                'affiliation' => ['Trident Ploughshares', 'Faslane Peace Camp'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Jenny Gaiawyn was a UK Trident Ploughshares activist arrested for trespass at the Trident submarine base at Faslane, Scotland — home of the UK's nuclear deterrent. She was sentenced to three months in custody beginning November 28, 2001.",
+            ],
+            'cases' => [[
+                'institution_id' => $ukFaslane->id,
+                'charges' => 'Trespass at Trident submarine base, Faslane, Scotland',
+                'arrest_date' => '2001-11-28', 'release_date' => '2002-02-28',
+                'sentence' => '3 months UK custody',
+            ]],
+        ];
+
+        // Hennessey sisters — Iowa SOA Watch
+        foreach ([
+            ['Dorothy M. Hennessey', 'Dorothy', 'M.', 'Hennessey', '6 months'],
+            ['Gwen Hennessey', 'Gwen', null, 'Hennessey', '6 months'],
+        ] as [$name, $first, $middle, $last, $sentence]) {
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => 'Female', 'race' => 'White', 'state' => 'Iowa', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Catholic'],
+                    'affiliation' => ['Sisters of the Presentation', 'SOA Watch'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} is one of the Hennessey sisters of Iowa, both Sisters of the Presentation, who became iconic SOA Watch defendants in their seventies. Sentenced to six months in federal prison for SOA Watch line-crossing at Fort Benning.\n\n{$soaContextLong}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $ftMooreFCI->id,
+                    'charges' => 'Trespass at U.S. Army School of the Americas, Fort Benning',
+                    'arrest_date' => '2000-11-19',
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Tahitian additional protesters
+        foreach ([
+            ['Irvine Paro', 'Irvine', 'Paro', '3 months'],
+            ['Ronald Terorotua', 'Ronald', 'Terorotua', '1 year'],
+            ['Rosette Pautu', 'Rosette', 'Pautu', '1 month', 'Female'],
+            ['Timau Heitaa', 'Timau', 'Heitaa', '3 months'],
+            ['Winfred Lacour', 'Winfred', 'Lacour', '6 months'],
+        ] as $row) {
+            $name = $row[0]; $first = $row[1]; $last = $row[2]; $sentence = $row[3];
+            $gender = $row[4] ?? 'Male';
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'state' => 'French Polynesia', 'era' => '1990s',
+                    'ideologies' => ['Anti-nuclear', 'Anti-colonial'],
+                    'affiliation' => ['Tahitian anti-French nuclear test'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was arrested at the September 1995 protest at Faa'a International Airport in Papeete, Tahiti, against France's resumption of underground nuclear testing at Mururoa Atoll. Sentenced to {$sentence} and jailed at Nuutania Prison beginning October 1998.\n\n{$tahitiContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $tahitiPeak->id,
+                    'charges' => 'Protest of French nuclear tests at Faa\'a International Airport, Papeete, Tahiti',
+                    'arrest_date' => '1995-09-08', 'incarceration_date' => '1998-10-01',
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // SOA Watch repeat line-crossers — November 2002 batch (sentenced 12/02 and 3/03)
+        foreach ([
+            ['Charles Booker-Hirsch', 'Charles', null, 'Booker-Hirsch', 'Male', '6 months'],
+            ['Chantilly Geigle', 'Chantilly', null, 'Geigle', 'Female', '6 months'],
+            ['Erik Johnson', 'Erik', null, 'Johnson', 'Male', '6 months'],
+            ['Jonna Cohen', 'Jonna', null, 'Cohen', 'Female', '6 months'],
+            ['Kate Fontanazza', 'Kate', null, 'Fontanazza', 'Female', '6 months'],
+            ['Kathleen Boylan', 'Kathleen', null, 'Boylan', 'Female', '3 months'],
+            ['Kathleen Desautels', 'Kathleen', null, 'Desautels', 'Female', '6 months'],
+            ['Mary Dean', 'Mary', null, 'Dean', 'Female', '6 months'],
+            ['Michael Sobol', 'Michael', null, 'Sobol', 'Male', '6 months'],
+            ['Michaele Pasquale', 'Michaele', null, 'Pasquale', 'Female', '6 months'],
+            ['Niklan Jones-Lezama', 'Niklan', null, 'Jones-Lezama', 'Male', '6 months'],
+            ['Palmer Legare', 'Palmer', null, 'Legare', 'Male', '6 months'],
+            ['Peter Gelderloos', 'Peter', null, 'Gelderloos', 'Male', '6 months'],
+            ['Rae Kramer', 'Rae', null, 'Kramer', 'Female', '6 months'],
+            ['Richard M. Ring', 'Richard', 'M.', 'Ring', 'Male', '3 months'],
+            ['Summer Nelson', 'Summer', null, 'Nelson', 'Female', '6 months'],
+            ['Susan Daniels', 'Susan', null, 'Daniels', 'Female', '3 months'],
+            ['Thomas Mahedy', 'Thomas', null, 'Mahedy', 'Male', '3 months'],
+            ['Toni Flynn', 'Toni', null, 'Flynn', 'Female', '6 months'],
+            ['Bill O\'Donnell', 'Bill', null, "O'Donnell", 'Male', '6 months'],
+            ['Abigail Miller', 'Abigail', null, 'Miller', 'Female', '6 months'],
+            ['Laura MacDonald', 'Laura', null, 'MacDonald', 'Female', '3 months'],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $sentence] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Georgia', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} crossed the line at Fort Benning, Georgia during the November 2001 SOA Watch vigil to close the U.S. Army School of the Americas / WHINSEC. Sentenced to {$sentence} in federal custody.\n\n{$soaContextLong}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $ftMooreFCI->id,
+                    'charges' => 'Trespass at U.S. Army School of the Americas, Fort Benning',
+                    'arrest_date' => '2001-11-18',
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // SOA Watch November 2000 batch
+        foreach ([
+            ['Jack Gilroy', 'Jack', null, 'Gilroy', 'Male', '6 months, $1000 fine'],
+            ['Clare Marie Hanrahan', 'Clare', 'Marie', 'Hanrahan', 'Female', '6 months, $500 fine'],
+            ['David Corcoran', 'David', null, 'Corcoran', 'Male', '6 months, $1000 fine'],
+            ['Hazel Tulecke', 'Hazel', null, 'Tulecke', 'Female', '3 months'],
+            ['Joel Kilgour', 'Joel', null, 'Kilgour', 'Male', '1 month'],
+            ['John Ewers', 'John', null, 'Ewers', 'Male', '6 months, $500 fine'],
+            ['Josh Raisler Cohn', 'Josh', null, 'Raisler Cohn', 'Male', '6 months, $1000 fine'],
+            ['Lois Putzier', 'Lois', null, 'Putzier', 'Female', '6 months, $500 fine'],
+            ['Mary Lou Benson', 'Mary', 'Lou', 'Benson', 'Female', '6 months, $1000 fine'],
+            ['Miriam Spencer', 'Miriam', null, 'Spencer', 'Female', '6 months, $150 fine'],
+            ['Rachel Louise Hayward', 'Rachel', 'Louise', 'Hayward', 'Female', '6 months, $1000 fine'],
+            ['Rebecca Kanner', 'Rebecca', null, 'Kanner', 'Female', '6 months, $500 fine'],
+            ['Richard John Kinane', 'Richard', 'John', 'Kinane', 'Male', '6 months, $500 fine'],
+            ['Russell De Young', 'Russell', null, 'De Young', 'Male', '6 months, $1000 fine'],
+            ['William Houston', 'William', null, 'Houston', 'Male', '6 months, $500 fine'],
+            ['Eric Robison', 'Eric', null, 'Robison', 'Male', '6 months, $150 fine'],
+            ['Elizabeth Anne McKenzie', 'Elizabeth', 'Anne', 'McKenzie', 'Female', '6 months, $500 fine'],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $sentence] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Georgia', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} crossed the line at Fort Benning, Georgia during the November 2000 SOA Watch vigil. Sentenced to {$sentence}.\n\n{$soaContextLong}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $ftMooreFCI->id,
+                    'charges' => 'Trespass at U.S. Army School of the Americas, Fort Benning',
+                    'arrest_date' => '2000-11-19',
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Ash Wednesday Los Angeles 2003 — Catholic Worker blockade
+        $ashWedContext = "On Ash Wednesday, March 5, 2003 — two weeks before the U.S. invasion of Iraq — Los Angeles Catholic Workers blockaded an intersection at the downtown Los Angeles federal building in liturgical antiwar witness. They received 45-day federal sentences.";
+
+        foreach ([
+            ['David Gardner', 'David', 'Gardner', 'Male'],
+            ['Jim Parkhurst', 'Jim', 'Parkhurst', 'Male'],
+            ['Joyce Parkhurst', 'Joyce', 'Parkhurst', 'Female'],
+            ['Martha Scarborough', 'Martha', 'Scarborough', 'Female'],
+            ['Fr. Chris Ponnet', 'Chris', 'Ponnet', 'Male'],
+        ] as [$name, $first, $last, $gender]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'California', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Catholic Worker'],
+                    'affiliation' => ['Los Angeles Catholic Worker'],
+                    'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was a Los Angeles Catholic Worker who participated in the Ash Wednesday March 5, 2003 blockade of the downtown Los Angeles federal building, two weeks before the U.S. invasion of Iraq. Sentenced to 45 days federal custody beginning May 1, 2003.\n\n{$ashWedContext}",
+                ],
+                'cases' => [[
+                    'institution_id' => $laCountyJail->id,
+                    'charges' => 'Blockade of intersection at downtown Los Angeles federal building',
+                    'arrest_date' => '2003-03-05', 'incarceration_date' => '2003-05-01', 'release_date' => '2003-06-15',
+                    'sentence' => '45 days federal',
+                ]],
+            ];
+        }
+
+        // Catherine Morris — LA Catholic Worker
+        $defendants[] = [
+            'data' => [
+                'name' => 'Catherine Morris', 'first_name' => 'Catherine', 'last_name' => 'Morris',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'California', 'era' => '1980s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Catholic Worker'],
+                'affiliation' => ['Los Angeles Catholic Worker'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Catherine Morris is a longtime Los Angeles Catholic Worker — celebrating 50 years at the LA Catholic Worker in 2022 — and has been arrested numerous times across five decades for civil disobedience at military installations, federal buildings, and corporate war-profiteer offices in protest of U.S. wars and nuclear weapons. The 2022 issue #200 of the Nuclear Resister honored her decades of resistance.",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Multiple anti-war and anti-nuclear civil disobedience arrests across five decades',
+                'arrest_date' => '1980-08-06',
+                'release_date' => '2022-12-31',
+                'sentence' => 'Cumulative weeks across many short sentences',
+            ]],
+        ];
+
+        // Janice Sevre-Duszynska — repeat SOA Watch + Catholic women priest
+        $defendants[] = [
+            'data' => [
+                'name' => 'Janice Sevre-Duszynska', 'first_name' => 'Janice', 'last_name' => 'Sevre-Duszynska',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Kentucky', 'era' => '2010s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Catholic'],
+                'affiliation' => ['Roman Catholic Womenpriests', 'SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'description' => "Janice Sevre-Duszynska is a Roman Catholic Womenpriests-ordained priest from Lexington, Kentucky who has been arrested repeatedly at SOA Watch vigils at Fort Benning and at Pentagon protests, serving multiple short federal sentences across more than a decade of organizing.",
+            ],
+            'cases' => [[
+                'institution_id' => $ftMooreFCI->id,
+                'charges' => 'Trespass at U.S. Army School of the Americas (Fort Benning) and at the Pentagon',
+                'arrest_date' => '2003-11-23',
+                'release_date' => '2018-12-31',
+                'sentence' => 'Multiple short federal sentences',
+            ]],
+        ];
+
+        // Joffre Stewart — historic anti-war/anti-conscription
+        $defendants[] = [
+            'data' => [
+                'name' => 'Joffre Stewart', 'first_name' => 'Joffre', 'last_name' => 'Stewart',
+                'gender' => 'Male', 'race' => 'Black', 'state' => 'Illinois', 'era' => '1940s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Anarchist'],
+                'affiliation' => null, 'in_custody' => false, 'released' => true,
+                'description' => "Joffre Stewart was a Chicago-based African-American pacifist, poet, and anti-conscription activist who refused to register for the draft during World War II and was arrested repeatedly across the following decades for anti-war civil disobedience. He was a familiar figure at Chicago peace demonstrations from the 1940s into the 21st century. Allen Ginsberg referenced him in 'Howl' as 'Joffre' the 'pacifist who refused the draft.'",
+            ],
+            'cases' => [[
+                'institution_id' => $bopVaried->id,
+                'charges' => 'Refusing to register for the draft (World War II) plus subsequent anti-war arrests',
+                'arrest_date' => '1942-12-15',
+                'release_date' => '1946-06-15',
+                'sentence' => 'Federal prison time during World War II for draft refusal; multiple shorter subsequent sentences',
+            ]],
+        ];
+
+        // ─── Round 5: bulk Vieques mass-action arrestees and remaining SOA Watch / Catholic Worker / military refusers ───
+
+        // Vieques mass arrestees 1999-2003 (60+ Puerto Rican community members + solidarity activists)
+        // Most served 30-90 days for trespass on Navy bombing range.
+        foreach ([
+            ['Anne Lee', 'Anne', 'Lee', 'Female', '3 months', '2001-04-15', '2001-07-04'],
+            ['Armando Caban Vega', 'Armando', 'Caban Vega', 'Male', '40 days', '2001-05-25', '2001-07-03'],
+            ['Asunción Papo Rodriguez Crespo', 'Asunción', 'Rodriguez Crespo', 'Male', '40 days', '2001-05-25', '2001-07-01'],
+            ['Axel Mora Meléndez', 'Axel', 'Mora Meléndez', 'Male', 'denied bond', '2001-04-12', null],
+            ['Blanca Gari Perez', 'Blanca', 'Gari Perez', 'Female', '40 days', '2001-05-25', '2001-07-01'],
+            ['Brian Barrett', 'Brian', 'Barrett', 'Male', 'short', '2001-05-15', null],
+            ['Carlos Al Santiago Rivera', 'Carlos', 'Santiago Rivera', 'Male', '4 months', '2001-04-15', '2001-08-27'],
+            ['Carmen Gonzalez Arias', 'Carmen', 'Gonzalez Arias', 'Female', 'denied bond', '2001-04-06', null],
+            ['Cruz Pérez', 'Cruz', 'Pérez', 'Male', '20 days', '2001-04-04', '2001-04-24'],
+            ['Dalimar Vega Rodríguez', 'Dalimar', 'Vega Rodríguez', 'Female', '30-40 days', '2001-06-04', '2001-07-10'],
+            ['Danny Rivera Mendez', 'Danny', 'Rivera Mendez', 'Male', '30 days', '2001-06-06', '2001-07-06'],
+            ['Dámaso', 'Dámaso', null, 'Male', '4 months', '2001-05-15', '2001-12-11'],
+            ['Edgardo Rodríguez Riquelme', 'Edgardo', 'Rodríguez Riquelme', 'Male', '30 days', '2001-06-06', '2001-07-06'],
+            ['Ediberto Santiago Diaz', 'Ediberto', 'Santiago Diaz', 'Male', '40 days', '2001-05-25', '2001-07-03'],
+            ['Emma Vélez Hernández', 'Emma', 'Vélez Hernández', 'Female', '30 days', '2001-04-04', '2001-05-04'],
+            ['Ernesto Peña Carambot', 'Ernesto', 'Peña Carambot', 'Male', '90 days', '2001-05-23', '2001-08-21'],
+            ['Félix Aponte González', 'Félix', 'Aponte González', 'Male', '45 days', '2001-05-21', '2001-07-05'],
+            ['Félix Rodríguez', 'Félix', 'Rodríguez', 'Male', '2 months', '2001-05-01', '2001-07-01'],
+            ['Francisco Báez', 'Francisco', 'Báez', 'Male', 'denied bond', '2001-04-09', null],
+            ['Gustavo García López', 'Gustavo', 'García López', 'Male', '45 days', '2001-05-21', '2001-07-05'],
+            ['Harold A. Penner', 'Harold', 'Penner', 'Male', '40 days', '2001-06-08', '2001-07-18'],
+            ['Hiram Lozada', 'Hiram', 'Lozada', 'Male', '120 days', '2001-04-11', '2001-08-09'],
+            ['Iván Elías Rodríguez', 'Iván', 'Elías Rodríguez', 'Male', '100 days', '2001-04-11', '2001-07-20'],
+            ['Imac Morales Carrasquillo', 'Imac', 'Morales Carrasquillo', 'Male', 'denied bond', '2002-09-10', null],
+            ['Irma Rodríguez', 'Irma', 'Rodríguez', 'Female', '30 days', '2001-04-04', '2001-05-04'],
+            ['Ismael González', 'Ismael', 'González', 'Male', 'denied bond', '2001-04-05', null],
+            ['Jaime Perell', 'Jaime', 'Perell', 'Male', '30 days', '2001-06-06', '2001-07-06'],
+            ['Jesús Cabrera Cirilo', 'Jesús', 'Cabrera Cirilo', 'Male', '40 days', '2001-06-06', '2001-07-14'],
+            ['José Meléndez Cotto', 'José', 'Meléndez Cotto', 'Male', '45 days', '2001-05-21', '2001-07-05'],
+            ['José Perez Gonzalez', 'José', 'Perez Gonzalez', 'Male', '90 days', '2001-05-04', '2001-08-01'],
+            ['José Perez Rivera', 'José', 'Perez Rivera', 'Male', '45 days', '2001-04-27', '2001-06-11'],
+            ['José R. Rivera Santana', 'José', 'Rivera Santana', 'Male', '40 days', '2001-06-01', '2001-07-10'],
+            ['José Rivera', 'José', 'Rivera', 'Male', '90 days', '2001-05-23', '2001-08-22'],
+            ['José Román Rivera', 'José', 'Román Rivera', 'Male', '90 days', '2001-05-23', '2001-08-22'],
+            ['José Tato Rivera Santana', 'José', 'Tato Rivera Santana', 'Male', '90 days', '2001-05-23', '2001-08-21'],
+            ['Juan Alverio', 'Juan', 'Alverio', 'Male', 'denied bond', '2001-04-10', null],
+            ['Julio Ortega Miranda', 'Julio', 'Ortega Miranda', 'Male', '40 days', '2001-05-22', '2001-07-01'],
+            ['Luis A. Olivera', 'Luis', 'Olivera', 'Male', '45 days', '2001-04-27', '2001-06-11'],
+            ['Luis Figueroa Félix', 'Luis', 'Figueroa Félix', 'Male', '40 days', '2001-05-25', '2001-07-03'],
+            ['Maribel Rodríguez Arroyo', 'Maribel', 'Rodríguez Arroyo', 'Female', '30 days', '2001-04-01', '2001-05-01'],
+            ['María de Lordes Santiago', 'María', 'de Lordes Santiago', 'Female', '30 days', '2001-04-01', '2001-05-01'],
+            ['Mauro Simpson', 'Mauro', 'Simpson', 'Male', 'awaiting trial', '2002-09-10', null],
+            ['Mirna Rodríguez', 'Mirna', 'Rodríguez', 'Female', '30 days', '2001-04-01', '2001-05-01'],
+            ['Nazael Montalvo Rodríguez', 'Nazael', 'Montalvo Rodríguez', 'Male', 'denied bond', '2001-04-12', null],
+            ['Nestor Nazario Trabal', 'Nestor', 'Nazario Trabal', 'Male', '40 days', '2001-05-22', '2001-07-01'],
+            ['Norma Ortiz Gusmán', 'Norma', 'Ortiz Gusmán', 'Female', 'awaiting trial', '2002-09-11', null],
+            ['Nydia Gonzalez Reyes', 'Nydia', 'Gonzalez Reyes', 'Female', 'awaiting trial', '2002-09-12', null],
+            ['Oscar Charriez Lozada', 'Oscar', 'Charriez Lozada', 'Male', '100 days', '2001-04-11', '2001-07-20'],
+            ['Pedro José Muñiz Garcia', 'Pedro', 'Muñiz Garcia', 'Male', '90 days', '2001-05-23', '2001-08-21'],
+            ['Petra Barreras del Río', 'Petra', 'Barreras del Río', 'Female', '6 months', '2001-04-11', '2001-10-11'],
+            ['Rafael Feliciano', 'Rafael', 'Feliciano', 'Male', 'denied bond', '2001-04-09', null],
+            ['Rafael Pérez Torruella', 'Rafael', 'Pérez Torruella', 'Male', 'awaiting trial', '2002-09-10', null],
+            ['Reynaldo Salivas Gonzalez', 'Reynaldo', 'Salivas Gonzalez', 'Male', '40 days', '2001-05-23', '2001-07-02'],
+            ['Reynand Ortiz Feliciano', 'Reynand', 'Ortiz Feliciano', 'Male', '90 days', '2001-05-23', '2001-08-21'],
+            ['Ricardo Espada Rosado', 'Ricardo', 'Espada Rosado', 'Male', '40 days', '2001-05-25', '2001-07-03'],
+            ['Roberto Ramirez', 'Roberto', 'Ramirez', 'Male', '40 days', '2001-05-22', '2001-07-01'],
+            ['Rosalinda Soto Toledo', 'Rosalinda', 'Soto Toledo', 'Female', '40 days', '2001-05-22', '2001-07-01'],
+            ['Samuel Soto Bosques', 'Samuel', 'Soto Bosques', 'Male', '4 months', '2001-04-27', '2001-08-27'],
+            ['Santos Rubén Hernández García', 'Santos', 'Hernández García', 'Male', 'denied bond', '2001-04-12', null],
+            ['Tomás Vargas', 'Tomás', 'Vargas', 'Male', '2 months', '2001-05-01', '2001-07-01'],
+            ['Violeta Vega Ríos', 'Violeta', 'Vega Ríos', 'Female', '40 days', '2001-04-04', '2001-05-14'],
+            ['Zoraida Santiago Buitrago', 'Zoraida', 'Santiago Buitrago', 'Female', '40 days', '2001-05-22', '2001-07-01'],
+        ] as $row) {
+            [$name, $first, $last, $gender, $sentence, $arrest, $release] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
+                    'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican independence'],
+                    'affiliation' => ['Vieques resistance'], 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was arrested for trespass on the U.S. Navy bombing range at Vieques, Puerto Rico, as part of the sustained 1999–2003 civil-disobedience campaign that ultimately forced the Navy to withdraw from the inhabited island in May 2003. Sentenced to {$sentence}.\n\n{$viequesContext}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $prSanJuan->id,
+                    'charges' => 'Trespass on U.S. Navy bombing range, Vieques, Puerto Rico',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // SOA Watch additional batches (1997-2003) — every named line-crosser with documented sentence
+        foreach ([
+            ['Brian Buckley', 'Brian', null, 'Buckley', 'Male', '3 months', '2003-11-23'],
+            ['Brooks Anderson', 'Brooks', null, 'Anderson', 'Male', '3 months', '2000-11-19'],
+            ['Charles Butler', 'Charles', null, 'Butler', 'Male', '3 months', '2000-11-19'],
+            ['Edith Balot', 'Edith', null, 'Balot', 'Female', '3 months', '2002-11-17'],
+            ['Gerhard Fischer', 'Gerhard', null, 'Fischer', 'Male', '3 months', '2000-11-19'],
+            ['Jason Lydon', 'Jason', null, 'Lydon', 'Male', '6 months', '2002-11-17'],
+            ['Jessica Carr', 'Jessica', null, 'Carr', 'Female', '3 months', '2002-11-17'],
+            ['John Honeck', 'John', null, 'Honeck', 'Male', '3 months', '2000-11-19'],
+            ['Judy Bierbaum', 'Judy', null, 'Bierbaum', 'Female', '3 months', '2000-11-19'],
+            ['Margaret Knapke', 'Margaret', null, 'Knapke', 'Female', '3 months', '2000-11-19'],
+            ['Marie Salupo', 'Marie', null, 'Salupo', 'Female', '3 months', '2002-11-17'],
+            ['Marvin Warren', 'Marvin', null, 'Warren', 'Male', '3 months', '2002-11-17'],
+            ['Pamela McBride', 'Pamela', null, 'McBride', 'Female', '6 months', '2002-11-17'],
+            ['Pedro Zenón Encarnacíon', 'Pedro', 'Zenón', 'Encarnacíon', 'Male', '3 months', '2002-11-17'],
+            ['Sr. Caryl Hartjes', 'Caryl', null, 'Hartjes', 'Female', '3 months', '2002-11-17'],
+            ['Sr. Kathy Long', 'Kathy', null, 'Long', 'Female', '3 months', '2002-11-17'],
+            ['Sr. Moira Kenny', 'Moira', null, 'Kenny', 'Female', '6 months', '2002-11-17'],
+            ['Thomas Bottolene', 'Thomas', null, 'Bottolene', 'Male', '3 months', '2000-11-19'],
+            ['William Slattery', 'William', null, 'Slattery', 'Male', '6 months', '2002-11-17'],
+            ['Dan Fortson', 'Dan', null, 'Fortson', 'Male', '3 months', '2002-11-17'],
+            ['Dave Tarbell', 'Dave', null, 'Tarbell', 'Male', '6 months', '2002-11-17'],
+            ['Don Haselfeld', 'Don', null, 'Haselfeld', 'Male', '6 months', '2002-11-17'],
+            ['Dorothy Pagosa', 'Dorothy', null, 'Pagosa', 'Female', '3 months', '2002-11-17'],
+            ['Douglas Kasper', 'Douglas', null, 'Kasper', 'Male', '3 months', '2002-11-17'],
+            ['Fr. Jim Hynes', 'Jim', null, 'Hynes', 'Male', '6 months', '2002-11-17'],
+            ['Joyce Elwanger', 'Joyce', null, 'Elwanger', 'Female', '6 months', '2002-11-17'],
+            ['Lisa Hughes', 'Lisa', null, 'Hughes', 'Female', '6 months', '2002-11-17'],
+            ['Marilyn White', 'Marilyn', null, 'White', 'Female', '6 months', '2002-11-17'],
+            ['Katherine Bjorkman', 'Katherine', null, 'Bjorkman', 'Female', '3 months', '2002-11-17'],
+            ['Katherine Brown', 'Katherine', null, 'Brown', 'Female', '3 months', '2002-11-17'],
+            ['Frances Guzman Lago', 'Frances', null, 'Guzman Lago', 'Female', '3 months', '2002-11-17'],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $sentence, $arrest] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'Georgia', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} crossed the line at Fort Benning, Georgia during an SOA Watch vigil to close the U.S. Army School of the Americas / WHINSEC. Sentenced to {$sentence}.\n\n{$soaContextLong}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $ftMooreFCI->id,
+                    'charges' => 'Trespass at U.S. Army School of the Americas, Fort Benning',
+                    'arrest_date' => $arrest,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Additional military refusers
+        foreach ([
+            ['Blake Lemoine', 'Blake', 'Lemoine', '7 months', '2005-02-15', '2005-09-17', "Refused deployment to Iraq; pled guilty to AWOL/desertion"],
+            ['Justin Raymond Colby', 'Justin Raymond', 'Colby', '9 months', '2013-03-23', '2013-12-23', "Military refuser, SOA Watch protester"],
+            ['Kenneth Hayes', 'Kenneth', 'Hayes', '6 months', '2010-03-16', '2010-09-16', "SOA Watch trespass at Fort Benning, 11/09"],
+            ['Robert Alford', 'Robert', 'Alford', 'short', '2009-03-15', '2009-08-15', "Iraq War military refuser; pled guilty to desertion"],
+            ['Elijah Smith', 'Elijah', 'Smith', 'short', '2009-04-15', null, "Iraq War military refuser; pled guilty to desertion"],
+        ] as [$name, $first, $last, $sentence, $arrest, $release, $action]) {
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => 'Male', 'race' => 'White', 'state' => 'United States', 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Conscientious objector'],
+                    'affiliation' => null, 'in_custody' => false, 'released' => true,
+                    'description' => "{$name} was a U.S. servicemember who refused deployment during the Iraq/Afghanistan wars. {$action}. Sentenced to {$sentence}.",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $bopVaried->id,
+                    'charges' => 'Desertion / missing movement (UCMJ)',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // Catholic Worker / Pentagon resistance / anti-drone organizers
+        foreach ([
+            ['Steve Jacobs', 'Steve', 'Jacobs', 'Male', 'Catholic Worker, Iowa', "Steve Jacobs is an Iowa Catholic Worker who has been arrested repeatedly at Whiteman Air Force Base and Strangers and Guests Catholic Worker drone protests."],
+            ['Jim Dowling', 'Jim', 'Dowling', 'Male', 'Catholic Worker, Australia', "Jim Dowling is a longtime Brisbane Catholic Worker arrested at Pine Gap and Talisman Sabre military exercises in Australia for nonviolent civil disobedience against U.S./Australian war exercises."],
+            ['Larry Purcell', 'Larry', 'Purcell', 'Male', 'Plowshares, Catholic Worker', "Larry Purcell is a longtime Catholic peace activist arrested in Plowshares-style actions at Lawrence Livermore National Laboratory and Vandenberg Air Force Base in California."],
+            ['Megan Ramsey', 'Megan', 'Ramsey', 'Female', 'Catholic Worker, Pentagon resistance', "Megan Ramsey is a Catholic Worker arrested in Pentagon civil-disobedience actions and at U.S. military installations protesting U.S. drone warfare."],
+            ['Paul Magno', 'Paul', 'Magno', 'Male', 'Pentagon resistance, Plowshares', "Paul Magno is a longtime Catholic Worker and Plowshares organizer in the Washington, D.C. area who has been arrested repeatedly at the Pentagon and at the White House for nonviolent anti-nuclear and anti-war civil disobedience."],
+            ['Ed Kinane', 'Ed', 'Kinane', 'Male', 'Anti-drone, Voices for Creative Nonviolence', "Ed Kinane is an Upstate New York anti-war activist arrested repeatedly at Hancock Field Air National Guard Base in Syracuse for protesting Reaper drone operations."],
+            ['John Heid', 'John', 'Heid', 'Male', 'Anti-drone', "John Heid is an anti-drone activist arrested at Beale Air Force Base for protesting unmanned aerial vehicle operations."],
+            ['Robert Majors', 'Robert', 'Majors', 'Male', 'Anti-drone', "Robert Majors is an anti-drone activist arrested at U.S. drone bases."],
+            ['Robert Smith', 'Robert', 'Smith', 'Male', 'Anti-drone', "Robert Smith was arrested at Beale Air Force Base for protesting unmanned aerial vehicle operations."],
+            ['Alex Harrison', 'Alex', 'Harrison', 'Male', 'Recruiting station resistance', "Alex Harrison was arrested for civil disobedience at U.S. military recruiting stations during the Iraq War era."],
+        ] as [$name, $first, $last, $gender, $aff, $desc]) {
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => 'United States', 'era' => '2010s',
+                    'ideologies' => ['Anti-war', 'Pacifist'],
+                    'affiliation' => [$aff],
+                    'in_custody' => false, 'released' => true,
+                    'description' => $desc,
+                ],
+                'cases' => [[
+                    'institution_id' => $bopVaried->id,
+                    'charges' => 'Trespass at U.S. military installations — anti-drone, anti-war civil disobedience',
+                    'arrest_date' => '2014-01-01',
+                    'sentence' => 'Multiple short sentences across several years of organizing',
+                ]],
+            ];
+        }
+
         // Process all defendants ───
         foreach ($defendants as $entry) {
             DB::transaction(function () use ($entry, &$created, &$skipped) {
