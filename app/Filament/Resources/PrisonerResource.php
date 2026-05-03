@@ -48,7 +48,10 @@ class PrisonerResource extends Resource {
                         Forms\Components\DatePicker::make('birthdate'),
                         Forms\Components\DatePicker::make('death_date'),
                         Forms\Components\TextInput::make('age')
-                            ->numeric(),
+                            ->numeric()
+                            ->disabled()
+                            ->dehydrated(false)
+                            ->helperText('Auto-calculated from birthdate (and death date if set).'),
                     ])
                     ->columns(3),
 
