@@ -87,6 +87,26 @@ class DownloadPrisonerPhotos extends Command
         'tre-arrow'                 => 'Tre Arrow',
         'william-c-rodgers'         => 'William C. Rodgers',
 
+        // Peace activists batch
+        'james-bevel'               => 'James Bevel',
+        'cesar-chavez'              => 'Cesar Chavez',
+        'kathy-kelly'               => 'Kathy Kelly (peace activist)',
+        'megan-rice'                => 'Megan Rice',
+        'ardeth-platte'             => 'Ardeth Platte',
+        'carol-gilbert'             => 'Carol Gilbert (activist)',
+        'william-bichsel'           => 'Bill Bichsel',
+        'louis-vitale'              => 'Louis Vitale',
+        'tom-cornell'               => 'Tom Cornell (activist)',
+        'john-dear'                 => 'John Dear',
+        'brian-willson'             => 'Brian Willson',
+        'frances-crowe'             => 'Frances Crowe',
+
+        // Animal-rights / Trial-and-Terror prisoners with Wikipedia articles
+        'daniel-andreas-san-diego'  => 'Daniel Andreas San Diego',
+        'camille-marino'            => 'Camille Marino',
+        'sami-osmakac'              => 'Sami Osmakac',
+        'newburgh-four'             => 'Newburgh Four',
+
         // Reuben Crandall and Keith McHenry exist already; only fetch
         // if no photo is set.
         'reuben-crandall'           => 'Reuben Crandall',
