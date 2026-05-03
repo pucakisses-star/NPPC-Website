@@ -162,7 +162,8 @@ const sumElements: Array<IDisplayElement> = [
 <template>
   <section id="stats-component">
     <div class="" id="counters">
-      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-for="element in sumElements" :key="element.key">
+      <template v-for="element in sumElements" :key="element.key">
+      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-if="sumCounts[element.key] > 0">
         <div class="w-full md:w-1/2 text-left">
           <div class="counter-label title-label"><sub>collective</sub>{{element.label}}</div>
           <div class="counter-info pr-16"><p>{{element.info}}</p></div>
@@ -171,6 +172,7 @@ const sumElements: Array<IDisplayElement> = [
           {{ sumCounts[element.key]?.toLocaleString() || '0' }}
         </div>
       </div>
+      </template>
     </div>
 
     <div id="charts">
@@ -196,7 +198,8 @@ const sumElements: Array<IDisplayElement> = [
     </div>
 
     <div class="" id="counters-small">
-      <div class="counter block md:flex md:justify-between mb-24 md:mb-32" v-for="element in sumElementsSmallNumbers" :key="element.key">
+      <template v-for="element in sumElementsSmallNumbers" :key="element.key">
+      <div class="counter block md:flex md:justify-between mb-24 md:mb-32" v-if="sumCounts[element.key] > 0">
         <div class="w-full md:w-2/5  counter-value">
           {{ sumCounts[element.key]?.toLocaleString() || '0' }}
         </div>
@@ -205,6 +208,7 @@ const sumElements: Array<IDisplayElement> = [
          <div class="counter-info"><p>{{element.info}}</p></div>
        </div>
       </div>
+      </template>
     </div>
   </section>
 </template>
