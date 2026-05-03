@@ -82,6 +82,7 @@ class DownloadPrisonerPhotos extends Command
         'anthony-russo'             => 'Anthony Russo (whistleblower)',
         'ramona-africa'             => 'Ramona Africa',
         'camilo-mejia'              => 'Camilo Mejía',
+        'zoe-rosenberg'             => 'Zoe Rosenberg',
 
         // Reuben Crandall and Keith McHenry exist already; only fetch
         // if no photo is set.
