@@ -5,12 +5,18 @@ import useAirtable from "@/composables/useAirtable";
 const { records, fetchRecords } = useAirtable();
 await fetchRecords();
 
-const displayedRecords = ref(records.value.slice(0, 50));
+// Only include prisoners whose record has an actual Photo URL — otherwise
+// they show up as empty black boxes with a name label. The gallery is purely
+// visual, so unphotographed entries don't belong here.
+const hasPhoto = (p: any) =>
+  typeof p?.Photo === 'string' && p.Photo.trim() !== '' && p.Photo !== 'undefined';
+
+const displayedRecords = ref(records.value.filter(hasPhoto).slice(0, 50));
 const carouselRef = ref<HTMLElement | null>(null);
 
 // Recalculate displayedRecords when records updates
 watch(records, () => {
-  displayedRecords.value = records.value.slice(0, 50);
+  displayedRecords.value = records.value.filter(hasPhoto).slice(0, 50);
 });
 
 onMounted(() => {
