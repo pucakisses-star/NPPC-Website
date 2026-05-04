@@ -46,6 +46,9 @@
             <div id="app-stats"></div>
         @endif
 
+        {{-- All Prosecutions by State map --}}
+        @include('sections.state-map')
+
         {{-- Individual Profiles callout --}}
         @include('sections.individual-profiles')
 
