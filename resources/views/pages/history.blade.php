@@ -1,11 +1,37 @@
 @php use App\Models\HistoryEra; @endphp
 @php
 /** @var HistoryEra[] $eras */
+
+// Approximate (lat, lng) coords for major topic locations. Used to plot
+// markers on the per-era Leaflet map slide. Topics not in this map are
+// silently skipped on the map (the map slide still renders for the era,
+// but only with the topics it can locate).
+$topicCoords = [
+    'The Sedition Act'                   => [39.9526, -75.1652, 'Philadelphia, PA'],
+    'The Abolition Movement'             => [42.3601, -71.0589, 'Boston, MA'],
+    'The Civil War'                      => [38.9072, -77.0369, 'Washington, DC'],
+    'The Labor Movement'                 => [41.8867, -87.6437, 'Haymarket Square, Chicago, IL'],
+    'Suffragism'                         => [42.9106, -76.7960, 'Seneca Falls, NY'],
+    'The First Red Scare'                => [40.7128, -74.0060, 'New York, NY'],
+    'World War I'                        => [38.9072, -77.0369, 'Washington, DC'],
+    'World War II'                       => [38.0306, -121.8636, 'Manzanar / U.S. internment camps (CA)'],
+    'McCarthyism'                        => [38.8899, -77.0091, 'U.S. Capitol, Washington, DC'],
+    'The Civil Rights Movement'          => [32.4071, -87.0211, 'Selma, AL'],
+    'The Vietnam War'                    => [41.1467, -81.3470, 'Kent State, Kent, OH'],
+    'COINTELPRO'                         => [38.8951, -77.0364, 'FBI HQ, Washington, DC'],
+    'Puerto Rican Independence Movement' => [18.4655, -66.1057, 'San Juan, Puerto Rico'],
+    'The War on Terror'                  => [40.7128, -74.0060, 'New York, NY (Holy Land Foundation)'],
+    'The Green Scare'                    => [44.0521, -123.0868, 'Eugene, OR'],
+    'Anonymous'                          => [40.7128, -74.0060, 'New York, NY (LulzSec / Anonymous)'],
+    'Occupy Wall Street'                 => [40.7090, -74.0113, 'Zuccotti Park, NYC'],
+    'Black Lives Matter'                 => [44.9778, -93.2650, 'Minneapolis, MN'],
+];
 @endphp
 
 @extends('app')
 
 @section('head')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
 :root {
   --h-accent: #5660fe;
@@ -273,6 +299,135 @@
 .vbg-occupy { background: linear-gradient(140deg, #14120e 0%, #201a10 50%, #181410 100%); }
 .vbg-blm { background: linear-gradient(140deg, #10101a 0%, #181828 50%, #121220 100%); }
 
+/* ─── Section title slides (full-bleed era dividers) ─── */
+.era-divider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.era-divider-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(40%) brightness(0.45);
+  z-index: 1;
+  transform: scale(1.05);
+  transition: transform 1.2s ease;
+}
+.era-divider.in-view .era-divider-bg {
+  transform: scale(1);
+}
+.era-divider-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.85) 100%);
+  z-index: 2;
+}
+.era-divider-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 24px;
+  max-width: 760px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+.era-divider.in-view .era-divider-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.era-divider-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--h-accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+.era-divider-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+.era-divider-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.7;
+}
+
+/* ─── Progress dots column inside each sidecar ─── */
+.sidecar { position: relative; }
+.sidecar-dots {
+  position: absolute;
+  left: calc(45% - 8px);
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  display: none;
+  pointer-events: none;
+  z-index: 3;
+}
+@media (min-width: 901px) {
+  .sidecar-dots { display: block; }
+}
+.sidecar-dots-inner {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.sidecar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.sidecar-dot.active {
+  background: var(--h-accent);
+  transform: scale(1.6);
+}
+
+/* ─── Map slide (Leaflet) ─── */
+.visual-layer-map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.visual-layer-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #0a0a14;
+}
+.leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.95) saturate(0.6); }
+.leaflet-control-attribution {
+  background: rgba(0,0,0,0.6) !important;
+  color: rgba(255,255,255,0.6) !important;
+}
+.leaflet-control-attribution a {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* ─── Immersive variant for the era cover step ─── */
+.step-era-cover .step-content {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+  padding: 24px 28px;
+  border-left: 3px solid var(--h-accent);
+}
+
 @@media (max-width: 900px) {
   .sidecar { flex-direction: column; }
   .sidecar-narrative { width: 100%; }
@@ -282,6 +437,8 @@
   .step-era-title { font-size: 1.6rem; }
   .step-topic-title { font-size: 1.3rem; }
   .visual-caption-era { font-size: 2.5rem; }
+  .era-divider { height: 70vh; }
+  .era-divider-title { font-size: 2.5rem; }
 }
 </style>
 @endsection
@@ -308,10 +465,63 @@
 
     <!-- Eras -->
     @foreach($eras as $era)
+    @php
+        // Pick a hero image for the era divider: first topic image with one,
+        // else fall back to a neutral gradient via the era bg class.
+        $eraHeroImage = null;
+        foreach ($era->topics as $t) {
+            if ($t->image) { $eraHeroImage = \Storage::url($t->image); break; }
+        }
+
+        // Build the marker list for this era's map slide.
+        $eraMarkers = [];
+        foreach ($era->topics as $t) {
+            if (isset($topicCoords[$t->title])) {
+                [$lat, $lng, $label] = $topicCoords[$t->title];
+                $eraMarkers[] = [
+                    'lat'   => $lat,
+                    'lng'   => $lng,
+                    'label' => $label,
+                    'title' => $t->title,
+                    'date'  => $t->date_label,
+                ];
+            }
+        }
+    @endphp
+
+    <!-- Section title slide (full-bleed era divider) -->
+    <section class="era-divider {{ $era->bg_class }}">
+        @if($eraHeroImage)
+            <div class="era-divider-bg" style="background-image: url('{{ $eraHeroImage }}');"></div>
+        @else
+            <div class="era-divider-bg {{ $era->bg_class }}"></div>
+        @endif
+        <div class="era-divider-overlay"></div>
+        <div class="era-divider-content">
+            <span class="era-divider-tag">{{ $era->tag_line }}</span>
+            <h2 class="era-divider-title">{{ $era->heading }}</h2>
+            <p class="era-divider-desc">{{ $era->description }}</p>
+        </div>
+    </section>
+
     <section class="sidecar" id="sc-{{ $era->slug }}" data-era="{{ $era->nav_label }}">
+
+        <!-- Progress dots column (one dot per scroll-stop in this era) -->
+        <div class="sidecar-dots" aria-hidden="true">
+            <div class="sidecar-dots-inner">
+                <span class="sidecar-dot @if($loop->first) active @endif" data-step-index="0"></span>
+                @foreach($era->topics as $i => $topic)
+                    <span class="sidecar-dot" data-step-index="{{ $i + 1 }}"></span>
+                @endforeach
+                @if(count($eraMarkers) > 0)
+                    <span class="sidecar-dot" data-step-index="{{ $era->topics->count() + 1 }}"></span>
+                @endif
+            </div>
+        </div>
+
         <div class="sidecar-narrative">
             <!-- Era cover step -->
-            <div class="step step-era-cover @if($loop->first) active @endif" data-visual="v-{{ $era->slug }}-cover">
+            <div class="step step-era-cover @if($loop->first) active @endif" data-visual="v-{{ $era->slug }}-cover" data-step-index="0">
                 <div class="step-content">
                     <span class="step-era-tag">{{ $era->tag_line }}</span>
                     <h2 class="step-era-title">{{ $era->heading }}</h2>
@@ -320,8 +530,8 @@
             </div>
 
             <!-- Topic steps -->
-            @foreach($era->topics as $topic)
-            <div class="step" data-visual="v-topic-{{ $topic->id }}">
+            @foreach($era->topics as $i => $topic)
+            <div class="step" data-visual="v-topic-{{ $topic->id }}" data-step-index="{{ $i + 1 }}">
                 <div class="step-content">
                     <div class="step-divider"></div>
                     <div class="step-topic-date">{{ $topic->date_label }}</div>
@@ -330,6 +540,22 @@
                 </div>
             </div>
             @endforeach
+
+            @if(count($eraMarkers) > 0)
+            <!-- Map slide step -->
+            <div class="step" data-visual="v-{{ $era->slug }}-map" data-step-index="{{ $era->topics->count() + 1 }}">
+                <div class="step-content">
+                    <div class="step-divider"></div>
+                    <div class="step-topic-date">Where it happened</div>
+                    <h3 class="step-topic-title">A geography of repression</h3>
+                    <p class="step-topic-summary">
+                        The events of the {{ $era->nav_label }} era spread across the country —
+                        from {{ $eraMarkers[0]['label'] ?? '' }}@if(count($eraMarkers) > 1) to {{ $eraMarkers[count($eraMarkers)-1]['label'] }}@endif.
+                        Each marker is a story this database documents.
+                    </p>
+                </div>
+            </div>
+            @endif
         </div>
 
         <div class="sidecar-visual">
@@ -355,6 +581,17 @@
                 </div>
             </div>
             @endforeach
+
+            @if(count($eraMarkers) > 0)
+            <!-- Map visual -->
+            <div class="visual-layer" id="v-{{ $era->slug }}-map">
+                <div class="visual-layer-map" data-map-markers='@json($eraMarkers)' data-map-id="map-{{ $era->slug }}"></div>
+                <div class="visual-caption">
+                    <span class="visual-caption-era">{{ $era->caption_era }}</span>
+                    <span class="visual-caption-label">Geography of repression</span>
+                </div>
+            </div>
+            @endif
         </div>
     </section>
     @endforeach
@@ -367,21 +604,85 @@
     </section>
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+// Lazy Leaflet map initializer — only spin up a map when its layer first
+// becomes active (saves the four-or-five maps on the page from all
+// instantiating on first paint).
+const initMap = (mapEl) => {
+    if (mapEl.dataset.initialized === 'true') return;
+    mapEl.dataset.initialized = 'true';
+
+    let markers;
+    try { markers = JSON.parse(mapEl.dataset.mapMarkers || '[]'); }
+    catch (e) { markers = []; }
+    if (!markers.length) return;
+
+    const map = L.map(mapEl, {
+        zoomControl: false,
+        attributionControl: true,
+        scrollWheelZoom: false,
+        dragging: true,
+    }).setView([39.5, -98.35], 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 8,
+    }).addTo(map);
+
+    const bounds = [];
+    const dotIcon = L.divIcon({
+        className: '',
+        html: '<div style="width:14px;height:14px;border-radius:50%;background:#5660fe;border:2px solid #fff;box-shadow:0 0 12px rgba(86,96,254,0.7);"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+    });
+    markers.forEach(m => {
+        L.marker([m.lat, m.lng], { icon: dotIcon })
+            .bindPopup(
+                `<div style="font-family: 'Roboto', sans-serif;">
+                    <div style="font-weight:800; color:#0a0a0a; margin-bottom:4px;">${m.title}</div>
+                    <div style="font-size:12px; color:#5660fe; margin-bottom:4px;">${m.date || ''}</div>
+                    <div style="font-size:13px; color:rgba(0,0,0,0.7);">${m.label}</div>
+                </div>`,
+                { maxWidth: 280 }
+            )
+            .addTo(map);
+        bounds.push([m.lat, m.lng]);
+    });
+
+    if (bounds.length === 1) {
+        map.setView(bounds[0], 5);
+    } else {
+        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 6 });
+    }
+};
+
 // Scrollytelling Engine
 document.querySelectorAll('.sidecar').forEach(sidecar => {
     const steps = sidecar.querySelectorAll('.step');
     const layers = sidecar.querySelectorAll('.visual-layer');
+    const dots = sidecar.querySelectorAll('.sidecar-dot');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const targetId = entry.target.dataset.visual;
+                const stepIdx = entry.target.dataset.stepIndex;
                 steps.forEach(s => s.classList.remove('active'));
                 entry.target.classList.add('active');
+
+                // Update progress dots for this sidecar
+                dots.forEach(d => {
+                    d.classList.toggle('active', d.dataset.stepIndex === stepIdx);
+                });
+
                 layers.forEach(l => {
                     if (l.id === targetId) {
                         if (!l.classList.contains('active')) l.classList.add('active');
+                        // Lazy-init Leaflet maps when their layer becomes active
+                        const mapEl = l.querySelector('.visual-layer-map');
+                        if (mapEl) initMap(mapEl);
                     } else {
                         l.classList.remove('active');
                     }
@@ -392,6 +693,19 @@ document.querySelectorAll('.sidecar').forEach(sidecar => {
 
     steps.forEach(step => observer.observe(step));
 });
+
+// Era divider entrance animations (fade + zoom on scroll-into-view)
+const dividerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        } else if (entry.intersectionRatio === 0) {
+            entry.target.classList.remove('in-view');
+        }
+    });
+}, { threshold: [0, 0.2, 0.5, 0.8] });
+
+document.querySelectorAll('.era-divider').forEach(d => dividerObserver.observe(d));
 
 // Era Nav Tracking
 const sidecars = document.querySelectorAll('.sidecar');
