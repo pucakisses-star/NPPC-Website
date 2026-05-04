@@ -257,7 +257,7 @@ p {
   margin:auto;
 
   .counter-value {
-    font-size: clamp(3rem, 11vw, 8rem);
+    font-size: 8rem;
     line-height: 1;
     text-align: right;
     font-weight: bold;
@@ -265,7 +265,7 @@ p {
     overflow: visible;
 
     @media (max-width: 800px) {
-      font-size: clamp(2.5rem, 12vw, 5rem);
+      font-size: 5rem;
       line-height: 1;
       text-align: left;
       padding-top: 0;
