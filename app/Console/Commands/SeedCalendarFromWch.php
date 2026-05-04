@@ -13,37 +13,45 @@ class SeedCalendarFromWch extends Command
 
     public function handle(): int
     {
-        // Each entry: [month, day, historical year, title, description].
-        // The (month, day) pair is uniquely constrained — only one entry per
-        // calendar slot. New rows are created via firstOrCreate so reruns are
-        // safe and existing entries are never overwritten.
-        $entries = [
-            [3, 28, 1919, 'Arkansas bans anarchism and communism',
-             "The state of Arkansas joined most US states in banning anarchism and communism. The law to 'define and punish anarchy and Bolshevism' barred revolutionary activism and red and black flags, with up to six months jail as a punishment."],
-        ];
+        $path = resource_path('data/wch-calendar-entries.json');
+        if (! file_exists($path)) {
+            $this->error("Missing data file: {$path}");
+            return self::FAILURE;
+        }
+
+        $entries = json_decode(file_get_contents($path), true);
+        if (! is_array($entries)) {
+            $this->error("Failed to parse {$path}");
+            return self::FAILURE;
+        }
+
+        $this->info("Loaded " . count($entries) . " entries.");
 
         $created = 0;
         $skipped = 0;
 
-        foreach ($entries as [$month, $day, $year, $title, $description]) {
-            DB::transaction(function () use ($month, $day, $year, $title, $description, &$created, &$skipped) {
-                $existing = CalendarEntry::where('month', $month)->where('day', $day)->first();
+        foreach ($entries as $row) {
+            DB::transaction(function () use ($row, &$created, &$skipped) {
+                $existing = CalendarEntry::where('month', $row['month'])
+                    ->where('day', $row['day'])
+                    ->first();
+
                 if ($existing) {
-                    $this->line("Skipping {$month}/{$day} — already has: {$existing->title}");
+                    $this->line("Skipping {$row['month']}/{$row['day']} — already has: {$existing->title}");
                     $skipped++;
                     return;
                 }
 
                 CalendarEntry::create([
-                    'month'       => $month,
-                    'day'         => $day,
-                    'year'        => $year,
-                    'title'       => $title,
-                    'description' => $description,
+                    'month'       => $row['month'],
+                    'day'         => $row['day'],
+                    'year'        => $row['year'],
+                    'title'       => $row['title'],
+                    'description' => $row['description'],
                     'published'   => true,
                 ]);
 
-                $this->info("Added {$month}/{$day}/{$year}: {$title}");
+                $this->info("Added {$row['month']}/{$row['day']}/{$row['year']}: {$row['title']}");
                 $created++;
             });
         }
