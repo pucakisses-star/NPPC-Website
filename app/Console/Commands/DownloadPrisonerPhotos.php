@@ -55,6 +55,100 @@ class DownloadPrisonerPhotos extends Command
         'victor-l-berger'           => 'Victor L. Berger',
         'bill-haywood'              => 'Bill Haywood',
 
+        // Sedition Act of 1798 defendants
+        'matthew-lyon'              => 'Matthew Lyon',
+        'james-thomson-callender'   => 'James T. Callender',
+        'thomas-cooper'             => 'Thomas Cooper (American politician, born 1759)',
+        'william-duane'             => 'William Duane (journalist)',
+
+        // Black liberation / BPP / BLA / COINTELPRO-era prisoners
+        'mumia-abu-jamal'           => 'Mumia Abu-Jamal',
+        'joanne-d-chesimard-assata-shakur' => 'Assata Shakur',
+        'sundiata-acoli'            => 'Sundiata Acoli',
+        'mutulu-shakur'             => 'Mutulu Shakur',
+        'russell-maroon-shoatz'     => 'Russell Maroon Shoatz',
+        'veronza-bowers-jr'         => 'Veronza Bowers',
+        'h-rap-brown-hubert-gerold-brown-jamil-abdullah-al-amin' => 'Jamil Al-Amin',
+        'fred-hampton'              => 'Fred Hampton',
+        'angela-davis'              => 'Angela Davis',
+        'malcolm-x'                 => 'Malcolm X',
+        'larry-hoover'              => 'Larry Hoover',
+        'kuwasi-balagoon'           => 'Kuwasi Balagoon',
+        'sekou-odinga'              => 'Sekou Odinga',
+        'jalil-muntaqim'            => 'Jalil Muntaqim',
+        'romaine-fitzgerald'        => 'Romaine Fitzgerald',
+        'geronimo-pratt'            => 'Geronimo Pratt',
+
+        // AIM / Indigenous
+        'leonard-peltier'           => 'Leonard Peltier',
+        'john-boy-patton-john-graham' => 'John Graham (activist)',
+
+        // Plowshares / Catholic peace
+        'helen-woodson'             => 'Helen Woodson',
+        'daniel-berrigan'           => 'Daniel Berrigan',
+        'philip-berrigan'           => 'Philip Berrigan',
+        'liz-mcalister'             => 'Liz McAlister',
+        'martin-sheen'              => 'Martin Sheen',
+
+        // Whistleblowers
+        'chelsea-manning'           => 'Chelsea Manning',
+        'edward-snowden'            => 'Edward Snowden',
+        'daniel-ellsberg'           => 'Daniel Ellsberg',
+        'daniel-e-hale'             => 'Daniel Hale (whistleblower)',
+        'joshua-schulte'            => 'Joshua Schulte',
+        'reality-winner'            => 'Reality Winner',
+        'john-kiriakou'             => 'John Kiriakou',
+        'jeffrey-sterling'          => 'Jeffrey Sterling',
+        'thomas-drake'              => 'Thomas Drake (whistleblower)',
+        'barrett-brown'             => 'Barrett Brown',
+
+        // Iraq War resisters
+        'ehren-watada'              => 'Ehren Watada',
+        'jeremy-hinzman'            => 'Jeremy Hinzman',
+        'kimberly-rivera'           => 'Kimberly Rivera',
+
+        // ELF / ALF / Green Scare
+        'daniel-mcgowan'            => 'Daniel McGowan',
+        'jeff-luers'                => 'Jeff Luers',
+        'marius-mason'              => 'Marie Mason',
+        'rodney-coronado'           => 'Rodney Coronado',
+        'joseph-mahmoud-dibee'      => 'Joseph Mahmoud Dibee',
+
+        // Puerto Rican independence
+        'oscar-lopez-rivera'        => 'Oscar López Rivera',
+        'carlos-alberto-torres'     => 'Carlos Alberto Torres (activist)',
+        'juan-enrique-segarra-palmer' => 'Juan Enrique Segarra-Palmer',
+        'oscar-collazo'             => 'Oscar Collazo',
+        'haydee-beltran-torres'     => 'Haydée Beltrán Torres',
+        'dylcia-pagan'              => 'Dylcia Pagán',
+        'alicia-rodriguez'          => 'Alicia Rodríguez',
+        'ida-luz-rodriguez'         => 'Ida Luz Rodríguez',
+
+        // Trump-era detentions (2024–2025)
+        'mahmoud-khalil'            => 'Mahmoud Khalil (activist)',
+        'rumeysa-ozturk'            => 'Rumeysa Öztürk',
+        'momodou-taal'              => 'Momodou Taal',
+
+        // Stop Cop City
+        'manuel-esteban-paez-teran' => 'Manuel Paez Terán',
+        'tortuguita'                => 'Manuel Paez Terán',
+
+        // Tax / war-tax resisters
+        'wally-nelson'              => 'Wally Nelson',
+        'juanita-nelson'            => 'Juanita Nelson',
+
+        // Other historical
+        'kathy-boudin'              => 'Kathy Boudin',
+        'marilyn-buck'              => 'Marilyn Buck',
+        'david-gilbert'             => 'David Gilbert (activist)',
+        'judith-clark'              => 'Judith Clark',
+        'lynne-stewart'             => 'Lynne Stewart',
+        'wesley-everest'            => 'Wesley Everest',
+        'tom-mooney'                => 'Tom Mooney',
+        'warren-billings'           => 'Warren K. Billings',
+        'judi-bari'                 => 'Judi Bari',
+        'darryl-cherney'            => 'Darryl Cherney',
+
         // Puerto Rican independence
         'pedro-albizu-campos'       => 'Pedro Albizu Campos',
         'lolita-lebron'             => 'Lolita Lebrón',
