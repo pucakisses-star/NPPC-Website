@@ -161,9 +161,13 @@
                 <p class="about-history-text">Since our founding, we have worked to document hundreds of cases of political imprisonment across the United States, advocate for the release of those unjustly detained, provide support to prisoners and their families, and educate the public about the ongoing reality of political repression in America.</p>
             </div>
             <div class="about-history-image">
-                <div class="about-history-image-placeholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(255,255,255,0.08)" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-                </div>
+                @if(file_exists(public_path('images/site/about-history.jpg')))
+                    <img src="/images/site/about-history.jpg" alt="History of political imprisonment in the United States" style="width:100%; min-height:500px; object-fit:cover; border-radius:8px;">
+                @else
+                    <div class="about-history-image-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(255,255,255,0.08)" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -197,7 +201,11 @@
     <div class="about-section">
         <div class="about-team">
             <div class="about-team-image">
-                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(255,255,255,0.1)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                @if(file_exists(public_path('images/site/about-team.jpg')))
+                    <img src="/images/site/about-team.jpg" alt="The NPPC team" style="width:100%; height:100%; min-height:400px; object-fit:cover;">
+                @else
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(255,255,255,0.1)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                @endif
             </div>
             <div class="about-team-right">
                 <h2 class="about-team-title">Our Team</h2>
@@ -240,8 +248,8 @@
     {{-- Two CTA Cards --}}
     <div class="about-section">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:0 0 80px;">
-            <a href="/prisoner-outreach" style="position:relative; display:block; border-radius:8px; overflow:hidden; min-height:400px; text-decoration:none; background:linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #5660fe 100%);">
-                <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 50%);"></div>
+            <a href="/prisoner-outreach" style="position:relative; display:block; border-radius:8px; overflow:hidden; min-height:400px; text-decoration:none; {{ file_exists(public_path('images/site/about-write-letter.jpg')) ? 'background-image:url(/images/site/about-write-letter.jpg); background-size:cover; background-position:center;' : 'background:linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #5660fe 100%);' }}">
+                <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 50%);"></div>
                 <div style="position:absolute; bottom:0; left:0; padding:32px;">
                     <div style="font-size:2.5rem; font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px;">Write a Letter</div>
                     <div style="width:48px; height:48px; display:flex; align-items:center; justify-content:center;">

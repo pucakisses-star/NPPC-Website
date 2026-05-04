@@ -195,6 +195,8 @@
             @endphp
             @if($featuredPrisoner && $featuredPrisoner->photo)
                 <img class="gi-featured-img" src="{{ asset('storage/'.$featuredPrisoner->photo) }}" alt="{{ $featuredPrisoner->name }}">
+            @elseif(file_exists(public_path('images/site/getinvolved-featured.jpg')))
+                <img class="gi-featured-img" src="/images/site/getinvolved-featured.jpg" alt="Get involved">
             @else
                 <div class="gi-featured-placeholder">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(255,255,255,0.06)" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
