@@ -1,0 +1,12 @@
+[
+  {
+    "title": "EXAMPLE — Free Mumia Rally (delete this entry once you add real ones)",
+    "event_date": "2026-04-24",
+    "time": "5:00 PM",
+    "location": "Philadelphia City Hall, Philadelphia, PA",
+    "description": "One-line summary that appears in the event card.",
+    "body": "Optional longer body (HTML allowed) for the event detail page. Leave empty if you only need a summary.",
+    "event_url": "https://www.facebook.com/events/1234567890",
+    "series": "Anniversaries & Releases"
+  }
+]
