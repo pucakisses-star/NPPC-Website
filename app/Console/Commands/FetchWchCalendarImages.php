@@ -56,13 +56,25 @@ class FetchWchCalendarImages extends Command
             $params = ['limit' => 40, 'exclude_reblogs' => 'true', 'exclude_replies' => 'true'];
             if ($maxId) $params['max_id'] = $maxId;
 
-            $resp = Http::withHeaders([
-                'User-Agent' => 'NPPC-Website/1.0 (https://nppc.org; contact@nppc.org)',
-                'Accept'     => 'application/json',
-            ])->timeout(30)->get(self::BASE_URL . '/api/v1/accounts/' . self::ACCOUNT_ID . '/statuses', $params);
+            // Fetch with retry-on-429 (exponential backoff, up to 4 retries)
+            $resp = null;
+            $attempt = 0;
+            while ($attempt < 4) {
+                $resp = Http::withHeaders([
+                    'User-Agent' => 'NPPC-Website/1.0 (https://nppc.org; contact@nppc.org)',
+                    'Accept'     => 'application/json',
+                ])->timeout(30)->get(self::BASE_URL . '/api/v1/accounts/' . self::ACCOUNT_ID . '/statuses', $params);
 
-            if (! $resp->successful()) {
-                $this->error("API error on page {$page}: HTTP " . $resp->status());
+                if ($resp->status() !== 429) break;
+
+                $wait = max(2, (int) $resp->header('Retry-After')) * (1 << $attempt);
+                $this->warn("  rate-limited (429) on page {$page}, sleeping {$wait}s …");
+                sleep($wait);
+                $attempt++;
+            }
+
+            if (! $resp || ! $resp->successful()) {
+                $this->error("API error on page {$page}: HTTP " . ($resp ? $resp->status() : 'null'));
                 break;
             }
 
@@ -130,8 +142,9 @@ class FetchWchCalendarImages extends Command
                 }
             }
 
-            // Polite pause between API pages
-            usleep(400 * 1000);
+            // Polite pause between API pages — longer than before to stay
+            // well below Mastodon's 300/5min unauthenticated rate cap
+            sleep(1);
         }
 
         $this->line('');
@@ -143,12 +156,19 @@ class FetchWchCalendarImages extends Command
     /**
      * Pull "OtD <day> <month> <year>" out of the Mastodon HTML content.
      * Returns ['month' => int, 'day' => int, 'year' => int] or null.
+     *
+     * The hashtag is wrapped as `<a class="...hashtag" rel="tag">#<span>OtD</span></a>`
+     * so after strip_tags it reads `#OtD`. WCH also frequently uses
+     * non-breaking spaces (U+00A0) between the day / month / year. The /u
+     * flag + \pZ accounts for those.
      */
     private function parseOtdDate(string $html): ?array
     {
         $text = html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5);
+        // Normalize all unicode whitespace (incl. non-breaking space) to a normal space
+        $text = preg_replace('/[\pZ\s]+/u', ' ', $text);
 
-        if (! preg_match('/OtD\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i', $text, $m)) {
+        if (! preg_match('/#?OtD\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/i', $text, $m)) {
             return null;
         }
 
