@@ -82,7 +82,7 @@
     @if($categories->isNotEmpty())
         <div class="store-categories">
             @foreach($categories as $cat)
-                <a href="/store?category={{ urlencode($cat) }}" class="store-cat-card">
+                <a href="#products" data-store-category="{{ $cat }}" class="store-cat-card">
                     <div class="store-cat-image">
                         @php $catProduct = \App\Models\Product::published()->where('category', $cat)->whereNotNull('image')->first(); @endphp
                         @if($catProduct && $catProduct->image)
@@ -110,13 +110,13 @@
 
     {{-- Products --}}
     <div id="products">
-        <h2 class="store-products-title">{{ $category ? $category : 'All Products' }}</h2>
+        <h2 class="store-products-title" data-store-title>{{ $category ? $category : 'All Products' }}</h2>
 
         @if($categories->isNotEmpty())
             <div class="store-filter">
-                <a href="/store" class="store-filter-btn {{ !$category ? 'active' : '' }}">All</a>
+                <button type="button" data-store-filter="" class="store-filter-btn {{ !$category ? 'active' : '' }}">All</button>
                 @foreach($categories as $cat)
-                    <a href="/store?category={{ urlencode($cat) }}" class="store-filter-btn {{ $category === $cat ? 'active' : '' }}">{{ $cat }}</a>
+                    <button type="button" data-store-filter="{{ $cat }}" class="store-filter-btn {{ $category === $cat ? 'active' : '' }}">{{ $cat }}</button>
                 @endforeach
             </div>
         @endif
@@ -126,9 +126,9 @@
                 No products available yet. Check back soon!
             </div>
         @else
-            <div class="store-products-grid">
+            <div class="store-products-grid" data-store-grid>
                 @foreach($products as $product)
-                    <a href="{{ $product->purchase_url ?: '#' }}" class="store-product" {{ $product->purchase_url ? 'target=_blank' : '' }}>
+                    <a href="{{ $product->purchase_url ?: '#' }}" data-product-category="{{ $product->category }}" class="store-product" {{ $product->purchase_url ? 'target=_blank' : '' }}>
                         <div class="store-product-image">
                             @if($product->image)
                                 <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
@@ -142,8 +142,57 @@
                         <div class="store-product-price">${{ number_format($product->price, 2) }}</div>
                     </a>
                 @endforeach
+                <div data-store-empty style="display:none; grid-column: 1 / -1; text-align: center; padding: 60px 0; color: rgba(255,255,255,0.4);">
+                    No products in this category.
+                </div>
             </div>
         @endif
     </div>
 </div>
+
+<script>
+(function () {
+    var filterBtns = document.querySelectorAll('[data-store-filter]');
+    var catCards = document.querySelectorAll('[data-store-category]');
+    var products = document.querySelectorAll('[data-product-category]');
+    var title = document.querySelector('[data-store-title]');
+    var empty = document.querySelector('[data-store-empty]');
+
+    function applyFilter(category, opts) {
+        opts = opts || {};
+        var visible = 0;
+        products.forEach(function (el) {
+            var match = !category || el.getAttribute('data-product-category') === category;
+            el.style.display = match ? '' : 'none';
+            if (match) visible++;
+        });
+        filterBtns.forEach(function (btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-store-filter') === (category || ''));
+        });
+        if (title) title.textContent = category || 'All Products';
+        if (empty) empty.style.display = visible === 0 ? '' : 'none';
+
+        var url = new URL(window.location.href);
+        if (category) url.searchParams.set('category', category);
+        else url.searchParams.delete('category');
+        history.replaceState(null, '', url.toString() + (opts.scroll ? '#products' : window.location.hash));
+    }
+
+    filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            applyFilter(btn.getAttribute('data-store-filter'));
+        });
+    });
+
+    catCards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+            e.preventDefault();
+            applyFilter(card.getAttribute('data-store-category'), { scroll: true });
+            var anchor = document.getElementById('products');
+            if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+})();
+</script>
 @endsection

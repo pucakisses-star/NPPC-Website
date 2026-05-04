@@ -2467,6 +2467,76 @@ class AddNuclearResisterPrisoners extends Command
                 'sentence' => 'Multiple short jail terms; jailed overnight',
             ]],
         ];
+        // ─── Round 7: SOA Watch / war-tax stragglers + NATO 5 (Chicago 2012) ───
+        $cookCountyJail = Institution::firstOrCreate(['name' => 'Cook County Jail'], ['city' => 'Chicago', 'state' => 'Illinois']);
+        $stateville     = Institution::firstOrCreate(['name' => 'Stateville Correctional Center'], ['city' => 'Crest Hill', 'state' => 'Illinois']);
+        $soaContextR7   = "Each November on the anniversary of the assassination of six Jesuits, their housekeeper, and her daughter at the University of Central America in San Salvador in 1989, peace activists gather at the gates of Fort Benning, Georgia, site of the U.S. Army School of the Americas / Western Hemisphere Institute for Security Cooperation (WHINSEC), to commemorate the dead and to call for the school's closure. Hundreds have crossed the line onto the base over four decades of vigils; many have served federal sentences ranging from 30 days to a year for trespass.";
+
+        // SOA Watch / war-tax / anti-nuclear stragglers — names that surfaced as
+        // 'Not in DB' warnings from prisoners:update-nuclear-resister-details, with
+        // BOP IDs sourced from nukeresister.org Inside & Out.
+        foreach ([
+            ['Alice Gerard',       'Alice',     null,  'Gerard',     'Female', '92095-020', 'New York',     '6 months', '2007-01-29', '2007-07-29', $danbury->id,    'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Arthur Landis',      'Arthur',    null,  'Landis',     'Male',   '93660-020', 'Pennsylvania', '6 months', '2008-01-28', '2008-07-28', $bopVaried->id,  'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Delmar Schwaller',   'Delmar',    null,  'Schwaller',  'Male',   '91435-020', 'Wisconsin',    '90 days',  '2006-04-11', '2006-07-09', $pekin->id,      'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Elton Davis',        'Elton',     null,  'Davis',      'Male',   '19777-047', 'Michigan',     '3 months', '2003-01-27', '2003-04-26', $bopVaried->id,  'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Francis Donnelly',   'Francis',   null,  'Donnelly',   'Male',   '01787-036', 'Michigan',     '6 months', '2002-07-15', '2003-01-15', $bopVaried->id,  'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Jedidiah Poole',     'Jedidiah',  null,  'Poole',      'Male',   '74334-112', 'North Carolina','3 months','2014-04-21', '2014-07-21', $bopVaried->id,  'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Kristin Holm',       'Kristin',   null,  'Holm',       'Female', null,        'Minnesota',    '60 days',  '2007-01-29', '2007-03-30', null,            'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Nancy Gwin',         'Nancy',     null,  'Gwin',       'Female', null,        'New York',     '90 days',  '2007-01-29', '2007-04-29', null,            'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Nancy H. Smith',     'Nancy',     'H.',  'Smith',      'Female', null,        'North Carolina','30 days', '2007-01-29', '2007-02-28', null,            'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Stephen Schweitzer', 'Stephen',   null,  'Schweitzer', 'Male',   null,        'Wisconsin',    '60 days',  '2007-01-29', '2007-03-30', null,            'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Teri Rainelli',      'Teri',      null,  'Rainelli',   'Female', '93552-020', 'Wisconsin',    '6 months', '2008-01-28', '2008-07-28', $pekin->id,      'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Robert Chantal',     'Robert',    null,  'Chantal',    'Male',   null,        'Vermont',      '90 days',  '2007-01-29', '2007-04-29', null,            'SOA Watch line-crosser at Fort Benning, Georgia.'],
+            ['Robert J. Dietrich', 'Robert',    'J.',  'Dietrich',   'Male',   null,        'Wisconsin',    '60 days',  '2008-01-28', '2008-03-28', null,            'SOA Watch line-crosser at Fort Benning, Georgia.'],
+        ] as $row) {
+            [$name, $first, $middle, $last, $gender, $bopId, $state, $sentence, $arrest, $release, $instId, $bio] = $row;
+            $defendants[] = [
+                'data' => array_filter([
+                    'name' => $name, 'first_name' => $first, 'middle_name' => $middle, 'last_name' => $last,
+                    'gender' => $gender, 'race' => 'White', 'state' => $state, 'era' => '2000s',
+                    'ideologies' => ['Anti-war', 'Latin America solidarity'],
+                    'affiliation' => ['SOA Watch'], 'in_custody' => false, 'released' => true,
+                    'inmate_number' => $bopId,
+                    'description' => "{$name} — {$bio} Convicted of trespass on a military installation and sentenced to {$sentence} in federal custody.\n\n{$soaContextR7}",
+                ], fn ($v) => $v !== null),
+                'cases' => [[
+                    'institution_id' => $instId,
+                    'charges' => 'Trespass at the U.S. Army School of the Americas / WHINSEC, Fort Benning, Georgia',
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                    'sentence' => $sentence,
+                ]],
+            ];
+        }
+
+        // NATO 5 — Chicago 2012 (separate from the better-known NATO 3 terrorism case)
+        $nato5Context = "In the days surrounding the May 2012 NATO summit in Chicago, the FBI and Chicago Police arrested a series of activists in raids tied to anti-NATO protest organizing. The 'NATO 3' (Brian Church, Jared Chase, Brent Betterly) became the headline case after being charged under Illinois state terrorism statutes. The 'NATO 5' designation is sometimes used to include two additional men arrested in parallel raids — Sebastian Senakiewicz and Mark Neiweem — on charges that critics described as informant-driven entrapment. Several other anti-NATO arrestees were later swept up on protest-related charges. All were held at Cook County Jail in Chicago; some were transferred to Stateville or to IDOC custody after conviction.";
+
+        foreach ([
+            ['Christopher French',     'Christopher','French',     'Male',   '2012-0522081', 'Illinois', '2012-05-22', null,         'Disorderly conduct / mob action — anti-NATO protest arrest, Chicago summit.'],
+            ['Mark Neiweem',           'Mark',      'Neiweem',     'Male',   '2012-0520023', 'Illinois', '2012-05-19', '2014-09-19', 'Charged under Illinois terrorism statute with solicitation to make a Molotov cocktail; pleaded guilty to a reduced count and sentenced to three years.'],
+            ['Sebastian Senakiewicz',  'Sebastian', 'Senakiewicz', 'Male',   '2012-0520030', 'Illinois', '2012-05-19', '2013-12-19', 'Polish national charged under Illinois terrorism statute with falsely making a terrorist threat; pleaded guilty to a reduced count, sentenced to four years, and deported on release.'],
+            ['Yonte Harris',           'Yonte',     'Harris',      'Male',   '2012-0521086', 'Illinois', '2012-05-21', null,         'Anti-NATO protest arrest, Chicago summit — disorderly conduct / mob action.'],
+            ['Raziel Azuara',          'Raziel',    'Azuara',      'Male',   '2012-0521087', 'Illinois', '2012-05-21', null,         'Anti-NATO protest arrest, Chicago summit — disorderly conduct / mob action.'],
+        ] as $row) {
+            [$name, $first, $last, $gender, $inmateNo, $state, $arrest, $release, $charges] = $row;
+            $defendants[] = [
+                'data' => [
+                    'name' => $name, 'first_name' => $first, 'last_name' => $last,
+                    'gender' => $gender, 'state' => $state, 'era' => '2010s',
+                    'ideologies' => ['Anti-war', 'Anti-NATO'],
+                    'affiliation' => ['Anti-NATO summit organizing (Chicago 2012)'],
+                    'in_custody' => false, 'released' => true,
+                    'inmate_number' => $inmateNo,
+                    'description' => "{$name} — anti-NATO summit arrestee, Chicago, May 2012. {$charges}\n\n{$nato5Context}",
+                ],
+                'cases' => [[
+                    'institution_id' => $cookCountyJail->id,
+                    'charges' => $charges,
+                    'arrest_date' => $arrest, 'release_date' => $release,
+                ]],
+            ];
+        }
 
 
         // Process all defendants ───

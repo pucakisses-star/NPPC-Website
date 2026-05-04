@@ -142,6 +142,29 @@ class UpdateNuclearResisterDetails extends Command
         foreach ($idMap as $name => $bopId) {
             $prisoner = Prisoner::where('name', $name)->first();
 
+            // Fallback: try alternate quote encodings (curly vs straight) — covers
+            // rows like Bonnie Urfer / Theresa Cusimano / Jared "Jay" Chase where
+            // the DB row was created with curly quotes (“ ”) but the lookup uses
+            // straight ASCII quotes (or vice versa).
+            if (! $prisoner) {
+                $variants = [
+                    str_replace(['"', "'"], ["\u{201C}", "\u{2019}"], $name),
+                    str_replace(['"'], ["\u{201D}"], $name),
+                    str_replace(["\u{201C}", "\u{201D}", "\u{2019}", "\u{2018}"], ['"', '"', "'", "'"], $name),
+                ];
+                foreach ($variants as $variant) {
+                    if ($variant === $name) continue;
+                    $prisoner = Prisoner::where('name', $variant)->first();
+                    if ($prisoner) break;
+                }
+            }
+
+            // Last resort: LIKE match with quote chars replaced by SQL wildcards.
+            if (! $prisoner) {
+                $needle = '%' . str_replace(['"', "'", "\u{201C}", "\u{201D}", "\u{2019}", "\u{2018}"], '%', $name) . '%';
+                $prisoner = Prisoner::where('name', 'like', $needle)->first();
+            }
+
             if (! $prisoner) {
                 $this->warn("Not in DB: {$name}");
                 $notFound++;

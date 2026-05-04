@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Product;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AddStoreProducts extends Command
 {
@@ -196,6 +197,16 @@ class AddStoreProducts extends Command
                 // Defaults
                 $entry['published'] = true;
                 $entry['featured'] = $entry['featured'] ?? false;
+
+                // Generate slug explicitly (HasSlug trait reads $model->title which Product
+                // doesn't have, so we set it ourselves to avoid empty-slug unique conflicts)
+                $base = Str::slug($entry['name']);
+                $slug = $base;
+                $i = 2;
+                while (Product::where('slug', $slug)->exists()) {
+                    $slug = $base . '-' . $i++;
+                }
+                $entry['slug'] = $slug;
 
                 $product = Product::create($entry);
                 $this->info("Added {$product->name}  (\${$product->price})");
