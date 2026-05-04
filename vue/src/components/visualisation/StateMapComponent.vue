@@ -28,14 +28,15 @@ const stateNames: Record<string, string> = {
 };
 
 // abbr, row, col (1-indexed); same layout as Intercept's Trial and Terror
-const grid: Array<[string, number, number]> = [
-  ['ME', 1, 11],
-  ['WA', 2, 1], ['ID', 2, 2], ['MT', 2, 3], ['ND', 2, 4], ['MN', 2, 5], ['WI', 2, 6], ['MI', 2, 7], ['PA', 2, 8], ['VT', 2, 9], ['NH', 2, 10], ['MA', 2, 11],
-  ['OR', 3, 1], ['NV', 3, 2], ['WY', 3, 3], ['SD', 3, 4], ['IA', 3, 5], ['IN', 3, 6], ['OH', 3, 7], ['MD', 3, 8], ['NY', 3, 9], ['CT', 3, 10], ['RI', 3, 11],
-  ['CA', 4, 1], ['UT', 4, 2], ['CO', 4, 3], ['NE', 4, 4], ['MO', 4, 5], ['IL', 4, 6], ['KY', 4, 7], ['DC', 4, 8], ['DE', 4, 9], ['NJ', 4, 10],
-  ['AZ', 5, 2], ['NM', 5, 3], ['KS', 5, 4], ['AR', 5, 5], ['TN', 5, 6], ['WV', 5, 7], ['VA', 5, 8], ['NC', 5, 9],
-  ['OK', 6, 4], ['LA', 6, 5], ['MS', 6, 6], ['AL', 6, 7], ['GA', 6, 8], ['SC', 6, 9],
-  ['AK', 7, 1], ['HI', 7, 2], ['TX', 7, 4], ['FL', 7, 10],
+interface Cell { abbr: string; row: number; col: number }
+const grid: Cell[] = [
+  { abbr: 'ME', row: 1, col: 11 },
+  { abbr: 'WA', row: 2, col: 1 }, { abbr: 'ID', row: 2, col: 2 }, { abbr: 'MT', row: 2, col: 3 }, { abbr: 'ND', row: 2, col: 4 }, { abbr: 'MN', row: 2, col: 5 }, { abbr: 'WI', row: 2, col: 6 }, { abbr: 'MI', row: 2, col: 7 }, { abbr: 'PA', row: 2, col: 8 }, { abbr: 'VT', row: 2, col: 9 }, { abbr: 'NH', row: 2, col: 10 }, { abbr: 'MA', row: 2, col: 11 },
+  { abbr: 'OR', row: 3, col: 1 }, { abbr: 'NV', row: 3, col: 2 }, { abbr: 'WY', row: 3, col: 3 }, { abbr: 'SD', row: 3, col: 4 }, { abbr: 'IA', row: 3, col: 5 }, { abbr: 'IN', row: 3, col: 6 }, { abbr: 'OH', row: 3, col: 7 }, { abbr: 'MD', row: 3, col: 8 }, { abbr: 'NY', row: 3, col: 9 }, { abbr: 'CT', row: 3, col: 10 }, { abbr: 'RI', row: 3, col: 11 },
+  { abbr: 'CA', row: 4, col: 1 }, { abbr: 'UT', row: 4, col: 2 }, { abbr: 'CO', row: 4, col: 3 }, { abbr: 'NE', row: 4, col: 4 }, { abbr: 'MO', row: 4, col: 5 }, { abbr: 'IL', row: 4, col: 6 }, { abbr: 'KY', row: 4, col: 7 }, { abbr: 'DC', row: 4, col: 8 }, { abbr: 'DE', row: 4, col: 9 }, { abbr: 'NJ', row: 4, col: 10 },
+  { abbr: 'AZ', row: 5, col: 2 }, { abbr: 'NM', row: 5, col: 3 }, { abbr: 'KS', row: 5, col: 4 }, { abbr: 'AR', row: 5, col: 5 }, { abbr: 'TN', row: 5, col: 6 }, { abbr: 'WV', row: 5, col: 7 }, { abbr: 'VA', row: 5, col: 8 }, { abbr: 'NC', row: 5, col: 9 },
+  { abbr: 'OK', row: 6, col: 4 }, { abbr: 'LA', row: 6, col: 5 }, { abbr: 'MS', row: 6, col: 6 }, { abbr: 'AL', row: 6, col: 7 }, { abbr: 'GA', row: 6, col: 8 }, { abbr: 'SC', row: 6, col: 9 },
+  { abbr: 'AK', row: 7, col: 1 }, { abbr: 'HI', row: 7, col: 2 }, { abbr: 'TX', row: 7, col: 4 }, { abbr: 'FL', row: 7, col: 10 },
 ];
 
 // Build a name → abbr lookup so records with full state names match
@@ -125,15 +126,15 @@ const hideTip = () => { tipVisible.value = false; };
       <p class="state-map-sub">Hover any state for the count and share of total documented cases.</p>
 
       <div class="state-map-grid">
-        <a v-for="[abbr, row, col] in grid"
-           :key="abbr"
-           :href="`/database?state=${encodeURIComponent(stateNames[abbr])}`"
+        <a v-for="cell in grid"
+           :key="cell.abbr"
+           :href="`/database?state=${encodeURIComponent(stateNames[cell.abbr])}`"
            class="state-cell"
-           :style="{ gridRow: row, gridColumn: col, background: colorFor(counts[abbr]) }"
-           @mouseenter="(e) => showTip(abbr, e)"
+           :style="{ gridRow: String(cell.row), gridColumn: String(cell.col), background: colorFor(counts[cell.abbr]) }"
+           @mouseenter="(e) => showTip(cell.abbr, e)"
            @mousemove="moveTip"
            @mouseleave="hideTip">
-          <span class="state-abbr">{{ abbr }}</span>
+          <span class="state-abbr">{{ cell.abbr }}</span>
         </a>
       </div>
 
