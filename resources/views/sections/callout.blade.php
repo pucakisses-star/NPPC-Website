@@ -6,7 +6,7 @@
     $buttonUrl = SiteSetting::get('callout_button_url', '/donate');
 @endphp
 
-<section class="callout p-4 rounded mb-8 mt-4">
+<section class="callout rounded mb-8 mt-4">
     <div class="inner block md:flex justify-between p-8">
         <div class="w-full md:w-1/2 md:pr-16 pr-4 md:py-16 py-8">
             <div class="heading">
