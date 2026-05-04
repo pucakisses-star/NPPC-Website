@@ -138,8 +138,8 @@ class AddSeditionActDefendants extends Command
             // "Big Bill" Haywood ─────────────────────────────────────
             [
                 'data' => [
-                    'name' => 'Bill Haywood (William Dudley Haywood)', 'first_name' => 'William', 'middle_name' => 'Dudley', 'last_name' => 'Haywood',
-                    'aka' => 'Big Bill Haywood', 'gender' => 'Male', 'race' => 'White',
+                    'name' => 'Bill Haywood', 'first_name' => 'William', 'middle_name' => 'Dudley', 'last_name' => 'Haywood',
+                    'aka' => 'William Dudley "Big Bill" Haywood', 'gender' => 'Male', 'race' => 'White',
                     'state' => 'Idaho', 'era' => '1910s', 'birthdate' => '1869-02-04', 'death_date' => '1928-05-18',
                     'ideologies' => ['Communism', 'Syndicalism', 'Industrial unionism'],
                     'affiliation' => ['Industrial Workers of the World (IWW)', 'Western Federation of Miners', 'Socialist Party of America'],
