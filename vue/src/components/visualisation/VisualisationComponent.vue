@@ -19,11 +19,15 @@
     <Suspense>
       <NumbersComponent :records="filteredRecords"/>
     </Suspense>
+    <Suspense>
+      <StateMapComponent :records="filteredRecords"/>
+    </Suspense>
   </section>
 </template>
 <script setup lang="ts">
 import GraphComponent from "@/components/visualisation/GraphComponent.vue";
 import NumbersComponent from "@/components/visualisation/NumbersComponent.vue";
+import StateMapComponent from "@/components/visualisation/StateMapComponent.vue";
 import {computed, ref} from "vue";
 import {useFilter} from "@/composables/useFilter";
 import useAirtable from "@/composables/useAirtable";
