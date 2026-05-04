@@ -191,16 +191,15 @@
     .vol2-input {
         width: 100%;
         background: transparent;
-        border: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.25);
         color: #fff;
-        padding: 14px 2px;
+        padding: 22px 20px;
         font-size: 16px;
         font-family: inherit;
-        transition: border-color 0.15s;
+        transition: border-color 0.15s, background 0.15s;
     }
-    .vol2-input:focus { border-bottom-color: #5660fe; outline: none; }
-    .vol2-input::placeholder { color: rgba(255,255,255,0.35); }
+    .vol2-input:focus { border-color: #5660fe; background: rgba(86,96,254,0.04); outline: none; }
+    .vol2-input::placeholder { color: rgba(255,255,255,0.5); }
     .vol2-textarea {
         width: 100%;
         background: rgba(255,255,255,0.03);
