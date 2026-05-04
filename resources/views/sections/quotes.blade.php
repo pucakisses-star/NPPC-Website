@@ -1,4 +1,4 @@
-@php $quotes = App\Models\Quote::inRandomOrder()->get(); @endphp
+@php $quotes = App\Models\Quote::whereNotNull('author_image')->where('author_image', '!=', '')->inRandomOrder()->get(); @endphp
 @if($quotes->isNotEmpty())
 <section style="position:relative; overflow:hidden; padding:0 0 100px;">
     <div style="max-width:1100px; margin:0 auto; padding:0 24px; position:relative;">
