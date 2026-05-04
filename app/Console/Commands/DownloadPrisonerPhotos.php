@@ -47,6 +47,14 @@ class DownloadPrisonerPhotos extends Command
         'roger-baldwin'             => 'Roger Nash Baldwin',
         'mary-harris-jones'         => 'Mary Harris Jones',
 
+        // Espionage Act / Sedition Act defendants (1917–1919)
+        'a-philip-randolph'         => 'A. Philip Randolph',
+        'eugene-v-debs'             => 'Eugene V. Debs',
+        'max-eastman'               => 'Max Eastman',
+        'john-reed'                 => 'John Reed (journalist)',
+        'victor-l-berger'           => 'Victor L. Berger',
+        'bill-haywood'              => 'Bill Haywood',
+
         // Puerto Rican independence
         'pedro-albizu-campos'       => 'Pedro Albizu Campos',
         'lolita-lebron'             => 'Lolita Lebrón',
