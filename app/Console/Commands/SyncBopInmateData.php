@@ -22,9 +22,10 @@ class SyncBopInmateData extends Command
 
         $prisoners = Prisoner::whereNotNull('inmate_number')
             ->where('inmate_number', '!=', '')
-            ->whereRaw("inmate_number REGEXP '^[0-9]{5}-[0-9]{3}$'")
             ->orderBy('name')
-            ->get();
+            ->get()
+            ->filter(fn ($p) => preg_match('/^\d{5}-\d{3}$/', (string) $p->inmate_number))
+            ->values();
 
         $this->info("Looking up {$prisoners->count()} BOP-format inmate numbers…");
 
