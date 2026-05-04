@@ -156,11 +156,9 @@
 
     /* ─── Form panel ─── */
     .vol2-form-wrap {
-        background: #0a0a14;
-        border: 1px solid rgba(255,255,255,0.1);
         max-width: 1100px;
         margin: 60px auto 100px;
-        padding: 56px 56px 64px;
+        padding: 56px 24px 64px;
     }
     .vol2-form-heading {
         font-size: 2.2rem;
