@@ -118,11 +118,7 @@ final class SiteController extends Controller {
 
     public function store(Request $request) {
         $category = $request->input('category');
-        $query = Product::published()->orderBy('sort_order');
-        if ($category) {
-            $query->where('category', $category);
-        }
-        $products = $query->get();
+        $products = Product::published()->orderBy('sort_order')->get();
         $categories = Product::published()->whereNotNull('category')->where('category', '!=', '')->distinct()->pluck('category');
         $featured = Product::published()->featured()->first();
 
