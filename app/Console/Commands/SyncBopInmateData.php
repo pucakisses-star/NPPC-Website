@@ -56,6 +56,15 @@ class SyncBopInmateData extends Command
                 $changes['race'] = $race;
             }
 
+            // Birthdate — BOP doesn't expose DOB, only current age. Approximate by
+            // setting DOB to Jan 1 of (today.year - age), which makes the public
+            // profile display the correct age right now. Real birthday may fall
+            // later in the year; we accept that as a known imprecision.
+            if (empty($prisoner->birthdate) && ! empty($row['age']) && ctype_digit((string) $row['age'])) {
+                $birthYear = (int) date('Y') - (int) $row['age'];
+                $changes['birthdate'] = "{$birthYear}-01-01";
+            }
+
             // Released flag + in_custody flag
             $actRelDate = $row['actRelDate'] ?? '';
             $isReleased = $actRelDate !== '' || ($row['releaseCode'] ?? '') === 'R';
