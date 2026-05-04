@@ -48,6 +48,13 @@ $isHome = request()->segment(1) == ''
         body.home-page .container {
             overflow: visible;
         }
+
+        /* The /history page uses position: sticky for its sidecar
+           visual, which silently breaks if any ancestor has
+           overflow: hidden / auto / scroll. */
+        .page-history .container {
+            overflow: visible;
+        }
     </style>
     @yield('head')
 </head>
