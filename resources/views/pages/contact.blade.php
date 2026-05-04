@@ -235,56 +235,14 @@
         </p>
     </section>
 
-    {{-- Different ways to reach us --}}
-    <section class="ct-section">
-        <div class="ct-section-eyebrow">Different Ways to Reach Us</div>
-        <h2 class="ct-section-heading">Find the right channel</h2>
-        <p class="ct-section-sub">
-            Use the form below for general inquiries, or reach out to one of our specialty mailboxes if your message fits a particular category. We aim to respond within two weeks.
-        </p>
-
-        <div class="ct-card-grid">
-            <div class="ct-card">
-                <h3 class="ct-card-title">Submit a case</h3>
-                <p class="ct-card-text">Know a political prisoner missing from our database? Send their name, location, charges, and any sources you have.</p>
-                <a class="ct-card-link" href="#contact-form">Use the form &rarr;</a>
-            </div>
-            <div class="ct-card">
-                <h3 class="ct-card-title">Profile corrections</h3>
-                <p class="ct-card-text">Spotted an error on a prisoner's profile? Tell us the field, the correct information, and a verifiable source.</p>
-                <a class="ct-card-link" href="#contact-form">Use the form &rarr;</a>
-            </div>
-            <div class="ct-card">
-                <h3 class="ct-card-title">Press &amp; media</h3>
-                <p class="ct-card-text">Reporters and producers — we'll connect you with a researcher or staff member who can comment on the record.</p>
-                <a class="ct-card-link" href="mailto:press@nppc.org">press@nppc.org</a>
-            </div>
-            <div class="ct-card">
-                <h3 class="ct-card-title">Volunteer with us</h3>
-                <p class="ct-card-text">Letter-writing, research, event-staffing, fundraising, legal work, web/dev — every role has a coordinator.</p>
-                <a class="ct-card-link" href="/volunteer">Apply to volunteer &rarr;</a>
-            </div>
-            <div class="ct-card">
-                <h3 class="ct-card-title">Partnerships</h3>
-                <p class="ct-card-text">Bookstores, faith communities, universities, infoshops — we run speaker visits and letter-writing nights.</p>
-                <a class="ct-card-link" href="mailto:events@nppc.org">events@nppc.org</a>
-            </div>
-            <div class="ct-card">
-                <h3 class="ct-card-title">Donations &amp; gifts</h3>
-                <p class="ct-card-text">Stock, DAFs, crypto, planned giving, and tax-deductible monthly support — we'll help you choose the right vehicle.</p>
-                <a class="ct-card-link" href="mailto:donations@nppc.org">donations@nppc.org</a>
-            </div>
-        </div>
-    </section>
-
-    {{-- Form --}}
+    {{-- Form (General Inquiry) --}}
     <div class="ct-form-wrap">
         <div class="ct-form-grid">
             <div class="ct-form-side">
                 <div class="ct-fieldset-eyebrow">General Inquiry</div>
                 <h2>Send us a message.</h2>
                 <p>
-                    Use this form for anything that doesn't fit one of the channels above. We read every message and a real person will write back.
+                    Use this form for anything that doesn't fit one of the channels below. We read every message and a real person will write back.
                 </p>
 
                 <div class="ct-meta-block">
@@ -346,6 +304,48 @@
             </div>
         </div>
     </div>
+
+    {{-- Different ways to reach us --}}
+    <section class="ct-section">
+        <div class="ct-section-eyebrow">Different Ways to Reach Us</div>
+        <h2 class="ct-section-heading">Find the right channel</h2>
+        <p class="ct-section-sub">
+            Prefer to skip the form? Reach out to one of our specialty mailboxes if your message fits a particular category. We aim to respond within two weeks.
+        </p>
+
+        <div class="ct-card-grid">
+            <div class="ct-card">
+                <h3 class="ct-card-title">Submit a case</h3>
+                <p class="ct-card-text">Know a political prisoner missing from our database? Send their name, location, charges, and any sources you have.</p>
+                <a class="ct-card-link" href="#contact-form">Use the form &rarr;</a>
+            </div>
+            <div class="ct-card">
+                <h3 class="ct-card-title">Profile corrections</h3>
+                <p class="ct-card-text">Spotted an error on a prisoner's profile? Tell us the field, the correct information, and a verifiable source.</p>
+                <a class="ct-card-link" href="#contact-form">Use the form &rarr;</a>
+            </div>
+            <div class="ct-card">
+                <h3 class="ct-card-title">Press &amp; media</h3>
+                <p class="ct-card-text">Reporters and producers — we'll connect you with a researcher or staff member who can comment on the record.</p>
+                <a class="ct-card-link" href="mailto:press@nppc.org">press@nppc.org</a>
+            </div>
+            <div class="ct-card">
+                <h3 class="ct-card-title">Volunteer with us</h3>
+                <p class="ct-card-text">Letter-writing, research, event-staffing, fundraising, legal work, web/dev — every role has a coordinator.</p>
+                <a class="ct-card-link" href="/volunteer">Apply to volunteer &rarr;</a>
+            </div>
+            <div class="ct-card">
+                <h3 class="ct-card-title">Partnerships</h3>
+                <p class="ct-card-text">Bookstores, faith communities, universities, infoshops — we run speaker visits and letter-writing nights.</p>
+                <a class="ct-card-link" href="mailto:events@nppc.org">events@nppc.org</a>
+            </div>
+            <div class="ct-card">
+                <h3 class="ct-card-title">Donations &amp; gifts</h3>
+                <p class="ct-card-text">Stock, DAFs, crypto, planned giving, and tax-deductible monthly support — we'll help you choose the right vehicle.</p>
+                <a class="ct-card-link" href="mailto:donations@nppc.org">donations@nppc.org</a>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script>
