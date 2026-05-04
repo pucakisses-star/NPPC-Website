@@ -41,13 +41,10 @@
             @include('sections.callout')
         @endif
 
-        {{-- Stats Visualisation --}}
+        {{-- Stats Visualisation (also renders the Prosecutions-by-State map) --}}
         @if(SiteSetting::get('visualisation_enabled', '1') === '1')
             <div id="app-stats"></div>
         @endif
-
-        {{-- All Prosecutions by State map --}}
-        @include('sections.state-map')
 
         {{-- Individual Profiles callout --}}
         @include('sections.individual-profiles')

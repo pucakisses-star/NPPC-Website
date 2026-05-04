@@ -258,13 +258,15 @@ p {
 
   .counter-value {
     font-size: 8rem;
-    line-height: 120px;
+    line-height: 1;
     text-align: right;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: visible;
 
     @media (max-width: 800px) {
       font-size: 5rem;
-      line-height: unset;
+      line-height: 1;
       text-align: left;
       padding-top: 0;
       position: relative;

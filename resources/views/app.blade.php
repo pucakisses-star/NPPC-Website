@@ -44,6 +44,10 @@ $isHome = request()->segment(1) == ''
         .page-news .container {
             overflow: visible;
         }
+
+        body.home-page .container {
+            overflow: visible;
+        }
     </style>
     @yield('head')
 </head>
