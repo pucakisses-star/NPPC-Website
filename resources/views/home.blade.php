@@ -46,6 +46,9 @@
             <div id="app-stats"></div>
         @endif
 
+        {{-- Individual Profiles callout --}}
+        @include('sections.individual-profiles')
+
         {{-- Quotes --}}
         @if(SiteSetting::get('quotes_enabled', '1') === '1')
             @include('sections.quotes')
