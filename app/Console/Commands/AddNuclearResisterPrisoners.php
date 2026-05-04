@@ -2539,6 +2539,30 @@ class AddNuclearResisterPrisoners extends Command
         }
 
 
+        // ─── Round 8: missing-from-add-command stragglers (caught when their
+        // inmate numbers in update-nuclear-resister-details turned up "Not in DB") ───
+        $denverFCC = Institution::firstOrCreate(['name' => 'FCI Englewood'], ['city' => 'Littleton', 'state' => 'Colorado']);
+
+        $defendants[] = [
+            'data' => [
+                'name' => 'Theresa Cusimano', 'first_name' => 'Theresa', 'last_name' => 'Cusimano',
+                'gender' => 'Female', 'race' => 'White', 'state' => 'Colorado', 'era' => '2000s',
+                'ideologies' => ['Anti-war', 'Pacifist', 'Latin America solidarity'],
+                'affiliation' => ['Denver Catholic Worker', 'SOA Watch'],
+                'in_custody' => false, 'released' => true,
+                'inmate_number' => '93611-020',
+                'description' => "Theresa Cusimano is a Denver, Colorado-based Catholic Worker and longtime peace activist who has been arrested repeatedly for SOA Watch line-crossings at Fort Benning, Georgia in protest of the U.S. Army School of the Americas / Western Hemisphere Institute for Security Cooperation (WHINSEC), as well as for Plowshares-style actions at U.S. nuclear weapons facilities. She served a six-month federal sentence following her 2007 SOA Watch line-crossing.\n\nEach November on the anniversary of the assassination of six Jesuits, their housekeeper, and her daughter at the University of Central America in San Salvador in 1989, peace activists gather at the gates of Fort Benning to commemorate the dead and to call for the school's closure. Hundreds have crossed the line onto the base over four decades of vigils; many have served federal sentences ranging from 30 days to a year for trespass.",
+            ],
+            'cases' => [[
+                'institution_id' => $denverFCC->id,
+                'charges' => 'Trespass at the U.S. Army School of the Americas / WHINSEC, Fort Benning, Georgia',
+                'arrest_date' => '2007-01-29',
+                'release_date' => '2007-07-28',
+                'sentence' => '6 months federal prison',
+            ]],
+        ];
+
+
         // Process all defendants ───
         foreach ($defendants as $entry) {
             DB::transaction(function () use ($entry, &$created, &$skipped) {
