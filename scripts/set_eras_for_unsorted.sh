@@ -86,6 +86,16 @@ $eras = [
     "Robert Hillary King"           => "1970s",
     "Robert Hugh Wilson"            => "1970s",
     "Teddy Jah Heath"               => "1970s",
+    // Low-confidence best guesses — both prisoners have very thin public
+    // records. Rutrel is placed in 1970s because the prisoner-number format
+    // (#042600, a 5-6 digit federal BOP register number) predates the modern
+    // NNNNN-NNN scheme introduced in the early 1980s, and the description
+    // references political-prisoner letter-writing campaigns characteristic
+    // of the 1970s BLA/New Afrikan support milieu. Stoner is placed in 1970s
+    // because the Swahili honorific naming style (Sababu Na Uhuru) is
+    // characteristic of the same New Afrikan/BLA prisoner tradition.
+    "Martin Rutrel"                 => "1970s",
+    "William Stoner"                => "1970s",
 
     // 1960s — Panther 21, Hampton/Clark raid, Soledad/Jackson, Wilkinson, Scales, Barenblatt
     "Afeni Shakur"                  => "1960s",
