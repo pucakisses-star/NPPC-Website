@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 class ResortPrisonersByEra extends Command
 {
     protected $signature = 'prisoners:resort-by-era {--dry-run : Show planned ordering without writing} {--limit= : Print only the first N rows in dry-run output}';
-    protected $description = 'Reassign sort_order to every prisoner so the database list is bunched chronologically by era (oldest → newest), then by earliest case year within era, then by name.';
+    protected $description = 'Reassign sort_order to every prisoner so the database list is bunched chronologically by era (newest → oldest), then by earliest case year within era (newest → oldest), then by name. Prisoners with unknown era/case dates sort last.';
 
     public function handle(): int
     {
@@ -54,16 +54,18 @@ class ResortPrisonersByEra extends Command
     }
 
     /**
-     * Compose a sort key as "EEEE-CCCC-name" so sortBy yields:
-     *   primary   = era anchor year (1700s → 1700, 2020s → 2020, "Modern" → 2025, unknown → 9999)
-     *   secondary = earliest case year on that prisoner (so within a decade, earlier-incarcerated come first)
-     *   tertiary  = lowercased name
+     * Compose a sort key so sortBy yields newest-first:
+     *   primary   = era anchor year, inverted (newer era sorts first; unknown era → last)
+     *   secondary = earliest case year on that prisoner, inverted (newer case sorts first; unknown → last)
+     *   tertiary  = lowercased name (ascending within ties)
      */
     private function sortKey(Prisoner $p): string
     {
-        $eraYear  = $this->eraToYear($p->era);
-        $caseYear = $this->earliestCaseYear($p);
-        return sprintf('%04d-%04d-%s', $eraYear, $caseYear, mb_strtolower($p->name ?? ''));
+        $eraYear   = $this->eraToYear($p->era);
+        $caseYear  = $this->earliestCaseYear($p);
+        $eraSort   = $eraYear === 9999  ? 9999 : 9999 - $eraYear;
+        $caseSort  = $caseYear === 9999 ? 9999 : 9999 - $caseYear;
+        return sprintf('%04d-%04d-%s', $eraSort, $caseSort, mb_strtolower($p->name ?? ''));
     }
 
     private function eraToYear(?string $era): int
