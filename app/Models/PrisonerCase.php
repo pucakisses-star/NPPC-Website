@@ -42,6 +42,22 @@ final class PrisonerCase extends Model {
         parent::booted();
 
         static::saving(function (self $case) {
+            // Auto-derive in_exile_since from release_date when the prisoner
+            // is flagged as exiled but the case row has no in_exile_since
+            // explicitly set. The common path: a defendant is held in
+            // immigration custody, then released *into* exile (deported
+            // or self-deported); release_date and in_exile_since are the
+            // same day. For prisoners with a documented gap between
+            // release and exile (e.g. bail-jumpers like Bill Haywood),
+            // in_exile_since should be set explicitly and this branch
+            // does nothing because the field is non-null.
+            if (! $case->in_exile_since && $case->release_date) {
+                $prisoner = $case->prisoner;
+                if ($prisoner && ($prisoner->in_exile || $prisoner->currently_in_exile)) {
+                    $case->in_exile_since = $case->release_date;
+                }
+            }
+
             if ($case->incarceration_date && $case->release_date) {
                 $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
                     ->diffInDays(Carbon::parse($case->release_date));
