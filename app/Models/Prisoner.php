@@ -79,6 +79,14 @@ final class Prisoner extends Model {
                 $endC = $end instanceof \Carbon\Carbon ? $end : \Carbon\Carbon::parse($end);
                 $model->attributes['age'] = (int) $birth->diffInYears($endC);
             }
+
+            // Keep imprisoned_or_exiled in sync with the active-state
+            // flags. This column is used by the public "currently
+            // active" lists; if it desyncs from in_custody and
+            // currently_in_exile, released prisoners can leak back into
+            // those lists. Auto-derive on every save.
+            $model->attributes['imprisoned_or_exiled'] =
+                ($model->in_custody || $model->currently_in_exile) ? 1 : 0;
         });
     }
 
