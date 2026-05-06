@@ -134,29 +134,29 @@
                 @endif
             </div>
 
-            {{-- Imprisonment counter --}}
+            {{-- Imprisonment + exile counters (rendered separately when both apply) --}}
             @php
                 $totalDays = $prisoner->cases->sum('imprisoned_for_days');
                 $totalExileDays = $prisoner->cases->sum('in_exile_for_days');
-                $displayDays = $totalDays ?: $totalExileDays;
+
+                $renderCounter = function (int $totalDays, string $label) {
+                    if ($totalDays <= 0) return '';
+                    $years = intdiv($totalDays, 365);
+                    $months = intdiv($totalDays % 365, 30);
+                    $days = $totalDays % 30;
+                    $nums = '';
+                    if ($years > 0) $nums .= $years . ' ' . ($years === 1 ? 'Year' : 'Years') . ' ';
+                    if ($months > 0) $nums .= $months . ' ' . ($months === 1 ? 'Month' : 'Months') . ' ';
+                    $nums .= $days . ' ' . ($days === 1 ? 'Day' : 'Days');
+                    return '<div class="prisoner-counter-label">' . e($label) . ':</div>' .
+                           '<div class="prisoner-counter-nums">' . e(trim($nums)) . '</div>';
+                };
             @endphp
-            @if($displayDays > 0)
-                @php
-                    $years = intdiv($displayDays, 365);
-                    $months = intdiv($displayDays % 365, 30);
-                    $days = $displayDays % 30;
-                    $label = $totalDays > 0 ? 'Imprisoned for' : 'In exile for';
-                    $parts = [];
-                    if ($years > 0) $parts[] = $years . ' ' . ($years === 1 ? 'Year' : 'Years');
-                    if ($months > 0) $parts[] = $months . ' ' . ($months === 1 ? 'Month' : 'Months');
-                    if ($days > 0) $parts[] = $days . ' ' . ($days === 1 ? 'Day' : 'Days');
-                @endphp
-                <div class="prisoner-counter-label">Time {{ $totalDays > 0 ? 'Imprisoned' : 'in Exile' }}:</div>
-                <div class="prisoner-counter-nums">
-                    @if($years > 0){{ $years }} {{ $years === 1 ? 'Year' : 'Years' }} @endif
-                    @if($months > 0){{ $months }} {{ $months === 1 ? 'Month' : 'Months' }} @endif
-                    {{ $days }} {{ $days === 1 ? 'Day' : 'Days' }}
-                </div>
+            @if($totalDays > 0)
+                {!! $renderCounter($totalDays, 'Time Imprisoned') !!}
+            @endif
+            @if($totalExileDays > 0)
+                {!! $renderCounter($totalExileDays, 'Time in Exile') !!}
             @endif
 
             {{-- Social links --}}
