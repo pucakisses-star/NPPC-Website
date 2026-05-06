@@ -41,12 +41,11 @@ foreach ($arrests as $name => $date) {
         continue;
     }
     foreach ($p->cases as $case) {
-        if (! str_contains((string) $case->charges, "Prairieland") &&
-            ! str_contains((string) $case->charges, "Alvarado") &&
-            ! str_contains((string) $case->charges, "ICE Detention")) {
-            // Skip non-Prairieland cases just in case
-            continue;
-        }
+        // Each Prairieland defendant has only one case row, so update them all.
+        // (Earlier version of this script tried to filter by charges text
+        // containing "Prairieland" / "Alvarado" / "ICE Detention" - but those
+        // keywords are not actually in the production charges field, so the
+        // filter skipped every defendant. Filter removed.)
         $oldArr = $case->arrest_date?->toDateString() ?? "(null)";
         $oldInc = $case->incarceration_date?->toDateString() ?? "(null)";
         $case->arrest_date        = $date;
