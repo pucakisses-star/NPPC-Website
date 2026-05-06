@@ -9,7 +9,10 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -50,6 +53,24 @@ class AdminPanelProvider extends PanelProvider {
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->renderHook(
+                PanelsRenderHook::HEAD_END,
+                fn (): string => Blade::render(<<<'BLADE'
+                    <style>
+                        /* Keep admin tables within the browser viewport.
+                           Filament's table content wrapper is overflow-x:auto;
+                           when the table is wider than the page it shows a
+                           horizontal scrollbar. Force the table to fit and
+                           let cells wrap their content instead. */
+                        .fi-ta-content { overflow-x: auto; }
+                        .fi-ta-table { width: 100%; table-layout: auto; }
+                        .fi-ta-cell, .fi-ta-header-cell {
+                            white-space: normal;
+                            overflow-wrap: anywhere;
+                        }
+                    </style>
+                BLADE)
+            );
     }
 }
