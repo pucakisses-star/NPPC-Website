@@ -19,7 +19,7 @@
 
             <div style="font-size:17px; line-height:1.7;">
                 <p style="margin:0 0 20px;">
-                    This database of U.S. political prisoners was assembled from public records, including the historical case archives of prisoner-support committees, court files retrieved through the federal judiciary's PACER case-management system and state court records, the federal Bureau of Prisons inmate locator, state Department of Corrections inmate locators, and the back-issue archive of <a href="https://www.nukeresister.org" style="color:#5660fe; text-decoration:underline;">The Nuclear Resister</a> newsletter, which has documented anti-nuclear and anti-war civil-resistance prisoners since 1980. Each prisoner's case data is categorized by ideology, affiliation, era, and current custody status.
+                    This database of U.S. political prisoners was assembled from public records, including the historical case archives of prisoner-support committees, court files retrieved through the federal judiciary's PACER case-management system and state court records, the federal Bureau of Prisons inmate locator, state Department of Corrections inmate locators, and numerous various other sources. Each prisoner's case data is categorized by ideology, affiliation, era, and current custody status.
                 </p>
 
                 <p style="margin:0 0 20px;">
@@ -31,7 +31,7 @@
                 </p>
 
                 <p style="margin:0;">
-                    This database is shared under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="color:#5660fe; text-decoration:underline;">Creative Commons Attribution-NonCommercial 4.0 license</a> and may be reused for noncommercial purposes with appropriate attribution. If you republish this database in whole or in part, you must credit the <strong>National Political Prisoner Coalition (NPPC)</strong>. To submit a correction, suggest a case, or request the data in CSV form, please <a href="/contact" style="color:#5660fe; text-decoration:underline;">contact us</a>.
+                    This database is shared under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="color:#5660fe; text-decoration:underline;">Creative Commons Attribution-NonCommercial 4.0 license</a> and may be reused for noncommercial purposes with appropriate attribution. If you republish this database in whole or in part, we request you credit the <strong>National Political Prisoner Coalition (NPPC)</strong>. To submit a correction, suggest a case, or request the data in CSV form, please <a href="/contact" style="color:#5660fe; text-decoration:underline;">contact us</a>.
                 </p>
             </div>
         </div>
