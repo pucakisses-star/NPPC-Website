@@ -94,8 +94,10 @@
         ->whereNotNull('description')
         ->where('description','!=','')
         ->where(function ($q) {
+            // "Currently incarcerated, in exile, or awaiting trial" only -
+            // do not include in_exile=true (the "was ever in exile" flag),
+            // which would surface deceased formerly-exiled prisoners.
             $q->where('in_custody', true)
-              ->orWhere('in_exile', true)
               ->orWhere('currently_in_exile', true)
               ->orWhere('awaiting_trial', true);
         })
