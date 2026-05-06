@@ -12,9 +12,9 @@
 #   - Original credit: George Martell, dated September 30, 1987,
 #     Westborough, MA (anti-GTE court testimony)
 #   - Original dimensions: 1200 x 1600 (portrait)
-#   - Crop: 800 x 800 starting at offset (50, 50) - selects the
-#     printed photograph and excludes the caption strip and bottom
-#     handwriting / catalog numbers
+#   - Crop: 760 x 760 starting at offset (70, 70) - pulls in past
+#     the white outer border on every side and stops short of the
+#     handwritten caption strip on the right.
 set -e
 
 PHOTO_URL='https://i.ebayimg.com/00/s/MTYwMFgxMjAw/z/mhUAAOSwkNReTSyD/$_57.JPG?set_id=8800005007'
@@ -27,11 +27,11 @@ mkdir -p "$(dirname "$PHOTO_ABS")"
 echo "Downloading original image..."
 curl -fsSL -A "Mozilla/5.0 NPPC-archive" -o "$TMP_ORIG" "$PHOTO_URL"
 
-echo "Cropping to square headshot (800x800 +50+50)..."
+echo "Cropping to square headshot (760x760 +70+70)..."
 if command -v convert >/dev/null 2>&1; then
-    convert "$TMP_ORIG" -crop 800x800+50+50 +repage -strip -quality 90 "$PHOTO_ABS"
+    convert "$TMP_ORIG" -crop 760x760+70+70 +repage -strip -quality 90 "$PHOTO_ABS"
 elif command -v magick >/dev/null 2>&1; then
-    magick "$TMP_ORIG" -crop 800x800+50+50 +repage -strip -quality 90 "$PHOTO_ABS"
+    magick "$TMP_ORIG" -crop 760x760+70+70 +repage -strip -quality 90 "$PHOTO_ABS"
 else
     echo "ERROR: neither 'convert' (ImageMagick) nor 'magick' is installed."
     echo "Install with: apt-get install imagemagick"
