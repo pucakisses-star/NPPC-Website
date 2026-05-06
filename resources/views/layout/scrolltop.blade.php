@@ -17,6 +17,33 @@
     </svg>
 </div>
 
+<style>
+    #scrollTop {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+    }
+    #scrollTop:hover {
+        transform: translateY(-4px) scale(1.08);
+    }
+    #scrollTop:hover svg {
+        animation: scrollTopArrowBounce 0.8s ease-in-out infinite;
+    }
+    #scrollTop:active {
+        transform: translateY(-2px) scale(1.04);
+    }
+    @keyframes scrollTopArrowBounce {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(-3px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        #scrollTop, #scrollTop:hover, #scrollTop:hover svg {
+            transition: none;
+            animation: none;
+            transform: none;
+        }
+    }
+</style>
+
 <script>
     document.querySelector('#scrollTop').addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
