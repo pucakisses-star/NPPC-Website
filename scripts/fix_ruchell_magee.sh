@@ -45,15 +45,15 @@ if (!$case) {
 
 $case->institution_id     = $inst->id;
 $case->charges            = "California Penal Code Section 209 (kidnapping for the purpose of robbery — life sentence under pre-1972 California law) and Section 211 (first-degree robbery), as a second felony offender. 1963 Los Angeles arrest after a nightclub dispute with Ben Brown over a woman and a \$10 bag of marijuana; LAPD beat Magee so severely he was hospitalized 3-5 days. First conviction was reversed by the California Court of Appeal, Second District, in an unpublished opinion (People v. Magee, Crim. No. 9376, December 18, 1964) on the ground that the joinder of a separate, unrelated robbery count against his co-defendant had unduly prejudiced Magee. On remand he was retried alone and re-convicted; sentence was pronounced on September 2, 1965. Magee filed a notice of appeal but moved to dismiss it on December 10, 1965; the California Court of Appeal dismissed the appeal on December 17, 1965. Subsequent California state kidnapping conviction arising from the August 7, 1970 Marin County Courthouse takeover led by Jonathan Jackson — in which Magee was the only survivor — was tried separately in San Francisco Superior Court (People v. Ruchell Magee, Sup. Ct. No. 83668) with sentence in 1973.";
-$case->arrest_date        = "1963-09-01";
-$case->incarceration_date = "1963-09-01";
+$case->arrest_date        = "1963-03-23";
+$case->incarceration_date = "1963-03-23";
 $case->sentenced_date     = "1965-09-02";
 $case->release_date       = "2023-07-28";
-$case->sentence           = "Indeterminate 7 years to life on the Section 209 kidnapping count; held continuously 60 years (San Quentin, Folsom, Soledad, Mule Creek, CMF Vacaville); released under California 2023 compassionate-release law. (Exact 1963 arrest day is approximate — secondary sources put it ~6 months after his early-1963 arrival in LA from Louisiana parole. The first-trial appellate opinion is unpublished and not online; the underlying offense and arrest date would be in the unpublished Crim. No. 9376 record or LA Superior Court files. Sentence date Sept 2, 1965 confirmed via Magee v. Nelson, 455 F.2d 275 (9th Cir. 1972) — Caselaw Access Project.)";
+$case->sentence           = "Indeterminate 7 years to life on the Section 209 kidnapping count; held continuously 60 years 4 months 5 days (San Quentin, Folsom, Soledad, Mule Creek, CMF Vacaville); released under California 2023 compassionate-release law. Sentence date Sept 2, 1965 confirmed via Magee v. Nelson, 455 F.2d 275 (9th Cir. 1972) - Caselaw Access Project.";
 $case->convicted          = "Yes - 1965 Superior Court of Los Angeles County retrial conviction (Sept 2, 1965 sentence) under Cal. Penal Code Sections 209 and 211; subsequent 1973 conviction on Marin Courthouse charges";
 $case->save();
 
-echo "Case updated; imprisoned_for_days now = {$case->imprisoned_for_days} (~21,879 = ~59 years 10 months)\n";
+echo "Case updated; imprisoned_for_days now = {$case->imprisoned_for_days} (~22,041 = ~60 years 4 months)\n";
 
 // Also make sure the death date is set
 if (!$p->death_date) {
