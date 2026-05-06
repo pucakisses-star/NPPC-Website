@@ -68,23 +68,38 @@ $caseAttrs = [
     "end_of_exile"       => "1928-05-18",
 ];
 
-// Idempotent: update existing matching case, otherwise insert new
-$existingCase = App\Models\PrisonerCase::where("prisoner_id", $p->id)
-    ->where("charges", "like", "%Espionage Act of 1917%IWW%")
-    ->first();
+// Idempotent: collapse any existing Espionage-Act-of-1917 case rows down
+// to a single canonical row. The original LIKE pattern matched on "IWW"
+// but the charges string spells out "Industrial Workers of the World", so
+// previous runs of this script created duplicate case rows instead of
+// updating in place. Match the long-form text and keep the oldest row.
+$existingCases = App\Models\PrisonerCase::where("prisoner_id", $p->id)
+    ->where(function ($q) {
+        $q->where("charges", "like", "%Espionage Act of 1917%")
+          ->orWhere("charges", "like", "%Industrial Workers of the World%");
+    })
+    ->orderBy("created_at")
+    ->get();
 
-if ($existingCase) {
+if ($existingCases->isNotEmpty()) {
+    $canonical = $existingCases->first();
     foreach ($caseAttrs as $k => $v) {
-        $existingCase->{$k} = $v;
+        $canonical->{$k} = $v;
     }
-    $existingCase->save();
-    echo "Updated existing 1918 IWW Chicago trial + 1921-1928 USSR exile case (id={$existingCase->id})\n";
-    echo "  imprisoned_for_days now = {$existingCase->imprisoned_for_days} (~365 = 1 yr at Leavenworth)\n";
+    $canonical->save();
+    echo "Updated canonical case (id={$canonical->id}); imprisoned_for_days = {$canonical->imprisoned_for_days} (318 = Sep 13, 1918 → Jul 28, 1919)\n";
+
+    // Delete any duplicate rows that previous buggy runs created
+    $duplicates = $existingCases->slice(1);
+    foreach ($duplicates as $dup) {
+        $dup->delete();
+        echo "Deleted duplicate case row id={$dup->id}\n";
+    }
 } else {
     $caseAttrs["prisoner_id"] = $p->id;
     $newCase = App\Models\PrisonerCase::create($caseAttrs);
     echo "Inserted 1918 IWW Chicago trial + 1921-1928 USSR exile case (id={$newCase->id})\n";
-    echo "  imprisoned_for_days = {$newCase->imprisoned_for_days} (~365 = 1 yr at Leavenworth)\n";
+    echo "  imprisoned_for_days = {$newCase->imprisoned_for_days} (318 = Sep 13, 1918 → Jul 28, 1919)\n";
 }
 '
 
