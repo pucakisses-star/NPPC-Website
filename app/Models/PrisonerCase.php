@@ -51,6 +51,16 @@ final class PrisonerCase extends Model {
             } else {
                 $case->imprisoned_for_days = null;
             }
+
+            if ($case->in_exile_since && $case->end_of_exile) {
+                $case->in_exile_for_days = (int) Carbon::parse($case->in_exile_since)
+                    ->diffInDays(Carbon::parse($case->end_of_exile));
+            } elseif ($case->in_exile_since && ! $case->end_of_exile) {
+                $case->in_exile_for_days = (int) Carbon::parse($case->in_exile_since)
+                    ->diffInDays(Carbon::today());
+            } else {
+                $case->in_exile_for_days = null;
+            }
         });
     }
 
