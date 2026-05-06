@@ -236,7 +236,11 @@ class PrisonerResource extends Resource {
                 Tables\Filters\Filter::make('imprisoned_or_exiled')
                     ->label('In Custody or Exiled')
                     ->query(fn (Builder $query): Builder => $query->where(function ($q) {
-                        $q->where('in_custody', true)->orWhere('in_exile', true)->orWhere('currently_in_exile', true);
+                        // "Currently in custody" or "currently in exile" only -
+                        // do not include in_exile=true (which means "was ever
+                        // in exile" - a historical fact that includes deceased
+                        // formerly-exiled prisoners like Bill Haywood).
+                        $q->where('in_custody', true)->orWhere('currently_in_exile', true);
                     })),
                 Tables\Filters\TernaryFilter::make('in_custody')
                     ->label('In Custody'),
