@@ -158,8 +158,11 @@ class LookupBopByName extends Command
     {
         try {
             $resp = Http::withHeaders([
-                'User-Agent' => 'NPPC-website/1.0 (https://nppc.org; contact@nppc.org)',
-                'Accept'     => 'application/json',
+                'User-Agent'      => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+                'Accept'          => 'application/json, text/plain, */*',
+                'Accept-Language' => 'en-US,en;q=0.9',
+                'Referer'         => 'https://www.bop.gov/inmateloc/',
+                'X-Requested-With' => 'XMLHttpRequest',
             ])->timeout(20)->get(self::BOP_ENDPOINT, [
                 'todo'      => 'query',
                 'output'    => 'json',
