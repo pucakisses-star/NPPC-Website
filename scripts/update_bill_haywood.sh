@@ -12,8 +12,13 @@
 #     District Court for the Northern District of Illinois, before Judge
 #     Kenesaw Mountain Landis; verdict August 30, 1918; sentenced Sept
 #     13, 1918 to 20 years federal prison + $30,000 fine
-#   - Imprisoned at USP Leavenworth from Sept 13, 1918 for approximately
-#     one year; released on appeal bond around Sept 1919
+#   - Imprisoned at USP Leavenworth from Sept 13, 1918 until release on
+#     appeal bond on July 28, 1919 (per New-York Tribune, July 29 1919, p7,
+#     datelined "LEAVENWORTH, Kan., July 28": "William D. Haywood, former
+#     secretary of the I. W. W., was released from the Federal prison here
+#     to-day upon the receipt of papers from Chicago showing approval of
+#     his bond, pending an appeal." Found via the Library of Congress
+#     Chronicling America newspaper archive.)
 #   - Jumped bail on March 31, 1921 and fled to the USSR; bond forfeited
 #   - Lived in exile in Moscow until his death May 18, 1928 (became labor
 #     advisor to the Bolshevik government 1921-1923)
@@ -55,8 +60,8 @@ $caseAttrs = [
     "arrest_date"        => "1917-09-05",
     "incarceration_date" => "1918-09-13",
     "sentenced_date"     => "1918-09-13",
-    "release_date"       => "1919-09-13",
-    "sentence"           => "20 years federal prison and \$30,000 fine; served approximately one year at USP Leavenworth (Sept 1918 - Sept 1919); released on \$15,000 appeal bond posted by Chicago millionaire supporter William Bross Lloyd; jumped bail March 31, 1921 and fled to the Soviet Union; bond forfeited.",
+    "release_date"       => "1919-07-28",
+    "sentence"           => "20 years federal prison and \$30,000 fine; served at USP Leavenworth from Sept 13, 1918 until release on \$15,000 appeal bond on July 28, 1919; bond posted by Chicago millionaire supporter William Bross Lloyd; jumped bail March 31, 1921 and fled to the Soviet Union; bond forfeited.",
     "convicted"          => "Yes - federal jury verdict, U.S. District Court for the Northern District of Illinois, August 30, 1918",
     "judge"              => "Kenesaw Mountain Landis",
     "in_exile_since"     => "1921-03-31",
