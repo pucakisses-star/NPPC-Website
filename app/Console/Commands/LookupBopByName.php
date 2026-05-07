@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Http;
  */
 class LookupBopByName extends Command
 {
-    protected $signature   = 'prisoners:lookup-bop-by-name {--dry-run : Print changes without writing}';
+    protected $signature   = 'prisoners:lookup-bop-by-name {--dry-run : Print changes without writing} {--delay=3.0 : Seconds to sleep after every BOP request (jittered ±25%)}';
     protected $description = 'Search the BOP inmate locator by first/last name for 80s-present prisoners missing register number or release date; only patch on a unique match.';
 
     private const BOP_ENDPOINT = 'https://www.bop.gov/PublicInfo/execute/inmateloc';
@@ -31,6 +31,7 @@ class LookupBopByName extends Command
     public function handle(): int
     {
         $dryRun = (bool) $this->option('dry-run');
+        $delay  = max(0.0, (float) $this->option('delay'));
 
         $prisoners = Prisoner::whereNotNull('first_name')
             ->whereNotNull('last_name')
@@ -62,6 +63,15 @@ class LookupBopByName extends Command
             }
 
             $results = $this->searchByName($prisoner->first_name, $prisoner->last_name);
+
+            // Sleep AFTER every request so we throttle on no-match / ambiguous
+            // / error paths too, not just successful patches. Jitter ±25% so
+            // the request cadence isn't perfectly periodic.
+            if ($delay > 0) {
+                $jitter = $delay * (0.75 + (mt_rand() / mt_getrandmax()) * 0.5);
+                usleep((int) round($jitter * 1_000_000));
+            }
+
             if ($results === null) {
                 $stats['errors']++;
                 continue;
@@ -134,9 +144,6 @@ class LookupBopByName extends Command
             });
 
             $stats['patched']++;
-
-            // Be polite to the BOP server.
-            usleep(400 * 1000);
         }
 
         $this->info("\nDone."
