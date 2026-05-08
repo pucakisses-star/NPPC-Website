@@ -44,7 +44,7 @@ function addP(array $p): array {
         'last_name' => $p['last_name'] ?? null, 'aka' => $p['aka'] ?? null,
         'gender' => $p['gender'] ?? null, 'race' => $p['race'] ?? null, 'state' => $p['state'] ?? null,
         'birthdate' => $p['birthdate'] ?? null, 'death_date' => $p['death_date'] ?? null,
-        'description' => $p['description'] ?? null, 'era' => $p['era'] ?? 'McCarthy / Cold War',
+        'description' => $p['description'] ?? null, 'era' => $p['era'] ?? '1950s',
         'ideologies' => $p['ideologies'] ?? null, 'affiliation' => $p['affiliation'] ?? null,
         'in_custody' => $p['in_custody'] ?? false, 'released' => $p['released'] ?? true,
     ], fn ($v) => $v !== null));

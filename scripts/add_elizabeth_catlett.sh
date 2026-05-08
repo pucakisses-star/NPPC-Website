@@ -34,7 +34,7 @@ php artisan prisoner:add '{
   "death_date": "2012-04-02",
   "ideologies": ["Pan-Africanism", "Black liberation", "Socialism", "Feminism"],
   "affiliation": ["Taller de Gráfica Popular", "Universidad Nacional Autónoma de México"],
-  "era": "McCarthy / Cold War",
+  "era": "1950s",
   "in_custody": false,
   "released": true,
   "cases": [
