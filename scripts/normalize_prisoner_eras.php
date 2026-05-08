@@ -42,9 +42,13 @@ $decadeFromYear = static function (int $year): string {
     return ((int) floor($year / 10) * 10) . 's';
 };
 
-$yearOf = static function (?string $date): ?int {
+$yearOf = static function ($date): ?int {
     if (! $date) return null;
-    $y = (int) substr($date, 0, 4);
+    if ($date instanceof \DateTimeInterface) {
+        $y = (int) $date->format('Y');
+        return $y > 0 ? $y : null;
+    }
+    $y = (int) substr((string) $date, 0, 4);
     return $y > 0 ? $y : null;
 };
 
