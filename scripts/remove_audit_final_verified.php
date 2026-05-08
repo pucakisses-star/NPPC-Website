@@ -105,7 +105,7 @@ $names = [
     // Other
     'Samuel Holden Lovejoy',
     'W. E. B. Du Bois', 'William Edward Burghardt Du Bois',
-    'Howard Zinn',
+    'Howard Zinn', 'Howard Zinn (Camden 28 expert witness)',
 ];
 
 $prisoners = Prisoner::whereIn('name', $names)->get();
