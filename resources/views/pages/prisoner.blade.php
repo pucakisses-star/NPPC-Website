@@ -79,6 +79,31 @@
     .prose-content iframe, .prose-content embed, .prose-content object { max-width: 100%; margin: 16px 0; border-radius: 8px; }
     .prose-content strong { color: #fff; font-weight: 700; }
 
+    /* Timeline */
+    .prisoner-timeline { padding-bottom: 96px; }
+    .prisoner-timeline-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 24px; }
+    .timeline-list { position: relative; padding-left: 32px; }
+    .timeline-list::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, rgba(86,96,254,0.6), rgba(86,96,254,0.15)); border-radius: 1px; }
+    .timeline-item { position: relative; padding: 0 0 28px 4px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: -32px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: #5660fe; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(86,96,254,0.5); }
+    .timeline-item--imprisoned .timeline-dot { background: #ef4444; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(239,68,68,0.55); }
+    .timeline-item--exile .timeline-dot { background: #eab308; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(234,179,8,0.55); }
+    .timeline-item--death .timeline-dot { background: #6b7280; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(107,114,128,0.55); }
+    .timeline-date { font-size: 12px; font-weight: 800; color: #5660fe; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .timeline-item--imprisoned .timeline-date { color: #ef4444; }
+    .timeline-item--exile .timeline-date { color: #eab308; }
+    .timeline-item--death .timeline-date { color: rgba(255,255,255,0.55); }
+    .timeline-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
+    .timeline-body { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.65; }
+    .timeline-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; font-size: 12px; color: rgba(255,255,255,0.55); }
+    .timeline-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+    .timeline-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .timeline-legend-dot--default { background: #5660fe; }
+    .timeline-legend-dot--imprisoned { background: #ef4444; }
+    .timeline-legend-dot--exile { background: #eab308; }
+    .timeline-legend-dot--death { background: #6b7280; }
+
     @media (max-width: 768px) {
         .prisoner-hero { flex-direction: column-reverse; }
         .prisoner-photo-col { flex: auto; width: 100%; }
@@ -263,6 +288,12 @@
                 </div>
             @endforeach
         </div>
+    @endif
+
+    {{-- Visual timeline (per-prisoner Blade partial at sections/timelines/{slug}.blade.php) --}}
+    @if($prisoner->slug && view()->exists('sections.timelines.' . $prisoner->slug))
+        <div class="prisoner-divider"></div>
+        @include('sections.timelines.' . $prisoner->slug)
     @endif
 </div>
 @endsection
