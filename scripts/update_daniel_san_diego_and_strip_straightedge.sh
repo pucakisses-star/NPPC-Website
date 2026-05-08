@@ -78,6 +78,7 @@ if ("'"$PHOTO_REL"'" !== "" && ! $daniel->photo) {
 }
 $daniel->in_custody = true;
 $daniel->released = false;
+$daniel->race = "White";
 $daniel->save();
 echo "Daniel Andreas San Diego (id={$daniel->id}): photo={$daniel->photo}\n";
 
