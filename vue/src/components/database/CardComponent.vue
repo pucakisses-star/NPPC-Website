@@ -18,7 +18,7 @@ const textValue = 'italic'
 
 
 
-const parseValueForOutput = (value: any): any => {
+const parseValueForOutput = (value: any, fieldKey: string = ''): any => {
 
   if (typeof value === 'string' && value.includes('error')) {
     return null;
@@ -40,7 +40,13 @@ const parseValueForOutput = (value: any): any => {
     const date = new Date(value);
     const day = date.getDate();
     const suffix = (day >= 11 && day <= 13) ? 'th' : ['th','st','nd','rd'][day % 10] || 'th';
-    return `${date.toLocaleString('default', { month: 'short' })} ${day}${suffix} ${date.getFullYear()}`;
+    const month = date.toLocaleString('default', { month: 'short' });
+    // On the prisoner card, hide the year for the Birthday field —
+    // the full DOB still shows on the dedicated /prisoner page.
+    if (fieldKey === 'Birthdate') {
+      return `${month} ${day}${suffix}`;
+    }
+    return `${month} ${day}${suffix} ${date.getFullYear()}`;
   }
 
 
@@ -103,7 +109,7 @@ const mainCase = props.record.cases[0]
           <template v-for="field in prisonerCardFields" :key="field.title">
             <div v-if="record[field.fieldKey] != null && record[field.fieldKey] !== '' && !(Array.isArray(record[field.fieldKey]) && record[field.fieldKey].length === 0)" class="mb-4">
               <div :class="heading5">{{field.title}}</div>
-              <div :class="textValue">{{parseValueForOutput(record[field.fieldKey]) ?? ''}}</div>
+              <div :class="textValue">{{parseValueForOutput(record[field.fieldKey], field.fieldKey) ?? ''}}</div>
               <div v-if="field.title === 'Age'">
                 <span class="text-sm relative" style="top: -25px;left: 22px;;">{{ record['Death date'] ? 'Deceased' : '' }}</span>
               </div>
