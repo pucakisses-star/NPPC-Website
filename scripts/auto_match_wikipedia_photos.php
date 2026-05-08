@@ -148,7 +148,13 @@ function lookupSummary(string $name): ?array {
     return $j;
 }
 
-function verify(array $summary, ?string $birthdate, array $keywords, array &$reasons): bool {
+function verify(array $summary, $birthdate, array $keywords, array &$reasons): bool {
+    if ($birthdate instanceof \DateTimeInterface) {
+        $birthdate = $birthdate->format('Y-m-d');
+    } elseif ($birthdate !== null) {
+        $birthdate = (string) $birthdate;
+        if ($birthdate === '') $birthdate = null;
+    }
     $extract = (string) ($summary['extract'] ?? '');
     $description = (string) ($summary['description'] ?? '');
     $haystack = "{$extract}\n\n{$description}";
