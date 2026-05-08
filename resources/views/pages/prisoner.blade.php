@@ -80,29 +80,40 @@
     .prose-content strong { color: #fff; font-weight: 700; }
 
     /* Timeline */
-    .prisoner-timeline { padding-bottom: 96px; }
-    .prisoner-timeline-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 24px; }
-    .timeline-list { position: relative; padding-left: 32px; }
-    .timeline-list::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, rgba(86,96,254,0.6), rgba(86,96,254,0.15)); border-radius: 1px; }
-    .timeline-item { position: relative; padding: 0 0 28px 4px; }
+    .prisoner-timeline { padding-bottom: 96px; max-width: 820px; }
+    .prisoner-timeline-title { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .prisoner-timeline-subtitle { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 32px; }
+    .timeline-list { position: relative; padding-left: 40px; margin-top: 8px; }
+    .timeline-list::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, rgba(86,96,254,0.7), rgba(86,96,254,0.15)); border-radius: 1px; }
+    .timeline-item { position: relative; padding: 0 0 36px 8px; }
     .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-dot { position: absolute; left: -32px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: #5660fe; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(86,96,254,0.5); }
+    .timeline-dot { position: absolute; left: -40px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: #5660fe; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(86,96,254,0.55); }
     .timeline-item--imprisoned .timeline-dot { background: #ef4444; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(239,68,68,0.55); }
     .timeline-item--exile .timeline-dot { background: #eab308; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(234,179,8,0.55); }
-    .timeline-item--death .timeline-dot { background: #6b7280; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(107,114,128,0.55); }
-    .timeline-date { font-size: 12px; font-weight: 800; color: #5660fe; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
-    .timeline-item--imprisoned .timeline-date { color: #ef4444; }
-    .timeline-item--exile .timeline-date { color: #eab308; }
-    .timeline-item--death .timeline-date { color: rgba(255,255,255,0.55); }
-    .timeline-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3; }
-    .timeline-body { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.65; }
-    .timeline-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; font-size: 12px; color: rgba(255,255,255,0.55); }
-    .timeline-legend-item { display: inline-flex; align-items: center; gap: 6px; }
-    .timeline-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .timeline-item--death .timeline-dot { background: #9ca3af; box-shadow: 0 0 0 4px #0a0a14, 0 0 0 6px rgba(156,163,175,0.55); }
+    .timeline-date { font-size: 13px; font-weight: 800; color: #8a92ff; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .timeline-item--imprisoned .timeline-date { color: #fca5a5; }
+    .timeline-item--exile .timeline-date { color: #fde047; }
+    .timeline-item--death .timeline-date { color: rgba(255,255,255,0.7); }
+    .timeline-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.35; }
+    .timeline-body { font-size: 16px; color: rgba(255,255,255,0.88); line-height: 1.7; }
+    .timeline-body em { color: rgba(255,255,255,0.95); }
+    .timeline-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; font-size: 13px; color: rgba(255,255,255,0.75); }
+    .timeline-legend-item { display: inline-flex; align-items: center; gap: 8px; }
+    .timeline-legend-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
     .timeline-legend-dot--default { background: #5660fe; }
     .timeline-legend-dot--imprisoned { background: #ef4444; }
     .timeline-legend-dot--exile { background: #eab308; }
-    .timeline-legend-dot--death { background: #6b7280; }
+    .timeline-legend-dot--death { background: #9ca3af; }
+
+    @media (max-width: 640px) {
+        .timeline-list { padding-left: 28px; }
+        .timeline-list::before { left: 7px; }
+        .timeline-dot { left: -28px; width: 16px; height: 16px; }
+        .timeline-title { font-size: 17px; }
+        .timeline-body { font-size: 15px; }
+        .timeline-legend { gap: 12px; padding: 12px 14px; }
+    }
 
     @media (max-width: 768px) {
         .prisoner-hero { flex-direction: column-reverse; }
