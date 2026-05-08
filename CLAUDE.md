@@ -2,6 +2,10 @@
 
 > **Server:** 104.238.162.40 | **Admin:** /admin | **Deploy:** `cd /var/www/NPPC-Website && git pull origin main`
 
+## PR workflow
+
+When the user asks for a change that produces a PR, mark it ready-for-review and squash-merge it without asking for confirmation. Do not leave PRs in draft. (User preference, set 2026-05-08.)
+
 ## Project Overview
 
 Laravel 10 website for the **National Political Prisoner Coalition** (NPPC). Public-facing advocacy site + Filament 3 admin panel. Manages prisoner profiles, articles, events, petitions, podcasts, and more.
