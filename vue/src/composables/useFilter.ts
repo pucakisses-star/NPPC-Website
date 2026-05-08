@@ -38,12 +38,14 @@ export function useFilter(): {
         }
 
         if(nameSearch && nameSearch.value) {
-            const nameSearchLower = nameSearch.value.toLowerCase();
-            const prisonerNameLower = prisoner.name.toLowerCase();
-            const prisonerAKALower = prisoner.AKA?.toLowerCase();
+            const nameSearchLower = nameSearch.value.trim().toLowerCase();
+            if (nameSearchLower) {
+                const prisonerNameLower = prisoner.name.toLowerCase();
+                const prisonerAKALower = prisoner.AKA?.toLowerCase();
 
-            if (!prisonerNameLower.includes(nameSearchLower) && !prisonerAKALower?.includes(nameSearchLower)) {
-                return false;
+                if (!prisonerNameLower.includes(nameSearchLower) && !prisonerAKALower?.includes(nameSearchLower)) {
+                    return false;
+                }
             }
         }
 
