@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Http;
  */
 class LookupBopByName extends Command
 {
-    protected $signature   = 'prisoners:lookup-bop-by-name {--dry-run : Print changes without writing} {--delay=3.0 : Seconds to sleep after every BOP request (jittered ±25%)}';
+    protected $signature   = 'prisoners:lookup-bop-by-name {--dry-run : Print changes without writing} {--delay=3.0 : Seconds to sleep after every BOP request (jittered ±25%)} {--names= : Comma-separated list of prisoner names to limit the scan to}';
     protected $description = 'Search the BOP inmate locator by first/last name for 80s-present prisoners missing register number or release date; only patch on a unique match.';
 
     private const BOP_ENDPOINT = 'https://www.bop.gov/PublicInfo/execute/inmateloc';
@@ -32,15 +32,29 @@ class LookupBopByName extends Command
     {
         $dryRun = (bool) $this->option('dry-run');
         $delay  = max(0.0, (float) $this->option('delay'));
+        $namesOpt = (string) ($this->option('names') ?? '');
+        $namesFilter = [];
+        if ($namesOpt !== '') {
+            foreach (preg_split('/\s*,\s*/', $namesOpt) as $n) {
+                $n = trim($n);
+                if ($n !== '') $namesFilter[] = $n;
+            }
+        }
 
-        $prisoners = Prisoner::whereNotNull('first_name')
+        $query = Prisoner::whereNotNull('first_name')
             ->whereNotNull('last_name')
             ->where('first_name', '!=', '')
             ->where('last_name',  '!=', '')
-            ->whereIn('era', self::ERAS)
             ->withCount('cases')
-            ->orderBy('name')
-            ->get();
+            ->orderBy('name');
+
+        if (! empty($namesFilter)) {
+            $query->whereIn('name', $namesFilter);
+        } else {
+            $query->whereIn('era', self::ERAS);
+        }
+
+        $prisoners = $query->get();
 
         $this->info("Scanning {$prisoners->count()} prisoners (eras 1980s-2020s)…");
 
