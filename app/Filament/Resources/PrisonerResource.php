@@ -149,6 +149,12 @@ class PrisonerResource extends Resource {
     public static function table(Table $table): Table {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('sort_order')
+                    ->label('Sort')
+                    ->numeric()
+                    ->sortable()
+                    ->alignCenter()
+                    ->toggleable(),
                 Tables\Columns\ImageColumn::make('photo')
                     ->circular()
                     ->disk('public')
