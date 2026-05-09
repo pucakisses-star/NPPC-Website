@@ -62,6 +62,13 @@ final class Prisoner extends Model {
             if (! $model->slug && $model->name) {
                 $model->slug = self::generateUniqueSlug($model->name, $model->middle_name, $model->aka);
             }
+            // Auto-assign sort_order = MAX(sort_order) + 1 so brand-new
+            // prisoners land at the bottom of the list instead of all
+            // collapsing to the default 0.
+            if ((int) ($model->sort_order ?? 0) === 0) {
+                $maxOrder = (int) self::query()->max('sort_order');
+                $model->sort_order = $maxOrder + 1;
+            }
         });
 
         static::updating(function ($model) {
