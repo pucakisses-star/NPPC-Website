@@ -11,6 +11,10 @@ class ArticlesGrid extends Component {
     public $selectedCategory = 'Latest';
     public $articles;
     public $limit;
+    public int $page = 1;
+    public int $perPage = 12;
+    public int $totalPages = 1;
+    public int $totalArticles = 0;
 
     public function mount($limit = null) {
         $this->categories = Category::all();
@@ -19,23 +23,52 @@ class ArticlesGrid extends Component {
     }
 
     public function loadArticles() {
-        if ($this->selectedCategory === 'Latest') {
-            $query = Article::with('category')->orderBy('published_at', 'desc');
-        } else {
-            $query = Article::with('category')->whereHas('category', function ($query) {
-                $query->where('title', $this->selectedCategory);
-            })->orderBy('published_at', 'desc');
+        $query = Article::with('category')->orderBy('published_at', 'desc');
+        if ($this->selectedCategory !== 'Latest') {
+            $query = $query->whereHas('category', function ($q) {
+                $q->where('title', $this->selectedCategory);
+            });
         }
 
         if ($this->limit) {
-            $this->articles = $query->limit($this->limit)->get();
-        } else {
-            $this->articles = $query->get();
+            // Home-page mode: hard limit, no pagination.
+            $this->articles      = $query->limit($this->limit)->get();
+            $this->totalArticles = $this->articles->count();
+            $this->totalPages    = 1;
+            $this->page          = 1;
+            return;
         }
+
+        // /news mode: paginate.
+        $this->totalArticles = (clone $query)->count();
+        $this->totalPages    = max(1, (int) ceil($this->totalArticles / $this->perPage));
+        $this->page          = max(1, min($this->page, $this->totalPages));
+        $offset              = ($this->page - 1) * $this->perPage;
+        $this->articles      = $query->skip($offset)->take($this->perPage)->get();
     }
 
     public function selectCategory($category) {
         $this->selectedCategory = $category;
+        $this->page = 1;
+        $this->loadArticles();
+    }
+
+    public function nextPage() {
+        if ($this->page < $this->totalPages) {
+            $this->page++;
+            $this->loadArticles();
+        }
+    }
+
+    public function prevPage() {
+        if ($this->page > 1) {
+            $this->page--;
+            $this->loadArticles();
+        }
+    }
+
+    public function gotoPage(int $page) {
+        $this->page = max(1, min($page, $this->totalPages));
         $this->loadArticles();
     }
 

@@ -51,30 +51,58 @@ EOB;
             @endforeach
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12" style="gap: 32px;">
+        @if($this->page === 1)
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12" style="gap: 32px;">
 
-            <div>
-                <?php $x = 0; foreach ($articles as $article) {
-                    $x++; if ($x === 2) break; ?>
-                {!! renderArticle($article, true) !!}
-                <?php } ?>
+                <div>
+                    <?php $x = 0; foreach ($articles as $article) {
+                        $x++; if ($x === 2) break; ?>
+                    {!! renderArticle($article, true) !!}
+                    <?php } ?>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="gap: 32px;">
+                    <?php $x = 0; foreach ($articles as $article) {
+                        $x++; if ($x === 1) continue;  if ($x === 6) break; ?>
+                    {!! renderArticle($article) !!}
+                    <?php } ?>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="gap: 32px;">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style="gap: 32px;">
                 <?php $x = 0; foreach ($articles as $article) {
-                    $x++; if ($x === 1) continue;  if ($x === 6) break; ?>
+                    $x++; if ($x < 6) continue; ?>
                 {!! renderArticle($article) !!}
                 <?php } ?>
             </div>
-        </div>
+        @else
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style="gap: 32px;">
+                @foreach($articles as $article)
+                    {!! renderArticle($article) !!}
+                @endforeach
+            </div>
+        @endif
 
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style="gap: 32px;">
-            <?php $x = 0; foreach ($articles as $article) {
-                $x++; if ($x < 6) continue; ?>
-            {!! renderArticle($article) !!}
-            <?php } ?>
-        </div>
+        @if($this->totalPages > 1)
+            <nav aria-label="News pagination" style="display:flex; justify-content:center; align-items:center; gap:16px; margin-top:48px; flex-wrap:wrap;">
+                <button
+                    wire:click="prevPage"
+                    @disabled($this->page <= 1)
+                    style="padding:12px 24px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#fff; border-radius:24px; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; cursor:pointer; opacity:{{ $this->page <= 1 ? '0.35' : '1' }};">
+                    &larr; Previous
+                </button>
+                <span style="font-size:14px; color:rgba(255,255,255,0.6); letter-spacing:0.04em;">
+                    Page {{ $this->page }} of {{ $this->totalPages }}
+                </span>
+                <button
+                    wire:click="nextPage"
+                    @disabled($this->page >= $this->totalPages)
+                    style="padding:12px 24px; background:#5660fe; border:1px solid #5660fe; color:#fff; border-radius:24px; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; cursor:pointer; opacity:{{ $this->page >= $this->totalPages ? '0.35' : '1' }};">
+                    Next &rarr;
+                </button>
+            </nav>
+        @endif
 
     </div>
 
