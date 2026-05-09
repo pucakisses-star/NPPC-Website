@@ -90,11 +90,22 @@ class PrisonerResource extends Resource {
 
                 Forms\Components\Section::make('Status')
                     ->schema([
-                        Forms\Components\Toggle::make('in_custody'),
+                        Forms\Components\Toggle::make('in_custody')
+                            ->live()
+                            ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                $set('imprisoned_or_exiled', (bool) $state || (bool) $get('currently_in_exile'));
+                            }),
                         Forms\Components\Toggle::make('released'),
                         Forms\Components\Toggle::make('in_exile'),
-                        Forms\Components\Toggle::make('currently_in_exile'),
-                        Forms\Components\Toggle::make('imprisoned_or_exiled'),
+                        Forms\Components\Toggle::make('currently_in_exile')
+                            ->live()
+                            ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                $set('imprisoned_or_exiled', (bool) $state || (bool) $get('in_custody'));
+                            }),
+                        Forms\Components\Toggle::make('imprisoned_or_exiled')
+                            ->disabled()
+                            ->dehydrated()
+                            ->helperText('Auto-computed: ticked when "In Custody" or "Currently in Exile" is on. Saved automatically.'),
                         Forms\Components\Toggle::make('awaiting_trial'),
                     ])
                     ->columns(3),
