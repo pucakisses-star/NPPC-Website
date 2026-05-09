@@ -226,7 +226,7 @@ foreach ($viequesAdditions as $name) {
         'state'       => 'Puerto Rico',
         'race'        => 'Latino',
         'gender'      => $gender,
-        'ideologies'  => ['Anti-militarism', 'Puerto Rican self-determination', 'Anti-nuclear'],
+        'ideologies'  => ['Anti-militarism', 'Puerto Rican Independence', 'Anti-nuclear'],
         'affiliation' => ['Vieques civil disobedience movement'],
         'era'         => '2000s',
         'in_custody'  => false,
