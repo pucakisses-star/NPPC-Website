@@ -9,6 +9,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\MaxWidth;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets;
@@ -27,6 +28,7 @@ class AdminPanelProvider extends PanelProvider {
             ->default()
             ->id('admin')
             ->path('admin')
+            ->maxContentWidth(MaxWidth::Full)
             ->login(\App\Filament\Pages\Auth\Login::class)
             ->colors([
                 'primary' => Color::Indigo,
