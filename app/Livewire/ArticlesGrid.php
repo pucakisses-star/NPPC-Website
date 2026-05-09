@@ -12,7 +12,8 @@ class ArticlesGrid extends Component {
     public $articles;
     public $limit;
     public int $page = 1;
-    public int $perPage = 12;
+    public int $perPage = 12;     // pages 2+
+    public int $firstPageSize = 14;
     public int $totalPages = 1;
     public int $totalArticles = 0;
 
@@ -39,12 +40,25 @@ class ArticlesGrid extends Component {
             return;
         }
 
-        // /news mode: paginate.
+        // /news mode: paginate. First page holds firstPageSize articles,
+        // subsequent pages hold perPage each.
         $this->totalArticles = (clone $query)->count();
-        $this->totalPages    = max(1, (int) ceil($this->totalArticles / $this->perPage));
-        $this->page          = max(1, min($this->page, $this->totalPages));
-        $offset              = ($this->page - 1) * $this->perPage;
-        $this->articles      = $query->skip($offset)->take($this->perPage)->get();
+        if ($this->totalArticles <= $this->firstPageSize) {
+            $this->totalPages = 1;
+        } else {
+            $remaining        = $this->totalArticles - $this->firstPageSize;
+            $this->totalPages = 1 + (int) ceil($remaining / $this->perPage);
+        }
+        $this->page = max(1, min($this->page, $this->totalPages));
+
+        if ($this->page === 1) {
+            $offset = 0;
+            $take   = $this->firstPageSize;
+        } else {
+            $offset = $this->firstPageSize + ($this->page - 2) * $this->perPage;
+            $take   = $this->perPage;
+        }
+        $this->articles = $query->skip($offset)->take($take)->get();
     }
 
     public function selectCategory($category) {
