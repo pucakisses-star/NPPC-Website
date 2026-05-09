@@ -51,7 +51,7 @@ EOB;
             @endforeach
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12" style="gap: 32px;">
 
             <div>
                 <?php $x = 0; foreach ($articles as $article) {
@@ -60,7 +60,7 @@ EOB;
                 <?php } ?>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="gap: 32px;">
                 <?php $x = 0; foreach ($articles as $article) {
                     $x++; if ($x === 1) continue;  if ($x === 6) break; ?>
                 {!! renderArticle($article) !!}
@@ -69,7 +69,7 @@ EOB;
         </div>
 
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style="gap: 32px;">
             <?php $x = 0; foreach ($articles as $article) {
                 $x++; if ($x < 6) continue; ?>
             {!! renderArticle($article) !!}
