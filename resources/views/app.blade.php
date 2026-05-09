@@ -63,7 +63,7 @@ $isHome = request()->segment(1) == ''
 <body class="page-{{request()->segment(1)}} @if ($isHome) home-page @endif">
 
 {{-- Page transition overlay --}}
-<div id="page-transition" style="position:fixed; inset:0; background:#000; z-index:999999; opacity:1; pointer-events:none; transition:opacity 0.4s ease;"></div>
+<div id="page-transition" style="position:fixed; inset:0; background:#000; z-index:999999; opacity:0; pointer-events:none; transition:opacity 0.4s ease;"></div>
 
 @include('layout.nav_desktop')
 @include('layout.nav_mobile')
@@ -86,9 +86,11 @@ $isHome = request()->segment(1) == ''
 @livewireScripts
 
 <script>
-    Livewire.on('open-payment-tab', url => {
-        window.open(url, '_blank');
-    });
+    if (typeof Livewire !== 'undefined') {
+        Livewire.on('open-payment-tab', url => {
+            window.open(url, '_blank');
+        });
+    }
 
     // Page transition: fade in on load, fade out on navigate
     (function() {
