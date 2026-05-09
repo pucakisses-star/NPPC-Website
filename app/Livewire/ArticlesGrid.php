@@ -13,7 +13,7 @@ class ArticlesGrid extends Component {
     public $limit;
     public int $page = 1;
     public int $perPage = 12;     // pages 2+
-    public int $firstPageSize = 14;
+    public int $firstPageSize = 17;
     public int $totalPages = 1;
     public int $totalArticles = 0;
 
