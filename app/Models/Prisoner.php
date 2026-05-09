@@ -94,6 +94,17 @@ final class Prisoner extends Model {
             // those lists. Auto-derive on every save.
             $model->attributes['imprisoned_or_exiled'] =
                 ($model->in_custody || $model->currently_in_exile) ? 1 : 0;
+
+            // A prisoner with a death_date is by definition no longer in
+            // custody and no longer currently in exile, and "released"
+            // should be true so they don't show up under "active"
+            // filters. Force the flags whenever death_date is present.
+            if (! empty($model->death_date)) {
+                $model->attributes['released']           = 1;
+                $model->attributes['in_custody']         = 0;
+                $model->attributes['currently_in_exile'] = 0;
+                $model->attributes['imprisoned_or_exiled'] = 0;
+            }
         });
     }
 
