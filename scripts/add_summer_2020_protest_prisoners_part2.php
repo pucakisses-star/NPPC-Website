@@ -174,7 +174,7 @@ foreach ($rows as $line) {
     $instName = ($jurisdiction === 'Federal' ? 'Federal Bureau of Prisons' : 'State prison')
               . ' (' . $state . ')';
 
-    $ideologies = ['Black Lives Matter', 'Anti-police violence', 'Summer 2020 protests'];
+    $ideologies = ['Black Lives Matter', 'Police Accountability', 'Summer 2020 protests'];
     if ($extraIdeologies) {
         foreach (preg_split('/\s*,\s*/', $extraIdeologies) as $i) {
             if ($i !== '') $ideologies[] = $i;
