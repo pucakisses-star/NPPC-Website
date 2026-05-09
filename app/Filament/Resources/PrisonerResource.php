@@ -235,7 +235,7 @@ class PrisonerResource extends Resource {
             ->defaultSort('sort_order')
             ->reorderable('sort_order')
             ->paginatedWhileReordering()
-            ->paginationPageOptions([25, 50, 100, 250, 'all'])
+            ->paginationPageOptions([25, 50, 100, 250, 500, 'all'])
             ->defaultPaginationPageOption(50)
             ->filters([
                 // Status filter group matching Airtable's button filters
