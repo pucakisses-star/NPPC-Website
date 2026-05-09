@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Run on production server (104.238.162.40):
+#   cd /var/www/NPPC-Website && bash scripts/add_wwi_delineator_spies.sh
+#
+# Add two WWI-era defendants pictured in the "Huns, Here, There, and
+# Everywhere" mug-shot gallery published in Butterick's Delineator
+# (July 1918). The page reframed several U.S. political dissidents as
+# "spies and traitors" alongside actual German agents.
+#
+# Already in the NPPC database (skipped here): Kate Richards O'Hare,
+# Louise Olivereau, Tom Mooney, Warren Billings.
+# Out of scope (German consular staff and Captain Franz von Rintelen
+# were paid agents of a foreign power, not political prisoners).
+set -e
+
+# === Homer C. Spence — Green Corn Rebellion, Oklahoma ===
+
+php artisan prisoner:add '{"name":"Homer C. Spence","first_name":"Homer","last_name":"Spence","description":"Homer C. Spence was an Oklahoma tenant farmer convicted of sedition and anti-draft offenses for his role in the Green Corn Rebellion of August 2-3, 1917 — an armed uprising organized by the Working Class Union, an interracial (white, Black, and Native American) socialist tenant-farmer organization in southeastern Oklahoma. The rebels opposed U.S. entry into World War I and the newly enacted draft, and planned to march on Washington to overthrow the government and end the war. The uprising collapsed within days under pressure from posses and federal officers, and roughly 450 farmers were arrested. Spence was one of those convicted; his mug shot was reproduced in Butterick'"'"'s Delineator (July 1918) in the magazine'"'"'s gallery of Huns, Spies and Traitors, even though his offense was a domestic anti-war and anti-draft action, not espionage on behalf of any foreign power.","state":"Oklahoma","race":"White","gender":"Male","ideologies":["Socialism","Anti-War","Anti-Draft"],"affiliation":["Working Class Union","Socialist Party of America"],"era":"1910s","in_custody":false,"released":true,"cases":[{"institution_name":"Federal prison (Green Corn Rebellion prosecutions)","institution_state":"Oklahoma","charges":"Sedition; conspiracy to obstruct the draft (Selective Service Act of 1917) and resist U.S. entry into World War I, in connection with the Green Corn Rebellion of August 2-3, 1917 in southeastern Oklahoma.","arrest_date":"1917-08-04","sentence":"Convicted in the Green Corn Rebellion prosecutions; pictured as one of the imprisoned Huns, Spies and Traitors in Butterick'"'"'s Delineator, July 1918.","convicted":"Yes — convicted in the Green Corn Rebellion prosecutions"}]}' || true
+
+# === Margaret E. Cornell — Hindu Conspiracy / Espionage Act ===
+
+php artisan prisoner:add '{"name":"Margaret E. Cornell","first_name":"Margaret","last_name":"Cornell","aka":"Margaret W. Cornell","description":"Margaret E. Cornell was an Irish-born office clerk, age 52 at the time of her conviction, who worked at the German Consulate in San Francisco. She was prosecuted in the federal Hindu Conspiracy case (formally the Indo-German-Irish plot to ship American weapons to India for an uprising against British rule and to disrupt British and Allied munitions shipping during World War I). Cornell was the only woman convicted in the case. Federal prosecutors charged her under Sections 37 and 13 of the U.S. criminal code with espionage and conspiracy for transmitting coded messages between her boss, Consul-General Franz Bopp, and Charles C. Crowley, a private detective hired by the consulate. At trial she testified, I am now a woman without a country. Whether she was a willing participant or a low-level clerical dupe was disputed at the time. The trial drew heavy press coverage; her mug shot was reproduced in Butterick'"'"'s Delineator (July 1918) in its gallery of Huns, Spies and Traitors. She received a relatively light sentence and was admitted to San Quentin State Prison on February 8, 1918. She had Irish-Republican sympathies and the Easter Rising (April 1916) is part of the political context of her case. Cornell told the court she had tuberculosis and feared dying in prison; her ultimate fate is not well documented in surviving newspaper sources.","state":"California","race":"White","gender":"Female","birthdate":"1865-01-01","ideologies":["Irish Republicanism","Anti-War"],"era":"1910s","in_custody":false,"released":true,"cases":[{"institution_name":"San Quentin State Prison","institution_city":"San Quentin","institution_state":"California","charges":"Espionage and conspiracy under Sections 37 and 13 of the U.S. criminal code in connection with the Hindu Conspiracy / Indo-German-Irish plot. Alleged to have transmitted coded messages between Consul-General Franz Bopp and Charles C. Crowley, a private detective hired by the German Consulate in San Francisco.","incarceration_date":"1918-02-08","convicted":"Yes — convicted of espionage and conspiracy in the Hindu Conspiracy federal prosecution","sentence":"Relatively light prison term at San Quentin State Prison."}]}' || true
+
+echo
+echo "WWI-era Delineator-pictured prisoner entries added (Spence, Cornell)."
