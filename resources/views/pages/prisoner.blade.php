@@ -138,7 +138,7 @@
             <div class="prisoner-status-badges">
                 @if($prisoner->in_custody)<span class="prisoner-badge prisoner-badge-custody">In Custody</span>@endif
                 @if($prisoner->released)<span class="prisoner-badge prisoner-badge-released">Released</span>@endif
-                @if($prisoner->currently_in_exile || $prisoner->in_exile)<span class="prisoner-badge prisoner-badge-exile">In Exile</span>@endif
+                @if(($prisoner->currently_in_exile || $prisoner->in_exile) && ! $prisoner->death_date)<span class="prisoner-badge prisoner-badge-exile">In Exile</span>@endif
                 @if($prisoner->awaiting_trial)<span class="prisoner-badge prisoner-badge-trial">Awaiting Trial</span>@endif
             </div>
 
