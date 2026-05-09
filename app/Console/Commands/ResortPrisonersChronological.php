@@ -55,24 +55,31 @@ class ResortPrisonersChronological extends Command
             foreach ($shown as $i => $row) {
                 $p    = $row['prisoner'];
                 $year = $row['year'] === 9999 ? '----' : (string) $row['year'];
-                $this->line(sprintf("  %4d. %s  %s", ($i + 1) * 10, $year, $p->name));
+                $this->line(sprintf("  %4d. %s  %s", $i, $year, $p->name));
             }
             $this->warn("Dry run — no changes written.");
             return self::SUCCESS;
         }
 
+        // Two-pass write to avoid clashing with any existing unique
+        // index on sort_order while we shuffle values around.
         $written = 0;
-        foreach ($ranked as $i => $row) {
-            $p = $row['prisoner'];
-            $newOrder = ($i + 1) * 10;
-            if ($p->sort_order !== $newOrder) {
-                $p->sort_order = $newOrder;
-                $p->saveQuietly();
+        \Illuminate\Support\Facades\DB::transaction(function () use ($ranked, &$written) {
+            $offset = 1_000_000_000;
+            foreach ($ranked as $i => $row) {
+                \Illuminate\Support\Facades\DB::table('prisoners')
+                    ->where('id', $row['prisoner']->id)
+                    ->update(['sort_order' => $offset + $i]);
+            }
+            foreach ($ranked as $i => $row) {
+                \Illuminate\Support\Facades\DB::table('prisoners')
+                    ->where('id', $row['prisoner']->id)
+                    ->update(['sort_order' => $i]);
                 $written++;
             }
-        }
+        });
 
-        $this->info("Done. Updated sort_order on {$written} prisoners.");
+        $this->info("Done. Updated sort_order on {$written} prisoners (0.." . ($written - 1) . ").");
         return self::SUCCESS;
     }
 
