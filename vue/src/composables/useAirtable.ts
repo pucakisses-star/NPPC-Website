@@ -54,6 +54,22 @@ export default function useAirtable() {
         return uniqueArray.sort();
     };
 
+    // Era values are decade strings like "1700s" through "2020s". Sort
+    // them newest-first (2020s → 1700s) so the filter dropdown reads in
+    // reverse chronological order. Strings without a 4-digit year fall
+    // through to the bottom in their natural alphabetical order.
+    const sortErasReverseChronological = (eras: string[]): string[] => {
+        const yearOf = (s: string): number => {
+            const m = s.match(/\d{4}/);
+            return m ? parseInt(m[0], 10) : -1;
+        };
+        return [...eras].sort((a, b) => {
+            const ya = yearOf(a), yb = yearOf(b);
+            if (ya !== yb) return yb - ya;        // newer year first
+            return a.localeCompare(b);            // ties: alphabetical
+        });
+    };
+
     const processAggregate = (key: keyof Prisoner, prisoner: Prisoner): void => {
         const value = prisoner[key]
         if(!value) return
@@ -87,7 +103,7 @@ export default function useAirtable() {
         prisoners.forEach((prisoner: Prisoner) => {
             filterFieldsObj.ideology = updateFilterArray(filterFieldsObj.ideology, prisoner.Ideologies ?? []);
             filterFieldsObj.affiliation = updateFilterArray(filterFieldsObj.affiliation, prisoner.Affiliation ?? []);
-            filterFieldsObj.era = updateFilterArray(filterFieldsObj.era, prisoner.Era ?? '');
+            filterFieldsObj.era = sortErasReverseChronological(updateFilterArray(filterFieldsObj.era, prisoner.Era ?? ''));
             filterFieldsObj.state = updateFilterArray(filterFieldsObj.state, prisoner.State ?? '');
             filterFieldsObj.race = updateFilterArray(filterFieldsObj.race, prisoner.Race ?? '');
             filterFieldsObj.gender = updateFilterArray(filterFieldsObj.gender, prisoner.Gender ?? '');
