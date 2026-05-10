@@ -73,9 +73,9 @@ class PrisonerApiController extends Controller {
                 'AKA'                   => $prisoner->aka,
                 'inmateNumber'          => $prisoner->inmate_number,
                 'State'                 => $prisoner->state,
-                'Address'               => $prisoner->address,
-                'latitude'              => $prisoner->lat ? (float) $prisoner->lat : null,
-                'longitude'             => $prisoner->lng ? (float) $prisoner->lng : null,
+                'Address'               => $prisoner->address ?: $this->institutionAddress($prisoner),
+                'latitude'              => $prisoner->lat ? (float) $prisoner->lat : $this->institutionLat($prisoner),
+                'longitude'             => $prisoner->lng ? (float) $prisoner->lng : $this->institutionLng($prisoner),
                 'Era'                   => $prisoner->era,
                 'Ideologies'            => $prisoner->ideologies ?? [],
                 'Affiliation'           => !empty($prisoner->affiliation) ? $prisoner->affiliation : null,
@@ -104,6 +104,35 @@ class PrisonerApiController extends Controller {
         });
 
         return response()->json($data);
+    }
+
+    /**
+     * Pick the most-recent case's institution coordinates as a
+     * fallback when the prisoner row itself doesn't carry lat/lng.
+     * Institution coordinates are the right model: a place's
+     * geolocation belongs to the place, not the people held there.
+     */
+    private function institutionLat(Prisoner $p): ?float {
+        $inst = $this->latestInstitution($p);
+        return $inst?->lat ? (float) $inst->lat : null;
+    }
+    private function institutionLng(Prisoner $p): ?float {
+        $inst = $this->latestInstitution($p);
+        return $inst?->lng ? (float) $inst->lng : null;
+    }
+    private function institutionAddress(Prisoner $p): ?string {
+        $inst = $this->latestInstitution($p);
+        if (! $inst) return null;
+        return $inst->physical_address
+            ?: $inst->mailing_address
+            ?: trim(implode(', ', array_filter([$inst->name, $inst->city, $inst->state])))
+            ?: null;
+    }
+    private function latestInstitution(Prisoner $p): ?\App\Models\Institution {
+        // cases are eager-loaded with .institution in index();
+        // sortByDesc on created_at gives the most-recent case first
+        $latestCase = $p->cases->sortByDesc('created_at')->first();
+        return $latestCase?->institution;
     }
 
     private function calculatePunishment(int $daysImprisoned, int $daysInExile): string {
