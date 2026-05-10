@@ -124,6 +124,52 @@ $patternGroups = [
           . "'huac-era political exile — german democratic republic'"
           . ")",
     ],
+    'G: protest / action sites (not where prisoners were held)' => [
+        // Military bases, weapons plants, nuclear sites where
+        // Plowshares-style civil disobedience happened. People got
+        // arrested AT these sites then transported to a county or
+        // federal jail; the site itself is not the institution.
+        "LOWER(name) IN ("
+          . "'bangor trident submarine base — pacific life community / ground zero center',"
+          . "'concord naval weapons station',"
+          . "'concord naval weapons station — nuremberg action',"
+          . "'diablo canyon nuclear power plant — abalone alliance blockade',"
+          . "'nevada test site (mercury, nv) — nevada desert experience',"
+          . "'griffiss air force base',"
+          . "'whiteman afb minuteman silo (missouri peace planting)',"
+          . "'whiteman air force base, minuteman ii silo (odessa, mo)',"
+          . "'whiteman air force base, minuteman ii silos (holden, mo)',"
+          . "'u.s. army pershing ii missile base',"
+          . "'u.s. navy elf transmitter site',"
+          . "'rocky flats nuclear weapons plant — rocky flats truth force',"
+          . "'seabrook nuclear power plant — clamshell alliance occupation',"
+          . "'pantex nuclear weapons assembly plant rail spur',"
+          . "'fort benning, georgia — school of the americas watch',"
+          . "'u.s. capitol steps — veterans fast for life',"
+          . "'u.s. capitol / federal buildings — pledge of resistance civil disobedience',"
+          // Defense-contractor plants where Plowshares actions occurred:
+          . "'avco systems division',"
+          . "'bath iron works bath',"
+          . "'general dynamics electric boat shipyard',"
+          . "'electric boat quonset point facility',"
+          . "'martin marietta aerospace plant',"
+          . "'martin marietta plant',"
+          . "'naval underwater systems center / uss pennsylvania (10th trident)',"
+          . "'sperry corporation',"
+          . "'honeywell hq minneapolis — honeywell project',"
+          // University / public protest plazas where divestment
+          // arrests happened:
+          . "'cornell university day hall — south african divestment coalition',"
+          . "'uc berkeley sproul hall — campaign against apartheid / uc divestment committee',"
+          . "'yale university beinecke plaza — yale coalition against apartheid',"
+          . "'south african embassy / dc superior court — free south africa movement (fsam)',"
+          // Single buildings / addresses, not jails:
+          . "'greenwich village townhouse, 18 west 11th street — weather underground',"
+          . "'sheraton-washington hotel (air force association arms bazaar)',"
+          // Geographic resistance areas:
+          . "'big mountain / hopi partitioned land — diné resistance to navajo-hopi land settlement act'"
+          . ")",
+    ],
 ];
 
 $totalToDelete = 0;
