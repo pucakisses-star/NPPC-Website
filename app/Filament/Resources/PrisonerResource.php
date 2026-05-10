@@ -271,11 +271,23 @@ class PrisonerResource extends Resource {
                         ->pluck('race', 'race')
                         ->toArray()),
                 Tables\Filters\SelectFilter::make('era')
-                    ->options(fn (): array => Prisoner::query()
-                        ->whereNotNull('era')
-                        ->distinct()
-                        ->pluck('era', 'era')
-                        ->toArray()),
+                    ->options(function (): array {
+                        $eras = Prisoner::query()
+                            ->whereNotNull('era')
+                            ->where('era', '!=', '')
+                            ->distinct()
+                            ->pluck('era')
+                            ->all();
+                        // Sort newest-first by leading 4-digit year so
+                        // "2020s" comes before "1700s"; non-numeric
+                        // eras fall to the bottom.
+                        usort($eras, function (string $a, string $b): int {
+                            $ya = (int) (preg_match('/\d{4}/', $a, $m) ? $m[0] : -1);
+                            $yb = (int) (preg_match('/\d{4}/', $b, $m) ? $m[0] : -1);
+                            return $yb !== $ya ? $yb - $ya : strcmp($a, $b);
+                        });
+                        return array_combine($eras, $eras);
+                    }),
                 Tables\Filters\SelectFilter::make('state')
                     ->options(fn (): array => Prisoner::query()
                         ->whereNotNull('state')
