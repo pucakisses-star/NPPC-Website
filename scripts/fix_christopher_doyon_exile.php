@@ -34,8 +34,8 @@ if (! $p) {
     exit(1);
 }
 
-$exileStart = '2012-08-01';
-$exileEnd   = '2021-06-11';
+$exileStart = '2012-02-15';   // missed federal court hearing in San Jose; exact day not in public sources, mid-Feb 2012
+$exileEnd   = '2021-06-12';   // deported from Mexico to FBI custody (captured by Mexican immigration June 11)
 $exileDays  = (int) Carbon::parse($exileStart)->diffInDays(Carbon::parse($exileEnd));
 
 // --- prisoner-row flags ---
