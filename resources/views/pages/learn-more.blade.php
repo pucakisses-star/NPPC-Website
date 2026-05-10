@@ -206,7 +206,7 @@
                     <div class="lm-case-photo" style="background-image: url('{{ asset('storage/'.$prisoner->photo) }}');"></div>
                 @else
                     <div class="lm-case-photo-placeholder">
-                        <img src="/images/no-image-available.png" alt="No image available" style="width:60%; height:auto; opacity:0.8;">
+                        <img src="/images/no-image-available.svg" alt="No image available" style="width:60%; height:auto; opacity:0.8;">
                     </div>
                 @endif
                 <div class="lm-case-info">

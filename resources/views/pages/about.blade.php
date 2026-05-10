@@ -131,7 +131,7 @@
                 @for($i = 0; $i < 6; $i++)
                     <div class="about-carousel-img">
                         <div class="about-carousel-placeholder">
-                            <img src="/images/no-image-available.png" alt="No image available" style="width:60%; height:auto; opacity:0.8;">
+                            <img src="/images/no-image-available.svg" alt="No image available" style="width:60%; height:auto; opacity:0.8;">
                         </div>
                     </div>
                 @endfor

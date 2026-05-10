@@ -87,7 +87,7 @@ const mainCase = props.record.cases[0]
 
     <main class="block md:flex">
       <section class="image w-full md:w-1/4">
-        <img class="w-full h-auto" :src="record.Photo ? record.Photo : '/images/no-image-available.png'" :alt="record.Photo ? 'Photo of ' + record.name : 'No image available'" />
+        <img class="w-full h-auto" :src="record.Photo ? record.Photo : '/images/no-image-available.svg'" :alt="record.Photo ? 'Photo of ' + record.name : 'No image available'" />
         <section class="mt-4 flex justify-start flex-wrap" v-if="record.Ideologies && record.Ideologies.length > 0">
           <template v-for="ideology in record.Ideologies" :key="ideology"><span class="tagg">{{ideology}}</span></template>
         </section>
