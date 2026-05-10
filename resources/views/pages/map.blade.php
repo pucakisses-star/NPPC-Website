@@ -191,19 +191,40 @@
             initializeLightbox();
         });
 
-        function handleMouseEnter() {
+        // Single reusable popup for the institution-name tooltip
+        // shown on hover over individual (unclustered) markers.
+        const hoverPopup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            offset: 12,
+        });
+
+        map.on('mouseenter', 'unclustered-point', (e) => {
             map.getCanvas().style.cursor = 'pointer';
-        }
+            if (!e.features || !e.features.length) return;
+            const f = e.features[0];
+            const coords = f.geometry.coordinates.slice();
+            const institution = f.properties.institution || '';
+            if (!institution) return;
+            // Count how many prisoners share this exact location so
+            // shared-facility markers (MDC Brooklyn, Tarrant County
+            // Jail, etc.) advertise the multi-prisoner cluster.
+            const sameSpot = (window.prisoners || []).filter(p =>
+                p.latitude === f.properties.latitude && p.longitude === f.properties.longitude);
+            const suffix = sameSpot.length > 1 ? ` <span style="opacity:.7">(${sameSpot.length} prisoners)</span>` : '';
+            hoverPopup
+                .setLngLat(coords)
+                .setHTML(`<div style="font-size:13px;color:#000">${esc(institution)}${suffix}</div>`)
+                .addTo(map);
+        });
 
-        map.on('mouseenter', 'unclustered-point',  handleMouseEnter);
-        map.on('mouseenter', 'clusters', handleMouseEnter);
-
-        function handleMouseLeave() {
+        map.on('mouseleave', 'unclustered-point', () => {
             map.getCanvas().style.cursor = '';
-        }
+            hoverPopup.remove();
+        });
 
-        map.on('mouseleave', 'unclustered-point',  handleMouseLeave);
-        map.on('mouseleave', 'clusters', handleMouseLeave);
+        map.on('mouseenter', 'clusters', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'clusters', () => { map.getCanvas().style.cursor = ''; });
 
 
 
@@ -340,10 +361,21 @@
         window.prisoners = [...window.prisoners, ...prisonersGeocode];
 
         let prisonersFc = data.filter(entry => (entry.latitude && entry.longitude)).map(entry => {
+            // Pull the institution name out of the latest case so
+            // the hover popup can show it without re-parsing nested
+            // arrays. Falls back to the prisoner's own Address line
+            // if no case-level institution is set.
+            let institution = '';
+            if (entry.cases && entry.cases.length) {
+                let inst = entry.cases[0]['Institution name'];
+                if (Array.isArray(inst)) inst = inst[0];
+                if (typeof inst === 'string') institution = inst;
+            }
+            if (!institution && entry['Address']) institution = entry['Address'];
             return {
                 "type":"Feature",
                 "geometry":{"type":"Point", "coordinates": [entry.longitude, entry.latitude]},
-                "properties":{...entry}
+                "properties":{...entry, institution}
             }
         });
 
