@@ -54,7 +54,13 @@ class PrisonerApiController extends Controller {
             // accessor, which would otherwise return an array.
             if ($daysImprisoned === 0) {
                 $legacyYears = (int) ($prisoner->getRawOriginal('years_in_prison') ?? 0);
-                if ($legacyYears > 0) {
+                // Only treat the column as a year-count when it's
+                // plausibly small. Airtable imported the first
+                // element of a year-array (e.g. [2021, 2022, 2023])
+                // into this column for some prisoners, so values >=
+                // 200 are calendar years, not counts. Cap at 100 yrs
+                // served as a safety floor.
+                if ($legacyYears > 0 && $legacyYears < 100) {
                     $daysImprisoned = $legacyYears * 365;
                 }
             }
