@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Storage;
  * @property bool        $awaiting_trial
  */
 final class Prisoner extends Model {
-    protected $appends = ['url', 'photo_url'];
+    protected $appends = ['url', 'photo_url', 'imprisoned_or_exiled'];
 
     protected $casts = [
         'ideologies'          => 'array',
@@ -51,9 +51,30 @@ final class Prisoner extends Model {
         'released'            => 'boolean',
         'in_exile'            => 'boolean',
         'currently_in_exile'  => 'boolean',
-        'imprisoned_or_exiled' => 'boolean',
         'awaiting_trial'      => 'boolean',
     ];
+
+    /**
+     * imprisoned_or_exiled is no longer a stored column — it's
+     * derived from in_custody and currently_in_exile so it can never
+     * desync. This accessor is what serializes into ->toArray() /
+     * ->toJson() and what API consumers see.
+     */
+    public function getImprisonedOrExiledAttribute(): bool
+    {
+        return (bool) ($this->in_custody || $this->currently_in_exile);
+    }
+
+    /**
+     * Silently swallow legacy code that still tries to set
+     * imprisoned_or_exiled (old seeders, the artisan prisoner:add
+     * command, the Airtable importer). The value is derived from
+     * in_custody / currently_in_exile and recomputed on every read.
+     */
+    public function setImprisonedOrExiledAttribute($value): void
+    {
+        // intentionally no-op
+    }
 
     public static function booted(): void {
         parent::booted();
@@ -87,23 +108,17 @@ final class Prisoner extends Model {
                 $model->attributes['age'] = (int) $birth->diffInYears($endC);
             }
 
-            // Keep imprisoned_or_exiled in sync with the active-state
-            // flags. This column is used by the public "currently
-            // active" lists; if it desyncs from in_custody and
-            // currently_in_exile, released prisoners can leak back into
-            // those lists. Auto-derive on every save.
-            $model->attributes['imprisoned_or_exiled'] =
-                ($model->in_custody || $model->currently_in_exile) ? 1 : 0;
-
-            // A prisoner with a death_date is by definition no longer in
-            // custody and no longer currently in exile, and "released"
-            // should be true so they don't show up under "active"
-            // filters. Force the flags whenever death_date is present.
+            // A prisoner with a death_date is by definition no longer
+            // in custody and no longer currently in exile, and
+            // "released" should be true so they don't show up under
+            // "active" filters. Force the flags whenever death_date
+            // is present. (imprisoned_or_exiled is derived from
+            // in_custody/currently_in_exile via the accessor and
+            // doesn't need to be touched here.)
             if (! empty($model->death_date)) {
                 $model->attributes['released']           = 1;
                 $model->attributes['in_custody']         = 0;
                 $model->attributes['currently_in_exile'] = 0;
-                $model->attributes['imprisoned_or_exiled'] = 0;
             }
         });
     }

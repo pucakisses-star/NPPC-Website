@@ -23,7 +23,8 @@ class PrisonerDashboard extends Page {
         $inExile = $prisoners->where('in_exile', true)->count();
         $currentlyInExile = $prisoners->where('currently_in_exile', true)->count();
         $awaitingTrial = $prisoners->where('awaiting_trial', true)->count();
-        $imprisonedOrExiled = $prisoners->where('imprisoned_or_exiled', true)->count();
+        // Derived: in_custody OR currently_in_exile (no longer a stored column).
+        $imprisonedOrExiled = $prisoners->filter(fn ($p) => $p->in_custody || $p->currently_in_exile)->count();
 
         $accumulatedDaysImprisoned = $cases->sum('imprisoned_for_days');
         $accumulatedDaysInExile = $cases->sum('in_exile_for_days');

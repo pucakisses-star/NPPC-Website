@@ -32,7 +32,6 @@ return new class extends Migration {
             'released'             => true,
             'in_exile'             => false,
             'currently_in_exile'   => false,
-            'imprisoned_or_exiled' => true,
             'awaiting_trial'       => false,
             'description'          => 'Estefany Rodríguez Flórez is a Colombian-born journalist who worked as a reporter for Nashville Noticias, a Spanish-language news outlet in Nashville, Tennessee. She holds a journalism degree from Colombia, where she worked for several years covering armed and militant groups before receiving death threats that forced her to flee the country. She entered the United States legally on a tourist visa in March 2021 and applied for political asylum before it expired. She is married to a U.S. citizen, has a 7-year-old daughter, holds a valid work permit, and has a pending green card application.'
                 . "\n\n"
