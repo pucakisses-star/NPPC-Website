@@ -45,6 +45,20 @@ class PrisonerApiController extends Controller {
                 ];
             })->toArray();
 
+            // Legacy fallback. ~272 prisoners imported from Airtable have
+            // a stored years_in_prison integer but zero PrisonerCase rows
+            // (or cases without imprisoned_for_days). Without this, the
+            // /database card shows nothing for time served. Treat the raw
+            // integer as a year count and convert to days so
+            // calculatedPunishment renders. getRawOriginal bypasses the
+            // accessor, which would otherwise return an array.
+            if ($daysImprisoned === 0) {
+                $legacyYears = (int) ($prisoner->getRawOriginal('years_in_prison') ?? 0);
+                if ($legacyYears > 0) {
+                    $daysImprisoned = $legacyYears * 365;
+                }
+            }
+
             return [
                 'id'                    => $prisoner->id,
                 'slug'                  => $prisoner->slug,
