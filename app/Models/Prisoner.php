@@ -120,6 +120,26 @@ final class Prisoner extends Model {
                 $model->attributes['in_custody']         = 0;
                 $model->attributes['currently_in_exile'] = 0;
             }
+
+            // If the address is non-empty and lat/lng aren't set,
+            // attempt a Mapbox geocode lookup. This populates the
+            // map markers automatically as admins fill in addresses.
+            // Manual lat/lng overrides are preserved — the geocoder
+            // only runs when both are blank, and only when an
+            // address is present.
+            if (! empty(trim((string) $model->address))
+                && (empty($model->lat) || empty($model->lng))) {
+                try {
+                    $coords = app(\App\Services\MapboxGeocoder::class)->geocode((string) $model->address);
+                    if ($coords) {
+                        if (empty($model->lat)) $model->attributes['lat'] = $coords[0];
+                        if (empty($model->lng)) $model->attributes['lng'] = $coords[1];
+                    }
+                } catch (\Throwable $e) {
+                    // Never let geocoding failure block a save.
+                    \Illuminate\Support\Facades\Log::warning('Geocode-on-save skipped: ' . $e->getMessage());
+                }
+            }
         });
     }
 

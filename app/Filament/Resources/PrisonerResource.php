@@ -113,16 +113,19 @@ class PrisonerResource extends Resource {
                     ->columns(2),
 
                 Forms\Components\Section::make('Location')
+                    ->description('"Address" is what the public map at /map uses. If lat/lng are left blank, the system will auto-geocode the address via Mapbox on save. Set lat/lng manually only if you want to override the geocoder for a specific marker.')
                     ->schema([
                         Forms\Components\TextInput::make('state')
                             ->maxLength(255),
                         Forms\Components\Textarea::make('address'),
                         Forms\Components\TextInput::make('lat')
                             ->label('Latitude')
-                            ->numeric(),
+                            ->numeric()
+                            ->helperText('Leave blank to auto-geocode from address.'),
                         Forms\Components\TextInput::make('lng')
                             ->label('Longitude')
-                            ->numeric(),
+                            ->numeric()
+                            ->helperText('Leave blank to auto-geocode from address.'),
                     ])
                     ->columns(2),
 
