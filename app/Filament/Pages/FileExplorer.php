@@ -241,9 +241,24 @@ class FileExplorer extends Page {
         }
 
         foreach ($this->uploadedFiles as $file) {
-            $filename = $file->getClientOriginalName();
-            $destination = $targetDir.DIRECTORY_SEPARATOR.$filename;
-            file_put_contents($destination, file_get_contents($file->getRealPath()));
+            // Skip anything that's not a Livewire TemporaryUploadedFile
+            // (e.g., serialized state from a stale session).
+            if (! is_object($file) || ! method_exists($file, 'getClientOriginalName')) {
+                continue;
+            }
+            try {
+                $filename = $file->getClientOriginalName();
+                // Stream-move the temp file instead of reading the
+                // whole thing into PHP memory — works for large PDFs.
+                $tempPath = $file->getRealPath();
+                if (is_string($tempPath) && is_file($tempPath)) {
+                    @copy($tempPath, $targetDir.DIRECTORY_SEPARATOR.$filename);
+                }
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::warning(
+                    'FileExplorer upload failed for one file: '.$e->getMessage()
+                );
+            }
         }
 
         $this->uploadedFiles = [];
