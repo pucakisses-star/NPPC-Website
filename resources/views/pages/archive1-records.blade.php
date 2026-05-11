@@ -37,7 +37,7 @@
     <h1 class="text-6xl mt-12">Records</h1>
 
     <style>
-        .a1r { --a1-accent: #c2410c; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
+        .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
         .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; align-items: start; margin-top: 32px; }
         @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
         .a1r-side { border: 1px solid var(--a1-line); border-radius: 6px; padding: 18px; }
@@ -48,8 +48,8 @@
         .a1r-fgroup:last-child { border-bottom: none; }
         .a1r-fhead { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; margin-bottom: 10px; }
         .a1r-filter-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 4px; color: var(--a1-accent); font-size: 14px; text-decoration: none; border-radius: 3px; }
-        .a1r-filter-row:hover { background: rgba(194, 65, 12, 0.08); }
-        .a1r-filter-row.is-active { background: rgba(194, 65, 12, 0.15); font-weight: 700; }
+        .a1r-filter-row:hover { background: rgba(86, 96, 254, 0.08); }
+        .a1r-filter-row.is-active { background: rgba(86, 96, 254, 0.15); font-weight: 700; }
         .a1r-pill { background: var(--a1-pill-bg); border: 1px solid var(--a1-line); color: rgba(255,255,255,0.7); border-radius: 999px; padding: 2px 10px; font-size: 11px; font-weight: 600; }
         .a1r-empty { font-size: 13px; opacity: 0.5; padding: 4px; font-style: italic; }
 
@@ -66,7 +66,7 @@
 
         .a1r-list { display: flex; flex-direction: column; gap: 16px; }
         .a1r-card { display: flex; gap: 18px; padding: 18px; border: 1px solid var(--a1-line); border-radius: 6px; background: rgba(255,255,255,0.02); color: inherit; text-decoration: none; transition: border-color 0.15s ease, background 0.15s ease; }
-        .a1r-card:hover { border-color: var(--a1-accent); background: rgba(194, 65, 12, 0.04); }
+        .a1r-card:hover { border-color: var(--a1-accent); background: rgba(86, 96, 254, 0.04); }
         .a1r-thumb { flex: 0 0 80px; width: 80px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; }
         .a1r-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .a1r-thumb-doc { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5); border: 1px solid var(--a1-line); }
@@ -83,7 +83,7 @@
         .a1r-pager-info strong { color: #fff; font-weight: 700; }
         .a1r-pager-list { display: flex; align-items: center; gap: 4px; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
         .a1r-pager-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 36px; padding: 0 10px; border: 1px solid var(--a1-line); border-radius: 4px; color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; transition: border-color 0.15s ease, background 0.15s ease; }
-        .a1r-pager-btn:hover { border-color: var(--a1-accent); background: rgba(194, 65, 12, 0.08); }
+        .a1r-pager-btn:hover { border-color: var(--a1-accent); background: rgba(86, 96, 254, 0.08); }
         .a1r-pager-btn.is-active { background: var(--a1-accent); border-color: var(--a1-accent); color: #fff; }
         .a1r-pager-btn.is-disabled { opacity: 0.35; cursor: not-allowed; }
         .a1r-pager-btn.is-disabled:hover { border-color: var(--a1-line); background: transparent; }
