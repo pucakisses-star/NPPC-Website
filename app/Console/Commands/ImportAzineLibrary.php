@@ -74,7 +74,6 @@ final class ImportAzineLibrary extends Command {
                 'thumbnail' => '/images/archive/azine-library/'.$slug.'-cover.jpg',
                 'year' => $year,
                 'date' => $date,
-                'publisher' => 'Anarchist Zine Library (azinelibrary.org)',
                 'collection' => 'Anarchist Zine Library',
                 'volume' => $volume,
                 'subjects' => $subjects,
