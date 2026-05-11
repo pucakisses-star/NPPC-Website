@@ -10,33 +10,6 @@ Route::controller(DonateController::class)
         Route::get('/donate-callback', 'callback');
     });
 
-// TEMP debug — must be BEFORE the catch-all /{slug} route below.
-Route::get('/__debug-archive', function () {
-    try {
-        \Filament\Facades\Filament::setCurrentPanel(\Filament\Facades\Filament::getPanel('admin'));
-        $resources = array_map('strval', \Filament\Facades\Filament::getResources());
-    } catch (\Throwable $e) {
-        $resources = ['error' => $e->getMessage()];
-    }
-    $adminRoutes = collect(app('router')->getRoutes())
-        ->map(fn ($r) => $r->uri())
-        ->filter(fn ($u) => str_starts_with($u, 'admin/'))
-        ->sort()
-        ->values()
-        ->all();
-
-    return response()->json([
-        'php_sapi' => php_sapi_name(),
-        'php_version' => PHP_VERSION,
-        'app_env' => app()->environment(),
-        'class_exists' => class_exists(\App\Filament\Resources\ArchiveRecordResource::class),
-        'resource_in_filament' => in_array(\App\Filament\Resources\ArchiveRecordResource::class, $resources),
-        'resources_total' => count($resources),
-        'resources' => $resources,
-        'admin_routes' => $adminRoutes,
-    ], 200, ['Content-Type' => 'application/json'], JSON_PRETTY_PRINT);
-});
-
 Route::controller(SiteController::class)
     ->group(function () {
         Route::get('/', 'home')->name('home');
