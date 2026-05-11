@@ -78,7 +78,15 @@
         .a1r-tag-label { background: var(--a1-pill-bg); padding: 3px 9px; opacity: 0.75; font-weight: 600; }
         .a1r-tag-value { padding: 3px 11px; }
         .a1r-body p { margin: 0; font-size: 14px; line-height: 1.55; opacity: 0.85; }
-        .a1r-pager { margin-top: 32px; }
+        .a1r-pager { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--a1-line); }
+        .a1r-pager-info { font-size: 13px; opacity: 0.7; }
+        .a1r-pager-info strong { color: #fff; font-weight: 700; }
+        .a1r-pager-list { display: flex; align-items: center; gap: 4px; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+        .a1r-pager-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 36px; padding: 0 10px; border: 1px solid var(--a1-line); border-radius: 4px; color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; transition: border-color 0.15s ease, background 0.15s ease; }
+        .a1r-pager-btn:hover { border-color: var(--a1-accent); background: rgba(194, 65, 12, 0.08); }
+        .a1r-pager-btn.is-active { background: var(--a1-accent); border-color: var(--a1-accent); color: #fff; }
+        .a1r-pager-btn.is-disabled { opacity: 0.35; cursor: not-allowed; }
+        .a1r-pager-btn.is-disabled:hover { border-color: var(--a1-line); background: transparent; }
         .a1r-empty-state { padding: 48px 24px; text-align: center; opacity: 0.6; border: 1px dashed var(--a1-line); border-radius: 6px; }
     </style>
 
@@ -197,7 +205,36 @@
                         @endforeach
                     </div>
 
-                    <div class="a1r-pager">{{ $records->links() }}</div>
+                    @if ($records->hasPages())
+                        <nav class="a1r-pager" role="navigation" aria-label="Pagination">
+                            <span class="a1r-pager-info">
+                                Showing
+                                <strong>{{ number_format($records->firstItem()) }}</strong>&ndash;<strong>{{ number_format($records->lastItem()) }}</strong>
+                                of <strong>{{ number_format($records->total()) }}</strong>
+                            </span>
+                            <ul class="a1r-pager-list">
+                                @if ($records->onFirstPage())
+                                    <li class="a1r-pager-btn is-disabled" aria-disabled="true">&lsaquo;</li>
+                                @else
+                                    <li><a class="a1r-pager-btn" href="{{ $records->previousPageUrl() }}" rel="prev" aria-label="Previous page">&lsaquo;</a></li>
+                                @endif
+
+                                @foreach ($records->getUrlRange(1, $records->lastPage()) as $page => $url)
+                                    @if ($page === $records->currentPage())
+                                        <li class="a1r-pager-btn is-active" aria-current="page">{{ $page }}</li>
+                                    @else
+                                        <li><a class="a1r-pager-btn" href="{{ $url }}">{{ $page }}</a></li>
+                                    @endif
+                                @endforeach
+
+                                @if ($records->hasMorePages())
+                                    <li><a class="a1r-pager-btn" href="{{ $records->nextPageUrl() }}" rel="next" aria-label="Next page">&rsaquo;</a></li>
+                                @else
+                                    <li class="a1r-pager-btn is-disabled" aria-disabled="true">&rsaquo;</li>
+                                @endif
+                            </ul>
+                        </nav>
+                    @endif
                 @endif
             </div>
         </div>
