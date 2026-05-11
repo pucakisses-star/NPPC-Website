@@ -21,7 +21,7 @@ class FileExplorer extends Page {
     public array $searchResults = [];
     public bool $isSearching = false;
     public string $newFolderName = '';
-    public $uploadedFiles = [];
+    public array $uploadedFiles = [];
     public ?string $renamingFile = null;
     public string $newFileName = '';
 
