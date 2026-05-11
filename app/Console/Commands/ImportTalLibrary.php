@@ -16,15 +16,22 @@ final class ImportTalLibrary extends Command {
     protected $description = 'Import US-political-prisoner articles from theanarchistlibrary.org';
 
     public function handle(): int {
-        $path = database_path('data/tal-meta.json');
-        if (! is_file($path)) {
-            $this->error("Source JSON not found at {$path}");
-
-            return self::FAILURE;
+        $paths = [
+            database_path('data/tal-meta.json'),
+            database_path('data/tal-meta-batch2.json'),
+        ];
+        $items = [];
+        foreach ($paths as $path) {
+            if (! is_file($path)) {
+                continue;
+            }
+            $data = json_decode(file_get_contents($path), true);
+            if (is_array($data)) {
+                $items = array_merge($items, $data);
+            }
         }
-        $items = json_decode(file_get_contents($path), true);
-        if (! is_array($items)) {
-            $this->error('Could not parse tal-meta.json');
+        if (! $items) {
+            $this->error('No source data found.');
 
             return self::FAILURE;
         }
