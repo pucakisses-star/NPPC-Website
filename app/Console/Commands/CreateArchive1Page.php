@@ -25,128 +25,193 @@ final class CreateArchive1Page extends Command {
         return self::SUCCESS;
     }
 
+    /**
+     * @return array<int, array{title: string, desc: string, term: string, glyph: string}>
+     */
+    private function collections(): array {
+        return [
+            ['title' => 'Black Liberation', 'desc' => 'The Black Liberation Movement and its imprisoned veterans, including the Black Panther Party, Black Liberation Army, Republic of New Afrika, and contemporary heirs to that tradition.', 'term' => 'Black Liberation', 'glyph' => 'BL'],
+            ['title' => 'Indigenous Resistance', 'desc' => 'American Indian Movement, treaty-rights defenders, water and land protectors from Wounded Knee to Standing Rock to Stop Cop City.', 'term' => 'AIM', 'glyph' => 'IR'],
+            ['title' => 'Puerto Rican Independence', 'desc' => 'FALN, Los Macheteros, the Nationalist Party of Puerto Rico, and the long campaign against U.S. colonial rule on the island.', 'term' => 'Puerto Rican', 'glyph' => 'PR'],
+            ['title' => 'Anti-Imperialism', 'desc' => 'United Freedom Front, May 19th Communist Organization, and the white anti-imperialist solidarity tradition.', 'term' => 'Anti-imperialism', 'glyph' => 'AI'],
+            ['title' => 'Anarchist Movement', 'desc' => 'Anarchist Black Cross, anti-fascist defendants, NATO 3, Cleveland 4, and contemporary anarchist prisoners and grand-jury resisters.', 'term' => 'Anarchist', 'glyph' => 'AN'],
+            ['title' => 'Earth & Animal Liberation', 'desc' => 'Earth Liberation Front, Animal Liberation Front, Green Scare prosecutions, and the ecodefense tradition.', 'term' => 'ELF', 'glyph' => 'EL'],
+            ['title' => 'Plowshares & Peace Activism', 'desc' => 'The Berrigan tradition of disarmament actions, conscientious objectors, and nuclear-resistance activists.', 'term' => 'Plowshares', 'glyph' => 'PS'],
+            ['title' => 'Whistleblowers & Hackers', 'desc' => 'Chelsea Manning, Reality Winner, Jeremy Hammond, Barrett Brown, and other digital-era political prisoners.', 'term' => 'Whistleblower', 'glyph' => 'WH'],
+            ['title' => 'Anti-Police Resistance', 'desc' => 'Cases stemming from confrontations with policing, from BLA-era cop cases to contemporary anti-police defendants.', 'term' => 'Anti-police', 'glyph' => 'AP'],
+            ['title' => 'Palestine Solidarity', 'desc' => 'Holy Land Foundation Five, Rasmea Odeh, Sami Al-Arian, and others targeted for Palestine advocacy.', 'term' => 'Palestine', 'glyph' => 'PA'],
+            ['title' => 'GI & War Resisters', 'desc' => 'Soldiers who refused unjust wars, deserters, and conscientious objectors from Vietnam onward.', 'term' => 'War resister', 'glyph' => 'GI'],
+            ['title' => 'MOVE Organization', 'desc' => 'The MOVE 9, the Africa family, and the legacy of the 1985 Philadelphia police bombing.', 'term' => 'MOVE', 'glyph' => 'MV'],
+            ['title' => 'Government Repression', 'desc' => 'COINTELPRO, grand juries, preemptive prosecutions, and the apparatus of political imprisonment.', 'term' => 'COINTELPRO', 'glyph' => 'GR'],
+            ['title' => 'Historical Cases', 'desc' => 'Sacco and Vanzetti, the Rosenbergs, the Haymarket martyrs, and political prisoners from the pre-1970 era.', 'term' => 'Historical', 'glyph' => 'HC'],
+        ];
+    }
+
+    /**
+     * @return array<int, array{term: string, weight: int}>
+     */
+    private function commonTerms(): array {
+        // weight is a font-size hint (1..5)
+        return [
+            ['term' => 'Political Prisoners', 'weight' => 5],
+            ['term' => 'Black Liberation', 'weight' => 5],
+            ['term' => 'National Liberation', 'weight' => 4],
+            ['term' => 'Anti-Imperialism', 'weight' => 4],
+            ['term' => 'Resistance', 'weight' => 4],
+            ['term' => 'Prison', 'weight' => 4],
+            ['term' => 'COINTELPRO', 'weight' => 3],
+            ['term' => 'Civil Rights', 'weight' => 3],
+            ['term' => 'Latin America', 'weight' => 3],
+            ['term' => 'Palestine', 'weight' => 3],
+            ['term' => 'Puerto Rico', 'weight' => 3],
+            ['term' => 'Women', 'weight' => 3],
+            ['term' => 'Anti-Racism', 'weight' => 2],
+            ['term' => 'Black Panther Party', 'weight' => 2],
+            ['term' => 'Poetry', 'weight' => 2],
+            ['term' => 'Human Rights', 'weight' => 2],
+            ['term' => 'Anti-War', 'weight' => 2],
+            ['term' => 'Africa', 'weight' => 2],
+            ['term' => 'African American', 'weight' => 2],
+            ['term' => 'Cuba', 'weight' => 1],
+            ['term' => 'Mexico', 'weight' => 1],
+            ['term' => 'Nicaragua', 'weight' => 1],
+            ['term' => 'Viet Nam', 'weight' => 1],
+            ['term' => 'Middle East', 'weight' => 1],
+            ['term' => 'Chicano', 'weight' => 1],
+            ['term' => 'Israel', 'weight' => 1],
+            ['term' => 'Chile', 'weight' => 1],
+            ['term' => 'Music', 'weight' => 1],
+        ];
+    }
+
+    /**
+     * @return array<int, array{href: string, title: string, blurb: string}>
+     */
+    private function featured(): array {
+        return [
+            ['href' => '/prisoner/mumia-abu-jamal', 'title' => 'Mumia Abu-Jamal', 'blurb' => 'Award-winning journalist and former Black Panther; on death row from 1982 until 2011 and serving life since.'],
+            ['href' => '/prisoner/leonard-peltier', 'title' => 'Leonard Peltier', 'blurb' => 'American Indian Movement member imprisoned since 1977 in a case the FBI itself has been forced to acknowledge as flawed.'],
+            ['href' => '/prisoner/ojore-lutalo', 'title' => 'Ojore Lutalo', 'blurb' => 'New Afrikan anarchist; served 28 years in New Jersey, much of it in solitary; now an acclaimed collage artist.'],
+            ['href' => '/prisoner/oscar-lopez-rivera', 'title' => 'Oscar López Rivera', 'blurb' => 'Puerto Rican independentista who served 36 years before President Obama commuted his sentence in 2017.'],
+            ['href' => '/archive', 'title' => 'Movement Press Archive', 'blurb' => 'Digitized issues of 4StruggleMag and other prisoner-support periodicals, going back to the 1970s.'],
+        ];
+    }
+
     private function renderBody(): string {
-        $collections = [
-            ['Black Liberation', 'Black Panther Party, Black Liberation Army, Republic of New Afrika, and the broader struggle for Black self-determination.', 'Black Liberation'],
-            ['Indigenous Resistance', 'American Indian Movement, treaty-rights defenders, water and land protectors from Wounded Knee to Standing Rock.', 'AIM'],
-            ['Puerto Rican Independence', 'FALN, Macheteros, Nationalist Party of Puerto Rico, and the long campaign against U.S. colonial rule.', 'Puerto Rican'],
-            ['Anti-Imperialism', 'United Freedom Front, May 19th Communist Organization, and the white anti-imperialist solidarity tradition.', 'Anti-imperialism'],
-            ['Anarchist Movement', 'Anarchist Black Cross, anti-fascist defendants, NATO 3, Cleveland 4, and contemporary anarchist prisoners.', 'Anarchist'],
-            ['Earth & Animal Liberation', 'Earth Liberation Front, Animal Liberation Front, Green Scare prosecutions, and ecodefense.', 'ELF'],
-            ['Plowshares & Peace Activism', 'Berrigan tradition disarmament actions, conscientious objectors, and nuclear-resistance activists.', 'Plowshares'],
-            ['Whistleblowers & Hackers', 'Chelsea Manning, Reality Winner, Jeremy Hammond, Barrett Brown, and other digital-era political prisoners.', 'Whistleblower'],
-            ['Anti-Police Resistance', 'Cases stemming from confrontations with policing, including BLA-era cop cases and contemporary anti-police defendants.', 'Anti-police'],
-            ['Palestine Solidarity', 'Holy Land Foundation Five, Rasmea Odeh, Sami Al-Arian, and others targeted for Palestine advocacy.', 'Palestine'],
-            ['GI & War Resisters', 'Soldiers who refused unjust wars, deserters, and conscientious objectors from Vietnam onward.', 'War resister'],
-            ['MOVE Organization', 'The MOVE 9, the Africa family, and the legacy of the 1985 Philadelphia police bombing.', 'MOVE'],
-            ['Government Repression', 'COINTELPRO, grand-jury resisters, preemptive-prosecution cases, and the apparatus of political imprisonment.', 'COINTELPRO'],
-            ['Historical Cases', 'Sacco and Vanzetti, the Rosenbergs, the Haymarket martyrs, and political prisoners from the pre-1970 era.', 'Historical'],
-        ];
-
-        $commonTerms = [
-            'COINTELPRO', 'Black Liberation Army', 'MOVE 9', 'AIM', 'Black Panther Party',
-            'Earth Liberation Front', 'FALN', 'Plowshares', 'Anarchist Black Cross',
-            'Grand Jury Resistance', 'Stop Cop City', 'Standing Rock',
-        ];
-
-        $featured = [
-            ['/prisoner/mumia-abu-jamal', 'Mumia Abu-Jamal', 'Award-winning journalist, former Black Panther, on death row 1982–2011 and serving life since.'],
-            ['/prisoner/leonard-peltier', 'Leonard Peltier', 'American Indian Movement member imprisoned since 1977 for a case the FBI itself has been forced to acknowledge as flawed.'],
-            ['/prisoner/ojore-lutalo', 'Ojore Lutalo', 'New Afrikan anarchist; served 28 years in New Jersey, much of it in solitary; now an acclaimed collage artist.'],
-            ['/prisoner/oscar-lopez-rivera', 'Oscar López Rivera', 'Puerto Rican independentista who served 36 years before President Obama commuted his sentence in 2017.'],
-            ['/archive', 'Movement Press Archive', 'Browse digitized issues of 4StruggleMag and other prisoner-support periodicals.'],
-        ];
-
-        $html = <<<'HTML'
-<p style="font-size: 18px; line-height: 1.6; opacity: 0.85; max-width: 760px;">
-  Archive1 is a searchable index of the National Political Prisoner Coalition's records: prisoner profiles, case files, movement periodicals, court documents, and oral histories. It collects, in one place, the materials that document the history of U.S. political imprisonment from the late nineteenth century to the present.
-</p>
-
-<!-- ============ SEARCH ============ -->
-<section style="margin-top: 48px; margin-bottom: 56px; padding: 32px; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; background: rgba(255,255,255,0.02);">
-  <h2 style="font-size: 28px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">Search the Archives</h2>
-  <p style="font-size: 14px; opacity: 0.7; margin-bottom: 20px;">Search across prisoners, articles, cases, and movement publications.</p>
-  <form action="/search" method="GET" role="search" style="display: flex; gap: 12px; align-items: center; max-width: 720px;">
-    <input type="text" name="q" placeholder="Search prisoners, cases, articles, publications&hellip;" required style="flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 14px 18px; color: #fff; font-size: 16px; outline: none;" />
-    <button type="submit" style="background: #5660fe; color: #fff; border: none; border-radius: 6px; padding: 14px 28px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer;">Search</button>
-  </form>
-</section>
-
-<!-- ============ COLLECTIONS ============ -->
-<section style="margin-bottom: 56px;">
-  <header style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 12px; margin-bottom: 24px;">
-    <h2 style="font-size: 24px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;">Browse by Collection</h2>
-    <span style="font-size: 13px; opacity: 0.5;">__COLLECTION_COUNT__ collections</span>
-  </header>
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-__COLLECTION_CARDS__
-  </div>
-</section>
-
-<!-- ============ COMMON TERMS ============ -->
-<section style="margin-bottom: 56px;">
-  <header style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 12px; margin-bottom: 20px;">
-    <h2 style="font-size: 24px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;">Common Search Terms</h2>
-  </header>
-  <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-__COMMON_TERMS__
-  </div>
-</section>
-
-<!-- ============ FEATURED ============ -->
-<section style="margin-bottom: 56px;">
-  <header style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 12px; margin-bottom: 24px;">
-    <h2 style="font-size: 24px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase;">Featured Content</h2>
-  </header>
-  <ul style="list-style: none; padding: 0; margin: 0;">
-__FEATURED_ITEMS__
-  </ul>
-</section>
-
-<style>
-  .archive1-card { display: block; padding: 20px; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; text-decoration: none; color: inherit; transition: border-color 0.15s ease, background 0.15s ease; }
-  .archive1-card:hover { border-color: rgba(86,96,254,0.6); background: rgba(86,96,254,0.05); }
-  .archive1-chip { display: inline-block; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; text-decoration: none; color: inherit; font-size: 13px; transition: border-color 0.15s ease, background 0.15s ease; }
-  .archive1-chip:hover { border-color: rgba(86,96,254,0.6); background: rgba(86,96,254,0.08); }
-</style>
-HTML;
-
-        $cards = '';
-        foreach ($collections as [$name, $desc, $term]) {
-            $href = '/search?q='.rawurlencode($term);
-            $cards .= sprintf(
-                "    <a href=\"%s\" class=\"archive1-card\">\n      <h3 style=\"font-size: 18px; font-weight: 800; letter-spacing: 0.02em; margin-bottom: 8px;\">%s</h3>\n      <p style=\"font-size: 14px; line-height: 1.55; opacity: 0.75; margin: 0;\">%s</p>\n    </a>\n",
+        $collections = '';
+        foreach ($this->collections() as $c) {
+            $href = '/search?q='.rawurlencode($c['term']);
+            $collections .= sprintf(
+                '<a href="%s" class="a1-coll-card">'.
+                    '<div class="a1-coll-thumb">%s</div>'.
+                    '<div class="a1-coll-text">'.
+                        '<h3>%s</h3>'.
+                        '<p>%s</p>'.
+                    '</div>'.
+                '</a>',
                 htmlspecialchars($href, ENT_QUOTES),
-                htmlspecialchars($name, ENT_QUOTES),
-                htmlspecialchars($desc, ENT_QUOTES)
+                htmlspecialchars($c['glyph'], ENT_QUOTES),
+                htmlspecialchars($c['title'], ENT_QUOTES),
+                htmlspecialchars($c['desc'], ENT_QUOTES)
             );
         }
 
         $chips = '';
-        foreach ($commonTerms as $term) {
-            $href = '/search?q='.rawurlencode($term);
+        foreach ($this->commonTerms() as $t) {
+            $href = '/search?q='.rawurlencode($t['term']);
             $chips .= sprintf(
-                "    <a href=\"%s\" class=\"archive1-chip\">%s</a>\n",
+                '<a href="%s" class="a1-tag a1-tag-w%d">%s</a> ',
                 htmlspecialchars($href, ENT_QUOTES),
-                htmlspecialchars($term, ENT_QUOTES)
+                $t['weight'],
+                htmlspecialchars($t['term'], ENT_QUOTES)
             );
         }
 
-        $items = '';
-        foreach ($featured as [$href, $title, $desc]) {
-            $items .= sprintf(
-                "    <li style=\"padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);\"><a href=\"%s\" style=\"color: inherit; text-decoration: none; display: block;\"><div style=\"font-size: 18px; font-weight: 700; margin-bottom: 4px;\">%s</div><div style=\"font-size: 14px; opacity: 0.7; line-height: 1.55;\">%s</div></a></li>\n",
-                htmlspecialchars($href, ENT_QUOTES),
-                htmlspecialchars($title, ENT_QUOTES),
-                htmlspecialchars($desc, ENT_QUOTES)
+        $featured = '';
+        foreach ($this->featured() as $f) {
+            $featured .= sprintf(
+                '<li><a href="%s"><span class="a1-feat-title">%s</span><span class="a1-feat-blurb">%s</span></a></li>',
+                htmlspecialchars($f['href'], ENT_QUOTES),
+                htmlspecialchars($f['title'], ENT_QUOTES),
+                htmlspecialchars($f['blurb'], ENT_QUOTES)
             );
         }
 
-        return strtr($html, [
-            '__COLLECTION_COUNT__' => (string) count($collections),
-            '__COLLECTION_CARDS__' => rtrim($cards, "\n"),
-            '__COMMON_TERMS__' => rtrim($chips, "\n"),
-            '__FEATURED_ITEMS__' => rtrim($items, "\n"),
-        ]);
+        $coll_count = count($this->collections());
+
+        return <<<HTML
+<style>
+  .a1-wrap { --a1-accent: #c2410c; --a1-line: rgba(255,255,255,0.15); }
+  .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 0 0 40px; font-size: 15px; line-height: 1.65; }
+  .a1-welcome b { font-weight: 800; }
+  .a1-section-head { font-size: 28px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--a1-accent); margin: 0 0 16px; font-family: 'Verlag', 'Helvetica Neue', sans-serif; }
+  .a1-search-row { display: flex; gap: 12px; align-items: center; margin-bottom: 48px; }
+  .a1-search-pill { flex: 1; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 12px 22px; }
+  .a1-search-pill svg { flex-shrink: 0; opacity: 0.6; }
+  .a1-search-pill input { flex: 1; background: transparent; border: none; outline: none; color: #fff; font-size: 16px; }
+  .a1-search-pill input::placeholder { color: rgba(255,255,255,0.4); }
+  .a1-search-help { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 700; }
+  .a1-search-btn { background: transparent; color: var(--a1-accent); border: 1px solid var(--a1-accent); border-radius: 999px; padding: 12px 28px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; cursor: pointer; }
+  .a1-search-btn:hover { background: var(--a1-accent); color: #fff; }
+  .a1-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+  @media (max-width: 900px) { .a1-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .a1-coll-card { display: flex; gap: 20px; align-items: stretch; padding: 18px; border: 1px solid var(--a1-line); border-radius: 6px; margin-bottom: 16px; text-decoration: none; color: inherit; transition: border-color 0.15s ease, background 0.15s ease; }
+  .a1-coll-card:hover { border-color: var(--a1-accent); background: rgba(194, 65, 12, 0.05); }
+  .a1-coll-thumb { flex: 0 0 120px; min-height: 120px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(194,65,12,0.18), rgba(86,96,254,0.18)); border: 1px solid var(--a1-line); border-radius: 4px; font-family: 'Verlag', 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: 0.04em; color: rgba(255,255,255,0.85); }
+  .a1-coll-text h3 { font-size: 22px; font-weight: 700; margin: 0 0 8px; line-height: 1.25; }
+  .a1-coll-text p { margin: 0; font-size: 14px; line-height: 1.55; opacity: 0.78; }
+  .a1-tags { line-height: 2.4; padding: 8px 4px 16px; }
+  .a1-tag { display: inline-block; color: var(--a1-accent); text-decoration: none; margin: 0 6px 4px 0; font-weight: 600; transition: opacity 0.15s ease; }
+  .a1-tag:hover { opacity: 0.7; text-decoration: underline; }
+  .a1-tag-w1 { font-size: 13px; opacity: 0.7; }
+  .a1-tag-w2 { font-size: 15px; opacity: 0.8; }
+  .a1-tag-w3 { font-size: 18px; }
+  .a1-tag-w4 { font-size: 22px; font-weight: 700; }
+  .a1-tag-w5 { font-size: 26px; font-weight: 800; }
+  .a1-feat-list { list-style: none; padding: 0; margin: 0; }
+  .a1-feat-list li { border-bottom: 1px solid var(--a1-line); }
+  .a1-feat-list li:last-child { border-bottom: none; }
+  .a1-feat-list a { display: block; padding: 14px 4px; color: inherit; text-decoration: none; transition: background 0.15s ease; }
+  .a1-feat-list a:hover { background: rgba(194, 65, 12, 0.05); }
+  .a1-feat-title { display: block; font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--a1-accent); }
+  .a1-feat-blurb { display: block; font-size: 13px; opacity: 0.75; line-height: 1.5; }
+  .a1-divider { border: none; border-top: 1px solid var(--a1-line); margin: 40px 0; }
+</style>
+
+<div class="a1-wrap">
+  <div class="a1-welcome">
+    <b>Welcome to the NPPC Archive.</b> Archive1 is a searchable index of the National Political Prisoner Coalition&rsquo;s records: prisoner profiles, case files, movement periodicals, court documents, and oral histories. It collects, in one place, the materials that document the history of U.S. political imprisonment from the late nineteenth century to the present.
+  </div>
+
+  <h2 class="a1-section-head">Search the Archives</h2>
+  <form action="/search" method="GET" role="search" class="a1-search-row">
+    <label class="a1-search-pill">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <input type="text" name="q" placeholder="Search archives&hellip;" required>
+    </label>
+    <a href="/faq" class="a1-search-help" title="Search help" aria-label="Search help">?</a>
+    <button type="submit" class="a1-search-btn">Search</button>
+  </form>
+
+  <div class="a1-grid">
+    <div class="a1-collections">
+      <h2 class="a1-section-head">Browse by Collection</h2>
+      {$collections}
+    </div>
+
+    <aside class="a1-sidebar">
+      <h2 class="a1-section-head">Common Search Terms</h2>
+      <div class="a1-tags">{$chips}</div>
+
+      <hr class="a1-divider">
+
+      <h2 class="a1-section-head">Featured Content</h2>
+      <ul class="a1-feat-list">{$featured}</ul>
+    </aside>
+  </div>
+</div>
+
+<!-- {$coll_count} collections -->
+HTML;
     }
 }
