@@ -39,11 +39,25 @@ final class ArchiveRecord extends Model {
     ];
 
     public function getFileUrlAttribute(): ?string {
-        return $this->file ? Storage::url($this->file) : null;
+        return self::resolveAssetUrl($this->file);
     }
 
     public function getThumbnailUrlAttribute(): ?string {
-        return $this->thumbnail ? Storage::url($this->thumbnail) : null;
+        return self::resolveAssetUrl($this->thumbnail);
+    }
+
+    private static function resolveAssetUrl(?string $path): ?string {
+        if ($path === null || $path === '') {
+            return null;
+        }
+        // Absolute URL or already-public path → return as-is so we can
+        // store files that live under /public/ (e.g. /pdfs/4strugglemag/X.pdf)
+        // without round-tripping through Storage::url().
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://') || str_starts_with($path, '/')) {
+            return $path;
+        }
+
+        return Storage::url($path);
     }
 
     public function scopePublished($query) {
