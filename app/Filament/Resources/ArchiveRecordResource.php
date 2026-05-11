@@ -12,6 +12,7 @@ use Filament\Tables\Table;
 
 class ArchiveRecordResource extends Resource {
     protected static ?string $model = ArchiveRecord::class;
+    protected static ?string $slug = 'archive';
     protected static ?string $navigationIcon = 'heroicon-o-archive-box';
     protected static ?string $navigationGroup = 'Content';
     protected static ?string $navigationLabel = 'Archive Records';
