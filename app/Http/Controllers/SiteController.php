@@ -37,7 +37,7 @@ final class SiteController extends Controller {
         return view('pages.timeline', ['timelines' => Timeline::query()->orderBy('year')->get()]);
     }
 
-    public function archive1Records(Request $request) {
+    public function archiveRecords(Request $request) {
         $q = trim((string) $request->query('q', ''));
         $collection = $request->query('collection');
         $recordType = $request->query('record_type');
@@ -135,7 +135,7 @@ final class SiteController extends Controller {
         $records = $query->paginate(25)->withQueryString();
         $total = $records->total();
 
-        return view('pages.archive1-records', compact(
+        return view('pages.archive-records', compact(
             'records',
             'facets',
             'total',
