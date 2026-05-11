@@ -26,7 +26,7 @@
             }
         }
 
-        return '/archive1-records'.($params ? '?'.http_build_query($params) : '');
+        return '/archive-records'.($params ? '?'.http_build_query($params) : '');
     };
 @endphp
 
@@ -96,7 +96,7 @@
                 <div class="a1r-side-head">
                     <h4>Filter Results</h4>
                     @if ($hasFilters || $collection || $recordType || $sourceFormat || $year || $subject)
-                        <a class="a1r-clear" href="/archive1-records">&times; Clear filters</a>
+                        <a class="a1r-clear" href="/archive-records">&times; Clear filters</a>
                     @endif
                 </div>
 
@@ -130,7 +130,7 @@
             </aside>
 
             <div>
-                <form action="/archive1-records" method="GET" class="a1r-toolbar">
+                <form action="/archive-records" method="GET" class="a1r-toolbar">
                     <label class="a1r-search">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
                         <input type="text" name="q" placeholder="Search archives&hellip;" value="{{ $q }}">
@@ -159,7 +159,7 @@
                     <div class="a1r-empty-state">
                         No records found.
                         @if ($hasFilters)
-                            <br><br><a class="a1r-clear" href="/archive1-records">Clear filters</a>
+                            <br><br><a class="a1r-clear" href="/archive-records">Clear filters</a>
                         @else
                             <br><br><span style="font-size: 13px;">Once you upload archive records in the admin panel, they will appear here.</span>
                         @endif
