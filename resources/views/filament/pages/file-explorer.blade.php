@@ -64,6 +64,17 @@
         <div style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px;">to /{{ $currentPath ?: 'project root' }}</div>
     </div>
 
+    {{-- Upload progress bar (toggled visible by file-explorer.js) --}}
+    <div id="fe-upload-progress" style="display: none; margin-bottom: 16px; padding: 12px 16px; border: 1px solid rgba(99,102,241,0.4); border-radius: 8px; background: rgba(99,102,241,0.08);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px;">
+            <span id="fe-upload-progress-label" style="color: rgba(255,255,255,0.85); font-weight: 600;">Uploading…</span>
+            <span id="fe-upload-progress-pct" style="color: rgba(255,255,255,0.6); font-variant-numeric: tabular-nums;">0%</span>
+        </div>
+        <div style="height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden;">
+            <div id="fe-upload-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #8b5cf6); transition: width 0.15s linear;"></div>
+        </div>
+    </div>
+
     {{-- Search Results --}}
     @if($isSearching)
         <div style="display: flex; gap: 24px;">
