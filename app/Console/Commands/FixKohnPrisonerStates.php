@@ -19,7 +19,7 @@ final class FixKohnPrisonerStates extends Command {
     protected $signature = 'archive:fix-kohn-states {--dry : preview only, do not write}';
     protected $description = 'Backfill state on Kohn WWI prisoners using OCR-tolerant matching + institution fallback';
 
-    private const ERA = 'World War I (Espionage & Sedition Acts)';
+    private const ERA = '1910s';
 
     public function handle(): int {
         $dry = (bool) $this->option('dry');

@@ -44,7 +44,7 @@ final class ImportKohnMisses extends Command {
      * @return list<array<string, mixed>>
      */
     private function prisoners(): array {
-        $era = 'World War I (Espionage & Sedition Acts)';
+        $era = '1910s';
         $charges = 'Federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918.';
         $tag = ' Sourced from Stephen M. Kohn, "American Political Prisoners: Prosecutions Under the Espionage and Sedition Acts" (Praeger, 1994).';
 

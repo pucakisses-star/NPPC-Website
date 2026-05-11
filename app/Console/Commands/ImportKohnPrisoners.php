@@ -102,7 +102,7 @@ final class ImportKohnPrisoners extends Command {
             'middle_name' => $middle,
             'last_name' => $last,
             'description' => $description,
-            'era' => 'World War I (Espionage & Sedition Acts)',
+            'era' => '1910s',
             'ideologies' => $ideologies,
         ];
 
