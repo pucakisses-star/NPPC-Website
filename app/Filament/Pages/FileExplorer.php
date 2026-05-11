@@ -341,19 +341,44 @@ class FileExplorer extends Page {
         $basePath = config('claude.repo_path', base_path());
         $fullPath = $basePath.DIRECTORY_SEPARATOR.$path;
 
-        if (is_file($fullPath)) {
-            unlink($fullPath);
+        // Don't allow deleting the repo root or anything outside it.
+        $realFull = realpath($fullPath);
+        $realBase = realpath($basePath);
+        if (! $realFull || ! $realBase || ! str_starts_with($realFull, $realBase) || $realFull === $realBase) {
+            return;
+        }
+
+        if (is_file($fullPath) || is_link($fullPath)) {
+            @unlink($fullPath);
         } elseif (is_dir($fullPath)) {
-            // Only delete empty directories for safety
-            $contents = array_diff(scandir($fullPath), ['.', '..']);
-            if (empty($contents)) {
-                rmdir($fullPath);
-            }
+            $this->recursiveDelete($fullPath);
         }
 
         if ($this->viewingFile === $path) {
             $this->closeFile();
         }
+    }
+
+    private function recursiveDelete(string $dir): void {
+        // Refuse anything suspiciously shallow as belt-and-braces.
+        if (strlen($dir) < 10 || $dir === '/' || $dir === DIRECTORY_SEPARATOR) {
+            return;
+        }
+        $entries = @scandir($dir);
+        if (! $entries) {
+            @rmdir($dir);
+            return;
+        }
+        foreach ($entries as $entry) {
+            if ($entry === '.' || $entry === '..') continue;
+            $child = $dir.DIRECTORY_SEPARATOR.$entry;
+            if (is_link($child) || is_file($child)) {
+                @unlink($child);
+            } elseif (is_dir($child)) {
+                $this->recursiveDelete($child);
+            }
+        }
+        @rmdir($dir);
     }
 
     // --- View Data ---
