@@ -31,6 +31,7 @@ Route::controller(SiteController::class)
         Route::get('petition/{slug}', 'petitionPage');
         Route::post('petition/{slug}/sign', 'petitionSign');
         Route::get('prisoner/{slug}', 'prisoner');
+        Route::get('archive1-records', 'archive1Records');
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
         Route::get('about', function() { return view('pages.about'); });
