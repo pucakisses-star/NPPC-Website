@@ -141,7 +141,7 @@ final class CreateArchive1Page extends Command {
 
         return <<<HTML
 <style>
-  .a1-wrap { --a1-accent: #c2410c; --a1-line: rgba(255,255,255,0.15); }
+  .a1-wrap { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.15); }
   .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 0 0 40px; font-size: 15px; line-height: 1.65; }
   .a1-welcome b { font-weight: 800; }
   .a1-section-head { font-size: 28px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--a1-accent); margin: 0 0 16px; font-family: 'Verlag', 'Helvetica Neue', sans-serif; }
@@ -156,7 +156,7 @@ final class CreateArchive1Page extends Command {
   .a1-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 56px; align-items: start; }
   @media (max-width: 900px) { .a1-grid { grid-template-columns: 1fr; gap: 40px; } }
   .a1-coll-card { display: flex; gap: 20px; align-items: stretch; padding: 18px; border: 1px solid var(--a1-line); border-radius: 6px; margin-bottom: 16px; text-decoration: none; color: inherit; transition: border-color 0.15s ease, background 0.15s ease; }
-  .a1-coll-card:hover { border-color: var(--a1-accent); background: rgba(194, 65, 12, 0.05); }
+  .a1-coll-card:hover { border-color: var(--a1-accent); background: rgba(86, 96, 254, 0.05); }
   .a1-coll-thumb { flex: 0 0 120px; min-height: 120px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(194,65,12,0.18), rgba(86,96,254,0.18)); border: 1px solid var(--a1-line); border-radius: 4px; font-family: 'Verlag', 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 36px; letter-spacing: 0.04em; color: rgba(255,255,255,0.85); }
   .a1-coll-text h3 { font-size: 22px; font-weight: 700; margin: 0 0 8px; line-height: 1.25; }
   .a1-coll-text p { margin: 0; font-size: 14px; line-height: 1.55; opacity: 0.78; }
@@ -172,7 +172,7 @@ final class CreateArchive1Page extends Command {
   .a1-feat-list li { border-bottom: 1px solid var(--a1-line); }
   .a1-feat-list li:last-child { border-bottom: none; }
   .a1-feat-list a { display: block; padding: 14px 4px; color: inherit; text-decoration: none; transition: background 0.15s ease; }
-  .a1-feat-list a:hover { background: rgba(194, 65, 12, 0.05); }
+  .a1-feat-list a:hover { background: rgba(86, 96, 254, 0.05); }
   .a1-feat-title { display: block; font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--a1-accent); }
   .a1-feat-blurb { display: block; font-size: 13px; opacity: 0.75; line-height: 1.5; }
   .a1-divider { border: none; border-top: 1px solid var(--a1-line); margin: 40px 0; }
