@@ -18,7 +18,7 @@ final class BackfillKohnDates extends Command {
     protected $signature = 'archive:backfill-kohn-dates {--dry : preview only, do not write} {--sample=5 : show N before/after samples}';
     protected $description = 'Backfill arrest_date, incarceration_date, and release_date on Kohn WWI prisoner cases';
 
-    private const ERA = 'World War I (Espionage & Sedition Acts)';
+    private const ERA = '1910s';
 
     public function handle(): int {
         $dry = (bool) $this->option('dry');

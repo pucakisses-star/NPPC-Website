@@ -19,7 +19,7 @@ final class NormalizeKohnDescriptions extends Command {
     protected $signature = 'archive:normalize-kohn-descriptions {--dry : preview only, do not write} {--sample=3 : show N before/after samples}';
     protected $description = 'Collapse OCR letter-splits ("O c t o b e r" → "October") in WWI Kohn prisoner descriptions';
 
-    private const ERA = 'World War I (Espionage & Sedition Acts)';
+    private const ERA = '1910s';
 
     public function handle(): int {
         $dry = (bool) $this->option('dry');
