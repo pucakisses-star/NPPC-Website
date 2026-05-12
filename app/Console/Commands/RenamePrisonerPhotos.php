@@ -15,12 +15,15 @@ use Illuminate\Support\Facades\Storage;
  * -2, -3, ... Supports --dry-run.
  */
 final class RenamePrisonerPhotos extends Command {
-    protected $signature = 'prisoners:rename-photos {--dry-run : Preview without changing anything}';
+    protected $signature = 'prisoners:rename-photos {--dry-run : Preview without changing anything} {--ulid-only : Only rename files whose current name looks like a random ULID/UUID with no recognizable slug stem}';
     protected $description = 'Rename prisoner photo files to match the prisoner slug';
 
     public function handle(): int {
         $dryRun = (bool) $this->option('dry-run');
+        $ulidOnly = (bool) $this->option('ulid-only');
         $disk = Storage::disk('public');
+        $ulidRe = '/^[0-9A-HJKMNP-TV-Z]{26}\.(jpg|jpeg|png|webp|gif)$/i';
+        $uuidRe = '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.(jpg|jpeg|png|webp|gif)$/i';
 
         $renamed = 0;
         $alreadyClean = 0;
@@ -30,7 +33,7 @@ final class RenamePrisonerPhotos extends Command {
 
         Prisoner::whereNotNull('photo')->where('photo', '!=', '')
             ->orderBy('name')
-            ->chunk(200, function ($chunk) use (&$renamed, &$alreadyClean, &$missing, &$collisions, &$emptySlug, $disk, $dryRun) {
+            ->chunk(200, function ($chunk) use (&$renamed, &$alreadyClean, &$missing, &$collisions, &$emptySlug, $disk, $dryRun, $ulidOnly, $ulidRe, $uuidRe) {
                 foreach ($chunk as $prisoner) {
                     $current = ltrim($prisoner->photo, '/');
                     if (! $disk->exists($current)) {
@@ -38,6 +41,15 @@ final class RenamePrisonerPhotos extends Command {
                         $missing++;
 
                         continue;
+                    }
+
+                    if ($ulidOnly) {
+                        $basename = basename($current);
+                        if (! preg_match($ulidRe, $basename) && ! preg_match($uuidRe, $basename)) {
+                            $alreadyClean++;
+
+                            continue;
+                        }
                     }
 
                     $slug = $prisoner->slug;
