@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Richard Clark Johnson",
+    "first_name": "Richard",
+    "middle_name": "Clark",
+    "last_name": "Johnson",
+    "description": "Irish-American radar engineer at Mitre Corporation in Bedford, Massachusetts who held the firm's highest security clearance. On August 20, 1990 he was convicted in U.S. District Court in Boston of conspiracy to develop a missile guidance system to shoot down British helicopters in Northern Ireland, along with co-defendants Christina Reid and Martin Quigley. No weapon or missile system was ever produced as evidence at trial — the case rested on the testimony of FBI informants and the seizure of hand-drawn diagrams and electronic components from his parents' Allentown, Pennsylvania basement workshop. Judge A. David Mazzone called the case 'terrorism, pure and simple' and doubled his sentence from five to ten years. The prosecution made novel use of the Foreign Intelligence Surveillance Act (FISA) wiretaps in a criminal trial.",
+    "state": "Massachusetts",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1948-01-01",
+    "ideologies": ["Irish republicanism", "Anti-imperialism"],
+    "affiliation": ["Irish Northern Aid (alleged)"],
+    "era": "1990s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "United States Penitentiary",
+      "institution_state": "Massachusetts",
+      "charges": "Conspiracy to develop / export a missile system; conspiracy to destroy property in a foreign country; possessing property in aid of foreign insurgents",
+      "arrest_date": "1989-07-12",
+      "convicted": "Yes — convicted August 20, 1990 in U.S. District Court (Judge A. David Mazzone)",
+      "judge": "A. David Mazzone",
+      "sentence": "10 years federal imprisonment"
+    }]
+  },
+  {
+    "name": "Christina L. Reid",
+    "first_name": "Christina",
+    "middle_name": "L.",
+    "last_name": "Reid",
+    "description": "Irish-American electrical engineer and recent college graduate, longtime member of Irish Northern Aid and the Irish Scouts. Arrested by ten FBI agents at her workplace and charged as the 'courier' linking the conspirators in the case targeted at Richard Johnson and Martin Quigley. The government acknowledged she had no ability to work on sophisticated weapons but claimed her general engineering knowledge made her dangerous. Convicted on August 20, 1990 in Boston federal court despite no weapons or missile system being introduced as evidence, and sentenced to three years and five months by Judge A. David Mazzone.",
+    "state": "Massachusetts",
+    "race": "White",
+    "gender": "Female",
+    "birthdate": "1964-01-01",
+    "ideologies": ["Irish republicanism", "Anti-imperialism"],
+    "affiliation": ["Irish Northern Aid", "Irish Scouts"],
+    "era": "1990s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Federal Reformatory for Women, Alderson",
+      "institution_city": "Alderson",
+      "institution_state": "West Virginia",
+      "charges": "Conspiracy to develop / export a missile system; conspiracy to destroy property in a foreign country; possessing property in aid of foreign insurgents",
+      "arrest_date": "1989-07-12",
+      "convicted": "Yes — convicted August 20, 1990 in U.S. District Court",
+      "judge": "A. David Mazzone",
+      "sentence": "3 years 5 months federal imprisonment"
+    }]
+  },
+  {
+    "name": "Martin Quigley",
+    "first_name": "Martin",
+    "last_name": "Quigley",
+    "description": "Irish national from Dundalk along the militarized border separating Northern Ireland from the rest of the country. He had been in the United States only a few months at the time of his arrest. Convicted on August 20, 1990 in U.S. District Court in Boston alongside Richard Johnson and Christina Reid of conspiracy to develop a missile guidance system to shoot down British helicopters in the North. Judge A. David Mazzone refused to allow him to remain free pending appeal, calling him 'a danger to the community,' and doubled his sentence from four to eight years. The FBI watched Quigley for 16 hours a day for ten weeks (30 agents) and photographed him with his girlfriend sunbathing on a beach. Held at Connecticut federal facility.",
+    "state": "Connecticut",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1962-01-01",
+    "ideologies": ["Irish republicanism", "Anti-imperialism"],
+    "affiliation": ["Provisional Irish Republican Army (alleged)"],
+    "era": "1990s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Federal Correctional Institution",
+      "institution_state": "Connecticut",
+      "charges": "Conspiracy to develop / export a missile system; conspiracy to destroy property in a foreign country (Boston federal trial 1990)",
+      "arrest_date": "1989-07-12",
+      "convicted": "Yes — convicted August 20, 1990; sentence doubled by judge from 4 to 8 years",
+      "judge": "A. David Mazzone",
+      "sentence": "8 years federal imprisonment"
+    }]
+  },
+  {
+    "name": "Gerald V. Hoy",
+    "first_name": "Gerald",
+    "middle_name": "V.",
+    "last_name": "Hoy",
+    "description": "Computer scientist from Lehigh University in Pennsylvania and longtime member of the Irish-American support movement. The fourth defendant in the 1990 Boston federal trial of Richard Johnson, Christina Reid, and Martin Quigley. Convinced the jury would believe the FBI's lies, he plea-bargained for a lighter sentence and told reporters after pleading guilty, 'those guys lied so much…you can't make a missile in your backroom.' Judge A. David Mazzone sentenced him to two years federal imprisonment — a longer sentence than he had previously agreed to.",
+    "state": "Pennsylvania",
+    "race": "White",
+    "gender": "Male",
+    "ideologies": ["Irish republicanism", "Anti-imperialism"],
+    "affiliation": ["Irish-American support movement"],
+    "era": "1990s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Federal Bureau of Prisons",
+      "institution_state": "Pennsylvania",
+      "charges": "Conspiracy charges related to alleged missile-system / Northern Ireland case (Boston federal trial 1990)",
+      "arrest_date": "1989-07-12",
+      "convicted": "Yes — plea bargain",
+      "judge": "A. David Mazzone",
+      "sentence": "2 years federal imprisonment"
+    }]
+  }
+]
