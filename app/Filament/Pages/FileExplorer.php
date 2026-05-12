@@ -126,7 +126,7 @@ class FileExplorer extends Page {
         $this->isSearching = true;
         $this->searchResults = [];
         $this->searchPage = 1;
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
 
         $this->searchDirectory($basePath, '', $query, 0);
     }
@@ -222,7 +222,7 @@ class FileExplorer extends Page {
             return;
         }
 
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $targetPath = $this->currentPath
             ? $basePath.DIRECTORY_SEPARATOR.$this->currentPath.DIRECTORY_SEPARATOR.$name
             : $basePath.DIRECTORY_SEPARATOR.$name;
@@ -241,7 +241,7 @@ class FileExplorer extends Page {
             return;
         }
 
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $targetDir = $this->currentPath
             ? $basePath.DIRECTORY_SEPARATOR.$this->currentPath
             : $basePath;
@@ -281,7 +281,7 @@ class FileExplorer extends Page {
             return;
         }
 
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $oldFullPath = $basePath.DIRECTORY_SEPARATOR.$this->renamingFile;
         $newFullPath = dirname($oldFullPath).DIRECTORY_SEPARATOR.$name;
 
@@ -306,7 +306,7 @@ class FileExplorer extends Page {
     // --- Move File ---
 
     public function moveFile(string $sourcePath, string $targetFolder): void {
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $sourceFullPath = $basePath.DIRECTORY_SEPARATOR.$sourcePath;
         $targetDir = $basePath.DIRECTORY_SEPARATOR.$targetFolder;
         $filename = basename($sourcePath);
@@ -322,7 +322,7 @@ class FileExplorer extends Page {
     // --- Copy File ---
 
     public function copyFile(string $path): void {
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $fullPath = $basePath.DIRECTORY_SEPARATOR.$path;
 
         if (! is_file($fullPath)) {
@@ -348,7 +348,7 @@ class FileExplorer extends Page {
     // --- Delete ---
 
     public function deleteFile(string $path): void {
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $fullPath = $basePath.DIRECTORY_SEPARATOR.$path;
 
         if (is_file($fullPath)) {
@@ -369,7 +369,7 @@ class FileExplorer extends Page {
     // --- View Data ---
 
     public function getViewData(): array {
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
         $fullPath = $this->currentPath ? $basePath.DIRECTORY_SEPARATOR.$this->currentPath : $basePath;
 
         $items = [];
@@ -521,7 +521,7 @@ class FileExplorer extends Page {
     }
 
     private function getFullPath(string $path): string {
-        $basePath = config('claude.repo_path', base_path());
+        $basePath = base_path();
 
         return $basePath.DIRECTORY_SEPARATOR.$path;
     }
