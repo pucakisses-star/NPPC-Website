@@ -4,12 +4,12 @@
 <style>
     .lm-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
 
-    /* Hero */
-    .lm-hero { position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; }
-    .lm-hero-photos { position: absolute; inset: 0; display: flex; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
-    .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(30%); }
-    .lm-hero-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.25) 100%); }
-    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 0 24px 64px; }
+    /* Hero — slatted strip layout */
+    .lm-hero { position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; background: #000; }
+    .lm-hero-photos { position: absolute; inset: 40px 24px; display: flex; gap: 20px; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
+    .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(85%); }
+    .lm-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 70%); pointer-events: none; }
+    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 96px 24px 64px; }
     .lm-hero-title { font-size: 3rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 24px; }
     .lm-hero-title .lm-line { display: block; overflow: hidden; }
     .lm-hero-title .lm-line > span { display: inline-block; clip-path: inset(0 100% 0 0); animation: revealSweep 1.5s ease-out forwards; }
@@ -69,16 +69,22 @@
     .lm-cta-btn { display: inline-block; background: #5660fe; color: #fff; padding: 16px 40px; font-size: 15px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s; }
     .lm-cta-btn:hover { background: #4850e6; }
 
+    @@media (max-width: 1100px) {
+        .lm-hero-photos { gap: 14px; }
+        .lm-hero-photos > div:nth-child(n+8) { display: none; }
+    }
     @@media (max-width: 900px) {
         .lm-hero { min-height: 440px; }
         .lm-hero-title { font-size: 2.2rem; }
-        .lm-hero-photos > div:nth-child(n+4) { display: none; }
+        .lm-hero-photos { gap: 10px; inset: 24px 16px; }
+        .lm-hero-photos > div:nth-child(n+6) { display: none; }
         .lm-stats { grid-template-columns: repeat(2, 1fr); }
         .lm-cases-grid { grid-template-columns: 1fr; max-width: 480px; }
     }
     @@media (max-width: 640px) {
         .lm-hero-title { font-size: 1.8rem; }
-        .lm-hero-photos > div:nth-child(n+3) { display: none; }
+        .lm-hero-photos { gap: 6px; }
+        .lm-hero-photos > div:nth-child(n+5) { display: none; }
         .lm-section-title { font-size: 2rem; }
         .lm-cases-title { font-size: 2rem; }
         .lm-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -89,7 +95,7 @@
 
 @section('body')
 @php
-    $heroPrisoners = \App\Models\Prisoner::whereNotNull('photo')->where('photo','!=','')->inRandomOrder()->limit(5)->get();
+    $heroPrisoners = \App\Models\Prisoner::whereNotNull('photo')->where('photo','!=','')->inRandomOrder()->limit(9)->get();
     $featuredPrisoners = \App\Models\Prisoner::with('cases')
         ->whereNotNull('description')
         ->where('description','!=','')
@@ -116,7 +122,7 @@
         @foreach($heroPrisoners as $p)
             <div style="background-image: url('{{ asset('storage/'.$p->photo) }}');"></div>
         @endforeach
-        @for($i = $heroPrisoners->count(); $i < 5; $i++)
+        @for($i = $heroPrisoners->count(); $i < 9; $i++)
             <div style="background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 100%);"></div>
         @endfor
     </div>
