@@ -1,0 +1,149 @@
+[
+  {
+    "name": "Morris U. Schappes",
+    "first_name": "Morris",
+    "middle_name": "U.",
+    "last_name": "Schappes",
+    "description": "City College of New York English tutor and Communist Party member targeted in the Rapp-Coudert Committee investigation of subversion in New York's municipal colleges. Indicted by Manhattan DA Thomas Dewey on a felony perjury charge after testifying before the committee in 1941 that only three other CP members had worked at City College (two of whom had died in Spain). Convicted and served 13 months in prison before parole in 1944; later edited Jewish Currents.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1907-05-03",
+    "death_date": "2004-06-03",
+    "ideologies": ["Communism", "Marxism"],
+    "affiliation": ["Communist Party USA", "New York Teachers Union Local 5"],
+    "era": "1940s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "New York City Penitentiary (Rikers Island)",
+        "institution_city": "New York",
+        "institution_state": "New York",
+        "charges": "Perjury (for denying knowledge of other Communists on the City College faculty before the Rapp-Coudert Committee)",
+        "incarceration_date": "1943-12-01",
+        "release_date": "1945-01-04",
+        "convicted": "Yes — convicted of perjury, sentenced to one to two years",
+        "prosecutor": "Manhattan District Attorney's Office (Thomas E. Dewey)",
+        "sentence": "1 to 2 years; served 13 months before parole",
+        "imprisoned_for_days": 400
+      }
+    ]
+  },
+  {
+    "name": "Ward H. Rodgers",
+    "first_name": "Ward",
+    "middle_name": "H.",
+    "last_name": "Rodgers",
+    "description": "Southern Tenant Farmers Union (STFU) organizer arrested on the orders of a Cross County, Arkansas prosecuting attorney after speaking at an STFU rally in early 1935. Charged with criminal anarchy after testimony that he was advocating racial equality in Arkansas; the all-white jury took ten minutes to convict him. Sentenced to six months in jail plus a $500 fine and court costs. His prosecution provoked rallies by radical groups in the Arkansas Delta and a wave of vigilante violence against STFU members.",
+    "state": "Arkansas",
+    "race": "White",
+    "gender": "Male",
+    "ideologies": ["Socialism", "Christian socialism"],
+    "affiliation": ["Southern Tenant Farmers Union", "Socialist Party"],
+    "era": "1930s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Cross County Jail",
+        "institution_city": "Wynne",
+        "institution_state": "Arkansas",
+        "charges": "Criminal anarchy",
+        "arrest_date": "1935-01-16",
+        "convicted": "Yes — sentenced to 6 months in jail and a $500 fine",
+        "sentence": "6 months in jail plus $500 fine and court costs",
+        "imprisoned_for_days": 180
+      }
+    ]
+  },
+  {
+    "name": "Benjamin Gitlow",
+    "first_name": "Benjamin",
+    "last_name": "Gitlow",
+    "description": "Founding member of the Communist Labor Party of America and editor of The Revolutionary Age, prosecuted under New York's criminal anarchy law after publishing the Left Wing Manifesto in 1919. His conviction was upheld by the U.S. Supreme Court in the landmark case Gitlow v. New York (1925), which incorporated First Amendment protections against the states even as it sustained his prison sentence. Served roughly three years in Sing Sing before Governor Al Smith pardoned him in December 1925. He later broke with the Communist Party in 1929 and became a fierce anti-communist.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1891-12-22",
+    "death_date": "1965-07-19",
+    "ideologies": ["Communism"],
+    "affiliation": ["Communist Labor Party of America", "Communist Party USA"],
+    "era": "1920s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Sing Sing Correctional Facility",
+        "institution_city": "Ossining",
+        "institution_state": "New York",
+        "charges": "Criminal anarchy (NY Penal Law §§ 160-161) for publishing the Left Wing Manifesto",
+        "arrest_date": "1919-11-08",
+        "incarceration_date": "1920-02-11",
+        "release_date": "1925-12-11",
+        "convicted": "Yes — conviction affirmed by U.S. Supreme Court in Gitlow v. New York, 268 U.S. 652 (1925)",
+        "judge": "Bartow S. Weeks",
+        "sentence": "5 to 10 years; pardoned by Governor Al Smith after about 3 years served",
+        "imprisoned_for_days": 1095
+      }
+    ]
+  },
+  {
+    "name": "Edward K. Barsky",
+    "first_name": "Edward",
+    "middle_name": "K.",
+    "last_name": "Barsky",
+    "description": "New York surgeon who led the American Medical Bureau to Aid Spanish Democracy, organizing a contingent of doctors and technicians who served the Spanish Republic during the civil war. As chairman of the Joint Anti-Fascist Refugee Committee (JAFRC), he refused in January 1946 to comply with HUAC's subpoena demanding the organization's donor list. Convicted of contempt of Congress along with sixteen other JAFRC board members; the Supreme Court refused to overturn his conviction in Barsky v. United States (1948). Served six months in federal prison in 1950 and lost his medical license for six months.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1895-09-26",
+    "death_date": "1975-02-11",
+    "ideologies": ["Communism", "Anti-fascism"],
+    "affiliation": ["Joint Anti-Fascist Refugee Committee", "American Medical Bureau to Aid Spanish Democracy", "Communist Party USA"],
+    "era": "1940s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Federal Correctional Institution, Petersburg",
+        "institution_city": "Petersburg",
+        "institution_state": "Virginia",
+        "charges": "Contempt of Congress (refusing to produce JAFRC donor records to HUAC)",
+        "incarceration_date": "1950-06-07",
+        "release_date": "1950-11-15",
+        "convicted": "Yes — Barsky v. United States, 167 F.2d 241 (D.C. Cir. 1948), cert. denied 334 U.S. 843",
+        "sentence": "6 months in federal prison and $500 fine",
+        "imprisoned_for_days": 161
+      }
+    ]
+  },
+  {
+    "name": "Helen R. Bryan",
+    "first_name": "Helen",
+    "middle_name": "R.",
+    "last_name": "Bryan",
+    "description": "Executive secretary of the Joint Anti-Fascist Refugee Committee (JAFRC). Subpoenaed alongside chairman Edward Barsky in January 1946, she refused to surrender the JAFRC's donor list to HUAC and was convicted of contempt of Congress along with the rest of the board. After her appeals failed, she served three months in federal prison in 1950.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Female",
+    "ideologies": ["Anti-fascism", "Quakerism"],
+    "affiliation": ["Joint Anti-Fascist Refugee Committee"],
+    "era": "1940s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Federal Reformatory for Women, Alderson",
+        "institution_city": "Alderson",
+        "institution_state": "West Virginia",
+        "charges": "Contempt of Congress (refusing to produce JAFRC donor records to HUAC)",
+        "incarceration_date": "1950-06-07",
+        "release_date": "1950-09-07",
+        "convicted": "Yes — convicted alongside Barsky; appeals exhausted by 1950",
+        "sentence": "3 months in federal prison and $500 fine",
+        "imprisoned_for_days": 92
+      }
+    ]
+  }
+]
