@@ -24,6 +24,11 @@ final class EnrichPrisonersFromWikipedia extends Command {
     protected $description = 'Backfill photo / birthdate / death_date from Wikipedia for recently-added prisoners';
 
     public function handle(): int {
+        // Long-running command — disable PHP's script time limit so we don't
+        // get cut off mid-batch on servers where max_execution_time is set.
+        @set_time_limit(0);
+        ini_set('memory_limit', '512M');
+
         $hours = (int) $this->option('hours');
         $limit = (int) $this->option('limit');
         $name = $this->option('name');
