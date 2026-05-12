@@ -70,6 +70,50 @@ final class SetSeditionActDates extends Command {
                 // blank.
                 'incarceration_date' => '1799-11-21',
             ],
+            'luther-baldwin' => [
+                // Indictment + guilty plea on Oct 3, 1799 in U.S.
+                // Circuit Court at Newark, NJ. Fined $150 + costs and
+                // held in custody until paid; secondary sources say he
+                // sat roughly two months. Fines remitted by Jefferson
+                // on taking office in March 1801. Release_date is an
+                // approximation pending day-precise primary source
+                // (Smith, Freedom's Fetters, 1956, ch. 18).
+                'incarceration_date' => '1799-10-03',
+                'release_date'       => '1799-12-03',
+            ],
+            'john-s-lillie' => [
+                // CASE YEAR CORRECTION: this is 1802, not 1801. Lillie
+                // was indicted Feb 1802 by Massachusetts authorities
+                // (CJ Francis Dana of the SJC) for libel against Dana
+                // himself, and sentenced to 3 months plus $100. A
+                // farewell column in the Telegraphe is dated "Boston
+                // Gaol, March 30 — 19th day of Imprisonment," which
+                // back-dates entry to ~Mar 12, 1802; a 3-month term
+                // from there gives release ~Jun 12, 1802. A letter
+                // from Lillie to Jefferson dated Apr 7, 1802 is sent
+                // from the gaol. Day-precise dates pending Smith,
+                // Freedom's Fetters.
+                'incarceration_date' => '1802-03-12',
+                'release_date'       => '1802-06-12',
+            ],
+            'william-durrell' => [
+                // Arrested Jul 17, 1798; pleaded not guilty in U.S.
+                // Circuit Court Sept 5, 1798; tried April 1800;
+                // convicted and sentenced to 4 months + $50 fine +
+                // $2,000 surety. Adams granted a PARTIAL pardon that
+                // REMITTED THE PRISON TERM (declining a full pardon —
+                // fine and surety bond remained). So Durrell was never
+                // actually incarcerated under his Sedition Act
+                // sentence — incarceration_date / release_date stay
+                // blank. We populate arrest_date only.
+                //
+                // FYI: this means Durrell does not strictly satisfy
+                // the project's "actually served jail time" criterion
+                // and may belong with the indicted-but-not-jailed
+                // group (Duane, Greenleaf, Mayer, Fahnestock, Bache,
+                // Burk, Thomas Adams). Decide on a separate pass.
+                'arrest_date' => '1798-07-17',
+            ],
         ];
 
         $touched = 0;
