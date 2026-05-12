@@ -4,7 +4,7 @@
 .fe-row { cursor: pointer; transition: background 0.1s; }
 .fe-row:hover { background: rgba(255,255,255,0.05); }
 .fe-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 8px; }
-.fe-thumb { width: 32px; height: 32px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-right: 8px; background: rgba(255,255,255,0.05); }
+img.fe-thumb { width: 32px !important; height: 32px !important; max-width: 32px !important; max-height: 32px !important; min-width: 32px; min-height: 32px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-right: 8px; background: rgba(255,255,255,0.05); flex: none; }
 .fe-folder { color: #fbbf24; }
 .fe-file { color: #94a3b8; }
 .fe-php { color: #7c6ccf; }
