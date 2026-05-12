@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Smith A. Boughton",
+    "aka": "Big Thunder",
+    "first_name": "Smith",
+    "middle_name": "A.",
+    "last_name": "Boughton",
+    "description": "Country physician from Alps, Rensselaer County, New York and the most prominent leader of the Anti-Rent War (1839-1845), the mass tenant-farmer uprising against the patroon system of feudal-style perpetual leaseholds held by the Van Rensselaer and Livingston families and other Hudson Valley manor lords. Boughton organized the 'Calico Indians' — tenant militants who disguised themselves in calico-cloth masks and sheepskin face paint to resist sheriffs serving distress warrants and to intercept rent-collection parties. Riding under the nom de guerre 'Big Thunder,' he led mounted bands of hundreds across Columbia, Rensselaer, Albany, and Delaware Counties. Arrested in December 1844 and tried at Hudson, New York the following year for robbery — for taking a rent paper from a sheriff's deputy during one of the 1844 confrontations. First trial ended in a hung jury; retried in September 1845 amid statewide political pressure and convicted by Judge John W. Edmonds. Sentenced to life imprisonment in Clinton State Prison at Dannemora. Pardoned by Governor John Young in 1847 after Anti-Rent voting blocs delivered the governorship to him.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1810-12-05",
+    "death_date": "1888-10-08",
+    "ideologies": ["Anti-feudalism", "Tenant rights", "Land reform"],
+    "affiliation": ["Calico Indians", "Anti-Rent Association"],
+    "era": "1800s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Clinton State Prison",
+      "institution_city": "Dannemora",
+      "institution_state": "New York",
+      "charges": "Robbery (seizing a distress / rent paper from a sheriff's deputy during Anti-Rent resistance)",
+      "arrest_date": "1844-12-01",
+      "convicted": "Yes — convicted September 1845 in Hudson, NY (Judge John W. Edmonds)",
+      "judge": "John W. Edmonds",
+      "sentence": "Life imprisonment (pardoned by Gov. John Young, 1847)"
+    }]
+  },
+  {
+    "name": "John Van Steenburgh",
+    "first_name": "John",
+    "last_name": "Van Steenburgh",
+    "description": "Delaware County, New York 'Calico Indian' convicted of the August 7, 1845 killing of Undersheriff Osman N. Steele at the Moses Earle farm in the town of Andes during an Anti-Rent rent-distress sale. Steele had ridden out from Delhi to enforce a rent-distress warrant against tenant farmer Earle; he was surrounded by hundreds of disguised Calico Indians, and gunshots from the crowd left him fatally wounded. Van Steenburgh and Edward O'Connor were arrested and tried in Delhi by Judge Amasa J. Parker; both were convicted of murder and sentenced to be hanged. After Governor Silas Wright signed the death warrants, intense Anti-Rent organizing forced their commutation to life imprisonment in Clinton State Prison at Dannemora. Pardoned by Governor John Young in 1847.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "ideologies": ["Anti-feudalism", "Tenant rights"],
+    "affiliation": ["Calico Indians", "Anti-Rent Association"],
+    "era": "1800s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Clinton State Prison",
+      "institution_city": "Dannemora",
+      "institution_state": "New York",
+      "charges": "Murder of Undersheriff Osman N. Steele (Andes, Delaware County, August 7, 1845)",
+      "arrest_date": "1845-08-07",
+      "convicted": "Yes — convicted October 1845 at Delhi, NY (Judge Amasa J. Parker)",
+      "judge": "Amasa J. Parker",
+      "sentence": "Death, commuted to life imprisonment; pardoned by Gov. John Young, 1847"
+    }]
+  },
+  {
+    "name": "Edward O'Connor",
+    "first_name": "Edward",
+    "last_name": "O'Connor",
+    "description": "Delaware County, New York 'Calico Indian' convicted alongside John Van Steenburgh of the August 7, 1845 killing of Undersheriff Osman N. Steele at the Moses Earle farm in the town of Andes during an Anti-Rent rent-distress sale. Tried in Delhi, NY by Judge Amasa J. Parker in October 1845 and sentenced to death by hanging. After Governor Silas Wright signed his death warrant, sustained Anti-Rent pressure produced a commutation to life imprisonment in Clinton State Prison at Dannemora. Pardoned by Governor John Young in 1847 along with the other Anti-Rent prisoners.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "ideologies": ["Anti-feudalism", "Tenant rights"],
+    "affiliation": ["Calico Indians", "Anti-Rent Association"],
+    "era": "1800s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Clinton State Prison",
+      "institution_city": "Dannemora",
+      "institution_state": "New York",
+      "charges": "Murder of Undersheriff Osman N. Steele (Andes, Delaware County, August 7, 1845)",
+      "arrest_date": "1845-08-07",
+      "convicted": "Yes — convicted October 1845 at Delhi, NY (Judge Amasa J. Parker)",
+      "judge": "Amasa J. Parker",
+      "sentence": "Death, commuted to life imprisonment; pardoned by Gov. John Young, 1847"
+    }]
+  },
+  {
+    "name": "Moses Earle",
+    "first_name": "Moses",
+    "last_name": "Earle",
+    "description": "Elderly tenant farmer at whose Andes, Delaware County, New York farm Undersheriff Osman N. Steele was killed on August 7, 1845. Earle had withheld rent on his patroon-system leasehold and the rent-distress sale of his cattle that morning drew hundreds of disguised 'Calico Indian' Anti-Rent militants. Convicted of manslaughter by Judge Amasa J. Parker at the Delhi assize in October 1845 and sentenced to life imprisonment at Clinton State Prison at Dannemora as one of the older Anti-Renters whose tenancy was the immediate cause of the confrontation. Pardoned by Governor John Young in 1847.",
+    "state": "New York",
+    "race": "White",
+    "gender": "Male",
+    "ideologies": ["Anti-feudalism", "Tenant rights"],
+    "affiliation": ["Anti-Rent Association"],
+    "era": "1800s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Clinton State Prison",
+      "institution_city": "Dannemora",
+      "institution_state": "New York",
+      "charges": "Manslaughter (Andes rent-distress confrontation, killing of Osman N. Steele)",
+      "arrest_date": "1845-08-07",
+      "convicted": "Yes — convicted October 1845 at Delhi, NY (Judge Amasa J. Parker)",
+      "judge": "Amasa J. Parker",
+      "sentence": "Life imprisonment; pardoned by Gov. John Young, 1847"
+    }]
+  }
+]
