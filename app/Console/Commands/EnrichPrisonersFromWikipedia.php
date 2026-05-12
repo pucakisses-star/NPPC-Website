@@ -13,19 +13,49 @@ use Illuminate\Support\Facades\Storage;
  *   - photo (downloads the lead Wikipedia image to storage/app/public/prisoners/)
  *   - birthdate, death_date (from Wikidata P569/P570)
  *
- * Wikipedia REST API: https://en.wikipedia.org/api/rest_v1/page/summary/{title}
- * Wikidata entity API: https://www.wikidata.org/wiki/Special:EntityData/{qid}.json
+ * Matching strategy:
+ *   1. Direct Wikipedia title lookup, with a few title variants.
+ *   2. Fallback to MediaWiki opensearch over the name + "activist".
+ *   3. Every candidate is validated against the prisoner's own context
+ *      (state, ideologies, affiliation, era keywords) — if the article
+ *      description / extract shares no signal with the prisoner, we
+ *      reject it. This avoids matching, e.g., "Frank Miller" the comics
+ *      writer to a Frank Miller political defendant.
+ *   4. Validates that the Wikidata entity is a human (P31 = Q5).
  *
- * Only fills fields that are currently empty — never overwrites existing
- * data. Idempotent.
+ * Only fills fields that are currently empty. Idempotent.
  */
 final class EnrichPrisonersFromWikipedia extends Command {
-    protected $signature = 'archive:enrich-prisoners-from-wikipedia {--hours=24 : look back this many hours} {--limit=500} {--name= : only this prisoner} {--dry-run}';
+    protected $signature = 'archive:enrich-prisoners-from-wikipedia {--hours=24 : look back this many hours} {--limit=500} {--name= : only this prisoner} {--dry-run} {--verbose-misses : log why each non-match was rejected}';
     protected $description = 'Backfill photo / birthdate / death_date from Wikipedia for recently-added prisoners';
 
+    private string $userAgent = 'NPPC-Archive/1.0 (https://github.com/pucakisses-star/NPPC-Website; archive@nppc)';
+
+    /**
+     * Generic political/movement keywords. We require the Wikipedia
+     * description or extract to share at least one of these (or one
+     * pulled from the prisoner's own metadata) with our record.
+     *
+     * @var array<int,string>
+     */
+    private array $genericKeywords = [
+        'activist', 'organizer', 'organiser', 'revolutionary', 'anarchist',
+        'communist', 'socialist', 'leftist', 'marxist', 'trotskyist',
+        'panther', 'civil rights', 'political prisoner', 'pacifist',
+        'antiwar', 'anti-war', 'antifa', 'anti-fascist',
+        'union', 'labor leader', 'labour leader', 'iww', 'wobbly',
+        'sedition', 'espionage act', 'smith act', 'indicted',
+        'convicted', 'sentenced', 'imprisoned', 'paroled', 'pardoned',
+        'draft resist', 'feminist',
+        'puerto rican', 'independentista', 'nationalist party',
+        'native american', 'indigenous', 'aim ', 'wounded knee',
+        'sds ', 'weather under', 'weatherman', 'weatherwoman',
+        'black panther', 'symbionese', 'soledad', 'attica',
+        'whistleblow', 'pentagon papers', 'haymarket',
+        'magonista', 'pan-african', 'garveyite', 'sccoldb',
+    ];
+
     public function handle(): int {
-        // Long-running command — disable PHP's script time limit so we don't
-        // get cut off mid-batch on servers where max_execution_time is set.
         @set_time_limit(0);
         ini_set('memory_limit', '512M');
 
@@ -58,7 +88,7 @@ final class EnrichPrisonersFromWikipedia extends Command {
                 continue;
             }
 
-            $summary = $this->fetchSummary($p->name);
+            $summary = $this->resolveSummary($p);
             if (! $summary) {
                 $miss++;
 
@@ -113,38 +143,163 @@ final class EnrichPrisonersFromWikipedia extends Command {
     }
 
     /**
+     * Returns a verified Wikipedia summary array for the prisoner, or null.
+     *
      * @return array<string,mixed>|null
      */
-    private function fetchSummary(string $name): ?array {
-        // Try a few title variants
-        $candidates = [
-            $name,
-            preg_replace('/\\s*\\(.*\\)\\s*$/', '', $name),  // strip parenthetical
-        ];
-        $candidates = array_unique(array_filter($candidates));
+    private function resolveSummary(Prisoner $p): ?array {
+        $candidates = $this->titleCandidates($p);
 
+        // Phase 1: direct title lookup.
         foreach ($candidates as $title) {
-            $encoded = rawurlencode(str_replace(' ', '_', $title));
-            try {
-                $resp = Http::timeout(20)
-                    ->withHeaders(['User-Agent' => 'NPPC-Archive/1.0 (nppc.example)'])
-                    ->get("https://en.wikipedia.org/api/rest_v1/page/summary/{$encoded}");
-            } catch (\Throwable $e) {
-                continue;
+            $summary = $this->fetchSummaryByTitle($title);
+            if ($summary && $this->matchesPrisoner($p, $summary)) {
+                return $summary;
             }
-            if (! $resp->successful()) {
-                continue;
+        }
+
+        // Phase 2: search fallback (use first 2 candidates with context).
+        foreach (array_slice($candidates, 0, 2) as $title) {
+            $hits = $this->wikipediaSearch($title);
+            foreach ($hits as $hit) {
+                $summary = $this->fetchSummaryByTitle($hit);
+                if ($summary && $this->matchesPrisoner($p, $summary)) {
+                    return $summary;
+                }
             }
-            $data = $resp->json();
-            if (($data['type'] ?? '') === 'disambiguation') {
-                continue;
-            }
-            // Skip if the summary clearly doesn't match a person (no birth in Wikidata makes this hard;
-            // we trust the title lookup at this stage).
-            return $data;
+        }
+
+        if ($this->option('verbose-misses')) {
+            $this->warn("  miss: {$p->name}");
         }
 
         return null;
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function titleCandidates(Prisoner $p): array {
+        $candidates = [$p->name];
+
+        // Strip parentheticals — "Oso Blanco (Byron Shane Chubbuck)" → "Oso Blanco"
+        $stripped = trim((string) preg_replace('/\\s*\\(.*\\)\\s*$/', '', $p->name));
+        if ($stripped !== '' && $stripped !== $p->name) {
+            $candidates[] = $stripped;
+            // Try the inner parenthetical as a fallback ("Byron Shane Chubbuck")
+            if (preg_match('/\\(([^)]+)\\)/', $p->name, $m)) {
+                $candidates[] = trim($m[1]);
+            }
+        }
+
+        // first + last name (drop middle / aka)
+        if ($p->first_name && $p->last_name) {
+            $candidates[] = trim($p->first_name.' '.$p->last_name);
+        }
+
+        // Replace funky characters that sometimes confuse the API
+        $candidates = array_values(array_unique(array_filter(array_map(
+            fn ($s) => trim((string) preg_replace('/\\s+/', ' ', $s)),
+            $candidates
+        ))));
+
+        return $candidates;
+    }
+
+    /**
+     * @return array<string,mixed>|null
+     */
+    private function fetchSummaryByTitle(string $title): ?array {
+        $encoded = rawurlencode(str_replace(' ', '_', $title));
+        try {
+            $resp = Http::timeout(20)
+                ->withHeaders(['User-Agent' => $this->userAgent])
+                ->get("https://en.wikipedia.org/api/rest_v1/page/summary/{$encoded}");
+        } catch (\Throwable $e) {
+            return null;
+        }
+        if (! $resp->successful()) {
+            return null;
+        }
+        $data = $resp->json();
+        if (! is_array($data)) {
+            return null;
+        }
+        if (($data['type'] ?? '') === 'disambiguation') {
+            return null;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function wikipediaSearch(string $query): array {
+        try {
+            $resp = Http::timeout(20)
+                ->withHeaders(['User-Agent' => $this->userAgent])
+                ->get('https://en.wikipedia.org/w/api.php', [
+                    'action' => 'opensearch',
+                    'search' => $query,
+                    'limit' => 5,
+                    'namespace' => 0,
+                    'format' => 'json',
+                ]);
+        } catch (\Throwable $e) {
+            return [];
+        }
+        if (! $resp->successful()) {
+            return [];
+        }
+        $data = $resp->json();
+        // opensearch returns [search, titles[], descriptions[], urls[]]
+        return is_array($data[1] ?? null) ? $data[1] : [];
+    }
+
+    /**
+     * Verifies the candidate Wikipedia summary shares enough context with
+     * the prisoner record to be considered a match. Avoids false positives
+     * like "Frank Miller" (comics writer) for an unrelated political defendant.
+     */
+    private function matchesPrisoner(Prisoner $p, array $summary): bool {
+        $haystack = strtolower(implode(' ', [
+            $summary['description'] ?? '',
+            $summary['extract'] ?? '',
+        ]));
+        if ($haystack === '') {
+            return false;
+        }
+
+        $keywords = $this->genericKeywords;
+        // Pull keywords from the prisoner's own profile.
+        foreach ((array) $p->ideologies as $k) {
+            $keywords[] = strtolower((string) $k);
+        }
+        foreach ((array) $p->affiliation as $k) {
+            $keywords[] = strtolower((string) $k);
+        }
+        if ($p->state) {
+            $keywords[] = strtolower($p->state);
+        }
+        if ($p->era && preg_match('/^(\\d{4})s$/', (string) $p->era, $m)) {
+            $keywords[] = $m[1];
+            $keywords[] = (string) ((int) $m[1] + 1);
+            $keywords[] = (string) ((int) $m[1] + 2);
+            $keywords[] = (string) ((int) $m[1] + 5);
+        }
+
+        foreach ($keywords as $kw) {
+            $kw = trim($kw);
+            if ($kw === '' || strlen($kw) < 3) {
+                continue;
+            }
+            if (str_contains($haystack, $kw)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -153,7 +308,7 @@ final class EnrichPrisonersFromWikipedia extends Command {
     private function fetchWikidataDates(string $qid): array {
         try {
             $resp = Http::timeout(20)
-                ->withHeaders(['User-Agent' => 'NPPC-Archive/1.0 (nppc.example)'])
+                ->withHeaders(['User-Agent' => $this->userAgent])
                 ->get("https://www.wikidata.org/wiki/Special:EntityData/{$qid}.json");
         } catch (\Throwable $e) {
             return ['birth' => null, 'death' => null];
@@ -164,6 +319,19 @@ final class EnrichPrisonersFromWikipedia extends Command {
         $data = $resp->json();
         $entity = $data['entities'][$qid] ?? null;
         if (! $entity) {
+            return ['birth' => null, 'death' => null];
+        }
+
+        // Require P31 includes Q5 (human) before accepting dates.
+        $isHuman = false;
+        foreach ($entity['claims']['P31'] ?? [] as $claim) {
+            $val = $claim['mainsnak']['datavalue']['value']['id'] ?? null;
+            if ($val === 'Q5') {
+                $isHuman = true;
+                break;
+            }
+        }
+        if (! $isHuman) {
             return ['birth' => null, 'death' => null];
         }
 
@@ -178,7 +346,6 @@ final class EnrichPrisonersFromWikipedia extends Command {
         if (! $statements) {
             return null;
         }
-        // Wikidata format: +1890-08-07T00:00:00Z (precision 11 = day; 10 = month; 9 = year)
         if (preg_match('/^[+]?(\\d{4})-(\\d{2})-(\\d{2})/', $statements, $m)) {
             $year = (int) $m[1];
             $month = (int) $m[2];
@@ -207,7 +374,7 @@ final class EnrichPrisonersFromWikipedia extends Command {
         }
         try {
             $resp = Http::timeout(60)
-                ->withHeaders(['User-Agent' => 'NPPC-Archive/1.0 (nppc.example)'])
+                ->withHeaders(['User-Agent' => $this->userAgent])
                 ->get($url);
         } catch (\Throwable $e) {
             return null;
