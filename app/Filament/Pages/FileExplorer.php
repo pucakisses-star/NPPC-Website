@@ -452,6 +452,14 @@ class FileExplorer extends Page {
         ];
     }
 
+    public function getThumbnailUrl(string $relativePath, string $ext): ?string {
+        if (! in_array(strtolower($ext), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'])) {
+            return null;
+        }
+
+        return $this->resolveImageUrl($relativePath);
+    }
+
     private function resolveImageUrl(string $relativePath): ?string {
         // storage/app/public/... -> served via /storage/...
         if (str_starts_with($relativePath, 'storage'.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR)) {
