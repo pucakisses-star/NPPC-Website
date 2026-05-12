@@ -68,7 +68,14 @@
     @if($isSearching)
         <div style="display: flex; gap: 24px;">
         <div style="flex: 1; min-width: 0;">
-        <x-filament::section heading="Search Results ({{ count($searchResults) }}{{ count($searchResults) >= 100 ? '+' : '' }})">
+        @php
+            $searchTotal = count($searchResults);
+            $searchTotalPages = max(1, (int) ceil($searchTotal / max(1, $searchPerPage)));
+            $searchPageClamped = max(1, min($searchPage, $searchTotalPages));
+            $searchOffset = ($searchPageClamped - 1) * $searchPerPage;
+            $searchPageResults = array_slice($searchResults, $searchOffset, $searchPerPage);
+        @endphp
+        <x-filament::section heading="Search Results ({{ $searchTotal }}{{ $searchTotal >= 500 ? '+' : '' }})">
             @if(empty($searchResults))
                 <div style="text-align: center; color: rgba(255,255,255,0.4); padding: 24px;">No results found for "{{ $searchQuery }}"</div>
             @else
@@ -82,7 +89,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($searchResults as $result)
+                        @foreach($searchPageResults as $result)
                             <tr class="fe-row"
                                 data-ctx-path="{{ $result['path'] }}"
                                 data-ctx-name="{{ $result['name'] }}"
@@ -120,6 +127,28 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                @if($searchTotalPages > 1)
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding: 8px 4px; font-size: 13px; color: rgba(255,255,255,0.6);">
+                        <div>
+                            Showing {{ $searchOffset + 1 }}–{{ min($searchOffset + $searchPerPage, $searchTotal) }} of {{ $searchTotal }}
+                        </div>
+                        <div style="display: flex; gap: 4px; align-items: center;">
+                            <button wire:click="setSearchPage(1)" class="fe-btn" @if($searchPageClamped <= 1) disabled style="opacity: 0.4; cursor: default;" @endif>&laquo;</button>
+                            <button wire:click="setSearchPage({{ $searchPageClamped - 1 }})" class="fe-btn" @if($searchPageClamped <= 1) disabled style="opacity: 0.4; cursor: default;" @endif>Prev</button>
+                            @php
+                                $windowStart = max(1, $searchPageClamped - 2);
+                                $windowEnd = min($searchTotalPages, $windowStart + 4);
+                                $windowStart = max(1, $windowEnd - 4);
+                            @endphp
+                            @for($p = $windowStart; $p <= $windowEnd; $p++)
+                                <button wire:click="setSearchPage({{ $p }})" class="fe-btn @if($p === $searchPageClamped) fe-btn-primary @endif">{{ $p }}</button>
+                            @endfor
+                            <button wire:click="setSearchPage({{ $searchPageClamped + 1 }})" class="fe-btn" @if($searchPageClamped >= $searchTotalPages) disabled style="opacity: 0.4; cursor: default;" @endif>Next</button>
+                            <button wire:click="setSearchPage({{ $searchTotalPages }})" class="fe-btn" @if($searchPageClamped >= $searchTotalPages) disabled style="opacity: 0.4; cursor: default;" @endif>&raquo;</button>
+                        </div>
+                    </div>
+                @endif
             @endif
         </x-filament::section>
         </div>

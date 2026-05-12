@@ -20,6 +20,8 @@ class FileExplorer extends Page {
     public string $searchQuery = '';
     public array $searchResults = [];
     public bool $isSearching = false;
+    public int $searchPage = 1;
+    public int $searchPerPage = 50;
     public string $newFolderName = '';
     public $uploadedFiles = [];
     public ?string $renamingFile = null;
@@ -123,6 +125,7 @@ class FileExplorer extends Page {
 
         $this->isSearching = true;
         $this->searchResults = [];
+        $this->searchPage = 1;
         $basePath = config('claude.repo_path', base_path());
 
         $this->searchDirectory($basePath, '', $query, 0);
@@ -132,6 +135,13 @@ class FileExplorer extends Page {
         $this->searchQuery = '';
         $this->searchResults = [];
         $this->isSearching = false;
+        $this->searchPage = 1;
+    }
+
+    public function setSearchPage(int $page): void {
+        $total = count($this->searchResults);
+        $totalPages = max(1, (int) ceil($total / max(1, $this->searchPerPage)));
+        $this->searchPage = max(1, min($page, $totalPages));
     }
 
     public function openFolderLocation(string $folder): void {
@@ -144,7 +154,7 @@ class FileExplorer extends Page {
     }
 
     private function searchDirectory(string $basePath, string $relativePath, string $query, int $depth): void {
-        if ($depth > 8 || count($this->searchResults) >= 100) {
+        if ($depth > 8 || count($this->searchResults) >= 500) {
             return;
         }
 
@@ -193,7 +203,7 @@ class FileExplorer extends Page {
                     'ext'      => $isDir ? null : strtolower(pathinfo($entry, PATHINFO_EXTENSION)),
                 ];
 
-                if (count($this->searchResults) >= 100) {
+                if (count($this->searchResults) >= 500) {
                     return;
                 }
             }
