@@ -52,7 +52,10 @@ final class ValidatePrisonerErasVsDates extends Command {
                 continue;
             }
             $eraStart = (int) $m[1];
-            $eraEnd = $eraStart + 9;
+            // Pre-1900 eras like "1700s" / "1800s" denote centuries in the NPPC
+            // dataset (Alien & Sedition Act, abolitionists, Haymarket, etc.).
+            // Eras from 1900s onward denote decades.
+            $eraEnd = $eraStart < 1900 ? $eraStart + 99 : $eraStart + 9;
             $tooYoungThreshold = $eraEnd - 12;
 
             $birthYear = $p->birthdate ? (int) substr((string) $p->birthdate, 0, 4) : null;
