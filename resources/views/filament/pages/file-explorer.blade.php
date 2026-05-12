@@ -1,5 +1,5 @@
 <x-filament-panels::page>
-    <link rel="stylesheet" href="/style/file-explorer.css">
+    <link rel="stylesheet" href="/style/file-explorer.css?v=2">
     {{-- Top Bar: Breadcrumbs + Search + Actions --}}
     <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
         {{-- Breadcrumbs --}}
