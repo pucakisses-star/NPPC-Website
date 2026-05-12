@@ -1,0 +1,290 @@
+[
+  {
+    "name": "Jonathan Myrick Daniels",
+    "first_name": "Jonathan",
+    "middle_name": "Myrick",
+    "last_name": "Daniels",
+    "description": "Episcopal seminarian at the Episcopal Theological School in Cambridge, Massachusetts, and a graduate of the Virginia Military Institute, who answered Martin Luther King Jr.'s call for clergy to come to Selma in March 1965. A member of the Episcopal Society for Cultural and Racial Unity (ESCRU), Daniels worked in Lowndes County, Alabama registering Black voters and integrating local Episcopal churches. On August 20, 1965, moments after being released from the Lowndes County Jail in Hayneville, he pushed 17-year-old Ruby Sales out of the path of a shotgun blast fired by special deputy Tom Coleman at Varner's Cash Store in Hayneville and was killed instantly. The Episcopal Church added him to its calendar of saints and martyrs in 1991.",
+    "state": "Alabama",
+    "race": "White",
+    "gender": "Male",
+    "birthdate": "1939-03-20",
+    "death_date": "1965-08-20",
+    "ideologies": ["Civil Rights", "Christian Social Justice"],
+    "affiliation": ["ESCRU", "SNCC", "Episcopal Theological School"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Richard F. Morrisroe",
+    "first_name": "Richard",
+    "last_name": "Morrisroe",
+    "description": "Roman Catholic priest of the Archdiocese of Chicago who came south in the summer of 1965 to support civil rights organizing in Alabama's Black Belt. Arrested with the Fort Deposit demonstrators on August 14, 1965 and held in the Lowndes County Jail in Hayneville for six days, he was shot in the back by special deputy Tom Coleman moments after release on August 20, 1965 while walking with Jonathan Daniels, Ruby Sales, and Joyce Bailey to Varner's Cash Store. Morrisroe survived severe abdominal wounds after lengthy surgery and rehabilitation. He later left the active priesthood, became an attorney, and worked in housing and public-interest law in Chicago and Gary, Indiana.",
+    "state": "Alabama",
+    "race": "White",
+    "gender": "Male",
+    "ideologies": ["Civil Rights", "Catholic Social Teaching"],
+    "affiliation": ["Archdiocese of Chicago"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Ruby Nell Sales",
+    "first_name": "Ruby",
+    "middle_name": "Nell",
+    "last_name": "Sales",
+    "description": "Seventeen-year-old SNCC student activist from Columbus, Georgia, attending Tuskegee Institute, who joined the SNCC organizing project in Lowndes County, Alabama in the summer of 1965. Arrested on August 14, 1965 at the Fort Deposit demonstration and jailed for six days in Hayneville, she was standing on the steps of Varner's Cash Store on August 20, 1965 when special deputy Tom Coleman leveled a shotgun at her; Jonathan Daniels pushed her aside and was killed in her place. She later studied at the Episcopal Divinity School and founded the SpiritHouse Project, a national nonprofit focused on racial, economic, and spiritual justice.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Female",
+    "birthdate": "1948-09-06",
+    "ideologies": ["Civil Rights", "Black Liberation"],
+    "affiliation": ["SNCC", "SpiritHouse Project"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Joyce Bailey",
+    "first_name": "Joyce",
+    "last_name": "Bailey",
+    "description": "Young Black resident of Lowndes County, Alabama and local civil rights activist who joined the Fort Deposit picket on August 14, 1965 and was jailed in Hayneville for six days with the SNCC-led group. After release on August 20, 1965 she walked with Jonathan Daniels, Ruby Sales, and Father Richard Morrisroe to Varner's Cash Store, where she witnessed Daniels's killing and Morrisroe's wounding by special deputy Tom Coleman. She later testified about the events in Hayneville.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Female",
+    "ideologies": ["Civil Rights"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Gloria Larry House",
+    "first_name": "Gloria",
+    "last_name": "Larry",
+    "aka": "Gloria House",
+    "description": "SNCC field secretary and graduate student from California working in Lowndes County, Alabama during the summer of 1965. She was arrested with Jonathan Daniels and the Fort Deposit demonstrators on August 14, 1965 and held without bond in the Lowndes County Jail in Hayneville for six days. After her release she continued organizing in Alabama and later became a longtime professor of African American Studies and Humanities at Wayne State University in Detroit and a noted poet and community activist.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Female",
+    "ideologies": ["Civil Rights", "Black Liberation"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Jimmy Rogers",
+    "first_name": "Jimmy",
+    "last_name": "Rogers",
+    "description": "SNCC field worker active in the Lowndes County organizing project in the summer of 1965 and one of the organizers of the August 14, 1965 picket of segregated stores in Fort Deposit, Alabama. He was arrested with the group of roughly thirty demonstrators and held in the Lowndes County Jail in Hayneville for six days before being released without bond on August 20, 1965, the day Jonathan Daniels was killed.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Civil Rights", "Black Liberation"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Willie Vaughn",
+    "first_name": "Willie",
+    "last_name": "Vaughn",
+    "description": "SNCC field worker assigned to the Lowndes County, Alabama voter-registration and organizing project in 1965. He helped coordinate the August 14, 1965 picket of segregated stores in Fort Deposit and was among the roughly thirty protesters arrested and held in the Lowndes County Jail in Hayneville. He was released without bond on August 20, 1965, the day special deputy Tom Coleman shot Jonathan Daniels and Father Richard Morrisroe.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Civil Rights", "Black Liberation"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Charles Wingo",
+    "first_name": "Charles",
+    "last_name": "Wingo",
+    "aka": "Mojo",
+    "description": "SNCC field worker known as \"Mojo\" who organized with the Lowndes County Freedom Organization in 1965. He participated in the August 14, 1965 demonstration against segregated stores in Fort Deposit, Alabama and was arrested with the rest of the picket line, spending six days without bond in the Lowndes County Jail in Hayneville before being released on August 20, 1965.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Civil Rights", "Black Liberation"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Henry Hawkins",
+    "first_name": "Henry",
+    "last_name": "Hawkins",
+    "description": "Young Black demonstrator from Lowndes County, Alabama who joined the SNCC-organized picket against segregated stores in Fort Deposit on August 14, 1965. He was arrested along with the rest of the group of approximately thirty protesters and held in the Lowndes County Jail in Hayneville for six days, being released without bond on August 20, 1965 shortly before Jonathan Daniels was shot to death.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Civil Rights"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  },
+  {
+    "name": "Mary Lou Bonner",
+    "first_name": "Mary",
+    "middle_name": "Lou",
+    "last_name": "Bonner",
+    "description": "Young Black resident of Lowndes County, Alabama who participated in the SNCC-led demonstration against segregated businesses in Fort Deposit on August 14, 1965. She was arrested with the group of roughly thirty picketers and held without bond in the Lowndes County Jail in Hayneville for six days, being released on August 20, 1965, the same day Jonathan Daniels was killed and Father Richard Morrisroe was gravely wounded.",
+    "state": "Alabama",
+    "race": "Black",
+    "gender": "Female",
+    "ideologies": ["Civil Rights"],
+    "affiliation": ["SNCC", "Lowndes County Freedom Organization"],
+    "era": "1960s",
+    "in_custody": false,
+    "released": true,
+    "cases": [
+      {
+        "institution_name": "Lowndes County Jail",
+        "institution_city": "Hayneville",
+        "institution_state": "Alabama",
+        "charges": "Picketing / unlawful assembly (Fort Deposit, AL desegregation protest)",
+        "arrest_date": "1965-08-14",
+        "incarceration_date": "1965-08-14",
+        "release_date": "1965-08-20",
+        "convicted": "No — released without trial August 20, 1965 after six days of detention",
+        "sentence": "Held 6 days without bond",
+        "imprisoned_for_days": 6
+      }
+    ]
+  }
+]
