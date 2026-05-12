@@ -236,6 +236,12 @@ class FileExplorer extends Page {
 
     // --- Upload Files ---
 
+    public function updatedUploadedFiles(): void {
+        if (! empty($this->uploadedFiles)) {
+            $this->uploadFiles();
+        }
+    }
+
     public function uploadFiles(): void {
         if (empty($this->uploadedFiles)) {
             return;

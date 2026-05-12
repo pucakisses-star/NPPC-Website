@@ -48,9 +48,9 @@
         </label>
 
         @if($uploadedFiles)
-            <button wire:click="uploadFiles" class="fe-btn fe-btn-primary">
-                Upload {{ count($uploadedFiles) }} file{{ count($uploadedFiles) > 1 ? 's' : '' }}
-            </button>
+            <span class="fe-btn" style="background: #6366f1; border-color: #6366f1; cursor: default;">
+                Uploading {{ count($uploadedFiles) }} file{{ count($uploadedFiles) > 1 ? 's' : '' }}...
+            </span>
         @endif
 
         <span style="font-size: 12px; color: rgba(255,255,255,0.3);">Current: /{{ $currentPath ?: 'project root' }}</span>
