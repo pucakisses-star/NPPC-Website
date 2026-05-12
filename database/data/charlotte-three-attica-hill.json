@@ -1,0 +1,100 @@
+[
+  {
+    "name": "James Earl Grant",
+    "first_name": "James",
+    "middle_name": "Earl",
+    "last_name": "Grant",
+    "aka": "Jim Grant",
+    "description": "Black civil rights organizer and one of the 'Charlotte Three,' convicted in 1972 in Charlotte, North Carolina of conspiracy to burn down a stable as part of what supporters and the U.S. National Minority Advisory Council on Criminal Justice (1980) described as a politically motivated prosecution of Black activists. The all-but-one-white jury convicted Grant, Thomas James Reddy, and Charles Parker solely on the testimony of two witnesses with long criminal records who were secretly paid $4,000 each by government authorities and later partly recanted. A Justice Department memo labeled the defendants 'Black militants' and the case is widely cited alongside the Wilmington Ten as a textbook example of state political repression of Southern Black civil rights workers in the early 1970s.",
+    "state": "North Carolina",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Black liberation", "Civil rights"],
+    "affiliation": ["Charlotte Three"],
+    "era": "1970s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "North Carolina State Prison System",
+      "institution_state": "North Carolina",
+      "charges": "Conspiracy to commit arson (burning of a riding stable)",
+      "arrest_date": "1972-01-01",
+      "incarceration_date": "1972-01-01",
+      "convicted": "Yes — conviction widely challenged as politically motivated; key witnesses later recanted",
+      "sentence": "25 years"
+    }]
+  },
+  {
+    "name": "Thomas James Reddy",
+    "first_name": "Thomas",
+    "middle_name": "James",
+    "last_name": "Reddy",
+    "aka": "T.J. Reddy",
+    "description": "Black poet, painter, and civil rights activist and one of the 'Charlotte Three,' convicted in 1972 in Charlotte, North Carolina on conspiracy and arson charges for the burning of a riding stable. The U.S. National Minority Advisory Council on Criminal Justice (1980) cited the case as a clear example of political repression: the all-but-one-white jury relied on two witnesses with long criminal records who were secretly paid $4,000 each by government authorities and later recanted, and a Justice Department memo described the prosecution as singling out 'young Black activists' to silence racial protest. Reddy and his codefendants Jim Grant and Charles Parker were widely regarded as political prisoners during their incarceration.",
+    "state": "North Carolina",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Black liberation", "Civil rights"],
+    "affiliation": ["Charlotte Three"],
+    "era": "1970s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "North Carolina State Prison System",
+      "institution_state": "North Carolina",
+      "charges": "Conspiracy to commit arson; burning of a riding stable",
+      "arrest_date": "1972-01-01",
+      "incarceration_date": "1972-01-01",
+      "convicted": "Yes — conviction widely viewed as politically motivated; witnesses later recanted",
+      "sentence": "20 years"
+    }]
+  },
+  {
+    "name": "Charles Parker",
+    "first_name": "Charles",
+    "last_name": "Parker",
+    "description": "Black civil rights activist and one of the 'Charlotte Three,' convicted in 1972 in Charlotte, North Carolina of conspiracy to commit arson for the burning of a riding stable. As documented by the U.S. National Minority Advisory Council on Criminal Justice (1980), the conviction was secured by a jury of eleven whites and one Black on the unsupported testimony of two prosecution witnesses with long criminal records who had been secretly paid $4,000 each by government authorities, and who later recanted. A Justice Department memo described the case as one in which 'young Black activists have been singled out for summary treatment in an effort to silence racial protest,' and Parker, along with Jim Grant and T.J. Reddy, was considered a political prisoner during his incarceration.",
+    "state": "North Carolina",
+    "race": "Black",
+    "gender": "Male",
+    "ideologies": ["Black liberation", "Civil rights"],
+    "affiliation": ["Charlotte Three"],
+    "era": "1970s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "North Carolina State Prison System",
+      "institution_state": "North Carolina",
+      "charges": "Conspiracy to commit arson (riding stable burning)",
+      "arrest_date": "1972-01-01",
+      "incarceration_date": "1972-01-01",
+      "convicted": "Yes — politically motivated conviction; key witnesses paid by the state and later recanted",
+      "sentence": "10 years"
+    }]
+  },
+  {
+    "name": "John Boncore Hill",
+    "first_name": "John",
+    "last_name": "Hill",
+    "aka": "Dacajewiah; Splitting the Sky",
+    "description": "Mohawk (Haudenosaunee) prisoner and one of the leaders of the September 1971 Attica State Prison uprising in New York. After New York State Police killed dozens of inmates and hostages in the assault that ended the rebellion, the state singled out uprising leaders for prosecution; Hill was convicted in 1975 of killing prison guard William Quinn — a charge supporters and human rights observers cited by the U.S. National Minority Advisory Council on Criminal Justice (1980) considered politically motivated, given that the state continually invented and revised its account of Quinn's death to justify the assault on D-Yard. Hill spent years in New York prisons before his eventual release and went on to become a prominent Indigenous rights activist known as Splitting the Sky.",
+    "state": "New York",
+    "race": "Indigenous",
+    "gender": "Male",
+    "ideologies": ["Indigenous liberation", "Prisoners' rights"],
+    "affiliation": ["Attica Brothers", "Attica Liberation Faction"],
+    "era": "1970s",
+    "in_custody": false,
+    "released": true,
+    "cases": [{
+      "institution_name": "Attica Correctional Facility",
+      "institution_city": "Attica",
+      "institution_state": "New York",
+      "charges": "Murder of correction officer William Quinn during the Attica uprising",
+      "arrest_date": "1971-09-13",
+      "incarceration_date": "1975-01-01",
+      "convicted": "Yes (1975) — conviction widely regarded as political; state account of Quinn's death repeatedly changed",
+      "sentence": "20 years to life"
+    }]
+  }
+]
