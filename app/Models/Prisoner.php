@@ -53,10 +53,13 @@ final class Prisoner extends Model {
         'currently_in_exile'  => 'boolean',
         'imprisoned_or_exiled' => 'boolean',
         'awaiting_trial'      => 'boolean',
+        'under_review'        => 'boolean',
     ];
 
     public static function booted(): void {
         parent::booted();
+
+        static::addGlobalScope(new \App\Models\Scopes\NotUnderReviewScope);
 
         static::creating(function ($model) {
             if (! $model->slug && $model->name) {
@@ -135,6 +138,11 @@ final class Prisoner extends Model {
 
     public function getUrlAttribute(): string {
         return '/prisoner/'.($this->slug ?: $this->id);
+    }
+
+    /** Convenience for admin queries that need to see under-review rows. */
+    public static function withUnderReview(): \Illuminate\Database\Eloquent\Builder {
+        return self::query()->withoutGlobalScope(\App\Models\Scopes\NotUnderReviewScope::class);
     }
 
     public function getAgeAttribute($value): ?int {

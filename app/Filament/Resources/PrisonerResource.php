@@ -96,6 +96,9 @@ class PrisonerResource extends Resource {
                         Forms\Components\Toggle::make('currently_in_exile'),
                         Forms\Components\Toggle::make('imprisoned_or_exiled'),
                         Forms\Components\Toggle::make('awaiting_trial'),
+                        Forms\Components\Toggle::make('under_review')
+                            ->label('Under review (hide from public site)')
+                            ->helperText('When on, this prisoner is hidden from the public database, search, map, and calendar. Still visible in the admin.'),
                     ])
                     ->columns(3),
 
@@ -158,6 +161,14 @@ class PrisonerResource extends Resource {
                     ->searchable(['name', 'first_name', 'last_name', 'aka'])
                     ->sortable()
                     ->weight('bold'),
+                Tables\Columns\IconColumn::make('under_review')
+                    ->label('Review')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-eye-slash')
+                    ->falseIcon('')
+                    ->trueColor('warning')
+                    ->tooltip(fn ($state) => $state ? 'Under review — hidden from public site' : null)
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('inmate_number')
                     ->label('ID #')
                     ->prefix('#')
@@ -232,6 +243,12 @@ class PrisonerResource extends Resource {
             ->paginationPageOptions([25, 50, 100, 250, 'all'])
             ->defaultPaginationPageOption(50)
             ->filters([
+                Tables\Filters\TernaryFilter::make('under_review')
+                    ->label('Under review')
+                    ->placeholder('All prisoners')
+                    ->trueLabel('Under review only')
+                    ->falseLabel('Public only')
+                    ->default(false),
                 // Status filter group matching Airtable's button filters
                 Tables\Filters\Filter::make('imprisoned_or_exiled')
                     ->label('In Custody or Exiled')
@@ -420,6 +437,12 @@ class PrisonerResource extends Resource {
         return [
             RelationManagers\CasesRelationManager::class,
         ];
+    }
+
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder {
+        // Admin sees ALL prisoners — including those marked under_review.
+        return parent::getEloquentQuery()
+            ->withoutGlobalScope(\App\Models\Scopes\NotUnderReviewScope::class);
     }
 
     public static function getPages(): array {
