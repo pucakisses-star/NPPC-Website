@@ -21,6 +21,7 @@ Route::controller(SiteController::class)
         Route::get('annual-report', 'annualReport');
         Route::get('topics/{slug?}', 'topics');
         Route::get('calendar', 'calendar');
+        Route::get('birthdays', 'birthdays');
         Route::get('map', 'map');
         Route::get('faq', 'faq');
         Route::get('staff', 'staff');
