@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnnualReport;
+use App\Models\ArchiveRecord;
 use App\Models\Article;
 use App\Models\CalendarEntry;
 use App\Models\Event;
@@ -34,6 +35,118 @@ final class SiteController extends Controller {
 
     public function timeline() {
         return view('pages.timeline', ['timelines' => Timeline::query()->orderBy('year')->get()]);
+    }
+
+    public function archiveRecords(Request $request) {
+        $q = trim((string) $request->query('q', ''));
+        $collection = $request->query('collection');
+        $recordType = $request->query('record_type');
+        $sourceFormat = $request->query('source_format');
+        $year = $request->query('year');
+        $subject = $request->query('subject');
+        $sort = $request->query('sort', 'relevance');
+        $includeNonDigitized = filter_var($request->query('include_nondigitized'), FILTER_VALIDATE_BOOLEAN);
+
+        $base = ArchiveRecord::published();
+        if (! $includeNonDigitized) {
+            $base->digitized();
+        }
+
+        $facetQuery = (clone $base);
+        if ($q !== '') {
+            $facetQuery->where(function ($w) use ($q) {
+                $w->where('title', 'like', "%{$q}%")
+                    ->orWhere('description', 'like', "%{$q}%")
+                    ->orWhere('authors', 'like', "%{$q}%")
+                    ->orWhere('publisher', 'like', "%{$q}%");
+            });
+        }
+
+        $countBy = function (string $column) use ($facetQuery) {
+            return (clone $facetQuery)
+                ->whereNotNull($column)
+                ->selectRaw("{$column} as label, COUNT(*) as count")
+                ->groupBy($column)
+                ->orderByDesc('count')
+                ->limit(20)
+                ->get()
+                ->map(fn ($r) => ['label' => (string) $r->label, 'count' => (int) $r->count])
+                ->all();
+        };
+
+        $facets = [
+            'collection' => $countBy('collection'),
+            'record_type' => $countBy('record_type'),
+            'source_format' => $countBy('source_format'),
+            'year' => $countBy('year'),
+        ];
+
+        $subjectCounts = [];
+        foreach ((clone $facetQuery)->whereNotNull('subjects')->pluck('subjects') as $list) {
+            foreach ((array) $list as $s) {
+                $s = trim((string) $s);
+                if ($s === '') {
+                    continue;
+                }
+                $subjectCounts[$s] = ($subjectCounts[$s] ?? 0) + 1;
+            }
+        }
+        arsort($subjectCounts);
+        $facets['subject'] = array_map(
+            fn ($label, $count) => ['label' => (string) $label, 'count' => (int) $count],
+            array_keys($subjectCounts),
+            array_values($subjectCounts)
+        );
+        $facets['subject'] = array_slice($facets['subject'], 0, 20);
+
+        $query = (clone $base);
+        if ($q !== '') {
+            $query->where(function ($w) use ($q) {
+                $w->where('title', 'like', "%{$q}%")
+                    ->orWhere('description', 'like', "%{$q}%")
+                    ->orWhere('authors', 'like', "%{$q}%")
+                    ->orWhere('publisher', 'like', "%{$q}%");
+            });
+        }
+        if ($collection) {
+            $query->where('collection', $collection);
+        }
+        if ($recordType) {
+            $query->where('record_type', $recordType);
+        }
+        if ($sourceFormat) {
+            $query->where('source_format', $sourceFormat);
+        }
+        if ($year) {
+            $query->where('year', (int) $year);
+        }
+        if ($subject) {
+            $query->where('subjects', 'like', '%"'.$subject.'"%');
+        }
+
+        match ($sort) {
+            'newest' => $query->orderByDesc('date')->orderByDesc('year'),
+            'oldest' => $query->orderBy('date')->orderBy('year'),
+            'title' => $query->orderBy('title'),
+            default => $query->orderBy('sort_order')->orderBy('title'),
+        };
+
+        $records = $query->paginate(25)->withQueryString();
+        $total = $records->total();
+
+        return view('pages.archive-records', compact(
+            'records',
+            'facets',
+            'total',
+            'q',
+            'collection',
+            'recordType',
+            'sourceFormat',
+            'year',
+            'subject',
+            'sort',
+            'includeNonDigitized'
+        ));
     }
 
     public function history() {
