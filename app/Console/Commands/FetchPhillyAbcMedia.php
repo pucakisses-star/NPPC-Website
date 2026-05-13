@@ -60,27 +60,34 @@ final class FetchPhillyAbcMedia extends Command {
 
             if (! is_file($localPath) || $force || filesize($localPath) < 1000) {
                 $this->line("fetch {$url}");
+                $tmp = $localPath.'.partial';
                 try {
                     $resp = Http::withHeaders([
                         'User-Agent' => 'NPPC-Archive/1.0 (https://nationalpoliticalprisonercoalition.org)',
-                    ])->timeout(120)->get($url);
+                    ])
+                        ->withOptions(['sink' => $tmp])
+                        ->timeout(600)
+                        ->get($url);
                     if (! $resp->successful()) {
+                        @unlink($tmp);
                         $this->error("  HTTP {$resp->status()} — skipping registration.");
                         $failed++;
 
                         continue;
                     }
-                    $bytes = $resp->body();
-                    if (strlen($bytes) < 1000) {
-                        $this->error('  suspiciously small response ('.strlen($bytes).' bytes).');
+                    $size = is_file($tmp) ? filesize($tmp) : 0;
+                    if ($size < 1000) {
+                        @unlink($tmp);
+                        $this->error('  suspiciously small response ('.$size.' bytes).');
                         $failed++;
 
                         continue;
                     }
-                    file_put_contents($localPath, $bytes);
-                    $this->info('  saved '.number_format(strlen($bytes) / 1024, 1).' KB to '.$webPath);
+                    rename($tmp, $localPath);
+                    $this->info('  saved '.number_format($size / 1024, 1).' KB to '.$webPath);
                     $downloaded++;
                 } catch (\Throwable $e) {
+                    @unlink($tmp);
                     $this->error('  '.$e->getMessage());
                     $failed++;
 
