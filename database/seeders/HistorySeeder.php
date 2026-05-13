@@ -45,13 +45,22 @@ class HistorySeeder extends Seeder {
                 'sort_order'    => 2,
                 'topics'        => [
                     [
+                        'title'         => 'The Anti-Rent War',
+                        'date_label'    => '1839 – 1845',
+                        'summary'       => 'In the Hudson Valley of New York, tenant farmers rose up against the patroon system — a Dutch feudal-style land tenure that bound tens of thousands of farmers to the Van Rensselaer, Livingston, and other manor lords with perpetual leases collected in livestock, labor, and cash. Disguised in calico-cloth masks and sheepskin face paint as "Calico Indians," the tenants resisted sheriffs serving distress warrants, intercepted rent-collection parties, and built a region-wide insurgency across Columbia, Rensselaer, Albany, and Delaware Counties. On August 7, 1845 at the Moses Earle farm in Andes, Delaware County, hundreds of Calico Indians surrounded and shot dead Undersheriff Osman N. Steele, who had ridden out to enforce a rent-distress sale. Four leaders — physician Smith A. Boughton ("Big Thunder"), and Calico Indians John Van Steenburgh, Edward O\'Connor, and the elderly tenant Moses Earle himself — were tried at Hudson and Delhi in 1845 before Justices John W. Edmonds and Amasa J. Parker. Boughton received life for robbery (taking a sheriff\'s rent paper); Van Steenburgh and O\'Connor were sentenced to be hanged for Steele\'s murder; Earle was convicted of manslaughter. All four served at Clinton State Prison at Dannemora. After Anti-Rent voting blocs delivered the 1846 gubernatorial election to John Young, the new governor pardoned every Anti-Rent prisoner in 1847. The patroon leasehold system was effectively dismantled by the new state constitution adopted that same year.',
+                        'bg_class'      => 'vbg-antirent',
+                        'caption_era'   => '1839',
+                        'caption_label' => 'The Anti-Rent War',
+                        'sort_order'    => 1,
+                    ],
+                    [
                         'title'         => 'The Abolition Movement',
                         'date_label'    => '1830s – 1860s',
                         'summary'       => 'As the movement to end slavery intensified, Southern states and the federal government responded by criminalizing anti-slavery activism. It became illegal in much of the South to distribute abolitionist literature, teach enslaved people to read, or publicly advocate for emancipation. Abolitionists were arrested, imprisoned, and subjected to mob violence. Elijah Lovejoy, an abolitionist newspaper editor, was murdered by a pro-slavery mob in Illinois in 1837. John Brown was executed in 1859 after leading a raid on the federal armoury at Harpers Ferry. His trial and execution made him a martyr and deepened the divide that would lead to war. Across the South, free Black people and fugitive slaves who resisted their condition were treated as criminals for asserting their basic humanity.',
                         'bg_class'      => 'vbg-abolition',
                         'caption_era'   => '1830s',
                         'caption_label' => 'The Abolition Movement',
-                        'sort_order'    => 1,
+                        'sort_order'    => 2,
                     ],
                     [
                         'title'         => 'The Civil War',
@@ -60,7 +69,7 @@ class HistorySeeder extends Seeder {
                         'bg_class'      => 'vbg-civilwar',
                         'caption_era'   => '1861',
                         'caption_label' => 'The Civil War',
-                        'sort_order'    => 2,
+                        'sort_order'    => 3,
                     ],
                 ],
             ],

@@ -50,7 +50,7 @@ final class AddHistoryUpdates extends Command {
                 'bg_class'      => 'vbg-1800',
                 'caption_era'   => '1845',
                 'caption_label' => 'The Anti-Rent War',
-                'sort_order'    => 3,
+                'sort_order'    => 1,
             ],
             [
                 'title'         => 'Coxey\'s Army',
