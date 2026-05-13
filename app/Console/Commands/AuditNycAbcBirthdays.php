@@ -17,12 +17,14 @@ use Illuminate\Console\Command;
  * lacks a known year.
  */
 final class AuditNycAbcBirthdays extends Command {
-    protected $signature = 'archive:audit-nycabc-birthdays {--apply : Write birthdates for matched-but-empty prisoners using year=1900 sentinel} {--strict-year : Refuse to set a 1900 sentinel — only update if NYC ABC feed has a known year}';
+    protected $signature = 'archive:audit-nycabc-birthdays {--apply : Write birthdates for matched-but-empty prisoners using year=1900 sentinel} {--strict-year : Refuse to set a 1900 sentinel — only update if NYC ABC feed has a known year} {--fix-placeholders : For CONFLICT rows whose existing date ends in -01-01, overwrite month-day with the NYC ABC value (preserving year)} {--investigate : For NOT-FOUND rows, run broader candidate searches (last name only, fuzzy) and print matches}';
     protected $description = 'Cross-check NYC ABC PP/POW Birthday Calendar entries against NPPC';
 
     public function handle(): int {
         $apply = (bool) $this->option('apply');
         $strict = (bool) $this->option('strict-year');
+        $fixPlaceholders = (bool) $this->option('fix-placeholders');
+        $investigate = (bool) $this->option('investigate');
         $entries = json_decode(file_get_contents(database_path('data/nycabc-birthdays.json')), true);
 
         $found = 0;
@@ -41,6 +43,9 @@ final class AuditNycAbcBirthdays extends Command {
             if ($candidates->isEmpty()) {
                 $this->line(str_pad('NOT FOUND', 12).$name);
                 $missing++;
+                if ($investigate) {
+                    $this->printCandidates($name);
+                }
 
                 continue;
             }
@@ -62,6 +67,18 @@ final class AuditNycAbcBirthdays extends Command {
                     continue;
                 }
                 $this->warn(str_pad('CONFLICT', 12).$name.'  (existing='.$prisoner->birthdate->toDateString().'  nycabc='.$proposed.')');
+                if ($fixPlaceholders && str_ends_with($existing, '-01-01')) {
+                    $existingYear = (int) $prisoner->birthdate->format('Y');
+                    $newDate = sprintf('%04d-%02d-%02d', $existingYear, $month, $day);
+                    if (! $apply) {
+                        $this->line(str_pad('WOULD-FIX', 12).$name.'  -> '.$newDate.' (placeholder)');
+                    } else {
+                        $prisoner->birthdate = $newDate;
+                        $prisoner->save();
+                        $this->info(str_pad('FIXED', 12).$name.'  -> '.$newDate.' (placeholder)');
+                        $updated++;
+                    }
+                }
 
                 continue;
             }
@@ -127,5 +144,38 @@ final class AuditNycAbcBirthdays extends Command {
         }
 
         return new \Illuminate\Database\Eloquent\Collection;
+    }
+
+    /** For NOT-FOUND names, surface possible candidates by last name / alias / fuzzy parts. */
+    private function printCandidates(string $name): void {
+        $clean = preg_replace('/\(.*?\)/', '', $name);
+        $clean = trim(preg_replace('/\s+/', ' ', $clean));
+        $parts = preg_split('/\s+/', $clean);
+        if (count($parts) < 1) {
+            return;
+        }
+        $last = end($parts);
+        $first = $parts[0];
+
+        $base = Prisoner::withUnderReview();
+        $hits = (clone $base)
+            ->where(function ($q) use ($last, $first, $name) {
+                $q->where('name', 'like', "%{$last}%")
+                    ->orWhere('aka', 'like', "%{$last}%")
+                    ->orWhere('name', 'like', "%{$first}%")
+                    ->orWhere('aka', 'like', "%{$name}%");
+            })
+            ->limit(8)
+            ->get(['name', 'slug', 'aka']);
+
+        if ($hits->isEmpty()) {
+            $this->line(str_pad('', 12).'  (no candidates)');
+
+            return;
+        }
+        foreach ($hits as $h) {
+            $aka = $h->aka ? ' [aka '.$h->aka.']' : '';
+            $this->line(str_pad('', 12).'  ? '.$h->name.$aka.'  ('.$h->slug.')');
+        }
     }
 }
