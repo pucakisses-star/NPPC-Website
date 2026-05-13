@@ -1,0 +1,163 @@
+[
+    {
+        "name": "Albert Woodfox",
+        "first_name": "Albert",
+        "last_name": "Woodfox",
+        "aka": "Shaka Cinque",
+        "description": "One of the Angola 3. A Black Panther organizer at Louisiana State Penitentiary, Woodfox was convicted in 1974 of killing prison guard Brent Miller — a conviction overturned multiple times, retried, and finally vacated when he pled no contest on his 69th birthday. He spent more than 43 years in solitary confinement, the longest of any prisoner in U.S. history. Released February 19, 2016; died of COVID-19 complications August 4, 2022.",
+        "state": "Louisiana",
+        "race": "Black",
+        "gender": "Male",
+        "birthdate": "1947-02-19",
+        "death_date": "2022-08-04",
+        "ideologies": ["Black liberation", "Black Panther Party"],
+        "affiliation": ["Angola 3", "Black Panther Party"],
+        "era": "1970s",
+        "in_custody": false,
+        "released": true,
+        "cases": [
+            {
+                "institution_name": "Louisiana State Penitentiary",
+                "institution_city": "Angola",
+                "institution_state": "Louisiana",
+                "charges": "Murder of prison guard Brent Miller (1972 killing); originally incarcerated for armed robbery",
+                "arrest_date": "1971-02-01",
+                "incarceration_date": "1971-04-01",
+                "release_date": "2016-02-19",
+                "sentence": "Life — overturned and re-tried multiple times; final plea no contest to lesser charges on day of release"
+            }
+        ]
+    },
+    {
+        "name": "Russell Maroon Shoatz",
+        "first_name": "Russell",
+        "last_name": "Shoatz",
+        "aka": "Maroon",
+        "description": "Black Panther Party and Black Liberation Army veteran convicted in 1972 for the killing of Philadelphia police Sgt. Frank Von Colln during a 1970 attack on a Fairmount Park guard station. Spent more than 22 of his 49 years in solitary confinement; escaped twice (1977, 1980). Released to home confinement October 26, 2021; died of colorectal cancer at home December 17, 2021.",
+        "state": "Pennsylvania",
+        "race": "Black",
+        "gender": "Male",
+        "birthdate": "1943-08-23",
+        "death_date": "2021-12-17",
+        "ideologies": ["Black liberation", "Black Panther Party"],
+        "affiliation": ["Black Panther Party", "Black Liberation Army", "Black Unity Council"],
+        "era": "1970s",
+        "in_custody": false,
+        "released": true,
+        "cases": [
+            {
+                "institution_name": "SCI Phoenix",
+                "institution_city": "Collegeville",
+                "institution_state": "Pennsylvania",
+                "charges": "Murder of Philadelphia Police Sgt. Frank Von Colln (August 1970 Cobbs Creek Park guard-station attack)",
+                "arrest_date": "1972-01-28",
+                "incarceration_date": "1972-01-28",
+                "release_date": "2021-10-26",
+                "sentence": "Life"
+            }
+        ]
+    },
+    {
+        "name": "Fernando González Llort",
+        "first_name": "Fernando",
+        "last_name": "González",
+        "aka": "Rubén Campa",
+        "description": "One of the Cuban Five — Cuban intelligence officers convicted in 2001 in Miami of conspiracy to act as unregistered foreign agents while monitoring anti-Castro paramilitary groups that had been carrying out attacks against Cuba. Sentenced to 19 years (reduced to 17 years 9 months on resentencing). Released February 27, 2014 and returned to Cuba.",
+        "race": "Latino / Hispanic",
+        "gender": "Male",
+        "birthdate": "1963-08-18",
+        "ideologies": ["Cuban revolution", "Anti-imperialism"],
+        "affiliation": ["Cuban Five", "Wasp Network"],
+        "era": "1990s",
+        "in_custody": false,
+        "released": true,
+        "cases": [
+            {
+                "institution_name": "FCI Oxford",
+                "institution_city": "Oxford",
+                "institution_state": "Wisconsin",
+                "charges": "Conspiracy to act as an unregistered foreign agent; conspiracy to commit espionage",
+                "arrest_date": "1998-09-12",
+                "incarceration_date": "1998-09-12",
+                "release_date": "2014-02-27",
+                "sentence": "19 years (resentenced to 17 years 9 months)"
+            }
+        ]
+    },
+    {
+        "name": "Gerardo Hernández Nordelo",
+        "first_name": "Gerardo",
+        "last_name": "Hernández",
+        "description": "Leader of the Cuban Five — Cuban intelligence officers arrested in 1998 in Miami for infiltrating anti-Castro paramilitary groups. Hernández was convicted of conspiracy to commit espionage and, uniquely among the five, conspiracy to commit murder for the 1996 Cuban shootdown of two Brothers to the Rescue planes — a charge widely criticized by human rights groups. Sentenced to two life terms. Released December 17, 2014 in the U.S.–Cuba prisoner exchange that re-opened diplomatic relations.",
+        "race": "Latino / Hispanic",
+        "gender": "Male",
+        "birthdate": "1965-06-04",
+        "ideologies": ["Cuban revolution", "Anti-imperialism"],
+        "affiliation": ["Cuban Five", "Wasp Network"],
+        "era": "1990s",
+        "in_custody": false,
+        "released": true,
+        "cases": [
+            {
+                "institution_name": "USP Victorville",
+                "institution_city": "Victorville",
+                "institution_state": "California",
+                "charges": "Conspiracy to commit espionage; conspiracy to commit murder (Brothers to the Rescue shootdown)",
+                "arrest_date": "1998-09-12",
+                "incarceration_date": "1998-09-12",
+                "release_date": "2014-12-17",
+                "sentence": "Two life terms"
+            }
+        ]
+    },
+    {
+        "name": "Marissa Alexander",
+        "first_name": "Marissa",
+        "last_name": "Alexander",
+        "description": "Florida mother convicted in 2012 of aggravated assault with a firearm for firing a warning shot into a wall to deter her abusive estranged husband — no one was hurt. Sentenced under Florida's 10-20-Life statute to 20 years despite raising a Stand Your Ground defense. Conviction overturned in 2013; pled to time served plus two years home detention in November 2014. Completed home detention January 27, 2017. Her case became a national rallying point against mandatory-minimum sentencing and the racial disparity in Stand Your Ground rulings.",
+        "state": "Florida",
+        "race": "Black",
+        "gender": "Female",
+        "birthdate": "1980-09-14",
+        "era": "2010s",
+        "in_custody": false,
+        "released": true,
+        "cases": [
+            {
+                "institution_name": "Florida Department of Corrections",
+                "institution_city": "Jacksonville",
+                "institution_state": "Florida",
+                "charges": "Aggravated assault with a firearm (warning shot at abusive estranged husband)",
+                "arrest_date": "2010-08-01",
+                "incarceration_date": "2012-05-11",
+                "release_date": "2017-01-27",
+                "sentence": "20 years under 10-20-Life; overturned; pled to time served plus 2 years home detention"
+            }
+        ]
+    },
+    {
+        "name": "Kamau Sadiki",
+        "first_name": "Freddie",
+        "last_name": "Hilton",
+        "aka": "Kamau Sadiki",
+        "description": "Former Black Panther Party and Black Liberation Army member. Indicted in 2002 — more than thirty years after the fact — for the 1971 killing of Atlanta police officer James Richard Greene at a downtown service station. Prosecutors built their case largely on the testimony of an estranged co-defendant in exchange for leniency. Convicted in 2003 and sentenced to life plus ten years. Held in federal custody in poor health.",
+        "race": "Black",
+        "gender": "Male",
+        "birthdate": "1953-02-19",
+        "ideologies": ["Black liberation", "Black Panther Party"],
+        "affiliation": ["Black Liberation Army", "Black Panther Party"],
+        "era": "1970s",
+        "in_custody": true,
+        "released": false,
+        "cases": [
+            {
+                "institution_name": "Georgia Department of Corrections",
+                "institution_state": "Georgia",
+                "charges": "Felony murder of Atlanta police officer James Richard Greene (November 3, 1971)",
+                "arrest_date": "2002-08-29",
+                "incarceration_date": "2002-08-29",
+                "sentence": "Life plus ten years"
+            }
+        ]
+    }
+]
