@@ -9,7 +9,9 @@
 $topicCoords = [
     'The Sedition Act'                   => [39.9526, -75.1652, 'Philadelphia, PA'],
     'The Abolition Movement'             => [42.3601, -71.0589, 'Boston, MA'],
+    'The Anti-Rent War'                  => [42.1875, -74.7889, 'Andes, Delaware County, NY'],
     'The Civil War'                      => [38.9072, -77.0369, 'Washington, DC'],
+    'Coxey\'s Army'                      => [38.8899, -77.0091, 'U.S. Capitol, Washington, DC'],
     'The Labor Movement'                 => [41.8867, -87.6437, 'Haymarket Square, Chicago, IL'],
     'Suffragism'                         => [42.9106, -76.7960, 'Seneca Falls, NY'],
     'The First Red Scare'                => [40.7128, -74.0060, 'New York, NY'],
