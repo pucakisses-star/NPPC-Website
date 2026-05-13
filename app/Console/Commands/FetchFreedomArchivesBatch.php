@@ -43,27 +43,34 @@ final class FetchFreedomArchivesBatch extends Command {
 
             if (! is_file($localPath) || $force || filesize($localPath) < 1000) {
                 $this->line("fetch {$payload['pdf_url']}");
+                $tmp = $localPath.'.partial';
                 try {
                     $resp = Http::withHeaders([
                         'User-Agent' => 'NPPC-Archive/1.0 (https://nationalpoliticalprisonercoalition.org)',
-                    ])->timeout(60)->get($payload['pdf_url']);
+                    ])
+                        ->withOptions(['sink' => $tmp])
+                        ->timeout(600)
+                        ->get($payload['pdf_url']);
                     if (! $resp->successful()) {
+                        @unlink($tmp);
                         $this->error("  HTTP {$resp->status()} — skipping registration.");
                         $failed++;
 
                         continue;
                     }
-                    $bytes = $resp->body();
-                    if (strlen($bytes) < 1000) {
-                        $this->error('  Suspiciously small response ('.strlen($bytes).' bytes) — skipping registration.');
+                    $size = is_file($tmp) ? filesize($tmp) : 0;
+                    if ($size < 1000) {
+                        @unlink($tmp);
+                        $this->error('  Suspiciously small response ('.$size.' bytes) — skipping registration.');
                         $failed++;
 
                         continue;
                     }
-                    file_put_contents($localPath, $bytes);
-                    $this->info('  saved '.number_format(strlen($bytes) / 1024, 1).' KB to '.$webPath);
+                    rename($tmp, $localPath);
+                    $this->info('  saved '.number_format($size / 1024, 1).' KB to '.$webPath);
                     $downloaded++;
                 } catch (\Throwable $e) {
+                    @unlink($tmp);
                     $this->error('  '.$e->getMessage());
                     $failed++;
 
