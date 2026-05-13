@@ -17,13 +17,14 @@ use Illuminate\Console\Command;
  * lacks a known year.
  */
 final class AuditNycAbcBirthdays extends Command {
-    protected $signature = 'archive:audit-nycabc-birthdays {--apply : Write birthdates for matched-but-empty prisoners using year=1900 sentinel} {--strict-year : Refuse to set a 1900 sentinel — only update if NYC ABC feed has a known year} {--fix-placeholders : For CONFLICT rows whose existing date ends in -01-01, overwrite month-day with the NYC ABC value (preserving year)} {--investigate : For NOT-FOUND rows, run broader candidate searches (last name only, fuzzy) and print matches}';
+    protected $signature = 'archive:audit-nycabc-birthdays {--apply : Write birthdates for matched-but-empty prisoners using year=1900 sentinel} {--strict-year : Refuse to set a 1900 sentinel — only update if NYC ABC feed has a known year} {--fix-placeholders : For CONFLICT rows whose existing date ends in -01-01, overwrite month-day with the NYC ABC value (preserving year)} {--overwrite-conflicts : For ALL CONFLICT rows, overwrite month-day with the NYC ABC value (preserving year). Superset of --fix-placeholders.} {--investigate : For NOT-FOUND rows, run broader candidate searches (last name only, fuzzy) and print matches}';
     protected $description = 'Cross-check NYC ABC PP/POW Birthday Calendar entries against NPPC';
 
     public function handle(): int {
         $apply = (bool) $this->option('apply');
         $strict = (bool) $this->option('strict-year');
         $fixPlaceholders = (bool) $this->option('fix-placeholders');
+        $overwriteConflicts = (bool) $this->option('overwrite-conflicts');
         $investigate = (bool) $this->option('investigate');
         $entries = json_decode(file_get_contents(database_path('data/nycabc-birthdays.json')), true);
 
@@ -67,15 +68,18 @@ final class AuditNycAbcBirthdays extends Command {
                     continue;
                 }
                 $this->warn(str_pad('CONFLICT', 12).$name.'  (existing='.$prisoner->birthdate->toDateString().'  nycabc='.$proposed.')');
-                if ($fixPlaceholders && str_ends_with($existing, '-01-01')) {
+                $isPlaceholder = str_ends_with($existing, '-01-01');
+                $shouldOverwrite = $overwriteConflicts || ($fixPlaceholders && $isPlaceholder);
+                if ($shouldOverwrite) {
                     $existingYear = (int) $prisoner->birthdate->format('Y');
                     $newDate = sprintf('%04d-%02d-%02d', $existingYear, $month, $day);
+                    $tag = $isPlaceholder ? 'placeholder' : 'overwrite';
                     if (! $apply) {
-                        $this->line(str_pad('WOULD-FIX', 12).$name.'  -> '.$newDate.' (placeholder)');
+                        $this->line(str_pad('WOULD-FIX', 12).$name.'  -> '.$newDate.' ('.$tag.')');
                     } else {
                         $prisoner->birthdate = $newDate;
                         $prisoner->save();
-                        $this->info(str_pad('FIXED', 12).$name.'  -> '.$newDate.' (placeholder)');
+                        $this->info(str_pad('FIXED', 12).$name.'  -> '.$newDate.' ('.$tag.')');
                         $updated++;
                     }
                 }
