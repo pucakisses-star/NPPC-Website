@@ -193,6 +193,44 @@ final class SiteController extends Controller {
         return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners'));
     }
 
+    public function birthdays() {
+        // Living, in-custody or in-exile prisoners with a known birthdate,
+        // grouped by month + day for the printable letter-writing calendar.
+        $prisoners = Prisoner::whereNotNull('birthdate')
+            ->whereNull('death_date')
+            ->where(function ($q) {
+                $q->where('in_custody', true)
+                    ->orWhere('currently_in_exile', true)
+                    ->orWhere('awaiting_trial', true);
+            })
+            ->orderBy('birthdate')
+            ->get();
+
+        $byMonth = [];
+        for ($m = 1; $m <= 12; $m++) {
+            $byMonth[$m] = [];
+        }
+        foreach ($prisoners as $p) {
+            try {
+                $d = \Carbon\Carbon::parse($p->birthdate);
+            } catch (\Throwable $e) {
+                continue;
+            }
+            $byMonth[(int) $d->month][] = ['prisoner' => $p, 'day' => (int) $d->day];
+        }
+        foreach ($byMonth as $m => &$entries) {
+            usort($entries, fn ($a, $b) => $a['day'] <=> $b['day']);
+        }
+        unset($entries);
+
+        return view('pages.birthdays', [
+            'byMonth' => $byMonth,
+            'todayMonth' => (int) date('n'),
+            'todayDay' => (int) date('j'),
+            'totalCount' => $prisoners->count(),
+        ]);
+    }
+
     public function calendar(Request $request) {
         $month = (int) ($request->input('month', date('n')));
         if ($month < 1 || $month > 12) {
