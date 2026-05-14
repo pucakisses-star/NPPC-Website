@@ -101,6 +101,7 @@
         .a1r-pager-btn.is-active { background: var(--a1-accent); border-color: var(--a1-accent); color: #fff; }
         .a1r-pager-btn.is-disabled { opacity: 0.35; cursor: not-allowed; }
         .a1r-pager-btn.is-disabled:hover { border-color: var(--a1-line); background: transparent; }
+        .a1r-pager-ellipsis { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 36px; color: rgba(255,255,255,0.4); font-size: 14px; }
         .a1r-empty-state { padding: 48px 24px; text-align: center; opacity: 0.6; border: 1px dashed var(--a1-line); border-radius: 6px; }
     </style>
 
@@ -272,12 +273,32 @@
                                     <li><a class="a1r-pager-btn" href="{{ $records->previousPageUrl() }}" rel="prev" aria-label="Previous page">&lsaquo;</a></li>
                                 @endif
 
-                                @foreach ($records->getUrlRange(1, $records->lastPage()) as $page => $url)
-                                    @if ($page === $records->currentPage())
+                                @php
+                                    $current = $records->currentPage();
+                                    $last = $records->lastPage();
+                                    $window = 2;
+                                    $pages = [];
+                                    $pages[] = 1;
+                                    for ($i = max(2, $current - $window); $i <= min($last - 1, $current + $window); $i++) {
+                                        $pages[] = $i;
+                                    }
+                                    if ($last > 1) {
+                                        $pages[] = $last;
+                                    }
+                                    $pages = array_values(array_unique($pages));
+                                    sort($pages);
+                                    $prev = null;
+                                @endphp
+                                @foreach ($pages as $page)
+                                    @if ($prev !== null && $page - $prev > 1)
+                                        <li class="a1r-pager-ellipsis" aria-hidden="true">&hellip;</li>
+                                    @endif
+                                    @if ($page === $current)
                                         <li class="a1r-pager-btn is-active" aria-current="page">{{ $page }}</li>
                                     @else
-                                        <li><a class="a1r-pager-btn" href="{{ $url }}">{{ $page }}</a></li>
+                                        <li><a class="a1r-pager-btn" href="{{ $records->url($page) }}">{{ $page }}</a></li>
                                     @endif
+                                    @php $prev = $page; @endphp
                                 @endforeach
 
                                 @if ($records->hasMorePages())
