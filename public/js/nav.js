@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentScroll = window.pageYOffset;
         const screenHeight = window.innerHeight;
 
-        // Show or hide button based on scroll position
+        // Toggle .is-visible — CSS handles the fade + transform transition
         if (currentScroll > screenHeight) {
-            scrollTopBtn.style.opacity = "1";
+            scrollTopBtn.classList.add("is-visible");
         } else {
-            scrollTopBtn.style.opacity = "0";
+            scrollTopBtn.classList.remove("is-visible");
         }
     }
 
