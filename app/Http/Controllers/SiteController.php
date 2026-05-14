@@ -74,11 +74,24 @@ final class SiteController extends Controller {
                 ->all();
         };
 
+        // Year facet shows every year sorted DESC by year (not top-N
+        // by count) so historical years (1886 Haymarket, 1918 Debs,
+        // 1927 Sacco-Vanzetti) aren't knocked out by densely-
+        // populated 2010s/2020s buckets.
+        $yearFacet = (clone $facetQuery)
+            ->whereNotNull('year')
+            ->selectRaw('year as label, COUNT(*) as count')
+            ->groupBy('year')
+            ->orderByDesc('year')
+            ->get()
+            ->map(fn ($r) => ['label' => (string) $r->label, 'count' => (int) $r->count])
+            ->all();
+
         $facets = [
             'collection' => $countBy('collection'),
             'record_type' => $countBy('record_type'),
             'source_format' => $countBy('source_format'),
-            'year' => $countBy('year'),
+            'year' => $yearFacet,
         ];
 
         $subjectCounts = [];
