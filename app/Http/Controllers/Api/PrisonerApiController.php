@@ -74,6 +74,7 @@ class PrisonerApiController extends Controller {
                 'Website'               => $prisoner->website,
                 'Twitter'               => $prisoner->twitter,
                 'Facebook'              => $prisoner->facebook,
+                'Instagram'             => $prisoner->instagram,
                 'Years Spent In Prison' => array_map('strval', $prisoner->getIncarcerationYearsArray()),
                 'SortOrder'             => $prisoner->sort_order,
                 'cases'                 => $cases,

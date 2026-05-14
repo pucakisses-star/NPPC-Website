@@ -18,6 +18,7 @@ export interface Prisoner {
     Twitter?: any
     Website?: any
     Facebook?: any
+    Instagram?: any
     Affiliation: any
     latitude: number
     longitude: number
