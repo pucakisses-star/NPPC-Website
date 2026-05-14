@@ -224,6 +224,12 @@
   outline: none;
   border-color: var(--outreach-accent);
 }
+/* Native dropdown options render on the OS surface — force dark
+   text on a light background so they're legible. */
+.letter-form select option {
+  color: #111;
+  background: #fff;
+}
 .letter-form .letter-actions {
   display: flex;
   align-items: center;
