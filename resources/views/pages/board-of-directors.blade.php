@@ -11,7 +11,9 @@
     $page = Page::where('slug', 'board-of-directors')->first();
     @endphp
 
-    @markdom($page->body)
+    @if($page && $page->body)
+        @markdom($page->body)
+    @endif
 
     <div class="container mx-auto px-4 my-24">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
