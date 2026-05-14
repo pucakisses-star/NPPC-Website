@@ -17,11 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentScroll = window.pageYOffset;
         const screenHeight = window.innerHeight;
 
-        // Toggle .is-visible — CSS handles the fade + transform transition
+        // Toggle both .is-visible AND inline opacity so the CSS
+        // works regardless of which selector wins / whether nav.js
+        // got refreshed past a cache.
         if (currentScroll > screenHeight) {
             scrollTopBtn.classList.add("is-visible");
+            scrollTopBtn.style.opacity = "1";
         } else {
             scrollTopBtn.classList.remove("is-visible");
+            scrollTopBtn.style.opacity = "0";
         }
     }
 
