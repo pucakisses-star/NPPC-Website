@@ -81,10 +81,10 @@ final class InferArchiveYears extends Command {
     }
 
     private function inferYear(ArchiveRecord $r, bool $includeTitle): ?int {
-        // 1. From `date` (eloquent cast makes this a Carbon instance if cast applied)
+        // 1. From `date` — skip the FA "1900-01-01" sentinel
         if (! empty($r->date)) {
             $y = is_string($r->date) ? (int) substr($r->date, 0, 4) : (int) $r->date->format('Y');
-            if ($this->validYear($y)) {
+            if ($this->validYear($y) && $y !== 1900) {
                 return $y;
             }
         }
@@ -102,9 +102,17 @@ final class InferArchiveYears extends Command {
                 return $y;
             }
         }
-        // 4. From title (opt-in)
-        if ($includeTitle && ! empty($r->title)) {
+        // 4. From title — always (was opt-in, now default; --include-title kept for back-compat)
+        if (! empty($r->title)) {
             $y = $this->scanForYear((string) $r->title);
+            if ($y !== null) {
+                return $y;
+            }
+        }
+        // 5. From description — last resort; many FA records embed the
+        //    issue date in the description rather than path or title.
+        if (! empty($r->description)) {
+            $y = $this->scanForYear((string) $r->description);
             if ($y !== null) {
                 return $y;
             }
