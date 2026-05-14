@@ -27,6 +27,7 @@ abstract class ViewSupport {
 
             if ($page->slug === 'get-involved') {
                 $children[] = new MenuItemDTO(title: 'Volunteer', href: '/volunteer');
+                $children[] = new MenuItemDTO(title: 'Birthdays', href: '/birthdays');
             }
 
             $response[] = new MenuItemDTO(title: $page->title, href: $page->url, children: empty($children) ? null : $children);
