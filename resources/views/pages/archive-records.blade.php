@@ -56,6 +56,13 @@
         /* All facet groups: hide rows past the 20th until expanded */
         .a1r-fgroup .a1r-filter-row:nth-of-type(n+21) { display: none; }
         .a1r-fgroup.is-expanded .a1r-filter-row { display: flex; }
+        /* Hierarchical sub-collections (e.g. Anarchist Black Cross — *) */
+        .a1r-has-children::after { content: '▾'; margin-left: 6px; opacity: 0.4; font-size: 11px; }
+        .a1r-children { display: none; padding-left: 14px; border-left: 1px solid rgba(86, 96, 254, 0.2); margin-left: 4px; }
+        .a1r-children.is-open { display: block; }
+        .a1r-child-row { font-size: 13px; opacity: 0.85; }
+        .a1r-child-row:hover { opacity: 1; }
+        .a1r-filter-row.is-parent-active { background: rgba(86, 96, 254, 0.06); }
         .a1r-show-more { background: transparent; border: none; color: var(--a1-accent); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 4px; cursor: pointer; margin-top: 2px; }
         .a1r-show-more:hover { color: #fff; }
         .a1r-show-more[hidden] { display: none; }
@@ -125,11 +132,33 @@
                             @php
                                 $isActive = (string) $meta['active'] === (string) $f['label'];
                                 $href = $isActive ? $filterUrl([$key => null]) : $filterUrl([$key => $f['label']]);
+                                $children = $f['children'] ?? [];
+                                $hasChildExpanded = false;
+                                foreach ($children as $c) {
+                                    if ((string) $meta['active'] === (string) $c['label']) {
+                                        $hasChildExpanded = true;
+                                    }
+                                }
                             @endphp
-                            <a class="a1r-filter-row {{ $isActive ? 'is-active' : '' }}" href="{{ $href }}">
+                            <a class="a1r-filter-row {{ $isActive ? 'is-active' : '' }} {{ ! empty($children) ? 'a1r-has-children' : '' }} {{ $hasChildExpanded ? 'is-parent-active' : '' }}" href="{{ $href }}">
                                 <span>{{ ucwords(str_replace('_', ' ', $f['label'])) }}</span>
                                 <span class="a1r-pill">{{ $f['count'] }}</span>
                             </a>
+                            @if (! empty($children))
+                                <div class="a1r-children {{ ($isActive || $hasChildExpanded) ? 'is-open' : '' }}">
+                                    @foreach ($children as $c)
+                                        @php
+                                            $cActive = (string) $meta['active'] === (string) $c['label'];
+                                            $cLabel = trim(preg_replace('/^Anarchist Black Cross\s*[—\-]\s*/u', '', (string) $c['label']));
+                                            $cHref = $cActive ? $filterUrl([$key => null]) : $filterUrl([$key => $c['label']]);
+                                        @endphp
+                                        <a class="a1r-filter-row a1r-child-row {{ $cActive ? 'is-active' : '' }}" href="{{ $cHref }}">
+                                            <span>{{ $cLabel }}</span>
+                                            <span class="a1r-pill">{{ $c['count'] }}</span>
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endif
                         @empty
                             <div class="a1r-empty">No options yet.</div>
                         @endforelse
