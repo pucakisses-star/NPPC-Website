@@ -171,7 +171,7 @@
         {{-- MONTH VIEW --}}
         <div class="cal-grid">
             @php
-                $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, 2026);
+                $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, (int) date('Y'));
                 $entriesByDay = $entries->keyBy('day');
             @endphp
 

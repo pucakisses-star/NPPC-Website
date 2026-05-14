@@ -120,7 +120,7 @@
                             <div style="width:48px;height:48px;border-radius:50%;background:#1a1a2e;flex-shrink:0;"></div>
                         @endif
                         <div>
-                            <div class="topic-prisoner-name"><a href="/prisoner/{{ $prisoner->id }}">{{ $prisoner->name }}</a></div>
+                            <div class="topic-prisoner-name"><a href="{{ $prisoner->url }}">{{ $prisoner->name }}</a></div>
                             <div class="topic-prisoner-meta">
                                 {{ $prisoner->era }}{{ $prisoner->era && $prisoner->state ? ' · ' : '' }}{{ $prisoner->state }}
                             </div>

@@ -28,6 +28,7 @@ class TopicsRelationManager extends RelationManager {
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('history')
                     ->helperText('Optional image displayed in the visual panel'),
                 Forms\Components\TextInput::make('bg_class')
@@ -49,6 +50,7 @@ class TopicsRelationManager extends RelationManager {
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
+                    ->disk('public')
                     ->circular()
                     ->defaultImageUrl(fn () => null),
                 Tables\Columns\TextColumn::make('date_label')
