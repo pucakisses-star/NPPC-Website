@@ -19,25 +19,27 @@
 
 <style>
     #scrollTop {
-        /* Hidden by default — JS adds .is-visible when scrolled */
+        /* Hidden by default. Visibility toggled by JS via either
+           class .is-visible or inline opacity (back-compat). */
         opacity: 0;
-        transform: translateY(12px);
-        pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.25s ease;
+        transition: opacity 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
         cursor: pointer;
     }
-    #scrollTop.is-visible {
+    #scrollTop.is-visible,
+    #scrollTop[style*="opacity: 1"] {
         opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
     }
-    #scrollTop.is-visible:hover {
+    /* Hover/active effects work whenever the button is rendered;
+       since opacity 0 elements are still in the layout, we tie
+       these to :hover unconditionally — the user can't see/click
+       the button when faded anyway. */
+    #scrollTop:hover {
         transform: translateY(-4px) scale(1.08);
     }
-    #scrollTop.is-visible:hover svg {
+    #scrollTop:hover svg {
         animation: scrollTopArrowBounce 0.8s ease-in-out infinite;
     }
-    #scrollTop.is-visible:active {
+    #scrollTop:active {
         transform: translateY(-2px) scale(1.04);
     }
     @keyframes scrollTopArrowBounce {
