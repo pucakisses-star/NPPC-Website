@@ -1,5 +1,5 @@
 
-<div id="scrollTop" style="z-index: 2147483647; opacity: 1;">
+<div id="scrollTop" style="z-index: 2147483647;">
     <svg
             fill="#000000"
             height="800px"
@@ -19,16 +19,25 @@
 
 <style>
     #scrollTop {
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        /* Hidden by default — JS adds .is-visible when scrolled */
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.25s ease;
         cursor: pointer;
     }
-    #scrollTop:hover {
+    #scrollTop.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    #scrollTop.is-visible:hover {
         transform: translateY(-4px) scale(1.08);
     }
-    #scrollTop:hover svg {
+    #scrollTop.is-visible:hover svg {
         animation: scrollTopArrowBounce 0.8s ease-in-out infinite;
     }
-    #scrollTop:active {
+    #scrollTop.is-visible:active {
         transform: translateY(-2px) scale(1.04);
     }
     @keyframes scrollTopArrowBounce {
@@ -37,7 +46,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
         #scrollTop, #scrollTop:hover, #scrollTop:hover svg {
-            transition: none;
+            transition: opacity 0.15s linear;
             animation: none;
             transform: none;
         }
