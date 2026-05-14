@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 final class FormSubmissionController extends Controller {
     public function submit(Request $request, string $form) {
         // Validate the form type against an allowed list
-        $allowedForms = ['contact', 'volunteer'];
+        $allowedForms = ['contact', 'volunteer', 'prisoner-letter'];
         if (! in_array($form, $allowedForms, true)) {
             abort(404);
         }
@@ -69,6 +69,10 @@ final class FormSubmissionController extends Controller {
             $subject = 'Volunteer form submission';
         }
 
+        if ($form === 'prisoner-letter') {
+            $subject = 'Letter to a prisoner';
+        }
+
         try {
             Mail::raw($formattedData, function ($message) use ($subject) {
                 $message->to('info@nationalpoliticalprisonercoalition.org')
@@ -78,6 +82,11 @@ final class FormSubmissionController extends Controller {
             // Email may fail if mail isn't configured — submission is already saved
         }
 
-        return redirect("/{$form}?form_submitted=true");
+        $redirectPath = match ($form) {
+            'prisoner-letter' => '/prisoner-outreach',
+            default => "/{$form}",
+        };
+
+        return redirect("{$redirectPath}?form_submitted=true");
     }
 }
