@@ -53,9 +53,9 @@
         .a1r-pill { background: var(--a1-pill-bg); border: 1px solid var(--a1-line); color: rgba(255,255,255,0.7); border-radius: 999px; padding: 2px 10px; font-size: 11px; font-weight: 600; }
         .a1r-empty { font-size: 13px; opacity: 0.5; padding: 4px; font-style: italic; }
 
-        /* Year facet: hide rows past the 20th until expanded */
-        .a1r-fgroup--year .a1r-filter-row:nth-of-type(n+21) { display: none; }
-        .a1r-fgroup--year.is-expanded .a1r-filter-row { display: flex; }
+        /* All facet groups: hide rows past the 20th until expanded */
+        .a1r-fgroup .a1r-filter-row:nth-of-type(n+21) { display: none; }
+        .a1r-fgroup.is-expanded .a1r-filter-row { display: flex; }
         .a1r-show-more { background: transparent; border: none; color: var(--a1-accent); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 4px; cursor: pointer; margin-top: 2px; }
         .a1r-show-more:hover { color: #fff; }
         .a1r-show-more[hidden] { display: none; }
@@ -118,10 +118,10 @@
                 @endphp
 
                 @foreach ($groups as $key => $meta)
-                    @php $isYear = $key === 'year'; @endphp
-                    <div class="a1r-fgroup {{ $isYear ? 'a1r-fgroup--year' : '' }}">
+                    @php $facetItems = $facets[$key] ?? []; @endphp
+                    <div class="a1r-fgroup">
                         <div class="a1r-fhead">{{ $meta['title'] }}</div>
-                        @forelse ($facets[$key] ?? [] as $f)
+                        @forelse ($facetItems as $f)
                             @php
                                 $isActive = (string) $meta['active'] === (string) $f['label'];
                                 $href = $isActive ? $filterUrl([$key => null]) : $filterUrl([$key => $f['label']]);
@@ -133,11 +133,11 @@
                         @empty
                             <div class="a1r-empty">No options yet.</div>
                         @endforelse
-                        @if ($isYear && count($facets['year'] ?? []) > 20)
+                        @if (count($facetItems) > 20)
                             <button type="button" class="a1r-show-more" data-show-more
-                                data-more="Show {{ count($facets['year']) - 20 }} more"
+                                data-more="Show {{ count($facetItems) - 20 }} more"
                                 data-less="Show less">
-                                Show {{ count($facets['year']) - 20 }} more
+                                Show {{ count($facetItems) - 20 }} more
                             </button>
                         @endif
                     </div>

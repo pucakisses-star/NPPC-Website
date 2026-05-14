@@ -68,7 +68,7 @@ final class SiteController extends Controller {
                 ->selectRaw("{$column} as label, COUNT(*) as count")
                 ->groupBy($column)
                 ->orderByDesc('count')
-                ->limit(20)
+                ->limit(200)
                 ->get()
                 ->map(fn ($r) => ['label' => (string) $r->label, 'count' => (int) $r->count])
                 ->all();
@@ -110,7 +110,7 @@ final class SiteController extends Controller {
             array_keys($subjectCounts),
             array_values($subjectCounts)
         );
-        $facets['subject'] = array_slice($facets['subject'], 0, 20);
+        $facets['subject'] = array_slice($facets['subject'], 0, 200);
 
         $query = (clone $base);
         if ($q !== '') {
