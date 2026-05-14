@@ -53,6 +53,13 @@
         .a1r-pill { background: var(--a1-pill-bg); border: 1px solid var(--a1-line); color: rgba(255,255,255,0.7); border-radius: 999px; padding: 2px 10px; font-size: 11px; font-weight: 600; }
         .a1r-empty { font-size: 13px; opacity: 0.5; padding: 4px; font-style: italic; }
 
+        /* Year facet: hide rows past the 20th until expanded */
+        .a1r-fgroup--year .a1r-filter-row:nth-of-type(n+21) { display: none; }
+        .a1r-fgroup--year.is-expanded .a1r-filter-row { display: flex; }
+        .a1r-show-more { background: transparent; border: none; color: var(--a1-accent); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 4px; cursor: pointer; margin-top: 2px; }
+        .a1r-show-more:hover { color: #fff; }
+        .a1r-show-more[hidden] { display: none; }
+
         .a1r-toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; padding: 12px 16px; border: 1px solid var(--a1-line); border-radius: 999px; background: rgba(255,255,255,0.02); }
         .a1r-search { flex: 1; min-width: 240px; display: flex; align-items: center; gap: 10px; }
         .a1r-search svg { opacity: 0.55; }
@@ -111,7 +118,8 @@
                 @endphp
 
                 @foreach ($groups as $key => $meta)
-                    <div class="a1r-fgroup">
+                    @php $isYear = $key === 'year'; @endphp
+                    <div class="a1r-fgroup {{ $isYear ? 'a1r-fgroup--year' : '' }}">
                         <div class="a1r-fhead">{{ $meta['title'] }}</div>
                         @forelse ($facets[$key] ?? [] as $f)
                             @php
@@ -125,8 +133,24 @@
                         @empty
                             <div class="a1r-empty">No options yet.</div>
                         @endforelse
+                        @if ($isYear && count($facets['year'] ?? []) > 20)
+                            <button type="button" class="a1r-show-more" data-show-more
+                                data-more="Show {{ count($facets['year']) - 20 }} more"
+                                data-less="Show less">
+                                Show {{ count($facets['year']) - 20 }} more
+                            </button>
+                        @endif
                     </div>
                 @endforeach
+                <script>
+                    document.querySelectorAll('[data-show-more]').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const group = btn.closest('.a1r-fgroup');
+                            const expanded = group.classList.toggle('is-expanded');
+                            btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
+                        });
+                    });
+                </script>
             </aside>
 
             <div>
