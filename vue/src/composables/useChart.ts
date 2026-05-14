@@ -94,8 +94,10 @@ export function useChart(): {
             })
         })
 
+        const currentYear = new Date().getFullYear()
         const eras = erasUnsorted
-            .filter((value, index, self) => self.indexOf(value) === index && value >= 1994)
+            .filter((value, index, self) =>
+                self.indexOf(value) === index && value >= 1994 && value <= currentYear)
             .sort((a, b) => a - b);
 
 
