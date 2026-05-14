@@ -174,6 +174,87 @@
   .postcard-wrapper { flex: auto; width: 100%; }
   .postcard { width: 100%; max-width: 480px; }
 }
+
+/* Write-a-letter form */
+.letter-form-section {
+  max-width: 720px;
+  margin: 40px 0 80px;
+}
+.letter-form-section h2 {
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.letter-form-section .letter-intro {
+  font-size: 16px;
+  color: var(--outreach-gray);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.letter-form label {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 24px 0 8px;
+}
+.letter-form select,
+.letter-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+}
+.letter-form select { max-width: 320px; }
+.letter-form textarea {
+  min-height: 220px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.letter-form select:focus,
+.letter-form textarea:focus {
+  outline: none;
+  border-color: var(--outreach-accent);
+}
+.letter-form .letter-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.letter-form .letter-donate { max-width: 220px; }
+.letter-form button[type=submit] {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.letter-form button[type=submit]:hover { background: #ddd; }
+.letter-form .letter-success {
+  background: rgba(86,96,254,0.12);
+  border: 1px solid rgba(86,96,254,0.4);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
 </style>
 @endsection
 
@@ -236,6 +317,42 @@
           <div class="postcard-shadow"></div>
         </div>
       </div>
+    </div>
+
+    <div class="letter-form-section">
+      <h2>Write a Letter to a Prisoner</h2>
+      <p class="letter-intro">Type up a solidarity message for someone in the list below and we will post it for you. Include your address in the message if you want to give them a chance to write back, or leave details out to keep your letter anonymous. Please consider a small donation to help cover the cost of printing, envelopes, and stamps.</p>
+
+      @if(request('form_submitted'))
+        <div class="letter-success">Thank you — your letter has been received. We'll print and mail it on your behalf.</div>
+      @endif
+
+      <form class="letter-form" method="POST" action="/form/prisoner-letter">
+        @csrf
+
+        <label for="letter-prisoner">Prisoner Name</label>
+        <select id="letter-prisoner" name="prisoner_name" required>
+          @forelse($prisoners as $p)
+            <option value="{{ $p->name }}">{{ $p->name }}</option>
+          @empty
+            <option value="" disabled>No prisoners currently listed as in custody.</option>
+          @endforelse
+        </select>
+
+        <label for="letter-message">Your Message</label>
+        <textarea id="letter-message" name="message" required placeholder="Write your message of solidarity here…"></textarea>
+
+        <div class="letter-actions">
+          <select class="letter-donate" name="donation_amount" aria-label="Optional donation">
+            <option value="">No donation</option>
+            <option value="5">Donate $5</option>
+            <option value="10">Donate $10</option>
+            <option value="25">Donate $25</option>
+            <option value="50">Donate $50</option>
+          </select>
+          <button type="submit">Send</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

@@ -341,7 +341,12 @@ final class SiteController extends Controller {
     }
 
     public function prisonerOutreach() {
-        return view('pages.prisoner-outreach');
+        $prisoners = Prisoner::where('in_custody', true)
+            ->orderBy('last_name')
+            ->orderBy('first_name')
+            ->get(['id', 'name', 'slug', 'last_name', 'first_name']);
+
+        return view('pages.prisoner-outreach', compact('prisoners'));
     }
 
     public function staff(Request $request) {
