@@ -91,7 +91,6 @@ final class FetchNewSourcesPdfs extends Command {
                 'record_type'   => 'document',
                 'source_format' => 'pdf',
                 'file'          => $webPath,
-                'source_url'    => $url,
                 'collection'    => $payload['collection'] ?? 'New Sources',
                 'publisher'     => $payload['publisher'] ?? null,
                 'authors'       => $payload['authors'] ?? null,
