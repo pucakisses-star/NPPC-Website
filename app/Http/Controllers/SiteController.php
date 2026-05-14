@@ -87,8 +87,36 @@ final class SiteController extends Controller {
             ->map(fn ($r) => ['label' => (string) $r->label, 'count' => (int) $r->count])
             ->all();
 
+        $collectionFacet = $countBy('collection');
+
+        // Collapse "Anarchist Black Cross — X" sub-collections into a
+        // single parent ABC entry whose count is the sum of all
+        // chapters. The children are kept on the parent so the
+        // template can render them indented.
+        $abcChildren = [];
+        $abcCount = 0;
+        $collectionFacetFiltered = [];
+        foreach ($collectionFacet as $f) {
+            if ($f['label'] === 'Anarchist Black Cross' || str_starts_with($f['label'], 'Anarchist Black Cross —') || str_starts_with($f['label'], 'Anarchist Black Cross -')) {
+                $abcCount += $f['count'];
+                if ($f['label'] !== 'Anarchist Black Cross') {
+                    $abcChildren[] = $f;
+                }
+            } else {
+                $collectionFacetFiltered[] = $f;
+            }
+        }
+        if ($abcCount > 0) {
+            usort($abcChildren, fn ($a, $b) => $b['count'] <=> $a['count']);
+            array_unshift($collectionFacetFiltered, [
+                'label' => 'Anarchist Black Cross',
+                'count' => $abcCount,
+                'children' => $abcChildren,
+            ]);
+        }
+
         $facets = [
-            'collection' => $countBy('collection'),
+            'collection' => $collectionFacetFiltered,
             'record_type' => $countBy('record_type'),
             'source_format' => $countBy('source_format'),
             'year' => $yearFacet,
@@ -122,7 +150,17 @@ final class SiteController extends Controller {
             });
         }
         if ($collection) {
-            $query->where('collection', $collection);
+            // Filtering by the synthetic ABC parent matches every
+            // chapter sub-collection.
+            if ($collection === 'Anarchist Black Cross') {
+                $query->where(function ($w) {
+                    $w->where('collection', 'Anarchist Black Cross')
+                        ->orWhere('collection', 'like', 'Anarchist Black Cross —%')
+                        ->orWhere('collection', 'like', 'Anarchist Black Cross -%');
+                });
+            } else {
+                $query->where('collection', $collection);
+            }
         }
         if ($recordType) {
             $query->where('record_type', $recordType);
