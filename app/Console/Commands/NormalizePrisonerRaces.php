@@ -43,6 +43,7 @@ final class NormalizePrisonerRaces extends Command {
         'african-american' => 'Black',
         'afro-american' => 'Black',
         'black/african american' => 'Black',
+        'black/cherokee' => 'Black',
 
         // Asian
         'asian' => 'Asian',
@@ -62,6 +63,9 @@ final class NormalizePrisonerRaces extends Command {
         'indigenous (cherokee/choctaw)' => 'Native American',
         'indigenous (cherokee)' => 'Native American',
         'indigenous (choctaw)' => 'Native American',
+        'pascua yaqui' => 'Native American',
+        'yaqui' => 'Native American',
+        'apache/chicano' => 'Native American',
 
         // Latino
         'latino' => 'Latino',
@@ -71,9 +75,12 @@ final class NormalizePrisonerRaces extends Command {
         'hispanic/latino' => 'Latino',
         'hispanic/latina' => 'Latino',
         'latino/hispanic' => 'Latino',
+        'latino / hispanic' => 'Latino',
         'latina/hispanic' => 'Latino',
         'chicano' => 'Latino',
         'chicana' => 'Latino',
+        'mestizo' => 'Latino',
+        'mestiza' => 'Latino',
         'mexican american' => 'Latino',
         'mexican-american' => 'Latino',
         'puerto rican' => 'Latino',
