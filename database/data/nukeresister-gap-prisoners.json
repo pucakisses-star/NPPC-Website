@@ -1,0 +1,137 @@
+{
+  "prisoners": [
+    {
+      "name": "Patrick O'Neill",
+      "aka": null,
+      "era": "2010s",
+      "description": "Catholic Worker from North Carolina, one of the Kings Bay Plowshares 7. On April 4, 2018 (50th anniversary of MLK's assassination) he and six others broke into Naval Submarine Base Kings Bay, GA and used hammers and blood against monuments to Trident nuclear weapons. Sentenced October 16, 2020 to 14 months federal; reported to FCI Elkton (Ohio) on January 14, 2021 and released to a Raleigh, NC halfway house in August 2021.",
+      "state": "North Carolina",
+      "charges": "Conspiracy, destruction of property on a naval installation, depredation of government property, trespass",
+      "sentence": "14 months federal prison",
+      "status": "released",
+      "incarceration_date": "2021-01-14",
+      "release_date": "2021-08-24"
+    },
+    {
+      "name": "Elizabeth McAlister",
+      "aka": "Liz McAlister",
+      "era": "2010s",
+      "description": "Catholic peace activist, co-founder of Jonah House, widow of Phil Berrigan, and member of the Kings Bay Plowshares 7. After the April 4, 2018 Trident disarmament action at Kings Bay Naval Submarine Base, GA, she was held in Georgia county jails for more than 17 months pretrial. On June 8, 2020 Judge Lisa Godbey Wood sentenced her to time served plus three years probation.",
+      "state": "Connecticut",
+      "charges": "Conspiracy, destruction of government property, depredation, trespass",
+      "sentence": "Time served (17+ months pretrial)",
+      "status": "released",
+      "incarceration_date": "2018-04-04",
+      "release_date": "2019-10-24"
+    },
+    {
+      "name": "Daniel Hale",
+      "aka": null,
+      "era": "2020s",
+      "description": "Former U.S. Air Force intelligence analyst and drone-program whistleblower. Pleaded guilty under the Espionage Act in 2021 for sharing classified documents about the U.S. drone assassination program with a journalist (The Drone Papers, The Intercept). Sentenced July 27, 2021 to 45 months federal prison; served most of his time at the Communications Management Unit (CMU) at USP Marion, IL, before release to home confinement in February 2024 and final release July 5, 2024.",
+      "state": "Tennessee",
+      "charges": "Espionage Act — unauthorized retention and transmission of national defense information",
+      "sentence": "45 months federal",
+      "status": "released",
+      "incarceration_date": "2021-07-27",
+      "release_date": "2024-02-01"
+    },
+    {
+      "name": "Dennis DuVall",
+      "aka": null,
+      "era": "2010s",
+      "description": "U.S. Vietnam veteran and longtime anti-nuclear activist (Y-12 line-crosser 2011) living in Germany. Has done multiple Easter actions against U.S. B61 nuclear bombs at Büchel Air Base. Served 30 days in Knox County (TN) for July 5, 2010 Y-12 action; 60 days at Bautzen Prison in 2023 for Büchel trespass; and began a 90-day Bautzen sentence on July 22, 2024 for non-payment of fines (released early after an anonymous donor paid the fine).",
+      "state": null,
+      "charges": "Trespass at U.S. nuclear weapons facilities (Y-12 and Büchel)",
+      "sentence": "Multiple terms — 30 days (Y-12, 2011), 60 days (Bautzen 2023), partial 90 days (Bautzen 2024)",
+      "status": "released",
+      "incarceration_date": "2023-04-09",
+      "release_date": "2024-08-01"
+    },
+    {
+      "name": "Frits ter Kuile",
+      "aka": null,
+      "era": "2020s",
+      "description": "Dutch Catholic Worker from Amsterdam. In summer 2018 he entered Büchel Air Base, Germany with 17 others to protest U.S. nuclear weapons deployment. He refused to pay the resulting court fine and served a 30-day sentence at Wittlich Prison in Germany beginning July 4, 2022.",
+      "state": null,
+      "charges": "Trespass at Büchel Air Base nuclear weapons site",
+      "sentence": "30 days at Wittlich Prison, Germany",
+      "status": "released",
+      "incarceration_date": "2022-07-04",
+      "release_date": "2022-08-03"
+    },
+    {
+      "name": "Holger Isabelle Jänicke",
+      "aka": "Holger Janicke",
+      "era": "2020s",
+      "description": "Veteran German peace activist from Hamburg (imprisoned five times for a total of 17 months during the 1985–1998 Pershing II missile protest era, later legally rehabilitated). On April 30, 2019 entered Büchel Air Base with 16 others, breaching a double NATO fence in protest of U.S. nuclear weapons. Refused to pay the resulting fine and served a 30-day sentence at JVA Billwerder in Hamburg starting August 17, 2022.",
+      "state": null,
+      "charges": "Trespass / Hausfriedensbruch at Büchel Air Base",
+      "sentence": "30 days at JVA Billwerder, Hamburg",
+      "status": "released",
+      "incarceration_date": "2022-08-17",
+      "release_date": "2022-09-16"
+    },
+    {
+      "name": "Susan van der Hijden",
+      "aka": null,
+      "era": "2020s",
+      "description": "Dutch Catholic Worker from Amsterdam. For 2018 and 2019 Büchel Air Base disarmament actions against U.S. nuclear weapons in Germany, she served a 115-day sentence beginning June 4, 2024 at JVA Rohrbach, later transferred to Koblenz Open Prison.",
+      "state": null,
+      "charges": "Hausfriedensbruch / trespass at Büchel Air Base",
+      "sentence": "115 days at JVA Rohrbach / Koblenz Open Prison, Germany",
+      "status": "released",
+      "incarceration_date": "2024-06-04",
+      "release_date": "2024-09-27"
+    },
+    {
+      "name": "Norm Lowry",
+      "aka": null,
+      "era": "2010s",
+      "description": "Lancaster, Pennsylvania peace activist who repeatedly blockaded the Armed Forces Recruiting Station on Queen Street. Served roughly 18 months in Lancaster County Prison ending June 27, 2011; re-arrested August 1, 2011; on May 21, 2012 Judge Louis Farina sentenced him to 1 to 7 years in PA state prison (SCI Dallas) after he refused the judge's offer of a lighter sentence in exchange for a pledge to stop blocking recruiting offices.",
+      "state": "Pennsylvania",
+      "charges": "Defiant trespass, probation violation",
+      "sentence": "1 to 7 years state, plus prior 18 months county",
+      "status": "released",
+      "incarceration_date": "2012-05-21",
+      "release_date": "2015-01-01"
+    },
+    {
+      "name": "Beth Rosdatter",
+      "aka": null,
+      "era": "2010s",
+      "description": "Kentucky anti-nuclear activist who crossed the line at the Y-12 National Security Complex in Oak Ridge, TN on July 5, 2010 with the Independence Day disarmament action group. Sentenced September 21, 2011 to one month at Knox County Detention Facility and taken into custody same day.",
+      "state": "Kentucky",
+      "charges": "Federal trespass at Y-12 nuclear weapons facility",
+      "sentence": "1 month at Knox County Detention Facility (TN)",
+      "status": "released",
+      "incarceration_date": "2011-09-21",
+      "release_date": "2011-10-21"
+    },
+    {
+      "name": "Nancy Smith",
+      "aka": null,
+      "era": "2010s",
+      "description": "SOA Watch activist who crossed the line onto Fort Benning, Georgia in November 2010 in protest of the U.S. Army School of the Americas / WHINSEC. Sentenced January 2011 to the maximum six months federal for trespass.",
+      "state": null,
+      "charges": "Federal trespass on a military reservation (Fort Benning)",
+      "sentence": "6 months federal",
+      "status": "released",
+      "incarceration_date": "2011-02-01",
+      "release_date": "2011-08-01"
+    },
+    {
+      "name": "Michael David Omondi",
+      "aka": "David Omondi",
+      "era": "2010s",
+      "description": "SOA Watch / Catholic Worker activist arrested at the November 2010 SOA Watch line-crossing at Fort Benning, GA. Convicted of federal trespass and sentenced to six months in federal prison. (Distinct from Brian Terrell; an additional SOA defendant from that arrest cohort.)",
+      "state": null,
+      "charges": "Federal trespass on a military reservation (Fort Benning)",
+      "sentence": "6 months federal",
+      "status": "released",
+      "incarceration_date": "2011-02-01",
+      "release_date": "2011-08-01"
+    }
+  ],
+  "pdfs": []
+}
