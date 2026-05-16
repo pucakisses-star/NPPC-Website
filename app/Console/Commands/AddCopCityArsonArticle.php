@@ -51,7 +51,7 @@ BODY;
             'category_id'  => $category->id,
             'author_id'    => $author->id,
             'published_at' => now(),
-            'citations'    => [
+            'citations_json' => [
                 ['title' => 'Latest Cop City Indictments Drag Former RICO Defendants into New Legal Battle (UNICORN RIOT)', 'url' => 'https://unicornriot.ninja/2026/latest-cop-city-indictments-drag-former-rico-defendants-into-new-legal-battle/'],
                 ['title' => 'Georgia AG Charges Three in Brasfield & Gorrie Arson (Rough Draft Atlanta)', 'url' => 'https://roughdraftatlanta.com/2026/04/27/arson-charges-cop-city/'],
                 ['title' => 'Georgia AG indicts three in alleged arson targeting "Cop City" contractor (CBS Atlanta)', 'url' => 'https://www.cbsnews.com/atlanta/news/georgia-ag-indicts-three-in-alleged-arson-targeting-cop-city-contractor-as-legal-crackdown-deepens/'],
