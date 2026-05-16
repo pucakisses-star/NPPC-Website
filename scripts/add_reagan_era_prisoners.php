@@ -572,12 +572,12 @@ $rcUff = [
     [
         'name' => 'Richard Charles Williams', 'first_name' => 'Richard', 'middle_name' => 'Charles', 'last_name' => 'Williams',
         'gender' => 'Male', 'race' => 'White', 'state' => 'Massachusetts',
-        'birthdate' => '1947-08-05', 'death_date' => '2005-12-05',
-        'description' => 'Richard Williams was a Massachusetts-born radical and Vietnam veteran who joined the United Freedom Front in the late 1970s. Arrested April 24, 1985 in Cleveland, Ohio and convicted in the 1986 Brooklyn federal trial of conspiracy, bombings, and bank robberies, receiving 45 years. In 1987 he was tried with Tom Manning for the December 21, 1981 murder of NJ State Trooper Philip Lamonaco; the first jury hung but he was retried and convicted in 1988, receiving life plus 30 years. He died of liver failure in federal custody at FMC Butner, North Carolina on December 5, 2005.',
+        'birthdate' => '1947-08-05', 'death_date' => '2005-12-06',
+        'description' => 'Richard Williams was a Massachusetts-born radical and Vietnam veteran who joined the United Freedom Front in the late 1970s. Arrested April 24, 1985 in Cleveland, Ohio and convicted in the 1986 Brooklyn federal trial of conspiracy, bombings, and bank robberies, receiving 45 years. In 1987 he was tried with Tom Manning for the December 21, 1981 murder of NJ State Trooper Philip Lamonaco; the first jury hung but he was retried and convicted in 1988, receiving life plus 30 years. He died of liver failure in federal custody at FMC Butner, North Carolina on December 6, 2005.',
         'affiliation' => ['Sam Melville/Jonathan Jackson Unit', 'United Freedom Front'],
         'released' => false,
         'cases' => [
-            ['arrest_date' => '1985-04-24', 'sentenced_date' => '1986-06-27', 'sentence' => '45 years federal prison + life plus 30 years (NJ state)', 'death_in_custody_date' => '2005-12-05', 'convicted' => 'Yes', 'judge' => 'Hon. Edward T. Gignoux', 'charges' => 'RICO conspiracy, bombings, bank robbery; first-degree murder of NJ State Trooper Philip Lamonaco.', 'institution' => $ednyBrooklyn],
+            ['arrest_date' => '1985-04-24', 'sentenced_date' => '1986-06-27', 'sentence' => '45 years federal prison + life plus 30 years (NJ state)', 'death_in_custody_date' => '2005-12-06', 'convicted' => 'Yes', 'judge' => 'Hon. Edward T. Gignoux', 'charges' => 'RICO conspiracy, bombings, bank robbery; first-degree murder of NJ State Trooper Philip Lamonaco.', 'institution' => $ednyBrooklyn],
         ],
     ],
     [
