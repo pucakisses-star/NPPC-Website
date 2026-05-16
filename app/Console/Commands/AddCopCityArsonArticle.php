@@ -6,6 +6,9 @@ use App\Models\Article;
 use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Publish an article on the April 2026 Cobb County indictment of
@@ -19,10 +22,34 @@ final class AddCopCityArsonArticle extends Command {
     protected $description = 'Publish article on the April 2026 Cop City Brasfield & Gorrie arson indictment';
 
     private const SLUG = 'nothing-burned-three-indicted-georgia-ag-charges-cop-city-protesters-2026';
+    private const IMAGE_URL = 'https://pbs.twimg.com/media/HGn5zi8XMAAObkX.jpg';
+    private const TWEET_DATE = '2026-04-23 22:28:31';
 
     public function handle(): int {
         $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
+
+        // Download the protest photo from the @defendATLforest tweet and
+        // store it on the public disk. Falls back to remote URL if the
+        // download fails so the article still renders.
+        $imagePath = 'articles/'.self::SLUG.'.jpg';
+        try {
+            if (! Storage::disk('public')->exists($imagePath)) {
+                $resp = Http::withHeaders(['User-Agent' => 'Mozilla/5.0 (compatible; NPPC-Archive/1.0)'])
+                    ->timeout(60)
+                    ->get(self::IMAGE_URL);
+                if ($resp->successful() && strlen($resp->body()) > 1000) {
+                    Storage::disk('public')->put($imagePath, $resp->body());
+                    $this->info('Saved article image to '.$imagePath);
+                } else {
+                    $imagePath = self::IMAGE_URL;
+                    $this->warn('Image download failed — using remote URL.');
+                }
+            }
+        } catch (\Throwable $e) {
+            $imagePath = self::IMAGE_URL;
+            $this->warn('Image fetch error ('.$e->getMessage().') — using remote URL.');
+        }
 
         $body = <<<'BODY'
 <p><em>Days before his gubernatorial primary, AG Chris Carr unveils new "arson" charges against three out-of-state Stop Cop City defendants — for an action where, organizers say, no structure was ever set on fire.</em></p>
@@ -50,7 +77,8 @@ BODY;
             'body'         => $body,
             'category_id'  => $category->id,
             'author_id'    => $author->id,
-            'published_at' => now(),
+            'image'        => $imagePath,
+            'published_at' => Carbon::parse(self::TWEET_DATE),
             'citations_json' => [
                 ['title' => 'Latest Cop City Indictments Drag Former RICO Defendants into New Legal Battle (UNICORN RIOT)', 'url' => 'https://unicornriot.ninja/2026/latest-cop-city-indictments-drag-former-rico-defendants-into-new-legal-battle/'],
                 ['title' => 'Georgia AG Charges Three in Brasfield & Gorrie Arson (Rough Draft Atlanta)', 'url' => 'https://roughdraftatlanta.com/2026/04/27/arson-charges-cop-city/'],
