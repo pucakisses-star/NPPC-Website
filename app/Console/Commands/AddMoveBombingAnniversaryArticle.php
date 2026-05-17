@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Publish a commemoration article for the May 13, 2026 anniversary
- * of the 1985 Philadelphia police bombing of the MOVE row house at
- * 6221 Osage Avenue. Surfaced from a May 13, 2026 share by Kalonji
- * Changa (@Kalonjichanga) on X (status 2054591020176658925).
+ * Publish a commemoration article for the May 13, 2025 fortieth
+ * anniversary of the 1985 Philadelphia police bombing of the MOVE
+ * row house at 6221 Osage Avenue. Surfaced from a Kalonji Changa
+ * (@Kalonjichanga) X share at status 2054591020176658925.
  *
  * Idempotent — re-runs update by slug.
  */
@@ -24,7 +24,7 @@ final class AddMoveBombingAnniversaryArticle extends Command {
 
     private const SLUG      = 'move-bombing-anniversary-philadelphia-1985-osage-avenue';
     private const IMAGE_URL = 'https://pbs.twimg.com/media/HINfpPAW4AA9G3w.jpg';
-    private const PUB_DATE  = '2026-05-13 15:54:06';
+    private const PUB_DATE  = '2025-05-13 12:00:00';
 
     public function handle(): int {
         $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
@@ -50,9 +50,9 @@ final class AddMoveBombingAnniversaryArticle extends Command {
         }
 
         $body = <<<'BODY'
-<p><em>Forty-one years ago today, on May 13, 1985, the Philadelphia Police Department dropped a satchel of military-grade C-4 explosive on the roof of a row house at 6221 Osage Avenue. Eleven people inside — six adults and five children — were killed. Sixty-one neighboring homes burned to the ground. No officer or city official was ever criminally charged.</em></p>
+<p><em>Forty years ago today, on May 13, 1985, the Philadelphia Police Department dropped a satchel of military-grade C-4 explosive on the roof of a row house at 6221 Osage Avenue. Eleven people inside — six adults and five children — were killed. Sixty-one neighboring homes burned to the ground. No officer or city official was ever criminally charged.</em></p>
 
-<p>On <strong>Wednesday, May 13, 2026</strong>, MOVE supporters, neighbors of the 6200 block of Osage Avenue, and Black-liberation organizers across the United States again mark the anniversary of the only documented instance in modern American history of a U.S. police department dropping a bomb from a helicopter onto a residential home in its own city. The day is observed every year by movement formations across Philadelphia and beyond — and is increasingly observed in the cities to which MOVE survivors and prisoners' relatives scattered after 1985.</p>
+<p>On <strong>Tuesday, May 13, 2025</strong>, MOVE supporters, neighbors of the 6200 block of Osage Avenue, and Black-liberation organizers across the United States mark the fortieth anniversary of the only documented instance in modern American history of a U.S. police department dropping a bomb from a helicopter onto a residential home in its own city. The day is observed every year by movement formations across Philadelphia and beyond — and is increasingly observed in the cities to which MOVE survivors and prisoners' relatives scattered after 1985.</p>
 
 <h2>What happened</h2>
 
@@ -104,15 +104,15 @@ final class AddMoveBombingAnniversaryArticle extends Command {
 BODY;
 
         $data = [
-            'title'        => "Forty-One Years After Philadelphia Police Bombed Their Home, We Say the Names: MOVE, May 13, 1985",
-            'intro'        => "Forty-one years ago today, on May 13, 1985, the Philadelphia Police Department dropped a satchel of military-grade C-4 explosive on the roof of a row house at 6221 Osage Avenue. Eleven people inside — six adults and five children — were killed. Sixty-one neighboring homes burned to the ground. No officer or city official was ever criminally charged.",
+            'title'        => "Forty Years After Philadelphia Police Bombed Their Home, We Say the Names: MOVE, May 13, 1985",
+            'intro'        => "Forty years ago today, on May 13, 1985, the Philadelphia Police Department dropped a satchel of military-grade C-4 explosive on the roof of a row house at 6221 Osage Avenue. Eleven people inside — six adults and five children — were killed. Sixty-one neighboring homes burned to the ground. No officer or city official was ever criminally charged.",
             'body'         => $body,
             'category_id'  => $category->id,
             'author_id'    => $author->id,
             'image'        => $imagePath,
             'published_at' => Carbon::parse(self::PUB_DATE),
             'citations_json' => [
-                ['title' => '@Kalonjichanga on X (origin share, May 13 2026)', 'url' => 'https://x.com/Kalonjichanga/status/2054591020176658925'],
+                ['title' => '@Kalonjichanga on X (origin share)', 'url' => 'https://x.com/Kalonjichanga/status/2054591020176658925'],
                 ['title' => 'Philadelphia Special Investigation Commission (MOVE Commission) Report — 1986', 'url' => 'https://www.upenn.edu/about/move-commission'],
                 ['title' => 'Africa v. City of Philadelphia — 1996 federal civil-rights verdict', 'url' => 'https://law.justia.com/cases/federal/district-courts/FSupp/938/1278/1493068/'],
                 ['title' => 'Philadelphia City Council Resolution — Formal apology, Nov 12 2020', 'url' => 'https://phlcouncil.com/move-apology/'],
