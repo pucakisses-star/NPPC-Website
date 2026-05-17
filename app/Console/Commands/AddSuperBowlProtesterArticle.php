@@ -30,7 +30,7 @@ final class AddSuperBowlProtesterArticle extends Command {
     private const PUB_DATE = '2026-05-12 12:00:00';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         $body = <<<'BODY'
