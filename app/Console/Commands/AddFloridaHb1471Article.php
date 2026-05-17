@@ -28,7 +28,7 @@ final class AddFloridaHb1471Article extends Command {
     private const PUB_DATE   = '2026-04-07 02:16:00';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         // Pull the tweet image so the article has artwork.

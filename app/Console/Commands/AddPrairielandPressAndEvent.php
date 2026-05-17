@@ -30,7 +30,7 @@ final class AddPrairielandPressAndEvent extends Command {
     private const TWEET_DATE   = '2026-03-17 18:28:48';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         // Pull the IllWill solidarity-day graphic once for both records.

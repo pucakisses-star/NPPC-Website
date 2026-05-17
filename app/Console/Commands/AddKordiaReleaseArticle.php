@@ -29,7 +29,7 @@ final class AddKordiaReleaseArticle extends Command {
     private const PUB_DATE  = '2026-03-16 22:26:16';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         // Save the Defending Rights & Dissent image.

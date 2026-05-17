@@ -24,7 +24,7 @@ final class AddEsquedaDroppedArticle extends Command {
     private const PUB_DATE = '2024-12-16 16:00:00';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         $body = <<<'BODY'

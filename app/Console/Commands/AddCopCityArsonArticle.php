@@ -26,7 +26,7 @@ final class AddCopCityArsonArticle extends Command {
     private const TWEET_DATE = '2026-04-23 22:28:31';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         // Download the protest photo from the @defendATLforest tweet and

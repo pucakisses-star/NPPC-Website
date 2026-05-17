@@ -28,7 +28,7 @@ final class AddCitiesChurch30Article extends Command {
     private const PUB_DATE = '2026-03-03 20:33:01';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Repression'], ['slug' => 'repression']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Editorial']);
 
         $body = <<<'BODY'
