@@ -10,19 +10,6 @@ Route::controller(DonateController::class)
         Route::get('/donate-callback', 'callback');
     });
 
-// 301 redirects from deleted placeholder article slugs that still
-// receive inbound traffic, to their published replacements.
-Route::redirect(
-    '/news/super-bowl-halftime-performer-charged-months-after-holding-protest-flag-for-gaza',
-    '/news/zul-qarnain-nantambu-super-bowl-halftime-gaza-sudan-flag-conviction-2026',
-    301
-);
-Route::redirect(
-    '/news/nppa-joins-amnesty-international-in-demanding-release-of-journalist-estefany-rodriguez',
-    '/news/estefany-rodriguez-florez-ice-arrest-first-amendment-2026',
-    301
-);
-
 Route::controller(SiteController::class)
     ->group(function () {
         Route::get('/', 'home')->name('home');
