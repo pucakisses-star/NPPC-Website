@@ -108,9 +108,7 @@ EOB;
         </style>
 
         @if(method_exists($articles, 'links'))
-            <div class="mt-12 text-white" style="color:#fff;">
-                {{ $articles->links() }}
-            </div>
+            {{ $articles->links('vendor.pagination.nppc') }}
         @endif
 
     </div>
