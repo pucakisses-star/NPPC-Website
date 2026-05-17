@@ -98,9 +98,55 @@
                 <div class="cal-day-num">{{ str_pad($selectedDay, 2, '0', STR_PAD_LEFT) }}</div>
                 <div class="cal-day-month">{{ strtoupper(substr($monthName, 0, 3)) }}</div>
 
+                @php
+                    $firstEntry = $dayEntries->first();
+                    $shareDate = $monthName.' '.str_pad($selectedDay, 2, '0', STR_PAD_LEFT);
+                    if ($dayEntries->count() === 1) {
+                        $shareText = 'On this day in '.$firstEntry->year.': '.$firstEntry->title.' — NPPC';
+                    } else {
+                        $shareText = 'On this day ('.$shareDate.') in the U.S. political-prisoner record — NPPC';
+                    }
+                    $shareUrl  = request()->fullUrl();
+                    $encText   = rawurlencode($shareText);
+                    $encUrl    = rawurlencode($shareUrl);
+                    $twitterUrl  = 'https://twitter.com/intent/tweet?text='.$encText.'&url='.$encUrl;
+                    $facebookUrl = 'https://www.facebook.com/sharer/sharer.php?u='.$encUrl;
+                    $blueskyUrl  = 'https://bsky.app/intent/compose?text='.rawurlencode($shareText.' '.$shareUrl);
+                    $threadsUrl  = 'https://www.threads.net/intent/post?text='.rawurlencode($shareText.' '.$shareUrl);
+                @endphp
                 <div class="cal-day-share">
                     <div class="cal-day-share-title">Share this</div>
                     <div class="cal-day-share-text">Help confront our history to overcome injustice.</div>
+                    <div style="display:flex; justify-content:center; gap:14px; margin-top:14px; flex-wrap:wrap;">
+                        {{-- Twitter / X --}}
+                        <a href="{{ $twitterUrl }}" target="_blank" rel="noopener" title="Share on X (Twitter)" aria-label="Share on X"
+                           style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.15); border-radius:50%; color:rgba(255,255,255,0.75); transition:all 0.15s;"
+                           onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.4)';"
+                           onmouseout="this.style.color='rgba(255,255,255,0.75)'; this.style.borderColor='rgba(255,255,255,0.15)';">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        {{-- Facebook --}}
+                        <a href="{{ $facebookUrl }}" target="_blank" rel="noopener" title="Share on Facebook" aria-label="Share on Facebook"
+                           style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.15); border-radius:50%; color:rgba(255,255,255,0.75); transition:all 0.15s;"
+                           onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.4)';"
+                           onmouseout="this.style.color='rgba(255,255,255,0.75)'; this.style.borderColor='rgba(255,255,255,0.15)';">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.412c0-3.022 1.792-4.69 4.533-4.69 1.312 0 2.686.235 2.686.235v2.964h-1.515c-1.492 0-1.957.93-1.957 1.886v2.266h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073"/></svg>
+                        </a>
+                        {{-- Bluesky --}}
+                        <a href="{{ $blueskyUrl }}" target="_blank" rel="noopener" title="Share on Bluesky" aria-label="Share on Bluesky"
+                           style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.15); border-radius:50%; color:rgba(255,255,255,0.75); transition:all 0.15s;"
+                           onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.4)';"
+                           onmouseout="this.style.color='rgba(255,255,255,0.75)'; this.style.borderColor='rgba(255,255,255,0.15)';">
+                            <svg width="16" height="16" viewBox="0 0 600 530" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M135.72 44.03C202.216 93.951 273.74 195.17 300 249.49c26.262-54.316 97.782-155.54 164.28-205.46C512.26 8.022 590-19.503 590 68.997c0 17.668-10.132 148.42-16.073 169.65-20.65 73.792-95.95 92.612-162.97 81.187 117.13 19.93 146.97 86.115 82.62 152.3-122.16 125.62-175.51-31.516-189.18-71.79-2.503-7.382-3.676-10.832-3.687-7.898-0.011-2.934-1.183 0.517-3.687 7.898-13.674 40.274-67.022 197.41-189.18 71.79-64.343-66.185-34.506-132.37 82.626-152.3-67.02 11.425-142.32-7.395-162.97-81.187C20.135 217.43 10 86.673 10 68.997 10-19.503 87.74 8.022 135.72 44.03z"/></svg>
+                        </a>
+                        {{-- Threads --}}
+                        <a href="{{ $threadsUrl }}" target="_blank" rel="noopener" title="Share on Threads" aria-label="Share on Threads"
+                           style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.15); border-radius:50%; color:rgba(255,255,255,0.75); transition:all 0.15s;"
+                           onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.4)';"
+                           onmouseout="this.style.color='rgba(255,255,255,0.75)'; this.style.borderColor='rgba(255,255,255,0.15)';">
+                            <svg width="16" height="16" viewBox="0 0 192 192" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.348-10.548h.229c8.249.053 14.474 2.452 18.503 7.129 2.93 3.404 4.89 8.107 5.864 14.045-7.34-1.248-15.276-1.63-23.764-1.144-23.91 1.378-39.281 15.323-38.249 34.7.526 9.831 5.416 18.287 13.776 23.81 7.07 4.67 16.173 6.95 25.635 6.434 12.5-.683 22.305-5.45 29.144-14.167 5.196-6.617 8.479-15.196 9.92-26.006 5.92 3.572 10.308 8.275 12.733 13.929 4.121 9.609 4.363 25.394-8.51 38.257-11.281 11.272-24.838 16.15-45.32 16.3-22.722-.168-39.9-7.456-51.06-21.66-10.45-13.301-15.852-32.52-16.054-57.117.202-24.597 5.604-43.816 16.055-57.118 11.16-14.205 28.337-21.49 51.06-21.659 22.886.17 40.361 7.494 51.94 21.779 5.683 7.008 9.97 15.821 12.79 26.083l16.456-4.385c-3.42-12.626-8.806-23.503-16.143-32.547C148.058 9.83 126.804.169 99.21 0h-.111C71.561.169 50.546 9.866 36.74 28.825 24.461 45.69 18.127 69.165 17.917 95.74l-.001.13.001.131c.21 26.574 6.544 50.05 18.823 66.915C50.546 181.874 71.561 191.571 99.099 191.74h.111c24.485-.169 41.736-6.578 55.94-20.769 18.586-18.566 18.027-41.83 11.899-56.116-4.393-10.246-12.789-18.555-24.258-24.022-3.149-1.439-6.401-2.717-9.799-3.842zm-26.064 19.51c-3.484 4.408-9.165 6.892-16.21 7.275-6.99.38-13.55-1.286-17.96-4.625-3.32-2.516-5.45-6.122-5.7-9.677-.51-7.196 6.06-13.32 18.91-14.064 1.83-.106 3.66-.158 5.49-.158 4.86 0 9.5.466 13.74 1.388 1.16 12.84-1.5 19.06-2.27 19.86z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="cal-day-right">
