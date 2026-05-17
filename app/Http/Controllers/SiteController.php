@@ -295,27 +295,36 @@ final class SiteController extends Controller {
             ->where('month', $month)
             ->where('published', true)
             ->orderBy('day')
+            ->orderBy('year')
             ->get();
 
         $monthName = date('F', mktime(0, 0, 0, $month, 1));
         $today = (int) date('j');
         $currentMonth = (int) date('n');
 
-        // Day view: find specific entry
-        $dayEntry = null;
+        // Day view: collect ALL entries for the selected day (a single
+        // date can host multiple historically-significant events; e.g.
+        // May 4 = both Kent State 1970 and the Original 13 Freedom
+        // Riders 1961).
+        $dayEntries = collect();
+        $selectedDay = null;
         if ($view === 'day' && $day) {
-            $dayEntry = $entries->where('day', (int) $day)->first();
+            $selectedDay = (int) $day;
+            $dayEntries = $entries->where('day', $selectedDay)->values();
         }
-        // Default to today's entry if no day specified in day view
-        if ($view === 'day' && ! $dayEntry && $month === $currentMonth) {
-            $dayEntry = $entries->where('day', $today)->first();
+        if ($view === 'day' && $dayEntries->isEmpty() && $month === $currentMonth) {
+            $selectedDay = $today;
+            $dayEntries = $entries->where('day', $today)->values();
         }
-        // Fall back to first entry if nothing found
-        if ($view === 'day' && ! $dayEntry && $entries->isNotEmpty()) {
-            $dayEntry = $entries->first();
+        if ($view === 'day' && $dayEntries->isEmpty() && $entries->isNotEmpty()) {
+            $selectedDay = (int) $entries->first()->day;
+            $dayEntries = $entries->where('day', $selectedDay)->values();
         }
 
-        return view('pages.calendar', compact('entries', 'month', 'monthName', 'today', 'currentMonth', 'view', 'dayEntry'));
+        // Back-compat: views that still reference $dayEntry get the first.
+        $dayEntry = $dayEntries->first();
+
+        return view('pages.calendar', compact('entries', 'month', 'monthName', 'today', 'currentMonth', 'view', 'dayEntry', 'dayEntries', 'selectedDay'));
     }
 
     public function store(Request $request) {
