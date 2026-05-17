@@ -51,34 +51,50 @@ EOB;
             @endforeach
         </div>
 
-        {{-- Hero row: 1 large article on the left, up to 4 smaller on the right.
-             Inline grid styles so we don't depend on Tailwind gap-* classes
-             being in the compiled CSS bundle. --}}
-        <div class="news-hero-row">
-            <div>
-                <?php $x = 0; foreach ($articles as $article) {
-                    $x++; if ($x === 2) break; ?>
-                {!! renderArticle($article, true) !!}
-                <?php } ?>
+        <?php
+            // The hero layout (1 large + 4 smaller) is page-1 only.
+            // Pages 2+ render every article in a uniform 3-col grid.
+            $isPaginator = method_exists($articles, 'currentPage');
+            $showHero    = !$isPaginator || $articles->currentPage() === 1;
+        ?>
+
+        @if ($showHero)
+            {{-- Hero row: 1 large article on the left, up to 4 smaller on the right.
+                 Inline grid styles so we don't depend on Tailwind gap-* classes
+                 being in the compiled CSS bundle. --}}
+            <div class="news-hero-row">
+                <div>
+                    <?php $x = 0; foreach ($articles as $article) {
+                        $x++; if ($x === 2) break; ?>
+                    {!! renderArticle($article, true) !!}
+                    <?php } ?>
+                </div>
+
+                <div class="news-hero-sub">
+                    <?php $x = 0; foreach ($articles as $article) {
+                        $x++; if ($x === 1) continue;  if ($x === 6) break; ?>
+                    {!! renderArticle($article) !!}
+                    <?php } ?>
+                </div>
             </div>
 
-            <div class="news-hero-sub">
+
+            {{-- Rest of the grid: 3 cols on desktop, 2 on tablet, 1 on mobile.
+                 Explicit gap so spacing is guaranteed. --}}
+            <div class="news-rest-grid">
                 <?php $x = 0; foreach ($articles as $article) {
-                    $x++; if ($x === 1) continue;  if ($x === 6) break; ?>
+                    $x++; if ($x < 6) continue; ?>
                 {!! renderArticle($article) !!}
                 <?php } ?>
             </div>
-        </div>
-
-
-        {{-- Rest of the grid: 3 cols on desktop, 2 on tablet, 1 on mobile.
-             Explicit gap so spacing is guaranteed. --}}
-        <div class="news-rest-grid">
-            <?php $x = 0; foreach ($articles as $article) {
-                $x++; if ($x < 6) continue; ?>
-            {!! renderArticle($article) !!}
-            <?php } ?>
-        </div>
+        @else
+            {{-- Pages 2+: uniform 3-col grid, no hero. --}}
+            <div class="news-rest-grid">
+                @foreach ($articles as $article)
+                    {!! renderArticle($article) !!}
+                @endforeach
+            </div>
+        @endif
 
         <style>
             .news-hero-row {
