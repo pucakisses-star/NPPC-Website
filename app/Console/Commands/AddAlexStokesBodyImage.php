@@ -26,11 +26,14 @@ final class AddAlexStokesBodyImage extends Command {
     private const WEB_PATH     = '/storage/prisoners/inline/alex-stokes-abcf.jpg';
 
     public function handle(): int {
-        $alex = Prisoner::where('slug', 'alexander-contompasis')
-            ->orWhere('slug', 'alex-stokes-contompasis')
-            ->orWhere('name', 'Alexander Contompasis')
-            ->orWhere('aka', 'like', '%Alex Stokes%')
-            ->first();
+        $alex = Prisoner::where(function ($q) {
+            $q->where('name', 'like', '%Contompasis%')
+              ->orWhere('name', 'like', '%Stokes%')
+              ->orWhere('aka', 'like', '%Stokes%')
+              ->orWhere('aka', 'like', '%Contompasis%')
+              ->orWhere('slug', 'like', '%contompasis%')
+              ->orWhere('slug', 'like', '%alex-stokes%');
+        })->first();
 
         if (! $alex) {
             $this->error('Alex Stokes / Alexander Contompasis not found in DB.');
