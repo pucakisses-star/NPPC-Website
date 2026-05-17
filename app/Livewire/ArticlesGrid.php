@@ -39,11 +39,11 @@ class ArticlesGrid extends Component {
 
         // Homepage embeds the grid with a hard limit (e.g. top 6 articles)
         // and doesn't want pagination. The standalone /news page uses no
-        // limit and gets paginated at 18 articles per page.
+        // limit and gets paginated at 20 articles per page.
         if ($this->limit) {
             $articles = $query->limit($this->limit)->get();
         } else {
-            $articles = $query->paginate(18);
+            $articles = $query->paginate(20);
         }
 
         return view('livewire.articles-grid', [
