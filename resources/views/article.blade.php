@@ -32,10 +32,11 @@
     </div>
 
 
-    <div class=" h-[420px] rounded-lg mt-12 mb-{{ $article->image_caption ? '2' : '6' }} overflow-hidden  justify-center items-center bg-center bg-cover" style="background-image: url('{{ $article->image_url }}')">
-    </div>
-    @if($article->image_caption)
-        <div style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; margin-bottom:24px;">{{ $article->image_caption }}</div>
+    @if($article->image_url)
+        <div style="height:420px; border-radius:8px; margin-top:48px; margin-bottom:{{ $article->image_caption ? '8px' : '24px' }}; overflow:hidden; background-image: url('{{ $article->image_url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+        @if($article->image_caption)
+            <div style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; margin-bottom:24px;">{{ $article->image_caption }}</div>
+        @endif
     @endif
     <article class="mt-12 page-content">
         {!! $article->body !!}

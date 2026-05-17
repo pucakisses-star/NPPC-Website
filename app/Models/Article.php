@@ -61,7 +61,17 @@ final class Article extends Model {
     }
 
     public function getImageUrlAttribute(): string {
-        return Storage::url($this->image);
+        $img = (string) $this->image;
+        if ($img === '') {
+            return '';
+        }
+        // If the stored value is already a fully-qualified URL
+        // (e.g. a remote fallback from an article-import command),
+        // pass it through unchanged instead of prepending /storage/.
+        if (str_starts_with($img, 'http://') || str_starts_with($img, 'https://') || str_starts_with($img, '//') || str_starts_with($img, '/')) {
+            return $img;
+        }
+        return Storage::url($img);
     }
 
     public function getIntroAttribute(): string {
