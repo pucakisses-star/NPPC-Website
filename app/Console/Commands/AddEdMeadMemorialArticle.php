@@ -28,7 +28,25 @@ final class AddEdMeadMemorialArticle extends Command {
     private const PUB_DATE  = '2023-11-26 00:00:00';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Memorial'], ['slug' => 'memorial']);
+        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
+
+        // The earlier run of this command created a "Memorial" category
+        // that the user has decided not to keep. Drop it if it has no
+        // remaining articles. (Safe — won't touch it if anything else
+        // is attached to it.)
+        $memorial = Category::where('title', 'Memorial')->first();
+        if ($memorial && $memorial->articles()->count() <= 1) {
+            // The <= 1 lets us delete it even if THIS article is still
+            // pointed at it from the previous run; we'll update the
+            // article's category_id below before the delete actually
+            // hits anything.
+            $memorial->articles()->where('slug', self::SLUG)->update(['category_id' => $category->id]);
+            if ($memorial->articles()->count() === 0) {
+                $memorial->delete();
+                $this->info('Removed empty "Memorial" category.');
+            }
+        }
+
         $author   = Author::firstOrCreate(['name' => 'Abolition Media (republished)']);
 
         // v2 suffix — the original article saved a Twitter share image
