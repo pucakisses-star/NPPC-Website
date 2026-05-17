@@ -9,14 +9,24 @@
 @section('body')
     <div class="line mt-8"></div>
 
+    {{-- Hero image first --}}
+    @if($article->image_url)
+        <figure style="margin: 48px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:#0a0a0a;">
+            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top;">
+            @if($article->image_caption)
+                <figcaption style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
+            @endif
+        </figure>
+    @endif
+
     {{-- Category label --}}
     @if($article->category)
-        <div style="margin-top:48px; margin-bottom:16px;">
+        <div style="margin-top:{{ $article->image_url ? '24px' : '48px' }}; margin-bottom:16px;">
             <span style="display:inline-block; padding:4px 12px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.8);">{{ $article->category->title }}</span>
         </div>
     @endif
 
-    <h1 style="font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.15; font-weight: 800; color: #fff; margin: {{ $article->category ? '0' : '48px 0 0 0' }} 0 24px 0;">{{$article->title}}</h1>
+    <h1 style="font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.15; font-weight: 800; color: #fff; margin: {{ $article->category || $article->image_url ? '0' : '48px 0 0 0' }} 0 24px 0;">{{$article->title}}</h1>
 
     <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:16px 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
         @include('partials.articles.author')
@@ -30,16 +40,6 @@
             </button>
         </div>
     </div>
-
-
-    @if($article->image_url)
-        <figure style="margin: 32px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:#0a0a0a;">
-            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top;">
-            @if($article->image_caption)
-                <figcaption style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
-            @endif
-        </figure>
-    @endif
     <article class="mt-12 page-content">
         {!! $article->body !!}
 
