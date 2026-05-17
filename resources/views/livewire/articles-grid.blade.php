@@ -76,6 +76,12 @@ EOB;
             <?php } ?>
         </div>
 
+        @if(method_exists($articles, 'links'))
+            <div class="mt-12 text-white" style="color:#fff;">
+                {{ $articles->links() }}
+            </div>
+        @endif
+
     </div>
 
 </section>
