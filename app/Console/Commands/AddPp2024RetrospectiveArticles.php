@@ -32,6 +32,14 @@ final class AddPp2024RetrospectiveArticles extends Command {
         $articles = $this->articles();
         $created = 0; $updated = 0;
 
+        // Per-slug image overrides applied as a post-pass — keeps the
+        // per-article data() blocks clean and lets us patch images in
+        // without touching the bodies. Values may be local
+        // /pdfs/... -style paths or absolute https:// URLs.
+        $imagesBySlug = [
+            'steven-donziger-2024-scotus-cert-denial' => 'https://dims.apnews.com/dims4/default/ded5c55/2147483647/strip/true/crop/5178x3452+0+0/resize/979x653!/format/webp/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F49%2F85%2F315e6c43f6ceb78c93ff4e731728%2Fd58987c7ff8749c7a0e60bce3ce797ac',
+        ];
+
         foreach ($articles as $a) {
             $slug = $a['slug']; unset($a['slug']);
             $payload = [
@@ -43,6 +51,9 @@ final class AddPp2024RetrospectiveArticles extends Command {
                 'published_at'   => Carbon::parse($a['published_at']),
                 'citations_json' => $a['citations'],
             ];
+            if (isset($imagesBySlug[$slug])) {
+                $payload['image'] = $imagesBySlug[$slug];
+            }
             $existing = Article::where('slug', $slug)->first();
             if ($existing) {
                 $existing->update($payload);
