@@ -51,8 +51,10 @@ EOB;
             @endforeach
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-
+        {{-- Hero row: 1 large article on the left, up to 4 smaller on the right.
+             Inline grid styles so we don't depend on Tailwind gap-* classes
+             being in the compiled CSS bundle. --}}
+        <div class="news-hero-row">
             <div>
                 <?php $x = 0; foreach ($articles as $article) {
                     $x++; if ($x === 2) break; ?>
@@ -60,7 +62,7 @@ EOB;
                 <?php } ?>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="news-hero-sub">
                 <?php $x = 0; foreach ($articles as $article) {
                     $x++; if ($x === 1) continue;  if ($x === 6) break; ?>
                 {!! renderArticle($article) !!}
@@ -69,12 +71,41 @@ EOB;
         </div>
 
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {{-- Rest of the grid: 3 cols on desktop, 2 on tablet, 1 on mobile.
+             Explicit gap so spacing is guaranteed. --}}
+        <div class="news-rest-grid">
             <?php $x = 0; foreach ($articles as $article) {
                 $x++; if ($x < 6) continue; ?>
             {!! renderArticle($article) !!}
             <?php } ?>
         </div>
+
+        <style>
+            .news-hero-row {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 32px;
+                margin-bottom: 48px;
+            }
+            .news-hero-sub {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .news-rest-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            @media (min-width: 768px) {
+                .news-hero-row { grid-template-columns: 1fr 1fr; }
+                .news-hero-sub { grid-template-columns: 1fr 1fr; }
+                .news-rest-grid { grid-template-columns: 1fr 1fr; }
+            }
+            @media (min-width: 1024px) {
+                .news-rest-grid { grid-template-columns: 1fr 1fr 1fr; }
+            }
+        </style>
 
         @if(method_exists($articles, 'links'))
             <div class="mt-12 text-white" style="color:#fff;">
