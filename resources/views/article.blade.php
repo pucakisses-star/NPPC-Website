@@ -11,19 +11,19 @@
 
     {{-- Category label --}}
     @if($article->category)
-        <div class="mt-12 mb-4 flex items-center gap-2">
+        <div style="margin-top:48px; margin-bottom:16px;">
             <span style="display:inline-block; padding:4px 12px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.8);">{{ $article->category->title }}</span>
         </div>
     @endif
 
-    <h1 class="text-6xl {{ $article->category ? '' : 'mt-12' }}">{{$article->title}}</h1>
+    <h1 style="font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.15; font-weight: 800; color: #fff; margin: {{ $article->category ? '0' : '48px 0 0 0' }} 0 24px 0;">{{$article->title}}</h1>
 
-    <div class="flex justify-between">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:16px 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
         @include('partials.articles.author')
-        <div class="flex items-center gap-2">
+        <div style="display:flex; align-items:center; gap:8px;">
             @include('partials.articles.share')
-            <button onclick="window.print()" class="flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-white border border-white/20 hover:bg-white/10 transition print-hide" title="Print article">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <button onclick="window.print()" style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; font-size:13px; font-weight:600; color:#fff; background:transparent; border:1px solid rgba(255,255,255,0.2); cursor:pointer; transition:background 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" class="print-hide" title="Print article">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:16px; width:16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                 </svg>
                 Print
@@ -33,10 +33,12 @@
 
 
     @if($article->image_url)
-        <div style="height:420px; border-radius:8px; margin-top:48px; margin-bottom:{{ $article->image_caption ? '8px' : '24px' }}; overflow:hidden; background-image: url('{{ $article->image_url }}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-        @if($article->image_caption)
-            <div style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; margin-bottom:24px;">{{ $article->image_caption }}</div>
-        @endif
+        <figure style="margin: 32px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:#0a0a0a;">
+            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top;">
+            @if($article->image_caption)
+                <figcaption style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
+            @endif
+        </figure>
     @endif
     <article class="mt-12 page-content">
         {!! $article->body !!}
