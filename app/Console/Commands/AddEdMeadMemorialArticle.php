@@ -24,14 +24,16 @@ final class AddEdMeadMemorialArticle extends Command {
     protected $description = 'Repost Abolition Media memorial for Ed Mead (1941–2023)';
 
     private const SLUG      = 'remembering-ed-mead-george-jackson-brigade-political-prisoner-memorial';
-    private const IMAGE_URL = 'https://pbs.twimg.com/media/F_5jSuIXIAAvfL4.jpg';
+    private const IMAGE_URL = 'https://abolitionmedia.noblogs.org/files/2023/11/edmead.cleaned.jpg';
     private const PUB_DATE  = '2023-11-26 00:00:00';
 
     public function handle(): int {
         $category = Category::firstOrCreate(['title' => 'Memorial'], ['slug' => 'memorial']);
         $author   = Author::firstOrCreate(['name' => 'Abolition Media (republished)']);
 
-        $imagePath = 'articles/'.self::SLUG.'.jpg';
+        // v2 suffix — the original article saved a Twitter share image
+        // here; this run uses the full-size original from Abolition Media.
+        $imagePath = 'articles/'.self::SLUG.'-v2.jpg';
         try {
             if (! Storage::disk('public')->exists($imagePath)) {
                 $resp = Http::withHeaders(['User-Agent' => 'Mozilla/5.0 (compatible; NPPC-Archive/1.0)'])
