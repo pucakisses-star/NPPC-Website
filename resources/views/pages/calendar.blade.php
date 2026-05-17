@@ -91,11 +91,11 @@
         @endfor
     </div>
 
-    @if($view === 'day' && $dayEntry)
+    @if($view === 'day' && $dayEntries->isNotEmpty())
         {{-- DAY VIEW --}}
         <div class="cal-day-view">
             <div class="cal-day-left">
-                <div class="cal-day-num">{{ str_pad($dayEntry->day, 2, '0', STR_PAD_LEFT) }}</div>
+                <div class="cal-day-num">{{ str_pad($selectedDay, 2, '0', STR_PAD_LEFT) }}</div>
                 <div class="cal-day-month">{{ strtoupper(substr($monthName, 0, 3)) }}</div>
 
                 <div class="cal-day-share">
@@ -107,78 +107,94 @@
                 <div class="cal-day-dateline">
                     <span>On this day</span>
                     <span class="cal-day-dateline-bar"></span>
-                    <span>{{ $monthName }} {{ str_pad($dayEntry->day, 2, '0', STR_PAD_LEFT) }}, {{ $dayEntry->year }}</span>
+                    <span>{{ $monthName }} {{ str_pad($selectedDay, 2, '0', STR_PAD_LEFT) }}@if($dayEntries->count() === 1), {{ $dayEntries->first()->year }}@endif</span>
                 </div>
 
-                <h1 class="cal-day-title">{{ $dayEntry->title }}</h1>
+                @foreach($dayEntries as $idx => $entry)
+                    @if($idx > 0)
+                        <hr style="border:none; border-top:1px solid rgba(255,255,255,0.1); margin:48px 0;">
+                    @endif
+                    @if($dayEntries->count() > 1)
+                        <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.4); margin-bottom:12px;">{{ $monthName }} {{ str_pad($selectedDay, 2, '0', STR_PAD_LEFT) }}, {{ $entry->year }}</div>
+                    @endif
 
-                @if($dayEntry->image)
-                    <div class="cal-day-image">
-                        <img src="{{ Storage::url($dayEntry->image) }}" alt="{{ $dayEntry->title }}">
-                    </div>
-                @endif
+                    <h1 class="cal-day-title">{{ $entry->title }}</h1>
 
-                {{-- Prisoner info card --}}
-                @if($dayEntry->prisoner)
-                    @php $p = $dayEntry->prisoner; @endphp
-                    <div style="border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:24px; margin:32px auto; max-width:600px; display:flex; gap:20px; align-items:flex-start;">
-                        @if($p->photo)
-                            <img src="{{ asset('storage/'.$p->photo) }}" style="width:80px; height:80px; border-radius:50%; object-fit:cover; flex-shrink:0;">
-                        @endif
-                        <div style="flex:1;">
-                            <a href="/prisoner/{{ $p->slug ?: $p->id }}" style="font-size:18px; font-weight:800; color:#fff; text-decoration:none; display:block; margin-bottom:4px;">{{ $p->name }}</a>
-                            @if($p->aka)<div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:8px; font-style:italic;">AKA: {{ $p->aka }}</div>@endif
-                            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
-                                @if($p->in_custody)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3);">In Custody</span>@endif
-                                @if($p->released)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(34,197,94,0.15); color:#22c55e; border:1px solid rgba(34,197,94,0.3);">Released</span>@endif
-                                @if($p->currently_in_exile || $p->in_exile)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(234,179,8,0.15); color:#eab308; border:1px solid rgba(234,179,8,0.3);">In Exile</span>@endif
-                                @if($p->awaiting_trial)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(59,130,246,0.15); color:#3b82f6; border:1px solid rgba(59,130,246,0.3);">Awaiting Trial</span>@endif
-                            </div>
-                            @if($p->description)
-                                <div style="font-size:14px; color:rgba(255,255,255,0.6); line-height:1.6;">{{ \Illuminate\Support\Str::limit(strip_tags($p->description), 200) }}</div>
-                            @endif
-                            <a href="/prisoner/{{ $p->slug ?: $p->id }}" style="display:inline-block; margin-top:12px; font-size:13px; font-weight:700; color:#5660fe; text-decoration:none;">View full profile &rarr;</a>
+                    @if($entry->image)
+                        <div class="cal-day-image">
+                            <img src="{{ Storage::url($entry->image) }}" alt="{{ $entry->title }}">
                         </div>
-                    </div>
-                @endif
+                    @endif
 
-                @if($dayEntry->description)
-                    <div class="cal-day-desc">
-                        @foreach(explode("\n", $dayEntry->description) as $para)
-                            @if(trim($para))<p style="margin-bottom:1.25em;">{{ $para }}</p>@endif
-                        @endforeach
-                    </div>
-                @endif
+                    {{-- Prisoner info card --}}
+                    @if($entry->prisoner)
+                        @php $p = $entry->prisoner; @endphp
+                        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:24px; margin:32px auto; max-width:600px; display:flex; gap:20px; align-items:flex-start;">
+                            @if($p->photo)
+                                <img src="{{ asset('storage/'.$p->photo) }}" style="width:80px; height:80px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+                            @endif
+                            <div style="flex:1;">
+                                <a href="/prisoner/{{ $p->slug ?: $p->id }}" style="font-size:18px; font-weight:800; color:#fff; text-decoration:none; display:block; margin-bottom:4px;">{{ $p->name }}</a>
+                                @if($p->aka)<div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:8px; font-style:italic;">AKA: {{ $p->aka }}</div>@endif
+                                <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
+                                    @if($p->in_custody)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3);">In Custody</span>@endif
+                                    @if($p->released)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(34,197,94,0.15); color:#22c55e; border:1px solid rgba(34,197,94,0.3);">Released</span>@endif
+                                    @if($p->currently_in_exile || $p->in_exile)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(234,179,8,0.15); color:#eab308; border:1px solid rgba(234,179,8,0.3);">In Exile</span>@endif
+                                    @if($p->awaiting_trial)<span style="font-size:11px; font-weight:700; text-transform:uppercase; padding:2px 8px; border-radius:3px; background:rgba(59,130,246,0.15); color:#3b82f6; border:1px solid rgba(59,130,246,0.3);">Awaiting Trial</span>@endif
+                                </div>
+                                @if($p->description)
+                                    <div style="font-size:14px; color:rgba(255,255,255,0.6); line-height:1.6;">{{ \Illuminate\Support\Str::limit(strip_tags($p->description), 200) }}</div>
+                                @endif
+                                <a href="/prisoner/{{ $p->slug ?: $p->id }}" style="display:inline-block; margin-top:12px; font-size:13px; font-weight:700; color:#5660fe; text-decoration:none;">View full profile &rarr;</a>
+                            </div>
+                        </div>
+                    @endif
 
-                {{-- Prev/Next navigation --}}
+                    @if($entry->description)
+                        <div class="cal-day-desc">
+                            @foreach(explode("\n", $entry->description) as $para)
+                                @if(trim($para))<p style="margin-bottom:1.25em;">{{ $para }}</p>@endif
+                            @endforeach
+                        </div>
+                    @endif
+                @endforeach
+
+                {{-- Prev/Next navigation (by day, not by entry) --}}
                 <div class="cal-day-nav">
                     @php
-                        $prevEntry = $entries->where('day', '<', $dayEntry->day)->last();
-                        $nextEntry = $entries->where('day', '>', $dayEntry->day)->first();
+                        $prevDay = $entries->where('day', '<', $selectedDay)->pluck('day')->unique()->last();
+                        $nextDay = $entries->where('day', '>', $selectedDay)->pluck('day')->unique()->first();
                     @endphp
-                    @if($prevEntry)
-                        <a href="/calendar?month={{ $month }}&view=day&day={{ $prevEntry->day }}" class="cal-day-nav-btn" data-no-fade>&larr; {{ $monthName }} {{ $prevEntry->day }}</a>
+                    @if($prevDay)
+                        <a href="/calendar?month={{ $month }}&view=day&day={{ $prevDay }}" class="cal-day-nav-btn" data-no-fade>&larr; {{ $monthName }} {{ $prevDay }}</a>
                     @endif
-                    @if($nextEntry)
-                        <a href="/calendar?month={{ $month }}&view=day&day={{ $nextEntry->day }}" class="cal-day-nav-btn" data-no-fade>{{ $monthName }} {{ $nextEntry->day }} &rarr;</a>
+                    @if($nextDay)
+                        <a href="/calendar?month={{ $month }}&view=day&day={{ $nextDay }}" class="cal-day-nav-btn" data-no-fade>{{ $monthName }} {{ $nextDay }} &rarr;</a>
                     @endif
                 </div>
             </div>
         </div>
-    @elseif($view === 'day' && !$dayEntry)
+    @elseif($view === 'day' && $dayEntries->isEmpty())
         <div style="text-align:center; padding:80px 0; color:rgba(255,255,255,0.4);">No entry for this day. Try the month view to see all entries.</div>
     @else
         {{-- MONTH VIEW --}}
         <div class="cal-grid">
             @php
                 $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, (int) date('Y'));
-                $entriesByDay = $entries->keyBy('day');
+                $entriesByDay = $entries->groupBy('day');
             @endphp
 
             @for($d = 1; $d <= $daysInMonth; $d++)
                 @if(isset($entriesByDay[$d]))
-                    @php $entry = $entriesByDay[$d]; @endphp
-                    <a href="/calendar?month={{ $month }}&view=day&day={{ $d }}" class="cal-card {{ ($month === $currentMonth && $d === $today) ? 'today' : '' }}" data-no-fade>
+                    @php
+                        $dayList = $entriesByDay[$d];
+                        $entry = $dayList->first();
+                        $extra = $dayList->count() - 1;
+                    @endphp
+                    <a href="/calendar?month={{ $month }}&view=day&day={{ $d }}" class="cal-card {{ ($month === $currentMonth && $d === $today) ? 'today' : '' }}" data-no-fade style="position:relative;">
+                        @if($extra > 0)
+                            <span style="position:absolute; top:8px; right:8px; font-size:11px; font-weight:700; padding:2px 6px; border-radius:10px; background:rgba(86,96,254,0.2); color:#5660fe; border:1px solid rgba(86,96,254,0.4);">+{{ $extra }}</span>
+                        @endif
                         <div class="cal-card-top">
                             @if($entry->prisoner && $entry->prisoner->photo)
                                 <img src="{{ asset('storage/'.$entry->prisoner->photo) }}" style="width:40px; height:40px; border-radius:50%; object-fit:cover; margin:0 auto 8px; display:block; border:2px solid rgba(255,255,255,0.15);">
