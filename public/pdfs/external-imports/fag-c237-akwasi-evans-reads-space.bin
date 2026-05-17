@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8" />
+  <title>Freedom Archives  Space</title>
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy">
+    <link href="/vendor/respondjs/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
+    <script src="https://freedomarchives.org/wp-content/themes/custom_template/js/respondjs/respond.proxy.js"></script>
+  <![endif]-->
+
+
+  <link rel="pingback" href="https://freedomarchives.org/xmlrpc.php" />
+
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107187632-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107187632-1');
+</script>
+
+	<link rel='archives' title='July 2025' href='https://freedomarchives.org/2025/07/' />
+	<link rel='archives' title='January 2025' href='https://freedomarchives.org/2025/01/' />
+	<link rel='archives' title='September 2024' href='https://freedomarchives.org/2024/09/' />
+	<link rel='archives' title='August 2024' href='https://freedomarchives.org/2024/08/' />
+	<link rel='archives' title='July 2024' href='https://freedomarchives.org/2024/07/' />
+	<link rel='archives' title='April 2024' href='https://freedomarchives.org/2024/04/' />
+	<link rel='archives' title='March 2024' href='https://freedomarchives.org/2024/03/' />
+	<link rel='archives' title='February 2024' href='https://freedomarchives.org/2024/02/' />
+	<link rel='archives' title='August 2023' href='https://freedomarchives.org/2023/08/' />
+	<link rel='archives' title='July 2023' href='https://freedomarchives.org/2023/07/' />
+	<link rel='archives' title='May 2023' href='https://freedomarchives.org/2023/05/' />
+	<link rel='archives' title='April 2023' href='https://freedomarchives.org/2023/04/' />
+	<link rel='archives' title='March 2023' href='https://freedomarchives.org/2023/03/' />
+	<link rel='archives' title='February 2023' href='https://freedomarchives.org/2023/02/' />
+	<link rel='archives' title='January 2023' href='https://freedomarchives.org/2023/01/' />
+	<link rel='archives' title='November 2022' href='https://freedomarchives.org/2022/11/' />
+	<link rel='archives' title='October 2022' href='https://freedomarchives.org/2022/10/' />
+	<link rel='archives' title='September 2022' href='https://freedomarchives.org/2022/09/' />
+	<link rel='archives' title='August 2022' href='https://freedomarchives.org/2022/08/' />
+	<link rel='archives' title='July 2022' href='https://freedomarchives.org/2022/07/' />
+	<link rel='archives' title='June 2022' href='https://freedomarchives.org/2022/06/' />
+	<link rel='archives' title='April 2022' href='https://freedomarchives.org/2022/04/' />
+	<link rel='archives' title='March 2022' href='https://freedomarchives.org/2022/03/' />
+	<link rel='archives' title='January 2022' href='https://freedomarchives.org/2022/01/' />
+	<link rel='archives' title='October 2021' href='https://freedomarchives.org/2021/10/' />
+	<link rel='archives' title='June 2021' href='https://freedomarchives.org/2021/06/' />
+	<link rel='archives' title='August 2020' href='https://freedomarchives.org/2020/08/' />
+	<link rel='archives' title='May 2020' href='https://freedomarchives.org/2020/05/' />
+	<link rel='archives' title='April 2020' href='https://freedomarchives.org/2020/04/' />
+	<link rel='archives' title='February 2020' href='https://freedomarchives.org/2020/02/' />
+	<link rel='archives' title='January 2020' href='https://freedomarchives.org/2020/01/' />
+	<link rel='archives' title='December 2019' href='https://freedomarchives.org/2019/12/' />
+	<link rel='archives' title='September 2019' href='https://freedomarchives.org/2019/09/' />
+	<link rel='archives' title='July 2019' href='https://freedomarchives.org/2019/07/' />
+	<link rel='archives' title='June 2019' href='https://freedomarchives.org/2019/06/' />
+	<link rel='archives' title='May 2019' href='https://freedomarchives.org/2019/05/' />
+	<link rel='archives' title='March 2019' href='https://freedomarchives.org/2019/03/' />
+	<link rel='archives' title='February 2019' href='https://freedomarchives.org/2019/02/' />
+	<link rel='archives' title='January 2019' href='https://freedomarchives.org/2019/01/' />
+	<link rel='archives' title='December 2018' href='https://freedomarchives.org/2018/12/' />
+	<link rel='archives' title='November 2018' href='https://freedomarchives.org/2018/11/' />
+	<link rel='archives' title='October 2018' href='https://freedomarchives.org/2018/10/' />
+	<link rel='archives' title='September 2018' href='https://freedomarchives.org/2018/09/' />
+	<link rel='archives' title='August 2018' href='https://freedomarchives.org/2018/08/' />
+	<link rel='archives' title='July 2018' href='https://freedomarchives.org/2018/07/' />
+	<link rel='archives' title='June 2018' href='https://freedomarchives.org/2018/06/' />
+	<link rel='archives' title='May 2018' href='https://freedomarchives.org/2018/05/' />
+	<link rel='archives' title='April 2018' href='https://freedomarchives.org/2018/04/' />
+	<link rel='archives' title='March 2018' href='https://freedomarchives.org/2018/03/' />
+	<link rel='archives' title='February 2018' href='https://freedomarchives.org/2018/02/' />
+	<link rel='archives' title='January 2018' href='https://freedomarchives.org/2018/01/' />
+	<link rel='archives' title='December 2017' href='https://freedomarchives.org/2017/12/' />
+	<link rel='archives' title='November 2017' href='https://freedomarchives.org/2017/11/' />
+	<link rel='archives' title='October 2017' href='https://freedomarchives.org/2017/10/' />
+	<link rel='archives' title='July 2017' href='https://freedomarchives.org/2017/07/' />
+	<link rel='archives' title='June 2017' href='https://freedomarchives.org/2017/06/' />
+	<link rel='archives' title='May 2017' href='https://freedomarchives.org/2017/05/' />
+	<link rel='archives' title='March 2017' href='https://freedomarchives.org/2017/03/' />
+	<link rel='archives' title='February 2017' href='https://freedomarchives.org/2017/02/' />
+	<link rel='archives' title='January 2017' href='https://freedomarchives.org/2017/01/' />
+	<link rel='archives' title='December 2016' href='https://freedomarchives.org/2016/12/' />
+	<link rel='archives' title='November 2016' href='https://freedomarchives.org/2016/11/' />
+	<link rel='archives' title='October 2016' href='https://freedomarchives.org/2016/10/' />
+	<link rel='archives' title='September 2016' href='https://freedomarchives.org/2016/09/' />
+	<link rel='archives' title='August 2016' href='https://freedomarchives.org/2016/08/' />
+	<link rel='archives' title='June 2016' href='https://freedomarchives.org/2016/06/' />
+	<link rel='archives' title='May 2016' href='https://freedomarchives.org/2016/05/' />
+	<link rel='archives' title='April 2016' href='https://freedomarchives.org/2016/04/' />
+	<link rel='archives' title='March 2016' href='https://freedomarchives.org/2016/03/' />
+	<link rel='archives' title='February 2016' href='https://freedomarchives.org/2016/02/' />
+	<link rel='archives' title='January 2016' href='https://freedomarchives.org/2016/01/' />
+	<link rel='archives' title='December 2015' href='https://freedomarchives.org/2015/12/' />
+	<link rel='archives' title='November 2015' href='https://freedomarchives.org/2015/11/' />
+	<link rel='archives' title='October 2015' href='https://freedomarchives.org/2015/10/' />
+	<link rel='archives' title='September 2015' href='https://freedomarchives.org/2015/09/' />
+	<link rel='archives' title='August 2015' href='https://freedomarchives.org/2015/08/' />
+	<link rel='archives' title='June 2015' href='https://freedomarchives.org/2015/06/' />
+	<link rel='archives' title='May 2015' href='https://freedomarchives.org/2015/05/' />
+	<link rel='archives' title='April 2015' href='https://freedomarchives.org/2015/04/' />
+	<link rel='archives' title='March 2015' href='https://freedomarchives.org/2015/03/' />
+	<link rel='archives' title='January 2015' href='https://freedomarchives.org/2015/01/' />
+	<link rel='archives' title='December 2014' href='https://freedomarchives.org/2014/12/' />
+	<link rel='archives' title='October 2014' href='https://freedomarchives.org/2014/10/' />
+	<link rel='archives' title='September 2014' href='https://freedomarchives.org/2014/09/' />
+	<link rel='archives' title='August 2014' href='https://freedomarchives.org/2014/08/' />
+	<link rel='archives' title='July 2014' href='https://freedomarchives.org/2014/07/' />
+	<link rel='archives' title='May 2014' href='https://freedomarchives.org/2014/05/' />
+	<link rel='archives' title='April 2014' href='https://freedomarchives.org/2014/04/' />
+	<link rel='archives' title='March 2014' href='https://freedomarchives.org/2014/03/' />
+	<link rel='archives' title='February 2014' href='https://freedomarchives.org/2014/02/' />
+	<link rel='archives' title='January 2014' href='https://freedomarchives.org/2014/01/' />
+	<link rel='archives' title='December 2013' href='https://freedomarchives.org/2013/12/' />
+	<link rel='archives' title='November 2013' href='https://freedomarchives.org/2013/11/' />
+	<link rel='archives' title='October 2013' href='https://freedomarchives.org/2013/10/' />
+	<link rel='archives' title='September 2013' href='https://freedomarchives.org/2013/09/' />
+	<link rel='archives' title='August 2013' href='https://freedomarchives.org/2013/08/' />
+	<link rel='archives' title='July 2013' href='https://freedomarchives.org/2013/07/' />
+	<link rel='archives' title='June 2013' href='https://freedomarchives.org/2013/06/' />
+	<link rel='archives' title='May 2013' href='https://freedomarchives.org/2013/05/' />
+	<link rel='archives' title='April 2013' href='https://freedomarchives.org/2013/04/' />
+	<link rel='archives' title='March 2013' href='https://freedomarchives.org/2013/03/' />
+	<link rel='archives' title='January 2013' href='https://freedomarchives.org/2013/01/' />
+	<link rel='archives' title='December 2012' href='https://freedomarchives.org/2012/12/' />
+	<link rel='archives' title='November 2012' href='https://freedomarchives.org/2012/11/' />
+	<link rel='archives' title='October 2012' href='https://freedomarchives.org/2012/10/' />
+	<link rel='archives' title='September 2012' href='https://freedomarchives.org/2012/09/' />
+	<link rel='archives' title='August 2012' href='https://freedomarchives.org/2012/08/' />
+	<link rel='archives' title='July 2012' href='https://freedomarchives.org/2012/07/' />
+	<link rel='archives' title='June 2012' href='https://freedomarchives.org/2012/06/' />
+	<link rel='archives' title='March 2011' href='https://freedomarchives.org/2011/03/' />
+	<link rel='archives' title='June 2010' href='https://freedomarchives.org/2010/06/' />
+	<link rel='archives' title='April 2010' href='https://freedomarchives.org/2010/04/' />
+	<link rel='archives' title='December 2009' href='https://freedomarchives.org/2009/12/' />
+	<link rel='archives' title='November 2009' href='https://freedomarchives.org/2009/11/' />
+	<link rel='archives' title='October 2009' href='https://freedomarchives.org/2009/10/' />
+	<link rel='archives' title='September 2009' href='https://freedomarchives.org/2009/09/' />
+	<link rel='archives' title='August 2009' href='https://freedomarchives.org/2009/08/' />
+	<link rel='archives' title='January 2009' href='https://freedomarchives.org/2009/01/' />
+	<link rel='archives' title='March 2008' href='https://freedomarchives.org/2008/03/' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//netdna.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Freedom Archives &raquo; Feed" href="https://freedomarchives.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Freedom Archives &raquo; Comments Feed" href="https://freedomarchives.org/comments/feed/" />
+<link rel="alternate" type="text/calendar" title="Freedom Archives &raquo; iCal Feed" href="https://freedomarchives.org/events/?ical=1" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://freedomarchives.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffreedomarchives.org%2Fwild-poppies-the-poems%2Fspace%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://freedomarchives.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffreedomarchives.org%2Fwild-poppies-the-poems%2Fspace%2F&#038;format=xml" />
+<meta property="og:title" content="Space" />
+<meta property="og:description" content="Space
+Marilyn Buck
+              [This poem is read by Akwasi Evans.]
+Today I would like to be in space
+free-floating
+not in a damned no-space
+space ship
+I already live in a no-space
+place
+a 5:00 bus
+feet in the aisle
+we careen off
+each other
+bang into beds
+Aii yee!
+I need som" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://freedomarchives.org/wild-poppies-the-poems/space/" />
+<meta property="og:site_name" content="Freedom Archives" />
+<meta property="article:publisher" content="https://www.facebook.com/freedomarchives" />
+<meta name="twitter:title" content="Space" />
+<meta name="twitter:description" content="Space
+Marilyn Buck
+              [This poem is read by Akwasi Evans.]
+Today I would like to be in space
+free-floating
+not in a damned no-space
+space ship
+I already live in a no-space
+place
+a 5:00 bus
+feet in the aisle
+we careen off
+each other
+bang into beds
+Aii yee!
+I need som" />
+<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+
+<link rel='stylesheet' id='formidable-css' href='https://freedomarchives.org/wp-content/plugins/formidable/css/formidableforms.css?ver=4302236' type='text/css' media='all' />
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://freedomarchives.org/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4' type='text/css' media='all' />
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='cpsh-shortcodes-css' href='https://freedomarchives.org/wp-content/plugins/column-shortcodes//assets/css/shortcodes.css?ver=1.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css-css' href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-css' href='https://freedomarchives.org/wp-content/themes/custom_template/style.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='fonts-css' href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700&#038;ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='///maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=6.9.4' type='text/css' media='all' />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" id="jquery-js"></script>
+<link rel="https://api.w.org/" href="https://freedomarchives.org/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://freedomarchives.org/wp-json/wp/v2/pages/4444" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://freedomarchives.org/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<link rel='shortlink' href='https://freedomarchives.org/?p=4444' />
+<meta name="google-site-verification" content="wFvOClP5pMfY4vsGO862_jUe9Ed1rXlHHmZbQHVsmKs" /><meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://freedomarchives.org"><link rel="alternate" href="https://freedomarchives.org/wp-json/tribe/events/v1/" /><script>document.documentElement.className += " js";</script>
+<link rel="canonical" href="https://freedomarchives.org/wild-poppies-the-poems/space/" />
+
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+p a {
+color:#9A1200;
+}
+
+#search-3 {
+    background: none;
+}
+
+#search-3 input.search-field {
+    width: 100%;
+    max-width: 400px;
+}
+
+#search-3 form.search-form label {
+    width: 100%;
+}
+
+#wfls-prompt-overlay {
+	background-color: color(srgb 0.5833 0.1226 0.1052) !important;
+}
+		</style>
+		</head>
+
+<body class="wp-singular page-template-default page page-id-4444 page-child parent-pageid-4310 wp-theme-custom_template tribe-no-js">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103385314-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<div class="navbar-wrapper">
+  <div class="container-fluid header-background">
+    <div class="container">
+      <div class="navbar navbar-static-top" role="navigation">
+
+
+
+
+          <!--  -->
+          <!-- Donate / Social Media Icons -->
+          <!--  -->
+          <div class="top-bar">
+            <a href="https://search.freedomarchives.org/" class="btn--search hidden-xs">Search the Archives</a>
+            <a href="/get-involved/get-email-updates/" class="email-updates--header hidden-xs">Get Email Updates</a>
+            <a href="https://freedomarchives.org/donation" class="btn btn--donate-header">Donate</a>
+            <div class="sm-icon">
+	
+	<a href="https://www.facebook.com/freedomarchives" title="Freedom Archives Facebook Page" class="sm-icon--circle" target="_blank"></a>
+
+	<a href="https://www.twitter.com/" title="Freedom Archives Twitter Page" class="sm-icon--circle" target="_blank"></a>
+
+</div><!-- /.row -->          </div><!-- /.top-bar -->
+
+          <!--  -->
+          <!-- mobile menu icon -->
+          <!--  -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="menu-label">MENU</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div><!-- navbar-header -->
+           
+          
+          <!--  -->
+          <!-- logo -->
+          <!--  -->
+          <div class="brand row">
+              <h1><a class="pull-left" href='https://freedomarchives.org/' title='Freedom Archives' rel='home'><img src='https://freedomarchives.org/wp-content/uploads/2017/07/logo_lg.png' alt='Freedom Archives'></a></h1>
+              <h2 class="site-description">Preserve the Past - Illuminate the Present - Shape the Future</h2>
+          </div>  <!-- .brand -->  
+
+
+      </div><!-- /navbar static top -->
+      
+
+      <!--  -->
+      <!-- main menu -->
+      <!--  -->
+      <div class="container site-navigation">
+        <div id="site-navigation" class="navbar-collapse collapse main-navigation" role="navigation">
+          <div class="menu-main-menu-container"><ul id="menu-main-menu" class="slimmenu"><li id="menu-item-2404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2404"><a href="https://freedomarchives.org/about/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-3692" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3692"><a href="https://freedomarchives.org/about/about-us/">About Us</a></li>
+	<li id="menu-item-2407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2407"><a href="https://freedomarchives.org/about/our-board/">Our Board</a></li>
+	<li id="menu-item-2408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2408"><a href="https://freedomarchives.org/about/our-founders/">Our Founders</a></li>
+	<li id="menu-item-2409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2409"><a href="https://freedomarchives.org/about/our-staff/">Our Staff</a></li>
+</ul>
+</li>
+<li id="menu-item-2418" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2418"><a href="http://99books.freedomarchives.org">99 Books</a></li>
+<li id="menu-item-2612" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2612"><a href="https://freedomarchives.org/blog/">Blog</a></li>
+<li id="menu-item-7431" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7431"><a href="#">Contact</a>
+<ul class="sub-menu">
+	<li id="menu-item-2410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2410"><a href="https://freedomarchives.org/contact/">General Inquiries</a></li>
+	<li id="menu-item-2417" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2417"><a href="https://freedomarchives.org/get-involved/internships/">Internship Program</a></li>
+	<li id="menu-item-7730" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7730"><a href="https://freedomarchives.org/contact/proposed-donation-form/">Donate Your Materials</a></li>
+	<li id="menu-item-6373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6373"><a href="https://freedomarchives.org/get-involved/schedule-a-research-visit/">Schedule a Research Visit</a></li>
+</ul>
+</li>
+<li id="menu-item-2411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2411"><a href="https://freedomarchives.org/get-involved/">Get Involved</a>
+<ul class="sub-menu">
+	<li id="menu-item-2571" class="menu-item menu-item-type-post_type_archive menu-item-object-tribe_events menu-item-2571"><a href="https://freedomarchives.org/events/">Events</a></li>
+	<li id="menu-item-2413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2413"><a href="https://freedomarchives.org/get-involved/get-email-updates/">Get Email Updates</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2593" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2593"><a href="http://mail.freedomarchives.org/mailman/listinfo/freedomarchivesnews_freedomarchives.org">Freedom Archive Events &#038; Info</a></li>
+		<li id="menu-item-2591" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2591"><a href="https://www.freedomarchives.org/mailman/listinfo/news_freedomarchives.org">Anti-Imperialist News</a></li>
+		<li id="menu-item-2592" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2592"><a href="https://www.freedomarchives.org/mailman/listinfo/ppnews_freedomarchives.org">Prisoner News</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-2570" class="menu-item menu-item-type-post_type_archive menu-item-object-projects menu-item-2570"><a href="https://freedomarchives.org/projects/">Projects</a></li>
+<li id="menu-item-2569" class="menu-item menu-item-type-post_type_archive menu-item-object-publications menu-item-has-children menu-item-2569"><a href="https://freedomarchives.org/publications/">Publications</a>
+<ul class="sub-menu">
+	<li id="menu-item-2566" class="menu-item menu-item-type-taxonomy menu-item-object-type menu-item-2566"><a href="https://freedomarchives.org/type/audio/">Audio</a></li>
+	<li id="menu-item-2568" class="menu-item menu-item-type-taxonomy menu-item-object-type menu-item-2568"><a href="https://freedomarchives.org/type/video/">Video</a></li>
+	<li id="menu-item-2567" class="menu-item menu-item-type-taxonomy menu-item-object-type menu-item-2567"><a href="https://freedomarchives.org/type/books/">Books</a></li>
+</ul>
+</li>
+</ul></div>        </div><!-- #site-navigation -->
+      </div><!-- container site-navigation -->
+
+    </div><!-- container -->
+  </div><!-- container-fluid -->
+</div><!-- navbar-wrapper --><div class="container-fluid banner">
+  <div class="container">
+    <div class="row"><ul class="breadcrumbs"><li><a href="https://freedomarchives.org">Home</a></li><li class="separator"> > </li><li><a href="https://freedomarchives.org/wild-poppies-the-poems/" title="Wild Poppies Album: The Poems">Wild Poppies Album: The Poems</a></li> <li class="separator">></li><span title="Space"> Space</span></ul></div>
+    <div class="row">
+    	<h2>
+    		Space    	</h2>
+    </div>  
+  </div><!-- /.container -->
+</div><!-- /.container-fluid banner -->
+<div class="container container-normal">
+    <div class="row maincontent lower">
+        <div class="col-sm-8">
+                 
+        <div class="post"> 
+            <div class="entry">
+                <h4 style="padding-left: 30px;">Space</h4>
+<h5 style="padding-left: 30px;">Marilyn Buck</h5>
+<p class="center" style="padding-left: 30px;">              [This poem is read by <a href="https://freedomarchives.org/contributors-to-the-wild-poppies-album/">Akwasi Evans</a>.]</p>
+<p style="padding-left: 30px;">Today I would like to be in space<br />
+free-floating<br />
+not in a damned no-space<br />
+space ship<br />
+I already live in a no-space<br />
+place<br />
+a 5:00 bus<br />
+feet in the aisle</p>
+<p style="padding-left: 30px;">we careen off<br />
+each other<br />
+bang into beds</p>
+<p style="padding-left: 30px;">Aii yee!</p>
+<p style="padding-left: 30px;">I need some space!</p>
+<p style="padding-left: 30px;">nothing personal<br />
+but my person<br />
+is drifting<br />
+trying to get away<br />
+from this space<br />
+to breathe and swim<br />
+in the deep green pool<br />
+of my imagination<br />
+bubbles wait<br />
+to break the surface<br />
+in a dizzy explosion<br />
+into galaxies<br />
+and the universe</p>
+<p style="padding-left: 30px;">                                   July 1995</p>
+<h5 style="text-align: center;"><a href="https://freedomarchives.org/publications/wild-poppies-a-poetry-jam-across-prison-walls-2/">About the CD</a> | <a href="https://freedomarchives.org/wild-poppies-the-poems/">The Poems</a> | <a href="https://freedomarchives.org/contributors-to-the-wild-poppies-album/">The Contributors</a> | <a href="https://freedomarchives.org/about-marilyn-buck/">About Marilyn Buck</a></h5>
+<p><a class="btn get-copy" href="https://co.clickandpledge.com/advanced/default.aspx?wid=33028">Get A Copy</a></p>
+<p style="text-align: right;">poems © the authors<br />
+compilation © <a href="http://www.freedomarchives.org/index.html">The Freedom Archives</a></p>
+                
+                             </div>
+        </div>
+         
+
+
+ 
+    <div class="navigation">
+            </div>
+ 
+		</div><!-- col-sm-8 -->
+	<!--/div><!-- row -->
+ 
+
+			<div class="secondary widget-area col-xs-12 col-sm-4" role="complementary">
+			<aside id="text-17" class="widget widget_text"><h3 class="widget-title">Project Topics</h3>			<div class="textwidget"><p>
+ 	<a href="/topic/audio">Audio</a></p>
+<p> 	<a href="/topic/curricula">Curricula</a></p>
+<p> 	<a href="/topic/pamphlets">Pamphlets</a></p>
+<p> 	<a href="/topic/preservation">Preservation</a></p>
+<p> 	<a href="/topic/timeline">Timeline</a></p>
+<p> 	<a href="/topic/video">Video</a></p>
+</div>
+		</aside><aside id="text-18" class="widget widget_text"><h3 class="widget-title">Categories</h3>			<div class="textwidget">
+<li class="cat-item cat-item-95"><a href="https://freedomarchives.org/category/cointelpro/">COINTELPRO</a>
+</li>
+<li class="cat-item cat-item-86"><a href="https://freedomarchives.org/category/experiences-at-the-archives/">Experiences at the Archives</a>
+</li>
+<li class="cat-item cat-item-61"><a href="https://freedomarchives.org/category/freedom-archives-events-and-trips/">Freedom Archives Events and Trips</a>
+</li>
+<li class="cat-item cat-item-62"><a href="https://freedomarchives.org/category/freedom-archives-productions/">Freedom Archives Productions</a>
+</li>
+<li class="cat-item cat-item-90"><a href="https://freedomarchives.org/category/from-the-archives/">From the Archives&#8230;</a>
+</li>
+<li class="cat-item cat-item-52"><a href="https://freedomarchives.org/category/important-figures/">Important Figures</a>
+</li>
+<li class="cat-item cat-item-67"><a href="https://freedomarchives.org/category/liberation-struggles/">Liberation Struggles</a>
+</li>
+<li class="cat-item cat-item-53"><a href="https://freedomarchives.org/category/prison-and-political-prisoners/">Prison and Political Prisoners</a>
+</li>
+<li class="cat-item cat-item-1"><a href="https://freedomarchives.org/category/uncategorized/">Uncategorized</a>
+</li>
+<li class="cat-item cat-item-85"><a href="https://freedomarchives.org/category/youth/">Youth</a>
+</li>
+</div>
+		</aside><aside id="search-3" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://freedomarchives.org/">
+	<label>
+		<span class="screen-reader-text hidden">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search the site" value="" name="s" title="Search for:" />
+	</label>
+	<button type="submit" class="search-submit" value=""><i class='fa fa-search'></i></button>
+</form></aside><aside id="text-19" class="widget widget_text"><h3 class="widget-title">TAGS</h3>			<div class="textwidget"><div class="post_tags"><a href='https://freedomarchives.org/tag/1973-chilean-coup/' title='1973 Chilean Coup Tag' class='1973-chilean-coup'>1973 Chilean Coup</a><a href='https://freedomarchives.org/tag/abolition/' title='abolition Tag' class='abolition'>abolition</a><a href='https://freedomarchives.org/tag/acupuncture/' title='acupuncture Tag' class='acupuncture'>acupuncture</a><a href='https://freedomarchives.org/tag/africa/' title='Africa Tag' class='africa'>Africa</a><a href='https://freedomarchives.org/tag/african-national-congress/' title='African National Congress Tag' class='african-national-congress'>African National Congress</a><a href='https://freedomarchives.org/tag/akinyele-umoja/' title='Akinyele Umoja Tag' class='akinyele-umoja'>Akinyele Umoja</a><a href='https://freedomarchives.org/tag/alabama-liberation-front/' title='Alabama Liberation Front Tag' class='alabama-liberation-front'>Alabama Liberation Front</a><a href='https://freedomarchives.org/tag/anniversaries/' title='anniversaries Tag' class='anniversaries'>anniversaries</a><a href='https://freedomarchives.org/tag/anniversary/' title='anniversary Tag' class='anniversary'>anniversary</a><a href='https://freedomarchives.org/tag/anti-apartheid/' title='Anti-Apartheid Tag' class='anti-apartheid'>Anti-Apartheid</a><a href='https://freedomarchives.org/tag/anti-colonial/' title='anti-colonial Tag' class='anti-colonial'>anti-colonial</a><a href='https://freedomarchives.org/tag/anti-fascism/' title='anti-fascism Tag' class='anti-fascism'>anti-fascism</a><a href='https://freedomarchives.org/tag/anti-imperialism/' title='anti-imperialism Tag' class='anti-imperialism'>anti-imperialism</a><a href='https://freedomarchives.org/tag/anti-racism/' title='anti-racism Tag' class='anti-racism'>anti-racism</a><a href='https://freedomarchives.org/tag/anti-war/' title='anti-war Tag' class='anti-war'>anti-war</a><a href='https://freedomarchives.org/tag/anti-zionism/' title='Anti-Zionism Tag' class='anti-zionism'>Anti-Zionism</a><a href='https://freedomarchives.org/tag/archives/' title='archives Tag' class='archives'>archives</a><a href='https://freedomarchives.org/tag/art/' title='Art Tag' class='art'>Art</a><a href='https://freedomarchives.org/tag/arts-and-culture/' title='Arts and Culture Tag' class='arts-and-culture'>Arts and Culture</a><a href='https://freedomarchives.org/tag/attica-rebellion/' title='Attica Rebellion Tag' class='attica-rebellion'>Attica Rebellion</a><a href='https://freedomarchives.org/tag/berkeley/' title='Berkeley Tag' class='berkeley'>Berkeley</a><a href='https://freedomarchives.org/tag/black-liberation/' title='Black Liberation Tag' class='black-liberation'>Black Liberation</a><a href='https://freedomarchives.org/tag/black-panther-party/' title='Black Panther Party Tag' class='black-panther-party'>Black Panther Party</a><a href='https://freedomarchives.org/tag/cape-verde/' title='Cape Verde Tag' class='cape-verde'>Cape Verde</a><a href='https://freedomarchives.org/tag/chican-movement/' title='Chican@ Movement Tag' class='chican-movement'>Chican@ Movement</a><a href='https://freedomarchives.org/tag/chile/' title='Chile Tag' class='chile'>Chile</a><a href='https://freedomarchives.org/tag/chile-promise-of-freedom/' title='Chile: Promise of Freedom Tag' class='chile-promise-of-freedom'>Chile: Promise of Freedom</a><a href='https://freedomarchives.org/tag/chilean-coup/' title='Chilean Coup Tag' class='chilean-coup'>Chilean Coup</a><a href='https://freedomarchives.org/tag/civil-rights-movement/' title='civil rights movement Tag' class='civil-rights-movement'>civil rights movement</a><a href='https://freedomarchives.org/tag/coffee/' title='coffee Tag' class='coffee'>coffee</a><a href='https://freedomarchives.org/tag/cointelpro/' title='COINTELPRO Tag' class='cointelpro'>COINTELPRO</a><a href='https://freedomarchives.org/tag/colin-edwards/' title='Colin Edwards Tag' class='colin-edwards'>Colin Edwards</a><a href='https://freedomarchives.org/tag/colonialism/' title='Colonialism Tag' class='colonialism'>Colonialism</a><a href='https://freedomarchives.org/tag/colorado/' title='Colorado Tag' class='colorado'>Colorado</a><a href='https://freedomarchives.org/tag/committee-to-end-the-marion-lockdown/' title='Committee to End the Marion Lockdown Tag' class='committee-to-end-the-marion-lockdown'>Committee to End the Marion Lockdown</a><a href='https://freedomarchives.org/tag/control-units/' title='control units Tag' class='control-units'>control units</a><a href='https://freedomarchives.org/tag/cuba/' title='Cuba Tag' class='cuba'>Cuba</a><a href='https://freedomarchives.org/tag/cultural-workers/' title='Cultural Workers Tag' class='cultural-workers'>Cultural Workers</a><a href='https://freedomarchives.org/tag/curriculum/' title='curriculum Tag' class='curriculum'>curriculum</a><a href='https://freedomarchives.org/tag/defiance-campaign/' title='Defiance Campaign Tag' class='defiance-campaign'>Defiance Campaign</a><a href='https://freedomarchives.org/tag/donation/' title='donation Tag' class='donation'>donation</a><a href='https://freedomarchives.org/tag/dr-mutulu-shakur/' title='Dr. Mutulu Shakur Tag' class='dr-mutulu-shakur'>Dr. Mutulu Shakur</a><a href='https://freedomarchives.org/tag/dr-sonia-vax-borges/' title='Dr. Sonia Vax Borges Tag' class='dr-sonia-vax-borges'>Dr. Sonia Vax Borges</a><a href='https://freedomarchives.org/tag/dyke-march/' title='Dyke March Tag' class='dyke-march'>Dyke March</a><a href='https://freedomarchives.org/tag/education/' title='Education Tag' class='education'>Education</a><a href='https://freedomarchives.org/tag/el-salvador/' title='el salvador Tag' class='el-salvador'>el salvador</a><a href='https://freedomarchives.org/tag/elizabeth-sibeko/' title='Elizabeth Sibeko Tag' class='elizabeth-sibeko'>Elizabeth Sibeko</a><a href='https://freedomarchives.org/tag/emory-douglas/' title='Emory Douglas Tag' class='emory-douglas'>Emory Douglas</a><a href='https://freedomarchives.org/tag/environmental-justice/' title='environmental justice Tag' class='environmental-justice'>environmental justice</a><a href='https://freedomarchives.org/tag/eritrea/' title='Eritrea Tag' class='eritrea'>Eritrea</a><a href='https://freedomarchives.org/tag/ethnic-studies/' title='Ethnic Studies Tag' class='ethnic-studies'>Ethnic Studies</a><a href='https://freedomarchives.org/tag/feminism/' title='feminism Tag' class='feminism'>feminism</a><a href='https://freedomarchives.org/tag/fillmore-district/' title='Fillmore District Tag' class='fillmore-district'>Fillmore District</a><a href='https://freedomarchives.org/tag/film/' title='film Tag' class='film'>film</a><a href='https://freedomarchives.org/tag/forced-sterilizations/' title='forced sterilizations Tag' class='forced-sterilizations'>forced sterilizations</a><a href='https://freedomarchives.org/tag/fred-hampton/' title='Fred Hampton Tag' class='fred-hampton'>Fred Hampton</a><a href='https://freedomarchives.org/tag/free-speech-movement/' title='Free Speech Movement Tag' class='free-speech-movement'>Free Speech Movement</a><a href='https://freedomarchives.org/tag/freedom-archives/' title='Freedom Archives Tag' class='freedom-archives'>Freedom Archives</a><a href='https://freedomarchives.org/tag/frente-conference/' title='Frente Conference Tag' class='frente-conference'>Frente Conference</a><a href='https://freedomarchives.org/tag/gender/' title='gender Tag' class='gender'>gender</a><a href='https://freedomarchives.org/tag/george-houser/' title='George Houser Tag' class='george-houser'>George Houser</a><a href='https://freedomarchives.org/tag/george-jackson/' title='George Jackson Tag' class='george-jackson'>George Jackson</a><a href='https://freedomarchives.org/tag/government-repression/' title='government repression Tag' class='government-repression'>government repression</a><a href='https://freedomarchives.org/tag/guinea-bissau/' title='Guinea Bissau Tag' class='guinea-bissau'>Guinea Bissau</a><a href='https://freedomarchives.org/tag/health/' title='health Tag' class='health'>health</a><a href='https://freedomarchives.org/tag/herman-bell/' title='Herman Bell Tag' class='herman-bell'>Herman Bell</a><a href='https://freedomarchives.org/tag/hiv-aids/' title='HIV/AIDS Tag' class='hiv-aids'>HIV/AIDS</a><a href='https://freedomarchives.org/tag/ho-chi-minh/' title='Ho Chi Minh Tag' class='ho-chi-minh'>Ho Chi Minh</a><a href='https://freedomarchives.org/tag/housing/' title='housing Tag' class='housing'>housing</a><a href='https://freedomarchives.org/tag/howard-zinn-bookfair/' title='Howard Zinn Bookfair Tag' class='howard-zinn-bookfair'>Howard Zinn Bookfair</a><a href='https://freedomarchives.org/tag/hugo-pinell/' title='hugo pinell Tag' class='hugo-pinell'>hugo pinell</a><a href='https://freedomarchives.org/tag/human-rights/' title='human rights Tag' class='human-rights'>human rights</a><a href='https://freedomarchives.org/tag/hunger-strikes/' title='hunger strikes Tag' class='hunger-strikes'>hunger strikes</a><a href='https://freedomarchives.org/tag/i-hotel/' title='I-Hotel Tag' class='i-hotel'>I-Hotel</a><a href='https://freedomarchives.org/tag/indigenous-struggles/' title='indigenous struggles Tag' class='indigenous-struggles'>indigenous struggles</a><a href='https://freedomarchives.org/tag/international-hotel/' title='International Hotel Tag' class='international-hotel'>International Hotel</a><a href='https://freedomarchives.org/tag/internationalism/' title='internationalism Tag' class='internationalism'>internationalism</a><a href='https://freedomarchives.org/tag/internship/' title='Internship Tag' class='internship'>Internship</a><a href='https://freedomarchives.org/tag/ireland/' title='Ireland Tag' class='ireland'>Ireland</a><a href='https://freedomarchives.org/tag/isabel-allende/' title='Isabel Allende Tag' class='isabel-allende'>Isabel Allende</a><a href='https://freedomarchives.org/tag/jaaz/' title='JAAZ Tag' class='jaaz'>JAAZ</a><a href='https://freedomarchives.org/tag/jazz/' title='jazz Tag' class='jazz'>jazz</a><a href='https://freedomarchives.org/tag/jeff-haas/' title='Jeff Haas Tag' class='jeff-haas'>Jeff Haas</a><a href='https://freedomarchives.org/tag/jewish-defense-league/' title='Jewish Defense League Tag' class='jewish-defense-league'>Jewish Defense League</a><a href='https://freedomarchives.org/tag/john-brown-anti-klan-committee/' title='John Brown Anti-Klan Committee Tag' class='john-brown-anti-klan-committee'>John Brown Anti-Klan Committee</a><a href='https://freedomarchives.org/tag/jose-marti/' title='Jose Marti Tag' class='jose-marti'>Jose Marti</a><a href='https://freedomarchives.org/tag/journalism/' title='journalism Tag' class='journalism'>journalism</a><a href='https://freedomarchives.org/tag/kitayama-carnation-factory/' title='Kitayama Carnation Factory Tag' class='kitayama-carnation-factory'>Kitayama Carnation Factory</a><a href='https://freedomarchives.org/tag/komotion/' title='Komotion Tag' class='komotion'>Komotion</a><a href='https://freedomarchives.org/tag/kqed/' title='KQED Tag' class='kqed'>KQED</a><a href='https://freedomarchives.org/tag/labor/' title='Labor Tag' class='labor'>Labor</a><a href='https://freedomarchives.org/tag/land-struggle/' title='land struggle Tag' class='land-struggle'>land struggle</a><a href='https://freedomarchives.org/tag/latin-america/' title='Latin America Tag' class='latin-america'>Latin America</a><a href='https://freedomarchives.org/tag/legacy-of-torture/' title='Legacy of Torture Tag' class='legacy-of-torture'>Legacy of Torture</a><a href='https://freedomarchives.org/tag/lgbtq/' title='LGBTQ Tag' class='lgbtq'>LGBTQ</a><a href='https://freedomarchives.org/tag/lgtbqi/' title='LGTBQI Tag' class='lgtbqi'>LGTBQI</a><a href='https://freedomarchives.org/tag/looters/' title='Looters Tag' class='looters'>Looters</a><a href='https://freedomarchives.org/tag/los-seis-de-boulder/' title='Los Seis de Boulder Tag' class='los-seis-de-boulder'>Los Seis de Boulder</a><a href='https://freedomarchives.org/tag/lupe-briseno/' title='Lupe Briseno Tag' class='lupe-briseno'>Lupe Briseno</a><a href='https://freedomarchives.org/tag/malcolm-x/' title='Malcolm X Tag' class='malcolm-x'>Malcolm X</a><a href='https://freedomarchives.org/tag/marilyn-buck/' title='Marilyn Buck Tag' class='marilyn-buck'>Marilyn Buck</a><a href='https://freedomarchives.org/tag/marion-prison/' title='Marion Prison Tag' class='marion-prison'>Marion Prison</a><a href='https://freedomarchives.org/tag/mark-clark/' title='Mark Clark Tag' class='mark-clark'>Mark Clark</a><a href='https://freedomarchives.org/tag/martial-law/' title='Martial Law Tag' class='martial-law'>Martial Law</a><a href='https://freedomarchives.org/tag/may-19th-communist-organization/' title='May 19th Communist Organization Tag' class='may-19th-communist-organization'>May 19th Communist Organization</a><a href='https://freedomarchives.org/tag/mier-kahane/' title='Mier Kahane Tag' class='mier-kahane'>Mier Kahane</a><a href='https://freedomarchives.org/tag/moncada/' title='Moncada Tag' class='moncada'>Moncada</a><a href='https://freedomarchives.org/tag/move-organization/' title='MOVE Organization Tag' class='move-organization'>MOVE Organization</a><a href='https://freedomarchives.org/tag/mumia-abu-jamal/' title='Mumia Abu Jamal Tag' class='mumia-abu-jamal'>Mumia Abu Jamal</a><a href='https://freedomarchives.org/tag/murals/' title='murals Tag' class='murals'>murals</a><a href='https://freedomarchives.org/tag/music/' title='music Tag' class='music'>music</a><a href='https://freedomarchives.org/tag/nancy-kurshan/' title='Nancy Kurshan Tag' class='nancy-kurshan'>Nancy Kurshan</a><a href='https://freedomarchives.org/tag/national-liberation/' title='National Liberation Tag' class='national-liberation'>National Liberation</a><a href='https://freedomarchives.org/tag/native-americans/' title='Native Americans Tag' class='native-americans'>Native Americans</a><a href='https://freedomarchives.org/tag/neo-liberalism/' title='Neo-liberalism Tag' class='neo-liberalism'>Neo-liberalism</a><a href='https://freedomarchives.org/tag/new-afrika/' title='New Afrika Tag' class='new-afrika'>New Afrika</a><a href='https://freedomarchives.org/tag/new-afrikan-independence-movement/' title='New Afrikan Independence Movement Tag' class='new-afrikan-independence-movement'>New Afrikan Independence Movement</a><a href='https://freedomarchives.org/tag/nicaragua/' title='nicaragua Tag' class='nicaragua'>nicaragua</a><a href='https://freedomarchives.org/tag/oakland/' title='Oakland Tag' class='oakland'>Oakland</a><a href='https://freedomarchives.org/tag/organizing/' title='organizing Tag' class='organizing'>organizing</a><a href='https://freedomarchives.org/tag/outreach/' title='outreach Tag' class='outreach'>outreach</a><a href='https://freedomarchives.org/tag/paigc/' title='PAIGC Tag' class='paigc'>PAIGC</a><a href='https://freedomarchives.org/tag/palestine/' title='Palestine Tag' class='palestine'>Palestine</a><a href='https://freedomarchives.org/tag/pan-african/' title='pan-african Tag' class='pan-african'>pan-african</a><a href='https://freedomarchives.org/tag/patriarchy/' title='Patriarchy Tag' class='patriarchy'>Patriarchy</a><a href='https://freedomarchives.org/tag/paul-robeson/' title='Paul Robeson Tag' class='paul-robeson'>Paul Robeson</a><a href='https://freedomarchives.org/tag/peace-and-freedom-party/' title='Peace and Freedom Party Tag' class='peace-and-freedom-party'>Peace and Freedom Party</a><a href='https://freedomarchives.org/tag/pelican-bay/' title='Pelican Bay Tag' class='pelican-bay'>Pelican Bay</a><a href='https://freedomarchives.org/tag/peoples-press/' title='Peoples Press Tag' class='peoples-press'>Peoples Press</a><a href='https://freedomarchives.org/tag/philippines/' title='Philippines Tag' class='philippines'>Philippines</a><a href='https://freedomarchives.org/tag/poetry/' title='poetry Tag' class='poetry'>poetry</a><a href='https://freedomarchives.org/tag/police-violence/' title='Police Violence Tag' class='police-violence'>Police Violence</a><a href='https://freedomarchives.org/tag/political-prisoner/' title='political prisoner Tag' class='political-prisoner'>political prisoner</a><a href='https://freedomarchives.org/tag/political-prisoners/' title='political prisoners Tag' class='political-prisoners'>political prisoners</a><a href='https://freedomarchives.org/tag/prison/' title='Prison Tag' class='prison'>Prison</a><a href='https://freedomarchives.org/tag/prison-conditions/' title='prison conditions Tag' class='prison-conditions'>prison conditions</a><a href='https://freedomarchives.org/tag/prison-resistance/' title='prison resistance Tag' class='prison-resistance'>prison resistance</a><a href='https://freedomarchives.org/tag/protest/' title='protest Tag' class='protest'>protest</a><a href='https://freedomarchives.org/tag/puerto-rican-independence-movement/' title='Puerto Rican Independence Movement Tag' class='puerto-rican-independence-movement'>Puerto Rican Independence Movement</a><a href='https://freedomarchives.org/tag/puerto-rico/' title='Puerto Rico Tag' class='puerto-rico'>Puerto Rico</a><a href='https://freedomarchives.org/tag/radio-havana/' title='Radio Havana Tag' class='radio-havana'>Radio Havana</a><a href='https://freedomarchives.org/tag/radio-rebelde/' title='Radio Rebelde Tag' class='radio-rebelde'>Radio Rebelde</a><a href='https://freedomarchives.org/tag/ramsey-muniz/' title='Ramsey Muniz Tag' class='ramsey-muniz'>Ramsey Muniz</a><a href='https://freedomarchives.org/tag/renters-strike/' title='Renters Strike Tag' class='renters-strike'>Renters Strike</a><a href='https://freedomarchives.org/tag/resistance-conspiracy-case/' title='Resistance Conspiracy Case Tag' class='resistance-conspiracy-case'>Resistance Conspiracy Case</a><a href='https://freedomarchives.org/tag/richmond-cowboys/' title='Richmond Cowboys Tag' class='richmond-cowboys'>Richmond Cowboys</a><a href='https://freedomarchives.org/tag/robert-and-mabel-williams/' title='Robert and Mabel Williams Tag' class='robert-and-mabel-williams'>Robert and Mabel Williams</a><a href='https://freedomarchives.org/tag/roots-of-resistance/' title='roots of resistance Tag' class='roots-of-resistance'>roots of resistance</a><a href='https://freedomarchives.org/tag/salvador-allende/' title='Salvador Allende Tag' class='salvador-allende'>Salvador Allende</a><a href='https://freedomarchives.org/tag/san-francisco/' title='San Francisco Tag' class='san-francisco'>San Francisco</a><a href='https://freedomarchives.org/tag/san-quentin/' title='San Quentin Tag' class='san-quentin'>San Quentin</a><a href='https://freedomarchives.org/tag/san-quentin-six/' title='San Quentin Six Tag' class='san-quentin-six'>San Quentin Six</a><a href='https://freedomarchives.org/tag/self-defense/' title='self-defense Tag' class='self-defense'>self-defense</a><a href='https://freedomarchives.org/tag/self-determination/' title='self-determination Tag' class='self-determination'>self-determination</a><a href='https://freedomarchives.org/tag/sf-8/' title='SF 8 Tag' class='sf-8'>SF 8</a><a href='https://freedomarchives.org/tag/sncc/' title='SNCC Tag' class='sncc'>SNCC</a><a href='https://freedomarchives.org/tag/solidarity/' title='solidarity Tag' class='solidarity'>solidarity</a><a href='https://freedomarchives.org/tag/solitary-confinement/' title='solitary confinement Tag' class='solitary-confinement'>solitary confinement</a><a href='https://freedomarchives.org/tag/south-africa/' title='South Africa Tag' class='south-africa'>South Africa</a><a href='https://freedomarchives.org/tag/student-organizing/' title='student organizing Tag' class='student-organizing'>student organizing</a><a href='https://freedomarchives.org/tag/support/' title='support Tag' class='support'>support</a><a href='https://freedomarchives.org/tag/symbols-of-resistance/' title='Symbols of Resistance Tag' class='symbols-of-resistance'>Symbols of Resistance</a><a href='https://freedomarchives.org/tag/tenants-rights/' title='Tenants Rights Tag' class='tenants-rights'>Tenants Rights</a><a href='https://freedomarchives.org/tag/texas/' title='Texas Tag' class='texas'>Texas</a><a href='https://freedomarchives.org/tag/thai-binh/' title='Thai Binh Tag' class='thai-binh'>Thai Binh</a><a href='https://freedomarchives.org/tag/the-crusader/' title='The Crusader Tag' class='the-crusader'>The Crusader</a><a href='https://freedomarchives.org/tag/the-looters/' title='The Looters Tag' class='the-looters'>The Looters</a><a href='https://freedomarchives.org/tag/the-movement-newspaper/' title='The Movement Newspaper Tag' class='the-movement-newspaper'>The Movement Newspaper</a><a href='https://freedomarchives.org/tag/the-walking-archives/' title='the Walking Archives Tag' class='the-walking-archives'>the Walking Archives</a><a href='https://freedomarchives.org/tag/torture/' title='torture Tag' class='torture'>torture</a><a href='https://freedomarchives.org/tag/uc-berkeley/' title='UC Berkeley Tag' class='uc-berkeley'>UC Berkeley</a><a href='https://freedomarchives.org/tag/union-of-vietnamese-in-the-u-s/' title='Union of Vietnamese in the U.S. Tag' class='union-of-vietnamese-in-the-u-s'>Union of Vietnamese in the U.S.</a><a href='https://freedomarchives.org/tag/urban-renewal/' title='urban renewal Tag' class='urban-renewal'>urban renewal</a><a href='https://freedomarchives.org/tag/veterans/' title='veterans Tag' class='veterans'>veterans</a><a href='https://freedomarchives.org/tag/viet-nam/' title='Viet Nam Tag' class='viet-nam'>Viet Nam</a><a href='https://freedomarchives.org/tag/warsaw-ghetto/' title='Warsaw Ghetto Tag' class='warsaw-ghetto'>Warsaw Ghetto</a><a href='https://freedomarchives.org/tag/west-papua/' title='West Papua Tag' class='west-papua'>West Papua</a><a href='https://freedomarchives.org/tag/wild-poppies/' title='Wild Poppies Tag' class='wild-poppies'>Wild Poppies</a><a href='https://freedomarchives.org/tag/willie-sundiata-tate/' title='Willie "Sundiata" Tate Tag' class='willie-sundiata-tate'>Willie &#8220;Sundiata&#8221; Tate</a><a href='https://freedomarchives.org/tag/women/' title='women Tag' class='women'>women</a><a href='https://freedomarchives.org/tag/women-against-imperialism/' title='Women Against Imperialism Tag' class='women-against-imperialism'>Women Against Imperialism</a><a href='https://freedomarchives.org/tag/young-lords/' title='Young Lords Tag' class='young-lords'>Young Lords</a><a href='https://freedomarchives.org/tag/youth-2/' title='youth Tag' class='youth-2'>youth</a><a href='https://freedomarchives.org/tag/zimbabwe/' title='Zimbabwe Tag' class='zimbabwe'>Zimbabwe</a></div>
+</div>
+		</aside><aside id="text-14" class="widget widget_text">			<div class="textwidget">
+</div>
+		</aside><aside id="text-20" class="widget widget_text">			<div class="textwidget"><div class="menu-main-menu-container"><ul id="menu-main-menu-2" class="menu"><li class="menu-item menu-item-type-post_type_archive menu-item-object-publications menu-item-has-children menu-item-2569"><a href="https://freedomarchives.org/publications/">Publications</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-type menu-item-2566"><a href="https://freedomarchives.org/type/audio/">Audio</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-type menu-item-2568"><a href="https://freedomarchives.org/type/video/">Video</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-type menu-item-2567"><a href="https://freedomarchives.org/type/books/">Books</a></li>
+</ul>
+</li>
+</ul></div>
+</div>
+		</aside>		</div><!-- #secondary -->
+			</div><!-- row -->
+ 
+   
+</div><!-- container -->
+
+<div class="container-fluid footer-wrap">
+	<div class="container">
+
+		<div class="row inverse footer">
+      		<div class="col-xs-12 col-sm-4 col-lg-2 first-col ">
+        		<a href="/"><img src="https://freedomarchives.org/wp-content/themes/custom_template/images/logo_footer.png" class="logo-footer" alt="Freedom Archives"></a>
+			</div>
+			<div class="col-lg-7 visible-lg">
+				<div class="footer-menu"><ul id="menu-footer-menu" class="menu"><li id="menu-item-2616" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2616"><a href="https://freedomarchives.org/about/">About</a></li>
+<li id="menu-item-2617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2617"><a href="https://search.freedomarchives.org/">The Archives</a></li>
+<li id="menu-item-2618" class="menu-item menu-item-type-post_type_archive menu-item-object-publications menu-item-2618"><a href="https://freedomarchives.org/publications/">Publications</a></li>
+<li id="menu-item-2619" class="menu-item menu-item-type-post_type_archive menu-item-object-projects menu-item-2619"><a href="https://freedomarchives.org/projects/">Projects</a></li>
+<li id="menu-item-2620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2620"><a href="https://freedomarchives.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-2615" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2615"><a href="https://freedomarchives.org/blog/">Blog</a></li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://freedomarchives.org/contact/">Contact</a></li>
+</ul></div>			</div>
+			<div class="col-xs-12 col-sm-4  col-lg-3">
+				<a href="/get-involved/get-email-updates/" class="email-updates--footer">Get Email Updates</a>
+				<div class="sm-icon">
+	
+	<a href="https://www.facebook.com/freedomarchives" title="Freedom Archives Facebook Page" class="sm-icon--circle" target="_blank"></a>
+
+	<a href="https://www.twitter.com/" title="Freedom Archives Twitter Page" class="sm-icon--circle" target="_blank"></a>
+
+</div><!-- /.row -->				<a href="https://freedomarchives.org/donation" class="btn btn--donate-footer">Donate</a>
+			</div>
+			<p class="copyright">&copy; Copyright  2026, The Freedom Archives</p>
+		</div><!-- /.row -->
+
+
+			
+
+	</div><!-- /.container -->
+</div><!-- /.container-fluid -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/custom_template/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script><script type="text/javascript" src="https://freedomarchives.org/wp-includes/js/comment-reply.min.js?ver=6.9.4" id="comment-reply-js" async="async" data-wp-strategy="async" fetchpriority="low"></script>
+<script type="text/javascript" src="https://freedomarchives.org/wp-content/plugins/the-events-calendar/common/build/js/user-agent.js?ver=da75d0bdea6dde3898df" id="tec-user-agent-js"></script>
+<script type="text/javascript" id="ajax-js-js-extra">
+/* <![CDATA[ */
+var ajax_params = {"ajax_url":"https://freedomarchives.org/wp-admin/admin-ajax.php","nonces":{"check_friendlyname":"c63e829f80","cnp_check_accountid":"946b4321c8","cnp_check_formgroup":"619e02411b","cnp_check_channelgroup":"2c47c0b641","cfcnp_verify_account":"cb20b22267","refresh_account":"7ab2c48d49","load_campaigns":"3a338187dc","load_forms":"a42508526a","load_edit_forms":"10d82a1e76","get_edit_forms":"35a3f845b4","get_channels":"419216101d","cnp_trk_action":"20072e3523"}};
+//# sourceURL=ajax-js-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://freedomarchives.org/wp-content/plugins/click-pledge-connect/js/Admin.js?ver=1.0" id="ajax-js-js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" id="bootstrap-js-js"></script>
+<script type="text/javascript" src="https://freedomarchives.org/wp-content/themes/custom_template/js/jquery.slimmenu.min.js" id="slimmenu-js"></script>
+<script type="text/javascript" src="https://freedomarchives.org/wp-content/themes/custom_template/js/owl.carousel.min.js" id="owl-carousel-js"></script>
+<script type="text/javascript" src="https://freedomarchives.org/wp-content/themes/custom_template/js/template.js" id="template-js-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://freedomarchives.org/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://freedomarchives.org/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+</body>
+</html>
+
+
+
+
+<!-- Page supported by LiteSpeed Cache 7.8.1 on 2026-05-17 15:50:40 -->
