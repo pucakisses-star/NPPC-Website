@@ -6,32 +6,29 @@ use App\Models\ArchiveRecord;
 use Illuminate\Console\Command;
 
 /**
- * Self-host the 154 remaining external-link archive records that were
- * still pointing to vault.fbi.gov, archive.org, freedomarchives.org,
- * vimeo.com, etc. PDFs / MP4s / MP3s mirrored locally at
- * /pdfs/external-imports/ (~2.2 GB total).
+ * Self-host the remaining external-link archive records.
  *
- * For the 15 records whose source URLs could not be downloaded (FBI
- * vault paths that 404, LoC tile-server PDFs blocked, one vimeo
- * video, and the 12 SF8 dead search-page links), this command sets
- * the file field to null — the record stays in the catalog with its
- * title and description but no broken external link.
+ * Revised version (#482 follow-up): rejects HTML error pages
+ * masquerading as PDFs and other content-mismatch failures from the
+ * earlier mass-download. 128 records get repointed to real local
+ * files; 41 records (mostly dead vault.fbi.gov subpaths, dead
+ * search.freedomarchives.org pages, dead LoC tile-server URLs, and
+ * dead Freedom Archives /Documents/Finder paths) get their file
+ * field set to null.
  *
  * Idempotent.
  */
 final class SelfHostExternalImports extends Command {
     protected $signature = 'archive:self-host-external-imports';
-    protected $description = 'Repoint the ~154 remaining external-URL archive records to local mirrors; null out the 15 unfetchable ones';
+    protected $description = 'Repoint external-URL archive records to local mirrors (rev #482-fix): 128 self-hosted, 41 nulled';
 
     public function handle(): int {
         $mapping = [
-            'black-and-pink-black-and-pink-lgbtq-prisoner-resource-list' => '/pdfs/external-imports/black-and-pink-black-and-pink-lgbtq-prisoner-resource-list.pdf',
             'church-committee-book-ii' => '/pdfs/external-imports/church-committee-book-ii.pdf',
             'church-committee-book-iii' => '/pdfs/external-imports/church-committee-book-iii.pdf',
             'church-committee-hearings-vol-2-huston-plan' => '/pdfs/external-imports/church-committee-hearings-vol-2-huston-plan.pdf',
             'church-committee-hearings-vol-6-fbi' => '/pdfs/external-imports/church-committee-hearings-vol-6-fbi.pdf',
             'church-committee-hearings-vol-7-covert-action' => '/pdfs/external-imports/church-committee-hearings-vol-7-covert-action.pdf',
-            'churchill-vanderwall-agents-of-repression' => '/pdfs/external-imports/churchill-vanderwall-agents-of-repression.pdf',
             'fa-c101-theyre-talking-at-sing-sing' => '/pdfs/external-imports/fa-c101-theyre-talking-at-sing-sing.pdf',
             'fa-c101-why-assata-shakur-must-be-supported' => '/pdfs/external-imports/fa-c101-why-assata-shakur-must-be-supported.pdf',
             'fa-c104-an-unpublished-letter' => '/pdfs/external-imports/fa-c104-an-unpublished-letter.pdf',
@@ -100,7 +97,6 @@ final class SelfHostExternalImports extends Command {
             'fag-c1-the-continuing-crime-of-black-imprisonment' => '/pdfs/external-imports/fag-c1-the-continuing-crime-of-black-imprisonment.html',
             'fag-c159-the-case-against-the-death-penalty' => '/pdfs/external-imports/fag-c159-the-case-against-the-death-penalty.htm',
             'fag-c226-legacy-of-torture-trailer' => '/pdfs/external-imports/fag-c226-legacy-of-torture-trailer.mp4',
-            'fag-c237-akwasi-evans-reads-space' => '/pdfs/external-imports/fag-c237-akwasi-evans-reads-space.bin',
             'fag-c237-amiri-baraka-introduces-wild-poppies' => '/pdfs/external-imports/fag-c237-amiri-baraka-introduces-wild-poppies.mp3',
             'fag-c237-aya-de-leon-reads-grito-de-vieques' => '/pdfs/external-imports/fag-c237-aya-de-leon-reads-grito-de-vieques.mp3',
             'fag-c237-carolyn-baxter-reads-coca-cola-2' => '/pdfs/external-imports/fag-c237-carolyn-baxter-reads-coca-cola-2.mp3',
@@ -137,66 +133,69 @@ final class SelfHostExternalImports extends Command {
             'fag-c237-uchechi-kalu-reads-blindfolded-men' => '/pdfs/external-imports/fag-c237-uchechi-kalu-reads-blindfolded-men.mp3',
             'fag-c237-uchechi-kalu-reads-they-came-for-me' => '/pdfs/external-imports/fag-c237-uchechi-kalu-reads-they-came-for-me.mp3',
             'fag-c237-vini-bhansali-reads-a-15-year-old-palestinian-woman-in-prison' => '/pdfs/external-imports/fag-c237-vini-bhansali-reads-a-15-year-old-palestinian-woman-in-prison.mp3',
-            'fag-c261-stonewall-means-fight-back-fight-for-lesbian-and-gay-liberation' => '/pdfs/external-imports/fag-c261-stonewall-means-fight-back-fight-for-lesbian-and-gay-liberation.pdf',
-            'fag-c261-support-the-chilean-resistance' => '/pdfs/external-imports/fag-c261-support-the-chilean-resistance.pdf',
-            'fbi-black-panther-party-part-01' => '/pdfs/external-imports/fbi-black-panther-party-part-01.bin',
-            'fbi-black-panther-party-part-06' => '/pdfs/external-imports/fbi-black-panther-party-part-06.bin',
             'fbi-bpp-north-carolina' => '/pdfs/external-imports/fbi-bpp-north-carolina.pdf',
             'fbi-cesar-chavez-consolidated' => '/pdfs/external-imports/fbi-cesar-chavez-consolidated.pdf',
-            'fbi-cesar-chavez-part-1' => '/pdfs/external-imports/fbi-cesar-chavez-part-1.bin',
-            'fbi-cesar-chavez-part-2' => '/pdfs/external-imports/fbi-cesar-chavez-part-2.bin',
             'fbi-cointelpro-black-extremists-part-01' => '/pdfs/external-imports/fbi-cointelpro-black-extremists-part-01.pdf',
             'fbi-cointelpro-black-extremists-part-08' => '/pdfs/external-imports/fbi-cointelpro-black-extremists-part-08.pdf',
             'fbi-cointelpro-black-extremists-part-10' => '/pdfs/external-imports/fbi-cointelpro-black-extremists-part-10.pdf',
             'fbi-cointelpro-new-left-hq-part-01' => '/pdfs/external-imports/fbi-cointelpro-new-left-hq-part-01.pdf',
-            'fbi-cointelpro-puerto-rican-groups-part-01' => '/pdfs/external-imports/fbi-cointelpro-puerto-rican-groups-part-01.bin',
             'fbi-cointelpro-puerto-rico-consolidated' => '/pdfs/external-imports/fbi-cointelpro-puerto-rico-consolidated.pdf',
             'fbi-cointelpro-swp-consolidated' => '/pdfs/external-imports/fbi-cointelpro-swp-consolidated.pdf',
-            'fbi-cointelpro-swp-part-01' => '/pdfs/external-imports/fbi-cointelpro-swp-part-01.bin',
-            'fbi-cointelpro-swp-part-05' => '/pdfs/external-imports/fbi-cointelpro-swp-part-05.bin',
             'fbi-cointelpro-white-hate-groups-part-01' => '/pdfs/external-imports/fbi-cointelpro-white-hate-groups-part-01.pdf',
             'fbi-fred-hampton-part-01' => '/pdfs/external-imports/fbi-fred-hampton-part-01.pdf',
-            'fbi-fred-hampton-part-2' => '/pdfs/external-imports/fbi-fred-hampton-part-2.bin',
-            'fbi-george-jackson-file' => '/pdfs/external-imports/fbi-george-jackson-file.bin',
-            'fbi-jean-seberg-file' => '/pdfs/external-imports/fbi-jean-seberg-file.bin',
-            'fbi-john-trudell-file' => '/pdfs/external-imports/fbi-john-trudell-file.pdf',
-            'fbi-kathy-boudin-part-01' => '/pdfs/external-imports/fbi-kathy-boudin-part-01.bin',
             'fbi-malcolm-x-nyc-field-office' => '/pdfs/external-imports/fbi-malcolm-x-nyc-field-office.pdf',
             'fbi-malcolm-x-part-01' => '/pdfs/external-imports/fbi-malcolm-x-part-01.pdf',
-            'fbi-malcolm-x-part-20' => '/pdfs/external-imports/fbi-malcolm-x-part-20.bin',
-            'fbi-malcolm-x-part-33' => '/pdfs/external-imports/fbi-malcolm-x-part-33.bin',
-            'fbi-martin-luther-king-jr-part-1' => '/pdfs/external-imports/fbi-martin-luther-king-jr-part-1.bin',
-            'fbi-martin-luther-king-jr-part-2' => '/pdfs/external-imports/fbi-martin-luther-king-jr-part-2.bin',
-            'fbi-move-file' => '/pdfs/external-imports/fbi-move-file.bin',
-            'fbi-russell-means-file' => '/pdfs/external-imports/fbi-russell-means-file.pdf',
             'fbi-sclc-cominfil-1964' => '/pdfs/external-imports/fbi-sclc-cominfil-1964.pdf',
             'fbi-stokely-carmichael-consolidated' => '/pdfs/external-imports/fbi-stokely-carmichael-consolidated.pdf',
             'fbi-stokely-carmichael-part-01' => '/pdfs/external-imports/fbi-stokely-carmichael-part-01.pdf',
             'fbi-stokely-carmichael-part-05' => '/pdfs/external-imports/fbi-stokely-carmichael-part-05.pdf',
-            'fbi-viola-liuzzo-part-1' => '/pdfs/external-imports/fbi-viola-liuzzo-part-1.bin',
-            'fbi-weather-underground-part-1' => '/pdfs/external-imports/fbi-weather-underground-part-1.bin',
             'fbi-weather-underground-part-6' => '/pdfs/external-imports/fbi-weather-underground-part-6.pdf',
-            'peltier-flawed-justice-leonard-peltier-defense-committee' => '/pdfs/external-imports/peltier-flawed-justice-leonard-peltier-defense-committee.pdf',
             'tfsr-jay-ward-interview-zine-tfsr' => '/pdfs/external-imports/tfsr-jay-ward-interview-zine-tfsr.pdf',
             'tfsr-joan-braune-interview-zine-tfsr' => '/pdfs/external-imports/tfsr-joan-braune-interview-zine-tfsr.pdf',
         ];
 
         $unfetchable = [
-            'sf8-africa-today-on-grand-jury-repression',
-            'sf8-free-the-san-francisco-8-la-prison-times',
-            'sf8-francisco-torres-on-the-dismissal',
-            'sf8-free-the-sf8-flyer-2008-03-05',
-            'sf8-bookmark-and-flyer-2008-08-27',
-            'sf8-signed-photograph',
-            'sf8-legacy-of-torture-sf-bayview-2007',
-            'sf8-37-year-old-case-drop-the-charges',
-            'sf8-attorneys-respond-to-reopening-sun-reporter',
+            'black-and-pink-black-and-pink-lgbtq-prisoner-resource-list',
+            'churchill-vanderwall-agents-of-repression',
             'fa-c23-interview-with-josefina-rodriguez',
             'fa-c325-counterinsurgency-in-the-courtroom-the-resistance-conspiracy-case',
             'fa-c325-international-day-to-stop-violence-against-women-solidarity-statement',
             'fag-c13-the-object-is-to-win',
+            'fag-c237-akwasi-evans-reads-space',
+            'fag-c261-stonewall-means-fight-back-fight-for-lesbian-and-gay-liberation',
+            'fag-c261-support-the-chilean-resistance',
+            'fbi-black-panther-party-part-01',
+            'fbi-black-panther-party-part-06',
+            'fbi-cesar-chavez-part-1',
+            'fbi-cesar-chavez-part-2',
+            'fbi-cointelpro-puerto-rican-groups-part-01',
+            'fbi-cointelpro-swp-part-01',
+            'fbi-cointelpro-swp-part-05',
+            'fbi-fred-hampton-part-2',
+            'fbi-george-jackson-file',
+            'fbi-jean-seberg-file',
+            'fbi-john-trudell-file',
+            'fbi-kathy-boudin-part-01',
+            'fbi-malcolm-x-part-20',
+            'fbi-malcolm-x-part-33',
+            'fbi-martin-luther-king-jr-part-1',
+            'fbi-martin-luther-king-jr-part-2',
+            'fbi-move-file',
+            'fbi-russell-means-file',
+            'fbi-viola-liuzzo-part-1',
+            'fbi-weather-underground-part-1',
             'goldman-berkman-fragment-prison-1919',
             'loc-alien-anarchists-exclusion-1919',
+            'peltier-flawed-justice-leonard-peltier-defense-committee',
+            'sf8-37-year-old-case-drop-the-charges',
+            'sf8-africa-today-on-grand-jury-repression',
+            'sf8-attorneys-respond-to-reopening-sun-reporter',
+            'sf8-bookmark-and-flyer-2008-08-27',
+            'sf8-francisco-torres-on-the-dismissal',
+            'sf8-free-the-san-francisco-8-la-prison-times',
+            'sf8-free-the-sf8-flyer-2008-03-05',
+            'sf8-legacy-of-torture-sf-bayview-2007',
+            'sf8-signed-photograph',
         ];
 
         $updated = 0;
