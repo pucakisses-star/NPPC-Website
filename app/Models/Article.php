@@ -33,7 +33,7 @@ final class Article extends Model {
         'citations_json' => 'array',
     ];
 
-    public static function getBySlug(string $slug): self {
+    public static function getBySlug(string $slug): ?self {
         return self::where('slug', $slug)->first();
     }
 
