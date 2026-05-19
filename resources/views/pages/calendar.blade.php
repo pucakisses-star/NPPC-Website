@@ -40,9 +40,13 @@
     /* Black left-to-right curtain wipe between calendar views.
        Adapted from the EJI "A History of Racial Injustice" calendar:
        a single full-viewport panel slides in from the left, holds while
-       the next page loads, then slides off to the right. */
+       the next page loads, then slides off to the right.
+
+       --cal-wipe-top is set from JS to the bottom of .cal-header so
+       the curtain only covers the content area, leaving the site nav
+       and the title / Day-Month toggle / month picker visible. */
     .cal-wipe { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 99999; }
-    .cal-wipe span { position: fixed; left: -100%; top: 0; height: 100%; width: 100%; background-color: #000; transform: translate3d(0,0,0); }
+    .cal-wipe span { position: fixed; left: -100%; top: var(--cal-wipe-top, 0px); height: calc(100vh - var(--cal-wipe-top, 0px)); width: 100%; background-color: #000; transform: translate3d(0,0,0); }
     .cal-wipe.page-load span { transform: translate3d(100%, 0, 0); }
     .cal-wipe.in span  { animation: cal-wipe-in  1.5s cubic-bezier(.59,.08,.39,.95) forwards; }
     .cal-wipe.out span { animation: cal-wipe-out 1.5s cubic-bezier(.59,.08,.39,.95) forwards; }
@@ -302,6 +306,21 @@ function toggleCalView() {
     var wipe = document.querySelector('.cal-wipe');
     if (!wipe) return;
 
+    // Set --cal-wipe-top to the current bottom of .cal-header so the
+    // curtain only covers the content beneath the title/Day-Month/month
+    // picker row. Recompute on resize.
+    function refreshWipeTop() {
+        var header = document.querySelector('.cal-header');
+        var top = 0;
+        if (header) {
+            var b = header.getBoundingClientRect().bottom;
+            top = Math.max(0, Math.round(b));
+        }
+        wipe.style.setProperty('--cal-wipe-top', top + 'px');
+    }
+    refreshWipeTop();
+    window.addEventListener('resize', refreshWipeTop);
+
     // 1) Page just loaded — let the curtain finish its wipe off to the right.
     requestAnimationFrame(function () {
         wipe.classList.add('out');
@@ -325,6 +344,11 @@ function toggleCalView() {
 function calWipeNavigate(href) {
     var wipe = document.querySelector('.cal-wipe');
     if (!wipe) { window.location.href = href; return; }
+    // Recompute the top edge in case the layout shifted since load.
+    var header = document.querySelector('.cal-header');
+    if (header) {
+        wipe.style.setProperty('--cal-wipe-top', Math.max(0, Math.round(header.getBoundingClientRect().bottom)) + 'px');
+    }
     wipe.classList.remove('out', 'page-load');
     // Force reflow so the animation restarts cleanly if .in was already set.
     void wipe.offsetWidth;
