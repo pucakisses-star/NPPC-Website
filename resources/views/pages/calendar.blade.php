@@ -36,6 +36,18 @@
     .cal-card-image { height: 160px; overflow: hidden; flex-shrink: 0; }
     .cal-card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: filter 0.3s; }
     .cal-card:hover .cal-card-image img { filter: grayscale(0); }
+
+    /* Black left-to-right curtain wipe between calendar views.
+       Adapted from the EJI "A History of Racial Injustice" calendar:
+       a single full-viewport panel slides in from the left, holds while
+       the next page loads, then slides off to the right. */
+    .cal-wipe { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 99999; }
+    .cal-wipe span { position: fixed; left: -100%; top: 0; height: 100%; width: 100%; background-color: #000; transform: translate3d(0,0,0); }
+    .cal-wipe.page-load span { transform: translate3d(100%, 0, 0); }
+    .cal-wipe.in span  { animation: cal-wipe-in  1.5s cubic-bezier(.59,.08,.39,.95) forwards; }
+    .cal-wipe.out span { animation: cal-wipe-out 1.5s cubic-bezier(.59,.08,.39,.95) forwards; }
+    @keyframes cal-wipe-in  { 0% { transform: translate3d(0, 0, 0); }    35%, 65% { transform: translate3d(100%, 0, 0); } 100% { transform: translate3d(100%, 0, 0); } }
+    @keyframes cal-wipe-out { 0% { transform: translate3d(100%, 0, 0); } 35%, 65% { transform: translate3d(200%, 0, 0); } 100% { transform: translate3d(200%, 0, 0); } }
     .cal-empty-card { border: 1px dashed rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; min-height: 280px; }
     .cal-empty-day { font-size: 4rem; font-weight: 900; color: rgba(255,255,255,0.06); line-height: 1; }
 
@@ -64,6 +76,7 @@
 @endsection
 
 @section('body')
+<div class="cal-wipe page-load"><span></span></div>
 <div class="cal-page">
     <div class="cal-header">
         <div class="cal-header-left">
@@ -277,7 +290,49 @@ function toggleCalView() {
     var newView = isMonth ? 'day' : 'month';
     var url = new URL(window.location);
     url.searchParams.set('view', newView);
-    window.location.href = url.toString();
+    calWipeNavigate(url.toString());
+}
+
+// Black left-to-right curtain wipe.
+// Same shape as EJI's transition: 1.5s in (curtain covers screen, holds),
+// then we navigate while it's covering; the destination page mounts with
+// the curtain still covering and immediately plays the "out" half so the
+// motion reads as one continuous wipe across the viewport.
+(function () {
+    var wipe = document.querySelector('.cal-wipe');
+    if (!wipe) return;
+
+    // 1) Page just loaded — let the curtain finish its wipe off to the right.
+    requestAnimationFrame(function () {
+        wipe.classList.add('out');
+        setTimeout(function () { wipe.classList.remove('page-load', 'out'); }, 1600);
+    });
+
+    // 2) Intercept calendar navigation clicks so they trigger the wipe.
+    var selectors = '.cal-card, .cal-month-btn, .cal-months-btn';
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest(selectors);
+        if (!a) return;
+        if (a.target === '_blank' || a.hasAttribute('data-no-wipe')) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        var href = a.getAttribute('href');
+        if (!href || href.charAt(0) === '#') return;
+        e.preventDefault();
+        calWipeNavigate(href);
+    });
+})();
+
+function calWipeNavigate(href) {
+    var wipe = document.querySelector('.cal-wipe');
+    if (!wipe) { window.location.href = href; return; }
+    wipe.classList.remove('out', 'page-load');
+    // Force reflow so the animation restarts cleanly if .in was already set.
+    void wipe.offsetWidth;
+    wipe.classList.add('in');
+    // The curtain finishes its left-to-right entry around the 65% mark of 1.5s
+    // (~975ms); navigate just before that so the new page can render under
+    // the covering curtain and continue the wipe.
+    setTimeout(function () { window.location.href = href; }, 750);
 }
 </script>
 @endsection
