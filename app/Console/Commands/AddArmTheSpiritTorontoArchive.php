@@ -64,7 +64,7 @@ final class AddArmTheSpiritTorontoArchive extends Command {
             $payload = $base + [
                 'title' => $title,
                 'description' => $description,
-                'file' => "/pdfs/periodicals/arm-the-spirit/ats-toronto-{$ref}.pdf",
+                'file' => "/pdfs/periodicals/arm-the-spirit/ats-toronto-no-{$ref}.pdf",
                 'year' => $year,
                 'date' => $date,
                 'volume' => $number,
