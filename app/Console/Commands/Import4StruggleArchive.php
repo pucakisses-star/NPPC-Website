@@ -141,27 +141,13 @@ final class Import4StruggleArchive extends Command {
 
         $rows[] = [
             'slug' => 'united-freedom-front-pamphlet',
-            'title' => 'United Freedom Front',
-            'description' => 'Pamphlet on the United Freedom Front, an anti-imperialist armed group active in the 1970s–80s.',
+            'title' => 'The Ohio 7: Living For The Revolution',
+            'description' => 'Movement pamphlet on the Ohio 7 / United Freedom Front defendants — Ray Luc Levasseur, Tom Manning, Richard Williams, Jaan Laaman, Carol Manning, Patricia Levasseur, and Barbara Curzi-Laaman — the clandestine anti-imperialist formation responsible for the United Freedom Front bombings of corporate and military targets in the early 1980s, indicted and prosecuted in the 1988–89 Springfield, Massachusetts sedition-conspiracy trial. Self-hosted from the Internet Archive ohio-7-living-for-the-revolution item.',
             'record_type' => 'document',
             'source_format' => 'pamphlet',
-            'file' => '/pdfs/4strugglemag/UFF.pdf',
+            'file' => '/pdfs/4strugglemag/ohio-7-living-for-the-revolution.pdf',
             'collection' => '4StruggleMag',
-            'subjects' => ['Anti-Imperialism', 'United Freedom Front', 'Armed Struggle'],
-            'is_digitized' => true,
-            'published' => true,
-            'sort_order' => $sort++,
-        ];
-
-        $rows[] = [
-            'slug' => '4strugglemag-securite-eng',
-            'title' => 'Sécurité — An Open Letter',
-            'description' => 'English-language open letter on operational security, distributed alongside 4StruggleMag.',
-            'record_type' => 'document',
-            'source_format' => 'article',
-            'file' => '/pdfs/4strugglemag/Securite-eng-letter.pdf',
-            'collection' => '4StruggleMag',
-            'subjects' => ['Operational Security', 'Movement Defense'],
+            'subjects' => ['Ohio 7', 'United Freedom Front', 'UFF', 'Anti-Imperialism', 'Armed Struggle', 'Ray Luc Levasseur', 'Tom Manning', 'Richard Williams', 'Jaan Laaman', 'Sedition Conspiracy'],
             'is_digitized' => true,
             'published' => true,
             'sort_order' => $sort++,
