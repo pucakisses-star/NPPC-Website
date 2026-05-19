@@ -85,7 +85,7 @@ final class GenerateArchiveThumbnails extends Command {
         $rel = 'archive-thumbnails/'.$r->slug.'.jpg';
 
         // Strategy 1: archive.org item URL → IA thumbnail service
-        if (preg_match('|^https?://(?:www\.)?archive\.org/(?:details|download)/([^/?#]+)|i', $file, $m)) {
+        if (preg_match('#^https?://(?:www\.)?archive\.org/(?:details|download)/([^/?\#]+)#i', $file, $m)) {
             $iaId = $m[1];
             $bytes = $this->fetch("https://archive.org/services/img/{$iaId}");
             if ($bytes !== null && strlen($bytes) > 1000) {
