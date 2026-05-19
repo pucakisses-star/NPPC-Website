@@ -1,6 +1,14 @@
 @php use App\Views\ViewSupport; @endphp
 @php
     $menuItems = ViewSupport::getMenuItems();
+    // Featured prisoner for the Database dropdown — most recently added
+    // prisoner with a photo, in custody, so the menu surfaces a live
+    // case rather than a released or historical figure.
+    $featuredPrisoner = \App\Models\Prisoner::query()
+        ->whereNotNull('photo')
+        ->where('in_custody', true)
+        ->orderByDesc('created_at')
+        ->first();
 @endphp
 
 <div class="hidden md:block" id="nav-spacing"></div>
@@ -99,15 +107,43 @@
         {{-- Mega dropdown panels --}}
         @foreach($menuItems as $item)
             @if($item->children)
-                <div class="mega-dropdown-panel" data-mega-panel="{{$item->slug}}" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; z-index:9999; width:600px; max-width:90vw;">
+                @php
+                    $isDatabase = $item->slug === 'database';
+                    $panelWidth = $isDatabase ? '780px' : '600px';
+                @endphp
+                <div class="mega-dropdown-panel" data-mega-panel="{{$item->slug}}" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:100%; z-index:9999; width:{{ $panelWidth }}; max-width:92vw;">
                     <div style="background:#fff; border-top:3px solid #5660fe; box-shadow:0 8px 30px rgba(0,0,0,0.15); border-radius:0 0 8px 8px;">
-                        <div style="padding:24px 32px; display:grid; grid-template-columns:repeat(2,1fr); gap:0;">
-                            @foreach($item->children as $child)
-                                <a href="{{$child->href}}" style="display:block; padding:14px 16px; color:#222; text-decoration:none; font-size:16px; font-weight:600; border-bottom:1px solid #eee; transition:background 0.15s;">
-                                    {{$child->title}}
+                        @if($isDatabase && $featuredPrisoner)
+                            {{-- Two-column: link list on the left, featured prisoner card on the right --}}
+                            <div style="display:grid; grid-template-columns:1fr 280px; gap:0;">
+                                <div style="padding:24px 8px 24px 32px; display:grid; grid-template-columns:repeat(2,1fr); gap:0;">
+                                    @foreach($item->children as $child)
+                                        <a href="{{$child->href}}" style="display:block; padding:14px 16px; color:#222; text-decoration:none; font-size:15px; font-weight:600; border-bottom:1px solid #eee; transition:background 0.15s;">
+                                            {{$child->title}}
+                                        </a>
+                                    @endforeach
+                                </div>
+                                <a href="{{ $featuredPrisoner->url ?? '/prisoner/'.$featuredPrisoner->slug }}" style="display:block; padding:20px 24px 24px; background:#f7f7f7; border-left:1px solid #eee; text-decoration:none; color:#222; border-radius:0 0 8px 0;">
+                                    <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#5660fe; margin-bottom:10px;">Featured prisoner</div>
+                                    <div style="width:100%; aspect-ratio:4/5; overflow:hidden; border-radius:4px; background:#222; margin-bottom:12px;">
+                                        <img src="{{ $featuredPrisoner->photo_url ?? \Illuminate\Support\Facades\Storage::url($featuredPrisoner->photo) }}" alt="{{ $featuredPrisoner->name }}" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%); transition:filter 0.2s;" onload="this.style.opacity=1" onmouseenter="this.style.filter='grayscale(0)'" onmouseleave="this.style.filter='grayscale(15%)'">
+                                    </div>
+                                    <div style="font-size:16px; font-weight:800; line-height:1.2; margin-bottom:4px;">{{ $featuredPrisoner->name }}</div>
+                                    @if(!empty($featuredPrisoner->state) || !empty($featuredPrisoner->affiliation))
+                                        <div style="font-size:12px; color:#666; line-height:1.4;">{{ trim(($featuredPrisoner->state ?? '').(is_array($featuredPrisoner->affiliation) && count($featuredPrisoner->affiliation) ? ' · '.implode(', ', $featuredPrisoner->affiliation) : '')) }}</div>
+                                    @endif
+                                    <div style="margin-top:12px; font-size:12px; font-weight:700; color:#5660fe; text-transform:uppercase; letter-spacing:0.06em;">Read profile &rarr;</div>
                                 </a>
-                            @endforeach
-                        </div>
+                            </div>
+                        @else
+                            <div style="padding:24px 32px; display:grid; grid-template-columns:repeat(2,1fr); gap:0;">
+                                @foreach($item->children as $child)
+                                    <a href="{{$child->href}}" style="display:block; padding:14px 16px; color:#222; text-decoration:none; font-size:16px; font-weight:600; border-bottom:1px solid #eee; transition:background 0.15s;">
+                                        {{$child->title}}
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endif
