@@ -101,9 +101,12 @@ final class GenerateArchiveThumbnails extends Command {
             if ($local && file_exists($local)) {
                 $tmp = tempnam(sys_get_temp_dir(), 'pdfthumb');
                 @unlink($tmp);
-                $cmd = sprintf('pdftoppm -jpeg -jpegopt quality=80 -r 72 -f 1 -l 1 %s %s 2>&1', escapeshellarg($local), escapeshellarg($tmp));
+                // -singlefile writes "<prefix>.jpg" without page-number padding.
+                // Without it, pdftoppm pads based on total page count, so a
+                // 452-page PDF writes "<prefix>-001.jpg" and we'd miss it.
+                $cmd = sprintf('pdftoppm -jpeg -jpegopt quality=80 -r 72 -singlefile %s %s 2>&1', escapeshellarg($local), escapeshellarg($tmp));
                 exec($cmd, $out, $rc);
-                $generated = $tmp.'-1.jpg';
+                $generated = $tmp.'.jpg';
                 if (file_exists($generated)) {
                     rename($generated, $dest);
                     return $rel;
