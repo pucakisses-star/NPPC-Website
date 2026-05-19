@@ -41,7 +41,7 @@
 
     /* Day view */
     .cal-day-view { display: flex; gap: 0; min-height: 70vh; padding-bottom: 80px; }
-    .cal-day-left { flex: 0 0 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid rgba(255,255,255,0.1); padding: 48px; }
+    .cal-day-left { flex: 0 0 320px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border-right: 1px solid rgba(255,255,255,0.1); padding: 48px; position: sticky; top: 108px; align-self: flex-start; max-height: calc(100vh - 108px); overflow-y: auto; }
     .cal-day-num { font-size: 8rem; font-weight: 900; color: #fff; line-height: 1; }
     .cal-day-month { font-size: 4rem; font-weight: 900; color: #fff; line-height: 1; text-transform: uppercase; }
     .cal-day-share { margin-top: 48px; text-align: center; }
@@ -58,7 +58,7 @@
     .cal-day-nav-btn { padding: 10px 24px; border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 4px; transition: all 0.15s; }
     .cal-day-nav-btn:hover { border-color: #5660fe; }
 
-    @media (max-width: 900px) { .cal-grid { grid-template-columns: repeat(2, 1fr); } .cal-day-view { flex-direction: column; } .cal-day-left { flex: auto; padding: 32px; } .cal-day-right { padding: 32px 24px; } }
+    @media (max-width: 900px) { .cal-grid { grid-template-columns: repeat(2, 1fr); } .cal-day-view { flex-direction: column; } .cal-day-left { flex: auto; padding: 32px; position: static; max-height: none; overflow: visible; align-self: auto; } .cal-day-right { padding: 32px 24px; } }
     @media (max-width: 500px) { .cal-grid { grid-template-columns: 1fr; } .cal-month-name { font-size: 1.8rem; } }
 </style>
 @endsection
