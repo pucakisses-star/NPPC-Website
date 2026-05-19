@@ -55,6 +55,12 @@ $isHome = request()->segment(1) == ''
         .page-history .container {
             overflow: visible;
         }
+
+        /* /calendar/<day> pins its left date column with position: sticky,
+           which needs overflow: visible up the ancestor chain. */
+        .page-calendar .container {
+            overflow: visible;
+        }
     </style>
     @yield('head')
 </head>
