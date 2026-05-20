@@ -50,12 +50,18 @@ final class AddSouthChicagoAbcZines extends Command {
                 continue;
             }
 
+            $thumbnailPath = null;
+            if (! empty($rec['thumbnail']) && file_exists(public_path('pdfs/south-chicago-abc-thumbnails/'.$rec['thumbnail']))) {
+                $thumbnailPath = '/pdfs/south-chicago-abc-thumbnails/'.$rec['thumbnail'];
+            }
+
             $payload = [
                 'title' => $rec['title'],
                 'description' => $rec['description'] ?? null,
                 'authors' => $rec['authors'] ?? null,
                 'year' => $rec['year'] ?? null,
                 'file' => $filePath,
+                'thumbnail' => $thumbnailPath,
                 'record_type' => 'document',
                 'source_format' => 'pamphlet',
                 'collection' => 'South Chicago ABC',
