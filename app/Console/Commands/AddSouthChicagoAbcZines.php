@@ -64,7 +64,7 @@ final class AddSouthChicagoAbcZines extends Command {
                 'thumbnail' => $thumbnailPath,
                 'record_type' => 'document',
                 'source_format' => 'pamphlet',
-                'collection' => 'South Chicago ABC',
+                'collection' => 'Anarchist Black Cross',
                 'publisher' => 'South Chicago Anarchist Black Cross',
                 'is_digitized' => true,
                 'published' => true,
