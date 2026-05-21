@@ -22,17 +22,20 @@ final class AddFfaaPartner extends Command {
     private const LOGO_PATH = 'partners/freedom-for-all-americans-logo.png';
 
     public function handle(): int {
-        if (! Storage::disk('public')->exists(self::LOGO_PATH)) {
-            $bytes = @file_get_contents(self::LOGO_SRC);
-            if ($bytes === false) {
-                $this->error('Failed to download logo from '.self::LOGO_SRC);
-                return self::FAILURE;
-            }
-            Storage::disk('public')->put(self::LOGO_PATH, $bytes);
-            $this->info('Downloaded logo to '.self::LOGO_PATH);
-        } else {
-            $this->info('Logo already present at '.self::LOGO_PATH);
+        // Always re-render so the white-repaint applies even when the
+        // file already exists from an earlier (pre-white) run.
+        $bytes = @file_get_contents(self::LOGO_SRC);
+        if ($bytes === false) {
+            $this->error('Failed to download logo from '.self::LOGO_SRC);
+            return self::FAILURE;
         }
+        $whiteBytes = $this->repaintWhite($bytes);
+        if ($whiteBytes === null) {
+            $this->error('Failed to repaint logo white.');
+            return self::FAILURE;
+        }
+        Storage::disk('public')->put(self::LOGO_PATH, $whiteBytes);
+        $this->info('Wrote white logo to '.self::LOGO_PATH);
 
         $payload = [
             'logo' => self::LOGO_PATH,
@@ -57,5 +60,40 @@ final class AddFfaaPartner extends Command {
         }
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Recolor every non-transparent pixel of $bytes to white, preserving
+     * alpha. Returns a PNG byte string, or null on failure. Accepts any
+     * image format GD can read (PNG, WebP, JPEG, GIF).
+     */
+    private function repaintWhite(string $bytes): ?string {
+        $src = @imagecreatefromstring($bytes);
+        if ($src === false) {
+            return null;
+        }
+        imagepalettetotruecolor($src);
+        imagealphablending($src, false);
+        imagesavealpha($src, true);
+
+        $w = imagesx($src);
+        $h = imagesy($src);
+        for ($y = 0; $y < $h; $y++) {
+            for ($x = 0; $x < $w; $x++) {
+                $rgba = imagecolorat($src, $x, $y);
+                $alpha = ($rgba >> 24) & 0x7F;
+                if ($alpha < 127) {
+                    $color = imagecolorallocatealpha($src, 255, 255, 255, $alpha);
+                    imagesetpixel($src, $x, $y, $color);
+                }
+            }
+        }
+
+        ob_start();
+        imagepng($src);
+        $png = ob_get_clean();
+        imagedestroy($src);
+
+        return $png ?: null;
     }
 }
