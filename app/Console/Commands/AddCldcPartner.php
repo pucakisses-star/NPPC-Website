@@ -37,8 +37,8 @@ final class AddCldcPartner extends Command {
         $payload = [
             'logo' => self::LOGO_PATH,
             'url' => 'https://cldc.org',
-            'description' => 'Movement-lawyering nonprofit based in Eugene, Oregon, providing legal defense and education to climate activists, forest defenders, water protectors, anti-war organizers, and other people facing prosecution for political activity. CLDC has represented Valve Turners, Stop Cop City defendants, Standing Rock water protectors, Green Scare prisoners, Jane\'s Revenge defendants, and many others.',
-            'category' => 'Legal Defense',
+            'description' => null,
+            'category' => null,
             'published' => true,
             'sort_order' => 0,
         ];
