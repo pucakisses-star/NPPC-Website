@@ -257,7 +257,7 @@
                 <div class="ct-meta-block">
                     <div class="ct-meta-label">General Email</div>
                     <p class="ct-meta-value">
-                        <a href="mailto:contact@nppc.org">contact@nppc.org</a>
+                        <a href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a>
                     </p>
                 </div>
 
@@ -327,7 +327,7 @@
             <div class="ct-card">
                 <h3 class="ct-card-title">Press &amp; media</h3>
                 <p class="ct-card-text">Reporters and producers — we'll connect you with a researcher or staff member who can comment on the record.</p>
-                <a class="ct-card-link" href="mailto:press@nppc.org">press@nppc.org</a>
+                <a class="ct-card-link" href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a>
             </div>
             <div class="ct-card">
                 <h3 class="ct-card-title">Volunteer with us</h3>
@@ -337,12 +337,12 @@
             <div class="ct-card">
                 <h3 class="ct-card-title">Partnerships</h3>
                 <p class="ct-card-text">Bookstores, faith communities, universities, infoshops — we run speaker visits and letter-writing nights.</p>
-                <a class="ct-card-link" href="mailto:events@nppc.org">events@nppc.org</a>
+                <a class="ct-card-link" href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a>
             </div>
             <div class="ct-card">
                 <h3 class="ct-card-title">Donations &amp; gifts</h3>
                 <p class="ct-card-text">Stock, DAFs, crypto, planned giving, and tax-deductible monthly support — we'll help you choose the right vehicle.</p>
-                <a class="ct-card-link" href="mailto:donations@nppc.org">donations@nppc.org</a>
+                <a class="ct-card-link" href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a>
             </div>
         </div>
     </section>
