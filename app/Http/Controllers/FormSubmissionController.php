@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FormSubmission;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 final class FormSubmissionController extends Controller {
@@ -43,7 +44,7 @@ final class FormSubmissionController extends Controller {
             $data[$k] = $v;
         }
 
-        FormSubmission::create([
+        $submission = FormSubmission::create([
             'form_type' => $form,
             'data'      => $data,
             'status'    => 'new',
@@ -73,13 +74,25 @@ final class FormSubmissionController extends Controller {
             $subject = 'Letter to a prisoner';
         }
 
+        // The submission is already persisted, so a mail failure can't lose
+        // data — but it CAN silently strand notifications. Log loudly with
+        // enough context to track it down (submission id + form + driver +
+        // exception class + message).
         try {
             Mail::raw($formattedData, function ($message) use ($subject) {
                 $message->to('info@nationalpoliticalprisonercoalition.org')
                     ->subject($subject);
             });
-        } catch (\Exception $e) {
-            // Email may fail if mail isn't configured — submission is already saved
+        } catch (\Throwable $e) {
+            Log::error('Form-submission notification email failed to send.', [
+                'submission_id' => $submission->id,
+                'form'          => $form,
+                'subject'       => $subject,
+                'mail_driver'   => config('mail.default'),
+                'mail_host'     => config('mail.mailers.'.config('mail.default').'.host'),
+                'exception'     => $e::class,
+                'message'       => $e->getMessage(),
+            ]);
         }
 
         $redirectPath = match ($form) {
