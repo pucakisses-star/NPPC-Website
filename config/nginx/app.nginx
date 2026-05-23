@@ -7,6 +7,30 @@ server {
     #error_log /srv/www/example.com/logs/error.log;
     index index.php index.html;
 
+    # gzip compression — cuts /api/prisoners (~7 MB JSON) and the Vue
+    # bundle (~2.5 MB JS) by roughly 10× and 4× on the wire. Negligible
+    # CPU cost for text payloads of this size.
+    gzip on;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 5;
+    gzip_min_length 1024;
+    gzip_types
+        application/json
+        application/javascript
+        application/xml
+        application/xml+rss
+        application/rss+xml
+        application/atom+xml
+        application/x-font-ttf
+        application/vnd.ms-fontobject
+        font/opentype
+        text/css
+        text/javascript
+        text/plain
+        text/xml
+        image/svg+xml;
+
     # serve static files directly
 	location ~* \.(jpg|jpeg|gif|css|png|js|ico|html)$ {
 		access_log off;
