@@ -33,7 +33,16 @@ class PrisonerApiController extends Controller {
             return $this->buildPayload();
         });
 
-        return response()->json($data);
+        // Public-cacheable for 10 minutes — same TTL as the server-side
+        // cache. The data is non-sensitive (public political-prisoner
+        // database) so browsers, intermediate proxies, and CDNs can all
+        // reuse the same response. Cuts ~1.12 MB off every page load
+        // after the first on a given browser. Pass ?bust=1 to force
+        // both server and client to revalidate.
+        return response()->json($data)->header(
+            'Cache-Control',
+            'public, max-age=600, stale-while-revalidate=300',
+        );
     }
 
     private function buildPayload(): array {
