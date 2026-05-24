@@ -1,91 +1,24 @@
 server {
     listen 80;
-    root /var/www/NPPC-Website/public;
-    server_name nationalpoliticalprisonercoalition.org *.nationalpoliticalprisonercoalition.org;
+    server_name 104.238.162.40 nationalpoliticalprisonercoalition.org *.nationalpoliticalprisonercoalition.org;
+    client_max_body_size 64M;
 
-    #access_log /srv/www/example.com/logs/access.log;
-    #error_log /srv/www/example.com/logs/error.log;
+    root /var/www/NPPC-Website/public;
     index index.php index.html;
 
-    # gzip compression — cuts /api/prisoners (~7 MB JSON) and the Vue
-    # bundle (~2.5 MB JS) by roughly 10× and 4× on the wire. Negligible
-    # CPU cost for text payloads of this size.
-    gzip on;
-    gzip_vary on;
-    gzip_proxied any;
-    gzip_comp_level 5;
-    gzip_min_length 1024;
-    gzip_types
-        application/json
-        application/javascript
-        application/xml
-        application/xml+rss
-        application/rss+xml
-        application/atom+xml
-        application/x-font-ttf
-        application/vnd.ms-fontobject
-        font/opentype
-        text/css
-        text/javascript
-        text/plain
-        text/xml
-        image/svg+xml;
+    # Gzip is configured at the http level in /etc/nginx/nginx.conf so it
+    # applies to every site. JSON + JS + CSS get compressed there.
 
-    # serve static files directly
-	location ~* \.(jpg|jpeg|gif|css|png|js|ico|html)$ {
-		access_log off;
-		expires max;
-		log_not_found off;
-	}
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
 
-	# removes trailing slashes (prevents SEO duplicate content issues)
-	if (!-d $request_filename) { rewrite ^/(.+)/$ /$1 permanent; }
-
-	# enforce NO www
-	if ($host ~* ^www\.(.*)) { set $host_without_www $1; rewrite ^/(.*)$ $scheme://$host_without_www/$1 permanent; }
-
-	# unless the request is for a valid file (image, js, css, etc.), send to bootstrap
-	if (!-e $request_filename) { rewrite ^/(.*)$ /index.php?/$1 last; break; }
-
-	location / {
-	  if ($request_method = 'OPTIONS') {
-            add_header 'Access-Control-Allow-Origin' '*';
-            add_header 'Access-Control-Allow-Credentials' 'true';
-            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-            add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-            add_header 'Access-Control-Max-Age' 1728000;
-            add_header 'Content-Type' 'text/plain charset=UTF-8';
-            add_header 'Content-Length' 0;
-            return 204;
-         }
-
-         if ($request_method = 'POST') {
-            add_header 'Access-Control-Allow-Origin' '*';
-            add_header 'Access-Control-Allow-Credentials' 'true';
-            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-            add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-         }
-
-         if ($request_method = 'GET') {
-            add_header 'Access-Control-Allow-Origin' '*';
-            add_header 'Access-Control-Allow-Credentials' 'true';
-            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-            add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
-         }
-
-		try_files $uri $uri/ /index.php?$query_string;
-	}
-
-	location ~* \.php$ {
-        try_files $uri = 404;
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php-fpm.sock; # may also be: 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.4-fpm.sock;
     }
 
     location ~ /\.ht {
-		deny all;
-	}
+        deny all;
+    }
 }
