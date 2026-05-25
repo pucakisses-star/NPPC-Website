@@ -2,7 +2,7 @@
 @php $faqs = Faq::getFaqsByType($type); @endphp
 
 @if($faqs->isNotEmpty())
-<section style="background:#0a0a0a; padding:48px 0; margin-top:40px;">
+<section style="background:#000; padding:48px 0; margin-top:40px;">
     <div style="max-width:900px; margin:0 auto; padding:0 24px;">
         <h2 style="font-size:2rem; font-weight:900; color:#fff; margin-bottom:32px;">Frequently Asked Questions</h2>
 
