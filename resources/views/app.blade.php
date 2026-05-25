@@ -61,12 +61,43 @@ $isHome = request()->segment(1) == ''
         .page-calendar .container {
             overflow: visible;
         }
+
+        /* === Site-wide mobile touch polish === */
+        html { -webkit-tap-highlight-color: transparent; }
+        a, button, [role="button"], input[type="submit"], input[type="button"] {
+            touch-action: manipulation;
+        }
+        /* Visible focus ring for keyboard users (suppress for mouse via :focus-visible) */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+            outline: 2px solid #5660fe;
+            outline-offset: 2px;
+        }
+        /* Skip-to-content link — visible only on keyboard focus */
+        .skip-to-content {
+            position: absolute; left: -9999px; top: 8px;
+            background: #5660fe; color: #fff; padding: 10px 16px;
+            border-radius: 4px; font-weight: 700; z-index: 999999;
+            text-decoration: none;
+        }
+        .skip-to-content:focus { left: 8px; }
+
+        @media (max-width: 768px) {
+            /* iOS Safari zooms inputs whose font-size is below 16px on
+               focus. Force a 16px floor on form fields so input focus
+               never triggers a viewport zoom. */
+            input:not([type="checkbox"]):not([type="radio"]),
+            textarea, select {
+                font-size: 16px !important;
+            }
+        }
     </style>
     @yield('head')
 </head>
 
 
 <body class="page-{{request()->segment(1)}} @if ($isHome) home-page @endif">
+
+<a href="#main-content" class="skip-to-content">Skip to content</a>
 
 {{-- Page transition overlay --}}
 <div id="page-transition" style="position:fixed; inset:0; background:#000; z-index:999999; opacity:1; pointer-events:none; transition:opacity 0.4s ease;"></div>
@@ -75,9 +106,11 @@ $isHome = request()->segment(1) == ''
 @include('layout.nav_mobile')
 
 @if($isHome)
-    @yield('body')
+    <div id="main-content">
+        @yield('body')
+    </div>
 @else
-    <main class="container">
+    <main id="main-content" class="container">
         @yield('body')
     </main>
 @endif

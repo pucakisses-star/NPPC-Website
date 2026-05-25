@@ -8,7 +8,7 @@ $menuItems = ViewSupport::getMenuItems();
         <div class="flex h-16 justify-between">
                 <div class="-ml-2 mr-2 flex items-center md:hidden">
                     <!-- Mobile menu button -->
-                    <button id="toggle-hamburger" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                    <button id="toggle-hamburger" type="button" class="inline-flex items-center justify-center rounded-md p-3 text-gray-300 hover:bg-slate-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu" style="min-width:44px; min-height:44px;">
                         <span class="sr-only">Open main menu</span>
                         <!--
                           Icon when menu is closed.
@@ -58,15 +58,19 @@ $menuItems = ViewSupport::getMenuItems();
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div id="mobile-menu" style="display: none">
+    <div id="mobile-menu" style="display: none; max-height: calc(100vh - 80px); overflow-y: auto;">
         <div class="space-y-1 pb-3 pt-2">
-            <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
             @foreach($menuItems as $item)
-                <a href="{{$item->href}}" class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-slate-300 hover:bg-slate-900 hover:text-white sm:pl-5 sm:pr-6">{{$item->title}}</a>
+                <a href="{{$item->href}}" class="block border-l-4 border-transparent py-4 pl-4 pr-4 text-base font-medium text-gray-300 hover:border-indigo-500 hover:bg-slate-900 hover:text-white sm:pl-5 sm:pr-6" style="min-height:44px;">{{$item->title}}</a>
+                @if($item->children)
+                    @foreach($item->children as $child)
+                        <a href="{{$child->href}}" class="block border-l-4 border-transparent py-3 pl-8 pr-4 text-sm font-medium text-gray-400 hover:border-indigo-500 hover:bg-slate-900 hover:text-white sm:pl-10 sm:pr-6" style="min-height:44px;">&rsaquo;&nbsp;{{$child->title}}</a>
+                    @endforeach
+                @endif
             @endforeach
         </div>
-        <div class="mt-4">
-            <a href="/donate" class="relative block items-center gap-x-1.5 w-full  bg-indigo-600 px-8 mt-2 py-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        <div class="mt-2 px-4 pb-4">
+            <a href="/donate" class="relative block w-full text-center bg-indigo-600 px-8 py-4 text-base font-semibold text-white rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Donate
             </a>
         </div>
