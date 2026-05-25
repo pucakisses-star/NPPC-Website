@@ -80,10 +80,15 @@
     .prose-content strong { color: #fff; font-weight: 700; }
 
     @media (max-width: 768px) {
-        .prisoner-hero { flex-direction: column-reverse; }
+        .prisoner-page { padding: 0 16px; }
+        .prisoner-hero { flex-direction: column-reverse; gap: 24px; padding: 24px 0 20px; }
         .prisoner-photo-col { flex: auto; width: 100%; }
         .prisoner-name { font-size: 2rem; }
+        .prisoner-bio-title { font-size: 1.6rem; }
+        .prisoner-cases-title { font-size: 1.25rem; }
         .prisoner-case-meta { grid-template-columns: 1fr; }
+        .prisoner-meta-row { flex-direction: column; }
+        .prisoner-meta-label { min-width: 0; margin-bottom: 2px; }
     }
 </style>
 @endsection

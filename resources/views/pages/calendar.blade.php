@@ -75,7 +75,18 @@
     .cal-day-nav-btn:hover { border-color: #5660fe; }
 
     @media (max-width: 900px) { .cal-grid { grid-template-columns: repeat(2, 1fr); } .cal-day-view { flex-direction: column; } .cal-day-left { flex: auto; padding: 32px; position: static; max-height: none; overflow: visible; align-self: auto; } .cal-day-right { padding: 32px 24px; } }
-    @media (max-width: 500px) { .cal-grid { grid-template-columns: 1fr; } .cal-month-name { font-size: 1.8rem; } }
+    @media (max-width: 500px) {
+        .cal-page { padding: 0 16px; }
+        .cal-grid { grid-template-columns: 1fr; gap: 16px; }
+        .cal-month-name { font-size: 1.8rem; }
+        .cal-card-day { font-size: 2.5rem; }
+        .cal-empty-day { font-size: 2.5rem; }
+        .cal-day-num { font-size: 5rem; }
+        .cal-day-month { font-size: 2.5rem; }
+        .cal-day-title { font-size: 1.6rem; margin-bottom: 20px; }
+        .cal-day-left { padding: 24px 16px; }
+        .cal-day-right { padding: 24px 16px; }
+    }
 </style>
 @endsection
 

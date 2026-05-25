@@ -15,20 +15,27 @@
     @endphp
 
     {{-- Hero Section --}}
-    <div class="relative" style="height: {{ $heroHeight }}vh;">
+    <div class="relative hero-wrap" style="height: {{ $heroHeight }}vh;">
         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
             <source src="{{ $heroVideoMp4 ? asset('storage/' . $heroVideoMp4) : '/videos/home/video.mp4' }}" type="video/mp4">
             <source src="{{ $heroVideoWebm ? asset('storage/' . $heroVideoWebm) : '/videos/home/video.webm' }}" type="video/webm">
         </video>
         <div class="video-bg-fade"></div>
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
-        <div class="absolute inset-0 flex items-end" style="z-index: 2; padding: 0 40px 40px;">
+        <div class="absolute inset-0 flex items-end hero-text-wrap" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
-                <span class="block" style="font-size: {{ $heroHeadlineSize }}rem; line-height: 1.1;">{{ $heroHeadline }}</span>
-                <span class="flood-std block" style="font-size: {{ $heroSubheadlineSize }}rem; line-height: 1.2;">{{ $heroSubheadline }}</span>
+                <span class="block hero-headline" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
+                <span class="flood-std block hero-subheadline" style="--hero-sub-size: {{ $heroSubheadlineSize }}rem; font-size: var(--hero-sub-size); line-height: 1.2;">{{ $heroSubheadline }}</span>
             </div>
         </div>
     </div>
+    <style>
+        @media (max-width: 768px) {
+            .hero-text-wrap { padding: 0 20px 24px !important; }
+            .hero-headline { font-size: clamp(2.5rem, 14vw, calc(var(--hero-headline-size) * 0.55)) !important; }
+            .hero-subheadline { font-size: clamp(1.5rem, 9vw, calc(var(--hero-sub-size) * 0.55)) !important; }
+        }
+    </style>
 
     <div class="container">
         {{-- Articles --}}
