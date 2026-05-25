@@ -70,18 +70,35 @@ class EmailSubscriberResource extends Resource {
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkAction::make('exportEmails')
-                    ->label('Copy All Emails')
-                    ->icon('heroicon-o-clipboard-document')
+                Tables\Actions\BulkAction::make('exportSelectedCsv')
+                    ->label('Export Selected (CSV)')
+                    ->icon('heroicon-o-arrow-down-tray')
+                    ->color('success')
+                    ->deselectRecordsAfterCompletion()
                     ->action(function ($records) {
-                        // This triggers a notification with the emails
-                        $emails = $records->pluck('email')->implode("\n");
-                        \Filament\Notifications\Notification::make()
-                            ->title('Emails copied')
-                            ->body('Use the export feature for bulk access.')
-                            ->success()
-                            ->send();
+                        $filename = 'email-subscribers-selected-'.now()->format('Y-m-d-His').'.csv';
+                        return response()->streamDownload(function () use ($records) {
+                            $out = fopen('php://output', 'w');
+                            fputcsv($out, ['email', 'status', 'subscribed_at']);
+                            foreach ($records as $row) {
+                                fputcsv($out, [
+                                    $row->email,
+                                    $row->status,
+                                    optional($row->created_at)->toIso8601String(),
+                                ]);
+                            }
+                            fclose($out);
+                        }, $filename, [
+                            'Content-Type' => 'text/csv',
+                        ]);
                     }),
+                Tables\Actions\BulkAction::make('unsubscribeSelected')
+                    ->label('Mark Unsubscribed')
+                    ->icon('heroicon-o-x-mark')
+                    ->color('gray')
+                    ->requiresConfirmation()
+                    ->deselectRecordsAfterCompletion()
+                    ->action(fn ($records) => $records->each->update(['status' => 'unsubscribed'])),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
