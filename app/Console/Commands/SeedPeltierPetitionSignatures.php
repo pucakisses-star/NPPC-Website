@@ -20,7 +20,12 @@ use Illuminate\Support\Str;
  * this petition.
  */
 final class SeedPeltierPetitionSignatures extends Command {
-    protected $signature = 'archive:seed-peltier-petition-signatures {--count=250}';
+    protected $signature = 'archive:seed-peltier-petition-signatures
+        {--count= : Add exactly this many signatures (additive)}
+        {--target= : Top up to this total demo-signature count}
+        {--redate : Redistribute the timestamps of every existing demo signature within the launch window}
+        {--start=2024-09-12 09:00:00 : Earliest signature timestamp}
+        {--end=2024-12-15 23:00:00 : Latest signature timestamp}';
     protected $description = 'Seed demo signatures on the Free Leonard Peltier petition';
 
     private const FIRST_NAMES = [
@@ -114,10 +119,38 @@ final class SeedPeltierPetitionSignatures extends Command {
             return self::FAILURE;
         }
 
-        $count = max(1, (int) $this->option('count'));
-        $start = Carbon::parse('2024-09-12 09:00:00');
-        $end   = now();
+        $start = Carbon::parse($this->option('start'));
+        $end   = Carbon::parse($this->option('end'));
         $totalSeconds = $end->diffInSeconds($start);
+
+        // Redate every existing demo signature into the new window.
+        if ($this->option('redate')) {
+            $demoSigs = PetitionSignature::where('petition_id', $petition->id)
+                ->where('email', 'like', '%@nppc-demo.test')
+                ->get();
+            foreach ($demoSigs as $sig) {
+                $offset = (int) (sqrt(mt_rand() / mt_getrandmax()) * $totalSeconds);
+                $signedAt = (clone $start)->addSeconds($offset);
+                $sig->created_at = $signedAt;
+                $sig->updated_at = $signedAt;
+                $sig->saveQuietly();
+            }
+            $this->info('Re-dated '.$demoSigs->count().' existing demo signatures.');
+        }
+
+        // Resolve how many new sigs to add.
+        $existing = PetitionSignature::where('petition_id', $petition->id)
+            ->where('email', 'like', '%@nppc-demo.test')
+            ->count();
+        $target = $this->option('target') !== null ? max(0, (int) $this->option('target')) : null;
+        $count  = $this->option('count')  !== null ? max(0, (int) $this->option('count'))  : null;
+
+        if ($target !== null) {
+            $count = max(0, $target - $existing);
+            $this->info("Existing demo signatures: {$existing} — adding {$count} to reach target {$target}.");
+        } elseif ($count === null) {
+            $count = 250; // legacy default
+        }
 
         $added = 0; $skipped = 0;
 
