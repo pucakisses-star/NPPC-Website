@@ -245,15 +245,11 @@ final class SiteController extends Controller {
     }
 
     public function birthdays(Request $request) {
-        // Living, in-custody or in-exile prisoners with a known birthdate,
-        // grouped by month + day for the month-by-month birthday calendar.
+        // Currently-incarcerated prisoners with a known birthdate, for
+        // the letter-writing birthday calendar.
         $prisoners = Prisoner::whereNotNull('birthdate')
             ->whereNull('death_date')
-            ->where(function ($q) {
-                $q->where('in_custody', true)
-                    ->orWhere('currently_in_exile', true)
-                    ->orWhere('awaiting_trial', true);
-            })
+            ->where('in_custody', true)
             ->orderBy('birthdate')
             ->get();
 

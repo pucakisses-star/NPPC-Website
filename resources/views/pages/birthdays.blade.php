@@ -73,7 +73,7 @@
 <main class="bd-wrap">
     <div class="bd-hero">
         <h1>Political Prisoner Birthdays</h1>
-        <p>Browse birthdays for U.S. political prisoners currently in custody, in exile, or awaiting trial. Use it to send a card on someone's birthday — a small act of solidarity that breaks the isolation of long-term imprisonment.</p>
+        <p>Birthdays of U.S. political prisoners currently incarcerated. Send a card on someone's birthday — a small act of solidarity that breaks the isolation of long-term imprisonment.</p>
         <div class="bd-count">{{ number_format($totalCount) }} prisoners listed</div>
     </div>
 
