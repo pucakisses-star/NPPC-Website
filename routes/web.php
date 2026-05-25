@@ -30,6 +30,7 @@ Route::controller(SiteController::class)
         Route::get('events', 'events');
         Route::get('volunteer', 'volunteer');
         Route::get('prisoner-outreach', 'prisonerOutreach');
+        Route::get('petitions', 'petitionsIndex');
         Route::get('petition/{slug}', 'petitionPage');
         Route::post('petition/{slug}/sign', 'petitionSign');
         Route::get('prisoner/{slug}', 'prisoner');
