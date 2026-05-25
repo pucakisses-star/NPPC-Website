@@ -551,6 +551,7 @@ final class SiteController extends Controller {
             'phone'            => 'nullable|string|max:30',
             'custom_message'   => 'nullable|string|max:2000',
             'display_publicly' => 'nullable|boolean',
+            'email_optin'      => 'nullable|boolean',
         ]);
 
         // Prevent duplicate signatures from the same email
@@ -574,6 +575,14 @@ final class SiteController extends Controller {
             'custom_message'   => $request->input('custom_message'),
             'display_publicly' => $request->boolean('display_publicly'),
         ]);
+
+        // Subscribe to the newsletter if the signer opted in.
+        if ($request->boolean('email_optin')) {
+            \App\Models\EmailSubscriber::firstOrCreate(
+                ['email' => $request->input('email')],
+                ['status' => 'active']
+            );
+        }
 
         return redirect("/petition/{$slug}?signed=true");
     }

@@ -117,9 +117,14 @@
                     <textarea name="custom_message" class="pet-input pet-autosize" rows="4" placeholder="Your message (optional)" oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';">{{ $petition->suggested_message }}</textarea>
                 @endif
 
-                <label class="pet-display-publicly" style="display:flex; align-items:flex-start; gap:10px; margin:6px 0 14px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5; cursor:pointer;">
+                <label class="pet-display-publicly" style="display:flex; align-items:flex-start; gap:10px; margin:6px 0 10px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5; cursor:pointer;">
                     <input type="checkbox" name="display_publicly" value="1" style="margin-top:3px; accent-color:#5660fe; cursor:pointer;">
                     <span>Show my first name, last initial, and state in the public list of recent signers.</span>
+                </label>
+
+                <label class="pet-email-optin" style="display:flex; align-items:flex-start; gap:10px; margin:0 0 14px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5; cursor:pointer;">
+                    <input type="checkbox" name="email_optin" value="1" checked style="margin-top:3px; accent-color:#5660fe; cursor:pointer;">
+                    <span>Sign me up for NPPC emails so I can stay informed about clemency campaigns, new prisoner profiles, and ways to support political prisoners.</span>
                 </label>
 
                 <button type="submit" class="pet-submit">Sign Petition</button>
