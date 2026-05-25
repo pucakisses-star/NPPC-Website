@@ -36,7 +36,8 @@ Route::controller(SiteController::class)
         Route::get('prisoner/{slug}', 'prisoner');
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
-        Route::get('about', function() { return view('pages.about'); });
+        Route::get('about', 'about');
+        Route::post('/sign-up', 'signUp');
         Route::get('/{slug}', 'page');
     });
 
@@ -44,10 +45,3 @@ Route::controller(FormSubmissionController::class)
     ->group(function () {
         Route::post('/form/{form}', 'submit');
     });
-
-Route::post('/sign-up', function (\Illuminate\Http\Request $request) {
-    $request->validate(['email' => 'required|email']);
-    \App\Models\EmailSubscriber::firstOrCreate(['email' => $request->input('email')]);
-
-    return redirect()->back()->with('subscribed', true);
-});

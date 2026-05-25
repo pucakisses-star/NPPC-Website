@@ -383,6 +383,17 @@ final class SiteController extends Controller {
         return view('pages.partners', compact('partners'));
     }
 
+    public function about() {
+        return view('pages.about');
+    }
+
+    public function signUp(Request $request) {
+        $request->validate(['email' => 'required|email']);
+        \App\Models\EmailSubscriber::firstOrCreate(['email' => $request->input('email')]);
+
+        return redirect()->back()->with('subscribed', true);
+    }
+
     public function annualReport() {
         return view('pages.annual_reports', ['reports' => AnnualReport::all()]);
     }
