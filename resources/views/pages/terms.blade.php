@@ -18,7 +18,7 @@
 @section('body')
 <div class="legal-page">
     <h1 class="legal-title">Terms of Use</h1>
-    <div class="legal-updated">Last updated: April 7, 2026</div>
+    <div class="legal-updated">Last updated: May 25, 2026</div>
 
     <div class="legal-body">
         <p>Welcome to the website of the National Political Prisoner Coalition ("NPPC," "we," "us," or "our"). By accessing or using our website at nationalpoliticalprisonercoalition.org (the "Site"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the Site.</p>
@@ -27,7 +27,7 @@
         <p>By accessing, browsing, or using this Site, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use and our <a href="/privacy">Privacy Policy</a>, which is incorporated herein by reference. We reserve the right to modify these terms at any time. Your continued use of the Site following any changes constitutes acceptance of those changes.</p>
 
         <h2>2. About NPPC</h2>
-        <p>The National Political Prisoner Coalition is a nonprofit organization dedicated to advocating for the rights of political prisoners in the United States. Our Site provides educational resources, news, a searchable database of political prisoners, and tools for civic engagement including petitions, volunteer sign-ups, and donation processing.</p>
+        <p>The National Political Prisoner Coalition is a 501(c)(3) tax-exempt nonprofit organization dedicated to advocating for the rights of political prisoners in the United States. Our Site provides educational resources, news, a searchable database of political prisoners, and tools for civic engagement including petitions, volunteer sign-ups, and donation processing. Our EIN and copy of our IRS determination letter are available on request via <a href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a> or through our most recent <a href="/annual-report">Annual Report</a>.</p>
 
         <h2>3. Use of the Site</h2>
         <p>You agree to use the Site only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the Site. Prohibited conduct includes, but is not limited to:</p>
@@ -54,6 +54,8 @@
 
         <h2>6. Donations</h2>
         <p>Donations made through this Site are processed by Stripe, a third-party payment processor. By making a donation, you agree to Stripe's terms of service in addition to these Terms of Use. All donations are voluntary. NPPC does not sell goods or services in exchange for donations unless explicitly stated. Recurring donations may be cancelled at any time by contacting us at <a href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a>.</p>
+        <p><strong>Tax-deductibility.</strong> NPPC is a 501(c)(3) tax-exempt nonprofit organization. Donations are tax-deductible in the United States to the fullest extent permitted by law. You will receive an email donation receipt at the time of your gift; for cumulative annual donations of $250 or more we send a year-end acknowledgment letter for your tax records. No goods or services are provided in exchange for donations unless explicitly stated at the time of solicitation.</p>
+        <p><strong>Refunds.</strong> Donations are non-refundable except in cases of processing error, duplicate transactions, or unauthorized use. Refund requests should be sent to <a href="mailto:info@nationalpoliticalprisonercoalition.org">info@nationalpoliticalprisonercoalition.org</a> within 30 days of the transaction.</p>
 
         <h2>7. Prisoner Database</h2>
         <p>The prisoner database on this Site is provided for educational and advocacy purposes. While we strive for accuracy, we do not guarantee that all information is complete, current, or error-free. The inclusion of any individual in the database does not constitute a legal determination of their status. If you believe any information is inaccurate, please contact us so we can review and correct it.</p>
