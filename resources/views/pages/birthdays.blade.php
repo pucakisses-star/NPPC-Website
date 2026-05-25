@@ -26,8 +26,8 @@
 .bd-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); padding: 12px 12px 0; }
 .bd-weekday { text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); padding: 8px 0; text-transform: uppercase; }
 
-.bd-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; padding: 6px 12px 16px; }
-.bd-cell { min-height: 120px; padding: 10px; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.015); }
+.bd-days { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: 1fr; gap: 6px; padding: 6px 12px 16px; }
+.bd-cell { height: 120px; padding: 10px; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.015); overflow: hidden; }
 .bd-cell.is-blank { background: transparent; border-color: transparent; }
 .bd-cell.is-today { border-color: #5660fe; background: rgba(86,96,254,0.12); }
 .bd-cell.has-birthdays { background: rgba(255,255,255,0.04); }
@@ -48,7 +48,7 @@
     .bd-hero p { font-size: 0.95rem; }
     .bd-month-name { font-size: 1.4rem; min-width: 0; flex: 1; text-align: left; }
     .bd-nav-btn { min-width: 40px; height: 40px; font-size: 13px; padding: 0 10px; }
-    .bd-cell { min-height: 70px; padding: 6px; }
+    .bd-cell { height: 70px; padding: 6px; }
     .bd-cell-day { font-size: 11px; }
     .bd-pill { padding: 2px 4px; min-height: 16px; }
     .bd-pill-avatar { width: 12px; height: 12px; flex-basis: 12px; }
