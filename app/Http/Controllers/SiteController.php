@@ -511,6 +511,15 @@ final class SiteController extends Controller {
         return view('pages.podcast', compact('episodes'));
     }
 
+    public function petitionsIndex() {
+        $petitions = \App\Models\Petition::where('published', true)
+            ->withCount('signatures')
+            ->orderByDesc('created_at')
+            ->get();
+
+        return view('pages.petitions-index', compact('petitions'));
+    }
+
     public function petitionPage(string $slug) {
         $petition = \App\Models\Petition::where('slug', $slug)->where('published', true)->firstOrFail();
         $recentSigners = $petition->signatures()->where('display_publicly', true)->latest()->limit(5)->get();

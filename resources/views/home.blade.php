@@ -53,6 +53,9 @@
             <div id="app-stats"></div>
         @endif
 
+        {{-- Active Petitions --}}
+        @include('sections.active-petitions')
+
         {{-- Individual Profiles callout --}}
         @include('sections.individual-profiles')
 
