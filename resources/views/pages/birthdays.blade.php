@@ -8,9 +8,10 @@
 .bd-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 720px; line-height: 1.7; margin: 0 0 8px; }
 .bd-hero .bd-count { font-size: 14px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 16px; }
 
-.bd-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 24px 0 16px; flex-wrap: wrap; }
-.bd-toolbar-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.bd-month-name { font-size: 2rem; font-weight: 900; color: #fff; min-width: 200px; }
+.bd-toolbar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; margin: 24px 0 16px; }
+.bd-toolbar-center { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.bd-toolbar-right { display: flex; justify-content: flex-end; }
+.bd-month-name { font-size: 2rem; font-weight: 900; color: #fff; min-width: 200px; text-align: center; }
 .bd-nav-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; background: rgba(255,255,255,0.04); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.15s, border-color 0.15s; cursor: pointer; }
 .bd-nav-btn:hover { background: rgba(86,96,254,0.18); border-color: #5660fe; color: #fff; }
 .bd-today-btn { font-weight: 700; }
@@ -46,7 +47,8 @@
     .bd-hero { padding: 32px 0 16px; }
     .bd-hero h1 { font-size: 1.8rem; }
     .bd-hero p { font-size: 0.95rem; }
-    .bd-month-name { font-size: 1.4rem; min-width: 0; flex: 1; text-align: left; }
+    .bd-toolbar { grid-template-columns: auto 1fr auto; }
+    .bd-month-name { font-size: 1.4rem; min-width: 0; }
     .bd-nav-btn { min-width: 40px; height: 40px; font-size: 13px; padding: 0 10px; }
     .bd-cell { height: 70px; padding: 6px; }
     .bd-cell-day { font-size: 11px; }
@@ -67,12 +69,15 @@
     </div>
 
     <div class="bd-toolbar">
-        <div class="bd-toolbar-left">
+        <div></div>
+        <div class="bd-toolbar-center">
             <button class="bd-nav-btn" data-bd-prev type="button" aria-label="Previous month">&lsaquo;</button>
             <span class="bd-month-name" data-bd-name></span>
             <button class="bd-nav-btn" data-bd-next type="button" aria-label="Next month">&rsaquo;</button>
         </div>
-        <button class="bd-nav-btn bd-today-btn" data-bd-today type="button">Today</button>
+        <div class="bd-toolbar-right">
+            <button class="bd-nav-btn bd-today-btn" data-bd-today type="button">Today</button>
+        </div>
     </div>
 
     <div class="bd-months-bar">
