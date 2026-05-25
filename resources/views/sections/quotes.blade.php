@@ -23,7 +23,7 @@
                     {{-- Author image — fixed height so portraits visually match; width is allowed to vary so portraits aren't cropped --}}
                     @if($quote->author_image)
                         <div class="quote-img-box">
-                            <img class="quote-img" src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}">
+                            <img class="quote-img" src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}" loading="lazy" decoding="async">
                         </div>
                     @endif
 

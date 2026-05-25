@@ -68,8 +68,17 @@
         .page-content .lead { font-size: 1.25em; }
         .page-content small, .page-content .small { font-size: 0.875em; }
         .page-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5em 0; }
-        .page-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; }
+        .page-content iframe, .page-content embed, .page-content object, .page-content video { max-width: 100%; width: 100%; border-radius: 8px; margin: 1.5em 0; }
+        .page-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; display: block; overflow-x: auto; }
         .page-content th, .page-content td { border: 1px solid rgba(255,255,255,0.15); padding: 8px 12px; text-align: left; }
+
+        @media (max-width: 768px) {
+            article.page-content { font-size: 17px; line-height: 1.7; }
+            .page-content h1 { font-size: 1.8rem; }
+            .page-content h2 { font-size: 1.5rem; }
+            .page-content h3 { font-size: 1.25rem; }
+            .page-content blockquote { padding-left: 0.75em; }
+        }
 
         @@media print {
             body { background: #fff !important; color: #000 !important; }

@@ -242,7 +242,7 @@
                             <a class="a1r-card" href="{{ $r->file_url ?: '#' }}" @if ($r->file_url) target="_blank" rel="noopener" @endif>
                                 <div class="a1r-thumb a1r-thumb-{{ $r->record_type }}">
                                     @if ($r->thumbnail_url)
-                                        <img src="{{ $r->thumbnail_url }}" alt="">
+                                        <img src="{{ $r->thumbnail_url }}" alt="" loading="lazy" decoding="async">
                                     @elseif ($r->record_type === 'audio')
                                         <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
                                     @elseif ($r->record_type === 'video')
