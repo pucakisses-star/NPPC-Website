@@ -139,14 +139,15 @@ final class SeedPeltierPetitionSignatures extends Command {
             $signedAt = (clone $start)->addSeconds($offsetSeconds);
 
             $sig = new PetitionSignature();
-            $sig->petition_id    = $petition->id;
-            $sig->first_name     = $first;
-            $sig->last_name      = $last;
-            $sig->email          = $email;
-            $sig->city           = $city;
-            $sig->state          = $state;
-            $sig->zip_code       = (string) random_int(10000, 99999);
-            $sig->custom_message = self::SAMPLE_MESSAGES[array_rand(self::SAMPLE_MESSAGES)] ?: null;
+            $sig->petition_id      = $petition->id;
+            $sig->first_name       = $first;
+            $sig->last_name        = $last;
+            $sig->email            = $email;
+            $sig->city             = $city;
+            $sig->state            = $state;
+            $sig->zip_code         = (string) random_int(10000, 99999);
+            $sig->custom_message   = self::SAMPLE_MESSAGES[array_rand(self::SAMPLE_MESSAGES)] ?: null;
+            $sig->display_publicly = mt_rand(1, 100) <= 70; // ~70% opt in (mirrors realistic petition data)
             $sig->save();
 
             $sig->created_at = $signedAt;

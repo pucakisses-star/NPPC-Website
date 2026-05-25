@@ -72,7 +72,7 @@ HTML;
         $petition->recipients = 'The President of the United States; the U.S. Attorney General; the U.S. Pardon Attorney';
         $petition->suggested_subject = 'Grant Leonard Peltier a full presidential pardon';
         $petition->suggested_message = 'I am writing to urge you to grant Leonard Peltier a full presidential pardon. President Biden\'s January 20, 2025 commutation brought him home from federal prison after nearly 50 years, but Mr. Peltier — now 80 — remains under federal supervision for a conviction obtained through documented government misconduct. Amnesty International, the National Congress of American Indians, the European Parliament, Coretta Scott King, Pope Francis, the Dalai Lama, and three former U.S. Attorneys who handled his case have all called for his release. A pardon would acknowledge the wrong done and let an Indigenous elder live his remaining years in full dignity. Please act.';
-        $petition->signature_goal = 50000;
+        $petition->signature_goal = 1000;
         if ($imagePath) {
             $petition->image = $imagePath;
         }

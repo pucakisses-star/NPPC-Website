@@ -511,7 +511,7 @@ final class SiteController extends Controller {
 
     public function petitionPage(string $slug) {
         $petition = \App\Models\Petition::where('slug', $slug)->where('published', true)->firstOrFail();
-        $recentSigners = $petition->signatures()->latest()->limit(5)->get();
+        $recentSigners = $petition->signatures()->where('display_publicly', true)->latest()->limit(5)->get();
 
         return view('pages.petition', compact('petition', 'recentSigners'));
     }
@@ -520,14 +520,15 @@ final class SiteController extends Controller {
         $petition = \App\Models\Petition::where('slug', $slug)->where('published', true)->firstOrFail();
 
         $request->validate([
-            'first_name'     => 'required|string|max:100',
-            'last_name'      => 'required|string|max:100',
-            'email'          => 'required|email|max:255',
-            'city'           => 'nullable|string|max:100',
-            'state'          => 'nullable|string|max:100',
-            'zip_code'       => 'nullable|string|max:20',
-            'phone'          => 'nullable|string|max:30',
-            'custom_message' => 'nullable|string|max:2000',
+            'first_name'       => 'required|string|max:100',
+            'last_name'        => 'required|string|max:100',
+            'email'            => 'required|email|max:255',
+            'city'             => 'nullable|string|max:100',
+            'state'            => 'nullable|string|max:100',
+            'zip_code'         => 'nullable|string|max:20',
+            'phone'            => 'nullable|string|max:30',
+            'custom_message'   => 'nullable|string|max:2000',
+            'display_publicly' => 'nullable|boolean',
         ]);
 
         // Prevent duplicate signatures from the same email
@@ -540,15 +541,16 @@ final class SiteController extends Controller {
         }
 
         \App\Models\PetitionSignature::create([
-            'petition_id'    => $petition->id,
-            'first_name'     => $request->input('first_name'),
-            'last_name'      => $request->input('last_name'),
-            'email'          => $request->input('email'),
-            'city'           => $request->input('city'),
-            'state'          => $request->input('state'),
-            'zip_code'       => $request->input('zip_code'),
-            'phone'          => $request->input('phone'),
-            'custom_message' => $request->input('custom_message'),
+            'petition_id'      => $petition->id,
+            'first_name'       => $request->input('first_name'),
+            'last_name'        => $request->input('last_name'),
+            'email'            => $request->input('email'),
+            'city'             => $request->input('city'),
+            'state'            => $request->input('state'),
+            'zip_code'         => $request->input('zip_code'),
+            'phone'            => $request->input('phone'),
+            'custom_message'   => $request->input('custom_message'),
+            'display_publicly' => $request->boolean('display_publicly'),
         ]);
 
         return redirect("/petition/{$slug}?signed=true");
