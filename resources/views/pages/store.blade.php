@@ -56,6 +56,12 @@
         .store-feature { flex-direction: column; }
         .store-products-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    @media (max-width: 420px) {
+        .store-hero-title { font-size: 1.5rem; }
+        .store-feature-title { font-size: 1.5rem; }
+        .store-categories { grid-template-columns: 1fr; gap: 12px; }
+        .store-products-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
 </style>
 @endsection
 

@@ -1,5 +1,15 @@
 @extends('app')
 
+@section('head')
+<style>
+    @media (max-width: 768px) {
+        .db-about-section { padding: 48px 16px !important; }
+        .db-about-section h2 { font-size: 1.6rem !important; margin-bottom: 20px !important; }
+        .db-about-section .db-about-inner { font-size: 16px !important; }
+    }
+</style>
+@endsection
+
 @section('body')
     <section id="prisoners-page">
         <main id="maincontent">
@@ -13,11 +23,11 @@
     </section>
 
     {{-- About this database --}}
-    <section style="background:#000; color:rgba(255,255,255,0.85); padding:96px 24px; border-top:1px solid rgba(255,255,255,0.08);">
+    <section class="db-about-section" style="background:#000; color:rgba(255,255,255,0.85); padding:96px 24px; border-top:1px solid rgba(255,255,255,0.08);">
         <div style="max-width:780px; margin:0 auto;">
             <h2 style="font-size:2.5rem; font-weight:900; color:#fff; line-height:1.1; margin:0 0 32px;">About this database</h2>
 
-            <div style="font-size:17px; line-height:1.7;">
+            <div class="db-about-inner" style="font-size:17px; line-height:1.7;">
                 <p style="margin:0 0 20px;">
                     This database of U.S. political prisoners was assembled from public records, including the historical case archives of prisoner-support committees, court files retrieved through the federal judiciary's PACER case-management system and state court records, the federal Bureau of Prisons inmate locator, state Department of Corrections inmate locators, and numerous various other sources. Each prisoner's case data is categorized by ideology, affiliation, era, and current custody status.
                 </p>

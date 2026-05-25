@@ -104,6 +104,15 @@
         .about-team { flex-direction: column; }
         .about-values-grid { grid-template-columns: 1fr; }
     }
+    @media (max-width: 480px) {
+        .about-hero { padding: 32px 16px 24px; }
+        .about-title { font-size: 2.2rem; }
+        .about-hero-text { font-size: 1.05rem; }
+        .about-mission-text { font-size: 1.4rem; }
+        .about-history-title, .about-impact-title, .about-team-title { font-size: 1.6rem !important; }
+        .about-impact-num { font-size: 2.5rem !important; }
+        .spotlight-section { height: 360px !important; cursor: auto !important; }
+    }
 </style>
 @endsection
 
