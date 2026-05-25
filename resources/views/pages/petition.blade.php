@@ -119,20 +119,6 @@
                 <div class="pet-recipients">{{ $petition->recipients }}</div>
             @endif
 
-            {{-- Suggested message preview --}}
-            @if($petition->suggested_subject || $petition->suggested_message)
-                <div class="pet-section-title" style="margin-top:24px;">Review Message</div>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 16px;">We put in some suggestions, but make the message your own where possible!</p>
-
-                @if($petition->suggested_subject)
-                    <div style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 16px;">{{ $petition->suggested_subject }}</div>
-                @endif
-
-                @if($petition->suggested_message)
-                    <div class="pet-message-preview">{{ $petition->suggested_message }}</div>
-                @endif
-            @endif
-
             {{-- Recent signers --}}
             @if($recentSigners->isNotEmpty())
                 <div class="pet-signers-title" style="margin-top:24px;">Most recent signers:</div>
