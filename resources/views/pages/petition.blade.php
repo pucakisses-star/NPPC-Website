@@ -3,7 +3,7 @@
 @section('head')
 <style>
     .pet-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .pet-banner { background: #1a1a2e; padding: 20px 32px; margin: 0 -24px 32px; }
+    .pet-banner { background: #000; padding: 20px 32px; margin: 0 -24px 32px; }
     .pet-banner-title { font-size: 1.5rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.02em; }
     .pet-layout { display: flex; gap: 40px; padding: 32px 0 80px; align-items: flex-start; }
     .pet-left { flex: 1; }
