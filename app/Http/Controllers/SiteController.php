@@ -522,6 +522,14 @@ final class SiteController extends Controller {
         return view('pages.podcast', compact('episodes'));
     }
 
+    public function archiveView(\App\Models\ArchiveRecord $record) {
+        if (! $record->file_url) {
+            abort(404);
+        }
+
+        return view('pages.archive-view', compact('record'));
+    }
+
     public function petitionsIndex() {
         $petitions = \App\Models\Petition::where('published', true)
             ->withCount('signatures')
