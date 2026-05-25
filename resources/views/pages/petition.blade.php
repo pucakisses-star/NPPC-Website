@@ -86,27 +86,6 @@
                 </div>
             @endif
 
-            {{-- Recipients --}}
-            @if($petition->recipients)
-                <div class="pet-section-title">Message Recipients:</div>
-                <div class="pet-recipients">{{ $petition->recipients }}</div>
-            @endif
-
-            {{-- Suggested message --}}
-            @if($petition->suggested_subject || $petition->suggested_message)
-                <div class="pet-section-title">Review Message</div>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 16px;">We put in some suggestions, but make the message your own where possible!</p>
-
-                @if($petition->suggested_subject)
-                    <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Subject:</div>
-                    <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">{{ $petition->suggested_subject }}</div>
-                @endif
-
-                @if($petition->suggested_message)
-                    <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Body:</div>
-                    <div class="pet-message-preview">{{ $petition->suggested_message }}</div>
-                @endif
-            @endif
         </div>
 
         {{-- Right: Sign Form --}}
@@ -145,6 +124,28 @@
 
                 <button type="submit" class="pet-submit">Sign Petition</button>
             </form>
+
+            {{-- Recipients --}}
+            @if($petition->recipients)
+                <div class="pet-section-title" style="margin-top:36px;">Message Recipients:</div>
+                <div class="pet-recipients">{{ $petition->recipients }}</div>
+            @endif
+
+            {{-- Suggested message preview --}}
+            @if($petition->suggested_subject || $petition->suggested_message)
+                <div class="pet-section-title" style="margin-top:24px;">Review Message</div>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 16px;">We put in some suggestions, but make the message your own where possible!</p>
+
+                @if($petition->suggested_subject)
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Subject:</div>
+                    <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">{{ $petition->suggested_subject }}</div>
+                @endif
+
+                @if($petition->suggested_message)
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Body:</div>
+                    <div class="pet-message-preview">{{ $petition->suggested_message }}</div>
+                @endif
+            @endif
             <script>
             (function () {
                 document.querySelectorAll('.pet-autosize').forEach(function (el) {
