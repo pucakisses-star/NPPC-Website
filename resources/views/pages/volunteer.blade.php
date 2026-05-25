@@ -284,6 +284,15 @@
         .vol2-section-heading { font-size: 2rem; }
         .vol2-form-heading { font-size: 1.8rem; }
     }
+    @@media (max-width: 480px) {
+        .vol2-hero { padding: 32px 16px 24px; }
+        .vol2-hero-title { font-size: 2rem; }
+        .vol2-hero-lede { font-size: 16px; }
+        .vol2-form-wrap { padding: 24px 16px; }
+        .vol2-lead p { font-size: 17px; }
+        .vol2-section-heading { font-size: 1.5rem; }
+        .vol2-form-heading { font-size: 1.4rem; }
+    }
 </style>
 @endsection
 
