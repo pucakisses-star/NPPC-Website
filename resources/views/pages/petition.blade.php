@@ -125,12 +125,10 @@
                 <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 16px;">We put in some suggestions, but make the message your own where possible!</p>
 
                 @if($petition->suggested_subject)
-                    <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Subject:</div>
-                    <div style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 16px;">{{ $petition->suggested_subject }}</div>
+                    <div style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 16px;">{{ $petition->suggested_subject }}</div>
                 @endif
 
                 @if($petition->suggested_message)
-                    <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Body:</div>
                     <div class="pet-message-preview">{{ $petition->suggested_message }}</div>
                 @endif
             @endif
