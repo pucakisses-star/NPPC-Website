@@ -11,17 +11,17 @@
 .bd-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 24px 0 16px; flex-wrap: wrap; }
 .bd-toolbar-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .bd-month-name { font-size: 2rem; font-weight: 900; color: #fff; min-width: 200px; }
-.bd-nav-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; background: rgba(255,255,255,0.04); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.15s, border-color 0.15s; }
+.bd-nav-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 14px; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; background: rgba(255,255,255,0.04); color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.15s, border-color 0.15s; cursor: pointer; }
 .bd-nav-btn:hover { background: rgba(86,96,254,0.18); border-color: #5660fe; color: #fff; }
-.bd-nav-btn[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 .bd-today-btn { font-weight: 700; }
 
 .bd-months-bar { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 24px; }
-.bd-months-bar a { padding: 6px 14px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); background: transparent; border-radius: 4px; text-decoration: none; transition: all 0.15s; }
+.bd-months-bar a { padding: 6px 14px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); background: transparent; border-radius: 4px; text-decoration: none; transition: all 0.15s; cursor: pointer; }
 .bd-months-bar a:hover { border-color: #5660fe; color: #fff; }
 .bd-months-bar a.active { background: #5660fe; border-color: #5660fe; color: #fff; }
 
-.bd-month { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
+.bd-month { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; display: none; }
+.bd-month.is-visible { display: block; }
 
 .bd-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); padding: 12px 12px 0; }
 .bd-weekday { text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); padding: 8px 0; text-transform: uppercase; }
@@ -59,17 +59,6 @@
 @endsection
 
 @section('body')
-@php
-    $currentMonth = $month;
-    $monthName = date('F Y', mktime(0, 0, 0, $currentMonth, 1, (int) date('Y')));
-    $entries = $byMonth[$currentMonth] ?? [];
-    $byDay = [];
-    foreach ($entries as $e) { $byDay[$e['day']][] = $e['prisoner']; }
-    $firstWeekday = (int) date('w', mktime(0, 0, 0, $currentMonth, 1, (int) date('Y')));
-    $daysInMonth = (int) date('t', mktime(0, 0, 0, $currentMonth, 1, (int) date('Y')));
-    $prevMonth = $currentMonth === 1 ? 12 : $currentMonth - 1;
-    $nextMonth = $currentMonth === 12 ? 1 : $currentMonth + 1;
-@endphp
 <main class="bd-wrap">
     <div class="bd-hero">
         <h1>Political Prisoner Birthdays</h1>
@@ -79,56 +68,137 @@
 
     <div class="bd-toolbar">
         <div class="bd-toolbar-left">
-            <a class="bd-nav-btn" href="/birthdays?month={{ $prevMonth }}" aria-label="Previous month">&lsaquo;</a>
-            <span class="bd-month-name">{{ $monthName }}</span>
-            <a class="bd-nav-btn" href="/birthdays?month={{ $nextMonth }}" aria-label="Next month">&rsaquo;</a>
+            <button class="bd-nav-btn" data-bd-prev type="button" aria-label="Previous month">&lsaquo;</button>
+            <span class="bd-month-name" data-bd-name></span>
+            <button class="bd-nav-btn" data-bd-next type="button" aria-label="Next month">&rsaquo;</button>
         </div>
-        <a class="bd-nav-btn bd-today-btn" href="/birthdays?month={{ $todayMonth }}">Today</a>
+        <button class="bd-nav-btn bd-today-btn" data-bd-today type="button">Today</button>
     </div>
 
     <div class="bd-months-bar">
         @for ($m = 1; $m <= 12; $m++)
-            <a class="{{ $m === $currentMonth ? 'active' : '' }}" href="/birthdays?month={{ $m }}">{{ date('M', mktime(0, 0, 0, $m, 1)) }}</a>
+            <a data-bd-month="{{ $m }}" href="?month={{ $m }}">{{ date('M', mktime(0, 0, 0, $m, 1)) }}</a>
         @endfor
     </div>
 
-    <section class="bd-month">
-        <div class="bd-weekdays">
-            <div class="bd-weekday">Sun</div>
-            <div class="bd-weekday">Mon</div>
-            <div class="bd-weekday">Tue</div>
-            <div class="bd-weekday">Wed</div>
-            <div class="bd-weekday">Thu</div>
-            <div class="bd-weekday">Fri</div>
-            <div class="bd-weekday">Sat</div>
-        </div>
-        <div class="bd-days">
-            @for ($i = 0; $i < $firstWeekday; $i++)
-                <div class="bd-cell is-blank"></div>
-            @endfor
-            @for ($day = 1; $day <= $daysInMonth; $day++)
-                @php
-                    $people = $byDay[$day] ?? [];
-                    $isToday = ($currentMonth === $todayMonth && $day === $todayDay);
-                    $shown = array_slice($people, 0, 3);
-                    $overflow = count($people) - count($shown);
-                @endphp
-                <div class="bd-cell {{ $isToday ? 'is-today' : '' }} {{ count($people) ? 'has-birthdays' : '' }}">
-                    <div class="bd-cell-day">{{ $day }}</div>
-                    <div class="bd-cell-list">
-                        @foreach ($shown as $p)
-                            <a class="bd-pill" href="{{ $p->url }}" title="{{ $p->name }}">
-                                <span class="bd-pill-avatar" @if($p->photo_url) style="background-image:url('{{ $p->photo_url }}')" @endif></span>
-                                <span class="bd-pill-name">{{ $p->name }}</span>
-                            </a>
-                        @endforeach
-                        @if ($overflow > 0)
-                            <span class="bd-pill-more">+{{ $overflow }} more</span>
-                        @endif
+    @for ($m = 1; $m <= 12; $m++)
+        @php
+            $entries = $byMonth[$m] ?? [];
+            $byDay = [];
+            foreach ($entries as $e) { $byDay[$e['day']][] = $e['prisoner']; }
+            $firstWeekday = (int) date('w', mktime(0, 0, 0, $m, 1, (int) date('Y')));
+            $daysInMonth = (int) date('t', mktime(0, 0, 0, $m, 1, (int) date('Y')));
+        @endphp
+        <section class="bd-month" data-bd-grid="{{ $m }}" data-bd-grid-name="{{ date('F Y', mktime(0, 0, 0, $m, 1, (int) date('Y'))) }}">
+            <div class="bd-weekdays">
+                <div class="bd-weekday">Sun</div>
+                <div class="bd-weekday">Mon</div>
+                <div class="bd-weekday">Tue</div>
+                <div class="bd-weekday">Wed</div>
+                <div class="bd-weekday">Thu</div>
+                <div class="bd-weekday">Fri</div>
+                <div class="bd-weekday">Sat</div>
+            </div>
+            <div class="bd-days">
+                @for ($i = 0; $i < $firstWeekday; $i++)
+                    <div class="bd-cell is-blank"></div>
+                @endfor
+                @for ($day = 1; $day <= $daysInMonth; $day++)
+                    @php
+                        $people = $byDay[$day] ?? [];
+                        $isToday = ($m === $todayMonth && $day === $todayDay);
+                        $shown = array_slice($people, 0, 3);
+                        $overflow = count($people) - count($shown);
+                    @endphp
+                    <div class="bd-cell {{ $isToday ? 'is-today' : '' }} {{ count($people) ? 'has-birthdays' : '' }}">
+                        <div class="bd-cell-day">{{ $day }}</div>
+                        <div class="bd-cell-list">
+                            @foreach ($shown as $p)
+                                <a class="bd-pill" href="{{ $p->url }}" title="{{ $p->name }}">
+                                    <span class="bd-pill-avatar" @if($p->photo_url) style="background-image:url('{{ $p->photo_url }}')" @endif></span>
+                                    <span class="bd-pill-name">{{ $p->name }}</span>
+                                </a>
+                            @endforeach
+                            @if ($overflow > 0)
+                                <span class="bd-pill-more">+{{ $overflow }} more</span>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            @endfor
-        </div>
-    </section>
+                @endfor
+            </div>
+        </section>
+    @endfor
 </main>
+
+<script>
+(function () {
+    var TODAY_MONTH = {{ $todayMonth }};
+    var initial = parseInt(new URLSearchParams(location.search).get('month') || '{{ $month }}', 10);
+    if (isNaN(initial) || initial < 1 || initial > 12) initial = TODAY_MONTH;
+
+    var grids = document.querySelectorAll('[data-bd-grid]');
+    var monthLinks = document.querySelectorAll('[data-bd-month]');
+    var nameEl = document.querySelector('[data-bd-name]');
+    var prevBtn = document.querySelector('[data-bd-prev]');
+    var nextBtn = document.querySelector('[data-bd-next]');
+    var todayBtn = document.querySelector('[data-bd-today]');
+
+    function show(month, pushHistory) {
+        if (month < 1) month = 12;
+        if (month > 12) month = 1;
+
+        grids.forEach(function (g) {
+            var m = parseInt(g.getAttribute('data-bd-grid'), 10);
+            g.classList.toggle('is-visible', m === month);
+            if (m === month) nameEl.textContent = g.getAttribute('data-bd-grid-name');
+        });
+        monthLinks.forEach(function (a) {
+            var m = parseInt(a.getAttribute('data-bd-month'), 10);
+            a.classList.toggle('active', m === month);
+        });
+
+        if (pushHistory !== false) {
+            var url = new URL(location.href);
+            url.searchParams.set('month', month);
+            history.replaceState({ month: month }, '', url.toString());
+        }
+    }
+
+    monthLinks.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+            show(parseInt(a.getAttribute('data-bd-month'), 10));
+        });
+    });
+    prevBtn.addEventListener('click', function () {
+        var current = parseInt(nameEl.dataset.current || initial, 10);
+        var next = current - 1;
+        nameEl.dataset.current = next < 1 ? 12 : next;
+        show(parseInt(nameEl.dataset.current, 10));
+    });
+    nextBtn.addEventListener('click', function () {
+        var current = parseInt(nameEl.dataset.current || initial, 10);
+        var next = current + 1;
+        nameEl.dataset.current = next > 12 ? 1 : next;
+        show(parseInt(nameEl.dataset.current, 10));
+    });
+    todayBtn.addEventListener('click', function () {
+        nameEl.dataset.current = TODAY_MONTH;
+        show(TODAY_MONTH);
+    });
+
+    // Sync the prev/next pointer when month-strip / direct nav is used.
+    var observer = new MutationObserver(function () {
+        for (var i = 0; i < grids.length; i++) {
+            if (grids[i].classList.contains('is-visible')) {
+                nameEl.dataset.current = grids[i].getAttribute('data-bd-grid');
+                return;
+            }
+        }
+    });
+    grids.forEach(function (g) { observer.observe(g, { attributes: true, attributeFilter: ['class'] }); });
+
+    show(initial, false);
+})();
+</script>
 @endsection
