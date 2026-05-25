@@ -67,18 +67,6 @@
                 </div>
             </div>
 
-            {{-- Recent signers --}}
-            @if($recentSigners->isNotEmpty())
-                <div class="pet-signers-title">Most recent signers:</div>
-                @foreach($recentSigners as $signer)
-                    <div class="pet-signer">
-                        <span class="pet-signer-name">{{ $signer->first_name }} {{ substr($signer->last_name, 0, 1) }}.</span>
-                        <span class="pet-signer-state">{{ $signer->state }}</span>
-                        <span class="pet-signer-time">{{ $signer->created_at->diffForHumans() }}</span>
-                    </div>
-                @endforeach
-            @endif
-
             {{-- Body --}}
             @if($petition->body)
                 <div class="pet-body" style="margin-top: 32px;">
@@ -145,6 +133,18 @@
                     <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">Body:</div>
                     <div class="pet-message-preview">{{ $petition->suggested_message }}</div>
                 @endif
+            @endif
+
+            {{-- Recent signers --}}
+            @if($recentSigners->isNotEmpty())
+                <div class="pet-signers-title" style="margin-top:24px;">Most recent signers:</div>
+                @foreach($recentSigners as $signer)
+                    <div class="pet-signer">
+                        <span class="pet-signer-name">{{ $signer->first_name }} {{ substr($signer->last_name, 0, 1) }}.</span>
+                        <span class="pet-signer-state">{{ $signer->state }}</span>
+                        <span class="pet-signer-time">{{ $signer->created_at->diffForHumans() }}</span>
+                    </div>
+                @endforeach
             @endif
             <script>
             (function () {
