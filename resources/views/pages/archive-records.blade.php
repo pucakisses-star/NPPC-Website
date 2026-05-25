@@ -239,7 +239,14 @@
                                     $r->volume ? ['label' => 'Volume', 'value' => $r->volume] : null,
                                 ]);
                             @endphp
-                            <a class="a1r-card" href="{{ $r->file_url ?: '#' }}" @if ($r->file_url) target="_blank" rel="noopener" @endif>
+                            @php
+                                $isPdf = $r->file && str_ends_with(strtolower($r->file), '.pdf');
+                                $cardHref = $r->file_url
+                                    ? ($isPdf ? '/archive/view/'.$r->id : $r->file_url)
+                                    : '#';
+                                $cardNewTab = $r->file_url && ! $isPdf;
+                            @endphp
+                            <a class="a1r-card" href="{{ $cardHref }}" @if ($cardNewTab) target="_blank" rel="noopener" @endif>
                                 <div class="a1r-thumb a1r-thumb-{{ $r->record_type }}">
                                     @if ($r->thumbnail_url)
                                         <img src="{{ $r->thumbnail_url }}" alt="" loading="lazy" decoding="async">

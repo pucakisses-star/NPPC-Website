@@ -17,6 +17,7 @@ Route::controller(SiteController::class)
         Route::get('/news/{slug}', 'article');
         Route::get('history', 'history');
         Route::get('archive-records', 'archiveRecords');
+        Route::get('archive/view/{record}', 'archiveView');
         Route::get('timeline', 'timeline');
         Route::get('annual-report', 'annualReport');
         Route::get('topics/{slug?}', 'topics');
