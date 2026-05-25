@@ -5,10 +5,11 @@ $isHome = request()->segment(1) == ''
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <title>@yield('title')</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/app.css?v={{ @filemtime(public_path('app.css')) }}" rel="stylesheet"/>
     <link href="/styles.css?v={{ @filemtime(public_path('styles.css')) }}" rel="stylesheet"/>
     <link href="/fontawesome/css/all.min.css" rel="stylesheet"/>
@@ -89,6 +90,24 @@ $isHome = request()->segment(1) == ''
             textarea, select {
                 font-size: 16px !important;
             }
+            /* iOS notch safe-area insets — apply to common edge gutters
+               so content doesn't disappear behind the notch / home bar
+               on landscape iPhone */
+            body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+            .pet-banner, .events-page, .prisoner-page, .donate-page { padding-left: max(16px, env(safe-area-inset-left)) !important; padding-right: max(16px, env(safe-area-inset-right)) !important; }
+        }
+
+        /* Respect the user's reduced-motion preference (iOS / Android /
+           macOS / Windows accessibility setting) — disable the page-
+           transition fade and any non-essential CSS transitions. */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            #page-transition { display: none !important; }
         }
     </style>
     @yield('head')
