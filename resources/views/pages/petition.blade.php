@@ -135,11 +135,20 @@
                 </div>
 
                 @if($petition->suggested_message)
-                    <textarea name="custom_message" class="pet-input" rows="4" placeholder="Your message (optional)">{{ $petition->suggested_message }}</textarea>
+                    <textarea name="custom_message" class="pet-input pet-autosize" rows="4" placeholder="Your message (optional)" oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';">{{ $petition->suggested_message }}</textarea>
                 @endif
 
                 <button type="submit" class="pet-submit">Sign Petition</button>
             </form>
+            <script>
+            (function () {
+                document.querySelectorAll('.pet-autosize').forEach(function (el) {
+                    el.style.overflow = 'hidden';
+                    el.style.height = 'auto';
+                    el.style.height = el.scrollHeight + 'px';
+                });
+            })();
+            </script>
         </div>
     </div>
 </div>
