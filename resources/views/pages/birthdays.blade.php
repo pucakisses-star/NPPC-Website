@@ -77,7 +77,7 @@
 
     <div class="bd-months-bar">
         @for ($m = 1; $m <= 12; $m++)
-            <a data-bd-month="{{ $m }}" href="?month={{ $m }}">{{ date('M', mktime(0, 0, 0, $m, 1)) }}</a>
+            <a data-bd-month="{{ $m }}" data-no-fade href="?month={{ $m }}">{{ date('M', mktime(0, 0, 0, $m, 1)) }}</a>
         @endfor
     </div>
 
