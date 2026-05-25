@@ -1,11 +1,21 @@
 @extends('app')
 
+@section('head')
+<style>
+    @media (max-width: 768px) {
+        .search-h1 { font-size: 2rem !important; margin-top: 32px !important; }
+        .search-form { flex-direction: column !important; gap: 12px !important; }
+        .search-form button { padding: 14px !important; }
+    }
+</style>
+@endsection
+
 @section('body')
-    <h1 style="font-size: 3rem; font-weight: 300; margin-top: 48px; margin-bottom: 16px;">Search</h1>
+    <h1 class="search-h1" style="font-size: 3rem; font-weight: 300; margin-top: 48px; margin-bottom: 16px;">Search</h1>
     <div class="line"></div>
 
     <div style="max-width: 700px; margin: 32px 0;">
-        <form action="/search" method="GET" style="display: flex; gap: 8px;">
+        <form class="search-form" action="/search" method="GET" style="display: flex; gap: 8px;">
             <input type="text" name="q" value="{{ $query }}" placeholder="Search..." style="flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 12px 16px; color: #fff; font-size: 16px; outline: none;">
             <button type="submit" style="background: #5660fe; color: #fff; border: none; border-radius: 6px; padding: 12px 24px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase;">Search</button>
         </form>

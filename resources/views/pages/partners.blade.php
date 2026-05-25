@@ -291,6 +291,15 @@
         .pp-cta { flex-direction: column; padding: 0 24px 60px; }
         .pp-cta-image { flex: auto; width: 250px; height: 250px; }
         .pp-cta-title { font-size: 2rem; }
+        .pp-hero-content, .pp-intro, .pp-list, .pp-cta, .pp-contact { padding-left: 16px !important; padding-right: 16px !important; }
+    }
+    @media (max-width: 420px) {
+        .pp-hero-title { font-size: 1.8rem; }
+        .pp-intro-image { width: 220px; height: 220px; }
+        .pp-intro-title { font-size: 1.4rem; }
+        .pp-list-title { font-size: 1.3rem; }
+        .pp-cta-title { font-size: 1.4rem; }
+        .pp-cta-image { width: 200px; height: 200px; }
         .pp-contact { flex-direction: column; text-align: center; margin: 0 24px 60px; padding: 24px; }
     }
 </style>

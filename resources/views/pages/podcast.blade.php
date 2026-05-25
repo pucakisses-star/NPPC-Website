@@ -1,7 +1,17 @@
 @extends('app')
 
+@section('head')
+<style>
+    @media (max-width: 768px) {
+        .podcast-wrap { padding: 24px 16px 48px !important; }
+        .podcast-wrap h1 { font-size: 1.8rem !important; margin-bottom: 12px !important; }
+        .podcast-wrap > p { font-size: 16px !important; margin-bottom: 24px !important; }
+    }
+</style>
+@endsection
+
 @section('body')
-    <div style="max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;">
+    <div class="podcast-wrap" style="max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;">
         <h1 style="font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 16px;">Podcast</h1>
         <p style="font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 40px; max-width: 600px;">
             Listen to conversations about political prisoners, civil liberties, and the fight for justice.

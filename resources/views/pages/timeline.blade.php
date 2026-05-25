@@ -27,7 +27,7 @@
         <div class="timeline">
             @foreach($timelines as $timeline)
                 <div class="timeline-item" data-year="{{$timeline->year}}" id="timeline-year-{{$timeline->year}}" data-text="{{$timeline->title}}">
-                    <div class="timeline__content"><img class="timeline__img" src="/storage/{{$timeline->image}}"/>
+                    <div class="timeline__content"><img class="timeline__img" src="/storage/{{$timeline->image}}" alt="" loading="lazy" decoding="async"/>
                         <h2 class="timeline__content-title">{{$timeline->year}}</h2>
                         <p class="timeline__content-desc">{{$timeline->text}}</p>
                     </div>
