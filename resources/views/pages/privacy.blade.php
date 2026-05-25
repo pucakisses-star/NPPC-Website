@@ -17,7 +17,7 @@
 @section('body')
 <div class="legal-page">
     <h1 class="legal-title">Privacy Policy</h1>
-    <div class="legal-updated">Last updated: April 7, 2026</div>
+    <div class="legal-updated">Last updated: May 25, 2026</div>
 
     <div class="legal-body">
         <p>The National Political Prisoner Coalition ("NPPC," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at nationalpoliticalprisonercoalition.org (the "Site"). Please read this policy carefully. By using the Site, you consent to the practices described in this policy.</p>
@@ -102,10 +102,20 @@
         <h2>10. Children's Privacy</h2>
         <p>Our Site is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information promptly.</p>
 
-        <h2>11. Changes to This Policy</h2>
+        <h2>11. Your California Privacy Rights (CCPA / CPRA)</h2>
+        <p>If you are a California resident, the California Consumer Privacy Act of 2018 ("CCPA") and the California Privacy Rights Act of 2020 ("CPRA") provide you with additional rights regarding the personal information we collect about you, including the right to know what categories of personal information we collect, the right to delete the personal information we have collected, the right to opt out of any sale or sharing of your personal information for cross-context behavioral advertising, and the right not to be discriminated against for exercising these rights.</p>
+        <p><strong>We do not sell or share your personal information for cross-context behavioral advertising</strong>, and we have not done so in the preceding twelve months. To exercise any of your California privacy rights, contact us at the email address below. We will verify your identity before processing your request.</p>
+
+        <h2>12. EU/UK Residents (GDPR / UK GDPR)</h2>
+        <p>If you access the Site from the European Economic Area, the United Kingdom, or Switzerland, you have rights under the General Data Protection Regulation (GDPR) and the UK GDPR, including the right to access, rectification, erasure, restriction, data portability, and to object to processing of your personal data. Our lawful bases for processing are: (a) your consent (for newsletter subscriptions and analytics cookies), (b) legitimate interests (for processing contact-form, volunteer, and petition submissions in pursuit of NPPC's nonprofit mission), and (c) legal obligations (for donor records and financial reporting). You may withdraw consent at any time. EU/UK residents have the right to lodge a complaint with their local data-protection authority.</p>
+
+        <h2>13. Do Not Track Signals</h2>
+        <p>Some browsers transmit "Do Not Track" (DNT) signals. We currently do not respond to DNT signals because no consistent industry standard exists. We will revise this position if a uniform standard is adopted.</p>
+
+        <h2>14. Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. We encourage you to review this policy periodically to stay informed about how we are protecting your information.</p>
 
-        <h2>12. Contact Us</h2>
+        <h2>15. Contact Us</h2>
         <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
         <p>
             <strong>National Political Prisoner Coalition</strong><br>

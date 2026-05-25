@@ -49,8 +49,9 @@
 
             <livewire:donation />
 
-            <div class="donate-fine-print">
-                &copy; {{ date('Y') }} National Political Prisoner Coalition &middot; Terms of Use &middot; Error Privacy &middot; Contact Us
+            <div class="donate-fine-print" style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.55; margin-top:20px;">
+                <p style="margin:0 0 10px;">The National Political Prisoner Coalition is a 501(c)(3) tax-exempt nonprofit. <strong>Your donation is tax-deductible</strong> in the United States to the fullest extent permitted by law. You will receive an email donation receipt at the time of your gift.</p>
+                <p style="margin:0;">&copy; {{ date('Y') }} National Political Prisoner Coalition &middot; <a href="/terms" style="color:inherit; text-decoration:underline;">Terms of Use</a> &middot; <a href="/privacy" style="color:inherit; text-decoration:underline;">Privacy</a> &middot; <a href="/contact" style="color:inherit; text-decoration:underline;">Contact Us</a></p>
             </div>
         </div>
     </div>
