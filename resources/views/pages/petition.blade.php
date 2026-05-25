@@ -37,8 +37,20 @@
     .pet-submit:hover { background: #4850e6; }
     .pet-success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 20px; margin-bottom: 20px; color: #22c55e; font-size: 15px; font-weight: 600; text-align: center; }
     @media (max-width: 768px) {
-        .pet-layout { flex-direction: column; }
-        .pet-right { flex: auto; position: static; }
+        .pet-page { padding: 0 16px; }
+        .pet-banner { margin: 24px -16px 8px; padding: 0 16px; }
+        .pet-banner-title { font-size: 1.15rem; line-height: 1.25; }
+        .pet-layout { flex-direction: column; gap: 24px; padding: 8px 0 48px; }
+        .pet-right { flex: auto; position: static; padding: 20px; }
+        .pet-body { font-size: 15px; line-height: 1.7; }
+        .pet-section-title { font-size: 17px; margin: 24px 0 10px; }
+        .pet-signer { flex-wrap: wrap; gap: 4px 12px; }
+        .pet-signer-time { width: 100%; font-size: 11px; }
+        .pet-progress-text { font-size: 12px; }
+    }
+    @media (max-width: 420px) {
+        .pet-grid-2 { grid-template-columns: 1fr; }
+        .pet-banner-title { font-size: 1rem; }
     }
 </style>
 @endsection
