@@ -103,6 +103,15 @@
         .a1r-pager-btn.is-disabled:hover { border-color: var(--a1-line); background: transparent; }
         .a1r-pager-ellipsis { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 36px; color: rgba(255,255,255,0.4); font-size: 14px; }
         .a1r-empty-state { padding: 48px 24px; text-align: center; opacity: 0.6; border: 1px dashed var(--a1-line); border-radius: 6px; }
+        @media (max-width: 768px) {
+            .a1r-toolbar { border-radius: 12px; padding: 12px; gap: 8px; }
+            .a1r-card { flex-direction: column; gap: 12px; padding: 14px; }
+            .a1r-pager { gap: 8px; }
+            .a1r-pager-btn { min-width: 32px; height: 32px; font-size: 13px; padding: 0 8px; }
+        }
+        @media (max-width: 420px) {
+            .a1r-toolbar { padding: 10px 12px; }
+        }
     </style>
 
     <div class="a1r">

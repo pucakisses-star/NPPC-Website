@@ -9,6 +9,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Mobile overrides — Mapbox + search panel + info card */
+        @media (max-width: 768px) {
+            #map, .map-container { height: calc(100vh - 80px); min-height: 460px; }
+            .search-container {
+                left: 12px !important;
+                right: 12px !important;
+                top: 12px !important;
+                width: auto !important;
+                max-width: none !important;
+            }
+            .search-container h5 { font-size: 14px; }
+            .info-content-wrapper {
+                width: 100% !important;
+                max-width: none !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                top: auto !important;
+                max-height: 55vh;
+                overflow-y: auto;
+                border-radius: 12px 12px 0 0;
+            }
+            .info-content-wrapper figure img { max-width: 100%; height: auto; }
+        }
+    </style>
 @endsection
 
 @section('body')

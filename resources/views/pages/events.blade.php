@@ -34,11 +34,15 @@
     .sidebar-series:hover { color: #fff; }
     .sidebar-series-dot { width: 8px; height: 8px; border-radius: 50%; background: #5660fe; flex-shrink: 0; }
     @media (max-width: 768px) {
-        .events-hero { flex-direction: column; }
+        .events-page { padding: 0 16px; }
+        .events-hero { flex-direction: column; gap: 16px; }
         .events-hero-image { flex: auto; width: 100%; }
-        .events-content { flex-direction: column; }
+        .events-content { flex-direction: column; gap: 24px; }
         .events-sidebar { flex: auto; }
-        .events-title { font-size: 2.5rem; }
+        .events-title { font-size: 2.2rem; }
+    }
+    @media (max-width: 420px) {
+        .events-title { font-size: 1.8rem; }
     }
 </style>
 @endsection
