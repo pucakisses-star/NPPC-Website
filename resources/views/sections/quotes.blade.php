@@ -7,10 +7,10 @@
             <div class="quote-slide" style="position:{{ $i === 0 ? 'relative' : 'absolute' }}; top:0; left:0; right:0; opacity:{{ $i === 0 ? '1' : '0' }}; transition:opacity 0.8s ease; padding:0 24px;">
                 <div style="display:flex; align-items:flex-end; gap:24px;">
 
-                    {{-- Author image --}}
+                    {{-- Author image — fixed box so all quote images render the same size regardless of source aspect ratio --}}
                     @if($quote->author_image)
-                        <div style="flex:0 0 auto;">
-                            <img src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}" style="width:180px; height:auto; display:block; filter:grayscale(100%);">
+                        <div style="flex:0 0 220px; width:220px; height:400px; overflow:hidden;">
+                            <img src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; filter:grayscale(100%);">
                         </div>
                     @endif
 
