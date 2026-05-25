@@ -244,9 +244,9 @@ final class SiteController extends Controller {
         return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners'));
     }
 
-    public function birthdays() {
+    public function birthdays(Request $request) {
         // Living, in-custody or in-exile prisoners with a known birthdate,
-        // grouped by month + day for the printable letter-writing calendar.
+        // grouped by month + day for the month-by-month birthday calendar.
         $prisoners = Prisoner::whereNotNull('birthdate')
             ->whereNull('death_date')
             ->where(function ($q) {
@@ -274,8 +274,14 @@ final class SiteController extends Controller {
         }
         unset($entries);
 
+        $month = (int) ($request->input('month', date('n')));
+        if ($month < 1 || $month > 12) {
+            $month = (int) date('n');
+        }
+
         return view('pages.birthdays', [
             'byMonth' => $byMonth,
+            'month' => $month,
             'todayMonth' => (int) date('n'),
             'todayDay' => (int) date('j'),
             'totalCount' => $prisoners->count(),
