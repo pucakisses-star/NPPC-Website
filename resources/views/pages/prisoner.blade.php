@@ -194,7 +194,7 @@
         <div class="prisoner-photo-col">
             @if($prisoner->photo)
                 <div class="prisoner-photo">
-                    <img src="{{ asset('storage/' . $prisoner->photo) }}" alt="{{ $prisoner->name }}">
+                    <img src="{{ asset('storage/' . $prisoner->photo) }}" alt="{{ $prisoner->name }}" decoding="async">
                 </div>
             @else
                 <div class="prisoner-photo-placeholder">

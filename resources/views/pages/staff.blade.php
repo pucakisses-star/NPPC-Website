@@ -79,7 +79,7 @@
                 </div>
                 <div class="staff-card-image">
                     @if($member->image)
-                        <img src="/storage/{{ $member->image }}" alt="{{ $member->name }}">
+                        <img src="/storage/{{ $member->image }}" alt="{{ $member->name }}" loading="lazy" decoding="async">
                     @else
                         <div class="staff-card-placeholder">
                             <img src="/images/no-image-available.png" alt="No image available" style="width:60%; height:auto; opacity:0.8;">
