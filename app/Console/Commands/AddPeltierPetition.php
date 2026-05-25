@@ -26,12 +26,15 @@ final class AddPeltierPetition extends Command {
     public function handle(): int {
         $slug = 'free-leonard-peltier';
 
-        // Pull Wikipedia photo if not already stored.
-        $imagePath = 'petitions/leonard-peltier.jpg';
+        // Pull the Amnesty USA photo of the 2023 DC birthday rally (Willi
+        // White) if not already stored. The Sept 12 birthday DC mobilization
+        // has been an annual recurring action — 2023 (79th) and 2024 (80th)
+        // both drew Indigenous nations and allies to the White House.
+        $imagePath = 'petitions/leonard-peltier-dc-rally.jpg';
         if (! Storage::disk('public')->exists($imagePath)) {
             try {
-                $url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Leonard_Peltier_Wet_Plate_Collodion_Photograph_by_Shane_Balkowitsch.jpg/1280px-Leonard_Peltier_Wet_Plate_Collodion_Photograph_by_Shane_Balkowitsch.jpg';
-                $resp = Http::withHeaders(['User-Agent' => 'NPPC-Archive/1.0'])->timeout(45)->get($url);
+                $url = 'https://www.amnestyusa.org/wp-content/uploads/2023/03/20230912-Leonard-Peltier-DC-79-Birthday-Action_by-Willi-White-WIDE-144-scaled.jpeg';
+                $resp = Http::withHeaders(['User-Agent' => 'Mozilla/5.0'])->timeout(45)->get($url);
                 if ($resp->successful() && strlen($resp->body()) > 5000) {
                     Storage::disk('public')->put($imagePath, $resp->body());
                     $this->info('Saved petition image to '.$imagePath);
@@ -48,7 +51,7 @@ final class AddPeltierPetition extends Command {
         $body = <<<'HTML'
 <p><strong>Leonard Peltier — Anishinaabe and Dakota American Indian Movement (AIM) member — spent 49 years in federal prison for the 1975 deaths of two FBI agents at Jincala Creek on the Pine Ridge Lakota reservation: a prosecution built on coerced witnesses, fabricated ballistics, and admitted government misconduct that has been condemned by Amnesty International, the National Congress of American Indians, the European Parliament, Pope Francis, the Dalai Lama, Coretta Scott King, and three U.S. Attorneys who oversaw his case.</strong></p>
 
-<p>On <strong>September 12, 2024 — Leonard Peltier's 80th birthday</strong> — Indigenous nations, allies, and human rights organizations from across the continent converged on Washington, DC for a national rally at the White House demanding that President Biden grant clemency before leaving office. Coordinated rallies were held in dozens of cities the same day. The NDN Collective–led <em>Walk to Justice</em> — a 1,000-mile walk from Minneapolis to DC two years earlier — had laid the groundwork.</p>
+<p>Every September 12 — Leonard Peltier's birthday — Indigenous nations, allies, and human rights organizations have converged on Washington, DC for a national rally at the White House demanding clemency. The <strong>2023 79th-birthday rally</strong> (pictured) and the <strong>2024 80th-birthday rally</strong> — organized by Amnesty International USA, the NDN Collective, the International Leonard Peltier Defense Committee, and Tribal nations across Turtle Island — built decisive public pressure on the Biden White House. The NDN Collective–led <em>Walk to Justice</em>, a 1,000-mile walk from Minneapolis to DC in 2022, had laid the groundwork.</p>
 
 <p>The pressure worked: <strong>on January 20, 2025, President Biden commuted Leonard Peltier's federal sentence to home confinement</strong> at the Turtle Mountain Indian Reservation in Belcourt, North Dakota — bringing him home after nearly five decades inside.</p>
 
