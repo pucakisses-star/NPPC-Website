@@ -3,9 +3,9 @@
 @section('head')
 <style>
     .pet-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .pet-banner { background: #000; padding: 20px 32px; margin: 0 -24px 32px; }
+    .pet-banner { background: #000; padding: 0 32px; margin: 64px -24px 8px; }
     .pet-banner-title { font-size: 1.5rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.02em; }
-    .pet-layout { display: flex; gap: 40px; padding: 32px 0 80px; align-items: flex-start; }
+    .pet-layout { display: flex; gap: 40px; padding: 12px 0 80px; align-items: flex-start; }
     .pet-left { flex: 1; }
     .pet-right { flex: 0 0 380px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 28px; position: sticky; top: 120px; }
     .pet-image { width: 100%; border-radius: 4px; margin-bottom: 24px; }
