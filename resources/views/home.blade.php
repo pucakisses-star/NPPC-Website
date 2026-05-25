@@ -56,6 +56,9 @@
         {{-- Active Petitions --}}
         @include('sections.active-petitions')
 
+        {{-- Newsletter signup (mid-page CTA) --}}
+        @include('sections.newsletter-signup')
+
         {{-- Individual Profiles callout --}}
         @include('sections.individual-profiles')
 

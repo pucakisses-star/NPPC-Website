@@ -51,6 +51,8 @@
         @include('partials.articles.cite')
     </article>
 
+    @include('sections.newsletter-signup', ['variant' => 'compact'])
+
     <style>
         article.page-content p { margin: 0 0 1.25em 0 !important; line-height: 1.75 !important; min-height: 1.2em; }
         article.page-content p:empty { min-height: 1.75em !important; }
