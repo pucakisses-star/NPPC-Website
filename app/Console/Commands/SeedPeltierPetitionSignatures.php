@@ -146,8 +146,21 @@ final class SeedPeltierPetitionSignatures extends Command {
         $count  = $this->option('count')  !== null ? max(0, (int) $this->option('count'))  : null;
 
         if ($target !== null) {
-            $count = max(0, $target - $existing);
-            $this->info("Existing demo signatures: {$existing} — adding {$count} to reach target {$target}.");
+            if ($existing > $target) {
+                // Trim down to target by deleting the most-recent demo signatures.
+                $toDelete = $existing - $target;
+                $ids = PetitionSignature::where('petition_id', $petition->id)
+                    ->where('email', 'like', '%@nppc-demo.test')
+                    ->orderByDesc('created_at')
+                    ->limit($toDelete)
+                    ->pluck('id');
+                PetitionSignature::whereIn('id', $ids)->delete();
+                $this->info("Existing demo signatures: {$existing} — deleted {$toDelete} to reach target {$target}.");
+                $count = 0;
+            } else {
+                $count = $target - $existing;
+                $this->info("Existing demo signatures: {$existing} — adding {$count} to reach target {$target}.");
+            }
         } elseif ($count === null) {
             $count = 250; // legacy default
         }
