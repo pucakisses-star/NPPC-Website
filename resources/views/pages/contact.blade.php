@@ -214,6 +214,12 @@
         .ct-section-heading { font-size: 2rem; }
         .ct-form-side h2 { font-size: 1.8rem; }
     }
+    @@media (max-width: 480px) {
+        .ct-hero { padding: 32px 16px 24px; }
+        .ct-hero-title { font-size: 2rem; }
+        .ct-hero-lede { font-size: 16px; }
+        .ct-section-heading { font-size: 1.5rem; }
+    }
 </style>
 @endsection
 

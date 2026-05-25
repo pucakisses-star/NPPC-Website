@@ -2,12 +2,18 @@
 
 use App\Models\Article;
 
-function renderArticle(Article $article, bool $large = false): string {
+function renderArticle(Article $article, bool $large = false, bool $eager = false): string {
     if(!$article) return '';
 
     $imgHeight = $large ? '600px' : '224px';
     $imgUrl = $article->image ? $article->image_url : '';
-    $bgStyle = $imgUrl ? "background-image: url('{$imgUrl}');" : 'background-color: #1a1a1a;';
+    $loadingAttr = $eager ? 'eager' : 'lazy';
+    $fetchPriority = $eager ? 'high' : 'auto';
+
+    $imageMarkup = $imgUrl
+        ? "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; overflow: hidden; background:#0a0a0a;\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
+        : "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; background:#1a1a1a;\"></a>";
+
     $category = $article->category?->title;
     $date = $article->published_at?->format('F j, Y');
 
@@ -22,7 +28,7 @@ function renderArticle(Article $article, bool $large = false): string {
 
     return <<<EOB
 <div class="article-item" style="margin-bottom: 24px;">
-    <a href="{$article->url}" style="display: block; height: {$imgHeight}; overflow: hidden; background-size: cover; background-position: center; {$bgStyle}"></a>
+    {$imageMarkup}
     <div class="line"></div>
     <h5 style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.02em;">{$meta}</h5>
     <a style="font-size: 18px; color: #fff; display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
@@ -66,7 +72,7 @@ EOB;
                 <div>
                     <?php $x = 0; foreach ($articles as $article) {
                         $x++; if ($x === 2) break; ?>
-                    {!! renderArticle($article, true) !!}
+                    {!! renderArticle($article, true, true) !!}
                     <?php } ?>
                 </div>
 

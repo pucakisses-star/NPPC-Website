@@ -24,9 +24,15 @@
     .donate-custom-input:focus { border-color: #5660fe; }
     .donate-fine-print { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-top: 16px; line-height: 1.5; }
     @@media (max-width: 768px) {
-        .donate-hero { flex-direction: column; }
+        .donate-page { padding: 0 16px; }
+        .donate-hero { flex-direction: column; gap: 24px; padding: 24px 0 24px; }
         .donate-image { flex: auto; width: 100%; }
         .donate-title { font-size: 1.8rem; }
+    }
+    @@media (max-width: 420px) {
+        .donate-amounts { grid-template-columns: repeat(2, 1fr); }
+        .donate-intervals .donate-interval { font-size: 13px; padding: 12px 4px; }
+        .donate-amount { font-size: 14px; padding: 14px 4px; min-height: 44px; }
     }
 </style>
 @endsection
