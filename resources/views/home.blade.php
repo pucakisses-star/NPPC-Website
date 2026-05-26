@@ -43,6 +43,9 @@
             <livewire:articles-grid :limit="$articlesLimit" />
         @endif
 
+        {{-- Featured Authors --}}
+        @include('sections.featured-authors')
+
         {{-- Callout --}}
         @if(SiteSetting::get('callout_enabled', '1') === '1')
             @include('sections.callout')
