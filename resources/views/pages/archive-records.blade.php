@@ -45,14 +45,24 @@
         .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
         .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 32px 0 16px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .a1-welcome b { font-weight: 800; color: #fff; }
-        /* Widen the page wrapper on archive-records so the right rail
-           extends past the standard .container width.
-           Strategy: bypass .container entirely by giving .a1r its own
-           width relative to the viewport, escaping any inherited
-           constraints (Tailwind container padding, etc.). */
+        /* Bypass .container entirely AND escape any parent-width
+           constraint by using viewport-relative positioning on .a1r.
+           Whatever is constraining <main> to 1080px is sidestepped:
+           .a1r centers itself relative to the viewport (50%-50vw trick)
+           and uses min(1700px, 100vw) for its width. */
         body.page-archive-records main.container,
         body.page-archive-records .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
-        body.page-archive-records .a1r { max-width: 1700px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+        body.page-archive-records .a1r {
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: 100vw;
+            max-width: 100vw;
+            box-sizing: border-box;
+            padding: 0 max(32px, calc((100vw - 1700px) / 2));
+        }
 
         /* On wide enough screens, place the right rail next to the
            existing 2-col grid so the middle keeps its original width.
@@ -60,7 +70,10 @@
            without squeezing the middle, so drop the rail underneath. */
         .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr) 280px; gap: 32px; align-items: start; margin-top: 32px; }
         @media (max-width: 1620px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
-        @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } body.page-archive-records .a1r { padding: 0 16px; } }
+        @media (max-width: 900px) {
+            .a1r-grid { grid-template-columns: 1fr; }
+            body.page-archive-records .a1r { padding-left: 16px; padding-right: 16px; }
+        }
 
         /* Right rail */
         .a1r-right { display: flex; flex-direction: column; gap: 36px; }
