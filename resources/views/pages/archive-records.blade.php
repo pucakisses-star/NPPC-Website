@@ -34,10 +34,19 @@
 
 @section('body')
     <div class="line mt-8"></div>
+
+    <div class="a1r-welcome">
+        <p><strong>Welcome to the NPPC Archive.</strong> The Archive is a searchable index of the National Political Prisoner Coalition's records: prisoner profiles, case files, movement periodicals, court documents, and oral histories. It collects, in one place, the materials that document the history of U.S. political imprisonment from the late nineteenth century to the present.</p>
+    </div>
+
     <h1 class="text-6xl mt-12">Records</h1>
 
     <style>
         .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
+        .a1r-welcome { background: rgba(255,255,255,0.02); border-left: 4px solid #d4af37; padding: 24px 28px; margin: 32px 0 8px; border-radius: 0 6px 6px 0; }
+        .a1r-welcome p { margin: 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.78); }
+        .a1r-welcome strong { color: #fff; font-weight: 800; }
+        @media (max-width: 640px) { .a1r-welcome { padding: 18px 20px; } .a1r-welcome p { font-size: 14.5px; line-height: 1.65; } }
         .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; align-items: start; margin-top: 32px; }
         @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
         .a1r-side { border: 1px solid var(--a1-line); border-radius: 6px; padding: 18px; }
