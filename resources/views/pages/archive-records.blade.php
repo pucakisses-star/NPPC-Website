@@ -60,7 +60,15 @@
             width: 100vw;
             max-width: 100vw;
             box-sizing: border-box;
-            padding: 0 max(32px, calc((100vw - 1700px) / 2));
+            /* 2-col / mobile mode: inner content max 1280 to match the
+               original Tailwind container width — middle column ≈ 960px */
+            padding: 0 max(32px, calc((100vw - 1280px) / 2));
+        }
+        /* 3-col mode (rail beside main): expand inner content to fit
+           the 280 + 32 + 960 + 32 + 280 = 1584 layout, keeping middle
+           at the same ~960px width as the original. */
+        @media (min-width: 1621px) {
+            body.page-archive-records .a1r { padding: 0 max(32px, calc((100vw - 1584px) / 2)); }
         }
 
         /* On wide enough screens, place the right rail next to the
