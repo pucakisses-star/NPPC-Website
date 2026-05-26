@@ -55,10 +55,10 @@
 
         /* On wide enough screens, place the right rail next to the
            existing 2-col grid so the middle keeps its original width.
-           At narrower viewports, fall back to original 2-col layout
-           with the rail underneath. */
+           Below 1620 the window can't fit (280 + 32 + 960 + 32 + 280 + padding)
+           without squeezing the middle, so drop the rail underneath. */
         .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr) 280px; gap: 32px; align-items: start; margin-top: 32px; }
-        @media (max-width: 1360px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
+        @media (max-width: 1620px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
         @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
 
         /* Right rail */
