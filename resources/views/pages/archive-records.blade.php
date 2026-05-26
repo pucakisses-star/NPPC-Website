@@ -47,11 +47,18 @@
         .a1-welcome b { font-weight: 800; color: #fff; }
         /* Widen the page wrapper on archive-records so the right rail
            extends past the standard .container width — keeps the middle
-           column at its original ~960px instead of squeezing. */
-        body.page-archive-records main.container { max-width: 1640px; }
+           column at its original ~960px instead of squeezing. !important
+           because Tailwind's container has @media (min-width: 1280px)
+           rules that try to cap at 1280px. */
+        body.page-archive-records main.container,
+        body.page-archive-records .container { max-width: 1700px !important; }
 
+        /* On wide enough screens, place the right rail next to the
+           existing 2-col grid so the middle keeps its original width.
+           At narrower viewports, fall back to original 2-col layout
+           with the rail underneath. */
         .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr) 280px; gap: 32px; align-items: start; margin-top: 32px; }
-        @media (max-width: 1280px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
+        @media (max-width: 1360px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
         @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
 
         /* Right rail */
