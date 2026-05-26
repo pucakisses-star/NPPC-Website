@@ -45,13 +45,12 @@
         .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
         .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 32px 0 16px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .a1-welcome b { font-weight: 800; color: #fff; }
-        /* Bypass .container entirely AND escape any parent-width
-           constraint by using viewport-relative positioning on .a1r.
-           Whatever is constraining <main> to 1080px is sidestepped:
-           .a1r centers itself relative to the viewport (50%-50vw trick)
-           and uses min(1700px, 100vw) for its width. */
+        /* The global app.blade.php sets .container { overflow: hidden }
+           which clips the viewport-escape trick below. Override it on
+           this page (and on body) so .a1r's 100vw width can render. */
+        body.page-archive-records { overflow-x: hidden; }
         body.page-archive-records main.container,
-        body.page-archive-records .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+        body.page-archive-records .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
         body.page-archive-records .a1r {
             position: relative;
             left: 50%;
