@@ -29,6 +29,7 @@ final class OcrArchivePdfs extends Command {
         {--limit=10 : Maximum number of PDFs to process this run}
         {--min-chars=200 : Re-detection threshold — files below this many chars are treated as image-only}
         {--language=eng : Tesseract language code (eng, spa, fra, deu, eng+spa, etc.)}
+        {--optimize=1 : ocrmypdf optimization level (0=none, 1=safe JPEG recompress, 2=lossy JPEG2000, 3=aggressive jbig2+pngquant)}
         {--apply : Actually write OCR layers (otherwise dry-run preview only)}
         {--skip-failed : Skip PDFs that fail ocrmypdf instead of stopping}';
     protected $description = 'Add OCR text layer to image-only archive PDFs (batched)';
@@ -48,7 +49,18 @@ final class OcrArchivePdfs extends Command {
         $limit = max(1, (int) $this->option('limit'));
         $minChars = (int) $this->option('min-chars');
         $lang = $this->option('language') ?: 'eng';
+        $optimize = max(0, min(3, (int) $this->option('optimize')));
         $collection = $this->option('collection');
+
+        // Warn upfront if --optimize=3 deps aren't installed
+        if ($optimize === 3) {
+            foreach (['jbig2', 'pngquant'] as $bin) {
+                if (! $this->binaryAvailable($bin)) {
+                    $this->warn("--optimize=3 needs {$bin} on PATH. Falling back to --optimize=1 quality may suffer.");
+                    $this->line('  sudo apt install jbig2enc pngquant');
+                }
+            }
+        }
 
         $query = ArchiveRecord::query()->whereNotNull('file')->where('file', 'like', '%.pdf');
         if ($collection) {
@@ -95,6 +107,7 @@ final class OcrArchivePdfs extends Command {
         }
 
         $done = 0; $failed = 0; $startedAt = microtime(true);
+        $bytesBefore = 0; $bytesAfter = 0;
         foreach ($batch as $i => $entry) {
             $r = $entry['record'];
             $src = $entry['path'];
@@ -103,8 +116,9 @@ final class OcrArchivePdfs extends Command {
             $this->line(sprintf('[%d/%d] OCRing %s  (%.1f MB)', $i + 1, count($batch), $r->file, $size / 1048576));
 
             $cmd = sprintf(
-                'ocrmypdf --skip-text --rotate-pages --deskew --language %s --jobs 2 --output-type pdf %s %s 2>&1',
+                'ocrmypdf --skip-text --rotate-pages --deskew --language %s --optimize %d --jobs 2 --output-type pdf %s %s 2>&1',
                 escapeshellarg($lang),
+                $optimize,
                 escapeshellarg($src),
                 escapeshellarg($tmp)
             );
@@ -130,7 +144,13 @@ final class OcrArchivePdfs extends Command {
                 continue;
             }
             $done++;
-            $this->line(sprintf('  OK   (%.1fs, %.1f MB)', $elapsed, filesize($src) / 1048576));
+            $newSize = filesize($src);
+            $bytesBefore += $size;
+            $bytesAfter += $newSize;
+            $delta = $newSize - $size;
+            $pct = $size > 0 ? round(($delta / $size) * 100, 1) : 0;
+            $this->line(sprintf('  OK   (%.1fs, %.1f MB → %.1f MB, %+.1f%%)',
+                $elapsed, $size / 1048576, $newSize / 1048576, $pct));
         }
 
         $totalElapsed = microtime(true) - $startedAt;
@@ -138,6 +158,12 @@ final class OcrArchivePdfs extends Command {
         $this->newLine();
         $this->info(sprintf('Batch done — OCR\'d %d, failed %d, %.0fs total (avg %.1fs/file).',
             $done, $failed, $totalElapsed, $done > 0 ? $totalElapsed / $done : 0));
+        if ($done > 0) {
+            $delta = $bytesAfter - $bytesBefore;
+            $pct = $bytesBefore > 0 ? round(($delta / $bytesBefore) * 100, 1) : 0;
+            $this->info(sprintf('Size: %.1f MB → %.1f MB (%s%.1f MB, %+.1f%%)',
+                $bytesBefore / 1048576, $bytesAfter / 1048576, $delta >= 0 ? '+' : '', $delta / 1048576, $pct));
+        }
         if ($remaining > 0) {
             $this->info('Still image-only: '.$remaining.'. Re-run the same command to continue.');
         } else {
