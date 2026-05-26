@@ -111,8 +111,20 @@ final class OcrArchivePdfs extends Command {
         foreach ($batch as $i => $entry) {
             $r = $entry['record'];
             $src = $entry['path'];
-            $tmp = $src.'.ocr.tmp.pdf';
+            // Per-process unique tmp so concurrent OCR runs against the same
+            // collection don't race on the same tmp filename.
+            $tmp = $src.'.ocr.'.getmypid().'.'.bin2hex(random_bytes(4)).'.tmp.pdf';
             $size = filesize($src);
+
+            // Re-check at processing time: if another concurrent process
+            // already added a text layer to this file, skip it.
+            $reCheck = @shell_exec(sprintf('pdftotext -q -f 1 -l 5 %s - 2>/dev/null', escapeshellarg($src)));
+            $reLen = mb_strlen(trim(preg_replace('/\s+/u', ' ', (string) $reCheck)));
+            if ($reLen >= $minChars) {
+                $this->line(sprintf('[%d/%d] SKIP — already OCR\'d by another worker: %s', $i + 1, count($batch), $r->file));
+                continue;
+            }
+
             $this->line(sprintf('[%d/%d] OCRing %s  (%.1f MB)', $i + 1, count($batch), $r->file, $size / 1048576));
 
             $cmd = sprintf(
