@@ -46,12 +46,13 @@
         .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 32px 0 16px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .a1-welcome b { font-weight: 800; color: #fff; }
         /* Widen the page wrapper on archive-records so the right rail
-           extends past the standard .container width — keeps the middle
-           column at its original ~960px instead of squeezing. !important
-           because Tailwind's container has @media (min-width: 1280px)
-           rules that try to cap at 1280px. */
+           extends past the standard .container width.
+           Strategy: bypass .container entirely by giving .a1r its own
+           width relative to the viewport, escaping any inherited
+           constraints (Tailwind container padding, etc.). */
         body.page-archive-records main.container,
-        body.page-archive-records .container { max-width: 1700px !important; }
+        body.page-archive-records .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+        body.page-archive-records .a1r { max-width: 1700px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
 
         /* On wide enough screens, place the right rail next to the
            existing 2-col grid so the middle keeps its original width.
@@ -59,7 +60,7 @@
            without squeezing the middle, so drop the rail underneath. */
         .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr) 280px; gap: 32px; align-items: start; margin-top: 32px; }
         @media (max-width: 1620px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
-        @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } body.page-archive-records .a1r { padding: 0 16px; } }
 
         /* Right rail */
         .a1r-right { display: flex; flex-direction: column; gap: 36px; }
