@@ -45,8 +45,30 @@
         .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
         .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 32px 0 16px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .a1-welcome b { font-weight: 800; color: #fff; }
-        .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; align-items: start; margin-top: 32px; }
+        .a1r-grid { display: grid; grid-template-columns: 260px minmax(0, 1fr) 280px; gap: 28px; align-items: start; margin-top: 32px; }
+        @media (max-width: 1280px) { .a1r-grid { grid-template-columns: 260px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
         @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
+
+        /* Right rail */
+        .a1r-right { display: flex; flex-direction: column; gap: 36px; }
+        .a1r-rhead { font-size: 22px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--a1-accent); margin: 0 0 18px; line-height: 1.1; }
+        .a1r-tags { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+        .a1r-tags a { color: var(--a1-accent); text-decoration: none; font-weight: 800; line-height: 1.2; transition: opacity 0.15s; }
+        .a1r-tags a:hover { opacity: 0.7; }
+        .a1r-tags .t-xl { font-size: 22px; }
+        .a1r-tags .t-lg { font-size: 18px; }
+        .a1r-tags .t-md { font-size: 15px; }
+        .a1r-tags .t-sm { font-size: 13px; font-weight: 700; }
+        .a1r-tags .t-xs { font-size: 12px; font-weight: 700; }
+
+        .a1r-divider { height: 1px; background: var(--a1-line); margin: 8px 0; }
+
+        .a1r-feat-list { display: flex; flex-direction: column; }
+        .a1r-feat { padding: 14px 0; border-top: 1px solid var(--a1-line); display: block; text-decoration: none; color: inherit; }
+        .a1r-feat:first-child { border-top: 0; padding-top: 0; }
+        .a1r-feat:hover .a1r-feat-title { color: #fff; }
+        .a1r-feat-title { font-size: 15px; font-weight: 800; color: var(--a1-accent); line-height: 1.25; margin-bottom: 6px; }
+        .a1r-feat-desc { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.55; }
         .a1r-side { border: 1px solid var(--a1-line); border-radius: 6px; padding: 18px; }
         .a1r-side-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--a1-line); }
         .a1r-side-head h4 { margin: 0; font-size: 15px; font-weight: 700; }
@@ -334,6 +356,70 @@
                     @endif
                 @endif
             </div>
+
+            <aside class="a1r-right">
+                <section>
+                    <h3 class="a1r-rhead">Common<br>Search Terms</h3>
+                    <div class="a1r-tags">
+                        <a class="t-xl" href="/archive-records?q=political+prisoners">Political Prisoners</a>
+                        <a class="t-xl" href="/archive-records?q=black+liberation">Black Liberation</a>
+                        <a class="t-xl" href="/archive-records?q=national+liberation">National Liberation</a>
+                        <a class="t-lg" href="/archive-records?q=anti-imperialism">Anti-Imperialism</a>
+                        <a class="t-lg" href="/archive-records?q=resistance">Resistance</a>
+                        <a class="t-lg" href="/archive-records?q=prison">Prison</a>
+                        <a class="t-md" href="/archive-records?q=cointelpro">COINTELPRO</a>
+                        <a class="t-md" href="/archive-records?q=civil+rights">Civil Rights</a>
+                        <a class="t-md" href="/archive-records?q=latin+america">Latin America</a>
+                        <a class="t-md" href="/archive-records?q=palestine">Palestine</a>
+                        <a class="t-md" href="/archive-records?q=puerto+rico">Puerto Rico</a>
+                        <a class="t-md" href="/archive-records?q=women">Women</a>
+                        <a class="t-sm" href="/archive-records?q=anti-racism">Anti-Racism</a>
+                        <a class="t-sm" href="/archive-records?q=black+panther+party">Black Panther Party</a>
+                        <a class="t-sm" href="/archive-records?q=poetry">Poetry</a>
+                        <a class="t-sm" href="/archive-records?q=human+rights">Human Rights</a>
+                        <a class="t-sm" href="/archive-records?q=anti-war">Anti-War</a>
+                        <a class="t-sm" href="/archive-records?q=africa">Africa</a>
+                        <a class="t-sm" href="/archive-records?q=african+american">African American</a>
+                        <a class="t-sm" href="/archive-records?q=cuba">Cuba</a>
+                        <a class="t-xs" href="/archive-records?q=mexico">Mexico</a>
+                        <a class="t-xs" href="/archive-records?q=nicaragua">Nicaragua</a>
+                        <a class="t-xs" href="/archive-records?q=vietnam">Viet Nam</a>
+                        <a class="t-xs" href="/archive-records?q=middle+east">Middle East</a>
+                        <a class="t-xs" href="/archive-records?q=chicano">Chicano</a>
+                        <a class="t-xs" href="/archive-records?q=israel">Israel</a>
+                        <a class="t-xs" href="/archive-records?q=chile">Chile</a>
+                        <a class="t-xs" href="/archive-records?q=music">Music</a>
+                    </div>
+                </section>
+
+                <div class="a1r-divider"></div>
+
+                <section>
+                    <h3 class="a1r-rhead">Featured<br>Content</h3>
+                    <div class="a1r-feat-list">
+                        <a class="a1r-feat" href="/prisoner/mumia-abu-jamal">
+                            <div class="a1r-feat-title">Mumia Abu-Jamal</div>
+                            <div class="a1r-feat-desc">Award-winning journalist and former Black Panther; on death row from 1982 until 2011 and serving life since.</div>
+                        </a>
+                        <a class="a1r-feat" href="/prisoner/leonard-peltier">
+                            <div class="a1r-feat-title">Leonard Peltier</div>
+                            <div class="a1r-feat-desc">American Indian Movement member imprisoned since 1977 in a case the FBI itself has been forced to acknowledge as flawed.</div>
+                        </a>
+                        <a class="a1r-feat" href="/prisoner/ojore-lutalo">
+                            <div class="a1r-feat-title">Ojore Lutalo</div>
+                            <div class="a1r-feat-desc">New Afrikan anarchist; served 28 years in New Jersey, much of it in solitary; now an acclaimed collage artist.</div>
+                        </a>
+                        <a class="a1r-feat" href="/prisoner/oscar-lopez-rivera">
+                            <div class="a1r-feat-title">Oscar L&oacute;pez Rivera</div>
+                            <div class="a1r-feat-desc">Puerto Rican independentista who served 36 years before President Obama commuted his sentence in 2017.</div>
+                        </a>
+                        <a class="a1r-feat" href="/archive-records?collection=4StruggleMag">
+                            <div class="a1r-feat-title">Movement Press Archive</div>
+                            <div class="a1r-feat-desc">Digitized issues of 4StruggleMag and other prisoner-support periodicals, going back to the 1970s.</div>
+                        </a>
+                    </div>
+                </section>
+            </aside>
         </div>
     </div>
 @endsection
