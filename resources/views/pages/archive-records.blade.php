@@ -99,6 +99,16 @@
         .a1r-feat:hover .a1r-feat-title { color: #fff; }
         .a1r-feat-title { font-size: 15px; font-weight: 800; color: var(--a1-accent); line-height: 1.25; margin-bottom: 6px; }
         .a1r-feat-desc { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+        /* Browse by Collection cards */
+        .a1r-coll-list { display: flex; flex-direction: column; gap: 10px; }
+        .a1r-coll { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--a1-line); border-radius: 6px; text-decoration: none; color: inherit; background: rgba(255,255,255,0.015); transition: border-color 0.15s, background 0.15s; }
+        .a1r-coll:hover { border-color: var(--a1-accent); background: rgba(86,96,254,0.06); }
+        .a1r-coll-badge { flex: 0 0 56px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a2e 0%, #2a1860 100%); border-radius: 4px; font-size: 18px; font-weight: 900; letter-spacing: 0.04em; color: #fff; }
+        .a1r-coll-body { min-width: 0; flex: 1; }
+        .a1r-coll-title { font-size: 14px; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 4px; }
+        .a1r-coll:hover .a1r-coll-title { color: var(--a1-accent); }
+        .a1r-coll-desc { font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.5; }
         .a1r-side { border: 1px solid var(--a1-line); border-radius: 6px; padding: 18px; }
         .a1r-side-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--a1-line); }
         .a1r-side-head h4 { margin: 0; font-size: 15px; font-weight: 700; }
@@ -447,6 +457,35 @@
                             <div class="a1r-feat-title">Movement Press Archive</div>
                             <div class="a1r-feat-desc">Digitized issues of 4StruggleMag and other prisoner-support periodicals, going back to the 1970s.</div>
                         </a>
+                    </div>
+                </section>
+
+                <div class="a1r-divider"></div>
+
+                <section>
+                    <h3 class="a1r-rhead">Browse by<br>Collection</h3>
+                    <div class="a1r-coll-list">
+                        @foreach ([
+                            ['BL', 'Black Liberation', 'black+liberation', 'The Black Liberation Movement and its imprisoned veterans, including the Black Panther Party, Black Liberation Army, Republic of New Afrika, and contemporary heirs to that tradition.'],
+                            ['IR', 'Indigenous Resistance', 'indigenous', 'American Indian Movement, treaty-rights defenders, water and land protectors from Wounded Knee to Standing Rock to Stop Cop City.'],
+                            ['PR', 'Puerto Rican Independence', 'puerto+rican', 'FALN, Los Macheteros, the Nationalist Party of Puerto Rico, and the long campaign against U.S. colonial rule on the island.'],
+                            ['AI', 'Anti-Imperialism', 'anti-imperialism', 'United Freedom Front, May 19th Communist Organization, and the white anti-imperialist solidarity tradition.'],
+                            ['AN', 'Anarchist Movement', 'anarchist', 'Anarchist Black Cross, anti-fascist defendants, NATO 3, Cleveland 4, and contemporary anarchist prisoners and grand-jury resisters.'],
+                            ['EL', 'Earth & Animal Liberation', 'earth+liberation', 'Earth Liberation Front, Animal Liberation Front, Green Scare prosecutions, and the ecodefense tradition.'],
+                            ['PS', 'Plowshares & Peace Activism', 'plowshares', 'The Berrigan tradition of disarmament actions, conscientious objectors, and nuclear-resistance activists.'],
+                            ['WH', 'Whistleblowers & Hackers', 'whistleblower', 'Chelsea Manning, Reality Winner, Jeremy Hammond, Barrett Brown, and other digital-era political prisoners.'],
+                            ['AP', 'Anti-Police Resistance', 'anti-police', 'Cases stemming from confrontations with policing, from BLA-era cop cases to contemporary anti-police defendants.'],
+                            ['PA', 'Palestine Solidarity', 'palestine', 'Holy Land Foundation Five, Rasmea Odeh, Sami Al-Arian, and others targeted for Palestine advocacy.'],
+                            ['GI', 'GI & War Resisters', 'war+resisters', 'Soldiers who refused unjust wars, deserters, and conscientious objectors from Vietnam onward.'],
+                        ] as [$abbr, $title, $query, $desc])
+                            <a class="a1r-coll" href="/archive-records?q={{ $query }}">
+                                <div class="a1r-coll-badge">{{ $abbr }}</div>
+                                <div class="a1r-coll-body">
+                                    <div class="a1r-coll-title">{{ $title }}</div>
+                                    <div class="a1r-coll-desc">{{ $desc }}</div>
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </section>
             </aside>
