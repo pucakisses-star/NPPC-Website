@@ -45,8 +45,13 @@
         .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
         .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 32px 0 16px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .a1-welcome b { font-weight: 800; color: #fff; }
-        .a1r-grid { display: grid; grid-template-columns: 260px minmax(0, 1fr) 280px; gap: 28px; align-items: start; margin-top: 32px; }
-        @media (max-width: 1280px) { .a1r-grid { grid-template-columns: 260px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
+        /* Widen the page wrapper on archive-records so the right rail
+           extends past the standard .container width — keeps the middle
+           column at its original ~960px instead of squeezing. */
+        body.page-archive-records main.container { max-width: 1640px; }
+
+        .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr) 280px; gap: 32px; align-items: start; margin-top: 32px; }
+        @media (max-width: 1280px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
         @media (max-width: 900px) { .a1r-grid { grid-template-columns: 1fr; } }
 
         /* Right rail */
