@@ -37,6 +37,23 @@
 
     // Drop any author whose latest article didn't come through (data drift safety).
     $featuredAuthors = $featuredAuthors->filter(fn ($a) => isset($latestByAuthor[$a->id]))->values();
+
+    // Normalize fancy punctuation that some fallback fonts don't have glyphs
+    // for (renders as tofu / broken square). Replace curly quotes, en/em
+    // dashes, ellipsis, and a couple of less-common dashes with ASCII
+    // equivalents in the small slice of text we render in cards.
+    $sanitize = function (?string $s): string {
+        if ($s === null) return '';
+        return strtr($s, [
+            "\u{2018}" => "'", "\u{2019}" => "'", // curly single quotes
+            "\u{201C}" => '"', "\u{201D}" => '"', // curly double quotes
+            "\u{2013}" => '-', "\u{2014}" => '-', // en + em dash
+            "\u{2026}" => '...',                 // ellipsis
+            "\u{00A0}" => ' ',                   // non-breaking space
+            "\u{200B}" => '',                    // zero-width space
+            "\u{FEFF}" => '',                    // BOM
+        ]);
+    };
 @endphp
 @if ($featuredAuthors->isNotEmpty())
 <section class="fa-section">
@@ -52,15 +69,15 @@
                 <div class="fa-card-top">
                     <img class="fa-avatar" src="{{ $author->avatar_url }}" alt="{{ $author->name }}" loading="lazy" decoding="async">
                     <div class="fa-meta">
-                        <div class="fa-name">{{ $author->name }}</div>
+                        <div class="fa-name">{{ $sanitize($author->name) }}</div>
                         @if ($author->about)
-                            <div class="fa-role">{{ \Illuminate\Support\Str::limit(strip_tags($author->about), 60) }}</div>
+                            <div class="fa-role">{{ \Illuminate\Support\Str::limit($sanitize(strip_tags($author->about)), 60) }}</div>
                         @endif
                     </div>
                 </div>
                 <div class="fa-bottom">
                     <div class="fa-divider"></div>
-                    <a class="fa-article" href="{{ $latest->url }}">{{ $latest->title }}</a>
+                    <a class="fa-article" href="{{ $latest->url }}">{{ $sanitize($latest->title) }}</a>
                 </div>
             </div>
         @endforeach
