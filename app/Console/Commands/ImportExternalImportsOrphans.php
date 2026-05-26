@@ -54,6 +54,18 @@ final class ImportExternalImportsOrphans extends Command {
             $this->line(sprintf('  [%s]  %s  -> %s', strtoupper($payload['record_type']), $payload['title'], $payload['collection']));
 
             if ($this->option('apply')) {
+                // Guard against slug collisions: HasSlug auto-generates from the
+                // title, and another collection may already own that slug. If so,
+                // suffix until we find an available one.
+                $baseSlug = \Illuminate\Support\Str::slug($payload['title']);
+                $slug = $baseSlug;
+                $i = 2;
+                while (ArchiveRecord::where('slug', $slug)->exists()) {
+                    $slug = $baseSlug.'-'.$i;
+                    $i++;
+                    if ($i > 99) break; // sanity stop
+                }
+                $payload['slug'] = $slug;
                 ArchiveRecord::create($payload);
                 $created++;
             }
