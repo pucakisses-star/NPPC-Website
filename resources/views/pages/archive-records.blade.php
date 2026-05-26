@@ -60,23 +60,20 @@
             width: 100vw;
             max-width: 100vw;
             box-sizing: border-box;
-            /* 2-col / mobile mode: inner content max 1280 to match the
-               original Tailwind container width — middle column ≈ 960px */
-            padding: 0 max(32px, calc((100vw - 1280px) / 2));
+            /* 2-col / mobile mode: inner content max 1032 — middle column 720px */
+            padding: 0 max(32px, calc((100vw - 1032px) / 2));
         }
         /* 3-col mode (rail beside main): expand inner content to fit
-           the 280 + 32 + 960 + 32 + 280 = 1584 layout, keeping middle
-           at the same ~960px width as the original. */
-        @media (min-width: 1621px) {
-            body.page-archive-records .a1r { padding: 0 max(32px, calc((100vw - 1584px) / 2)); }
+           the 280 + 32 + 720 + 32 + 280 = 1344 layout. */
+        @media (min-width: 1381px) {
+            body.page-archive-records .a1r { padding: 0 max(32px, calc((100vw - 1344px) / 2)); }
         }
 
-        /* On wide enough screens, place the right rail next to the
-           existing 2-col grid so the middle keeps its original width.
-           Below 1620 the window can't fit (280 + 32 + 960 + 32 + 280 + padding)
-           without squeezing the middle, so drop the rail underneath. */
-        .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr) 280px; gap: 32px; align-items: start; margin-top: 32px; }
-        @media (max-width: 1620px) { .a1r-grid { grid-template-columns: 280px minmax(0, 1fr); } .a1r-right { grid-column: 1 / -1; } }
+        /* On wide enough screens, place the right rail next to the main
+           column. Below 1380 the window can't fit (280 + 32 + 720 + 32 + 280 + padding)
+           without squeezing, so drop the rail underneath. */
+        .a1r-grid { display: grid; grid-template-columns: 280px minmax(0, 720px) 280px; gap: 32px; align-items: start; margin-top: 32px; justify-content: center; }
+        @media (max-width: 1380px) { .a1r-grid { grid-template-columns: 280px minmax(0, 720px); } .a1r-right { grid-column: 1 / -1; } }
         @media (max-width: 900px) {
             .a1r-grid { grid-template-columns: 1fr; }
             body.page-archive-records .a1r { padding-left: 16px; padding-right: 16px; }
