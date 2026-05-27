@@ -118,8 +118,9 @@
                 <div class="tk-active-grid">
                     @foreach ($activeCases as $p)
                         @php
-                            $earliest = $casesByPrisoner[$p->id]?->min('arrest_date');
-                            $days = (int) $casesByPrisoner[$p->id]?->sum('imprisoned_for_days');
+                            $caseSet = $casesByPrisoner->get($p->id);
+                            $earliest = $caseSet?->min('arrest_date');
+                            $days = (int) ($caseSet?->sum('imprisoned_for_days') ?? 0);
                         @endphp
                         <a class="tk-active-card" href="/prisoner/{{ $p->slug }}">
                             @if ($p->photo_url)
