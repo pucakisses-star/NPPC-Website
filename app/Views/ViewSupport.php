@@ -12,7 +12,6 @@ abstract class ViewSupport {
     public static function getMenuItems(): array {
         $response   = [];
         $response[] = new MenuItemDTO(title: 'Database', href: '/database', active: true);
-        $response[] = new MenuItemDTO(title: 'Archive', href: '/archive');
         $response[] = new MenuItemDTO(title: 'News', href: '/news');
 
         $parentPages = Page::where('parent_id', null)->where(function ($q) {
@@ -29,6 +28,10 @@ abstract class ViewSupport {
             if ($page->slug === 'get-involved') {
                 $children[] = new MenuItemDTO(title: 'Volunteer', href: '/volunteer');
                 $children[] = new MenuItemDTO(title: 'Birthdays', href: '/birthdays');
+            }
+
+            if ($page->slug === 'learn-more') {
+                $children[] = new MenuItemDTO(title: 'Archive', href: '/archive');
             }
 
             $response[] = new MenuItemDTO(title: $page->title, href: $page->url, children: empty($children) ? null : $children);
