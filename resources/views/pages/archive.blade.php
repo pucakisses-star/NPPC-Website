@@ -28,6 +28,16 @@
 
         return '/archive'.($params ? '?'.http_build_query($params) : '');
     };
+
+    $heroThumbs = ArchiveRecord::query()
+        ->whereNotNull('thumbnail')
+        ->where('thumbnail', '!=', '')
+        ->inRandomOrder()
+        ->limit(14)
+        ->get(['id', 'thumbnail'])
+        ->map(fn ($r) => $r->thumbnail_url)
+        ->filter()
+        ->values();
 @endphp
 
 @extends('app')
@@ -39,12 +49,33 @@
         <b>Welcome to the NPPC Archive.</b> Archive1 is a searchable index of the National Political Prisoner Coalition&rsquo;s records: prisoner profiles, case files, movement periodicals, court documents, and oral histories. It collects, in one place, the materials that document the history of U.S. political imprisonment from the late nineteenth century to the present.
     </div>
 
-    <h1 class="text-6xl mt-12">Records</h1>
+    <section class="a1-hero" aria-label="Archive header">
+        <div class="a1-hero-bg" aria-hidden="true">
+            @foreach ($heroThumbs as $thumb)
+                <div class="a1-hero-tile" style="background-image: url('{{ $thumb }}')"></div>
+            @endforeach
+        </div>
+        <div class="a1-hero-overlay" aria-hidden="true"></div>
+        <h1 class="a1-hero-title">Records</h1>
+    </section>
 
     <style>
         .a1r { --a1-accent: #5660fe; --a1-line: rgba(255,255,255,0.12); --a1-pill-bg: rgba(255,255,255,0.04); }
         .a1-welcome { background: rgba(255, 235, 165, 0.08); border: 1px solid rgba(255, 235, 165, 0.25); border-left: 4px solid #f5d061; padding: 20px 24px; border-radius: 4px; margin: 32px 0 16px; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.85); }
         .a1-welcome b { font-weight: 800; color: #fff; }
+
+        /* Slim hero banner — archival thumbnail collage behind the title */
+        .a1-hero { position: relative; height: 150px; overflow: hidden; border-radius: 6px; margin: 32px 0 0; border: 1px solid rgba(255,255,255,0.08); }
+        .a1-hero-bg { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(14, 1fr); gap: 0; }
+        .a1-hero-tile { background-size: cover; background-position: center; background-repeat: no-repeat; filter: grayscale(0.7) contrast(0.9); opacity: 0.55; }
+        .a1-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,8,20,0.92) 0%, rgba(20,15,55,0.72) 50%, rgba(8,8,20,0.92) 100%); }
+        .a1-hero-title { position: absolute; left: 28px; bottom: 18px; font-size: 4rem; font-weight: 900; color: #fff; margin: 0; line-height: 1; letter-spacing: -0.01em; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+        @media (max-width: 768px) {
+            .a1-hero { height: 110px; }
+            .a1-hero-bg { grid-template-columns: repeat(7, 1fr); }
+            .a1-hero-tile:nth-child(n+8) { display: none; }
+            .a1-hero-title { font-size: 2.5rem; left: 18px; bottom: 14px; }
+        }
         /* The global app.blade.php sets .container { overflow: hidden }
            which clips the viewport-escape trick below. Override it on
            this page (and on body) so .a1r's 100vw width can render. */
