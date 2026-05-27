@@ -404,8 +404,27 @@ final class SiteController extends Controller {
     }
 
     public function tracker() {
-        $prisoners = Prisoner::all();
-        $cases = PrisonerCase::with('institution')->get();
+        // Modern-era cutoff. The pre-WWII archive material is largely
+        // labor and anarchist cases whose incarceration day counts and
+        // dollar-cost figures are too speculative to mix into a real-time
+        // dollar tracker; constrain to 1950→ so the running total tracks
+        // the contemporary political-prosecution period the page is
+        // actually about.
+        $cutoffYear = 1950;
+        $cutoffDate = $cutoffYear.'-01-01';
+
+        $allPrisoners = Prisoner::all();
+        $allCases = PrisonerCase::with('institution')->get();
+
+        // Filter cases to those with an arrest_date on/after the cutoff.
+        // A case with no arrest_date is excluded (we can't place it).
+        $cases = $allCases->filter(function ($c) use ($cutoffDate) {
+            return $c->arrest_date && (string) $c->arrest_date >= $cutoffDate;
+        })->values();
+
+        // Filter prisoners to those who have at least one in-scope case.
+        $inScopePrisonerIds = $cases->pluck('prisoner_id')->unique()->flip();
+        $prisoners = $allPrisoners->filter(fn ($p) => isset($inScopePrisonerIds[$p->id]))->values();
 
         // ── Cost assumptions ─────────────────────────────────────────────
         // Per-day incarceration rates (blended from Vera Institute's
@@ -512,10 +531,9 @@ final class SiteController extends Controller {
             ->take(8)
             ->values();
 
-        $firstYear = (int) $prisoners->whereNotNull('era')->pluck('era')
-            ->map(fn ($e) => (int) preg_replace('/\D/', '', (string) $e))
-            ->filter()
-            ->min() ?: 1900;
+        // firstYear is fixed at the cutoff — every figure on the page is
+        // scoped to cases on or after this date.
+        $firstYear = $cutoffYear;
 
         // Then & Now comparison: earliest documented case (oldest arrest)
         // vs the most recent active case. Both used as visual anchors.
