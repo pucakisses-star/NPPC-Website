@@ -161,6 +161,46 @@ final class IncarcerationCostRates
     }
 
     /**
+     * Per-case investigation cost, tier-graded by charge severity and
+     * jurisdiction, then year-adjusted. Covers everything spent BEFORE
+     * the case became a prosecution: FBI / state surveillance,
+     * informant networks, undercover operations, COINTELPRO-style
+     * harassment campaigns, JTTF sting operations, multi-year
+     * intelligence collection. Distinct from the prosecution cost
+     * (which kicks in at indictment).
+     *
+     * Sources:
+     *  - Church Committee Final Report (1976), books II–VI: COINTELPRO
+     *    operational budgets across the 1956-1971 period (Black
+     *    nationalist, New Left, White Hate, Socialist Workers Party,
+     *    and Communist Party programs).
+     *  - GAO reports on FBI investigative expenditure.
+     *  - Brennan Center for Justice analyses of post-9/11 Joint
+     *    Terrorism Task Force frame-up cases (Newburgh 4, Liberty
+     *    City 7, Fort Dix 5, Cromitie sting) showing per-target
+     *    investigative costs in the $1M-$3M range.
+     *  - ACLU reports on the surveillance state and per-target
+     *    counter-terror investigation costs.
+     *  - Center for Investigative Reporting / Mother Jones analyses
+     *    of FBI informant-network expenditure (~$3.3 billion since
+     *    2001 across all national-security investigations).
+     */
+    public static function investigationCost(string $bucket, ?string $charges, ?string $sentence, int $year): float
+    {
+        $base2020 = match (self::charItier($charges, $sentence, $bucket)) {
+            'capital'         => 1500000,
+            'complex_federal' => 500000,
+            'federal_felony'  => 150000,
+            'state_violent'   => 50000,
+            'state_nonviolent'=> 15000,
+            'federal_misd'    => 5000,
+            'state_misd'      => 1500,
+            default           => 30000,
+        };
+        return self::adjustToYear($base2020, $year);
+    }
+
+    /**
      * Per-case prosecution cost, tier-graded by charge severity and
      * jurisdiction, then year-adjusted. All base figures are 2020 USD.
      *
