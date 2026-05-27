@@ -73,7 +73,7 @@
 
         <section class="tk2-banner">
             <div class="tk2-banner-inner">
-                <div class="tk2-banner-num"><span class="tk2-banner-sign">$</span><span data-tk-counter="{{ $totalCost }}">0</span></div>
+                <div class="tk2-banner-num"><span class="tk2-banner-sign">$</span><span data-tk-counter="{{ $totalCost }}" data-tk-per-second="{{ $perSecondOngoingCost }}">0</span></div>
             </div>
         </section>
 
@@ -492,21 +492,34 @@
         (function () {
             const el = document.querySelector('[data-tk-counter]');
             if (! el) return;
-            const target = parseInt(el.getAttribute('data-tk-counter'), 10) || 0;
+            const baseTarget = parseFloat(el.getAttribute('data-tk-counter')) || 0;
+            const perSecond  = parseFloat(el.getAttribute('data-tk-per-second')) || 0;
             const fmt = new Intl.NumberFormat('en-US');
             let started = false;
             const animate = () => {
                 if (started) return; started = true;
                 const duration = 2200;
                 const start = performance.now();
-                const step = (now) => {
-                    const t = Math.min(1, (now - start) / duration);
-                    const eased = 1 - Math.pow(1 - t, 3);
-                    el.textContent = fmt.format(Math.floor(target * eased));
-                    if (t < 1) requestAnimationFrame(step);
-                    else el.textContent = fmt.format(target);
+
+                // Phase 1: animate from 0 -> baseTarget with ease-out.
+                // Phase 2: continuously add perSecond × elapsed so the
+                // total keeps climbing in real time at the live ongoing
+                // incarceration rate.
+                const tick = (now) => {
+                    const elapsedMs = now - start;
+                    let value;
+                    if (elapsedMs < duration) {
+                        const t = elapsedMs / duration;
+                        const eased = 1 - Math.pow(1 - t, 3);
+                        value = baseTarget * eased;
+                    } else {
+                        const extraSec = (elapsedMs - duration) / 1000;
+                        value = baseTarget + perSecond * extraSec;
+                    }
+                    el.textContent = fmt.format(Math.floor(value));
+                    requestAnimationFrame(tick);
                 };
-                requestAnimationFrame(step);
+                requestAnimationFrame(tick);
             };
             if ('IntersectionObserver' in window) {
                 const io = new IntersectionObserver((entries) => {

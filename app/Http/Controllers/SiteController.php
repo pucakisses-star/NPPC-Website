@@ -524,6 +524,27 @@ final class SiteController extends Controller {
         $totalCost = $costFederalIncarceration + $costStateIncarceration + $costLocalIncarceration
                    + $costOfInvestigation + $costOfProsecution + $costOfAppeals;
 
+        // Ongoing daily burn — the per-day incarceration cost of every
+        // currently in-custody prisoner at this year's rate. Used by
+        // the live ticker on the hero counter so the total keeps
+        // climbing in real time at a verifiable rate.
+        $thisYear = (int) date('Y');
+        $dailyOngoingCost = 0.0;
+        $prisonerById = $prisoners->keyBy('id');
+        foreach ($cases as $c) {
+            $p = $prisonerById->get($c->prisoner_id);
+            if (! $p || ! $p->in_custody) continue;
+            if ($c->release_date) continue; // case has ended
+            $cls = $classify($c);
+            $rate = match ($cls['bucket']) {
+                'federal' => IncarcerationCostRates::federalDaily($thisYear),
+                'local'   => IncarcerationCostRates::localDaily($thisYear),
+                default   => IncarcerationCostRates::stateDaily($cls['state'], $thisYear),
+            };
+            $dailyOngoingCost += $rate;
+        }
+        $perSecondOngoingCost = $dailyOngoingCost / 86400.0;
+
         // Bubbles in the middle of the page — sorted descending for visual hierarchy.
         $costBubbles = collect([
             ['label' => 'Federal incarceration', 'value' => $costFederalIncarceration, 'shade' => 'a'],
@@ -631,6 +652,7 @@ final class SiteController extends Controller {
             'costOfIncarceration', 'costOfProsecution', 'totalCost',
             'costFederalIncarceration', 'costStateIncarceration', 'costLocalIncarceration',
             'costOfInvestigation', 'costOfAppeals',
+            'dailyOngoingCost', 'perSecondOngoingCost',
             'costBubbles', 'windowYears', 'methodFedRateRange',
             'federalDays', 'stateDays', 'localDays',
         ));
