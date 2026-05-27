@@ -442,11 +442,20 @@ final class SiteController extends Controller {
             ->filter()
             ->min() ?: 1900;
 
+        // Then & Now comparison: earliest documented case (oldest arrest)
+        // vs the most recent active case. Both used as visual anchors.
+        $earliestCase = $cases->whereNotNull('arrest_date')->sortBy('arrest_date')->first();
+        $earliestPrisoner = $earliestCase ? $prisoners->firstWhere('id', $earliestCase->prisoner_id) : null;
+        $newestActiveCase = $cases->whereNotNull('arrest_date')->sortByDesc('arrest_date')
+            ->first(fn ($c) => optional($prisoners->firstWhere('id', $c->prisoner_id))->in_custody);
+        $newestActivePrisoner = $newestActiveCase ? $prisoners->firstWhere('id', $newestActiveCase->prisoner_id) : null;
+
         return view('pages.tracker', compact(
             'totalDaysImprisoned', 'totalDaysInExile', 'totalDaysLost',
             'inCustody', 'inExile', 'released', 'awaitingTrial',
             'daysByIdeology', 'activeCases', 'totalPrisoners', 'firstYear',
             'casesByPrisoner',
+            'earliestCase', 'earliestPrisoner', 'newestActiveCase', 'newestActivePrisoner',
         ));
     }
 
