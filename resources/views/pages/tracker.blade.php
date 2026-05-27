@@ -510,22 +510,25 @@
                     return;
                 }
 
-            const { Engine, World, Bodies, Body, Mouse, MouseConstraint, Runner } = Matter;
+            const { Engine, World, Bodies, Body, Events, Mouse, MouseConstraint, Runner } = Matter;
             const engine = Engine.create();
-            engine.gravity.y = 0.6;
+            // No gravity — bubbles float. A per-tick spring force below
+            // gently pulls each body back toward the canvas centre.
+            engine.gravity.y = 0;
+            engine.gravity.x = 0;
 
             let width = canvas.clientWidth;
             let height = canvas.clientHeight;
 
-            // Walls — floor + left + right. No ceiling: an above-canvas
-            // wall would block bubbles from falling into view, and bubbles
-            // rarely need a ceiling in normal use.
+            // Walls — full box around the canvas so a flung bubble can't
+            // escape. With zero gravity all four sides matter.
             const wallOpts = { isStatic: true, render: { visible: false } };
             let walls = [];
             const buildWalls = () => {
                 if (walls.length) World.remove(engine.world, walls);
                 walls = [
                     Bodies.rectangle(width / 2, height + 30, width + 100, 60, wallOpts),
+                    Bodies.rectangle(width / 2, -30, width + 100, 60, wallOpts),
                     Bodies.rectangle(-30, height / 2, 60, height + 200, wallOpts),
                     Bodies.rectangle(width + 30, height / 2, 60, height + 200, wallOpts),
                 ];
@@ -533,24 +536,51 @@
             };
             buildWalls();
 
-            // Bubble bodies. Start INSIDE the canvas near the top with a
-            // small horizontal stagger so they fall straight onto the floor
-            // and settle. Previously starting above the canvas combined
-            // with a ceiling wall trapped them off-screen.
+            // Bubble bodies. Lay them out radially around the canvas
+            // centre so they start where they belong and drift slightly
+            // from there.
+            const cx = width / 2;
+            const cy = height / 2;
             const bodies = bubbles.map((el, i) => {
                 const r = parseInt(el.dataset.radius, 10) || (el.offsetWidth / 2);
-                const x = Math.max(r + 8, Math.min(width - r - 8, (width / (bubbles.length + 1)) * (i + 1)));
-                const y = r + 4 + (i * 8); // just inside the canvas top
+                const angle = (i / bubbles.length) * Math.PI * 2 - Math.PI / 2;
+                const ringRadius = Math.min(width, height) * 0.22;
+                const x = cx + Math.cos(angle) * ringRadius;
+                const y = cy + Math.sin(angle) * ringRadius;
                 const body = Bodies.circle(x, y, r, {
-                    restitution: 0.55,
-                    friction: 0.02,
-                    frictionAir: 0.008,
-                    density: 0.0012,
+                    restitution: 0.6,
+                    friction: 0,
+                    frictionAir: 0.08,
+                    density: 0.001,
                 });
+                // Remember each body's "home" point (centre of canvas) so
+                // we can pull it back when it drifts.
                 body.elem = el;
+                body.home = { x: cx, y: cy };
                 return body;
             });
             World.add(engine.world, bodies);
+
+            // Floaty-bubble feel: every engine tick, each body gets a small
+            // spring force toward the canvas centre plus a tiny random jitter
+            // so the cluster never settles into a perfectly static lattice.
+            Events.on(engine, 'beforeUpdate', () => {
+                bodies.forEach(body => {
+                    if (body.isStatic) return;
+                    const dx = body.home.x - body.position.x;
+                    const dy = body.home.y - body.position.y;
+                    const k = 0.0000022; // spring stiffness
+                    Body.applyForce(body, body.position, {
+                        x: dx * k * body.mass,
+                        y: dy * k * body.mass,
+                    });
+                    // Subtle Brownian wobble.
+                    Body.applyForce(body, body.position, {
+                        x: (Math.random() - 0.5) * 0.00002 * body.mass,
+                        y: (Math.random() - 0.5) * 0.00002 * body.mass,
+                    });
+                });
+            });
 
             // Mouse drag — Matter.js MouseConstraint handles touch automatically.
             const mouse = Mouse.create(canvas);
