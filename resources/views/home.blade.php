@@ -54,13 +54,13 @@
             <div id="app-stats"></div>
         @endif
 
+        {{-- Individual Profiles callout --}}
+        @include('sections.individual-profiles')
+
         {{-- Callout (donation CTA) --}}
         @if(SiteSetting::get('callout_enabled', '1') === '1')
             @include('sections.callout')
         @endif
-
-        {{-- Individual Profiles callout --}}
-        @include('sections.individual-profiles')
 
         {{-- Quotes --}}
         @if(SiteSetting::get('quotes_enabled', '1') === '1')
