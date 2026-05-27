@@ -11,6 +11,7 @@ use App\Models\Faq;
 use App\Models\HistoryEra;
 use App\Models\Page;
 use App\Models\Prisoner;
+use App\Models\PrisonerCase;
 use App\Models\Product;
 use App\Models\Staff;
 use App\Models\Timeline;
@@ -400,6 +401,53 @@ final class SiteController extends Controller {
 
     public function map() {
         return view('pages.map');
+    }
+
+    public function tracker() {
+        $prisoners = Prisoner::all();
+        $cases = PrisonerCase::all();
+
+        $totalDaysImprisoned = (int) $cases->sum('imprisoned_for_days');
+        $totalDaysInExile = (int) $cases->sum('in_exile_for_days');
+        $totalDaysLost = $totalDaysImprisoned + $totalDaysInExile;
+
+        $inCustody = $prisoners->where('in_custody', true)->count();
+        $inExile = $prisoners->where('in_exile', true)->count();
+        $released = $prisoners->where('released', true)->count();
+        $awaitingTrial = $prisoners->where('awaiting_trial', true)->count();
+
+        // Days by ideology — sum each prisoner's case days into every
+        // ideology they're tagged with, then sort descending.
+        $casesByPrisoner = $cases->groupBy('prisoner_id');
+        $daysByIdeology = [];
+        foreach ($prisoners as $p) {
+            $days = (int) ($casesByPrisoner[$p->id] ?? collect())->sum('imprisoned_for_days');
+            if (! $days) continue;
+            foreach (((array) $p->ideologies) ?: ['Unclassified'] as $ideology) {
+                $daysByIdeology[$ideology] = ($daysByIdeology[$ideology] ?? 0) + $days;
+            }
+        }
+        arsort($daysByIdeology);
+        $daysByIdeology = array_slice($daysByIdeology, 0, 10, true);
+
+        // Active cases — currently incarcerated prisoners with their case
+        $activeCases = $prisoners->where('in_custody', true)
+            ->sortByDesc(fn ($p) => $casesByPrisoner[$p->id]?->min('arrest_date') ?? '')
+            ->take(8)
+            ->values();
+
+        $totalPrisoners = $prisoners->count();
+        $firstYear = (int) $prisoners->whereNotNull('era')->pluck('era')
+            ->map(fn ($e) => (int) preg_replace('/\D/', '', (string) $e))
+            ->filter()
+            ->min() ?: 1900;
+
+        return view('pages.tracker', compact(
+            'totalDaysImprisoned', 'totalDaysInExile', 'totalDaysLost',
+            'inCustody', 'inExile', 'released', 'awaitingTrial',
+            'daysByIdeology', 'activeCases', 'totalPrisoners', 'firstYear',
+            'casesByPrisoner',
+        ));
     }
 
     public function faq() {
