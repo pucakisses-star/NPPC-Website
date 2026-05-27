@@ -153,11 +153,17 @@
                             @endphp
                             <div class="tk2-bubble tk2-bubble-{{ $b['shade'] }}"
                                  data-radius="{{ round($size / 2) }}"
+                                 data-label="{{ $b['label'] }}"
+                                 data-value="${{ number_format($b['value']) }}"
                                  style="width: {{ $size }}px; height: {{ $size }}px; left: {{ $slotX }}px; top: {{ $slotY }}px;">
                                 <div class="tk2-bubble-label">{{ $b['label'] }}</div>
                                 <div class="tk2-bubble-value">${{ number_format($b['value']) }}</div>
                             </div>
                         @endforeach
+                        <div class="tk2-bubble-tooltip" id="tk2-bubble-tooltip" hidden>
+                            <div class="tk2-bubble-tooltip-label"></div>
+                            <div class="tk2-bubble-tooltip-value"></div>
+                        </div>
                     </div>
                     <p class="tk2-bubbles-hint">Drag the bubbles &mdash; they collide, bounce, and settle.</p>
                 </div>
@@ -375,6 +381,11 @@
         .tk2-bubble-d { background: #8ed1cc; color: #06303d; }
         .tk2-bubble-e { background: #b4dfdb; color: #06303d; }
         .tk2-bubble-f { background: #073b3a; color: #fff; }
+        .tk2-bubble-tooltip { position: absolute; left: 0; top: 0; pointer-events: none; background: #fff; color: #0a0a0a; border-radius: 4px; padding: 10px 14px 12px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transform: translate(-50%, calc(-100% - 14px)); z-index: 20; transition: opacity 0.12s ease-out; opacity: 1; }
+        .tk2-bubble-tooltip[hidden] { display: none; }
+        .tk2-bubble-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-top-color: #fff; }
+        .tk2-bubble-tooltip-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 800; color: #0a0a0a; letter-spacing: 0.02em; }
+        .tk2-bubble-tooltip-value { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #4a4a4a; margin-top: 2px; }
         .tk2-bubble-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(11px, 0.95vw, 15px); line-height: 1.15; padding: 0 8px; margin-bottom: 4px; max-width: 88%; pointer-events: none; }
         .tk2-bubble-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(13px, 1.4vw, 22px); line-height: 1; font-variant-numeric: tabular-nums; pointer-events: none; }
         .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 16px 0 0; font-style: italic; }
@@ -594,12 +605,37 @@
             // the transform alone positions each bubble.
             bubbles.forEach(el => { el.style.left = '0'; el.style.top = '0'; });
 
+            // Hover tooltip — single shared element that tracks whichever
+            // bubble the cursor is over. Stays pinned to that bubble's
+            // current physics position (so it follows when bubbles drift).
+            const tip = document.getElementById('tk2-bubble-tooltip');
+            const tipLabel = tip?.querySelector('.tk2-bubble-tooltip-label');
+            const tipValue = tip?.querySelector('.tk2-bubble-tooltip-value');
+            let hoverBody = null;
+            bubbles.forEach((el, i) => {
+                el.addEventListener('mouseenter', () => {
+                    hoverBody = bodies[i];
+                    if (tip && tipLabel && tipValue) {
+                        tipLabel.textContent = el.dataset.label || '';
+                        tipValue.textContent = el.dataset.value || '';
+                        tip.hidden = false;
+                    }
+                });
+                el.addEventListener('mouseleave', () => {
+                    if (hoverBody === bodies[i]) hoverBody = null;
+                    if (tip) tip.hidden = true;
+                });
+            });
+
             // Sync DOM transforms to physics each frame.
             (function tick() {
                 bodies.forEach(body => {
                     const r = body.circleRadius;
                     body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px) rotate(${body.angle}rad)`;
                 });
+                if (hoverBody && tip && ! tip.hidden) {
+                    tip.style.transform = `translate(calc(${hoverBody.position.x}px - 50%), calc(${hoverBody.position.y - hoverBody.circleRadius}px - 100% - 14px))`;
+                }
                 requestAnimationFrame(tick);
             })();
 
