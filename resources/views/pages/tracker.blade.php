@@ -373,15 +373,16 @@
         /* COST BREAKDOWN BUBBLES — physics-driven, draggable */
         .tk2-bubbles { padding: 24px 0 8px; }
         .tk2-bubbles-canvas { position: relative; width: 100%; height: 540px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
-        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--bs, 200px) * 0.08); color: #fff; cursor: grab; box-sizing: border-box; will-change: transform; }
+        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--bs, 200px) * 0.055); color: #fff; cursor: grab; box-sizing: border-box; will-change: transform; }
         .tk2-bubble:active { cursor: grabbing; }
-        /* All bubbles darkened enough that pure-white text reads at every size. */
-        .tk2-bubble-a { background: #08596a; }
-        .tk2-bubble-b { background: #06474f; }
-        .tk2-bubble-c { background: #157d7d; }
-        .tk2-bubble-d { background: #1f6c70; }
-        .tk2-bubble-e { background: #0d4a55; }
-        .tk2-bubble-f { background: #042a2b; }
+        /* NPPC accent palette — variations of the site's #5660fe indigo,
+           all dark enough that pure-white text reads at every size. */
+        .tk2-bubble-a { background: #2b2f73; }   /* Federal incarceration */
+        .tk2-bubble-b { background: #3a3fa3; }   /* State incarceration (largest) */
+        .tk2-bubble-c { background: #5660fe; }   /* Local jail time — signature accent */
+        .tk2-bubble-d { background: #4045b0; }   /* Prosecution */
+        .tk2-bubble-e { background: #1f2247; }   /* Appeals & post-conviction */
+        .tk2-bubble-f { background: #15173a; }   /* Investigations */
         .tk2-bubble-tooltip { position: absolute; left: 0; top: 0; pointer-events: none; background: #fff; color: #0a0a0a; border-radius: 4px; padding: 10px 14px 12px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transform: translate(-50%, calc(-100% - 14px)); z-index: 20; transition: opacity 0.12s ease-out; opacity: 1; }
         .tk2-bubble-tooltip[hidden] { display: none; }
         .tk2-bubble-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-top-color: #fff; }
@@ -390,11 +391,11 @@
         /* Font sizes scale with the bubble diameter so the label + value
            always fit, large or small. --bs is set inline in PHP from the
            computed size in px. */
-        .tk2-bubble-label { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.005em; font-size: clamp(10px, calc(var(--bs, 200px) * 0.085), 22px); line-height: 1.1; padding: 0 6px; margin-bottom: calc(var(--bs, 200px) * 0.025); max-width: 92%; color: #fff; pointer-events: none; }
-        .tk2-bubble-value { font-family: 'Inter', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.02em; font-size: clamp(12px, calc(var(--bs, 200px) * 0.13), 40px); line-height: 1; font-variant-numeric: tabular-nums; color: #fff; pointer-events: none; }
-        /* When a bubble gets really small, hide the label and keep only the value so the value still fits. */
-        .tk2-bubble[style*="--bs: 1"] .tk2-bubble-label,
-        .tk2-bubble[style*="--bs: 9"] .tk2-bubble-label { font-size: clamp(8px, calc(var(--bs, 200px) * 0.08), 12px); }
+        .tk2-bubble-label { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.005em; font-size: clamp(9px, calc(var(--bs, 200px) * 0.07), 18px); line-height: 1.1; padding: 0 4px; margin-bottom: calc(var(--bs, 200px) * 0.025); max-width: 94%; color: #fff; pointer-events: none; }
+        /* Value sits on a single line — long dollar strings like
+           $408,882,383 wouldn't survive wrapping inside a circle, so
+           we lock white-space and scale the font down enough to fit. */
+        .tk2-bubble-value { font-family: 'Inter', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.02em; font-size: clamp(11px, calc(var(--bs, 200px) * 0.095), 28px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; max-width: 94%; color: #fff; pointer-events: none; }
         .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 16px 0 0; font-style: italic; }
         @media (max-width: 700px) {
             .tk2-bubbles-canvas { height: 420px; }
