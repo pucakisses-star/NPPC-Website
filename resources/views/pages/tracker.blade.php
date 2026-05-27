@@ -654,7 +654,7 @@
                 // that's 15 pairs — negligible compute, and the effect is
                 // only meaningful when one drifts far from the cluster:
                 // close-together bubbles' attractions roughly cancel.
-                const G = 0.0008;
+                const G = 0.0004;
                 for (let i = 0; i < bodies.length; i++) {
                     for (let j = i + 1; j < bodies.length; j++) {
                         const a = bodies[i], b = bodies[j];
