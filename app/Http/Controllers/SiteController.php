@@ -405,48 +405,99 @@ final class SiteController extends Controller {
 
     public function tracker() {
         $prisoners = Prisoner::all();
-        $cases = PrisonerCase::all();
+        $cases = PrisonerCase::with('institution')->get();
 
         // ── Cost assumptions ─────────────────────────────────────────────
-        // Per-day incarceration cost: blended federal + state average
-        // (Vera Institute "The Price of Prisons" + BOP Annual
-        // Determination of Average Cost of Incarceration Fee). $115/day
-        // works out to ~$42,000/year — a defensible midpoint for the
-        // 50-state + federal system over the period this archive covers.
-        $costPerDay = 115;
+        // Per-day incarceration rates (blended from Vera Institute's
+        // "Price of Prisons" series, BOP's Annual Determination of
+        // Average Cost of Incarceration Fee, and BJS county-jail data).
+        $federalDailyCost = 130;   // ~$47,400/year — BOP FY24 figure
+        $stateDailyCost   = 105;   // ~$38,300/year — Vera 50-state median
+        $localDailyCost   = 95;    // ~$34,700/year — BJS jail average
 
-        // Per-case prosecution cost: blended federal + state felony
-        // prosecution average drawn from BJS reports. Political cases
-        // typically run higher (specialized AUSA time, classified
-        // evidence handling, multi-jurisdictional grand juries), so the
-        // $80,000 figure here is intentionally conservative.
+        // Per-case prosecution cost (federal+state felony blend, BJS).
+        // Political cases typically run higher — this floor understates.
         $costPerProsecution = 80000;
+
+        // Post-conviction legal cost: appeals, habeas, civil-rights
+        // suits. Applied only to cases that resulted in a conviction or
+        // sentence, since acquittals/dismissals stop the meter.
+        $costPerAppeal = 45000;
         // ─────────────────────────────────────────────────────────────────
 
         $totalDaysImprisoned = (int) $cases->sum('imprisoned_for_days');
         $totalDaysInExile = (int) $cases->sum('in_exile_for_days');
-        $totalDaysLost = $totalDaysImprisoned + $totalDaysInExile;
 
         $totalPrisoners = $prisoners->count();
         $totalCases = $cases->count();
 
-        $costOfIncarceration = $totalDaysImprisoned * $costPerDay;
-        $costOfProsecution = $totalCases * $costPerProsecution;
-        $totalCost = $costOfIncarceration + $costOfProsecution;
+        // Classify each case as federal / state / local from its
+        // institution name, then sum days into the matching bucket.
+        $federalDays = 0; $stateDays = 0; $localDays = 0;
+        $convictedCases = 0;
+        foreach ($cases as $c) {
+            $days = (int) ($c->imprisoned_for_days ?? 0);
+            $instName = (string) optional($c->institution)->name;
+            if ($days > 0) {
+                if (preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $instName)) {
+                    $federalDays += $days;
+                } elseif (preg_match('/\b(county jail|city jail|municipal|MDC|department of correction.*county|holding facility)\b/i', $instName)) {
+                    $localDays += $days;
+                } else {
+                    $stateDays += $days; // default bucket
+                }
+            }
+            $convicted = (string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '';
+            if ($convicted) $convictedCases++;
+        }
+
+        $costFederalIncarceration = $federalDays * $federalDailyCost;
+        $costStateIncarceration   = $stateDays   * $stateDailyCost;
+        $costLocalIncarceration   = $localDays   * $localDailyCost;
+        $costOfProsecution        = $totalCases     * $costPerProsecution;
+        $costOfAppeals            = $convictedCases * $costPerAppeal;
+
+        $totalCost = $costFederalIncarceration + $costStateIncarceration + $costLocalIncarceration
+                   + $costOfProsecution + $costOfAppeals;
+
+        // Bubbles in the middle of the page — sorted descending for visual hierarchy.
+        $costBubbles = collect([
+            ['label' => 'Federal incarceration', 'value' => $costFederalIncarceration, 'shade' => 'a'],
+            ['label' => 'State incarceration',   'value' => $costStateIncarceration,   'shade' => 'b'],
+            ['label' => 'Local jail time',       'value' => $costLocalIncarceration,   'shade' => 'c'],
+            ['label' => 'Prosecution',           'value' => $costOfProsecution,        'shade' => 'd'],
+            ['label' => 'Appeals & post-conviction', 'value' => $costOfAppeals,        'shade' => 'e'],
+        ])->where('value', '>', 0)->sortByDesc('value')->values();
+
+        $costOfIncarceration = $costFederalIncarceration + $costStateIncarceration + $costLocalIncarceration;
 
         $inCustody = $prisoners->where('in_custody', true)->count();
         $inExile = $prisoners->where('in_exile', true)->count();
         $released = $prisoners->where('released', true)->count();
         $awaitingTrial = $prisoners->where('awaiting_trial', true)->count();
 
-        // Cost by ideology — sum each prisoner's case-days × rate into
-        // every ideology they're tagged with, then sort descending.
+        // Cost by ideology — sum each prisoner's full case cost into
+        // every ideology they're tagged with, sort descending.
         $casesByPrisoner = $cases->groupBy('prisoner_id');
         $costByIdeology = [];
         foreach ($prisoners as $p) {
             $set = $casesByPrisoner->get($p->id) ?? collect();
-            $cost = ((int) $set->sum('imprisoned_for_days')) * $costPerDay
-                  + $set->count() * $costPerProsecution;
+            $cost = 0;
+            foreach ($set as $c) {
+                $days = (int) ($c->imprisoned_for_days ?? 0);
+                $instName = (string) optional($c->institution)->name;
+                if (preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $instName)) {
+                    $cost += $days * $federalDailyCost;
+                } elseif (preg_match('/\b(county jail|city jail|municipal|holding facility)\b/i', $instName)) {
+                    $cost += $days * $localDailyCost;
+                } else {
+                    $cost += $days * $stateDailyCost;
+                }
+                $cost += $costPerProsecution;
+                if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
+                    $cost += $costPerAppeal;
+                }
+            }
             if (! $cost) continue;
             foreach (((array) $p->ideologies) ?: ['Unclassified'] as $ideology) {
                 $costByIdeology[$ideology] = ($costByIdeology[$ideology] ?? 0) + $cost;
@@ -483,14 +534,18 @@ final class SiteController extends Controller {
             ->values();
 
         return view('pages.tracker', compact(
-            'totalDaysImprisoned', 'totalDaysInExile', 'totalDaysLost',
+            'totalDaysImprisoned', 'totalDaysInExile',
             'inCustody', 'inExile', 'released', 'awaitingTrial',
             'costByIdeology', 'activeCases', 'totalPrisoners', 'totalCases', 'firstYear',
             'casesByPrisoner',
             'earliestCase', 'earliestPrisoner', 'newestActiveCase', 'newestActivePrisoner',
             'heroPrisoners',
             'costOfIncarceration', 'costOfProsecution', 'totalCost',
-            'costPerDay', 'costPerProsecution',
+            'costFederalIncarceration', 'costStateIncarceration', 'costLocalIncarceration',
+            'costOfAppeals',
+            'costBubbles',
+            'federalDailyCost', 'stateDailyCost', 'localDailyCost',
+            'costPerProsecution', 'costPerAppeal',
         ));
     }
 

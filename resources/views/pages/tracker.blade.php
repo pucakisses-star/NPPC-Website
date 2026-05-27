@@ -2,7 +2,6 @@
     /**
      * @var int $totalDaysImprisoned
      * @var int $totalDaysInExile
-     * @var int $totalDaysLost
      * @var int $inCustody
      * @var int $inExile
      * @var int $released
@@ -21,12 +20,21 @@
      * @var int $costOfIncarceration
      * @var int $costOfProsecution
      * @var int $totalCost
-     * @var int $costPerDay
+     * @var int $costFederalIncarceration
+     * @var int $costStateIncarceration
+     * @var int $costLocalIncarceration
+     * @var int $costOfAppeals
+     * @var \Illuminate\Support\Collection $costBubbles
+     * @var int $federalDailyCost
+     * @var int $stateDailyCost
+     * @var int $localDailyCost
      * @var int $costPerProsecution
+     * @var int $costPerAppeal
      */
     $now = \Carbon\Carbon::now();
     $sinceYears = $firstYear ? $now->year - $firstYear : 0;
     $maxIdeologyCost = max(array_values($costByIdeology) ?: [1]);
+    $maxBubble = (int) ($costBubbles->max('value') ?: 1);
 @endphp
 
 @extends('app')
@@ -48,6 +56,7 @@
                 </a>
                 <nav class="tk2-anchors" aria-label="On this page">
                     <a href="#toll">The Toll<span aria-hidden="true">&rarr;</span></a>
+                    <a href="#breakdown">Cost Breakdown<span aria-hidden="true">&rarr;</span></a>
                     <a href="#movement">By Movement<span aria-hidden="true">&rarr;</span></a>
                     <a href="#thennow">Then &amp; Now<span aria-hidden="true">&rarr;</span></a>
                     <a href="#active">Active Cases</a>
@@ -120,9 +129,31 @@
                 </figure>
             </section>
 
-            {{-- 02 BY MOVEMENT --}}
-            <section id="movement" class="tk2-section">
+            {{-- 02 COST BREAKDOWN BUBBLES --}}
+            <section id="breakdown" class="tk2-section">
                 <div class="tk2-snum">02</div>
+                <h2 class="tk2-shead">What goes into the total.</h2>
+                <p class="tk2-lede">Public money flows through five distinct buckets: federal-prison custody, state-prison custody, county- and city-jail custody, the prosecution itself, and post-conviction appellate and habeas litigation. Hover any bubble to read the running figure.</p>
+
+                <div class="tk2-bubbles">
+                    <div class="tk2-bubbles-inner">
+                        @foreach ($costBubbles as $b)
+                            @php
+                                $ratio = sqrt(max(1, $b['value']) / max(1, $maxBubble));
+                                $size = max(110, round(360 * $ratio));
+                            @endphp
+                            <div class="tk2-bubble tk2-bubble-{{ $b['shade'] }}" style="width: {{ $size }}px; height: {{ $size }}px;" title="{{ $b['label'] }}: ${{ number_format($b['value']) }}">
+                                <div class="tk2-bubble-label">{{ $b['label'] }}</div>
+                                <div class="tk2-bubble-value">${{ number_format($b['value']) }}</div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+
+            {{-- 03 BY MOVEMENT --}}
+            <section id="movement" class="tk2-section">
+                <div class="tk2-snum">03</div>
                 <h2 class="tk2-shead">Where the money went.</h2>
                 <p class="tk2-lede">Breaking the dollar total down by ideology shows which movements have been the most expensive for the state to prosecute and confine. A single case can be tagged with more than one movement, so the bars below overlap rather than partition the total.</p>
 
@@ -138,9 +169,9 @@
                 </div>
             </section>
 
-            {{-- 03 THEN & NOW --}}
+            {{-- 04 THEN & NOW --}}
             <section id="thennow" class="tk2-section">
-                <div class="tk2-snum">03</div>
+                <div class="tk2-snum">04</div>
                 <h2 class="tk2-shead">Then &amp; Now.</h2>
                 <p class="tk2-lede">U.S. political imprisonment is not a relic. The earliest case in this archive sits beside an active prisoner being held today &mdash; a hundred years apart, the same machinery.</p>
 
@@ -189,9 +220,9 @@
                 </form>
             </aside>
 
-            {{-- 04 ACTIVE CASES --}}
+            {{-- 05 ACTIVE CASES --}}
             <section id="active" class="tk2-section">
-                <div class="tk2-snum">04</div>
+                <div class="tk2-snum">05</div>
                 <h2 class="tk2-shead">What we know so far &mdash; today.</h2>
                 <p class="tk2-lede">{{ number_format($inCustody) }} of the {{ number_format($totalPrisoners) }} people in this archive are in custody right now. {{ number_format($awaitingTrial) }} are awaiting trial, {{ number_format($inExile) }} are in exile, and {{ number_format($released) }} are released or unincarcerated.</p>
 
@@ -223,16 +254,18 @@
                 <a class="tk2-more" href="/database?in_custody=1">See all active cases &rsaquo;</a>
             </section>
 
-            {{-- 05 METHODOLOGY --}}
+            {{-- 06 METHODOLOGY --}}
             <section id="methodology" class="tk2-section">
-                <div class="tk2-snum">05</div>
+                <div class="tk2-snum">06</div>
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
 
-                    <p><strong>Per-day incarceration cost: ${{ number_format($costPerDay) }}.</strong> This is a blended federal-plus-state average drawn from the Vera Institute&rsquo;s <em>Price of Prisons</em> series and the Federal Bureau of Prisons&rsquo; <em>Annual Determination of Average Cost of Incarceration Fee</em>. ${{ number_format($costPerDay) }}/day works out to roughly ${{ number_format($costPerDay * 365) }}/year &mdash; a defensible midpoint across the federal system and 50 states over the period this archive covers. State-by-state figures range from roughly $20,000 to $90,000+ per year.</p>
+                    <p><strong>Per-day incarceration rates.</strong> Federal: ${{ number_format($federalDailyCost) }}/day (~${{ number_format($federalDailyCost * 365) }}/year, drawn from the BOP&rsquo;s <em>Annual Determination of Average Cost of Incarceration Fee</em>). State: ${{ number_format($stateDailyCost) }}/day (~${{ number_format($stateDailyCost * 365) }}/year, blended 50-state median from the Vera Institute&rsquo;s <em>Price of Prisons</em>). Local jails: ${{ number_format($localDailyCost) }}/day (BJS county-jail average). Each case in the archive is assigned to one of these three buckets by its institution name &mdash; federal facilities (FCI, USP, ADX, FMC, MDC, MCC, BOP) get the federal rate; county/city jails get the local rate; the rest default to the state rate.</p>
 
-                    <p><strong>Per-case prosecution cost: ${{ number_format($costPerProsecution) }}.</strong> Drawn from Bureau of Justice Statistics reporting on federal and state felony prosecution costs, blended to a conservative midpoint. Political cases typically run higher than this floor because of specialized AUSA time, classified-evidence handling, and multi-jurisdictional grand juries, so the figure here understates rather than overstates the true public expenditure.</p>
+                    <p><strong>Per-case prosecution cost: ${{ number_format($costPerProsecution) }}.</strong> Drawn from Bureau of Justice Statistics reporting on federal and state felony prosecution costs, blended to a conservative midpoint. Political cases typically run higher because of specialized AUSA time, classified-evidence handling, and multi-jurisdictional grand juries.</p>
+
+                    <p><strong>Per-case appeals & post-conviction cost: ${{ number_format($costPerAppeal) }}.</strong> Applied only to cases that resulted in a conviction or sentence (acquittals/dismissals stop the meter). Covers direct appeals, state and federal habeas petitions, and civil-rights litigation arising from the conviction. Long-running appeals from death-penalty or life-sentence cases routinely exceed this average several times over, so the figure understates rather than overstates.</p>
 
                     <p><strong>Days counted.</strong> For each case we compute calendar days between the earliest documented arrest, incarceration, or exile date and the matching release date (or today, if still active). Time on parole, supervised release, and house arrest is included when our source material treats it as continuing custody.</p>
 
@@ -307,6 +340,23 @@
         .tk2-quote blockquote::before { content: '\201C'; }
         .tk2-quote blockquote::after { content: '\201D'; }
         .tk2-quote figcaption { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+
+        /* COST BREAKDOWN BUBBLES */
+        .tk2-bubbles { padding: 24px 0 8px; }
+        .tk2-bubbles-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-height: 380px; }
+        .tk2-bubble { border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; color: #06303d; transition: transform 0.2s; cursor: default; box-sizing: border-box; }
+        .tk2-bubble:hover { transform: scale(1.04); }
+        .tk2-bubble-a { background: #06766e; color: #fff; }
+        .tk2-bubble-b { background: #2aa098; color: #fff; }
+        .tk2-bubble-c { background: #54b8b1; color: #06303d; }
+        .tk2-bubble-d { background: #8ed1cc; color: #06303d; }
+        .tk2-bubble-e { background: #b4dfdb; color: #06303d; }
+        .tk2-bubble-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(11px, 0.95vw, 15px); line-height: 1.15; padding: 0 8px; margin-bottom: 4px; max-width: 88%; }
+        .tk2-bubble-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(13px, 1.4vw, 22px); line-height: 1; font-variant-numeric: tabular-nums; }
+        @media (max-width: 700px) {
+            .tk2-bubbles-inner { gap: 6px; min-height: auto; }
+            .tk2-bubble { transform: scale(0.85); }
+        }
 
         /* BREAKDOWN BARS */
         .tk2-bars { display: flex; flex-direction: column; gap: 0; }
