@@ -155,7 +155,7 @@
                                  data-radius="{{ round($size / 2) }}"
                                  data-label="{{ $b['label'] }}"
                                  data-value="${{ number_format($b['value']) }}"
-                                 style="width: {{ $size }}px; height: {{ $size }}px; left: {{ $slotX }}px; top: {{ $slotY }}px;">
+                                 style="--bs: {{ $size }}px; width: {{ $size }}px; height: {{ $size }}px; left: {{ $slotX }}px; top: {{ $slotY }}px;">
                                 <div class="tk2-bubble-label">{{ $b['label'] }}</div>
                                 <div class="tk2-bubble-value">${{ number_format($b['value']) }}</div>
                             </div>
@@ -373,21 +373,28 @@
         /* COST BREAKDOWN BUBBLES — physics-driven, draggable */
         .tk2-bubbles { padding: 24px 0 8px; }
         .tk2-bubbles-canvas { position: relative; width: 100%; height: 540px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
-        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; color: #06303d; cursor: grab; box-sizing: border-box; will-change: transform; }
+        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--bs, 200px) * 0.08); color: #fff; cursor: grab; box-sizing: border-box; will-change: transform; }
         .tk2-bubble:active { cursor: grabbing; }
-        .tk2-bubble-a { background: #06766e; color: #fff; }
-        .tk2-bubble-b { background: #2aa098; color: #fff; }
-        .tk2-bubble-c { background: #54b8b1; color: #06303d; }
-        .tk2-bubble-d { background: #8ed1cc; color: #06303d; }
-        .tk2-bubble-e { background: #b4dfdb; color: #06303d; }
-        .tk2-bubble-f { background: #073b3a; color: #fff; }
+        /* All bubbles darkened enough that pure-white text reads at every size. */
+        .tk2-bubble-a { background: #08596a; }
+        .tk2-bubble-b { background: #06474f; }
+        .tk2-bubble-c { background: #157d7d; }
+        .tk2-bubble-d { background: #1f6c70; }
+        .tk2-bubble-e { background: #0d4a55; }
+        .tk2-bubble-f { background: #042a2b; }
         .tk2-bubble-tooltip { position: absolute; left: 0; top: 0; pointer-events: none; background: #fff; color: #0a0a0a; border-radius: 4px; padding: 10px 14px 12px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transform: translate(-50%, calc(-100% - 14px)); z-index: 20; transition: opacity 0.12s ease-out; opacity: 1; }
         .tk2-bubble-tooltip[hidden] { display: none; }
         .tk2-bubble-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-top-color: #fff; }
         .tk2-bubble-tooltip-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 800; color: #0a0a0a; letter-spacing: 0.02em; }
         .tk2-bubble-tooltip-value { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #4a4a4a; margin-top: 2px; }
-        .tk2-bubble-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(11px, 0.95vw, 15px); line-height: 1.15; padding: 0 8px; margin-bottom: 4px; max-width: 88%; pointer-events: none; }
-        .tk2-bubble-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(13px, 1.4vw, 22px); line-height: 1; font-variant-numeric: tabular-nums; pointer-events: none; }
+        /* Font sizes scale with the bubble diameter so the label + value
+           always fit, large or small. --bs is set inline in PHP from the
+           computed size in px. */
+        .tk2-bubble-label { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.005em; font-size: clamp(10px, calc(var(--bs, 200px) * 0.085), 22px); line-height: 1.1; padding: 0 6px; margin-bottom: calc(var(--bs, 200px) * 0.025); max-width: 92%; color: #fff; pointer-events: none; }
+        .tk2-bubble-value { font-family: 'Inter', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.02em; font-size: clamp(12px, calc(var(--bs, 200px) * 0.13), 40px); line-height: 1; font-variant-numeric: tabular-nums; color: #fff; pointer-events: none; }
+        /* When a bubble gets really small, hide the label and keep only the value so the value still fits. */
+        .tk2-bubble[style*="--bs: 1"] .tk2-bubble-label,
+        .tk2-bubble[style*="--bs: 9"] .tk2-bubble-label { font-size: clamp(8px, calc(var(--bs, 200px) * 0.08), 12px); }
         .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 16px 0 0; font-style: italic; }
         @media (max-width: 700px) {
             .tk2-bubbles-canvas { height: 420px; }
