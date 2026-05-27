@@ -12,6 +12,7 @@ abstract class ViewSupport {
     public static function getMenuItems(): array {
         $response   = [];
         $response[] = new MenuItemDTO(title: 'Database', href: '/database', active: true);
+        $response[] = new MenuItemDTO(title: 'Archive', href: '/archive');
         $response[] = new MenuItemDTO(title: 'News', href: '/news');
 
         $parentPages = Page::where('parent_id', null)->where(function ($q) {
