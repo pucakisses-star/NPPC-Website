@@ -450,12 +450,21 @@ final class SiteController extends Controller {
             ->first(fn ($c) => optional($prisoners->firstWhere('id', $c->prisoner_id))->in_custody);
         $newestActivePrisoner = $newestActiveCase ? $prisoners->firstWhere('id', $newestActiveCase->prisoner_id) : null;
 
+        // Hero photo strip: 4 prisoners with photos, preferring the
+        // currently incarcerated (so the page leads with active cases).
+        $heroPrisoners = $prisoners
+            ->filter(fn ($p) => ! empty($p->photo))
+            ->sortByDesc('in_custody')
+            ->take(4)
+            ->values();
+
         return view('pages.tracker', compact(
             'totalDaysImprisoned', 'totalDaysInExile', 'totalDaysLost',
             'inCustody', 'inExile', 'released', 'awaitingTrial',
             'daysByIdeology', 'activeCases', 'totalPrisoners', 'firstYear',
             'casesByPrisoner',
             'earliestCase', 'earliestPrisoner', 'newestActiveCase', 'newestActivePrisoner',
+            'heroPrisoners',
         ));
     }
 
