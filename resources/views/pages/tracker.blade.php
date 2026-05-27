@@ -517,7 +517,9 @@
             let width = canvas.clientWidth;
             let height = canvas.clientHeight;
 
-            // Walls (floor + sides + ceiling). Keep references so we can rebuild on resize.
+            // Walls — floor + left + right. No ceiling: an above-canvas
+            // wall would block bubbles from falling into view, and bubbles
+            // rarely need a ceiling in normal use.
             const wallOpts = { isStatic: true, render: { visible: false } };
             let walls = [];
             const buildWalls = () => {
@@ -526,17 +528,19 @@
                     Bodies.rectangle(width / 2, height + 30, width + 100, 60, wallOpts),
                     Bodies.rectangle(-30, height / 2, 60, height + 200, wallOpts),
                     Bodies.rectangle(width + 30, height / 2, 60, height + 200, wallOpts),
-                    Bodies.rectangle(width / 2, -120, width + 100, 60, wallOpts),
                 ];
                 World.add(engine.world, walls);
             };
             buildWalls();
 
-            // Bubble bodies. Stagger initial positions so they drop in instead of stacking.
+            // Bubble bodies. Start INSIDE the canvas near the top with a
+            // small horizontal stagger so they fall straight onto the floor
+            // and settle. Previously starting above the canvas combined
+            // with a ceiling wall trapped them off-screen.
             const bodies = bubbles.map((el, i) => {
                 const r = parseInt(el.dataset.radius, 10) || (el.offsetWidth / 2);
                 const x = Math.max(r + 8, Math.min(width - r - 8, (width / (bubbles.length + 1)) * (i + 1)));
-                const y = -r * (1 + i * 0.8);
+                const y = r + 4 + (i * 8); // just inside the canvas top
                 const body = Bodies.circle(x, y, r, {
                     restitution: 0.55,
                     friction: 0.02,
