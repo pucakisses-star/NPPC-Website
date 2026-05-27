@@ -160,10 +160,13 @@
                                 <div class="tk2-bubble-value">${{ number_format($b['value']) }}</div>
                             </div>
                         @endforeach
-                        <div class="tk2-bubble-tooltip" id="tk2-bubble-tooltip" hidden>
-                            <div class="tk2-bubble-tooltip-label"></div>
-                            <div class="tk2-bubble-tooltip-value"></div>
-                        </div>
+                    </div>
+                    {{-- Tooltip lives OUTSIDE the canvas so overflow:hidden
+                         on the canvas can't clip it when a bubble is near
+                         the top/edges. --}}
+                    <div class="tk2-bubble-tooltip" id="tk2-bubble-tooltip" hidden>
+                        <div class="tk2-bubble-tooltip-label"></div>
+                        <div class="tk2-bubble-tooltip-value"></div>
                     </div>
                     <p class="tk2-bubbles-hint">Drag the bubbles &mdash; they collide, bounce, and settle.</p>
                 </div>
@@ -371,7 +374,7 @@
         .tk2-quote figcaption { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
 
         /* COST BREAKDOWN BUBBLES — physics-driven, draggable */
-        .tk2-bubbles { padding: 24px 0 8px; }
+        .tk2-bubbles { padding: 24px 0 8px; position: relative; }
         .tk2-bubbles-canvas { position: relative; width: 100%; height: 540px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
         .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--bs, 200px) * 0.055); color: #fff; cursor: grab; box-sizing: border-box; will-change: transform; }
         .tk2-bubble:active { cursor: grabbing; }
@@ -383,9 +386,14 @@
         .tk2-bubble-d { background: #4045b0; }   /* Prosecution */
         .tk2-bubble-e { background: #1f2247; }   /* Appeals & post-conviction */
         .tk2-bubble-f { background: #15173a; }   /* Investigations */
-        .tk2-bubble-tooltip { position: absolute; left: 0; top: 0; pointer-events: none; background: #fff; color: #0a0a0a; border-radius: 4px; padding: 10px 14px 12px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transform: translate(-50%, calc(-100% - 14px)); z-index: 20; transition: opacity 0.12s ease-out; opacity: 1; }
+        .tk2-bubble-tooltip { position: absolute; left: 0; top: 0; pointer-events: none; background: #fff; color: #0a0a0a; border-radius: 4px; padding: 10px 14px 12px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); z-index: 20; }
         .tk2-bubble-tooltip[hidden] { display: none; }
-        .tk2-bubble-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 7px solid transparent; border-top-color: #fff; }
+        .tk2-bubble-tooltip::after { content: ''; position: absolute; left: 50%; border: 7px solid transparent; }
+        /* Default: tooltip is ABOVE the bubble with the arrow pointing down. */
+        .tk2-bubble-tooltip::after { top: 100%; transform: translateX(-50%); border-top-color: #fff; }
+        /* When the bubble is near the canvas top, the tooltip flips BELOW
+           with the arrow pointing up. */
+        .tk2-bubble-tooltip.is-below::after { top: auto; bottom: 100%; transform: translateX(-50%); border-top-color: transparent; border-bottom-color: #fff; }
         .tk2-bubble-tooltip-label { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 800; color: #0a0a0a; letter-spacing: 0.02em; }
         .tk2-bubble-tooltip-value { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #4a4a4a; margin-top: 2px; }
         /* Font sizes scale with the bubble diameter so the label + value
@@ -626,6 +634,30 @@
                     const damping = -body.angularVelocity * body.mass * 0.025;
                     body.torque += restore + damping;
                 });
+
+                // Pair-wise magnetism: every pair of bubbles attracts each
+                // other with a gentle force inversely proportional to
+                // distance squared (gravitational-style). With six bubbles
+                // that's 15 pairs — negligible compute, and the effect is
+                // only meaningful when one drifts far from the cluster:
+                // close-together bubbles' attractions roughly cancel.
+                const G = 0.0008;
+                for (let i = 0; i < bodies.length; i++) {
+                    for (let j = i + 1; j < bodies.length; j++) {
+                        const a = bodies[i], b = bodies[j];
+                        const dx = b.position.x - a.position.x;
+                        const dy = b.position.y - a.position.y;
+                        const dist2 = dx * dx + dy * dy;
+                        const minSep = (a.circleRadius + b.circleRadius) * 1.05;
+                        if (dist2 < minSep * minSep) continue; // no pull when touching
+                        const dist = Math.sqrt(dist2);
+                        const f = (G * a.mass * b.mass) / dist2;
+                        const fx = (dx / dist) * f;
+                        const fy = (dy / dist) * f;
+                        Body.applyForce(a, a.position, { x:  fx, y:  fy });
+                        Body.applyForce(b, b.position, { x: -fx, y: -fy });
+                    }
+                }
             });
 
             // Mouse drag — Matter.js MouseConstraint handles touch automatically.
@@ -673,7 +705,23 @@
                     body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px) rotate(${body.angle}rad)`;
                 });
                 if (hoverBody && tip && ! tip.hidden) {
-                    tip.style.transform = `translate(calc(${hoverBody.position.x}px - 50%), calc(${hoverBody.position.y - hoverBody.circleRadius}px - 100% - 14px))`;
+                    // Tooltip lives in .tk2-bubbles (sibling of the canvas),
+                    // so add the canvas's offsetTop within that wrapper to
+                    // translate from canvas-space to wrapper-space.
+                    const canvasOffsetTop = canvas.offsetTop;
+                    const r = hoverBody.circleRadius;
+                    const aboveY = hoverBody.position.y - r + canvasOffsetTop;
+                    const belowY = hoverBody.position.y + r + canvasOffsetTop;
+                    // Flip to below the bubble if the tooltip would clip
+                    // the top of the page area.
+                    const flip = aboveY < tip.offsetHeight + 20;
+                    if (flip) {
+                        tip.classList.add('is-below');
+                        tip.style.transform = `translate(calc(${hoverBody.position.x}px - 50%), calc(${belowY}px + 14px))`;
+                    } else {
+                        tip.classList.remove('is-below');
+                        tip.style.transform = `translate(calc(${hoverBody.position.x}px - 50%), calc(${aboveY}px - 100% - 14px))`;
+                    }
                 }
                 requestAnimationFrame(tick);
             })();
