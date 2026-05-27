@@ -566,6 +566,11 @@
                     friction: 0,
                     frictionAir: 0.08,
                     density: 0.001,
+                    // Lock rotation: infinite moment of inertia means
+                    // collisions and drags translate the body but can't
+                    // spin it, so the label stays upright.
+                    inertia: Infinity,
+                    inverseInertia: 0,
                 });
                 // Remember each body's "home" point (centre of canvas) so
                 // we can pull it back when it drifts.
@@ -638,7 +643,7 @@
             (function tick() {
                 bodies.forEach(body => {
                     const r = body.circleRadius;
-                    body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px) rotate(${body.angle}rad)`;
+                    body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px)`;
                 });
                 if (hoverBody && tip && ! tip.hidden) {
                     tip.style.transform = `translate(calc(${hoverBody.position.x}px - 50%), calc(${hoverBody.position.y - hoverBody.circleRadius}px - 100% - 14px))`;
