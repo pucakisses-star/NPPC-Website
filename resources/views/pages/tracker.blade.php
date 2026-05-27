@@ -65,14 +65,9 @@
             </div>
         </header>
 
-        {{-- HERO with prisoner photo collage + coral banner --}}
+        {{-- HERO — single composite portrait of political prisoners --}}
         <section class="tk2-hero">
-            <div class="tk2-hero-photos" aria-hidden="true">
-                @foreach ($heroPrisoners as $i => $p)
-                    <div class="tk2-hero-photo tk2-hero-photo-{{ $i }}" style="background-image: url('{{ $p->photo_url }}')"></div>
-                @endforeach
-                <div class="tk2-hero-halftone"></div>
-            </div>
+            <img class="tk2-hero-img" src="/images/tracker-hero.jpg" alt="" aria-hidden="true">
             <h1 class="tk2-hero-title">The Price of Political Prosecution</h1>
         </section>
 
@@ -330,15 +325,9 @@
         .tk2-anchors a:last-child span { display: none; }
 
         /* HERO */
-        .tk2-hero { position: relative; max-width: 1380px; margin: 0 auto; padding: 56px 32px 0; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
-        .tk2-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 4px 4px; pointer-events: none; }
-        .tk2-hero-photos { position: absolute; left: 0; right: 0; bottom: 0; height: 540px; display: flex; align-items: flex-end; justify-content: center; gap: 0; padding: 0 32px; }
-        .tk2-hero-photo { width: 26%; height: 100%; background-size: cover; background-position: center top; filter: grayscale(1) contrast(1.15); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%); }
-        .tk2-hero-photo-0 { transform: translate(40%, 14%) scale(0.82); opacity: 0.85; }
-        .tk2-hero-photo-1 { transform: translate(15%, 4%) scale(0.92); }
-        .tk2-hero-photo-2 { transform: scale(1.05); z-index: 2; filter: grayscale(0.4) contrast(1.1); }
-        .tk2-hero-photo-3 { transform: translate(-15%, 6%) scale(0.95); }
-        .tk2-hero-halftone { position: absolute; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1.4px); background-size: 3px 3px; mix-blend-mode: multiply; pointer-events: none; }
+        .tk2-hero { position: relative; max-width: 1380px; margin: 0 auto; padding: 0 32px; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+        .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+        .tk2-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.65) 100%); pointer-events: none; }
         .tk2-hero-title { position: relative; z-index: 3; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
 
         /* CORAL BANNER WITH BIG NUMBER */
@@ -455,9 +444,7 @@
             .tk2-topnav-inner { gap: 18px; }
             .tk2-anchors { gap: 8px 16px; }
             .tk2-anchors a { font-size: 11px; gap: 8px; }
-            .tk2-hero { min-height: 360px; padding: 32px 20px 0; }
-            .tk2-hero-photos { height: 360px; padding: 0 12px; }
-            .tk2-hero-photo { width: 28%; }
+            .tk2-hero { min-height: 280px; padding: 0 20px; }
             .tk2-hero-title { font-size: 2rem; margin-bottom: 24px; }
             .tk2-banner { padding: 24px 20px 20px; }
             .tk2-banner-sub { padding: 0 20px; font-size: 14px; }
