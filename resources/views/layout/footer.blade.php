@@ -83,14 +83,14 @@
 
     /* Bordered signup frame */
     #app-footer-v2 .f2-signup-wrap { display: flex; }
-    #app-footer-v2 .f2-signup { border: 1.5px solid rgba(120, 140, 255, 0.4); padding: 36px 32px 32px; width: 100%; max-width: 620px; margin-left: auto; }
-    #app-footer-v2 .f2-signup-eyebrow { font-size: 1.5rem; font-weight: 900; color: rgba(180, 190, 255, 0.55); line-height: 1; margin-bottom: 10px; }
-    #app-footer-v2 .f2-signup-headline { font-size: 1.875rem; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 24px; }
-    #app-footer-v2 .f2-signup-form { display: flex; }
-    #app-footer-v2 .f2-signup-form input { flex: 1; min-width: 0; background: transparent; border: 1px solid rgba(120, 140, 255, 0.45); color: #fff; padding: 16px 18px; font-size: 16px; outline: none; border-radius: 0; }
+    #app-footer-v2 .f2-signup { --f2-frame: rgba(140, 150, 220, 0.55); border: 1.5px solid var(--f2-frame); border-radius: 3px; padding: 40px 40px 36px; width: 100%; max-width: 660px; margin-left: auto; }
+    #app-footer-v2 .f2-signup-eyebrow { font-size: 1.5rem; font-weight: 900; color: rgba(180, 190, 230, 0.55); line-height: 1; margin-bottom: 12px; letter-spacing: -0.005em; }
+    #app-footer-v2 .f2-signup-headline { font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 28px; letter-spacing: -0.01em; }
+    #app-footer-v2 .f2-signup-form { display: flex; height: 56px; }
+    #app-footer-v2 .f2-signup-form input { flex: 1; min-width: 0; height: 100%; background: transparent; border: 1px solid var(--f2-frame); border-right: none; color: #fff; padding: 0 18px; font-size: 16px; outline: none; border-radius: 0; }
     #app-footer-v2 .f2-signup-form input::placeholder { color: rgba(255, 255, 255, 0.55); }
     #app-footer-v2 .f2-signup-form input:focus { border-color: #fff; }
-    #app-footer-v2 .f2-signup-form button { background: #f25c54; color: #fff; border: none; padding: 0 32px; font-size: 13px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; }
+    #app-footer-v2 .f2-signup-form button { height: 100%; background: #f25c54; color: #fff; border: none; padding: 0 44px; font-size: 14px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; }
     #app-footer-v2 .f2-signup-form button:hover { background: #d44a42; }
 
     /* Bottom bar */
@@ -110,6 +110,8 @@
         #app-footer-v2 .f2-title { font-size: 2rem; }
         #app-footer-v2 .f2-signup { padding: 28px 22px 24px; max-width: none; }
         #app-footer-v2 .f2-signup-headline { font-size: 1.5rem; }
+        #app-footer-v2 .f2-signup-form { height: 50px; }
+        #app-footer-v2 .f2-signup-form button { padding: 0 28px; font-size: 13px; }
         #app-footer-v2 .f2-bottom { grid-template-columns: 1fr; gap: 16px; text-align: center; }
         #app-footer-v2 .f2-bottom-left { flex-direction: column; align-items: center; text-align: center; gap: 12px; }
         #app-footer-v2 .f2-bottom-center, #app-footer-v2 .f2-bottom-links { text-align: center; }
