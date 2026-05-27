@@ -137,12 +137,27 @@
 
                 <div class="tk2-bubbles" id="tk2-bubbles">
                     <div class="tk2-bubbles-canvas" id="tk2-bubbles-canvas">
+                        @php
+                            $bubbleCount = $costBubbles->count();
+                            $canvasW = 900; // matches CSS layout target; physics will recompute on load
+                            $canvasH = 540;
+                            $i = 0;
+                        @endphp
                         @foreach ($costBubbles as $b)
                             @php
                                 $ratio = sqrt(max(1, $b['value']) / max(1, $maxBubble));
                                 $size = max(110, round(360 * $ratio));
+                                // Fallback static layout: distribute horizontally + alternate vertical so bubbles
+                                // are visible immediately even before Matter.js loads / runs.
+                                $slotX = $bubbleCount > 1
+                                    ? (int) round(($canvasW / ($bubbleCount + 1)) * ($i + 1) - $size / 2)
+                                    : (int) round(($canvasW - $size) / 2);
+                                $slotY = (int) round(($canvasH - $size) / 2 + ($i % 2 === 0 ? -60 : 60));
+                                $i++;
                             @endphp
-                            <div class="tk2-bubble tk2-bubble-{{ $b['shade'] }}" data-radius="{{ round($size / 2) }}" style="width: {{ $size }}px; height: {{ $size }}px;">
+                            <div class="tk2-bubble tk2-bubble-{{ $b['shade'] }}"
+                                 data-radius="{{ round($size / 2) }}"
+                                 style="width: {{ $size }}px; height: {{ $size }}px; left: {{ $slotX }}px; top: {{ $slotY }}px;">
                                 <div class="tk2-bubble-label">{{ $b['label'] }}</div>
                                 <div class="tk2-bubble-value">${{ number_format($b['value']) }}</div>
                             </div>
@@ -482,14 +497,18 @@
     </script>
 
     {{-- Physics-driven, draggable cost-breakdown bubbles --}}
-    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
     <script>
-        window.addEventListener('load', function () {
-            if (typeof Matter === 'undefined') return;
-            const canvas = document.getElementById('tk2-bubbles-canvas');
-            if (! canvas) return;
-            const bubbles = Array.from(canvas.querySelectorAll('.tk2-bubble'));
-            if (! bubbles.length) return;
+        (function initBubblePhysics() {
+            const start = function () {
+                const canvas = document.getElementById('tk2-bubbles-canvas');
+                if (! canvas) return;
+                const bubbles = Array.from(canvas.querySelectorAll('.tk2-bubble'));
+                if (! bubbles.length) return;
+                if (typeof Matter === 'undefined') {
+                    console.warn('[tracker] Matter.js failed to load; bubbles will use static fallback layout.');
+                    return;
+                }
 
             const { Engine, World, Bodies, Body, Mouse, MouseConstraint, Runner } = Matter;
             const engine = Engine.create();
@@ -541,6 +560,10 @@
             // wheel handler swallows it by default).
             mouse.element.removeEventListener('wheel', mouse.mousewheel);
 
+            // Now that physics is active, clear the static-fallback left/top so
+            // the transform alone positions each bubble.
+            bubbles.forEach(el => { el.style.left = '0'; el.style.top = '0'; });
+
             // Sync DOM transforms to physics each frame.
             (function tick() {
                 bodies.forEach(body => {
@@ -567,6 +590,13 @@
                     });
                 }, 150);
             });
-        });
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', start);
+            } else {
+                start();
+            }
+        })();
     </script>
 @endsection
