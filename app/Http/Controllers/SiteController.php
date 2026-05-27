@@ -410,7 +410,11 @@ final class SiteController extends Controller {
         // dollar tracker; constrain to 1950→ so the running total tracks
         // the contemporary political-prosecution period the page is
         // actually about.
-        $cutoffYear = 1950;
+        // Rolling 50-year window — recomputed on every request so the
+        // page always reflects "the past 50 years" of political prosecution
+        // rather than a fixed start date that ages out.
+        $windowYears = 50;
+        $cutoffYear = (int) date('Y') - $windowYears;
         $cutoffDate = $cutoffYear.'-01-01';
 
         $allPrisoners = Prisoner::all();
