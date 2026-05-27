@@ -50,6 +50,7 @@
 
             <div class="f2-bottom">
                 <div class="f2-bottom-left">
+                    <img src="/logo.svg" alt="National Political Prisoner Coalition" class="f2-bottom-logo">
                     <p>Independent, non-partisan, donor-supported. Your contributions fund legal aid, mutual support, and original research.</p>
                 </div>
                 <div class="f2-bottom-center">©{{ date('Y') }} National Political Prisoner Coalition</div>
@@ -95,6 +96,8 @@
     /* Bottom bar */
     #app-footer-v2 .f2-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.1); align-items: start; font-size: 13px; color: rgba(255, 255, 255, 0.65); }
     #app-footer-v2 .f2-bottom p { margin: 0; line-height: 1.5; font-size: 13px; letter-spacing: 0; }
+    #app-footer-v2 .f2-bottom-left { display: flex; align-items: center; gap: 16px; }
+    #app-footer-v2 .f2-bottom-logo { flex: 0 0 auto; height: 48px; width: auto; display: block; }
     #app-footer-v2 .f2-bottom-center { text-align: center; font-size: 13px; }
     #app-footer-v2 .f2-bottom-links { list-style: none; margin: 0; padding: 0; text-align: right; }
     #app-footer-v2 .f2-bottom-links li { margin-bottom: 6px; }
@@ -108,6 +111,7 @@
         #app-footer-v2 .f2-signup { padding: 28px 22px 24px; max-width: none; }
         #app-footer-v2 .f2-signup-headline { font-size: 1.5rem; }
         #app-footer-v2 .f2-bottom { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+        #app-footer-v2 .f2-bottom-left { flex-direction: column; align-items: center; text-align: center; gap: 12px; }
         #app-footer-v2 .f2-bottom-center, #app-footer-v2 .f2-bottom-links { text-align: center; }
     }
 </style>
