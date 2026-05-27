@@ -46,21 +46,18 @@
         {{-- Featured Authors --}}
         @include('sections.featured-authors')
 
-        {{-- Callout --}}
-        @if(SiteSetting::get('callout_enabled', '1') === '1')
-            @include('sections.callout')
-        @endif
+        {{-- Newsletter signup (mid-page CTA) --}}
+        @include('sections.newsletter-signup')
 
         {{-- Stats Visualisation (also renders the Prosecutions-by-State map) --}}
         @if(SiteSetting::get('visualisation_enabled', '1') === '1')
             <div id="app-stats"></div>
         @endif
 
-        {{-- Active Petitions --}}
-        @include('sections.active-petitions')
-
-        {{-- Newsletter signup (mid-page CTA) --}}
-        @include('sections.newsletter-signup')
+        {{-- Callout (donation CTA) --}}
+        @if(SiteSetting::get('callout_enabled', '1') === '1')
+            @include('sections.callout')
+        @endif
 
         {{-- Individual Profiles callout --}}
         @include('sections.individual-profiles')
