@@ -421,7 +421,7 @@ final class SiteController extends Controller {
         $casesByPrisoner = $cases->groupBy('prisoner_id');
         $daysByIdeology = [];
         foreach ($prisoners as $p) {
-            $days = (int) ($casesByPrisoner[$p->id] ?? collect())->sum('imprisoned_for_days');
+            $days = (int) ($casesByPrisoner->get($p->id) ?? collect())->sum('imprisoned_for_days');
             if (! $days) continue;
             foreach (((array) $p->ideologies) ?: ['Unclassified'] as $ideology) {
                 $daysByIdeology[$ideology] = ($daysByIdeology[$ideology] ?? 0) + $days;
@@ -432,7 +432,7 @@ final class SiteController extends Controller {
 
         // Active cases — currently incarcerated prisoners with their case
         $activeCases = $prisoners->where('in_custody', true)
-            ->sortByDesc(fn ($p) => $casesByPrisoner[$p->id]?->min('arrest_date') ?? '')
+            ->sortByDesc(fn ($p) => $casesByPrisoner->get($p->id)?->min('arrest_date') ?? '')
             ->take(8)
             ->values();
 
