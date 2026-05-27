@@ -232,7 +232,22 @@
                             $caseSet = $casesByPrisoner->get($p->id);
                             $earliest = $caseSet?->min('arrest_date');
                             $days = (int) ($caseSet?->sum('imprisoned_for_days') ?? 0);
-                            $cost = $days * $costPerDay + ($caseSet?->count() ?? 0) * $costPerProsecution;
+                            $cost = 0;
+                            foreach ($caseSet ?? collect() as $c) {
+                                $d = (int) ($c->imprisoned_for_days ?? 0);
+                                $inst = (string) optional($c->institution)->name;
+                                if (preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $inst)) {
+                                    $cost += $d * $federalDailyCost;
+                                } elseif (preg_match('/\b(county jail|city jail|municipal|holding facility)\b/i', $inst)) {
+                                    $cost += $d * $localDailyCost;
+                                } else {
+                                    $cost += $d * $stateDailyCost;
+                                }
+                                $cost += $costPerProsecution;
+                                if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
+                                    $cost += $costPerAppeal;
+                                }
+                            }
                         @endphp
                         <a class="tk2-acard" href="/prisoner/{{ $p->slug }}">
                             @if ($p->photo_url)
