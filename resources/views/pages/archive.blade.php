@@ -26,7 +26,7 @@
             }
         }
 
-        return '/archive-records'.($params ? '?'.http_build_query($params) : '');
+        return '/archive'.($params ? '?'.http_build_query($params) : '');
     };
 @endphp
 
@@ -48,10 +48,10 @@
         /* The global app.blade.php sets .container { overflow: hidden }
            which clips the viewport-escape trick below. Override it on
            this page (and on body) so .a1r's 100vw width can render. */
-        body.page-archive-records { overflow-x: hidden; }
-        body.page-archive-records main.container,
-        body.page-archive-records .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
-        body.page-archive-records .a1r {
+        body.page-archive { overflow-x: hidden; }
+        body.page-archive main.container,
+        body.page-archive .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+        body.page-archive .a1r {
             position: relative;
             left: 50%;
             right: 50%;
@@ -66,7 +66,7 @@
         /* 3-col mode (rail beside main): expand inner content to fit
            the 280 + 32 + 720 + 32 + 280 = 1344 layout. */
         @media (min-width: 1381px) {
-            body.page-archive-records .a1r { padding: 0 max(32px, calc((100vw - 1344px) / 2)); }
+            body.page-archive .a1r { padding: 0 max(32px, calc((100vw - 1344px) / 2)); }
         }
 
         /* On wide enough screens, place the right rail next to the main
@@ -76,7 +76,7 @@
         @media (max-width: 1380px) { .a1r-grid { grid-template-columns: 280px minmax(0, 720px); } .a1r-right { grid-column: 1 / -1; } }
         @media (max-width: 900px) {
             .a1r-grid { grid-template-columns: 1fr; }
-            body.page-archive-records .a1r { padding-left: 16px; padding-right: 16px; }
+            body.page-archive .a1r { padding-left: 16px; padding-right: 16px; }
         }
 
         /* Right rail */
@@ -189,7 +189,7 @@
                 <div class="a1r-side-head">
                     <h4>Filter Results</h4>
                     @if ($hasFilters || $collection || $recordType || $sourceFormat || $year || $subject)
-                        <a class="a1r-clear" href="/archive-records">&times; Clear filters</a>
+                        <a class="a1r-clear" href="/archive">&times; Clear filters</a>
                     @endif
                 </div>
 
@@ -262,7 +262,7 @@
             </aside>
 
             <div>
-                <form action="/archive-records" method="GET" class="a1r-toolbar">
+                <form action="/archive" method="GET" class="a1r-toolbar">
                     <label class="a1r-search">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
                         <input type="text" name="q" placeholder="Search archives&hellip;" value="{{ $q }}">
@@ -291,7 +291,7 @@
                     <div class="a1r-empty-state">
                         No records found.
                         @if ($hasFilters)
-                            <br><br><a class="a1r-clear" href="/archive-records">Clear filters</a>
+                            <br><br><a class="a1r-clear" href="/archive">Clear filters</a>
                         @else
                             <br><br><span style="font-size: 13px;">Once you upload archive records in the admin panel, they will appear here.</span>
                         @endif
@@ -401,34 +401,34 @@
                 <section>
                     <h3 class="a1r-rhead">Common<br>Search Terms</h3>
                     <div class="a1r-tags">
-                        <a class="t-xl" href="/archive-records?q=political+prisoners">Political Prisoners</a>
-                        <a class="t-xl" href="/archive-records?q=black+liberation">Black Liberation</a>
-                        <a class="t-xl" href="/archive-records?q=national+liberation">National Liberation</a>
-                        <a class="t-lg" href="/archive-records?q=anti-imperialism">Anti-Imperialism</a>
-                        <a class="t-lg" href="/archive-records?q=resistance">Resistance</a>
-                        <a class="t-lg" href="/archive-records?q=prison">Prison</a>
-                        <a class="t-md" href="/archive-records?q=cointelpro">COINTELPRO</a>
-                        <a class="t-md" href="/archive-records?q=civil+rights">Civil Rights</a>
-                        <a class="t-md" href="/archive-records?q=latin+america">Latin America</a>
-                        <a class="t-md" href="/archive-records?q=palestine">Palestine</a>
-                        <a class="t-md" href="/archive-records?q=puerto+rico">Puerto Rico</a>
-                        <a class="t-md" href="/archive-records?q=women">Women</a>
-                        <a class="t-sm" href="/archive-records?q=anti-racism">Anti-Racism</a>
-                        <a class="t-sm" href="/archive-records?q=black+panther+party">Black Panther Party</a>
-                        <a class="t-sm" href="/archive-records?q=poetry">Poetry</a>
-                        <a class="t-sm" href="/archive-records?q=human+rights">Human Rights</a>
-                        <a class="t-sm" href="/archive-records?q=anti-war">Anti-War</a>
-                        <a class="t-sm" href="/archive-records?q=africa">Africa</a>
-                        <a class="t-sm" href="/archive-records?q=african+american">African American</a>
-                        <a class="t-sm" href="/archive-records?q=cuba">Cuba</a>
-                        <a class="t-xs" href="/archive-records?q=mexico">Mexico</a>
-                        <a class="t-xs" href="/archive-records?q=nicaragua">Nicaragua</a>
-                        <a class="t-xs" href="/archive-records?q=vietnam">Viet Nam</a>
-                        <a class="t-xs" href="/archive-records?q=middle+east">Middle East</a>
-                        <a class="t-xs" href="/archive-records?q=chicano">Chicano</a>
-                        <a class="t-xs" href="/archive-records?q=israel">Israel</a>
-                        <a class="t-xs" href="/archive-records?q=chile">Chile</a>
-                        <a class="t-xs" href="/archive-records?q=music">Music</a>
+                        <a class="t-xl" href="/archive?q=political+prisoners">Political Prisoners</a>
+                        <a class="t-xl" href="/archive?q=black+liberation">Black Liberation</a>
+                        <a class="t-xl" href="/archive?q=national+liberation">National Liberation</a>
+                        <a class="t-lg" href="/archive?q=anti-imperialism">Anti-Imperialism</a>
+                        <a class="t-lg" href="/archive?q=resistance">Resistance</a>
+                        <a class="t-lg" href="/archive?q=prison">Prison</a>
+                        <a class="t-md" href="/archive?q=cointelpro">COINTELPRO</a>
+                        <a class="t-md" href="/archive?q=civil+rights">Civil Rights</a>
+                        <a class="t-md" href="/archive?q=latin+america">Latin America</a>
+                        <a class="t-md" href="/archive?q=palestine">Palestine</a>
+                        <a class="t-md" href="/archive?q=puerto+rico">Puerto Rico</a>
+                        <a class="t-md" href="/archive?q=women">Women</a>
+                        <a class="t-sm" href="/archive?q=anti-racism">Anti-Racism</a>
+                        <a class="t-sm" href="/archive?q=black+panther+party">Black Panther Party</a>
+                        <a class="t-sm" href="/archive?q=poetry">Poetry</a>
+                        <a class="t-sm" href="/archive?q=human+rights">Human Rights</a>
+                        <a class="t-sm" href="/archive?q=anti-war">Anti-War</a>
+                        <a class="t-sm" href="/archive?q=africa">Africa</a>
+                        <a class="t-sm" href="/archive?q=african+american">African American</a>
+                        <a class="t-sm" href="/archive?q=cuba">Cuba</a>
+                        <a class="t-xs" href="/archive?q=mexico">Mexico</a>
+                        <a class="t-xs" href="/archive?q=nicaragua">Nicaragua</a>
+                        <a class="t-xs" href="/archive?q=vietnam">Viet Nam</a>
+                        <a class="t-xs" href="/archive?q=middle+east">Middle East</a>
+                        <a class="t-xs" href="/archive?q=chicano">Chicano</a>
+                        <a class="t-xs" href="/archive?q=israel">Israel</a>
+                        <a class="t-xs" href="/archive?q=chile">Chile</a>
+                        <a class="t-xs" href="/archive?q=music">Music</a>
                     </div>
                 </section>
 
@@ -453,7 +453,7 @@
                             <div class="a1r-feat-title">Oscar L&oacute;pez Rivera</div>
                             <div class="a1r-feat-desc">Puerto Rican independentista who served 36 years before President Obama commuted his sentence in 2017.</div>
                         </a>
-                        <a class="a1r-feat" href="/archive-records?collection=4StruggleMag">
+                        <a class="a1r-feat" href="/archive?collection=4StruggleMag">
                             <div class="a1r-feat-title">Movement Press Archive</div>
                             <div class="a1r-feat-desc">Digitized issues of 4StruggleMag and other prisoner-support periodicals, going back to the 1970s.</div>
                         </a>
@@ -478,7 +478,7 @@
                             ['PA', 'Palestine Solidarity', 'palestine', 'Holy Land Foundation Five, Rasmea Odeh, Sami Al-Arian, and others targeted for Palestine advocacy.'],
                             ['GI', 'GI & War Resisters', 'war+resisters', 'Soldiers who refused unjust wars, deserters, and conscientious objectors from Vietnam onward.'],
                         ] as [$abbr, $title, $query, $desc])
-                            <a class="a1r-coll" href="/archive-records?q={{ $query }}">
+                            <a class="a1r-coll" href="/archive?q={{ $query }}">
                                 <div class="a1r-coll-badge">{{ $abbr }}</div>
                                 <div class="a1r-coll-body">
                                     <div class="a1r-coll-title">{{ $title }}</div>
