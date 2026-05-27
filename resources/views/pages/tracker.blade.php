@@ -25,11 +25,12 @@
      * @var int $costLocalIncarceration
      * @var int $costOfAppeals
      * @var \Illuminate\Support\Collection $costBubbles
-     * @var int $federalDailyCost
-     * @var int $stateDailyCost
-     * @var int $localDailyCost
-     * @var int $costPerProsecution
-     * @var int $costPerAppeal
+     * @var array<string,int> $activeCaseCosts
+     * @var int $windowYears
+     * @var int $federalDays
+     * @var int $stateDays
+     * @var int $localDays
+     * @var array{min:int,max:int,minYear:int,maxYear:int} $methodFedRateRange
      */
     $now = \Carbon\Carbon::now();
     $sinceYears = $firstYear ? $now->year - $firstYear : 0;
@@ -247,23 +248,7 @@
                         @php
                             $caseSet = $casesByPrisoner->get($p->id);
                             $earliest = $caseSet?->min('arrest_date');
-                            $days = (int) ($caseSet?->sum('imprisoned_for_days') ?? 0);
-                            $cost = 0;
-                            foreach ($caseSet ?? collect() as $c) {
-                                $d = (int) ($c->imprisoned_for_days ?? 0);
-                                $inst = (string) optional($c->institution)->name;
-                                if (preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $inst)) {
-                                    $cost += $d * $federalDailyCost;
-                                } elseif (preg_match('/\b(county jail|city jail|municipal|holding facility)\b/i', $inst)) {
-                                    $cost += $d * $localDailyCost;
-                                } else {
-                                    $cost += $d * $stateDailyCost;
-                                }
-                                $cost += $costPerProsecution;
-                                if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
-                                    $cost += $costPerAppeal;
-                                }
-                            }
+                            $cost = (int) ($activeCaseCosts[$p->id] ?? 0);
                         @endphp
                         <a class="tk2-acard" href="/prisoner/{{ $p->slug }}">
                             @if ($p->photo_url)
@@ -292,11 +277,17 @@
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
 
-                    <p><strong>Per-day incarceration rates.</strong> Federal: ${{ number_format($federalDailyCost) }}/day (~${{ number_format($federalDailyCost * 365) }}/year, drawn from the BOP&rsquo;s <em>Annual Determination of Average Cost of Incarceration Fee</em>). State: ${{ number_format($stateDailyCost) }}/day (~${{ number_format($stateDailyCost * 365) }}/year, blended 50-state median from the Vera Institute&rsquo;s <em>Price of Prisons</em>). Local jails: ${{ number_format($localDailyCost) }}/day (BJS county-jail average). Each case in the archive is assigned to one of these three buckets by its institution name &mdash; federal facilities (FCI, USP, ADX, FMC, MDC, MCC, BOP) get the federal rate; county/city jails get the local rate; the rest default to the state rate.</p>
+                    <p><strong>Federal rates &mdash; year by year.</strong> Each day a prisoner spent in federal custody is priced at the federal per-prisoner rate <em>for that fiscal year</em>, taken directly from the Bureau of Prisons&rsquo; own <em>Annual Determination of Average Cost of Incarceration Fee</em> notices in the Federal Register. The series runs from about ${{ number_format($methodFedRateRange['min']) }}/day in {{ $methodFedRateRange['minYear'] }} ($13,162/year) to roughly ${{ number_format($methodFedRateRange['max']) }}/day in {{ $methodFedRateRange['maxYear'] }} ($47,400/year). A day served in 1985 isn&rsquo;t billed at 2024 rates &mdash; that&rsquo;s a deliberate choice, and it&rsquo;s the biggest difference between this tracker and back-of-the-envelope estimates that multiply total days by a single recent figure.</p>
 
-                    <p><strong>Per-case prosecution cost: ${{ number_format($costPerProsecution) }}.</strong> Drawn from Bureau of Justice Statistics reporting on federal and state felony prosecution costs, blended to a conservative midpoint. Political cases typically run higher because of specialized AUSA time, classified-evidence handling, and multi-jurisdictional grand juries.</p>
+                    <p><strong>State rates &mdash; state by state, year by year.</strong> Every U.S. state&rsquo;s Department of Corrections publishes a per-prisoner annual cost. Recent figures range from roughly $17,000/year (Alabama, Mississippi) to roughly $133,000/year (California) &mdash; an 8&times; spread. We use the state in each case&rsquo;s <code>Institution.state</code> column to pick the right base rate, then roll it back through history using a 3.36% annual cost-growth factor derived from the BOP federal series. If a case&rsquo;s institution has no state recorded, we fall back to the 50-state mean ($35,810/year) at the right year. Sources: Vera Institute&rsquo;s <em>Price of Prisons</em> series, BJS state-prison expenditure reports, and individual state DOC budgets compiled for FY 2020.</p>
 
-                    <p><strong>Per-case appeals & post-conviction cost: ${{ number_format($costPerAppeal) }}.</strong> Applied only to cases that resulted in a conviction or sentence (acquittals/dismissals stop the meter). Covers direct appeals, state and federal habeas petitions, and civil-rights litigation arising from the conviction. Long-running appeals from death-penalty or life-sentence cases routinely exceed this average several times over, so the figure understates rather than overstates.</p>
+                    <p><strong>Local jail rates.</strong> County and city jails are priced at the BJS Survey of Jails national average ($34,700/year as of 2020), rolled back through history the same way as state rates. Jails are typically cheaper per day than state prisons because much of the population is pre-trial or short-stay.</p>
+
+                    <p><strong>Per-case prosecution cost.</strong> Drawn from BJS reporting on federal and state felony prosecution expenditure, blended to a $80,000-per-case figure in 2020 dollars, then rolled back to each case&rsquo;s arrest year so an 1985 prosecution isn&rsquo;t billed at 2024 rates. Political cases typically run higher than this floor because of specialized AUSA time, classified-evidence handling, and multi-jurisdictional grand juries.</p>
+
+                    <p><strong>Per-case appeals & post-conviction cost.</strong> $45,000 per convicted case in 2020 dollars, year-adjusted to arrest year. Applied only to cases that resulted in a conviction or sentence (acquittals/dismissals stop the meter). Covers direct appeals, state and federal habeas petitions, and civil-rights litigation arising from the conviction. Long-running appeals from death-penalty or life-sentence cases routinely exceed this average several times over.</p>
+
+                    <p><strong>Year-by-year priced.</strong> For continuous incarcerations that span multiple calendar years, each year&rsquo;s days are priced at that year&rsquo;s rate &mdash; not the rate at the start or the end. Internally we walk the period day-by-day across year boundaries and apply each year&rsquo;s rate separately.</p>
 
                     <p><strong>Days counted.</strong> For each case we compute calendar days between the earliest documented arrest, incarceration, or exile date and the matching release date (or today, if still active). Time on parole, supervised release, and house arrest is included when our source material treats it as continuing custody.</p>
 
