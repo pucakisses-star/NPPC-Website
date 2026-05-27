@@ -161,24 +161,108 @@ final class IncarcerationCostRates
     }
 
     /**
-     * Per-case prosecution cost, year-adjusted. ~$80k in 2020 dollars is the
-     * BJS federal-plus-state felony blend; we roll it back to the prosecution's
-     * year (arrest_date) so an 1985 case isn't billed at 2024 rates.
+     * Per-case prosecution cost, tier-graded by charge severity and
+     * jurisdiction, then year-adjusted. All base figures are 2020 USD.
+     *
+     * Sources:
+     *  - Death Penalty Information Center, "Costs of the Death Penalty"
+     *    series — capital trials average roughly $2 million in
+     *    pre-trial + trial + direct-appeal expenditure above the
+     *    equivalent non-capital case.
+     *  - Loyola Law School / Alarcón & Mitchell (2011/2017 updates) on
+     *    California capital prosecution costs.
+     *  - Federal Judicial Center / Administrative Office of the U.S.
+     *    Courts: standard federal felony prosecutions averaging
+     *    ~$120,000 per case in prosecution + defense + court time.
+     *  - DOJ Office of the Inspector General reports on complex federal
+     *    cases (RICO, terrorism, espionage, FARA) averaging
+     *    $300,000-$500,000+.
+     *  - BJS Census of State Court Prosecutors: state felony
+     *    prosecution average ~$5,000-$25,000 per case depending on
+     *    charge type and jurisdiction.
+     *  - Sixth Amendment Center reports on indigent-defense and
+     *    misdemeanor prosecution costs.
      */
-    public static function prosecutionCost(int $year): float
+    public static function prosecutionCost(string $bucket, ?string $charges, ?string $sentence, int $year): float
     {
-        return self::adjustToYear(80000, $year);
+        $base2020 = match (self::charItier($charges, $sentence, $bucket)) {
+            'capital'         => 2000000,  // capital murder / death-eligible
+            'complex_federal' => 400000,   // RICO, terrorism, espionage, FARA, mass-defendant conspiracies
+            'federal_felony'  => 120000,   // ordinary federal felony
+            'state_violent'   => 80000,    // state-court violent felony
+            'state_nonviolent'=> 30000,    // state-court non-violent felony
+            'federal_misd'    => 20000,
+            'state_misd'      => 5000,
+            default           => 60000,    // unknown / mid-severity fallback
+        };
+        return self::adjustToYear($base2020, $year);
     }
 
     /**
-     * Per-case appeals & post-conviction cost, year-adjusted. ~$45k in 2020
-     * dollars — covers direct appeals, habeas, and civil-rights litigation
-     * arising from the conviction. Long-running death-penalty appeals can
-     * exceed this several times over.
+     * Per-case appeals & post-conviction cost, also tier-graded. Capital
+     * appellate litigation routinely runs into the millions in indigent-
+     * defense, expert, and court time; ordinary appeals run $20-50k.
+     * Year-adjusted to arrest year.
      */
-    public static function appealsCost(int $year): float
+    public static function appealsCost(string $bucket, ?string $charges, ?string $sentence, int $year): float
     {
-        return self::adjustToYear(45000, $year);
+        $base2020 = match (self::charItier($charges, $sentence, $bucket)) {
+            'capital'         => 1500000,  // multi-decade habeas + state and federal appeals
+            'complex_federal' => 150000,
+            'federal_felony'  => 60000,
+            'state_violent'   => 50000,
+            'state_nonviolent'=> 25000,
+            'federal_misd'    => 8000,
+            'state_misd'      => 3000,
+            default           => 35000,
+        };
+        return self::adjustToYear($base2020, $year);
+    }
+
+    /**
+     * Classify a case into a prosecution-cost tier from its charge text
+     * and (where present) sentence text. Tiers cascade: capital wins
+     * over complex_federal which wins over federal_felony, etc.
+     */
+    private static function charItier(?string $charges, ?string $sentence, string $bucket): string
+    {
+        $text = strtolower(((string) $charges).' '.((string) $sentence));
+
+        // Capital tier — death-eligible or "life without parole" murder.
+        if (preg_match('/\b(capital|death\s+penalty|death\s+sentence|first[-\s]degree\s+murder|aggravated\s+murder)\b/i', $text)) {
+            return 'capital';
+        }
+        if (preg_match('/\bmurder\b/i', $text) && preg_match('/\b(life|death)\b/i', $text)) {
+            return 'capital';
+        }
+
+        // Complex federal: terrorism, RICO, espionage, FARA, mass conspiracies, seditious conspiracy.
+        if ($bucket === 'federal' && preg_match('/\b(rico|terror|seditious|espionage|treason|fara|18\s*u\.?s\.?c\.?\s*951|2339|2384|2385|continuing\s+criminal\s+enterprise|cce)\b/i', $text)) {
+            return 'complex_federal';
+        }
+
+        // Federal misdemeanor: federal jurisdiction + low-severity language.
+        if ($bucket === 'federal' && preg_match('/\b(misdemeanor|petty\s+offense|trespass|disorderly|contempt|class\s*[bc]\s*misd)\b/i', $text)) {
+            return 'federal_misd';
+        }
+        if ($bucket === 'federal') {
+            return 'federal_felony';
+        }
+
+        // State misdemeanors
+        if (preg_match('/\b(misdemeanor|petty\s+offense|trespass(?!\s+(in|of))|disorderly\s+conduct|disturbing\s+the\s+peace|loitering|nuisance|jaywalk)\b/i', $text)) {
+            return 'state_misd';
+        }
+
+        // State violent vs non-violent
+        if (preg_match('/\b(murder|manslaughter|homicide|assault|robbery|rape|kidnap|arson|carjack|battery|aggravated)\b/i', $text)) {
+            return 'state_violent';
+        }
+        if (preg_match('/\b(drug|narcotic|fraud|theft|burglary|larceny|forgery|possession|distribution|trafficking|conspiracy|sabotage|destruction\s+of\s+property|criminal\s+mischief)\b/i', $text)) {
+            return 'state_nonviolent';
+        }
+
+        return 'unknown';
     }
 
     private static function adjustToYear(float $base2020, int $year): float

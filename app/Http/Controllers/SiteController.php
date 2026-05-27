@@ -495,16 +495,18 @@ final class SiteController extends Controller {
             elseif ($bucket === 'local') $costLocalIncarceration   += $incCost;
             else                         $costStateIncarceration   += $incCost;
 
-            // Prosecution + appeals cost priced at the arrest year so an
-            // older case isn't billed at modern rates.
+            // Prosecution + appeals priced by charge tier (capital,
+            // complex federal, federal felony, state violent / non-
+            // violent, misdemeanor) AND year so an old or low-severity
+            // case isn't billed at modern capital-trial rates.
             $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
-            $costOfProsecution += IncarcerationCostRates::prosecutionCost($arrestYear);
+            $costOfProsecution += IncarcerationCostRates::prosecutionCost($bucket, $c->charges, $c->sentence, $arrestYear);
 
             $convicted = (string) ($c->convicted ?? '') !== ''
                 || (string) ($c->plead ?? '') !== ''
                 || (string) ($c->sentence ?? '') !== '';
             if ($convicted) {
-                $costOfAppeals += IncarcerationCostRates::appealsCost($arrestYear);
+                $costOfAppeals += IncarcerationCostRates::appealsCost($bucket, $c->charges, $c->sentence, $arrestYear);
                 $convictedCases++;
             }
         }
@@ -550,9 +552,9 @@ final class SiteController extends Controller {
                 $endC   = $c->release_date ? Carbon::parse($c->release_date) : null;
                 $cost  += IncarcerationCostRates::costForPeriod($cls['bucket'], $cls['state'], $startC, $endC, $days);
                 $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
-                $cost  += IncarcerationCostRates::prosecutionCost($arrestYear);
+                $cost  += IncarcerationCostRates::prosecutionCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
                 if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
-                    $cost += IncarcerationCostRates::appealsCost($arrestYear);
+                    $cost += IncarcerationCostRates::appealsCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
                 }
             }
             if (! $cost) continue;
@@ -582,9 +584,9 @@ final class SiteController extends Controller {
                 $endC   = $c->release_date ? Carbon::parse($c->release_date) : null;
                 $cost += IncarcerationCostRates::costForPeriod($cls['bucket'], $cls['state'], $startC, $endC, $days);
                 $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
-                $cost += IncarcerationCostRates::prosecutionCost($arrestYear);
+                $cost += IncarcerationCostRates::prosecutionCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
                 if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
-                    $cost += IncarcerationCostRates::appealsCost($arrestYear);
+                    $cost += IncarcerationCostRates::appealsCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
                 }
             }
             $activeCaseCosts[$p->id] = (int) round($cost);

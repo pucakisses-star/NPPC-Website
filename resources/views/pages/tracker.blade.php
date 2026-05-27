@@ -283,9 +283,19 @@
 
                     <p><strong>Local jail rates.</strong> County and city jails are priced at the BJS Survey of Jails national average ($34,700/year as of 2020), rolled back through history the same way as state rates. Jails are typically cheaper per day than state prisons because much of the population is pre-trial or short-stay.</p>
 
-                    <p><strong>Per-case prosecution cost.</strong> Drawn from BJS reporting on federal and state felony prosecution expenditure, blended to a $80,000-per-case figure in 2020 dollars, then rolled back to each case&rsquo;s arrest year so an 1985 prosecution isn&rsquo;t billed at 2024 rates. Political cases typically run higher than this floor because of specialized AUSA time, classified-evidence handling, and multi-jurisdictional grand juries.</p>
+                    <p><strong>Per-case prosecution cost &mdash; tier-graded.</strong> A capital-murder trial does not cost the same as a trespass prosecution. We classify each case from its <code>charges</code> and <code>sentence</code> text into one of seven tiers and price it accordingly (all figures in 2020 dollars, then rolled back to the arrest year):</p>
 
-                    <p><strong>Per-case appeals & post-conviction cost.</strong> $45,000 per convicted case in 2020 dollars, year-adjusted to arrest year. Applied only to cases that resulted in a conviction or sentence (acquittals/dismissals stop the meter). Covers direct appeals, state and federal habeas petitions, and civil-rights litigation arising from the conviction. Long-running appeals from death-penalty or life-sentence cases routinely exceed this average several times over.</p>
+                    <ul class="tk2-method-list">
+                        <li><strong>Capital cases &mdash; ~$2,000,000.</strong> Death-penalty or aggravated/first-degree murder. Source: Death Penalty Information Center; Loyola Law School / Alarc&oacute;n &amp; Mitchell capital-cost study.</li>
+                        <li><strong>Complex federal &mdash; ~$400,000.</strong> RICO, terrorism, seditious conspiracy, espionage, FARA, continuing criminal enterprise. Source: DOJ OIG complex-prosecution reports.</li>
+                        <li><strong>Federal felony &mdash; ~$120,000.</strong> Standard federal felony. Source: Federal Judicial Center / Administrative Office of the U.S. Courts.</li>
+                        <li><strong>State violent felony &mdash; ~$80,000.</strong> Murder, manslaughter, assault, robbery, rape, kidnapping, arson.</li>
+                        <li><strong>State non-violent felony &mdash; ~$30,000.</strong> Drug offenses, fraud, theft, burglary, conspiracy, sabotage, property destruction.</li>
+                        <li><strong>Federal misdemeanor &mdash; ~$20,000.</strong></li>
+                        <li><strong>State misdemeanor &mdash; ~$5,000.</strong> Trespass, disorderly conduct, loitering, contempt. Source: BJS Census of State Court Prosecutors; Sixth Amendment Center indigent-defense reports.</li>
+                    </ul>
+
+                    <p><strong>Per-case appeals & post-conviction cost &mdash; also tier-graded.</strong> Capital appellate litigation (state and federal habeas, often spanning decades) runs ~$1.5M in 2020 dollars; complex federal appeals ~$150,000; ordinary federal felony appeals ~$60,000; state violent felony ~$50,000; state non-violent ~$25,000; misdemeanors $3,000-$8,000. Year-adjusted to arrest year. Applied only to cases with a populated <code>convicted</code>, <code>plead</code>, or <code>sentence</code> field &mdash; acquittals and dismissals stop the meter.</p>
 
                     <p><strong>Year-by-year priced.</strong> For continuous incarcerations that span multiple calendar years, each year&rsquo;s days are priced at that year&rsquo;s rate &mdash; not the rate at the start or the end. Internally we walk the period day-by-day across year boundaries and apply each year&rsquo;s rate separately.</p>
 
@@ -430,6 +440,11 @@
         .tk2-method p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.78); margin: 0 0 22px; max-width: 720px; }
         .tk2-method p strong { color: #fff; font-weight: 800; }
         .tk2-method a { color: #4dd9d2; text-decoration: underline; }
+        .tk2-method code { font-family: ui-monospace, Menlo, monospace; font-size: 13px; background: rgba(255,255,255,0.08); padding: 1px 6px; border-radius: 3px; color: #fff; }
+        .tk2-method-list { list-style: none; padding: 0; margin: 0 0 22px; max-width: 760px; }
+        .tk2-method-list li { font-size: 15px; line-height: 1.55; color: rgba(255,255,255,0.78); padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+        .tk2-method-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .tk2-method-list li strong { color: #fff; font-weight: 800; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
