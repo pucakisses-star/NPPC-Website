@@ -576,6 +576,12 @@
                 // we can pull it back when it drifts.
                 body.elem = el;
                 body.home = { x: cx, y: cy };
+                // Per-body phase offsets so each bubble sways on its own
+                // cycle (sinusoidal forces applied below in beforeUpdate).
+                body.swayPhaseX = Math.random() * Math.PI * 2;
+                body.swayPhaseY = Math.random() * Math.PI * 2;
+                body.swaySpeedX = 0.6 + Math.random() * 0.4; // rad/s
+                body.swaySpeedY = 0.4 + Math.random() * 0.4;
                 return body;
             });
             World.add(engine.world, bodies);
@@ -593,10 +599,20 @@
                         x: dx * k * body.mass,
                         y: dy * k * body.mass,
                     });
-                    // Subtle Brownian wobble.
+                    // Continuous balloon-style sway: two phase-offset
+                    // sinusoidal forces (x slower, y slightly faster)
+                    // so each bubble bobs gently around its home even
+                    // at rest. Phase + speed are per-body so the cluster
+                    // doesn't move in lockstep.
+                    const t = engine.timing.timestamp * 0.001; // seconds
                     Body.applyForce(body, body.position, {
-                        x: (Math.random() - 0.5) * 0.00002 * body.mass,
-                        y: (Math.random() - 0.5) * 0.00002 * body.mass,
+                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.00006 * body.mass,
+                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.00008 * body.mass,
+                    });
+                    // Tiny Brownian wobble on top of the sway for organic feel.
+                    Body.applyForce(body, body.position, {
+                        x: (Math.random() - 0.5) * 0.000008 * body.mass,
+                        y: (Math.random() - 0.5) * 0.000008 * body.mass,
                     });
 
                     // Buoyancy-toy uprighting: a spring torque toward
