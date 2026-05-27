@@ -135,19 +135,20 @@
                 <h2 class="tk2-shead">What goes into the total.</h2>
                 <p class="tk2-lede">Public money flows through five distinct buckets: federal-prison custody, state-prison custody, county- and city-jail custody, the prosecution itself, and post-conviction appellate and habeas litigation. Hover any bubble to read the running figure.</p>
 
-                <div class="tk2-bubbles">
-                    <div class="tk2-bubbles-inner">
+                <div class="tk2-bubbles" id="tk2-bubbles">
+                    <div class="tk2-bubbles-canvas" id="tk2-bubbles-canvas">
                         @foreach ($costBubbles as $b)
                             @php
                                 $ratio = sqrt(max(1, $b['value']) / max(1, $maxBubble));
                                 $size = max(110, round(360 * $ratio));
                             @endphp
-                            <div class="tk2-bubble tk2-bubble-{{ $b['shade'] }}" style="width: {{ $size }}px; height: {{ $size }}px;" title="{{ $b['label'] }}: ${{ number_format($b['value']) }}">
+                            <div class="tk2-bubble tk2-bubble-{{ $b['shade'] }}" data-radius="{{ round($size / 2) }}" style="width: {{ $size }}px; height: {{ $size }}px;">
                                 <div class="tk2-bubble-label">{{ $b['label'] }}</div>
                                 <div class="tk2-bubble-value">${{ number_format($b['value']) }}</div>
                             </div>
                         @endforeach
                     </div>
+                    <p class="tk2-bubbles-hint">Drag the bubbles &mdash; they collide, bounce, and settle.</p>
                 </div>
             </section>
 
@@ -356,21 +357,22 @@
         .tk2-quote blockquote::after { content: '\201D'; }
         .tk2-quote figcaption { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
 
-        /* COST BREAKDOWN BUBBLES */
+        /* COST BREAKDOWN BUBBLES — physics-driven, draggable */
         .tk2-bubbles { padding: 24px 0 8px; }
-        .tk2-bubbles-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-height: 380px; }
-        .tk2-bubble { border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; color: #06303d; transition: transform 0.2s; cursor: default; box-sizing: border-box; }
-        .tk2-bubble:hover { transform: scale(1.04); }
+        .tk2-bubbles-canvas { position: relative; width: 100%; height: 540px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px; color: #06303d; cursor: grab; box-sizing: border-box; will-change: transform; }
+        .tk2-bubble:active { cursor: grabbing; }
         .tk2-bubble-a { background: #06766e; color: #fff; }
         .tk2-bubble-b { background: #2aa098; color: #fff; }
         .tk2-bubble-c { background: #54b8b1; color: #06303d; }
         .tk2-bubble-d { background: #8ed1cc; color: #06303d; }
         .tk2-bubble-e { background: #b4dfdb; color: #06303d; }
-        .tk2-bubble-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(11px, 0.95vw, 15px); line-height: 1.15; padding: 0 8px; margin-bottom: 4px; max-width: 88%; }
-        .tk2-bubble-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(13px, 1.4vw, 22px); line-height: 1; font-variant-numeric: tabular-nums; }
+        .tk2-bubble-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(11px, 0.95vw, 15px); line-height: 1.15; padding: 0 8px; margin-bottom: 4px; max-width: 88%; pointer-events: none; }
+        .tk2-bubble-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(13px, 1.4vw, 22px); line-height: 1; font-variant-numeric: tabular-nums; pointer-events: none; }
+        .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 16px 0 0; font-style: italic; }
         @media (max-width: 700px) {
-            .tk2-bubbles-inner { gap: 6px; min-height: auto; }
-            .tk2-bubble { transform: scale(0.85); }
+            .tk2-bubbles-canvas { height: 420px; }
+            .tk2-bubble { transform-origin: top left; }
         }
 
         /* BREAKDOWN BARS */
@@ -477,5 +479,94 @@
                 animate();
             }
         })();
+    </script>
+
+    {{-- Physics-driven, draggable cost-breakdown bubbles --}}
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js" defer></script>
+    <script>
+        window.addEventListener('load', function () {
+            if (typeof Matter === 'undefined') return;
+            const canvas = document.getElementById('tk2-bubbles-canvas');
+            if (! canvas) return;
+            const bubbles = Array.from(canvas.querySelectorAll('.tk2-bubble'));
+            if (! bubbles.length) return;
+
+            const { Engine, World, Bodies, Body, Mouse, MouseConstraint, Runner } = Matter;
+            const engine = Engine.create();
+            engine.gravity.y = 0.6;
+
+            let width = canvas.clientWidth;
+            let height = canvas.clientHeight;
+
+            // Walls (floor + sides + ceiling). Keep references so we can rebuild on resize.
+            const wallOpts = { isStatic: true, render: { visible: false } };
+            let walls = [];
+            const buildWalls = () => {
+                if (walls.length) World.remove(engine.world, walls);
+                walls = [
+                    Bodies.rectangle(width / 2, height + 30, width + 100, 60, wallOpts),
+                    Bodies.rectangle(-30, height / 2, 60, height + 200, wallOpts),
+                    Bodies.rectangle(width + 30, height / 2, 60, height + 200, wallOpts),
+                    Bodies.rectangle(width / 2, -120, width + 100, 60, wallOpts),
+                ];
+                World.add(engine.world, walls);
+            };
+            buildWalls();
+
+            // Bubble bodies. Stagger initial positions so they drop in instead of stacking.
+            const bodies = bubbles.map((el, i) => {
+                const r = parseInt(el.dataset.radius, 10) || (el.offsetWidth / 2);
+                const x = Math.max(r + 8, Math.min(width - r - 8, (width / (bubbles.length + 1)) * (i + 1)));
+                const y = -r * (1 + i * 0.8);
+                const body = Bodies.circle(x, y, r, {
+                    restitution: 0.55,
+                    friction: 0.02,
+                    frictionAir: 0.008,
+                    density: 0.0012,
+                });
+                body.elem = el;
+                return body;
+            });
+            World.add(engine.world, bodies);
+
+            // Mouse drag — Matter.js MouseConstraint handles touch automatically.
+            const mouse = Mouse.create(canvas);
+            const mouseConstraint = MouseConstraint.create(engine, {
+                mouse,
+                constraint: { stiffness: 0.15, render: { visible: false } },
+            });
+            World.add(engine.world, mouseConstraint);
+
+            // Let page-level scrolling work over the canvas (Matter's mouse
+            // wheel handler swallows it by default).
+            mouse.element.removeEventListener('wheel', mouse.mousewheel);
+
+            // Sync DOM transforms to physics each frame.
+            (function tick() {
+                bodies.forEach(body => {
+                    const r = body.circleRadius;
+                    body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px) rotate(${body.angle}rad)`;
+                });
+                requestAnimationFrame(tick);
+            })();
+
+            Runner.run(Runner.create(), engine);
+
+            // Resize: re-measure container, move walls, nudge bubbles back into bounds.
+            let resizeTO = null;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTO);
+                resizeTO = setTimeout(() => {
+                    width = canvas.clientWidth;
+                    height = canvas.clientHeight;
+                    buildWalls();
+                    bodies.forEach(body => {
+                        const r = body.circleRadius;
+                        if (body.position.x < r) Body.setPosition(body, { x: r + 4, y: body.position.y });
+                        if (body.position.x > width - r) Body.setPosition(body, { x: width - r - 4, y: body.position.y });
+                    });
+                }, 150);
+            });
+        });
     </script>
 @endsection
