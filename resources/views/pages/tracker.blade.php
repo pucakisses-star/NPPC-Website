@@ -566,11 +566,10 @@
                     friction: 0,
                     frictionAir: 0.08,
                     density: 0.001,
-                    // Lock rotation: infinite moment of inertia means
-                    // collisions and drags translate the body but can't
-                    // spin it, so the label stays upright.
-                    inertia: Infinity,
-                    inverseInertia: 0,
+                    // Rotation is allowed but a per-tick restoring torque
+                    // applied below keeps each bubble naturally upright —
+                    // like a weighted bath toy: you can spin it, but it
+                    // wobbles back to label-up on its own.
                 });
                 // Remember each body's "home" point (centre of canvas) so
                 // we can pull it back when it drifts.
@@ -598,6 +597,17 @@
                         x: (Math.random() - 0.5) * 0.00002 * body.mass,
                         y: (Math.random() - 0.5) * 0.00002 * body.mass,
                     });
+
+                    // Buoyancy-toy uprighting: a spring torque toward
+                    // angle 0 plus angular damping. Bumping a bubble
+                    // can tilt it, but it wobbles back to label-up
+                    // within a second or so.
+                    let a = body.angle % (Math.PI * 2);
+                    if (a >  Math.PI) a -= Math.PI * 2;
+                    if (a < -Math.PI) a += Math.PI * 2;
+                    const restore = -a * body.mass * 0.0035;
+                    const damping = -body.angularVelocity * body.mass * 0.025;
+                    body.torque += restore + damping;
                 });
             });
 
@@ -643,7 +653,7 @@
             (function tick() {
                 bodies.forEach(body => {
                     const r = body.circleRadius;
-                    body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px)`;
+                    body.elem.style.transform = `translate(${body.position.x - r}px, ${body.position.y - r}px) rotate(${body.angle}rad)`;
                 });
                 if (hoverBody && tip && ! tip.hidden) {
                     tip.style.transform = `translate(calc(${hoverBody.position.x}px - 50%), calc(${hoverBody.position.y - hoverBody.circleRadius}px - 100% - 14px))`;
