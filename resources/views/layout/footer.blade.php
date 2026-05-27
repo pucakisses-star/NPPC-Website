@@ -66,7 +66,7 @@
 </div>
 
 <style>
-    #app-footer-v2 { background: #0a0a1f; color: #fff; }
+    #app-footer-v2 { background: #000; color: #fff; }
     #app-footer-v2 .f2 { font-family: inherit; }
     #app-footer-v2 .f2-inner { max-width: 1500px; margin: 0 auto; padding: 80px 32px 40px; }
 
