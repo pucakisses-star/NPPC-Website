@@ -335,8 +335,11 @@
 
         /* HERO */
         .tk2-hero { position: relative; max-width: 1380px; margin: 0 auto; padding: 0 32px; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
-        .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-        .tk2-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.65) 100%); pointer-events: none; }
+        .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; z-index: 0; }
+        /* Dot-matrix overlay — fine white dots scattered across the photo
+           to give it the same printed-newsprint texture the old hero had. */
+        .tk2-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.2px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
+        .tk2-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.65) 100%); pointer-events: none; z-index: 2; }
         .tk2-hero-title { position: relative; z-index: 3; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
 
         /* CORAL BANNER WITH BIG NUMBER */
