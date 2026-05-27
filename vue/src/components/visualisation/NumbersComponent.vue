@@ -164,7 +164,7 @@ const sumElements: Array<IDisplayElement> = [
   <section id="stats-component">
     <div class="" id="counters">
       <template v-for="element in sumElements" :key="element.key">
-      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-24 md:mb-32" v-if="sumCounts[element.key] > 0">
+      <div class="counter flex-col-reverse md:flex-row flex md:justify-between mb-10 md:mb-12" v-if="sumCounts[element.key] > 0">
         <div class="w-full md:w-1/2 text-left">
           <div class="counter-label title-label"><sub>collective</sub>{{element.label}}</div>
           <div class="counter-info pr-16"><p>{{element.info}}</p></div>
@@ -177,7 +177,7 @@ const sumElements: Array<IDisplayElement> = [
     </div>
 
     <div id="charts">
-      <div class="chart mb-24 md:mb-32 flex-col-reverse md:flex-row flex md:justify-between">
+      <div class="chart mb-10 md:mb-12 flex-col-reverse md:flex-row flex md:justify-between">
         <div class="w-full md:w-1/2 text-left">
           <div class="chart-label title-label">Racial Composition</div>
           <div><p v-html="raceInfo"></p></div>
@@ -187,7 +187,7 @@ const sumElements: Array<IDisplayElement> = [
         </div>
       </div>
 
-      <div class="chart mb-24 md:mb-32 flex-col-reverse md:flex-row flex md:justify-between">
+      <div class="chart mb-10 md:mb-12 flex-col-reverse md:flex-row flex md:justify-between">
         <div class="w-full md:w-1/2 chart-value mb-12">
           <DoughnutChart :options="chartOptions" :chartData="chartDataGender" />
         </div>
@@ -200,7 +200,7 @@ const sumElements: Array<IDisplayElement> = [
 
     <div class="" id="counters-small">
       <template v-for="element in sumElementsSmallNumbers" :key="element.key">
-      <div class="counter block md:flex md:justify-between mb-24 md:mb-32" v-if="sumCounts[element.key] > 0">
+      <div class="counter block md:flex md:justify-between mb-10 md:mb-12" v-if="sumCounts[element.key] > 0">
         <div class="w-full md:w-2/5  counter-value">
           <AnimatedNumber :value="sumCounts[element.key] || 0" />
         </div>
@@ -228,7 +228,7 @@ p {
 #stats-component {
   background: #000;
   color:#FFF;
-  padding: 5rem 0 2rem;
+  padding: 3rem 0 1.5rem;
 }
 
 .title-label {
