@@ -134,7 +134,7 @@
             <section id="breakdown" class="tk2-section">
                 <div class="tk2-snum">02</div>
                 <h2 class="tk2-shead">What goes into the total.</h2>
-                <p class="tk2-lede">Public money flows through five distinct buckets: federal-prison custody, state-prison custody, county- and city-jail custody, the prosecution itself, and post-conviction appellate and habeas litigation. Hover any bubble to read the running figure.</p>
+                <p class="tk2-lede">Public money flows through six distinct buckets: federal-prison custody, state-prison custody, county- and city-jail custody, the investigation that precedes the prosecution (FBI surveillance, JTTF stings, COINTELPRO-style programs), the prosecution itself, and post-conviction appellate and habeas litigation. Drag any bubble to see how the pieces compare.</p>
 
                 <div class="tk2-bubbles" id="tk2-bubbles">
                     <div class="tk2-bubbles-canvas" id="tk2-bubbles-canvas">
@@ -283,6 +283,8 @@
 
                     <p><strong>Local jail rates.</strong> County and city jails are priced at the BJS Survey of Jails national average ($34,700/year as of 2020), rolled back through history the same way as state rates. Jails are typically cheaper per day than state prisons because much of the population is pre-trial or short-stay.</p>
 
+                    <p><strong>Per-case investigation cost &mdash; tier-graded.</strong> The investigation bucket covers the money spent before a case becomes a prosecution: FBI surveillance and informants, Joint Terrorism Task Force stings, COINTELPRO programs (Black nationalist, New Left, White Hate, SWP, CP), the post-9/11 frame-up cases (Newburgh 4, Liberty City 7, Fort Dix 5, Cromitie sting), state-police intelligence units, and grand-jury empanelment time. Tier figures (2020 USD, then rolled back to arrest year): capital cases ~$1,500,000; complex federal (RICO / terrorism / sedition / espionage / FARA / CCE) ~$500,000; ordinary federal felony ~$150,000; state violent ~$50,000; state non-violent ~$15,000; federal misdemeanor ~$5,000; state misdemeanor ~$1,500. Sources: Church Committee Final Report (1976, books II-VI) on COINTELPRO operational budgets; GAO and DOJ OIG reports on FBI investigative expenditure; Brennan Center for Justice and ACLU analyses of post-9/11 JTTF per-target costs; Center for Investigative Reporting / Mother Jones analyses of FBI informant-network expenditure ($3.3B since 2001 across all national-security investigations).</p>
+
                     <p><strong>Per-case prosecution cost &mdash; tier-graded.</strong> A capital-murder trial does not cost the same as a trespass prosecution. We classify each case from its <code>charges</code> and <code>sentence</code> text into one of seven tiers and price it accordingly (all figures in 2020 dollars, then rolled back to the arrest year):</p>
 
                     <ul class="tk2-method-list">
@@ -383,6 +385,7 @@
         .tk2-bubble-c { background: #54b8b1; color: #06303d; }
         .tk2-bubble-d { background: #8ed1cc; color: #06303d; }
         .tk2-bubble-e { background: #b4dfdb; color: #06303d; }
+        .tk2-bubble-f { background: #073b3a; color: #fff; }
         .tk2-bubble-label { font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(11px, 0.95vw, 15px); line-height: 1.15; padding: 0 8px; margin-bottom: 4px; max-width: 88%; pointer-events: none; }
         .tk2-bubble-value { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: clamp(13px, 1.4vw, 22px); line-height: 1; font-variant-numeric: tabular-nums; pointer-events: none; }
         .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 16px 0 0; font-style: italic; }
