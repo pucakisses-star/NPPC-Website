@@ -67,7 +67,7 @@
 
         {{-- HERO — single composite portrait of political prisoners --}}
         <section class="tk2-hero">
-            <img class="tk2-hero-img" src="/images/tracker-hero.jpg" alt="" aria-hidden="true">
+            <img class="tk2-hero-img" src="/images/tracker-hero.png" alt="" aria-hidden="true">
             <h1 class="tk2-hero-title">The Price of Political Prosecution</h1>
         </section>
 
