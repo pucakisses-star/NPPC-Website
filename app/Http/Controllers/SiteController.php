@@ -12,6 +12,8 @@ use App\Models\HistoryEra;
 use App\Models\Page;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
+use App\Support\IncarcerationCostRates;
+use Carbon\Carbon;
 use App\Models\Product;
 use App\Models\Staff;
 use App\Models\Timeline;
@@ -430,23 +432,12 @@ final class SiteController extends Controller {
         $inScopePrisonerIds = $cases->pluck('prisoner_id')->unique()->flip();
         $prisoners = $allPrisoners->filter(fn ($p) => isset($inScopePrisonerIds[$p->id]))->values();
 
-        // ── Cost assumptions ─────────────────────────────────────────────
-        // Per-day incarceration rates (blended from Vera Institute's
-        // "Price of Prisons" series, BOP's Annual Determination of
-        // Average Cost of Incarceration Fee, and BJS county-jail data).
-        $federalDailyCost = 130;   // ~$47,400/year — BOP FY24 figure
-        $stateDailyCost   = 105;   // ~$38,300/year — Vera 50-state median
-        $localDailyCost   = 95;    // ~$34,700/year — BJS jail average
-
-        // Per-case prosecution cost (federal+state felony blend, BJS).
-        // Political cases typically run higher — this floor understates.
-        $costPerProsecution = 80000;
-
-        // Post-conviction legal cost: appeals, habeas, civil-rights
-        // suits. Applied only to cases that resulted in a conviction or
-        // sentence, since acquittals/dismissals stop the meter.
-        $costPerAppeal = 45000;
-        // ─────────────────────────────────────────────────────────────────
+        // ── Cost model ────────────────────────────────────────────────
+        // Year-aware, state-aware. See App\Support\IncarcerationCostRates
+        // for the underlying data tables (state DOC budgets, BOP Federal
+        // Register annual rates, BJS jail averages) and the year-of-
+        // incarceration adjustment factor.
+        // ─────────────────────────────────────────────────────────────
 
         $totalDaysImprisoned = (int) $cases->sum('imprisoned_for_days');
         $totalDaysInExile = (int) $cases->sum('in_exile_for_days');
@@ -454,31 +445,76 @@ final class SiteController extends Controller {
         $totalPrisoners = $prisoners->count();
         $totalCases = $cases->count();
 
-        // Classify each case as federal / state / local from its
-        // institution name, then sum days into the matching bucket.
+        // Helper: classify a case into federal / state / local from its
+        // institution (preferring the structured institution_id columns,
+        // falling back to name regex if state is empty on the row).
+        $classify = function ($case): array {
+            $inst = $case->institution;
+            $name = (string) optional($inst)->name;
+            $state = strtoupper((string) optional($inst)->state);
+
+            if ($name !== '' && preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $name)) {
+                return ['bucket' => 'federal', 'state' => null];
+            }
+            if ($name !== '' && preg_match('/\b(county jail|city jail|municipal|holding facility)\b/i', $name)) {
+                return ['bucket' => 'local', 'state' => $state ?: null];
+            }
+            return ['bucket' => 'state', 'state' => $state ?: null];
+        };
+
+        $costFederalIncarceration = 0.0;
+        $costStateIncarceration   = 0.0;
+        $costLocalIncarceration   = 0.0;
+        $costOfProsecution        = 0.0;
+        $costOfAppeals            = 0.0;
         $federalDays = 0; $stateDays = 0; $localDays = 0;
         $convictedCases = 0;
+
         foreach ($cases as $c) {
+            $cls = $classify($c);
+            $bucket = $cls['bucket'];
+            $state  = $cls['state'];
+
             $days = (int) ($c->imprisoned_for_days ?? 0);
-            $instName = (string) optional($c->institution)->name;
             if ($days > 0) {
-                if (preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $instName)) {
-                    $federalDays += $days;
-                } elseif (preg_match('/\b(county jail|city jail|municipal|MDC|department of correction.*county|holding facility)\b/i', $instName)) {
-                    $localDays += $days;
-                } else {
-                    $stateDays += $days; // default bucket
-                }
+                if ($bucket === 'federal')   $federalDays += $days;
+                elseif ($bucket === 'local') $localDays   += $days;
+                else                          $stateDays   += $days;
             }
-            $convicted = (string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '';
-            if ($convicted) $convictedCases++;
+
+            // Anchor dates: incarceration_date → release_date (or today),
+            // falling back to arrest_date if incarceration_date is null.
+            $start = $c->incarceration_date ?: $c->arrest_date;
+            $end   = $c->release_date ?: null;
+
+            $startC = $start ? Carbon::parse($start) : null;
+            $endC   = $end   ? Carbon::parse($end)   : null;
+
+            $incCost = IncarcerationCostRates::costForPeriod($bucket, $state, $startC, $endC, $days);
+            if ($bucket === 'federal')   $costFederalIncarceration += $incCost;
+            elseif ($bucket === 'local') $costLocalIncarceration   += $incCost;
+            else                         $costStateIncarceration   += $incCost;
+
+            // Prosecution + appeals cost priced at the arrest year so an
+            // older case isn't billed at modern rates.
+            $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
+            $costOfProsecution += IncarcerationCostRates::prosecutionCost($arrestYear);
+
+            $convicted = (string) ($c->convicted ?? '') !== ''
+                || (string) ($c->plead ?? '') !== ''
+                || (string) ($c->sentence ?? '') !== '';
+            if ($convicted) {
+                $costOfAppeals += IncarcerationCostRates::appealsCost($arrestYear);
+                $convictedCases++;
+            }
         }
 
-        $costFederalIncarceration = $federalDays * $federalDailyCost;
-        $costStateIncarceration   = $stateDays   * $stateDailyCost;
-        $costLocalIncarceration   = $localDays   * $localDailyCost;
-        $costOfProsecution        = $totalCases     * $costPerProsecution;
-        $costOfAppeals            = $convictedCases * $costPerAppeal;
+        // Round once for display; internal sums kept as floats above.
+        $costFederalIncarceration = (int) round($costFederalIncarceration);
+        $costStateIncarceration   = (int) round($costStateIncarceration);
+        $costLocalIncarceration   = (int) round($costLocalIncarceration);
+        $costOfProsecution        = (int) round($costOfProsecution);
+        $costOfAppeals            = (int) round($costOfAppeals);
 
         $totalCost = $costFederalIncarceration + $costStateIncarceration + $costLocalIncarceration
                    + $costOfProsecution + $costOfAppeals;
@@ -505,25 +541,23 @@ final class SiteController extends Controller {
         $costByIdeology = [];
         foreach ($prisoners as $p) {
             $set = $casesByPrisoner->get($p->id) ?? collect();
-            $cost = 0;
+            $cost = 0.0;
             foreach ($set as $c) {
+                $cls = $classify($c);
                 $days = (int) ($c->imprisoned_for_days ?? 0);
-                $instName = (string) optional($c->institution)->name;
-                if (preg_match('/\b(federal|FCI|USP|ADX|FMC|FDC|MDC|MCC|FCC|U\.S\.\s*Penit|United States Penit|U\.S\. District|Bureau of Prisons|BOP)\b/i', $instName)) {
-                    $cost += $days * $federalDailyCost;
-                } elseif (preg_match('/\b(county jail|city jail|municipal|holding facility)\b/i', $instName)) {
-                    $cost += $days * $localDailyCost;
-                } else {
-                    $cost += $days * $stateDailyCost;
-                }
-                $cost += $costPerProsecution;
+                $start = $c->incarceration_date ?: $c->arrest_date;
+                $startC = $start ? Carbon::parse($start) : null;
+                $endC   = $c->release_date ? Carbon::parse($c->release_date) : null;
+                $cost  += IncarcerationCostRates::costForPeriod($cls['bucket'], $cls['state'], $startC, $endC, $days);
+                $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
+                $cost  += IncarcerationCostRates::prosecutionCost($arrestYear);
                 if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
-                    $cost += $costPerAppeal;
+                    $cost += IncarcerationCostRates::appealsCost($arrestYear);
                 }
             }
             if (! $cost) continue;
             foreach (((array) $p->ideologies) ?: ['Unclassified'] as $ideology) {
-                $costByIdeology[$ideology] = ($costByIdeology[$ideology] ?? 0) + $cost;
+                $costByIdeology[$ideology] = ($costByIdeology[$ideology] ?? 0) + (int) round($cost);
             }
         }
         arsort($costByIdeology);
@@ -534,6 +568,27 @@ final class SiteController extends Controller {
             ->sortByDesc(fn ($p) => $casesByPrisoner->get($p->id)?->min('arrest_date') ?? '')
             ->take(8)
             ->values();
+
+        // Per-prisoner cost for the active-cards (year-aware, state-aware).
+        $activeCaseCosts = [];
+        foreach ($activeCases as $p) {
+            $set = $casesByPrisoner->get($p->id) ?? collect();
+            $cost = 0.0;
+            foreach ($set as $c) {
+                $cls   = $classify($c);
+                $days  = (int) ($c->imprisoned_for_days ?? 0);
+                $start = $c->incarceration_date ?: $c->arrest_date;
+                $startC = $start ? Carbon::parse($start) : null;
+                $endC   = $c->release_date ? Carbon::parse($c->release_date) : null;
+                $cost += IncarcerationCostRates::costForPeriod($cls['bucket'], $cls['state'], $startC, $endC, $days);
+                $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
+                $cost += IncarcerationCostRates::prosecutionCost($arrestYear);
+                if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
+                    $cost += IncarcerationCostRates::appealsCost($arrestYear);
+                }
+            }
+            $activeCaseCosts[$p->id] = (int) round($cost);
+        }
 
         // firstYear is fixed at the cutoff — every figure on the page is
         // scoped to cases on or after this date.
@@ -555,19 +610,21 @@ final class SiteController extends Controller {
             ->take(4)
             ->values();
 
+        // Display-only sample rates surfaced in the methodology copy.
+        $methodFedRateRange  = ['min' => 36, 'max' => (int) round(IncarcerationCostRates::federalDaily((int) date('Y'))), 'minYear' => 1985, 'maxYear' => (int) date('Y')];
+
         return view('pages.tracker', compact(
             'totalDaysImprisoned', 'totalDaysInExile',
             'inCustody', 'inExile', 'released', 'awaitingTrial',
             'costByIdeology', 'activeCases', 'totalPrisoners', 'totalCases', 'firstYear',
-            'casesByPrisoner',
+            'casesByPrisoner', 'activeCaseCosts',
             'earliestCase', 'earliestPrisoner', 'newestActiveCase', 'newestActivePrisoner',
             'heroPrisoners',
             'costOfIncarceration', 'costOfProsecution', 'totalCost',
             'costFederalIncarceration', 'costStateIncarceration', 'costLocalIncarceration',
             'costOfAppeals',
-            'costBubbles',
-            'federalDailyCost', 'stateDailyCost', 'localDailyCost',
-            'costPerProsecution', 'costPerAppeal',
+            'costBubbles', 'windowYears', 'methodFedRateRange',
+            'federalDays', 'stateDays', 'localDays',
         ));
     }
 
