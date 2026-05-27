@@ -185,7 +185,7 @@ final class SiteController extends Controller {
         $records = $query->paginate(25)->withQueryString();
         $total = $records->total();
 
-        return view('pages.archive-records', compact(
+        return view('pages.archive', compact(
             'records',
             'facets',
             'total',
