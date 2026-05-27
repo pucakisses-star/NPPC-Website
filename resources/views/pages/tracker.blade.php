@@ -7,20 +7,26 @@
      * @var int $inExile
      * @var int $released
      * @var int $awaitingTrial
-     * @var array<string, int> $daysByIdeology
+     * @var array<string, int> $costByIdeology
      * @var \Illuminate\Support\Collection $activeCases
      * @var \Illuminate\Support\Collection $casesByPrisoner
      * @var int $totalPrisoners
+     * @var int $totalCases
      * @var int $firstYear
      * @var ?\App\Models\PrisonerCase $earliestCase
      * @var ?\App\Models\Prisoner $earliestPrisoner
      * @var ?\App\Models\PrisonerCase $newestActiveCase
      * @var ?\App\Models\Prisoner $newestActivePrisoner
      * @var \Illuminate\Support\Collection $heroPrisoners
+     * @var int $costOfIncarceration
+     * @var int $costOfProsecution
+     * @var int $totalCost
+     * @var int $costPerDay
+     * @var int $costPerProsecution
      */
     $now = \Carbon\Carbon::now();
     $sinceYears = $firstYear ? $now->year - $firstYear : 0;
-    $maxIdeologyDays = max(array_values($daysByIdeology) ?: [1]);
+    $maxIdeologyCost = max(array_values($costByIdeology) ?: [1]);
 @endphp
 
 @extends('app')
@@ -57,20 +63,20 @@
                 @endforeach
                 <div class="tk2-hero-halftone"></div>
             </div>
-            <h1 class="tk2-hero-title">The Cost of Political Imprisonment</h1>
+            <h1 class="tk2-hero-title">The Price of Political Prosecution</h1>
         </section>
 
         <section class="tk2-banner">
             <div class="tk2-banner-inner">
-                <div class="tk2-banner-num" data-tk-counter="{{ $totalDaysLost }}">0</div>
+                <div class="tk2-banner-num"><span class="tk2-banner-sign">$</span><span data-tk-counter="{{ $totalCost }}">0</span></div>
             </div>
         </section>
 
-        <p class="tk2-banner-sub">Days of life lost to U.S. political imprisonment and exile across the {{ number_format($totalPrisoners) }} documented cases &mdash; over the past {{ $sinceYears }} years.</p>
+        <p class="tk2-banner-sub">Public dollars spent prosecuting and incarcerating the {{ number_format($totalPrisoners) }} U.S. political prisoners documented by the NPPC &mdash; over the past {{ $sinceYears }} years.</p>
 
         <div class="tk2-share-bar">
             <span>Share</span>
-            <a href="https://twitter.com/intent/tweet?text={{ urlencode('The Cost of Political Imprisonment — '.number_format($totalDaysLost).' days lost.') }}&url={{ urlencode(url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on X / Twitter">
+            <a href="https://twitter.com/intent/tweet?text={{ urlencode('The Price of Political Prosecution — $'.number_format($totalCost).' spent prosecuting and incarcerating U.S. political prisoners.') }}&url={{ urlencode(url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on X / Twitter">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
@@ -86,20 +92,20 @@
             {{-- 01 THE TOLL --}}
             <section id="toll" class="tk2-section">
                 <div class="tk2-snum">01</div>
-                <h2 class="tk2-shead">Counting the days political imprisonment takes from a life.</h2>
-                <p class="tk2-lede">For every documented U.S. political prisoner the NPPC tracks, we record what their case has cost: days in custody, days awaiting trial, days under post-release supervision, days in forced exile. The counter above is the running sum across the entire archive. It updates whenever a new case is added or an incarceration record is amended &mdash; nothing is rounded or amortized.</p>
+                <h2 class="tk2-shead">Pricing out a century of political prosecution.</h2>
+                <p class="tk2-lede">For every documented U.S. political prisoner the NPPC tracks, we estimate two public-dollar costs: the prosecution itself and the days subsequently spent in custody. Multiply per-day incarceration costs by {{ number_format($totalDaysImprisoned) }} documented days behind bars, add an average prosecution cost per case across {{ number_format($totalCases) }} cases, and the running total above is what U.S. taxpayers have spent confining political speech, protest, and movement organizing since {{ $firstYear }}. See <a href="#methodology">How we count</a> for assumptions.</p>
 
                 <div class="tk2-bignums">
                     <div class="tk2-bignum">
-                        <div class="tk2-bignum-value">{{ number_format($totalDaysImprisoned) }}</div>
-                        <div class="tk2-bignum-label">Days in custody</div>
+                        <div class="tk2-bignum-value">${{ number_format($costOfIncarceration) }}</div>
+                        <div class="tk2-bignum-label">Cost of incarceration</div>
                     </div>
                     <div class="tk2-bignum">
-                        <div class="tk2-bignum-value">{{ number_format($totalDaysInExile) }}</div>
-                        <div class="tk2-bignum-label">Days in exile</div>
+                        <div class="tk2-bignum-value">${{ number_format($costOfProsecution) }}</div>
+                        <div class="tk2-bignum-label">Cost of prosecution</div>
                     </div>
                     <div class="tk2-bignum">
-                        <div class="tk2-bignum-value">{{ number_format($totalPrisoners) }}</div>
+                        <div class="tk2-bignum-value">{{ number_format($totalCases) }}</div>
                         <div class="tk2-bignum-label">Documented cases</div>
                     </div>
                     <div class="tk2-bignum">
@@ -117,16 +123,16 @@
             {{-- 02 BY MOVEMENT --}}
             <section id="movement" class="tk2-section">
                 <div class="tk2-snum">02</div>
-                <h2 class="tk2-shead">Where the time went.</h2>
-                <p class="tk2-lede">Breaking the running total down by ideology shows which movements have absorbed the heaviest share of the cost. A single case can be tagged with more than one movement, so the bars below overlap rather than partition the total.</p>
+                <h2 class="tk2-shead">Where the money went.</h2>
+                <p class="tk2-lede">Breaking the dollar total down by ideology shows which movements have been the most expensive for the state to prosecute and confine. A single case can be tagged with more than one movement, so the bars below overlap rather than partition the total.</p>
 
                 <div class="tk2-bars">
-                    @foreach ($daysByIdeology as $ideology => $days)
-                        @php $pct = max(2, round(($days / $maxIdeologyDays) * 100)); @endphp
+                    @foreach ($costByIdeology as $ideology => $cost)
+                        @php $pct = max(2, round(($cost / $maxIdeologyCost) * 100)); @endphp
                         <a class="tk2-bar" href="/database?ideologies%5B%5D={{ urlencode($ideology) }}">
                             <div class="tk2-bar-label">{{ $ideology }}</div>
                             <div class="tk2-bar-track"><div class="tk2-bar-fill" style="width: {{ $pct }}%"></div></div>
-                            <div class="tk2-bar-value">{{ number_format($days) }} <span>days</span></div>
+                            <div class="tk2-bar-value">${{ number_format($cost) }}</div>
                         </a>
                     @endforeach
                 </div>
@@ -195,6 +201,7 @@
                             $caseSet = $casesByPrisoner->get($p->id);
                             $earliest = $caseSet?->min('arrest_date');
                             $days = (int) ($caseSet?->sum('imprisoned_for_days') ?? 0);
+                            $cost = $days * $costPerDay + ($caseSet?->count() ?? 0) * $costPerProsecution;
                         @endphp
                         <a class="tk2-acard" href="/prisoner/{{ $p->slug }}">
                             @if ($p->photo_url)
@@ -206,8 +213,8 @@
                             @if ($earliest)
                                 <div class="tk2-acard-meta">Arrested {{ \Carbon\Carbon::parse($earliest)->format('M Y') }}</div>
                             @endif
-                            @if ($days > 0)
-                                <div class="tk2-acard-days">{{ number_format($days) }} <span>days</span></div>
+                            @if ($cost > 0)
+                                <div class="tk2-acard-days">${{ number_format($cost) }}<span>&nbsp;spent</span></div>
                             @endif
                         </a>
                     @endforeach
@@ -222,9 +229,16 @@
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
+
+                    <p><strong>Per-day incarceration cost: ${{ number_format($costPerDay) }}.</strong> This is a blended federal-plus-state average drawn from the Vera Institute&rsquo;s <em>Price of Prisons</em> series and the Federal Bureau of Prisons&rsquo; <em>Annual Determination of Average Cost of Incarceration Fee</em>. ${{ number_format($costPerDay) }}/day works out to roughly ${{ number_format($costPerDay * 365) }}/year &mdash; a defensible midpoint across the federal system and 50 states over the period this archive covers. State-by-state figures range from roughly $20,000 to $90,000+ per year.</p>
+
+                    <p><strong>Per-case prosecution cost: ${{ number_format($costPerProsecution) }}.</strong> Drawn from Bureau of Justice Statistics reporting on federal and state felony prosecution costs, blended to a conservative midpoint. Political cases typically run higher than this floor because of specialized AUSA time, classified-evidence handling, and multi-jurisdictional grand juries, so the figure here understates rather than overstates the true public expenditure.</p>
+
                     <p><strong>Days counted.</strong> For each case we compute calendar days between the earliest documented arrest, incarceration, or exile date and the matching release date (or today, if still active). Time on parole, supervised release, and house arrest is included when our source material treats it as continuing custody.</p>
+
                     <p><strong>Sourcing.</strong> Cases are built from court records, FBI files released under FOIA, contemporary movement press, oral histories, and the archives of long-running support organizations.</p>
-                    <p><strong>Updates.</strong> Numbers refresh on every page load &mdash; nothing here is cached longer than the underlying database. If you see a case missing or a date that&rsquo;s off, <a href="/form/contact">tell us</a>.</p>
+
+                    <p><strong>Updates.</strong> Numbers refresh on every page load &mdash; nothing here is cached longer than the underlying database. If you see a case missing or a cost assumption you&rsquo;d challenge, <a href="/form/contact">tell us</a>.</p>
                 </div>
             </section>
 
@@ -263,7 +277,8 @@
         /* CORAL BANNER WITH BIG NUMBER */
         .tk2-banner { background: #f25c54; padding: 36px 32px 28px; }
         .tk2-banner-inner { max-width: 1380px; margin: 0 auto; text-align: center; }
-        .tk2-banner-num { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1; letter-spacing: -0.04em; color: #0a0a0a; font-variant-numeric: tabular-nums; }
+        .tk2-banner-num { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1; letter-spacing: -0.04em; color: #0a0a0a; font-variant-numeric: tabular-nums; display: inline-flex; align-items: baseline; }
+        .tk2-banner-sign { font-size: 0.7em; margin-right: 0.05em; font-weight: 900; }
         .tk2-banner-sub { text-align: center; font-size: 16px; line-height: 1.5; color: #fff; max-width: 720px; margin: 24px auto 16px; padding: 0 32px; font-weight: 700; }
 
         /* SHARE BAR */

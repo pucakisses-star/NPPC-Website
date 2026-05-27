@@ -407,28 +407,53 @@ final class SiteController extends Controller {
         $prisoners = Prisoner::all();
         $cases = PrisonerCase::all();
 
+        // ── Cost assumptions ─────────────────────────────────────────────
+        // Per-day incarceration cost: blended federal + state average
+        // (Vera Institute "The Price of Prisons" + BOP Annual
+        // Determination of Average Cost of Incarceration Fee). $115/day
+        // works out to ~$42,000/year — a defensible midpoint for the
+        // 50-state + federal system over the period this archive covers.
+        $costPerDay = 115;
+
+        // Per-case prosecution cost: blended federal + state felony
+        // prosecution average drawn from BJS reports. Political cases
+        // typically run higher (specialized AUSA time, classified
+        // evidence handling, multi-jurisdictional grand juries), so the
+        // $80,000 figure here is intentionally conservative.
+        $costPerProsecution = 80000;
+        // ─────────────────────────────────────────────────────────────────
+
         $totalDaysImprisoned = (int) $cases->sum('imprisoned_for_days');
         $totalDaysInExile = (int) $cases->sum('in_exile_for_days');
         $totalDaysLost = $totalDaysImprisoned + $totalDaysInExile;
+
+        $totalPrisoners = $prisoners->count();
+        $totalCases = $cases->count();
+
+        $costOfIncarceration = $totalDaysImprisoned * $costPerDay;
+        $costOfProsecution = $totalCases * $costPerProsecution;
+        $totalCost = $costOfIncarceration + $costOfProsecution;
 
         $inCustody = $prisoners->where('in_custody', true)->count();
         $inExile = $prisoners->where('in_exile', true)->count();
         $released = $prisoners->where('released', true)->count();
         $awaitingTrial = $prisoners->where('awaiting_trial', true)->count();
 
-        // Days by ideology — sum each prisoner's case days into every
-        // ideology they're tagged with, then sort descending.
+        // Cost by ideology — sum each prisoner's case-days × rate into
+        // every ideology they're tagged with, then sort descending.
         $casesByPrisoner = $cases->groupBy('prisoner_id');
-        $daysByIdeology = [];
+        $costByIdeology = [];
         foreach ($prisoners as $p) {
-            $days = (int) ($casesByPrisoner->get($p->id) ?? collect())->sum('imprisoned_for_days');
-            if (! $days) continue;
+            $set = $casesByPrisoner->get($p->id) ?? collect();
+            $cost = ((int) $set->sum('imprisoned_for_days')) * $costPerDay
+                  + $set->count() * $costPerProsecution;
+            if (! $cost) continue;
             foreach (((array) $p->ideologies) ?: ['Unclassified'] as $ideology) {
-                $daysByIdeology[$ideology] = ($daysByIdeology[$ideology] ?? 0) + $days;
+                $costByIdeology[$ideology] = ($costByIdeology[$ideology] ?? 0) + $cost;
             }
         }
-        arsort($daysByIdeology);
-        $daysByIdeology = array_slice($daysByIdeology, 0, 10, true);
+        arsort($costByIdeology);
+        $costByIdeology = array_slice($costByIdeology, 0, 10, true);
 
         // Active cases — currently incarcerated prisoners with their case
         $activeCases = $prisoners->where('in_custody', true)
@@ -436,7 +461,6 @@ final class SiteController extends Controller {
             ->take(8)
             ->values();
 
-        $totalPrisoners = $prisoners->count();
         $firstYear = (int) $prisoners->whereNotNull('era')->pluck('era')
             ->map(fn ($e) => (int) preg_replace('/\D/', '', (string) $e))
             ->filter()
@@ -461,10 +485,12 @@ final class SiteController extends Controller {
         return view('pages.tracker', compact(
             'totalDaysImprisoned', 'totalDaysInExile', 'totalDaysLost',
             'inCustody', 'inExile', 'released', 'awaitingTrial',
-            'daysByIdeology', 'activeCases', 'totalPrisoners', 'firstYear',
+            'costByIdeology', 'activeCases', 'totalPrisoners', 'totalCases', 'firstYear',
             'casesByPrisoner',
             'earliestCase', 'earliestPrisoner', 'newestActiveCase', 'newestActivePrisoner',
             'heroPrisoners',
+            'costOfIncarceration', 'costOfProsecution', 'totalCost',
+            'costPerDay', 'costPerProsecution',
         ));
     }
 
