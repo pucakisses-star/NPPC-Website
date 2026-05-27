@@ -2,8 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\ArchiveRecord;
-use App\Models\Prisoner;
+use App\Support\MediaFields;
 use Illuminate\Console\Command;
 
 /**
@@ -86,20 +85,28 @@ final class DedupeFiles extends Command {
             return self::SUCCESS;
         }
 
-        // 3. Pull DB-referenced paths so we know which copy to keep.
+        // 3. Pull DB-referenced paths from every model field that holds a
+        //    file path so we know which copy to keep and which copies still
+        //    have pointers we'll need to rewrite.
         $referenced = [];
-        foreach (ArchiveRecord::query()->select('file', 'thumbnail')->get() as $r) {
-            foreach ([$r->file, $r->thumbnail] as $p) {
-                if ($p) $referenced[ltrim((string) $p, '/')] = true;
+        foreach (MediaFields::all() as [$model, $field]) {
+            $paths = $model::query()->withoutGlobalScopes()
+                ->whereNotNull($field)->where($field, '!=', '')
+                ->pluck($field);
+            foreach ($paths as $p) {
+                foreach (MediaFields::dbPathForms((string) $p) as $form) {
+                    $referenced[ltrim($form, '/')] = true;
+                }
             }
-        }
-        foreach (Prisoner::query()->whereNotNull('photo')->where('photo', '!=', '')->pluck('photo') as $p) {
-            $referenced[ltrim((string) $p, '/')] = true;
         }
 
         $publicDir = base_path('public/').'/';
 
-        $sets = 0; $toDelete = []; $toDeleteBytes = 0;
+        $sets = 0;
+        // Each entry: ['path' => abs path to delete, 'rel' => public-relative, 'keeperDb' => canonical DB form to point rows at]
+        $toDelete = [];
+        $toDeleteBytes = 0;
+        $rewriteCount = 0;
         foreach ($duplicates as $hash => $entries) {
             $sets++;
 
@@ -119,31 +126,72 @@ final class DedupeFiles extends Command {
                 return strcmp($a['path'], $b['path']);
             });
             $keep = array_shift($entries);
+            $keepRel = str_replace($publicDir, '', $keep['path']);
+            $keepDb = MediaFields::dbPathFromPublicRelative($keepRel);
 
             $this->info(sprintf('Set #%d (%s, %d copies):', $sets, $this->fmtBytes($keep['size']), count($entries) + 1));
-            $this->line('  KEEP   '.str_replace($publicDir, '', $keep['path']));
+            $this->line('  KEEP   '.$keepRel);
             foreach ($entries as $e) {
-                $this->line('  DELETE '.str_replace($publicDir, '', $e['path']));
-                $toDelete[] = $e['path'];
+                $delRel = str_replace($publicDir, '', $e['path']);
+                $this->line('  DELETE '.$delRel);
+                $toDelete[] = ['path' => $e['path'], 'rel' => $delRel, 'keeperDb' => $keepDb];
                 $toDeleteBytes += $e['size'];
+
+                // Preview any DB rows that would need their path rewritten.
+                foreach ($this->findReferencingRows($delRel) as [$model, $field, $row]) {
+                    $rewriteCount++;
+                    $this->line(sprintf('    REWRITE %s#%s.%s  %s → %s',
+                        class_basename($model), $row->getKey(), $field, $row->{$field}, $keepDb
+                    ));
+                }
             }
         }
 
         $this->newLine();
-        $this->info(sprintf('Total: %d duplicate set(s), %d file(s) to delete, %s would be reclaimed.',
-            $sets, count($toDelete), $this->fmtBytes($toDeleteBytes)));
+        $this->info(sprintf('Total: %d duplicate set(s), %d file(s) to delete, %d DB pointer(s) to rewrite, %s would be reclaimed.',
+            $sets, count($toDelete), $rewriteCount, $this->fmtBytes($toDeleteBytes)));
 
         if (! $this->option('apply')) {
-            $this->info('(dry-run; re-run with --apply to delete the redundant copies)');
+            $this->info('(dry-run; re-run with --apply to delete the redundant copies and rewrite DB pointers)');
             return self::SUCCESS;
         }
 
-        $deleted = 0;
-        foreach ($toDelete as $p) {
-            if (@unlink($p)) $deleted++;
+        // Rewrite DB pointers FIRST so no row ever points at a missing file.
+        $rewritten = 0;
+        foreach ($toDelete as $item) {
+            foreach ($this->findReferencingRows($item['rel']) as [$model, $field, $row]) {
+                $row->{$field} = $item['keeperDb'];
+                $row->save();
+                $rewritten++;
+            }
         }
-        $this->info(sprintf('Deleted %d duplicate file(s), reclaimed %s.', $deleted, $this->fmtBytes($toDeleteBytes)));
+
+        $deleted = 0;
+        foreach ($toDelete as $item) {
+            if (@unlink($item['path'])) $deleted++;
+        }
+        $this->info(sprintf('Deleted %d duplicate file(s), reclaimed %s; rewrote %d DB pointer(s).',
+            $deleted, $this->fmtBytes($toDeleteBytes), $rewritten));
         return self::SUCCESS;
+    }
+
+    /**
+     * Find every DB row across MediaFields whose stored path resolves to
+     * the given public-relative path. Returns tuples of (model class,
+     * field name, model instance).
+     *
+     * @return iterable<array{0: class-string, 1: string, 2: \Illuminate\Database\Eloquent\Model}>
+     */
+    private function findReferencingRows(string $publicRel): iterable {
+        $forms = MediaFields::dbPathForms($publicRel);
+        foreach (MediaFields::all() as [$model, $field]) {
+            $rows = $model::query()->withoutGlobalScopes()
+                ->whereIn($field, $forms)
+                ->get();
+            foreach ($rows as $row) {
+                yield [$model, $field, $row];
+            }
+        }
     }
 
     private function fmtBytes(int $bytes): string {
