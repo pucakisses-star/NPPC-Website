@@ -334,7 +334,7 @@
         .tk2-anchors a:last-child span { display: none; }
 
         /* HERO */
-        .tk2-hero { position: relative; max-width: 1380px; margin: 0 auto; padding: 0 32px; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+        .tk2-hero { position: relative; width: 100%; max-width: none; margin: 0; padding: 0; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
         .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; z-index: 0; }
         /* Dot-matrix overlay — fine white dots scattered across the photo
            to give it the same printed-newsprint texture the old hero had. */
@@ -343,8 +343,8 @@
         .tk2-hero-title { position: relative; z-index: 3; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
 
         /* CORAL BANNER WITH BIG NUMBER */
-        .tk2-banner { background: #f25c54; padding: 36px 32px 28px; }
-        .tk2-banner-inner { max-width: 1380px; margin: 0 auto; text-align: center; }
+        .tk2-banner { width: 100%; background: #f25c54; padding: 36px 32px 28px; }
+        .tk2-banner-inner { max-width: none; margin: 0; text-align: center; }
         .tk2-banner-num { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1; letter-spacing: -0.04em; color: #0a0a0a; font-variant-numeric: tabular-nums; display: inline-flex; align-items: baseline; }
         .tk2-banner-sign { font-size: 0.7em; margin-right: 0.05em; font-weight: 900; }
         .tk2-banner-sub { text-align: center; font-size: 16px; line-height: 1.5; color: #fff; max-width: 720px; margin: 24px auto 16px; padding: 0 32px; font-weight: 700; }
@@ -474,7 +474,7 @@
             .tk2-topnav-inner { gap: 18px; }
             .tk2-anchors { gap: 8px 16px; }
             .tk2-anchors a { font-size: 11px; gap: 8px; }
-            .tk2-hero { min-height: 280px; padding: 0 20px; }
+            .tk2-hero { min-height: 280px; padding: 0; }
             .tk2-hero-title { font-size: 2rem; margin-bottom: 24px; }
             .tk2-banner { padding: 24px 20px 20px; }
             .tk2-banner-sub { padding: 0 20px; font-size: 14px; }
