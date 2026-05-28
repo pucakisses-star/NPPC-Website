@@ -69,19 +69,23 @@ const counts = computed(() => {
 const total = computed(() => Object.values(counts.value).reduce((a, b) => a + b, 0));
 const max = computed(() => Math.max(...Object.values(counts.value), 1));
 
-// Lead sentence: surface the least-prosecuted state (mirrors the
-// Intercept "Trial and Terror" framing). Prefer a 0-count state; if
-// every state has cases, fall back to the lowest. Pick deterministically
-// by alphabetical state name so it doesn't jump around between renders.
-const leastState = computed(() => {
-  const entries = Object.keys(stateNames)
-    .map(abbr => ({ abbr, name: stateNames[abbr], n: counts.value[abbr] }))
-    .sort((a, b) => a.n - b.n || a.name.localeCompare(b.name));
-  return entries[0] || { abbr: 'ME', name: 'Maine', n: 0 };
+// The lead sentence + highlighted cell follow whichever state the
+// cursor is over. Default to the single most-prosecuted state so the
+// page opens on the headline figure (mirrors the Intercept reference).
+const activeAbbr = ref<string | null>(null);
+const topAbbr = computed(() => {
+  let best = 'NY', bestN = -1;
+  Object.keys(stateNames).forEach(a => {
+    if (counts.value[a] > bestN) { bestN = counts.value[a]; best = a; }
+  });
+  return best;
 });
-const leastPct = computed(() =>
-  total.value > 0 ? Math.round((leastState.value.n / total.value) * 100) : 0
-);
+const leadAbbr = computed(() => activeAbbr.value || topAbbr.value);
+const leadName = computed(() => stateNames[leadAbbr.value]);
+const leadPct = computed(() => {
+  const n = counts.value[leadAbbr.value] || 0;
+  return total.value > 0 ? Math.round((n / total.value) * 100) : 0;
+});
 
 const colorFor = (n: number): string => {
   if (n <= 0) return '#14141a';
@@ -113,6 +117,7 @@ const tipX = ref(0);
 const tipY = ref(0);
 
 const showTip = (abbr: string, e: MouseEvent) => {
+  activeAbbr.value = abbr;            // drive the lead sentence + highlight
   tipName.value = stateNames[abbr];
   tipCount.value = counts.value[abbr];
   tipPct.value = total.value > 0 ? Math.round((tipCount.value / total.value) * 100) : 0;
@@ -140,8 +145,8 @@ const hideTip = () => { tipVisible.value = false; };
         <img class="state-map-icon" src="/images/icon-map.svg" alt="" aria-hidden="true" />
         <div class="state-map-eyebrow">Place of Prosecution</div>
         <p class="state-map-lead">
-          <strong>{{ leastPct }} percent</strong> of documented U.S. political prisoners
-          have been prosecuted in <strong>{{ leastState.name }}</strong>.
+          <strong>{{ leadPct }} percent</strong> of documented U.S. political prisoners
+          have been prosecuted in <strong>{{ leadName }}</strong>.
         </p>
       </div>
 
@@ -153,6 +158,7 @@ const hideTip = () => { tipVisible.value = false; };
            :key="cell.abbr"
            :href="`/database?state=${encodeURIComponent(stateNames[cell.abbr])}`"
            class="state-cell"
+           :class="{ 'is-active': cell.abbr === leadAbbr }"
            :style="{ gridRow: String(cell.row), gridColumn: String(cell.col), background: colorFor(counts[cell.abbr]) }"
            @mouseenter="(e) => showTip(cell.abbr, e)"
            @mousemove="moveTip"
@@ -266,6 +272,11 @@ const hideTip = () => { tipVisible.value = false; };
   border-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
   z-index: 2;
+}
+.state-cell.is-active {
+  border-color: #fff;
+  box-shadow: 0 0 0 3px #5660fe, 0 0 16px rgba(86, 96, 254, 0.6);
+  z-index: 3;
 }
 .state-abbr {
   font-size: 12px;
