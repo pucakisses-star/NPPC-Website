@@ -355,17 +355,50 @@
 
         </div>
 
-        {{-- Full-bleed closing image — black US map of cuffed hands --}}
-        <div class="tk2-footer-art" aria-hidden="true">
-            <img src="/images/tracker-footer-map.jpg" alt="">
+        {{-- Closing block — repeats the live ticker + share over the
+             full-bleed map artwork, mirroring the hero. --}}
+        <div class="tk2-footer">
+            <img class="tk2-footer-bg" src="/images/tracker-footer-map.jpg" alt="" aria-hidden="true">
+            <div class="tk2-footer-content">
+                <section class="tk2-banner tk2-banner--footer">
+                    <div class="tk2-banner-inner">
+                        <div class="tk2-banner-num"><span class="tk2-banner-sign">$</span><span data-tk-counter="{{ $totalCost }}" data-tk-per-second="{{ $perSecondOngoingCost }}">0</span></div>
+                    </div>
+                </section>
+                <div class="tk2-share-bar tk2-share-bar--footer">
+                    <a href="https://twitter.com/intent/tweet?text={{ urlencode('The Price of Political Prosecution — $'.number_format($totalCost).' spent prosecuting and incarcerating U.S. political prisoners.') }}&url={{ urlencode(url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on X / Twitter">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.412c0-3.027 1.792-4.7 4.533-4.7 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://bsky.app/intent/compose?text={{ urlencode('The Price of Political Prosecution — '.url('/tracker')) }}" target="_blank" rel="noopener" aria-label="Share on Bluesky">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.07 3.04c2.68 2.01 5.56 6.09 6.62 8.28 1.06-2.19 3.94-6.27 6.62-8.28 1.93-1.45 5.07-2.58 5.07.99 0 .71-.41 5.98-.65 6.84-.83 2.97-3.86 3.73-6.55 3.27 4.71.8 5.9 3.45 3.32 6.11-4.91 5.04-7.05-1.27-7.6-2.88-.1-.3-.15-.43-.15-.31 0-.12-.05.01-.15.31-.55 1.61-2.69 7.92-7.6 2.88-2.58-2.66-1.39-5.31 3.32-6.11-2.69.46-5.72-.3-6.55-3.27C.41 9.02 0 3.75 0 3.04 0-.53 3.14.59 5.07 3.04z"/></svg>
+                    </a>
+                    <a href="mailto:?subject={{ urlencode('The Price of Political Prosecution') }}&body={{ urlencode(url('/tracker')) }}" aria-label="Share via email">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5-8-5zm0 12H4V8l8 5 8-5z"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </article>
 
     <style>
         body.page-tracker { background: #000 !important; color: #fff; overflow-x: hidden; }
-        /* Full-bleed closing artwork at the very bottom of the page */
-        .tk2-footer-art { margin: 56px 0 -88px; width: 100vw; max-width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
-        .tk2-footer-art img { display: block; width: 100%; height: auto; }
+        /* Full-bleed closing block: map artwork with the ticker + share
+           repeated over it (mirrors the hero). */
+        .tk2-footer { position: relative; margin: 56px 0 -88px; width: 100vw; max-width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; }
+        .tk2-footer-bg { display: block; width: 100%; height: auto; }
+        .tk2-footer-content { position: absolute; inset: 0; display: flex; flex-direction: column; }
+        /* Coral ticker bar pinned to the top of the artwork; share row to the bottom. */
+        .tk2-footer .tk2-banner--footer { margin: 0; left: auto; right: auto; width: 100%; }
+        .tk2-footer .tk2-share-bar--footer { margin-top: auto; padding-bottom: 40px; }
+        @media (max-width: 700px) {
+            .tk2-footer .tk2-share-bar--footer { padding-bottom: 16px; }
+        }
         body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
         .tk2 { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
@@ -574,10 +607,12 @@
 
     <script>
         (function () {
-            const el = document.querySelector('[data-tk-counter]');
-            if (! el) return;
-            const baseTarget = parseFloat(el.getAttribute('data-tk-counter')) || 0;
-            const perSecond  = parseFloat(el.getAttribute('data-tk-per-second')) || 0;
+            // Animate every ticker on the page (hero + footer repeat) so
+            // both climb in lockstep.
+            const els = Array.from(document.querySelectorAll('[data-tk-counter]'));
+            if (! els.length) return;
+            const baseTarget = parseFloat(els[0].getAttribute('data-tk-counter')) || 0;
+            const perSecond  = parseFloat(els[0].getAttribute('data-tk-per-second')) || 0;
             const fmt = new Intl.NumberFormat('en-US');
             let started = false;
             const animate = () => {
@@ -585,10 +620,8 @@
                 const duration = 2200;
                 const start = performance.now();
 
-                // Phase 1: animate from 0 -> baseTarget with ease-out.
-                // Phase 2: continuously add perSecond × elapsed so the
-                // total keeps climbing in real time at the live ongoing
-                // incarceration rate.
+                // Phase 1: ease 0 -> baseTarget. Phase 2: keep adding
+                // perSecond × elapsed at the live incarceration rate.
                 const tick = (now) => {
                     const elapsedMs = now - start;
                     let value;
@@ -600,7 +633,8 @@
                         const extraSec = (elapsedMs - duration) / 1000;
                         value = baseTarget + perSecond * extraSec;
                     }
-                    el.textContent = fmt.format(Math.floor(value));
+                    const text = fmt.format(Math.floor(value));
+                    els.forEach(el => { el.textContent = text; });
                     requestAnimationFrame(tick);
                 };
                 requestAnimationFrame(tick);
@@ -609,7 +643,7 @@
                 const io = new IntersectionObserver((entries) => {
                     if (entries.some((e) => e.isIntersecting)) { animate(); io.disconnect(); }
                 });
-                io.observe(el);
+                io.observe(els[0]);
             } else {
                 animate();
             }
