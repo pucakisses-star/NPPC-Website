@@ -799,7 +799,20 @@ final class SiteController extends Controller {
         return view('pages.faq');
     }
 
+    /**
+     * Slugs of "pointer" articles: cards that appear in the news grid for
+     * discovery but send the reader to a standalone feature page rather
+     * than a /news/{slug} story.
+     */
+    private const FEATURE_REDIRECTS = [
+        'the-price-of-political-prosecution' => '/feature-political-prisoner-cost',
+    ];
+
     public function article(string $slug) {
+        if ($target = self::FEATURE_REDIRECTS[$slug] ?? null) {
+            return redirect($target);
+        }
+
         $article = Article::getBySlug($slug);
 
         if (! $article) {

@@ -5,7 +5,7 @@ namespace App\Support;
 use Carbon\Carbon;
 
 /**
- * State-by-state, year-aware incarceration cost lookup for the /tracker page.
+ * State-by-state, year-aware incarceration cost lookup for the /feature-political-prisoner-cost page.
  *
  * Source notes:
  *
