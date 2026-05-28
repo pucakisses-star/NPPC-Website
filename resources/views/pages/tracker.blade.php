@@ -358,7 +358,7 @@
         {{-- Closing block — repeats the live ticker + share over the
              full-bleed map artwork, mirroring the hero. --}}
         <div class="tk2-footer">
-            <img class="tk2-footer-bg" src="/images/tracker-footer-map.jpg" alt="" aria-hidden="true">
+            <img class="tk2-footer-bg" src="/images/tracker-footer-map.png" alt="" aria-hidden="true">
             <div class="tk2-footer-content">
                 <section class="tk2-banner tk2-banner--footer">
                     <div class="tk2-banner-inner">
