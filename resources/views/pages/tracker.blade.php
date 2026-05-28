@@ -219,6 +219,7 @@
             {{-- 05 AFFILIATION OVER TIME --}}
             <section id="affiliation" class="tk2-section">
                 <div class="tk2-snum">05</div>
+                <img class="tk2-section-icon" src="/images/icon-affiliation.svg" alt="" aria-hidden="true">
                 <h2 class="tk2-shead">Purported affiliation, over time.</h2>
                 <p class="tk2-lede">Defendants grouped by the movement or organization the government alleged they belonged to, plotted by year of arrest. Each prisoner is counted once per affiliation they were tagged with.</p>
                 <div class="tk2-affil-wrap">
@@ -478,6 +479,9 @@
         @media (max-width: 560px) {
             .tk2-charges { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* Section icon (line-art glyph, forced white on the dark bg) */
+        .tk2-section-icon { display: block; width: 88px; height: auto; margin: 0 0 20px; filter: brightness(0) invert(1); opacity: 0.92; }
 
         /* AFFILIATION-OVER-TIME chart */
         .tk2-affil-wrap { position: relative; width: 100%; }
