@@ -18,7 +18,8 @@ Route::controller(SiteController::class)
         Route::get('history', 'history');
         Route::get('archive', 'archiveRecords');
         Route::get('archive/view/{record}', 'archiveView');
-        Route::get('tracker', 'tracker');
+        Route::get('feature-political-prisoner-cost', 'tracker');
+        Route::redirect('tracker', '/feature-political-prisoner-cost', 301);
         Route::get('timeline', 'timeline');
         Route::get('annual-report', 'annualReport');
         Route::get('topics/{slug?}', 'topics');
