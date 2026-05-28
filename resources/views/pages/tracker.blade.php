@@ -49,22 +49,6 @@
 @section('body')
     <article class="tk2">
 
-        {{-- TOP NAV STRIP --}}
-        <header class="tk2-topnav">
-            <div class="tk2-topnav-inner">
-                <a class="tk2-brand" href="/" aria-label="NPPC home">
-                    <img src="/logo.svg" alt="NPPC" />
-                </a>
-                <nav class="tk2-anchors" aria-label="On this page">
-                    <a href="#toll">The Toll<span aria-hidden="true">&rarr;</span></a>
-                    <a href="#breakdown">Cost Breakdown<span aria-hidden="true">&rarr;</span></a>
-                    <a href="#movement">By Movement<span aria-hidden="true">&rarr;</span></a>
-                    <a href="#thennow">Then &amp; Now<span aria-hidden="true">&rarr;</span></a>
-                    <a href="#active">Active Cases</a>
-                </nav>
-            </div>
-        </header>
-
         {{-- HERO — single composite portrait of political prisoners --}}
         <section class="tk2-hero" id="tk2-hero">
             <img class="tk2-hero-img" src="/images/tracker-hero.png" alt="" aria-hidden="true">
@@ -93,6 +77,15 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5-8-5zm0 12H4V8l8 5 8-5z"/></svg>
             </a>
         </div>
+
+        {{-- SECTION NAV — sits below the hero, introduces the body content --}}
+        <nav class="tk2-anchors" aria-label="On this page">
+            <a href="#toll">The Toll<span aria-hidden="true">&rarr;</span></a>
+            <a href="#breakdown">Cost Breakdown<span aria-hidden="true">&rarr;</span></a>
+            <a href="#movement">By Movement<span aria-hidden="true">&rarr;</span></a>
+            <a href="#thennow">Then &amp; Now<span aria-hidden="true">&rarr;</span></a>
+            <a href="#active">Active Cases</a>
+        </nav>
 
         <div class="tk2-body">
 
@@ -325,11 +318,9 @@
         .tk2 { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
 
         /* TOP NAV STRIP */
-        .tk2-topnav { padding: 28px 32px 24px; border-bottom: 1px solid rgba(255,255,255,0.15); }
-        .tk2-topnav-inner { max-width: 1380px; margin: 0 auto; display: flex; align-items: center; gap: 56px; flex-wrap: wrap; }
-        .tk2-brand { display: inline-flex; align-items: center; }
-        .tk2-brand img { height: 44px; width: auto; display: block; filter: brightness(0) invert(1); }
-        .tk2-anchors { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; flex: 1; }
+        /* Section nav — centered strip below the hero, sticky to the top
+           of the viewport once you scroll past the banner. */
+        .tk2-anchors { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: center; padding: 20px 32px; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); position: sticky; top: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); z-index: 50; }
         .tk2-anchors a { font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: #4dd9d2; text-decoration: none; display: inline-flex; align-items: center; gap: 16px; }
         .tk2-anchors a:hover { color: #fff; }
         .tk2-anchors a span { color: #4dd9d2; font-size: 16px; font-weight: 400; }
@@ -483,9 +474,7 @@
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .tk2-topnav { padding: 16px 20px; }
-            .tk2-topnav-inner { gap: 18px; }
-            .tk2-anchors { gap: 8px 16px; }
+            .tk2-anchors { gap: 8px 16px; padding: 14px 20px; }
             .tk2-anchors a { font-size: 11px; gap: 8px; }
             .tk2-hero { min-height: 280px; padding: 0; cursor: auto; }
             .tk2-hero-title { font-size: 2rem; margin-bottom: 24px; }
