@@ -471,6 +471,35 @@ final class SiteController extends Controller {
         $federalDays = 0; $stateDays = 0; $localDays = 0;
         $convictedCases = 0;
 
+        // Charge-frequency taxonomy: each entry is [label, regex]. A case
+        // can match more than one. We tally how many cases hit each
+        // category and the total per-case cost across them, then derive
+        // an average cost per case at the end.
+        $chargeCats = [
+            ['Material support',            '/material\s+support|providing\s+support/i'],
+            ['Conspiracy',                  '/conspirac|conspir(e|ed|ing)/i'],
+            ['Murder / attempted murder',   '/murder|homicide|manslaughter/i'],
+            ['Assault',                     '/assault|battery|aggravated\s+(assault|battery)/i'],
+            ['Firearms / weapons',          '/firearm|weapon|unlawful\s+use\s+of\s+a?\s*(weapon|firearm)|possession\s+of\s+a?\s*(weapon|firearm)/i'],
+            ['Explosives / bombing',        '/explosive|bomb|incendiary|destructive\s+device|arson/i'],
+            ['Seditious conspiracy',        '/sedition|seditious/i'],
+            ['Espionage',                   '/espionage|spy|classified|national\s+defense\s+information|18\s*u\.?s\.?c\.?\s*793|794/i'],
+            ['Racketeering / RICO',         '/rico|racketeer|continuing\s+criminal\s+enterprise|\bcce\b/i'],
+            ['Drug offenses',               '/drug|narcotic|controlled\s+substance|trafficking|distribution\s+of\s+(cocaine|heroin|marijuana)/i'],
+            ['Robbery / expropriation',     '/robbery|bank\s+(robbery|expropriat)|armed\s+robbery|expropriat/i'],
+            ['Property destruction / sabotage', '/sabotage|destruction\s+of\s+(government\s+)?property|criminal\s+mischief|vandalism/i'],
+            ['Kidnapping',                  '/kidnap|abduction|hostage/i'],
+            ['Immigration violations',      '/immigration|unlawful\s+(entry|reentry|presence)|visa\s+fraud|harbor(ing)?\s+aliens?/i'],
+            ['Fraud / financial',           '/fraud|money\s+launder|embezzle|wire\s+fraud|mail\s+fraud|financial/i'],
+            ['False statements / perjury',  '/false\s+statement|perjury|lying\s+to|making\s+false/i'],
+            ['Obstruction / contempt',      '/obstruct|contempt|interfer(e|ing)\s+with/i'],
+            ['Trespass / disorderly',       '/trespass|disorderly|unlawful\s+assembly|disturbing\s+the\s+peace/i'],
+            ['Tax violations',              '/tax\s+(evasion|fraud|violation)|failure\s+to\s+(file|pay)\s+tax/i'],
+            ['Theft / stolen property',     '/theft|larceny|stolen\s+property|burglar|receiving\s+stolen/i'],
+        ];
+        $chargeCount = array_fill_keys(array_column($chargeCats, 0), 0);
+        $chargeCost  = array_fill_keys(array_column($chargeCats, 0), 0.0);
+
         foreach ($cases as $c) {
             $cls = $classify($c);
             $bucket = $cls['bucket'];
@@ -507,11 +536,46 @@ final class SiteController extends Controller {
             $convicted = (string) ($c->convicted ?? '') !== ''
                 || (string) ($c->plead ?? '') !== ''
                 || (string) ($c->sentence ?? '') !== '';
+            $caseAppeals = 0.0;
             if ($convicted) {
-                $costOfAppeals += IncarcerationCostRates::appealsCost($bucket, $c->charges, $c->sentence, $arrestYear);
+                $caseAppeals = IncarcerationCostRates::appealsCost($bucket, $c->charges, $c->sentence, $arrestYear);
+                $costOfAppeals += $caseAppeals;
                 $convictedCases++;
             }
+
+            // Total all-in cost of THIS case, used for the per-charge
+            // average below.
+            $caseTotal = $incCost
+                + IncarcerationCostRates::investigationCost($bucket, $c->charges, $c->sentence, $arrestYear)
+                + IncarcerationCostRates::prosecutionCost($bucket, $c->charges, $c->sentence, $arrestYear)
+                + $caseAppeals;
+
+            // Tally charge categories this case matches.
+            $chargeText = (string) ($c->charges ?? '');
+            if ($chargeText !== '') {
+                foreach ($chargeCats as [$label, $regex]) {
+                    if (preg_match($regex, $chargeText)) {
+                        $chargeCount[$label]++;
+                        $chargeCost[$label] += $caseTotal;
+                    }
+                }
+            }
         }
+
+        // Build the charge-frequency dataset: count + average per-case cost,
+        // sorted by count descending, dropping any category with no hits.
+        $chargeStats = [];
+        foreach ($chargeCount as $label => $count) {
+            if ($count <= 0) continue;
+            $chargeStats[] = [
+                'label' => $label,
+                'count' => $count,
+                'avgCost' => (int) round($chargeCost[$label] / $count),
+            ];
+        }
+        usort($chargeStats, fn ($a, $b) => $b['count'] <=> $a['count']);
+        $chargeStats = array_slice($chargeStats, 0, 20);
+        $maxChargeCount = $chargeStats ? max(array_column($chargeStats, 'count')) : 1;
 
         // Round once for display; internal sums kept as floats above.
         $costFederalIncarceration = (int) round($costFederalIncarceration);
@@ -654,6 +718,7 @@ final class SiteController extends Controller {
             'costOfInvestigation', 'costOfAppeals',
             'dailyOngoingCost', 'perSecondOngoingCost',
             'costBubbles', 'windowYears', 'methodFedRateRange',
+            'chargeStats', 'maxChargeCount',
             'federalDays', 'stateDays', 'localDays',
         ));
     }
