@@ -246,7 +246,7 @@ const hideTip = () => { tipVisible.value = false; };
   text-align: center;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.4);
-  margin: 0 0 40px;
+  margin: 0 0 12px;
 }
 .state-map-grid {
   display: grid;
