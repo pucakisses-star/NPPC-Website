@@ -917,10 +917,10 @@
                         label: s.label + ' (' + fmtMoney(s.total) + ')',
                         data: s.data,
                         borderColor: palette[i % palette.length],
-                        backgroundColor: palette[i % palette.length] + '33',
+                        backgroundColor: palette[i % palette.length] + 'E6',
                         fill: true,
                         tension: 0.4,
-                        borderWidth: 2,
+                        borderWidth: 1.5,
                         pointRadius: 0,
                         pointHoverRadius: 4,
                     })),
@@ -930,7 +930,7 @@
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { labels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, weight: '700' }, usePointStyle: true, pointStyle: 'rectRounded' } },
+                        legend: { position: 'top', align: 'start', labels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, weight: '700' }, usePointStyle: true, pointStyle: 'rectRounded', padding: 14 } },
                         tooltip: {
                             backgroundColor: '#fff', titleColor: '#0a0a0a', bodyColor: '#333',
                             callbacks: {
@@ -943,7 +943,7 @@
                     },
                     scales: {
                         x: { grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', maxRotation: 0, autoSkip: true, maxTicksLimit: 12 } },
-                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', callback: function (v) { return fmtMoney(v); } } },
+                        y: { beginAtZero: true, stacked: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', callback: function (v) { return fmtMoney(v); } } },
                     },
                 },
             });
