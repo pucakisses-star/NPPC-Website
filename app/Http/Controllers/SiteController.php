@@ -806,6 +806,7 @@ final class SiteController extends Controller {
      */
     private const FEATURE_REDIRECTS = [
         'the-price-of-political-prosecution' => '/feature-political-prisoner-cost',
+        'under-cover-of-war' => '/iran-war-political-prisoners',
     ];
 
     public function article(string $slug) {
