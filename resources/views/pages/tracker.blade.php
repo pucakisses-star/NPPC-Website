@@ -421,7 +421,7 @@
         .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; z-index: 0; }
         /* Dot-matrix overlay — fine white dots scattered across the photo
            to give it the same printed-newsprint texture the old hero had. */
-        .tk2-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1.2px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
+        .tk2-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.16) 0.5px, transparent 0.9px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
         .tk2-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.65) 100%); pointer-events: none; z-index: 2; }
         /* Searchlight — same cursor-follow spotlight as the About page.
            A soft white glow brightens the photo under the cursor; an
