@@ -88,6 +88,7 @@
             <a href="#toll">The Toll<span aria-hidden="true">&rarr;</span></a>
             <a href="#breakdown">Cost Breakdown<span aria-hidden="true">&rarr;</span></a>
             <a href="#movement">By Movement<span aria-hidden="true">&rarr;</span></a>
+            <a href="#charges">Charges<span aria-hidden="true">&rarr;</span></a>
             <a href="#thennow">Then &amp; Now<span aria-hidden="true">&rarr;</span></a>
             <a href="#active">Active Cases</a>
         </nav>
@@ -190,9 +191,33 @@
                 </div>
             </section>
 
-            {{-- 04 THEN & NOW --}}
-            <section id="thennow" class="tk2-section">
+            {{-- 04 MOST COMMON CHARGES --}}
+            <section id="charges" class="tk2-section">
                 <div class="tk2-snum">04</div>
+                <h2 class="tk2-shead">Most common charges in all cases.</h2>
+                <p class="tk2-lede">How often each charge appears across the documented cases, and the average all-in public cost of a case carrying that charge (investigation + prosecution + incarceration + appeals). A single case usually carries several charges, so the counts overlap.</p>
+
+                <div class="tk2-charges">
+                    @foreach ($chargeStats as $ch)
+                        @php
+                            $ratio = sqrt(max(1, $ch['count']) / max(1, $maxChargeCount));
+                            $cd = max(18, round(120 * $ratio)); // circle diameter px
+                        @endphp
+                        <div class="tk2-charge" title="{{ $ch['label'] }}: {{ number_format($ch['count']) }} cases, avg ${{ number_format($ch['avgCost']) }}/case">
+                            <div class="tk2-charge-dot-wrap">
+                                <span class="tk2-charge-dot" style="width: {{ $cd }}px; height: {{ $cd }}px;"></span>
+                            </div>
+                            <div class="tk2-charge-count">{{ number_format($ch['count']) }}</div>
+                            <div class="tk2-charge-label">{{ $ch['label'] }}</div>
+                            <div class="tk2-charge-cost">${{ number_format($ch['avgCost']) }} avg/case</div>
+                        </div>
+                    @endforeach
+                </div>
+            </section>
+
+            {{-- 05 THEN & NOW --}}
+            <section id="thennow" class="tk2-section">
+                <div class="tk2-snum">05</div>
                 <h2 class="tk2-shead">Then &amp; Now.</h2>
                 <p class="tk2-lede">U.S. political imprisonment is not a relic. The earliest case in this archive sits beside an active prisoner being held today &mdash; a hundred years apart, the same machinery.</p>
 
@@ -243,7 +268,7 @@
 
             {{-- 05 ACTIVE CASES --}}
             <section id="active" class="tk2-section">
-                <div class="tk2-snum">05</div>
+                <div class="tk2-snum">06</div>
                 <h2 class="tk2-shead">What we know so far &mdash; today.</h2>
                 <p class="tk2-lede">{{ number_format($inCustody) }} of the {{ number_format($totalPrisoners) }} people in this archive are in custody right now. {{ number_format($awaitingTrial) }} are awaiting trial, {{ number_format($inExile) }} are in exile, and {{ number_format($released) }} are released or unincarcerated.</p>
 
@@ -276,7 +301,7 @@
 
             {{-- 06 METHODOLOGY --}}
             <section id="methodology" class="tk2-section">
-                <div class="tk2-snum">06</div>
+                <div class="tk2-snum">07</div>
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
@@ -423,6 +448,22 @@
         @media (max-width: 700px) {
             .tk2-bubbles-canvas { height: 420px; }
             .tk2-bubble { transform-origin: top left; }
+        }
+
+        /* MOST COMMON CHARGES grid */
+        .tk2-charges { display: grid; grid-template-columns: repeat(5, 1fr); gap: 36px 24px; margin-top: 8px; }
+        .tk2-charge { text-align: center; }
+        .tk2-charge-dot-wrap { height: 124px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+        .tk2-charge-dot { display: block; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #6b73ff, #3a3fa3); }
+        .tk2-charge-count { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; font-weight: 900; line-height: 1; color: #fff; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+        .tk2-charge-label { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.82); line-height: 1.3; max-width: 200px; margin: 0 auto 6px; }
+        .tk2-charge-cost { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #4dd9d2; }
+        @media (max-width: 900px) {
+            .tk2-charges { grid-template-columns: repeat(3, 1fr); gap: 28px 16px; }
+            .tk2-charge-dot-wrap { height: 96px; }
+        }
+        @media (max-width: 560px) {
+            .tk2-charges { grid-template-columns: repeat(2, 1fr); }
         }
 
         /* BREAKDOWN BARS */
