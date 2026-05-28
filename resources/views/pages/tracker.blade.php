@@ -365,7 +365,7 @@
            share repeated over it (mirrors the hero). The map is sized
            independently of the coral ticker, which always spans the page. */
         .tk2-footer { position: relative; left: 50%; margin: 64px 0 0 -50vw; width: 100vw; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; cursor: none; --spot-radius: 240px; --spot-brightness: 0.65; }
-        .tk2-footer-bg { position: relative; width: clamp(1200px, 180vw, 3200px); height: auto; display: block; margin: 0 auto; z-index: 0; }
+        .tk2-footer-bg { position: relative; width: clamp(900px, 135vw, 2400px); height: auto; display: block; margin: 0 auto; z-index: 0; opacity: 0.25; }
         /* Dot-matrix overlay + cursor-follow searchlight, mirroring the hero. */
         .tk2-footer::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.16) 0.5px, transparent 0.9px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
         .tk2-footer-spot-overlay { position: absolute; inset: 0; background: #000; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 3; }
@@ -379,7 +379,7 @@
         .tk2-footer .tk2-banner--footer { position: relative; left: auto; right: auto; margin: 0; width: 100vw; }
         .tk2-footer .tk2-share-bar--footer { position: relative; margin: 0; padding: 24px 0 0; }
         @media (max-width: 700px) {
-            .tk2-footer-bg { width: 220vw; }
+            .tk2-footer-bg { width: 165vw; }
             .tk2-footer .tk2-share-bar--footer { padding-top: 14px; }
         }
         body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
