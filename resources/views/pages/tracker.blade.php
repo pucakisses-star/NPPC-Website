@@ -390,14 +390,15 @@
         body.page-tracker { background: #000 !important; color: #fff; overflow-x: hidden; }
         /* Full-bleed closing block: map artwork with the ticker + share
            repeated over it (mirrors the hero). */
-        .tk2-footer { position: relative; margin: 56px 0 -88px; width: 100vw; max-width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; aspect-ratio: 1579 / 996; background: #000; }
+        .tk2-footer { position: relative; margin: 64px auto 0; width: clamp(300px, 50%, 820px); overflow: hidden; aspect-ratio: 1579 / 996; background: #000; border-radius: 6px; }
         .tk2-footer-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-        .tk2-footer-content { position: absolute; inset: 0; display: flex; flex-direction: column; }
-        /* Coral ticker bar pinned to the top of the artwork; share row to the bottom. */
+        .tk2-footer-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; }
+        /* Coral ticker bar centered over the artwork; share row pinned to the bottom. */
         .tk2-footer .tk2-banner--footer { margin: 0; left: auto; right: auto; width: 100%; }
-        .tk2-footer .tk2-share-bar--footer { margin-top: auto; padding-bottom: 40px; }
+        .tk2-footer .tk2-share-bar--footer { position: absolute; left: 0; right: 0; bottom: 28px; margin: 0; padding: 0; }
         @media (max-width: 700px) {
-            .tk2-footer .tk2-share-bar--footer { padding-bottom: 16px; }
+            .tk2-footer { width: 90%; }
+            .tk2-footer .tk2-share-bar--footer { bottom: 14px; }
         }
         body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
