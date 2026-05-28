@@ -90,8 +90,7 @@
             <a href="#movement">By Movement<span aria-hidden="true">&rarr;</span></a>
             <a href="#charges">Charges<span aria-hidden="true">&rarr;</span></a>
             <a href="#affiliation">Affiliation<span aria-hidden="true">&rarr;</span></a>
-            <a href="#thennow">Then &amp; Now<span aria-hidden="true">&rarr;</span></a>
-            <a href="#active">Active Cases</a>
+            <a href="#wheregoes">Where It Goes</a>
         </nav>
 
         <div class="tk2-body">
@@ -230,93 +229,65 @@
                 </div>
             </section>
 
-            {{-- 06 THEN & NOW --}}
-            <section id="thennow" class="tk2-section">
+            {{-- 06 WHERE IT GOES — CAP-style alternating cost cards --}}
+            @php
+                $tkMoney = function ($n) {
+                    $n = (int) $n;
+                    if ($n >= 1000000000) return '$'.rtrim(rtrim(number_format($n / 1000000000, 3, '.', ''), '0'), '.').'B';
+                    if ($n >= 1000000)    return '$'.number_format(round($n / 1000000)).'M';
+                    if ($n >= 1000)       return '$'.number_format(round($n / 1000)).'K';
+                    return '$'.number_format($n);
+                };
+            @endphp
+            <section id="wheregoes" class="tk2-section tk2-costcap-section">
                 <div class="tk2-snum">06</div>
-                <h2 class="tk2-shead">Then &amp; Now.</h2>
-                <p class="tk2-lede">U.S. political imprisonment is not a relic. The earliest case in this archive sits beside an active prisoner being held today &mdash; a hundred years apart, the same machinery.</p>
-
-                <div class="tk2-thennow">
-                    @if ($earliestPrisoner)
-                        <a class="tk2-tn" href="/prisoner/{{ $earliestPrisoner->slug }}">
-                            <div class="tk2-tn-eyebrow">Then &middot; {{ $earliestCase->arrest_date ? \Carbon\Carbon::parse($earliestCase->arrest_date)->format('Y') : '' }}</div>
-                            @if ($earliestPrisoner->photo_url)
-                                <div class="tk2-tn-photo" style="background-image: url('{{ $earliestPrisoner->photo_url }}')"></div>
-                            @else
-                                <div class="tk2-tn-photo tk2-photo-blank"></div>
-                            @endif
-                            <div class="tk2-tn-name">{{ $earliestPrisoner->name }}</div>
-                            @if ($earliestCase->charges)
-                                <div class="tk2-tn-charge">{{ \Illuminate\Support\Str::limit($earliestCase->charges, 140) }}</div>
-                            @endif
-                        </a>
-                    @endif
-
-                    @if ($newestActivePrisoner)
-                        <a class="tk2-tn" href="/prisoner/{{ $newestActivePrisoner->slug }}">
-                            <div class="tk2-tn-eyebrow">Now &middot; {{ $newestActiveCase->arrest_date ? \Carbon\Carbon::parse($newestActiveCase->arrest_date)->format('M Y') : 'Active' }}</div>
-                            @if ($newestActivePrisoner->photo_url)
-                                <div class="tk2-tn-photo" style="background-image: url('{{ $newestActivePrisoner->photo_url }}')"></div>
-                            @else
-                                <div class="tk2-tn-photo tk2-photo-blank"></div>
-                            @endif
-                            <div class="tk2-tn-name">{{ $newestActivePrisoner->name }}</div>
-                            @if ($newestActiveCase->charges)
-                                <div class="tk2-tn-charge">{{ \Illuminate\Support\Str::limit($newestActiveCase->charges, 140) }}</div>
-                            @endif
-                        </a>
-                    @endif
+                <div class="tk2-costcap-head">
+                    <div class="tk2-costcap-eyebrow">Total cost of repression</div>
+                    <div class="tk2-costcap-total">${{ number_format($totalCost) }}</div>
                 </div>
-            </section>
 
-            {{-- MID-PAGE CTA --}}
-            <aside class="tk2-cta">
-                <div class="tk2-cta-eyebrow">Dispatch</div>
-                <div class="tk2-cta-headline">New cases are added each week.</div>
-                <p class="tk2-cta-text">Get the running total in your inbox once a month, along with new prisoner profiles, clemency campaigns, and birthday letter-writing reminders.</p>
-                <form class="tk2-cta-form" action="/sign-up" method="POST">
-                    @csrf
-                    <input type="email" name="email" placeholder="Email Address" aria-label="Email address" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </aside>
-
-            {{-- 05 ACTIVE CASES --}}
-            <section id="active" class="tk2-section">
-                <div class="tk2-snum">07</div>
-                <h2 class="tk2-shead">What we know so far &mdash; today.</h2>
-                <p class="tk2-lede">{{ number_format($inCustody) }} of the {{ number_format($totalPrisoners) }} people in this archive are in custody right now. {{ number_format($awaitingTrial) }} are awaiting trial, {{ number_format($inExile) }} are in exile, and {{ number_format($released) }} are released or unincarcerated.</p>
-
-                <div class="tk2-active">
-                    @foreach ($activeCases as $p)
-                        @php
-                            $caseSet = $casesByPrisoner->get($p->id);
-                            $earliest = $caseSet?->min('arrest_date');
-                            $cost = (int) ($activeCaseCosts[$p->id] ?? 0);
-                        @endphp
-                        <a class="tk2-acard" href="/prisoner/{{ $p->slug }}">
-                            @if ($p->photo_url)
-                                <div class="tk2-acard-photo" style="background-image: url('{{ $p->photo_url }}')"></div>
-                            @else
-                                <div class="tk2-acard-photo tk2-photo-blank"></div>
-                            @endif
-                            <div class="tk2-acard-name">{{ $p->name }}</div>
-                            @if ($earliest)
-                                <div class="tk2-acard-meta">Arrested {{ \Carbon\Carbon::parse($earliest)->format('M Y') }}</div>
-                            @endif
-                            @if ($cost > 0)
-                                <div class="tk2-acard-days">${{ number_format($cost) }}<span>&nbsp;spent</span></div>
-                            @endif
-                        </a>
+                <div class="tk2-costcap-list">
+                    @foreach ($costCards as $i => $card)
+                        <div class="tk2-costcap-row {{ $i % 2 === 0 ? 'is-imgright' : 'is-imgleft' }}">
+                            <div class="tk2-costcap-figure">
+                                <div class="tk2-costcap-diamond tk2-costcap-diamond--{{ $card['key'] }}">
+                                    <span class="tk2-costcap-emblem">
+                                        @switch($card['key'])
+                                            @case('federal')
+                                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M50 12 L82 34 H18 Z"/><line x1="20" y1="40" x2="80" y2="40"/><line x1="28" y1="40" x2="28" y2="74"/><line x1="42" y1="40" x2="42" y2="74"/><line x1="58" y1="40" x2="58" y2="74"/><line x1="72" y1="40" x2="72" y2="74"/><line x1="16" y1="82" x2="84" y2="82"/></svg>
+                                                @break
+                                            @case('state')
+                                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><rect x="24" y="22" width="52" height="60"/><line x1="38" y1="34" x2="38" y2="54"/><line x1="50" y1="34" x2="50" y2="54"/><line x1="62" y1="34" x2="62" y2="54"/><rect x="42" y="64" width="16" height="18"/></svg>
+                                                @break
+                                            @case('local')
+                                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><line x1="22" y1="20" x2="78" y2="20"/><line x1="22" y1="80" x2="78" y2="80"/><line x1="30" y1="20" x2="30" y2="80"/><line x1="43" y1="20" x2="43" y2="80"/><line x1="57" y1="20" x2="57" y2="80"/><line x1="70" y1="20" x2="70" y2="80"/></svg>
+                                                @break
+                                            @case('investigation')
+                                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><circle cx="44" cy="44" r="24"/><line x1="62" y1="62" x2="80" y2="80"/></svg>
+                                                @break
+                                            @case('prosecution')
+                                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="50" y1="18" x2="50" y2="80"/><line x1="30" y1="82" x2="70" y2="82"/><line x1="24" y1="30" x2="76" y2="30"/><path d="M24 30 L14 52 H34 Z"/><path d="M76 30 L66 52 H86 Z"/><circle cx="50" cy="22" r="5"/></svg>
+                                                @break
+                                            @case('appeals')
+                                                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><path d="M24 34 V84 H58"/><rect x="32" y="22" width="40" height="52" rx="3"/><line x1="42" y1="38" x2="62" y2="38"/><line x1="42" y1="48" x2="62" y2="48"/><line x1="42" y1="58" x2="56" y2="58"/></svg>
+                                                @break
+                                        @endswitch
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tk2-costcap-body">
+                                <div class="tk2-costcap-amount">{{ $tkMoney($card['value']) }}</div>
+                                <div class="tk2-costcap-title"><span>{{ $card['label'] }}</span></div>
+                                <p class="tk2-costcap-text">{{ $card['blurb'] }}</p>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
-
-                <a class="tk2-more" href="/database?in_custody=1">See all active cases &rsaquo;</a>
             </section>
 
-            {{-- 06 METHODOLOGY --}}
+            {{-- 07 METHODOLOGY --}}
             <section id="methodology" class="tk2-section">
-                <div class="tk2-snum">08</div>
+                <div class="tk2-snum">07</div>
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
@@ -541,39 +512,23 @@
         .tk2-bar-value { font-family: 'Playfair Display', Georgia, serif; text-align: right; font-size: 22px; font-weight: 900; color: #fff; font-variant-numeric: tabular-nums; }
         .tk2-bar-value span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55); margin-left: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
 
-        /* THEN & NOW */
-        .tk2-thennow { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
-        .tk2-tn { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.18); padding: 24px; background: rgba(255,255,255,0.02); transition: border-color 0.15s, transform 0.15s; }
-        .tk2-tn:hover { border-color: #f25c54; transform: translateY(-2px); }
-        .tk2-tn-eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #f25c54; margin-bottom: 18px; }
-        .tk2-tn-photo { width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center top; background-color: #1a1a1a; margin-bottom: 18px; filter: grayscale(0.6); }
-        .tk2-photo-blank { background: linear-gradient(135deg, #1a1a1a 0%, #2a1860 100%); }
-        .tk2-tn-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 12px; }
-        .tk2-tn-charge { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.65); }
-
-        /* MID-PAGE CTA */
-        .tk2-cta { position: relative; margin: 64px 0; padding: 40px 36px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.15); }
-        .tk2-cta-eyebrow { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.5rem; font-weight: 900; color: rgba(255,255,255,0.45); line-height: 1; margin-bottom: 8px; }
-        .tk2-cta-headline { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.01em; max-width: 580px; }
-        .tk2-cta-text { font-size: 15px; line-height: 1.55; color: rgba(255,255,255,0.7); margin: 0 0 24px; max-width: 580px; }
-        .tk2-cta-form { display: flex; height: 52px; max-width: 540px; }
-        .tk2-cta-form input { flex: 1; height: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.35); border-right: none; color: #fff; padding: 0 18px; font-size: 15px; outline: none; border-radius: 0; }
-        .tk2-cta-form input::placeholder { color: rgba(255,255,255,0.5); }
-        .tk2-cta-form input:focus { border-color: #fff; }
-        .tk2-cta-form button { height: 100%; background: #f25c54; color: #0a0a0a; border: none; padding: 0 30px; font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; }
-        .tk2-cta-form button:hover { background: #fff; }
-
-        /* ACTIVE CASES */
-        .tk2-active { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 32px; }
-        .tk2-acard { display: block; text-decoration: none; color: inherit; transition: transform 0.15s; }
-        .tk2-acard:hover { transform: translateY(-3px); }
-        .tk2-acard-photo { aspect-ratio: 3/4; background-size: cover; background-position: center top; background-color: #1a1a1a; margin-bottom: 14px; filter: grayscale(0.5); }
-        .tk2-acard-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.125rem; font-weight: 900; line-height: 1.15; color: #fff; margin-bottom: 6px; }
-        .tk2-acard-meta { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
-        .tk2-acard-days { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 900; color: #f25c54; line-height: 1; font-variant-numeric: tabular-nums; }
-        .tk2-acard-days span { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); margin-left: 4px; letter-spacing: 0.12em; text-transform: uppercase; }
-        .tk2-more { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #4dd9d2; text-decoration: none; padding: 8px 0; border-bottom: 2px solid #4dd9d2; }
-        .tk2-more:hover { color: #fff; border-bottom-color: #fff; }
+        /* WHERE IT GOES — CAP-style alternating cost cards */
+        .tk2-costcap-head { text-align: center; margin-bottom: 84px; }
+        .tk2-costcap-eyebrow { display: inline-block; background: #4dd9d2; color: #06302e; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 11px; }
+        .tk2-costcap-total { margin-top: 18px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(2.6rem, 7vw, 5rem); color: #f25c54; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+        .tk2-costcap-list { display: flex; flex-direction: column; gap: 110px; }
+        .tk2-costcap-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+        .tk2-costcap-row.is-imgright { direction: rtl; }
+        .tk2-costcap-row.is-imgright > * { direction: ltr; }
+        .tk2-costcap-figure { display: flex; justify-content: center; }
+        .tk2-costcap-diamond { position: relative; width: 300px; height: 300px; max-width: 64vw; max-height: 64vw; transform: rotate(45deg); background: linear-gradient(135deg, #8d939c 0%, #565b63 55%, #3c4047 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; box-shadow: 0 26px 64px rgba(0,0,0,0.55); }
+        .tk2-costcap-diamond::after { content: ''; position: absolute; left: -12px; bottom: -12px; width: 66px; height: 66px; background: #4dd9d2; z-index: -1; }
+        .tk2-costcap-emblem { transform: rotate(-45deg); width: 48%; color: #fff; opacity: 0.9; }
+        .tk2-costcap-emblem svg { width: 100%; height: auto; display: block; }
+        .tk2-costcap-amount { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(2.4rem, 5.5vw, 3.6rem); color: #4dd9d2; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+        .tk2-costcap-title { margin: 16px 0 18px; }
+        .tk2-costcap-title span { display: inline; background: #fff; color: #0a0a0a; font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(1rem, 2.4vw, 1.35rem); text-transform: uppercase; letter-spacing: 0.005em; padding: 4px 9px; line-height: 1.75; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+        .tk2-costcap-text { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.7; max-width: 44ch; margin: 0; }
 
         /* METHODOLOGY */
         .tk2-method p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.78); margin: 0 0 22px; max-width: 720px; }
@@ -598,11 +553,11 @@
             .tk2-bignums { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .tk2-bar { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
             .tk2-bar-value { text-align: left; }
-            .tk2-thennow { grid-template-columns: 1fr; gap: 20px; }
-            .tk2-active { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-            .tk2-cta { padding: 28px 22px; margin: 40px 0; }
-            .tk2-cta-form { flex-direction: column; height: auto; max-width: none; }
-            .tk2-cta-form input, .tk2-cta-form button { height: 48px; border-right: 1px solid rgba(255,255,255,0.35); }
+            .tk2-costcap-list { gap: 64px; }
+            .tk2-costcap-row, .tk2-costcap-row.is-imgright { grid-template-columns: 1fr; direction: ltr; gap: 28px; }
+            .tk2-costcap-figure { order: -1; }
+            .tk2-costcap-diamond { width: 220px; height: 220px; }
+            .tk2-costcap-head { margin-bottom: 56px; }
         }
     </style>
 
