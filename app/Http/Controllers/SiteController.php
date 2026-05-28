@@ -652,6 +652,23 @@ final class SiteController extends Controller {
             ['label' => 'Appeals & post-conviction', 'value' => $costOfAppeals,        'shade' => 'e'],
         ])->where('value', '>', 0)->sortByDesc('value')->values();
 
+        // CAP-style "where the money goes" cards — same six buckets, with
+        // explanatory copy and an emblem key for the diamond artwork.
+        $costCards = collect([
+            ['key' => 'federal', 'label' => 'Federal detention', 'value' => $costFederalIncarceration,
+             'blurb' => "Days served in Bureau of Prisons custody, priced year by year at the BOP's own published per-inmate rate. Federal political cases — espionage, material support, RICO conspiracy — carry the longest sentences and the steepest daily cost."],
+            ['key' => 'state', 'label' => 'State detention', 'value' => $costStateIncarceration,
+             'blurb' => "Time in state prison systems, priced at each state's annual per-prisoner cost adjusted to the year served. Most movement-era convictions — Black Panther, AIM, Puerto Rican independentista — ran through state custody."],
+            ['key' => 'local', 'label' => 'Local & county jails', 'value' => $costLocalIncarceration,
+             'blurb' => 'Pretrial detention and short sentences in county and city jails — the most common first stop for protesters and organizers, priced at the national per-inmate local-jail rate.'],
+            ['key' => 'investigation', 'label' => 'Investigations', 'value' => $costOfInvestigation,
+             'blurb' => 'The surveillance that precedes the charge: FBI field work, Joint Terrorism Task Force stings, COINTELPRO-style infiltration. Years of informants, wiretaps, and grand juries, billed before a single day is served.'],
+            ['key' => 'prosecution', 'label' => 'Prosecution & court costs', 'value' => $costOfProsecution,
+             'blurb' => 'The trial itself — prosecutors, expert witnesses, and court time. A capital conspiracy case costs orders of magnitude more than a trespassing charge, so every case is tiered by charge severity.'],
+            ['key' => 'appeals', 'label' => 'Appeals & post-conviction', 'value' => $costOfAppeals,
+             'blurb' => 'Appellate and habeas litigation after conviction — the years of motions, briefs, and federal review that follow a political sentence.'],
+        ])->where('value', '>', 0)->sortByDesc('value')->values();
+
         $costOfIncarceration = $costFederalIncarceration + $costStateIncarceration + $costLocalIncarceration;
 
         $inCustody = $prisoners->where('in_custody', true)->count();
@@ -750,7 +767,7 @@ final class SiteController extends Controller {
             'costFederalIncarceration', 'costStateIncarceration', 'costLocalIncarceration',
             'costOfInvestigation', 'costOfAppeals',
             'dailyOngoingCost', 'perSecondOngoingCost',
-            'costBubbles', 'windowYears', 'methodFedRateRange',
+            'costBubbles', 'costCards', 'windowYears', 'methodFedRateRange',
             'chargeStats', 'maxChargeCount',
             'affiliationSeries', 'affYears',
             'federalDays', 'stateDays', 'localDays',
