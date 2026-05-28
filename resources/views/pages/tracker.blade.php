@@ -390,8 +390,8 @@
         body.page-tracker { background: #000 !important; color: #fff; overflow-x: hidden; }
         /* Full-bleed closing block: map artwork with the ticker + share
            repeated over it (mirrors the hero). */
-        .tk2-footer { position: relative; margin: 56px 0 -88px; width: 100vw; max-width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; }
-        .tk2-footer-bg { display: block; width: 100%; height: auto; }
+        .tk2-footer { position: relative; margin: 56px 0 -88px; width: 100vw; max-width: 100vw; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow: hidden; aspect-ratio: 1579 / 996; background: #000; }
+        .tk2-footer-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
         .tk2-footer-content { position: absolute; inset: 0; display: flex; flex-direction: column; }
         /* Coral ticker bar pinned to the top of the artwork; share row to the bottom. */
         .tk2-footer .tk2-banner--footer { margin: 0; left: auto; right: auto; width: 100%; }
