@@ -354,10 +354,18 @@
             </section>
 
         </div>
+
+        {{-- Full-bleed closing image — black US map of cuffed hands --}}
+        <div class="tk2-footer-art" aria-hidden="true">
+            <img src="/images/tracker-footer-map.jpg" alt="">
+        </div>
     </article>
 
     <style>
         body.page-tracker { background: #000 !important; color: #fff; overflow-x: hidden; }
+        /* Full-bleed closing artwork at the very bottom of the page */
+        .tk2-footer-art { margin: 56px 0 -88px; width: 100vw; max-width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+        .tk2-footer-art img { display: block; width: 100%; height: auto; }
         body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
         .tk2 { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
