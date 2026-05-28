@@ -66,8 +66,10 @@
         </header>
 
         {{-- HERO — single composite portrait of political prisoners --}}
-        <section class="tk2-hero">
+        <section class="tk2-hero" id="tk2-hero">
             <img class="tk2-hero-img" src="/images/tracker-hero.png" alt="" aria-hidden="true">
+            <div class="tk2-hero-spot-overlay" aria-hidden="true"></div>
+            <div class="tk2-hero-spot-highlight" aria-hidden="true"></div>
             <h1 class="tk2-hero-title">The Price of Political Prosecution</h1>
         </section>
 
@@ -343,7 +345,15 @@
            to give it the same printed-newsprint texture the old hero had. */
         .tk2-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.2px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
         .tk2-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.65) 100%); pointer-events: none; z-index: 2; }
-        .tk2-hero-title { position: relative; z-index: 3; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
+        /* Searchlight — same cursor-follow spotlight as the About page.
+           A soft white glow brightens the photo under the cursor; an
+           optional dark overlay (off by default) can dim the rest. */
+        .tk2-hero { cursor: none; --spot-radius: 240px; --spot-brightness: 0.65; }
+        .tk2-hero-spot-overlay { position: absolute; inset: 0; background: #000; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 3; }
+        .tk2-hero.spot-active .tk2-hero-spot-overlay { opacity: 0.55; -webkit-mask-image: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.35) 45%, #000 100%); mask-image: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.35) 45%, #000 100%); }
+        .tk2-hero-spot-highlight { position: absolute; inset: 0; opacity: 0; mix-blend-mode: overlay; transition: opacity 0.3s; pointer-events: none; z-index: 4; }
+        .tk2-hero.spot-active .tk2-hero-spot-highlight { opacity: var(--spot-brightness); background: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.3) 40%, transparent 70%); }
+        .tk2-hero-title { position: relative; z-index: 5; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
 
         /* CORAL BANNER WITH BIG NUMBER */
         .tk2-banner { background: #f25c54; padding: 36px 32px 28px; }
@@ -477,7 +487,7 @@
             .tk2-topnav-inner { gap: 18px; }
             .tk2-anchors { gap: 8px 16px; }
             .tk2-anchors a { font-size: 11px; gap: 8px; }
-            .tk2-hero { min-height: 280px; padding: 0; }
+            .tk2-hero { min-height: 280px; padding: 0; cursor: auto; }
             .tk2-hero-title { font-size: 2rem; margin-bottom: 24px; }
             .tk2-banner { padding: 24px 20px 20px; }
             .tk2-banner-sub { padding: 0 20px; font-size: 14px; }
@@ -535,6 +545,21 @@
             } else {
                 animate();
             }
+        })();
+
+        // Hero searchlight — cursor-follow spotlight, same as the About page.
+        (function () {
+            const hero = document.getElementById('tk2-hero');
+            if (! hero) return;
+            // Skip on touch devices (no hover) — leave the photo fully lit.
+            if (window.matchMedia('(hover: none)').matches) { hero.style.cursor = 'auto'; return; }
+            hero.addEventListener('mouseenter', () => hero.classList.add('spot-active'));
+            hero.addEventListener('mouseleave', () => hero.classList.remove('spot-active'));
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                hero.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                hero.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+            });
         })();
     </script>
 
