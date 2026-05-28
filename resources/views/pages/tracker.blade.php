@@ -328,8 +328,10 @@
 
         {{-- Closing block — repeats the live ticker + share over the
              full-bleed map artwork, mirroring the hero. --}}
-        <div class="tk2-footer">
+        <div class="tk2-footer" id="tk2-footer">
             <img class="tk2-footer-bg" src="/images/tracker-footer-map.png" alt="" aria-hidden="true">
+            <div class="tk2-footer-spot-overlay" aria-hidden="true"></div>
+            <div class="tk2-footer-spot-highlight" aria-hidden="true"></div>
             <div class="tk2-footer-content">
                 <section class="tk2-banner tk2-banner--footer">
                     <div class="tk2-banner-inner">
@@ -362,9 +364,16 @@
         /* Full-bleed closing block: a large map backdrop with the ticker +
            share repeated over it (mirrors the hero). The map is sized
            independently of the coral ticker, which always spans the page. */
-        .tk2-footer { position: relative; left: 50%; margin: 64px 0 0 -50vw; width: 100vw; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
-        .tk2-footer-bg { position: relative; width: clamp(1200px, 180vw, 3200px); height: auto; display: block; margin: 0 auto; }
-        .tk2-footer-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .tk2-footer { position: relative; left: 50%; margin: 64px 0 0 -50vw; width: 100vw; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; cursor: none; --spot-radius: 240px; --spot-brightness: 0.65; }
+        .tk2-footer-bg { position: relative; width: clamp(1200px, 180vw, 3200px); height: auto; display: block; margin: 0 auto; z-index: 0; }
+        /* Dot-matrix overlay + cursor-follow searchlight, mirroring the hero. */
+        .tk2-footer::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.16) 0.5px, transparent 0.9px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
+        .tk2-footer-spot-overlay { position: absolute; inset: 0; background: #000; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 3; }
+        .tk2-footer.spot-active .tk2-footer-spot-overlay { opacity: 0.55; -webkit-mask-image: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.35) 45%, #000 100%); mask-image: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.35) 45%, #000 100%); }
+        .tk2-footer-spot-highlight { position: absolute; inset: 0; opacity: 0; mix-blend-mode: overlay; transition: opacity 0.3s; pointer-events: none; z-index: 4; }
+        .tk2-footer.spot-active .tk2-footer-spot-highlight { opacity: var(--spot-brightness); background: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.3) 40%, transparent 70%); }
+        .tk2-footer-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 5; }
+        .tk2-footer .tk2-share-bar--footer a { cursor: pointer; }
         /* Coral ticker bar spans the full page width regardless of map size;
            share row sits directly beneath it. */
         .tk2-footer .tk2-banner--footer { position: relative; left: auto; right: auto; margin: 0; width: 100vw; }
@@ -619,6 +628,20 @@
                 const rect = hero.getBoundingClientRect();
                 hero.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
                 hero.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+            });
+        })();
+
+        // Footer map searchlight — same cursor-follow spotlight as the hero.
+        (function () {
+            const footer = document.getElementById('tk2-footer');
+            if (! footer) return;
+            if (window.matchMedia('(hover: none)').matches) { footer.style.cursor = 'auto'; return; }
+            footer.addEventListener('mouseenter', () => footer.classList.add('spot-active'));
+            footer.addEventListener('mouseleave', () => footer.classList.remove('spot-active'));
+            footer.addEventListener('mousemove', (e) => {
+                const rect = footer.getBoundingClientRect();
+                footer.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                footer.style.setProperty('--my', (e.clientY - rect.top) + 'px');
             });
         })();
     </script>
