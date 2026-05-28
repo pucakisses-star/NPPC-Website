@@ -221,7 +221,7 @@
                 <div class="tk2-snum">05</div>
                 <img class="tk2-section-icon" src="/images/icon-affiliation.svg" alt="" aria-hidden="true">
                 <h2 class="tk2-shead">Purported affiliation, over time.</h2>
-                <p class="tk2-lede">Defendants grouped by the movement or organization the government alleged they belonged to, plotted by year of arrest. Each prisoner is counted once per affiliation they were tagged with.</p>
+                <p class="tk2-lede">Defendants grouped by the movement or organization the government alleged they belonged to, plotted by year of arrest. Each prisoner's prosecution-and-incarceration cost is summed into the year of their arrest, once per affiliation they were tagged with.</p>
                 <div class="tk2-affil-wrap">
                     <canvas id="tk2-affil-chart" height="300"
                             data-years='@json($affYears)'
@@ -377,10 +377,10 @@
         /* Coral ticker bar spans the full page width regardless of map size;
            share row sits directly beneath it. */
         .tk2-footer .tk2-banner--footer { position: relative; left: auto; right: auto; margin: 0; width: 100vw; }
-        .tk2-footer .tk2-share-bar--footer { position: relative; margin: 0; padding: 24px 0 0; }
+        .tk2-footer .tk2-share-bar--footer { position: absolute; left: 0; right: 0; bottom: 56px; margin: 0; padding: 0; }
         @media (max-width: 700px) {
             .tk2-footer-bg { width: 165vw; }
-            .tk2-footer .tk2-share-bar--footer { padding-top: 14px; }
+            .tk2-footer .tk2-share-bar--footer { bottom: 28px; }
         }
         body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
@@ -895,6 +895,16 @@
             const series = JSON.parse(canvas.dataset.series || '[]');
             if (! series.length) return;
 
+            // Compact dollar formatter for axis ticks, legend totals, and
+            // tooltips (mirrors the PHP $tkMoney helper used elsewhere).
+            const fmtMoney = function (n) {
+                n = Math.round(Number(n) || 0);
+                if (n >= 1e9) return '$' + (n / 1e9).toFixed(2).replace(/\.?0+$/, '') + 'B';
+                if (n >= 1e6) return '$' + Math.round(n / 1e6).toLocaleString() + 'M';
+                if (n >= 1e3) return '$' + Math.round(n / 1e3).toLocaleString() + 'K';
+                return '$' + n.toLocaleString();
+            };
+
             // NPPC indigo gradient + a couple of warm accents so the
             // overlapping movements stay distinguishable.
             const palette = ['#5660fe', '#4dd9d2', '#9b5cff', '#f25c54', '#f5d061', '#3a3fa3'];
@@ -904,7 +914,7 @@
                 data: {
                     labels: years,
                     datasets: series.map((s, i) => ({
-                        label: s.label + ' (' + s.total + ')',
+                        label: s.label + ' (' + fmtMoney(s.total) + ')',
                         data: s.data,
                         borderColor: palette[i % palette.length],
                         backgroundColor: palette[i % palette.length] + '33',
@@ -921,11 +931,19 @@
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: { labels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, weight: '700' }, usePointStyle: true, pointStyle: 'rectRounded' } },
-                        tooltip: { backgroundColor: '#fff', titleColor: '#0a0a0a', bodyColor: '#333' },
+                        tooltip: {
+                            backgroundColor: '#fff', titleColor: '#0a0a0a', bodyColor: '#333',
+                            callbacks: {
+                                label: function (ctx) {
+                                    const base = ctx.dataset.label.replace(/\s*\([^)]*\)\s*$/, '');
+                                    return base + ': ' + fmtMoney(ctx.parsed.y);
+                                },
+                            },
+                        },
                     },
                     scales: {
                         x: { grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', maxRotation: 0, autoSkip: true, maxTicksLimit: 12 } },
-                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', precision: 0 } },
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', callback: function (v) { return fmtMoney(v); } } },
                     },
                 },
             });
