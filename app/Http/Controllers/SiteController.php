@@ -543,12 +543,9 @@ final class SiteController extends Controller {
                 $convictedCases++;
             }
 
-            // Total all-in cost of THIS case, used for the per-charge
-            // average below.
-            $caseTotal = $incCost
-                + IncarcerationCostRates::investigationCost($bucket, $c->charges, $c->sentence, $arrestYear)
-                + IncarcerationCostRates::prosecutionCost($bucket, $c->charges, $c->sentence, $arrestYear)
-                + $caseAppeals;
+            // Per-charge average uses the PROSECUTION cost only — what the
+            // trial itself costs — not the all-in incarceration total.
+            $caseProsecution = IncarcerationCostRates::prosecutionCost($bucket, $c->charges, $c->sentence, $arrestYear);
 
             // Tally charge categories this case matches.
             $chargeText = (string) ($c->charges ?? '');
@@ -556,7 +553,7 @@ final class SiteController extends Controller {
                 foreach ($chargeCats as [$label, $regex]) {
                     if (preg_match($regex, $chargeText)) {
                         $chargeCount[$label]++;
-                        $chargeCost[$label] += $caseTotal;
+                        $chargeCost[$label] += $caseProsecution;
                     }
                 }
             }

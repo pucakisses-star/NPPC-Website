@@ -197,7 +197,7 @@
                 <div class="tk2-snum">04</div>
                 <img class="tk2-section-icon" src="/images/icon-charges.svg" alt="" aria-hidden="true">
                 <h2 class="tk2-shead">Most common charges in all cases.</h2>
-                <p class="tk2-lede">How often each charge appears across the documented cases, and the average all-in public cost of a case carrying that charge (investigation + prosecution + incarceration + appeals). A single case usually carries several charges, so the counts overlap.</p>
+                <p class="tk2-lede">How often each charge appears across the documented cases, and the average cost to prosecute a case carrying that charge. A single case usually carries several charges, so the counts overlap.</p>
 
                 <div class="tk2-charges">
                     @foreach ($chargeStats as $ch)
@@ -205,13 +205,13 @@
                             $ratio = sqrt(max(1, $ch['count']) / max(1, $maxChargeCount));
                             $cd = max(18, round(120 * $ratio)); // circle diameter px
                         @endphp
-                        <div class="tk2-charge" title="{{ $ch['label'] }}: {{ number_format($ch['count']) }} cases, avg ${{ number_format($ch['avgCost']) }}/case">
+                        <div class="tk2-charge" title="{{ $ch['label'] }}: {{ number_format($ch['count']) }} cases, avg ${{ number_format($ch['avgCost']) }} to prosecute">
                             <div class="tk2-charge-dot-wrap">
                                 <span class="tk2-charge-dot" style="width: {{ $cd }}px; height: {{ $cd }}px;"></span>
                             </div>
                             <div class="tk2-charge-count">{{ number_format($ch['count']) }}</div>
                             <div class="tk2-charge-label">{{ $ch['label'] }}</div>
-                            <div class="tk2-charge-cost">${{ number_format($ch['avgCost']) }} avg/case</div>
+                            <div class="tk2-charge-cost">${{ number_format($ch['avgCost']) }} avg prosecution</div>
                         </div>
                     @endforeach
                 </div>
