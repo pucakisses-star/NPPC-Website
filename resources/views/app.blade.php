@@ -23,9 +23,15 @@ $isHome = request()->segment(1) == ''
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     @livewireStyles
-    <link rel="stylesheet" href="/vue/app.css">
+    @php
+        // Cache-bust the built Vue bundle by its file mtime so a fresh
+        // `yarn build` is picked up without a manual hard-refresh.
+        $vueCssV = @filemtime(public_path('vue/app.css')) ?: time();
+        $vueJsV  = @filemtime(public_path('vue/app.js')) ?: time();
+    @endphp
+    <link rel="stylesheet" href="/vue/app.css?v={{ $vueCssV }}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/vue/app.js" defer></script>
+    <script src="/vue/app.js?v={{ $vueJsV }}" defer></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
         window.addEventListener('pageshow', function(e) {
