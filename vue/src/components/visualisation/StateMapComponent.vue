@@ -69,6 +69,20 @@ const counts = computed(() => {
 const total = computed(() => Object.values(counts.value).reduce((a, b) => a + b, 0));
 const max = computed(() => Math.max(...Object.values(counts.value), 1));
 
+// Lead sentence: surface the least-prosecuted state (mirrors the
+// Intercept "Trial and Terror" framing). Prefer a 0-count state; if
+// every state has cases, fall back to the lowest. Pick deterministically
+// by alphabetical state name so it doesn't jump around between renders.
+const leastState = computed(() => {
+  const entries = Object.keys(stateNames)
+    .map(abbr => ({ abbr, name: stateNames[abbr], n: counts.value[abbr] }))
+    .sort((a, b) => a.n - b.n || a.name.localeCompare(b.name));
+  return entries[0] || { abbr: 'ME', name: 'Maine', n: 0 };
+});
+const leastPct = computed(() =>
+  total.value > 0 ? Math.round((leastState.value.n / total.value) * 100) : 0
+);
+
 const colorFor = (n: number): string => {
   if (n <= 0) return '#14141a';
   // Log-scale so single-defendant states are visible
@@ -122,6 +136,15 @@ const hideTip = () => { tipVisible.value = false; };
 <template>
   <section id="state-map-component">
     <div class="state-map-inner">
+      <div class="state-map-intro">
+        <img class="state-map-icon" src="/images/icon-map.svg" alt="" aria-hidden="true" />
+        <div class="state-map-eyebrow">Place of Prosecution</div>
+        <p class="state-map-lead">
+          <strong>{{ leastPct }} percent</strong> of documented U.S. political prisoners
+          have been prosecuted in <strong>{{ leastState.name }}</strong>.
+        </p>
+      </div>
+
       <h2 class="state-map-title">All Prosecutions by State</h2>
       <p class="state-map-sub">Hover any state for the count and share of total documented cases.</p>
 
@@ -163,6 +186,46 @@ const hideTip = () => { tipVisible.value = false; };
 .state-map-inner {
   max-width: 1100px;
   margin: 0 auto;
+}
+.state-map-intro {
+  text-align: center;
+  margin: 0 auto 72px;
+  max-width: 720px;
+}
+.state-map-icon {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 0 auto 18px;
+  // line-art ships black; force it white on the dark section
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+.state-map-eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 6px;
+  margin-bottom: 28px;
+}
+.state-map-lead {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+.state-map-lead strong {
+  color: #5660fe;
+  font-weight: 800;
+}
+@media (max-width: 760px) {
+  .state-map-intro { margin-bottom: 48px; }
+  .state-map-icon { width: 110px; }
+  .state-map-lead { font-size: 1.2rem; }
 }
 .state-map-title {
   text-align: center;
