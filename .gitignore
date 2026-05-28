@@ -18,3 +18,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# Footer artwork is managed manually on the server, not via git
+/public/images/tracker-footer-map.jpg
