@@ -651,8 +651,8 @@
                     // doesn't move in lockstep.
                     const t = engine.timing.timestamp * 0.001; // seconds
                     Body.applyForce(body, body.position, {
-                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.00013 * body.mass,
-                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.00015 * body.mass,
+                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.000065 * body.mass,
+                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.000075 * body.mass,
                     });
                     // Tiny Brownian wobble on top of the sway for organic feel.
                     Body.applyForce(body, body.position, {
