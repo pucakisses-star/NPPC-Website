@@ -330,8 +330,8 @@
         /* Viewport-escape so the hero strip and coral banner always span
            100vw regardless of any ancestor container max-width or padding. */
         .tk2-hero, .tk2-banner { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; max-width: 100vw; }
-        .tk2-hero { padding: 0; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
-        .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; z-index: 0; }
+        .tk2-hero { padding: 0; min-height: 760px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+        .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; z-index: 0; }
         /* Dot-matrix overlay — fine white dots scattered across the photo
            to give it the same printed-newsprint texture the old hero had. */
         .tk2-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1.2px); background-size: 4px 4px; pointer-events: none; mix-blend-mode: overlay; z-index: 1; }
@@ -476,7 +476,7 @@
         @media (max-width: 900px) {
             .tk2-anchors { gap: 8px 16px; padding: 14px 20px; }
             .tk2-anchors a { font-size: 11px; gap: 8px; }
-            .tk2-hero { min-height: 280px; padding: 0; cursor: auto; }
+            .tk2-hero { min-height: 420px; padding: 0; cursor: auto; }
             .tk2-hero-title { font-size: 2rem; margin-bottom: 24px; }
             .tk2-banner { padding: 24px 20px 20px; }
             .tk2-banner-sub { padding: 0 20px; font-size: 14px; }
