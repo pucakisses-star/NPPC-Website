@@ -195,6 +195,7 @@
             {{-- 04 MOST COMMON CHARGES --}}
             <section id="charges" class="tk2-section">
                 <div class="tk2-snum">04</div>
+                <img class="tk2-section-icon" src="/images/icon-charges.svg" alt="" aria-hidden="true">
                 <h2 class="tk2-shead">Most common charges in all cases.</h2>
                 <p class="tk2-lede">How often each charge appears across the documented cases, and the average all-in public cost of a case carrying that charge (investigation + prosecution + incarceration + appeals). A single case usually carries several charges, so the counts overlap.</p>
 
