@@ -387,12 +387,15 @@
         .tk2-bubble:active { cursor: grabbing; }
         /* NPPC accent palette — variations of the site's #5660fe indigo,
            all dark enough that pure-white text reads at every size. */
-        .tk2-bubble-a { background: #2b2f73; }   /* Federal incarceration */
-        .tk2-bubble-b { background: #3a3fa3; }   /* State incarceration (largest) */
-        .tk2-bubble-c { background: #5660fe; }   /* Local jail time — signature accent */
-        .tk2-bubble-d { background: #4045b0; }   /* Prosecution */
-        .tk2-bubble-e { background: #1f2247; }   /* Appeals & post-conviction */
-        .tk2-bubble-f { background: #15173a; }   /* Investigations */
+        /* Even dark→light gradient from #15173a (Investigations, darkest)
+           to #5660fe (Local jail time, brightest) — six equally-spaced
+           steps in their existing dark-to-light order. */
+        .tk2-bubble-f { background: #15173a; }   /* Investigations — step 1 (darkest) */
+        .tk2-bubble-e { background: #222661; }   /* Appeals & post-conviction — step 2 */
+        .tk2-bubble-a { background: #2f3488; }   /* Federal incarceration — step 3 */
+        .tk2-bubble-b { background: #3c43b0; }   /* State incarceration — step 4 */
+        .tk2-bubble-d { background: #4951d7; }   /* Prosecution — step 5 */
+        .tk2-bubble-c { background: #5660fe; }   /* Local jail time — step 6 (brightest) */
         .tk2-bubble-tooltip { position: absolute; left: 0; top: 0; pointer-events: none; background: #fff; color: #0a0a0a; border-radius: 4px; padding: 10px 14px 12px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); z-index: 20; }
         .tk2-bubble-tooltip[hidden] { display: none; }
         .tk2-bubble-tooltip::after { content: ''; position: absolute; left: 50%; border: 7px solid transparent; }
@@ -651,8 +654,8 @@
                     // doesn't move in lockstep.
                     const t = engine.timing.timestamp * 0.001; // seconds
                     Body.applyForce(body, body.position, {
-                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.000065 * body.mass,
-                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.000075 * body.mass,
+                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.0000325 * body.mass,
+                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.0000375 * body.mass,
                     });
                     // Tiny Brownian wobble on top of the sway for organic feel.
                     Body.applyForce(body, body.position, {
