@@ -89,6 +89,7 @@
             <a href="#breakdown">Cost Breakdown<span aria-hidden="true">&rarr;</span></a>
             <a href="#movement">By Movement<span aria-hidden="true">&rarr;</span></a>
             <a href="#charges">Charges<span aria-hidden="true">&rarr;</span></a>
+            <a href="#affiliation">Affiliation<span aria-hidden="true">&rarr;</span></a>
             <a href="#thennow">Then &amp; Now<span aria-hidden="true">&rarr;</span></a>
             <a href="#active">Active Cases</a>
         </nav>
@@ -215,9 +216,21 @@
                 </div>
             </section>
 
-            {{-- 05 THEN & NOW --}}
-            <section id="thennow" class="tk2-section">
+            {{-- 05 AFFILIATION OVER TIME --}}
+            <section id="affiliation" class="tk2-section">
                 <div class="tk2-snum">05</div>
+                <h2 class="tk2-shead">Purported affiliation, over time.</h2>
+                <p class="tk2-lede">Defendants grouped by the movement or organization the government alleged they belonged to, plotted by year of arrest. Each prisoner is counted once per affiliation they were tagged with.</p>
+                <div class="tk2-affil-wrap">
+                    <canvas id="tk2-affil-chart" height="300"
+                            data-years='@json($affYears)'
+                            data-series='@json($affiliationSeries)'></canvas>
+                </div>
+            </section>
+
+            {{-- 06 THEN & NOW --}}
+            <section id="thennow" class="tk2-section">
+                <div class="tk2-snum">06</div>
                 <h2 class="tk2-shead">Then &amp; Now.</h2>
                 <p class="tk2-lede">U.S. political imprisonment is not a relic. The earliest case in this archive sits beside an active prisoner being held today &mdash; a hundred years apart, the same machinery.</p>
 
@@ -268,7 +281,7 @@
 
             {{-- 05 ACTIVE CASES --}}
             <section id="active" class="tk2-section">
-                <div class="tk2-snum">06</div>
+                <div class="tk2-snum">07</div>
                 <h2 class="tk2-shead">What we know so far &mdash; today.</h2>
                 <p class="tk2-lede">{{ number_format($inCustody) }} of the {{ number_format($totalPrisoners) }} people in this archive are in custody right now. {{ number_format($awaitingTrial) }} are awaiting trial, {{ number_format($inExile) }} are in exile, and {{ number_format($released) }} are released or unincarcerated.</p>
 
@@ -301,7 +314,7 @@
 
             {{-- 06 METHODOLOGY --}}
             <section id="methodology" class="tk2-section">
-                <div class="tk2-snum">07</div>
+                <div class="tk2-snum">08</div>
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
@@ -465,6 +478,10 @@
         @media (max-width: 560px) {
             .tk2-charges { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* AFFILIATION-OVER-TIME chart */
+        .tk2-affil-wrap { position: relative; width: 100%; }
+        .tk2-affil-wrap canvas { width: 100% !important; }
 
         /* BREAKDOWN BARS */
         .tk2-bars { display: flex; flex-direction: column; gap: 0; }
@@ -837,5 +854,53 @@
                 start();
             }
         })();
+    </script>
+
+    {{-- Affiliation-over-time area chart --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            if (typeof Chart === 'undefined') return;
+            const canvas = document.getElementById('tk2-affil-chart');
+            if (! canvas) return;
+            const years = JSON.parse(canvas.dataset.years || '[]');
+            const series = JSON.parse(canvas.dataset.series || '[]');
+            if (! series.length) return;
+
+            // NPPC indigo gradient + a couple of warm accents so the
+            // overlapping movements stay distinguishable.
+            const palette = ['#5660fe', '#4dd9d2', '#9b5cff', '#f25c54', '#f5d061', '#3a3fa3'];
+
+            new Chart(canvas.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: series.map((s, i) => ({
+                        label: s.label + ' (' + s.total + ')',
+                        data: s.data,
+                        borderColor: palette[i % palette.length],
+                        backgroundColor: palette[i % palette.length] + '33',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        pointHoverRadius: 4,
+                    })),
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { labels: { color: 'rgba(255,255,255,0.8)', font: { size: 12, weight: '700' }, usePointStyle: true, pointStyle: 'rectRounded' } },
+                        tooltip: { backgroundColor: '#fff', titleColor: '#0a0a0a', bodyColor: '#333' },
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', maxRotation: 0, autoSkip: true, maxTicksLimit: 12 } },
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.55)', precision: 0 } },
+                    },
+                },
+            });
+        });
     </script>
 @endsection

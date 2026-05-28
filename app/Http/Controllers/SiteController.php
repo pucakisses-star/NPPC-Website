@@ -577,6 +577,42 @@ final class SiteController extends Controller {
         $chargeStats = array_slice($chargeStats, 0, 20);
         $maxChargeCount = $chargeStats ? max(array_column($chargeStats, 'count')) : 1;
 
+        // ── Affiliation over time ─────────────────────────────────────
+        // Count prisoners by purported affiliation per arrest year. A
+        // prisoner is placed in the year of their earliest documented
+        // arrest and counted once per affiliation they're tagged with.
+        $casesByPrisonerTmp = $cases->groupBy('prisoner_id');
+        $affByYear = [];   // [affiliation][year] => count
+        $affTotals = [];
+        foreach ($prisoners as $p) {
+            $set = $casesByPrisonerTmp->get($p->id);
+            $arrest = $set?->whereNotNull('arrest_date')->min('arrest_date');
+            if (! $arrest) continue;
+            $yr = (int) Carbon::parse($arrest)->year;
+            $affs = array_values(array_filter((array) $p->affiliation, fn ($a) => trim((string) $a) !== ''));
+            if (empty($affs)) $affs = ['Unaffiliated'];
+            foreach ($affs as $aff) {
+                $aff = trim((string) $aff);
+                $affByYear[$aff][$yr] = ($affByYear[$aff][$yr] ?? 0) + 1;
+                $affTotals[$aff] = ($affTotals[$aff] ?? 0) + 1;
+            }
+        }
+        arsort($affTotals);
+        $topAffiliations = array_slice(array_keys($affTotals), 0, 6);
+        $affYears = range($cutoffYear, (int) date('Y'));
+        $affiliationSeries = [];
+        foreach ($topAffiliations as $aff) {
+            $row = [];
+            foreach ($affYears as $y) {
+                $row[] = $affByYear[$aff][$y] ?? 0;
+            }
+            $affiliationSeries[] = [
+                'label' => $aff,
+                'total' => $affTotals[$aff],
+                'data'  => $row,
+            ];
+        }
+
         // Round once for display; internal sums kept as floats above.
         $costFederalIncarceration = (int) round($costFederalIncarceration);
         $costStateIncarceration   = (int) round($costStateIncarceration);
@@ -719,6 +755,7 @@ final class SiteController extends Controller {
             'dailyOngoingCost', 'perSecondOngoingCost',
             'costBubbles', 'windowYears', 'methodFedRateRange',
             'chargeStats', 'maxChargeCount',
+            'affiliationSeries', 'affYears',
             'federalDays', 'stateDays', 'localDays',
         ));
     }
