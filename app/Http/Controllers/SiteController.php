@@ -575,23 +575,44 @@ final class SiteController extends Controller {
         $maxChargeCount = $chargeStats ? max(array_column($chargeStats, 'count')) : 1;
 
         // ── Affiliation over time ─────────────────────────────────────
-        // Count prisoners by purported affiliation per arrest year. A
-        // prisoner is placed in the year of their earliest documented
-        // arrest and counted once per affiliation they're tagged with.
+        // Sum the prosecution-and-incarceration cost of each prisoner
+        // into the year of their earliest documented arrest, grouped by
+        // purported affiliation (counted once per affiliation they're
+        // tagged with). Uses the same cost model as the by-ideology
+        // breakdown, so this chart reads in dollars, not head count.
         $casesByPrisonerTmp = $cases->groupBy('prisoner_id');
-        $affByYear = [];   // [affiliation][year] => count
-        $affTotals = [];
+        $affByYear = [];   // [affiliation][year] => dollars
+        $affTotals = [];   // [affiliation]       => dollars
         foreach ($prisoners as $p) {
             $set = $casesByPrisonerTmp->get($p->id);
             $arrest = $set?->whereNotNull('arrest_date')->min('arrest_date');
             if (! $arrest) continue;
             $yr = (int) Carbon::parse($arrest)->year;
+
+            $cost = 0.0;
+            foreach ($set ?? collect() as $c) {
+                $cls    = $classify($c);
+                $days   = (int) ($c->imprisoned_for_days ?? 0);
+                $start  = $c->incarceration_date ?: $c->arrest_date;
+                $startC = $start ? Carbon::parse($start) : null;
+                $endC   = $c->release_date ? Carbon::parse($c->release_date) : null;
+                $cost  += IncarcerationCostRates::costForPeriod($cls['bucket'], $cls['state'], $startC, $endC, $days);
+                $arrestYear = $c->arrest_date ? (int) Carbon::parse($c->arrest_date)->year : (int) date('Y');
+                $cost  += IncarcerationCostRates::investigationCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
+                $cost  += IncarcerationCostRates::prosecutionCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
+                if ((string) ($c->convicted ?? '') !== '' || (string) ($c->plead ?? '') !== '' || (string) ($c->sentence ?? '') !== '') {
+                    $cost += IncarcerationCostRates::appealsCost($cls['bucket'], $c->charges, $c->sentence, $arrestYear);
+                }
+            }
+            $cost = (int) round($cost);
+            if ($cost <= 0) continue;
+
             $affs = array_values(array_filter((array) $p->affiliation, fn ($a) => trim((string) $a) !== ''));
             if (empty($affs)) $affs = ['Unaffiliated'];
             foreach ($affs as $aff) {
                 $aff = trim((string) $aff);
-                $affByYear[$aff][$yr] = ($affByYear[$aff][$yr] ?? 0) + 1;
-                $affTotals[$aff] = ($affTotals[$aff] ?? 0) + 1;
+                $affByYear[$aff][$yr] = ($affByYear[$aff][$yr] ?? 0) + $cost;
+                $affTotals[$aff] = ($affTotals[$aff] ?? 0) + $cost;
             }
         }
         arsort($affTotals);
