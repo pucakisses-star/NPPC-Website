@@ -600,29 +600,30 @@
             const bodies = bubbles.map((el, i) => {
                 const r = parseInt(el.dataset.radius, 10) || (el.offsetWidth / 2);
                 const angle = (i / bubbles.length) * Math.PI * 2 - Math.PI / 2;
-                const ringRadius = Math.min(width, height) * 0.22;
-                const x = cx + Math.cos(angle) * ringRadius;
-                const y = cy + Math.sin(angle) * ringRadius;
-                const body = Bodies.circle(x, y, r, {
-                    restitution: 0.6,
+                const ringRadius = Math.min(width, height) * 0.30;
+                const hx = cx + Math.cos(angle) * ringRadius;
+                const hy = cy + Math.sin(angle) * ringRadius;
+                const body = Bodies.circle(hx, hy, r, {
+                    restitution: 0.4,
                     friction: 0,
-                    frictionAir: 0.08,
+                    frictionAir: 0.06,
                     density: 0.001,
                     // Rotation is allowed but a per-tick restoring torque
                     // applied below keeps each bubble naturally upright —
                     // like a weighted bath toy: you can spin it, but it
                     // wobbles back to label-up on its own.
                 });
-                // Remember each body's "home" point (centre of canvas) so
-                // we can pull it back when it drifts.
+                // Each bubble's "home" is its own spot on the ring (not
+                // the shared centre) so they rest spread out and drift
+                // independently rather than as one clump.
                 body.elem = el;
-                body.home = { x: cx, y: cy };
-                // Per-body phase offsets so each bubble sways on its own
-                // cycle (sinusoidal forces applied below in beforeUpdate).
+                body.home = { x: hx, y: hy };
+                // Per-body phase offsets + widely-varied frequencies so no
+                // two bubbles sway on the same cycle.
                 body.swayPhaseX = Math.random() * Math.PI * 2;
                 body.swayPhaseY = Math.random() * Math.PI * 2;
-                body.swaySpeedX = 0.6 + Math.random() * 0.4; // rad/s
-                body.swaySpeedY = 0.4 + Math.random() * 0.4;
+                body.swaySpeedX = 0.35 + Math.random() * 0.65; // rad/s
+                body.swaySpeedY = 0.30 + Math.random() * 0.60;
                 return body;
             });
             World.add(engine.world, bodies);
@@ -635,7 +636,10 @@
                     if (body.isStatic) return;
                     const dx = body.home.x - body.position.x;
                     const dy = body.home.y - body.position.y;
-                    const k = 0.0000022; // spring stiffness
+                    // Soft home spring — loose enough that bubbles can wander
+                    // a fair way from their spot before easing back, so the
+                    // group breathes apart rather than locking together.
+                    const k = 0.0000012;
                     Body.applyForce(body, body.position, {
                         x: dx * k * body.mass,
                         y: dy * k * body.mass,
@@ -647,8 +651,8 @@
                     // doesn't move in lockstep.
                     const t = engine.timing.timestamp * 0.001; // seconds
                     Body.applyForce(body, body.position, {
-                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.00006 * body.mass,
-                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.00008 * body.mass,
+                        x: Math.sin(t * body.swaySpeedX + body.swayPhaseX) * 0.00013 * body.mass,
+                        y: Math.cos(t * body.swaySpeedY + body.swayPhaseY) * 0.00015 * body.mass,
                     });
                     // Tiny Brownian wobble on top of the sway for organic feel.
                     Body.applyForce(body, body.position, {
@@ -674,7 +678,7 @@
                 // that's 15 pairs — negligible compute, and the effect is
                 // only meaningful when one drifts far from the cluster:
                 // close-together bubbles' attractions roughly cancel.
-                const G = 0.0004;
+                const G = 0.00012;
                 for (let i = 0; i < bodies.length; i++) {
                     for (let j = i + 1; j < bodies.length; j++) {
                         const a = bodies[i], b = bodies[j];
