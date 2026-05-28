@@ -317,8 +317,8 @@
     </article>
 
     <style>
-        body.page-tracker { background: #000 !important; color: #fff; }
-        body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+        body.page-tracker { background: #000 !important; color: #fff; overflow-x: hidden; }
+        body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
         .tk2 { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
 
@@ -334,7 +334,10 @@
         .tk2-anchors a:last-child span { display: none; }
 
         /* HERO */
-        .tk2-hero { position: relative; width: 100%; max-width: none; margin: 0; padding: 0; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+        /* Viewport-escape so the hero strip and coral banner always span
+           100vw regardless of any ancestor container max-width or padding. */
+        .tk2-hero, .tk2-banner { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; max-width: 100vw; }
+        .tk2-hero { padding: 0; min-height: 540px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
         .tk2-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; z-index: 0; }
         /* Dot-matrix overlay — fine white dots scattered across the photo
            to give it the same printed-newsprint texture the old hero had. */
@@ -343,7 +346,7 @@
         .tk2-hero-title { position: relative; z-index: 3; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
 
         /* CORAL BANNER WITH BIG NUMBER */
-        .tk2-banner { width: 100%; background: #f25c54; padding: 36px 32px 28px; }
+        .tk2-banner { background: #f25c54; padding: 36px 32px 28px; }
         .tk2-banner-inner { max-width: none; margin: 0; text-align: center; }
         .tk2-banner-num { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1; letter-spacing: -0.04em; color: #0a0a0a; font-variant-numeric: tabular-nums; display: inline-flex; align-items: baseline; }
         .tk2-banner-sign { font-size: 0.7em; margin-right: 0.05em; font-weight: 900; }
