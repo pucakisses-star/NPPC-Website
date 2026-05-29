@@ -360,7 +360,7 @@
     </article>
 
     <style>
-        body.page-tracker { background: #000 !important; color: #fff; overflow-x: hidden; }
+        body.page-feature-political-prisoner-cost { background: #000 !important; color: #fff; overflow-x: hidden; }
         /* Full-bleed closing block: a large map backdrop with the ticker +
            share repeated over it (mirrors the hero). The map is sized
            independently of the coral ticker, which always spans the page. */
@@ -382,7 +382,7 @@
             .tk2-footer-bg { width: 165vw; }
             .tk2-footer .tk2-share-bar--footer { bottom: 28px; }
         }
-        body.page-tracker main.container, body.page-tracker .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+        body.page-feature-political-prisoner-cost main.container, body.page-feature-political-prisoner-cost .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
         .tk2 { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
 
