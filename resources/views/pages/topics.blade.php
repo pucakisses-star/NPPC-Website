@@ -44,7 +44,7 @@
     .tpx-sub-empty { font-size: 13px; color: rgba(255,255,255,0.6); font-style: italic; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
 
     /* Right column — white detail panel with a large image */
-    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); }
+    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }
     .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
@@ -223,7 +223,8 @@ function tpxShare() {
 }
 
 /* Soft navigation between topics: swap the explorer in place instead of a
-   full page reload, with no transition. Degrades to normal navigation. */
+   full page reload. The far-right detail panel fades out and back in, and the
+   backdrop photo crossfades. Degrades to normal navigation. */
 (function () {
     function bgImageOf(el) { return el ? el.style.backgroundImage : ''; }
 
@@ -248,34 +249,61 @@ function tpxShare() {
         }, 700);
     }
 
+    // Fade the detail panel out, resolving once the fade has run.
+    function fadeOutDetail(el, ms) {
+        return new Promise(function (resolve) {
+            if (!el) { resolve(); return; }
+            el.style.opacity = '0';
+            window.setTimeout(resolve, ms);
+        });
+    }
+
+    var FADE_MS = 300;
+
     function swapTopic(href, push) {
-        fetch(href, { headers: { 'X-Requested-With': 'fetch' } })
+        var current = document.querySelector('.tpx');
+        var detail = current ? current.querySelector('.tpx-detail') : null;
+
+        var fetchP = fetch(href, { headers: { 'X-Requested-With': 'fetch' } })
             .then(function (r) {
                 if (!r.ok) throw new Error('bad response');
                 return r.text();
-            })
-            .then(function (html) {
-                var doc = new DOMParser().parseFromString(html, 'text/html');
-                var fresh = doc.querySelector('.tpx');
-                var current = document.querySelector('.tpx');
-                if (!fresh || !current) { window.location.href = href; return; }
+            });
 
-                // Crossfade the background photo to the new topic's image.
-                var photos = current.querySelectorAll('.tpx-photo');
-                var curBg = bgImageOf(photos[photos.length - 1]);
-                var newBg = bgImageOf(fresh.querySelector('.tpx-photo'));
-                if (newBg && newBg !== curBg) { crossfadeBackground(current, newBg); }
+        // Fade the current panel out and fetch in parallel; only swap once both
+        // have finished, so the fade is always visible (even when cached).
+        Promise.all([fetchP, fadeOutDetail(detail, FADE_MS)]).then(function (results) {
+            var doc = new DOMParser().parseFromString(results[0], 'text/html');
+            var fresh = doc.querySelector('.tpx');
+            current = document.querySelector('.tpx');
+            if (!fresh || !current) { window.location.href = href; return; }
 
-                // Swap the columns/header in place (instant).
-                var freshGrid = fresh.querySelector('.tpx-grid');
-                var curGrid = current.querySelector('.tpx-grid');
-                if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
-                else { current.innerHTML = fresh.innerHTML; }
+            // Crossfade the background photo to the new topic's image.
+            var photos = current.querySelectorAll('.tpx-photo');
+            var curBg = bgImageOf(photos[photos.length - 1]);
+            var newBg = bgImageOf(fresh.querySelector('.tpx-photo'));
+            if (newBg && newBg !== curBg) { crossfadeBackground(current, newBg); }
 
-                if (doc.title) document.title = doc.title;
-                if (push) window.history.pushState({ tpx: true }, '', href);
-            })
-            .catch(function () { window.location.href = href; });
+            // Swap the columns/header in place. Nav and sub-topic lists update
+            // instantly; the detail panel is faded back in just below.
+            var freshGrid = fresh.querySelector('.tpx-grid');
+            var curGrid = current.querySelector('.tpx-grid');
+            if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
+            else { current.innerHTML = fresh.innerHTML; }
+
+            // Fade the freshly-swapped detail panel in from transparent.
+            var newDetail = current.querySelector('.tpx-detail');
+            if (newDetail) {
+                newDetail.scrollTop = 0;
+                newDetail.style.opacity = '0';
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () { newDetail.style.opacity = '1'; });
+                });
+            }
+
+            if (doc.title) document.title = doc.title;
+            if (push) window.history.pushState({ tpx: true }, '', href);
+        }).catch(function () { window.location.href = href; });
     }
 
     document.addEventListener('click', function (e) {
