@@ -77,16 +77,33 @@
 @section('body')
 @php
     $displayTopic = $activeChild ?: $activeTopic;
-    $bgImage = $activeTopic && $activeTopic->image ? Storage::url($activeTopic->image) : null;
-    $heroImage = $displayTopic && $displayTopic->image ? Storage::url($displayTopic->image) : $bgImage;
+
+    // Bundled fallback imagery per topic, used only when a topic has no
+    // image of its own. Any image uploaded in admin overrides these.
+    $topicDefaults = [
+        'black-lives-matter'    => '/images/candles.jpg',
+        'environmental-justice' => '/images/freedom.jpg',
+        'anti-war-activism'     => '/images/section_2.jpg',
+        'movements'             => '/images/section_1.jpg',
+        'eras'                  => '/images/candle.jpg',
+        'repressive-tools'      => '/images/fence.jpg',
+        'categories'            => '/images/public-phone.jpg',
+    ];
+    $defaultFor = function ($topic) use ($topicDefaults) {
+        if (! $topic) return '/images/fence.jpg';
+        return $topicDefaults[$topic->slug] ?? '/images/fence.jpg';
+    };
+
+    $bgImage = $activeTopic && $activeTopic->image
+        ? Storage::url($activeTopic->image)
+        : $defaultFor($activeTopic);
+    $heroImage = $displayTopic && $displayTopic->image
+        ? Storage::url($displayTopic->image)
+        : $defaultFor($displayTopic);
 @endphp
 <div class="tpx">
     {{-- Photographic backdrop --}}
-    @if($bgImage)
-        <div class="tpx-photo" style="background-image: url('{{ $bgImage }}');"></div>
-    @else
-        <div class="tpx-photo" style="background: linear-gradient(135deg, #2a1a10 0%, #3a2418 50%, #1a1208 100%);"></div>
-    @endif
+    <div class="tpx-photo" style="background-image: url('{{ $bgImage }}');"></div>
     <div class="tpx-photo-tint"></div>
 
     <div class="tpx-grid">
