@@ -52,6 +52,12 @@
     .tpx-detail-body a { color: #1f3df0; }
     .tpx-detail-empty { font-size: 16px; color: #9aa0a6; font-style: italic; }
 
+    /* Index — alphabetical list of all sub-topics */
+    .tpx-index-letter { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6b7280; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 6px; margin: 26px 0 8px; }
+    .tpx-index-letter:first-of-type { margin-top: 0; }
+    .tpx-index-link { display: block; font-size: 15px; color: #1a1a1a; text-decoration: none; padding: 6px 0; }
+    .tpx-index-link:hover { color: #1f3df0; }
+
     .tpx-cases-title { font-size: 16px; font-weight: 800; color: #111; margin: 30px 0 12px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 22px; }
     .tpx-case { display: flex; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
     .tpx-case-photo { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; background: #e7e3dd; }
@@ -85,7 +91,7 @@
         'introduction'          => '/images/freedom.jpg',
         'movements'             => '/images/volunteer.jpg',
         'eras'                  => '/images/candles.jpg',
-        'repressive-tools'      => '/images/fence.jpg',
+        'organizations'         => '/images/stop-jailing-truth-tellers.webp',
         // Movement leaves (drive the detail-panel hero)
         'black-lives-matter'    => '/images/section_1.jpg',
         'environmental-justice' => '/images/volunteer.jpg',
@@ -100,9 +106,11 @@
         return '/images/prison-hell.jpg';
     };
 
-    $bgImage = $activeTopic && $activeTopic->image
-        ? Storage::url($activeTopic->image)
-        : $defaultFor($activeTopic);
+    $bgImage = $showIndex
+        ? '/images/fence.jpg'
+        : ($activeTopic && $activeTopic->image
+            ? Storage::url($activeTopic->image)
+            : $defaultFor($activeTopic));
     $heroImage = $displayTopic && $displayTopic->image
         ? Storage::url($displayTopic->image)
         : $defaultFor($displayTopic);
@@ -135,6 +143,7 @@
                     {{ $topic->title }}
                 </a>
             @endforeach
+            <a href="/topics/index" data-no-fade class="tpx-nav-item {{ $showIndex ? 'active' : '' }}">Index</a>
             <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
         </div>
 
@@ -153,7 +162,17 @@
 
         {{-- Column 3: white detail panel --}}
         <div class="tpx-detail">
-            @if($displayTopic)
+            @if($showIndex)
+                <div class="tpx-detail-eyebrow">Index — All Topics A–Z</div>
+                @forelse($indexGroups as $letter => $topics)
+                    <div class="tpx-index-letter">{{ $letter }}</div>
+                    @foreach($topics as $t)
+                        <a class="tpx-index-link" href="/topics/{{ $t->slug }}">{{ $t->title }}</a>
+                    @endforeach
+                @empty
+                    <div class="tpx-detail-empty">No topics to index yet.</div>
+                @endforelse
+            @elseif($displayTopic)
                 <div class="tpx-detail-eyebrow">{{ strtoupper($displayTopic->title) }}</div>
 
                 @if($heroImage)
