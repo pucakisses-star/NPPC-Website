@@ -17,7 +17,7 @@
     .tpx-photo { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
     .tpx-photo-tint { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(8,7,5,0.82) 0%, rgba(8,7,5,0.45) 40%, rgba(8,7,5,0.55) 100%); }
 
-    .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); align-items: stretch; min-height: calc(100vh - 108px); }
+    .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; min-height: calc(100vh - 108px); }
 
     /* Header bar sits across the nav area */
     .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
@@ -61,7 +61,7 @@
     .tpx-case-meta { font-size: 12px; color: #8a8f98; margin-top: 1px; }
 
     @@media (max-width: 1024px) {
-        .tpx-grid { grid-template-columns: 1fr 1fr; }
+        .tpx-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
         .tpx-head { grid-column: 1 / 3; }
         .tpx-detail { grid-column: 1 / 3; grid-row: auto; max-height: none; }
     }
