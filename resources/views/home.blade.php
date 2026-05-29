@@ -43,6 +43,9 @@
             <livewire:articles-grid :limit="$articlesLimit" />
         @endif
 
+        {{-- Featured upcoming event (renders only when one exists) --}}
+        @include('sections.featured-event')
+
         {{-- Featured Authors --}}
         @include('sections.featured-authors')
 
