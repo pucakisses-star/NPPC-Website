@@ -51,13 +51,14 @@
     </section>
 
     <style>
+        /* Home page is a dark theme — light text on black. */
         .home-event { margin: 72px 0; }
         .home-event-head { display: flex; align-items: baseline; justify-content: space-between; }
-        .home-event-eyebrow { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #0a0a0a; }
-        .home-event-more { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1f2a5e; text-decoration: none; }
-        .home-event-more:hover { text-decoration: underline; }
-        .home-event-rule { position: relative; height: 1px; background: rgba(0,0,0,0.15); margin: 10px 0 36px; }
-        .home-event-rule::before { content: ""; position: absolute; left: 0; top: -1px; height: 3px; width: 110px; background: #1f2a5e; }
+        .home-event-eyebrow { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+        .home-event-more { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #8b93ff; text-decoration: none; }
+        .home-event-more:hover { color: #fff; }
+        .home-event-rule { position: relative; height: 1px; background: rgba(255,255,255,0.18); margin: 10px 0 36px; }
+        .home-event-rule::before { content: ""; position: absolute; left: 0; top: -1px; height: 3px; width: 110px; background: #5660fe; }
 
         .home-event-body { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
         .home-event-visual { display: block; border-radius: 2px; overflow: hidden; background: linear-gradient(135deg, #1b2a6b 0%, #2f7fd6 100%); aspect-ratio: 16 / 9; }
@@ -66,13 +67,13 @@
         .home-event-fallback-date { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.85; }
         .home-event-fallback-title { font-size: 2rem; font-weight: 800; line-height: 1.1; margin-top: 10px; }
 
-        .home-event-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #3a3f5e; background: #eceeffe6; padding: 4px 10px; border-radius: 3px; margin-bottom: 14px; }
-        .home-event-date { font-size: 2.4rem; font-weight: 800; color: #1f2a5e; line-height: 1; }
-        .home-event-title { font-size: 2.1rem; font-weight: 800; color: #0a0a0a; line-height: 1.12; margin: 4px 0 16px; }
-        .home-event-desc { font-size: 16px; line-height: 1.6; color: #333; margin: 0 0 16px; }
-        .home-event-meta { display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: #555; margin-bottom: 20px; }
-        .home-event-cta { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1f2a5e; text-decoration: none; }
-        .home-event-cta:hover { text-decoration: underline; }
+        .home-event-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #c7ccff; background: rgba(86,96,254,0.18); border: 1px solid rgba(86,96,254,0.4); padding: 4px 10px; border-radius: 3px; margin-bottom: 14px; }
+        .home-event-date { font-size: 2.4rem; font-weight: 800; color: #8b93ff; line-height: 1; }
+        .home-event-title { font-size: 2.1rem; font-weight: 800; color: #fff; line-height: 1.12; margin: 4px 0 16px; }
+        .home-event-desc { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.75); margin: 0 0 16px; }
+        .home-event-meta { display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+        .home-event-cta { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #8b93ff; text-decoration: none; }
+        .home-event-cta:hover { color: #fff; }
 
         @@media (max-width: 768px) {
             .home-event { margin: 48px 0; }
