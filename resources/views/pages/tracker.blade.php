@@ -342,37 +342,102 @@
                 <div class="tk2-snum">08</div>
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
+                    <style>
+                        .tk2-method-eyebrow { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 4px 0 16px; }
+                        .tk2-acc { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 36px; }
+                        .tk2-acc-item { border-bottom: 1px solid rgba(255,255,255,0.12); }
+                        .tk2-acc-head { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 20px 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); transition: color 0.15s; }
+                        .tk2-acc-head::-webkit-details-marker { display: none; }
+                        .tk2-acc-head:hover { color: #fff; }
+                        .tk2-acc-tri { color: #4dd9d2; font-size: 10px; line-height: 1; transition: transform 0.2s; }
+                        .tk2-acc-item[open] > .tk2-acc-head .tk2-acc-tri { transform: rotate(90deg); }
+                        .tk2-acc-body { padding: 0 4px 26px; }
+                        .tk2-acc-body > :first-child { margin-top: 0; }
+                    </style>
+
+                    <div class="tk2-method-eyebrow">Overview</div>
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
 
-                    <p><strong>Federal rates &mdash; year by year.</strong> Each day a prisoner spent in federal custody is priced at the federal per-prisoner rate <em>for that fiscal year</em>, taken directly from the Bureau of Prisons&rsquo; own <em>Annual Determination of Average Cost of Incarceration Fee</em> notices in the Federal Register. The series runs from about ${{ number_format($methodFedRateRange['min']) }}/day in {{ $methodFedRateRange['minYear'] }} ($13,162/year) to roughly ${{ number_format($methodFedRateRange['max']) }}/day in {{ $methodFedRateRange['maxYear'] }} ($47,400/year). A day served in 1985 isn&rsquo;t billed at 2024 rates &mdash; that&rsquo;s a deliberate choice, and it&rsquo;s the biggest difference between this tracker and back-of-the-envelope estimates that multiply total days by a single recent figure.</p>
+                    <div class="tk2-acc">
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Federal rates &mdash; year by year</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>Each day a prisoner spent in federal custody is priced at the federal per-prisoner rate <em>for that fiscal year</em>, taken directly from the Bureau of Prisons&rsquo; own <em>Annual Determination of Average Cost of Incarceration Fee</em> notices in the Federal Register. The series runs from about ${{ number_format($methodFedRateRange['min']) }}/day in {{ $methodFedRateRange['minYear'] }} ($13,162/year) to roughly ${{ number_format($methodFedRateRange['max']) }}/day in {{ $methodFedRateRange['maxYear'] }} ($47,400/year). A day served in 1985 isn&rsquo;t billed at 2024 rates &mdash; that&rsquo;s a deliberate choice, and it&rsquo;s the biggest difference between this tracker and back-of-the-envelope estimates that multiply total days by a single recent figure.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>State rates &mdash; state by state, year by year.</strong> Every U.S. state&rsquo;s Department of Corrections publishes a per-prisoner annual cost. Recent figures range from roughly $17,000/year (Alabama, Mississippi) to roughly $133,000/year (California) &mdash; an 8&times; spread. We use the state in each case&rsquo;s <code>Institution.state</code> column to pick the right base rate, then roll it back through history using a 3.36% annual cost-growth factor derived from the BOP federal series. If a case&rsquo;s institution has no state recorded, we fall back to the 50-state mean ($35,810/year) at the right year. Sources: Vera Institute&rsquo;s <em>Price of Prisons</em> series, BJS state-prison expenditure reports, and individual state DOC budgets compiled for FY 2020.</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>State rates &mdash; state by state, year by year</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>Every U.S. state&rsquo;s Department of Corrections publishes a per-prisoner annual cost. Recent figures range from roughly $17,000/year (Alabama, Mississippi) to roughly $133,000/year (California) &mdash; an 8&times; spread. We use the state in each case&rsquo;s <code>Institution.state</code> column to pick the right base rate, then roll it back through history using a 3.36% annual cost-growth factor derived from the BOP federal series. If a case&rsquo;s institution has no state recorded, we fall back to the 50-state mean ($35,810/year) at the right year. Sources: Vera Institute&rsquo;s <em>Price of Prisons</em> series, BJS state-prison expenditure reports, and individual state DOC budgets compiled for FY 2020.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Local jail rates.</strong> County and city jails are priced at the BJS Survey of Jails national average ($34,700/year as of 2020), rolled back through history the same way as state rates. Jails are typically cheaper per day than state prisons because much of the population is pre-trial or short-stay.</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Local jail rates</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>County and city jails are priced at the BJS Survey of Jails national average ($34,700/year as of 2020), rolled back through history the same way as state rates. Jails are typically cheaper per day than state prisons because much of the population is pre-trial or short-stay.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Per-case investigation cost &mdash; tier-graded.</strong> The investigation bucket covers the money spent before a case becomes a prosecution: FBI surveillance and informants, Joint Terrorism Task Force stings, COINTELPRO programs (Black nationalist, New Left, White Hate, SWP, CP), the post-9/11 frame-up cases (Newburgh 4, Liberty City 7, Fort Dix 5, Cromitie sting), state-police intelligence units, and grand-jury empanelment time. Tier figures (2020 USD, then rolled back to arrest year): capital cases ~$1,500,000; complex federal (RICO / terrorism / sedition / espionage / FARA / CCE) ~$500,000; ordinary federal felony ~$150,000; state violent ~$50,000; state non-violent ~$15,000; federal misdemeanor ~$5,000; state misdemeanor ~$1,500. Sources: Church Committee Final Report (1976, books II-VI) on COINTELPRO operational budgets; GAO and DOJ OIG reports on FBI investigative expenditure; Brennan Center for Justice and ACLU analyses of post-9/11 JTTF per-target costs; Center for Investigative Reporting / Mother Jones analyses of FBI informant-network expenditure ($3.3B since 2001 across all national-security investigations).</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Per-case investigation cost &mdash; tier-graded</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>The investigation bucket covers the money spent before a case becomes a prosecution: FBI surveillance and informants, Joint Terrorism Task Force stings, COINTELPRO programs (Black nationalist, New Left, White Hate, SWP, CP), the post-9/11 frame-up cases (Newburgh 4, Liberty City 7, Fort Dix 5, Cromitie sting), state-police intelligence units, and grand-jury empanelment time. Tier figures (2020 USD, then rolled back to arrest year): capital cases ~$1,500,000; complex federal (RICO / terrorism / sedition / espionage / FARA / CCE) ~$500,000; ordinary federal felony ~$150,000; state violent ~$50,000; state non-violent ~$15,000; federal misdemeanor ~$5,000; state misdemeanor ~$1,500. Sources: Church Committee Final Report (1976, books II-VI) on COINTELPRO operational budgets; GAO and DOJ OIG reports on FBI investigative expenditure; Brennan Center for Justice and ACLU analyses of post-9/11 JTTF per-target costs; Center for Investigative Reporting / Mother Jones analyses of FBI informant-network expenditure ($3.3B since 2001 across all national-security investigations).</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Per-case prosecution cost &mdash; tier-graded.</strong> A capital-murder trial does not cost the same as a trespass prosecution. We classify each case from its <code>charges</code> and <code>sentence</code> text into one of seven tiers and price it accordingly (all figures in 2020 dollars, then rolled back to the arrest year):</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Per-case prosecution cost &mdash; tier-graded</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>A capital-murder trial does not cost the same as a trespass prosecution. We classify each case from its <code>charges</code> and <code>sentence</code> text into one of seven tiers and price it accordingly (all figures in 2020 dollars, then rolled back to the arrest year):</p>
+                                <ul class="tk2-method-list">
+                                    <li><strong>Capital cases &mdash; ~$2,000,000.</strong> Death-penalty or aggravated/first-degree murder. Source: Death Penalty Information Center; Loyola Law School / Alarc&oacute;n &amp; Mitchell capital-cost study.</li>
+                                    <li><strong>Complex federal &mdash; ~$400,000.</strong> RICO, terrorism, seditious conspiracy, espionage, FARA, continuing criminal enterprise. Source: DOJ OIG complex-prosecution reports.</li>
+                                    <li><strong>Federal felony &mdash; ~$120,000.</strong> Standard federal felony. Source: Federal Judicial Center / Administrative Office of the U.S. Courts.</li>
+                                    <li><strong>State violent felony &mdash; ~$80,000.</strong> Murder, manslaughter, assault, robbery, rape, kidnapping, arson.</li>
+                                    <li><strong>State non-violent felony &mdash; ~$30,000.</strong> Drug offenses, fraud, theft, burglary, conspiracy, sabotage, property destruction.</li>
+                                    <li><strong>Federal misdemeanor &mdash; ~$20,000.</strong></li>
+                                    <li><strong>State misdemeanor &mdash; ~$5,000.</strong> Trespass, disorderly conduct, loitering, contempt. Source: BJS Census of State Court Prosecutors; Sixth Amendment Center indigent-defense reports.</li>
+                                </ul>
+                            </div>
+                        </details>
 
-                    <ul class="tk2-method-list">
-                        <li><strong>Capital cases &mdash; ~$2,000,000.</strong> Death-penalty or aggravated/first-degree murder. Source: Death Penalty Information Center; Loyola Law School / Alarc&oacute;n &amp; Mitchell capital-cost study.</li>
-                        <li><strong>Complex federal &mdash; ~$400,000.</strong> RICO, terrorism, seditious conspiracy, espionage, FARA, continuing criminal enterprise. Source: DOJ OIG complex-prosecution reports.</li>
-                        <li><strong>Federal felony &mdash; ~$120,000.</strong> Standard federal felony. Source: Federal Judicial Center / Administrative Office of the U.S. Courts.</li>
-                        <li><strong>State violent felony &mdash; ~$80,000.</strong> Murder, manslaughter, assault, robbery, rape, kidnapping, arson.</li>
-                        <li><strong>State non-violent felony &mdash; ~$30,000.</strong> Drug offenses, fraud, theft, burglary, conspiracy, sabotage, property destruction.</li>
-                        <li><strong>Federal misdemeanor &mdash; ~$20,000.</strong></li>
-                        <li><strong>State misdemeanor &mdash; ~$5,000.</strong> Trespass, disorderly conduct, loitering, contempt. Source: BJS Census of State Court Prosecutors; Sixth Amendment Center indigent-defense reports.</li>
-                    </ul>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Per-case appeals &amp; post-conviction cost</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>Capital appellate litigation (state and federal habeas, often spanning decades) runs ~$1.5M in 2020 dollars; complex federal appeals ~$150,000; ordinary federal felony appeals ~$60,000; state violent felony ~$50,000; state non-violent ~$25,000; misdemeanors $3,000-$8,000. Year-adjusted to arrest year. Applied only to cases with a populated <code>convicted</code>, <code>plead</code>, or <code>sentence</code> field &mdash; acquittals and dismissals stop the meter.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Per-case appeals & post-conviction cost &mdash; also tier-graded.</strong> Capital appellate litigation (state and federal habeas, often spanning decades) runs ~$1.5M in 2020 dollars; complex federal appeals ~$150,000; ordinary federal felony appeals ~$60,000; state violent felony ~$50,000; state non-violent ~$25,000; misdemeanors $3,000-$8,000. Year-adjusted to arrest year. Applied only to cases with a populated <code>convicted</code>, <code>plead</code>, or <code>sentence</code> field &mdash; acquittals and dismissals stop the meter.</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Year-by-year priced</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>For continuous incarcerations that span multiple calendar years, each year&rsquo;s days are priced at that year&rsquo;s rate &mdash; not the rate at the start or the end. Internally we walk the period day-by-day across year boundaries and apply each year&rsquo;s rate separately.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Year-by-year priced.</strong> For continuous incarcerations that span multiple calendar years, each year&rsquo;s days are priced at that year&rsquo;s rate &mdash; not the rate at the start or the end. Internally we walk the period day-by-day across year boundaries and apply each year&rsquo;s rate separately.</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Days counted</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>For each case we compute calendar days between the earliest documented arrest, incarceration, or exile date and the matching release date (or today, if still active). Time on parole, supervised release, and house arrest is included when our source material treats it as continuing custody.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Days counted.</strong> For each case we compute calendar days between the earliest documented arrest, incarceration, or exile date and the matching release date (or today, if still active). Time on parole, supervised release, and house arrest is included when our source material treats it as continuing custody.</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Sourcing</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>Cases are built from court records, FBI files released under FOIA, contemporary movement press, oral histories, and the archives of long-running support organizations.</p>
+                            </div>
+                        </details>
 
-                    <p><strong>Sourcing.</strong> Cases are built from court records, FBI files released under FOIA, contemporary movement press, oral histories, and the archives of long-running support organizations.</p>
-
-                    <p><strong>Updates.</strong> Numbers refresh on every page load &mdash; nothing here is cached longer than the underlying database. If you see a case missing or a cost assumption you&rsquo;d challenge, <a href="/form/contact">tell us</a>.</p>
+                        <details class="tk2-acc-item">
+                            <summary class="tk2-acc-head"><span class="tk2-acc-tri" aria-hidden="true">&#9656;</span><span>Updates</span></summary>
+                            <div class="tk2-acc-body">
+                                <p>Numbers refresh on every page load &mdash; nothing here is cached longer than the underlying database. If you see a case missing or a cost assumption you&rsquo;d challenge, <a href="/form/contact">tell us</a>.</p>
+                            </div>
+                        </details>
+                    </div>
                 </div>
             </section>
 
