@@ -228,10 +228,12 @@ final class SiteController extends Controller {
             $activeTopic = $rootTopics->first();
         }
 
-        // Get related prisoners for this topic
+        // Related prisoners — only for leaf topics (sub-topics / content
+        // pages). Section pages and the Introduction have children or are
+        // overviews, so they show their essay rather than a case list.
         $relatedPrisoners = collect();
-        if ($activeTopic || $activeChild) {
-            $displayTopic = $activeChild ?: $activeTopic;
+        $displayTopic = $activeChild ?: $activeTopic;
+        if ($displayTopic && $displayTopic->children->isEmpty()) {
             $searchTerms = [strtolower($displayTopic->title)];
 
             $relatedPrisoners = Prisoner::where(function ($q) use ($searchTerms) {
