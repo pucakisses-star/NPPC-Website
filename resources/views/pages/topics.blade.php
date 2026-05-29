@@ -83,17 +83,17 @@
     // Bundled fallback imagery per topic, used only when a topic has no
     // image of its own. Any image uploaded in admin overrides these.
     $topicDefaults = [
-        'black-lives-matter'    => '/images/candles.jpg',
-        'environmental-justice' => '/images/freedom.jpg',
-        'anti-war-activism'     => '/images/section_2.jpg',
-        'movements'             => '/images/section_1.jpg',
-        'eras'                  => '/images/candle.jpg',
+        'black-lives-matter'    => '/images/freedom.jpg',
+        'environmental-justice' => '/images/volunteer.jpg',
+        'anti-war-activism'     => '/images/section_1.jpg',
+        'movements'             => '/images/stop-jailing-truth-tellers.webp',
+        'eras'                  => '/images/candles.jpg',
         'repressive-tools'      => '/images/fence.jpg',
         'categories'            => '/images/public-phone.jpg',
     ];
     $defaultFor = function ($topic) use ($topicDefaults) {
-        if (! $topic) return '/images/fence.jpg';
-        return $topicDefaults[$topic->slug] ?? '/images/fence.jpg';
+        if (! $topic) return '/images/prison-hell.jpg';
+        return $topicDefaults[$topic->slug] ?? '/images/prison-hell.jpg';
     };
 
     $bgImage = $activeTopic && $activeTopic->image
