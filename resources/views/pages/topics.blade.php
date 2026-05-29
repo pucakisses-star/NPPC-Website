@@ -9,7 +9,9 @@
     /* ── Topic explorer, modeled on ecfr.eu "Mapping Palestinian Politics":
        a strong photographic backdrop with light nav columns on the left, and
        a white detail panel with a large image on the right. ── */
-    .tpx { position: relative; min-height: calc(100vh - 108px); }
+    /* Break out to the full viewport width so the photo spans the page edge
+       to edge, regardless of the centered .container around it. */
+    .tpx { position: relative; min-height: calc(100vh - 108px); width: 100vw; margin-left: calc(50% - 50vw); }
 
     /* Photographic backdrop spanning the navigation area */
     .tpx-photo { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
