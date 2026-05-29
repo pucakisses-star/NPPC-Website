@@ -130,7 +130,7 @@
         {{-- Column 1: root topics --}}
         <div class="tpx-nav">
             @foreach($rootTopics as $topic)
-                <a href="/topics/{{ $topic->slug }}"
+                <a href="/topics/{{ $topic->slug }}" data-no-fade
                    class="tpx-nav-item {{ $activeTopic && $activeTopic->id === $topic->id ? 'active' : '' }}">
                     {{ $topic->title }}
                 </a>
@@ -144,7 +144,7 @@
                 <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
                 @if($activeTopic->children->isNotEmpty())
                     @foreach($activeTopic->children as $child)
-                        <a href="/topics/{{ $child->slug }}"
+                        <a href="/topics/{{ $child->slug }}" data-no-fade
                            class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
                             {{ $child->title }}
                         </a>
