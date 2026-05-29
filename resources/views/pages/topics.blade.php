@@ -2,149 +2,186 @@
 
 @section('head')
 <style>
-    .topic-explorer { display: flex; min-height: calc(100vh - 108px); }
+    /* Full-bleed: break out of the global .container max-width (like the tracker). */
+    body.page-topics main.container, body.page-topics .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+    body.page-topics { background: #0a0a0c; color: #fff; }
 
-    /* Left sidebar nav */
-    .topic-sidebar { flex: 0 0 220px; padding: 32px 24px; position: relative; z-index: 2; }
-    .topic-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); padding: 8px 0; text-decoration: none; transition: color 0.15s; }
-    .topic-nav-item:hover { color: #fff; }
-    .topic-nav-item.active { color: #5660fe; }
-    .topic-search { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 8px 12px; font-size: 13px; width: 100%; margin-top: 24px; outline: none; }
-    .topic-search::placeholder { color: rgba(255,255,255,0.3); }
+    /* ── Miller-columns topic explorer, modeled on ecfr.eu "Mapping Palestinian Politics" ── */
+    .tpx { position: relative; min-height: calc(100vh - 108px); overflow: hidden; }
+    .tpx-bg { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; opacity: 0.22; }
+    .tpx-bg-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(10,10,12,0.55) 0%, rgba(10,10,12,0.78) 100%); }
+    .tpx-inner { position: relative; z-index: 2; padding: 40px clamp(24px, 4vw, 64px); }
 
-    /* Center: sub-topics + background image */
-    .topic-center { flex: 1; position: relative; min-height: 500px; }
-    .topic-center-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.3; }
-    .topic-center-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%); }
-    .topic-center-content { position: relative; z-index: 2; padding: 32px 24px; }
-    .topic-subtopic-heading { font-size: 14px; color: #5660fe; font-weight: 700; margin-bottom: 16px; }
-    .topic-subtopic-group-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); margin: 20px 0 8px; }
-    .topic-subtopic-link { display: block; font-size: 14px; color: rgba(255,255,255,0.75); padding: 5px 0; text-decoration: none; transition: color 0.15s; }
-    .topic-subtopic-link:hover { color: #fff; }
-    .topic-subtopic-link.active { color: #5660fe; }
+    /* Header row */
+    .tpx-head { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.14); margin-bottom: 4px; }
+    .tpx-title { display: flex; align-items: center; gap: 14px; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; margin: 0; }
+    .tpx-title svg { width: 30px; height: 30px; color: #5660fe; flex: 0 0 auto; }
+    .tpx-actions { display: flex; gap: 22px; }
+    .tpx-action { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.15s; }
+    .tpx-action:hover { color: #fff; }
+    .tpx-action svg { width: 15px; height: 15px; }
 
-    /* Right content panel */
-    .topic-content { flex: 0 0 480px; background: #0a0a14; padding: 32px; overflow-y: auto; max-height: calc(100vh - 108px); border-left: 1px solid rgba(255,255,255,0.08); }
-    .topic-content-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
-    .topic-content-body { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.8; }
-    .topic-content-body p { margin-bottom: 1.25em; }
-    .topic-content-body a { color: #5660fe; }
+    /* Columns */
+    .tpx-cols { display: grid; grid-template-columns: minmax(190px, 230px) minmax(220px, 1fr) minmax(340px, 460px); align-items: start; }
+    .tpx-col { padding: 28px clamp(18px, 2vw, 32px); min-height: 60vh; }
+    .tpx-col + .tpx-col { border-left: 1px solid rgba(86,96,254,0.28); }
+    .tpx-col-detail { background: rgba(8,8,16,0.66); }
 
-    /* Related prisoners */
-    .topic-prisoners-title { font-size: 16px; font-weight: 800; color: #fff; margin: 32px 0 16px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
-    .topic-prisoner-card { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .topic-prisoner-photo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-    .topic-prisoner-name { font-size: 14px; font-weight: 700; color: #fff; }
-    .topic-prisoner-name a { color: #fff; text-decoration: none; }
-    .topic-prisoner-name a:hover { color: #5660fe; }
-    .topic-prisoner-meta { font-size: 12px; color: rgba(255,255,255,0.4); }
+    /* Column 1 — root topics + search */
+    .tpx-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.62); padding: 9px 0; text-decoration: none; transition: color 0.15s; }
+    .tpx-nav-item:hover { color: #fff; }
+    .tpx-nav-item.active { color: #5660fe; }
+    .tpx-search { background: transparent; border: 1px solid rgba(255,255,255,0.22); color: #fff; padding: 9px 12px; font-size: 13px; width: 100%; margin-top: 26px; outline: none; }
+    .tpx-search::placeholder { color: rgba(255,255,255,0.32); }
+    .tpx-search:focus { border-color: rgba(86,96,254,0.6); }
 
-    @media (max-width: 1024px) {
-        .topic-explorer { flex-direction: column; }
-        .topic-sidebar { flex: auto; }
-        .topic-center { min-height: 300px; }
-        .topic-content { flex: auto; max-height: none; }
+    /* Column 2 — sub-topics */
+    .tpx-sub-heading { font-size: 13px; font-weight: 800; letter-spacing: 0.04em; color: rgba(255,255,255,0.85); margin: 0 0 18px; }
+    .tpx-sub-link { display: block; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.7); padding: 8px 0; text-decoration: none; transition: color 0.15s; }
+    .tpx-sub-link:hover { color: #fff; }
+    .tpx-sub-link.active { color: #5660fe; }
+    .tpx-sub-empty { font-size: 13px; color: rgba(255,255,255,0.4); font-style: italic; }
+
+    /* Column 3 — detail panel */
+    .tpx-detail-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); margin-bottom: 22px; }
+    .tpx-detail-body { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.8; }
+    .tpx-detail-body p { margin-bottom: 1.25em; }
+    .tpx-detail-body a { color: #5660fe; }
+    .tpx-detail-empty { font-size: 15px; color: rgba(255,255,255,0.4); font-style: italic; }
+
+    .tpx-cases-title { font-size: 16px; font-weight: 800; color: #fff; margin: 32px 0 14px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; }
+    .tpx-case { display: flex; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .tpx-case-photo { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; background: #1a1a2e; }
+    .tpx-case-name { font-size: 14px; font-weight: 700; }
+    .tpx-case-name a { color: #fff; text-decoration: none; }
+    .tpx-case-name a:hover { color: #5660fe; }
+    .tpx-case-meta { font-size: 12px; color: rgba(255,255,255,0.42); margin-top: 1px; }
+
+    @@media (max-width: 1024px) {
+        .tpx-cols { grid-template-columns: 1fr; }
+        .tpx-col { min-height: 0; }
+        .tpx-col + .tpx-col { border-left: 0; border-top: 1px solid rgba(86,96,254,0.28); }
+    }
+    @@media (max-width: 600px) {
+        .tpx-head { flex-direction: column; align-items: flex-start; gap: 14px; }
     }
 </style>
 @endsection
 
 @section('body')
-<div class="topic-explorer">
-    {{-- Left sidebar --}}
-    <div class="topic-sidebar">
-        @foreach($rootTopics as $topic)
-            <a href="/topics/{{ $topic->slug }}"
-               class="topic-nav-item {{ $activeTopic && $activeTopic->id === $topic->id ? 'active' : '' }}">
-                {{ $topic->title }}
-            </a>
-        @endforeach
-        <input type="text" class="topic-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
-    </div>
+@php $displayTopic = $activeChild ?: $activeTopic; @endphp
+<div class="tpx">
+    @php
+        $bgImage = $activeTopic && $activeTopic->image ? Storage::url($activeTopic->image) : null;
+    @endphp
+    @if($bgImage)
+        <div class="tpx-bg" style="background-image: url('{{ $bgImage }}');"></div>
+    @else
+        <div class="tpx-bg" style="background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 55%, #2a1860 100%); opacity: 0.5;"></div>
+    @endif
+    <div class="tpx-bg-overlay"></div>
 
-    {{-- Center panel --}}
-    <div class="topic-center">
-        @php
-            $bgImage = null;
-            if ($activeTopic && $activeTopic->image) {
-                $bgImage = Storage::url($activeTopic->image);
-            }
-        @endphp
-        @if($bgImage)
-            <div class="topic-center-bg" style="background-image: url('{{ $bgImage }}');"></div>
-        @else
-            <div class="topic-center-bg" style="background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #2a1860 100%);"></div>
-        @endif
-        <div class="topic-center-overlay"></div>
-
-        <div class="topic-center-content">
-            @if($activeTopic)
-                <div class="topic-subtopic-heading">About {{ $activeTopic->title }}</div>
-
-                @if($activeTopic->children->isNotEmpty())
-                    @foreach($activeTopic->children as $child)
-                        <a href="/topics/{{ $child->slug }}"
-                           class="topic-subtopic-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
-                            {{ $child->title }}
-                        </a>
-                    @endforeach
-                @endif
-            @endif
-        </div>
-    </div>
-
-    {{-- Right content panel --}}
-    <div class="topic-content">
-        @php $displayTopic = $activeChild ?: $activeTopic; @endphp
-
-        @if($displayTopic)
-            <div class="topic-content-title">{{ strtoupper($displayTopic->title) }}</div>
-
-            @if($displayTopic->body)
-                <div class="topic-content-body">
-                    {!! $displayTopic->body !!}
-                </div>
-            @else
-                <div class="topic-content-body" style="color: rgba(255,255,255,0.4); font-style: italic;">
-                    Content for this topic is coming soon.
-                </div>
-            @endif
-
-            {{-- Related prisoners --}}
-            @if($relatedPrisoners->isNotEmpty())
-                <div class="topic-prisoners-title">Related Cases ({{ $relatedPrisoners->count() }})</div>
-                @foreach($relatedPrisoners as $prisoner)
-                    <div class="topic-prisoner-card">
-                        @if($prisoner->photo)
-                            <img src="{{ asset('storage/' . $prisoner->photo) }}" class="topic-prisoner-photo" alt="">
-                        @else
-                            <div style="width:48px;height:48px;border-radius:50%;background:#1a1a2e;flex-shrink:0;"></div>
-                        @endif
-                        <div>
-                            <div class="topic-prisoner-name"><a href="{{ $prisoner->url }}">{{ $prisoner->name }}</a></div>
-                            <div class="topic-prisoner-meta">
-                                {{ $prisoner->era }}{{ $prisoner->era && $prisoner->state ? ' · ' : '' }}{{ $prisoner->state }}
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            @endif
-        @else
-            <div class="topic-content-body" style="color: rgba(255,255,255,0.4);">
-                Select a topic from the left to explore.
+    <div class="tpx-inner">
+        {{-- Header --}}
+        <div class="tpx-head">
+            <h1 class="tpx-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>{{ $activeTopic ? $activeTopic->title : 'Topics' }}</span>
+            </h1>
+            <div class="tpx-actions">
+                <button type="button" class="tpx-action" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+                    Print
+                </button>
+                <button type="button" class="tpx-action" onclick="tpxShare()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+                    Share
+                </button>
             </div>
-        @endif
+        </div>
+
+        {{-- Columns --}}
+        <div class="tpx-cols">
+            {{-- Column 1: root topics --}}
+            <div class="tpx-col tpx-col-nav">
+                @foreach($rootTopics as $topic)
+                    <a href="/topics/{{ $topic->slug }}"
+                       class="tpx-nav-item {{ $activeTopic && $activeTopic->id === $topic->id ? 'active' : '' }}">
+                        {{ $topic->title }}
+                    </a>
+                @endforeach
+                <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
+            </div>
+
+            {{-- Column 2: sub-topics of the active topic --}}
+            <div class="tpx-col tpx-col-sub">
+                @if($activeTopic)
+                    <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
+                    @if($activeTopic->children->isNotEmpty())
+                        @foreach($activeTopic->children as $child)
+                            <a href="/topics/{{ $child->slug }}"
+                               class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
+                                {{ $child->title }}
+                            </a>
+                        @endforeach
+                    @else
+                        <div class="tpx-sub-empty">No sub-topics.</div>
+                    @endif
+                @endif
+            </div>
+
+            {{-- Column 3: detail panel --}}
+            <div class="tpx-col tpx-col-detail">
+                @if($displayTopic)
+                    <div class="tpx-detail-title">{{ strtoupper($displayTopic->title) }}</div>
+
+                    @if($displayTopic->body)
+                        <div class="tpx-detail-body">{!! $displayTopic->body !!}</div>
+                    @else
+                        <div class="tpx-detail-empty">Content for this topic is coming soon.</div>
+                    @endif
+
+                    @if($relatedPrisoners->isNotEmpty())
+                        <div class="tpx-cases-title">Related Cases ({{ $relatedPrisoners->count() }})</div>
+                        @foreach($relatedPrisoners as $prisoner)
+                            <div class="tpx-case">
+                                @if($prisoner->photo)
+                                    <img src="{{ asset('storage/' . $prisoner->photo) }}" class="tpx-case-photo" alt="">
+                                @else
+                                    <div class="tpx-case-photo"></div>
+                                @endif
+                                <div>
+                                    <div class="tpx-case-name"><a href="{{ $prisoner->url }}">{{ $prisoner->name }}</a></div>
+                                    <div class="tpx-case-meta">{{ $prisoner->era }}{{ $prisoner->era && $prisoner->state ? ' · ' : '' }}{{ $prisoner->state }}</div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                @else
+                    <div class="tpx-detail-empty">Select a topic from the left to explore.</div>
+                @endif
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
 function filterTopics(q) {
     q = q.toLowerCase();
-    document.querySelectorAll('.topic-nav-item').forEach(function(el) {
+    document.querySelectorAll('.tpx-nav-item').forEach(function (el) {
         el.style.display = el.textContent.toLowerCase().includes(q) ? 'block' : 'none';
     });
-    document.querySelectorAll('.topic-subtopic-link').forEach(function(el) {
-        el.style.display = el.textContent.toLowerCase().includes(q) ? 'block' : 'none';
-    });
+}
+function tpxShare() {
+    var url = window.location.href;
+    var title = document.title;
+    if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function () {});
+    } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard'); });
+    } else {
+        window.prompt('Copy this link:', url);
+    }
 }
 </script>
 @endsection
