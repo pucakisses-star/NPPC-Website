@@ -117,6 +117,12 @@
     $heroImage = $displayTopic && $displayTopic->image
         ? Storage::url($displayTopic->image)
         : $defaultFor($displayTopic);
+
+    // Only show the detail-panel hero when it's a different image from the
+    // full-bleed backdrop. A topic with no image of its own falls back to its
+    // section's image, which is also what drives the background — so without
+    // this guard the same photo appears twice (once behind, once in the panel).
+    $showHero = $heroImage && $heroImage !== $bgImage;
 @endphp
 <div class="tpx">
     {{-- Photographic backdrop --}}
@@ -178,7 +184,7 @@
             @elseif($displayTopic)
                 <div class="tpx-detail-eyebrow">{{ strtoupper($displayTopic->title) }}</div>
 
-                @if($heroImage)
+                @if($showHero)
                     <img class="tpx-detail-hero" src="{{ $heroImage }}" alt="{{ $displayTopic->title }}">
                 @endif
 
