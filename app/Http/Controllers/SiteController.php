@@ -212,8 +212,18 @@ final class SiteController extends Controller {
 
         $activeTopic = null;
         $activeChild = null;
+        $showIndex = ($slug === 'index');
+        $indexGroups = collect();
 
-        if ($slug) {
+        if ($showIndex) {
+            // Alphabetical index of every sub-topic (leaf), grouped by first
+            // letter. A leading article ("The ...") is ignored for sorting.
+            $indexGroups = Topic::published()
+                ->whereNotNull('parent_id')
+                ->get()
+                ->sortBy(fn ($t) => $this->indexSortKey($t->title), SORT_NATURAL | SORT_FLAG_CASE)
+                ->groupBy(fn ($t) => strtoupper(mb_substr($this->indexSortKey($t->title), 0, 1)));
+        } elseif ($slug) {
             // Try to find as root topic
             $activeTopic = Topic::published()->where('slug', $slug)->first();
 
@@ -224,7 +234,7 @@ final class SiteController extends Controller {
             }
         }
 
-        if (! $activeTopic && $rootTopics->isNotEmpty()) {
+        if (! $showIndex && ! $activeTopic && $rootTopics->isNotEmpty()) {
             $activeTopic = $rootTopics->first();
         }
 
@@ -246,7 +256,12 @@ final class SiteController extends Controller {
             })->limit(20)->get();
         }
 
-        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners'));
+        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners', 'showIndex', 'indexGroups'));
+    }
+
+    /** Sort/group key for the topic index: drops a leading article. */
+    private function indexSortKey(string $title): string {
+        return ltrim(preg_replace('/^(the|a|an)\s+/i', '', trim($title)));
     }
 
     public function birthdays(Request $request) {
