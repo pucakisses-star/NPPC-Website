@@ -90,7 +90,7 @@
         .lm-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
         .lm-fullimg { height: 280px; }
     }
-    /* ── State-by-state directory ── (state silhouettes: @svg-maps/usa, MIT) */
+    /* state-by-state directory (state silhouettes adapted from svg-maps/usa, MIT) */
     .sbs { max-width: 1180px; margin: 0 auto; padding: 24px 24px 96px; }
     .sbs-head { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; margin: 0 0 10px; }
     .sbs-rule { position: relative; height: 1px; background: rgba(255,255,255,0.15); margin-bottom: 32px; }
@@ -101,8 +101,8 @@
     .sbs-ico { width: 28px; height: 22px; flex: 0 0 28px; color: rgba(255,255,255,0.82); display: block; transition: color 0.15s; }
     .sbs-name { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.9); transition: color 0.15s; }
     .sbs-item:hover .sbs-name, .sbs-item:hover .sbs-ico { color: #5660fe; }
-    @media (max-width: 900px) { .sbs-grid { column-count: 2; } }
-    @media (max-width: 560px) { .sbs-grid { column-count: 1; } }
+    @@media (max-width: 900px) { .sbs-grid { column-count: 2; } }
+    @@media (max-width: 560px) { .sbs-grid { column-count: 1; } }
 </style>
 @endsection
 
@@ -248,7 +248,7 @@
 </div>
 
 {{-- ==================== STATE BY STATE ==================== --}}
-{{-- State silhouette icons adapted from @svg-maps/usa (MIT License). --}}
+{{-- State silhouette icons adapted from svg-maps/usa (MIT License). --}}
 <section class="sbs">
     <h2 class="sbs-head">State by State</h2>
     <div class="sbs-rule"></div>
