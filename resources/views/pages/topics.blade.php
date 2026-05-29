@@ -206,5 +206,47 @@ function tpxShare() {
     else if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard'); }); }
     else { window.prompt('Copy this link:', url); }
 }
+
+/* Soft navigation between topics: swap the explorer in place instead of a
+   full page reload, with no transition. Degrades to normal navigation. */
+(function () {
+    function swapTopic(href, push) {
+        fetch(href, { headers: { 'X-Requested-With': 'fetch' } })
+            .then(function (r) {
+                if (!r.ok) throw new Error('bad response');
+                return r.text();
+            })
+            .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, 'text/html');
+                var fresh = doc.querySelector('.tpx');
+                var current = document.querySelector('.tpx');
+                if (!fresh || !current) { window.location.href = href; return; }
+                current.innerHTML = fresh.innerHTML;
+                if (doc.title) document.title = doc.title;
+                if (push) window.history.pushState({ tpx: true }, '', href);
+            })
+            .catch(function () { window.location.href = href; });
+    }
+
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link');
+        if (!a) return;
+        // Respect new-tab / modified clicks.
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var href = a.getAttribute('href');
+        if (!href) return;
+        e.preventDefault();
+        if (href === window.location.pathname) return;
+        swapTopic(href, true);
+    });
+
+    window.addEventListener('popstate', function () {
+        if (window.location.pathname.indexOf('/topics') === 0) {
+            swapTopic(window.location.href, false);
+        } else {
+            window.location.reload();
+        }
+    });
+})();
 </script>
 @endsection
