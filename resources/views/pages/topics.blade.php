@@ -210,6 +210,29 @@ function tpxShare() {
 /* Soft navigation between topics: swap the explorer in place instead of a
    full page reload, with no transition. Degrades to normal navigation. */
 (function () {
+    function bgImageOf(el) { return el ? el.style.backgroundImage : ''; }
+
+    // Crossfade the backdrop: layer the new photo above the current one at
+    // opacity 0, fade it in, then drop any older layers.
+    function crossfadeBackground(tpx, newBg) {
+        var anchor = tpx.querySelector('.tpx-photo-tint') || tpx.querySelector('.tpx-grid');
+        var layer = document.createElement('div');
+        layer.className = 'tpx-photo';
+        layer.style.backgroundImage = newBg;
+        layer.style.opacity = '0';
+        layer.style.transition = 'opacity 0.6s ease';
+        if (anchor) { tpx.insertBefore(layer, anchor); } else { tpx.appendChild(layer); }
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () { layer.style.opacity = '1'; });
+        });
+        window.setTimeout(function () {
+            tpx.querySelectorAll('.tpx-photo').forEach(function (p) {
+                if (p !== layer && p.parentNode) { p.parentNode.removeChild(p); }
+            });
+            layer.style.transition = '';
+        }, 700);
+    }
+
     function swapTopic(href, push) {
         fetch(href, { headers: { 'X-Requested-With': 'fetch' } })
             .then(function (r) {
@@ -221,7 +244,19 @@ function tpxShare() {
                 var fresh = doc.querySelector('.tpx');
                 var current = document.querySelector('.tpx');
                 if (!fresh || !current) { window.location.href = href; return; }
-                current.innerHTML = fresh.innerHTML;
+
+                // Crossfade the background photo to the new topic's image.
+                var photos = current.querySelectorAll('.tpx-photo');
+                var curBg = bgImageOf(photos[photos.length - 1]);
+                var newBg = bgImageOf(fresh.querySelector('.tpx-photo'));
+                if (newBg && newBg !== curBg) { crossfadeBackground(current, newBg); }
+
+                // Swap the columns/header in place (instant).
+                var freshGrid = fresh.querySelector('.tpx-grid');
+                var curGrid = current.querySelector('.tpx-grid');
+                if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
+                else { current.innerHTML = fresh.innerHTML; }
+
                 if (doc.title) document.title = doc.title;
                 if (push) window.history.pushState({ tpx: true }, '', href);
             })
