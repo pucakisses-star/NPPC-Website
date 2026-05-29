@@ -83,17 +83,23 @@
     // Bundled fallback imagery per topic, used only when a topic has no
     // image of its own. Any image uploaded in admin overrides these.
     $topicDefaults = [
-        'black-lives-matter'    => '/images/freedom.jpg',
-        'environmental-justice' => '/images/volunteer.jpg',
-        'anti-war-activism'     => '/images/section_1.jpg',
-        'movements'             => '/images/stop-jailing-truth-tellers.webp',
+        // Sections (drive the full-bleed background)
+        'introduction'          => '/images/freedom.jpg',
+        'movements'             => '/images/volunteer.jpg',
         'eras'                  => '/images/candles.jpg',
         'repressive-tools'      => '/images/fence.jpg',
-        'categories'            => '/images/public-phone.jpg',
+        // Movement leaves (drive the detail-panel hero)
+        'black-lives-matter'    => '/images/section_1.jpg',
+        'environmental-justice' => '/images/volunteer.jpg',
+        'anti-war-activism'     => '/images/section_2.jpg',
     ];
     $defaultFor = function ($topic) use ($topicDefaults) {
         if (! $topic) return '/images/prison-hell.jpg';
-        return $topicDefaults[$topic->slug] ?? '/images/prison-hell.jpg';
+        if (isset($topicDefaults[$topic->slug])) return $topicDefaults[$topic->slug];
+        // A leaf with no image of its own inherits its section's image.
+        $parent = $topic->parent_id ? $topic->parent : null;
+        if ($parent && isset($topicDefaults[$parent->slug])) return $topicDefaults[$parent->slug];
+        return '/images/prison-hell.jpg';
     };
 
     $bgImage = $activeTopic && $activeTopic->image
@@ -140,18 +146,14 @@
 
         {{-- Column 2: sub-topics --}}
         <div class="tpx-sub">
-            @if($activeTopic)
+            @if($activeTopic && $activeTopic->children->isNotEmpty())
                 <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
-                @if($activeTopic->children->isNotEmpty())
-                    @foreach($activeTopic->children as $child)
-                        <a href="/topics/{{ $child->slug }}" data-no-fade
-                           class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
-                            {{ $child->title }}
-                        </a>
-                    @endforeach
-                @else
-                    <div class="tpx-sub-empty">No sub-topics.</div>
-                @endif
+                @foreach($activeTopic->children as $child)
+                    <a href="/topics/{{ $child->slug }}" data-no-fade
+                       class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
+                        {{ $child->title }}
+                    </a>
+                @endforeach
             @endif
         </div>
 
