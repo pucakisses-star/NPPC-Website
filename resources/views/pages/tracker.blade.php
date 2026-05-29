@@ -285,9 +285,61 @@
                 </div>
             </section>
 
-            {{-- 07 METHODOLOGY --}}
-            <section id="methodology" class="tk2-section">
+            {{-- 07 IN THE HEADLINES — real reported costs of confinement --}}
+            <section id="headlines" class="tk2-section">
                 <div class="tk2-snum">07</div>
+                <h2 class="tk2-shead">The price, in the headlines.</h2>
+                <p class="tk2-lede">This tracker's figures sit inside a much larger, well-documented public record. Here is what reporters and researchers have found it costs to confine people in the United States &mdash; the rates this accounting is built on, and the political-detention systems that keep putting them in the news.</p>
+
+                <style>
+                    .tk2-hl-feature { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 24px; margin: 12px 0 38px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+                    .tk2-hl-fnum { font-family: Georgia, serif; font-weight: 700; font-size: 4.6rem; line-height: 0.92; color: #4dd9d2; letter-spacing: -0.02em; }
+                    .tk2-hl-flabel { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.8); max-width: 540px; }
+                    .tk2-hl-fsrc { display: block; font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 8px; }
+                    .tk2-hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+                    .tk2-hl-card { background: #111; border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #4dd9d2; border-radius: 6px; padding: 24px; }
+                    .tk2-hl-num { font-family: Georgia, serif; font-weight: 700; font-size: 2.3rem; line-height: 1; color: #fff; }
+                    .tk2-hl-unit { font-size: 0.42em; color: rgba(255,255,255,0.5); }
+                    .tk2-hl-desc { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.66); margin: 12px 0 14px; }
+                    .tk2-hl-src { font-size: 12px; letter-spacing: 0.02em; color: rgba(255,255,255,0.5); }
+                    .tk2-hl-src a { color: #4dd9d2; text-decoration: none; }
+                    .tk2-hl-src a:hover { text-decoration: underline; }
+                </style>
+
+                <div class="tk2-hl-feature">
+                    <div class="tk2-hl-fnum">$13M</div>
+                    <div class="tk2-hl-flabel">Roughly what it costs to hold a single detainee at Guant&aacute;namo Bay for one year &mdash; by far the most expensive prison on earth, for men mostly held for years without charge or trial.
+                        <span class="tk2-hl-fsrc">Pulitzer Center &middot; Human Rights First &middot; ACLU, &ldquo;Guant&aacute;namo by the Numbers&rdquo;</span>
+                    </div>
+                </div>
+
+                <div class="tk2-hl-grid">
+                    <a class="tk2-hl-card" href="https://forumtogether.org/article/immigration-detention-costs-in-a-time-of-mass-deportation/" target="_blank" rel="noopener">
+                        <div class="tk2-hl-num">~$150<span class="tk2-hl-unit"> / day</span></div>
+                        <p class="tk2-hl-desc">About what it costs to hold one person in ICE immigration detention &mdash; the system that jailed student protesters and visa holders through 2025.</p>
+                        <div class="tk2-hl-src">National Immigration Forum &middot; Marketplace (2025) &rarr;</div>
+                    </a>
+                    <a class="tk2-hl-card" href="https://www.vera.org/publications/price-of-prisons-what-incarceration-costs-taxpayers" target="_blank" rel="noopener">
+                        <div class="tk2-hl-num">~$130K<span class="tk2-hl-unit"> / yr</span></div>
+                        <p class="tk2-hl-desc">California's cost to imprison one person for a year &mdash; among the highest of any state, and the kind of state rate this tracker prices case by case.</p>
+                        <div class="tk2-hl-src">CA Legislative Analyst's Office &middot; Vera Institute, &ldquo;The Price of Prisons&rdquo; &rarr;</div>
+                    </a>
+                    <a class="tk2-hl-card" href="https://www.federalregister.gov/documents/2018/04/30/2018-09062/annual-determination-of-average-cost-of-incarceration" target="_blank" rel="noopener">
+                        <div class="tk2-hl-num">~$47K<span class="tk2-hl-unit"> / yr</span></div>
+                        <p class="tk2-hl-desc">The federal Bureau of Prisons' own published per-inmate cost &mdash; the rate behind every federal political case counted here.</p>
+                        <div class="tk2-hl-src">BOP, Annual Determination of Average Cost of Incarceration &rarr;</div>
+                    </a>
+                    <a class="tk2-hl-card" href="https://www.prisonpolicy.org/reports/money.html" target="_blank" rel="noopener">
+                        <div class="tk2-hl-num">$182B<span class="tk2-hl-unit"> / yr</span></div>
+                        <p class="tk2-hl-desc">The full annual cost of mass incarceration in the U.S. &mdash; counting the burden on imprisoned people and their families, not just government budgets.</p>
+                        <div class="tk2-hl-src">Prison Policy Initiative, &ldquo;Following the Money of Mass Incarceration&rdquo; &rarr;</div>
+                    </a>
+                </div>
+            </section>
+
+            {{-- 08 METHODOLOGY --}}
+            <section id="methodology" class="tk2-section">
+                <div class="tk2-snum">08</div>
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <p><strong>Scope.</strong> A &ldquo;political prisoner&rdquo; in the NPPC archive is a person held in U.S. custody, or driven into exile from the U.S., for activity reasonably understood as political &mdash; movement organizing, civil resistance, militant action, dissident speech, whistleblowing, protest. The standard is descriptive (was the prosecution political in character?), not endorsement of the underlying conduct.</p>
