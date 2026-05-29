@@ -290,6 +290,11 @@
         $spotlightBrightness = \App\Models\SiteSetting::get('about_spotlight_brightness', '60');
         $spotlightRadius = \App\Models\SiteSetting::get('about_spotlight_radius', '200');
         $spotlightDimming = \App\Models\SiteSetting::get('about_spotlight_dimming', '0');
+        // Suppress the retired burning-car/dog spotlight photo specifically,
+        // while leaving the spotlight feature available for any other image.
+        if ($spotlightImage === 'about/01KPPGN04D6K537R47C1YM9N19.png') {
+            $spotlightImage = null;
+        }
     @endphp
     @if($spotlightEnabled && $spotlightImage)
         <div class="spotlight-section" id="spotlight-section"
