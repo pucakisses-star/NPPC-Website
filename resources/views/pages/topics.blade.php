@@ -20,9 +20,7 @@
     .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); align-items: stretch; min-height: calc(100vh - 108px); }
 
     /* Header bar sits across the nav area */
-    .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
-    .tpx-title { display: flex; align-items: center; gap: 13px; font-size: 1.4rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; margin: 0; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
-    .tpx-title svg { width: 28px; height: 28px; color: #fff; flex: 0 0 auto; }
+    .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
     .tpx-actions { display: flex; gap: 20px; }
     .tpx-action { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.15s; }
     .tpx-action:hover { color: #fff; }
@@ -117,10 +115,6 @@
     <div class="tpx-grid">
         {{-- Header (spans the two nav columns) --}}
         <div class="tpx-head">
-            <h1 class="tpx-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>{{ $activeTopic ? $activeTopic->title : 'Topics' }}</span>
-            </h1>
             <div class="tpx-actions">
                 <button type="button" class="tpx-action" onclick="window.print()">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
