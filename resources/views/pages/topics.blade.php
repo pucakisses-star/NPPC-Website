@@ -22,12 +22,12 @@
     /* Header bar sits across the nav area */
     .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
     .tpx-actions { display: flex; gap: 20px; }
-    .tpx-action { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.15s; }
+    .tpx-action { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
     .tpx-action:hover { color: #fff; }
     .tpx-action svg { width: 15px; height: 15px; }
 
-    /* Left column — root topics + search, over the photo */
-    .tpx-nav { grid-column: 1; padding: 26px clamp(20px, 3vw, 40px); }
+    /* Left column — root topics + search, on a solid panel floating over the photo */
+    .tpx-nav { grid-column: 1; align-self: start; margin: 24px clamp(12px, 2vw, 20px); padding: 20px clamp(16px, 1.6vw, 22px) 24px; background: rgba(17, 14, 10, 0.9); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
     .tpx-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.78); padding: 9px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-nav-item:hover { color: #fff; }
     .tpx-nav-item.active { color: #5660fe; }
@@ -35,8 +35,11 @@
     .tpx-search::placeholder { color: rgba(255,255,255,0.5); }
     .tpx-search:focus { border-color: rgba(255,255,255,0.7); }
 
-    /* Middle column — sub-topics, over the photo */
-    .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
+    /* Middle column — sub-topics, on a solid panel that floats over the photo.
+       Base rule positions the column; the panel styling lives on --card so an
+       empty sub-topic list leaves no stray card and the photo peeks through. */
+    .tpx-sub { grid-column: 2; align-self: start; justify-self: start; width: 100%; max-width: 340px; margin: 24px 0; }
+    .tpx-sub--card { padding: 20px clamp(16px, 1.8vw, 24px) 24px; background: rgba(17, 14, 10, 0.9); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
     .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: #fff; margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link { display: block; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.82); padding: 8px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link:hover { color: #fff; }
@@ -75,7 +78,7 @@
         .tpx-grid { grid-template-columns: 1fr; }
         .tpx-head { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 14px; }
         .tpx-nav, .tpx-sub, .tpx-detail { grid-column: 1; }
-        .tpx-sub { border-left: 0; }
+        .tpx-sub { max-width: none; }
     }
 </style>
 @endsection
@@ -148,7 +151,7 @@
         </div>
 
         {{-- Column 2: sub-topics --}}
-        <div class="tpx-sub">
+        <div class="tpx-sub {{ $activeTopic && $activeTopic->children->isNotEmpty() ? 'tpx-sub--card' : '' }}">
             @if($activeTopic && $activeTopic->children->isNotEmpty())
                 <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
                 @foreach($activeTopic->children as $child)
