@@ -56,6 +56,54 @@ class SyncVisaInstitutions extends Command {
         'University of Nebraska System' => 3,
     ];
 
+    /**
+     * Coordinates for institutions the upstream data left ungeocoded, keyed
+     * by exact name. Applied only when the upstream lat/lng is missing, so a
+     * real upstream geocode is never overwritten. Without these the row is
+     * absent from the map (it still shows in the table). Geocoded via
+     * OpenStreetMap/Nominatim; the CU system row uses its Boulder flagship.
+     */
+    public const COORDINATE_OVERRIDES = [
+        'Snow College' => [39.36055, -111.58067],
+        'South Central College' => [44.17466, -94.04647],
+        'University of Colorado (all campuses)' => [40.00701, -105.26644],
+    ];
+
+    /**
+     * Institutions with publicly reported Spring 2025 visa revocations /
+     * SEVIS terminations that are absent from the upstream Baserow dataset.
+     * Appended on every sync (skipped if a row of the same name already
+     * exists upstream) so they appear on the map. Coordinates geocoded via
+     * OpenStreetMap/Nominatim. affected_people is an int where a specific
+     * figure was reported, otherwise 'unknown'. Each entry is sourced:
+     *
+     *  - Florida Atlantic U. (6): UPress 2025-04 — 4 students + 2 post-grads.
+     *  - San Francisco State U. (5): Axios SF 2025-04-15 — 1 student + 4 grads.
+     *  - St. Ambrose U. (2): WQAD 2025-04 — 2 SEVIS terminations.
+     *  - U. of North Florida (2): Miami New Times 2025-04 — 2 recent grads.
+     *  - UMass Dartmouth (1): WBUR 2025-04-07 — 1 student.
+     *  - Clarke U. (1): Iowa Capital Dispatch 2025-04 — 1 student.
+     *  - Brandeis U. (unknown): Boston Globe 2025-04-23 — named in federal TRO.
+     *  - Coe College, Luther College, Des Moines Area CC, Eastern Iowa CC,
+     *    Grinnell College (unknown): Iowa Capital Dispatch 2025-04 roundup.
+     *  - U. of South Florida (unknown): USF Oracle 2025-04-22 (~a dozen per atty).
+     */
+    public const ADDITIONAL_INSTITUTIONS = [
+        ['name' => 'Florida Atlantic University', 'state' => 'Florida', 'affected_people' => 6, 'website' => 'https://www.fau.edu', 'latitude' => 26.37434, 'longitude' => -80.10272],
+        ['name' => 'San Francisco State University', 'state' => 'California', 'affected_people' => 5, 'website' => 'https://www.sfsu.edu', 'latitude' => 37.72452, 'longitude' => -122.48000],
+        ['name' => 'St. Ambrose University', 'state' => 'Iowa', 'affected_people' => 2, 'website' => 'https://www.sau.edu', 'latitude' => 41.53975, 'longitude' => -90.58118],
+        ['name' => 'University of North Florida', 'state' => 'Florida', 'affected_people' => 2, 'website' => 'https://www.unf.edu', 'latitude' => 30.26899, 'longitude' => -81.50966],
+        ['name' => 'University of Massachusetts Dartmouth', 'state' => 'Massachusetts', 'affected_people' => 1, 'website' => 'https://www.umassd.edu', 'latitude' => 41.62250, 'longitude' => -71.00734],
+        ['name' => 'Clarke University', 'state' => 'Iowa', 'affected_people' => 1, 'website' => 'https://www.clarke.edu', 'latitude' => 42.50962, 'longitude' => -90.69069],
+        ['name' => 'Brandeis University', 'state' => 'Massachusetts', 'affected_people' => 'unknown', 'website' => 'https://www.brandeis.edu', 'latitude' => 42.36651, 'longitude' => -71.25802],
+        ['name' => 'Coe College', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.coe.edu', 'latitude' => 41.99060, 'longitude' => -91.65697],
+        ['name' => 'Luther College', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.luther.edu', 'latitude' => 43.31695, 'longitude' => -91.79850],
+        ['name' => 'Des Moines Area Community College', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.dmacc.edu', 'latitude' => 41.70769, 'longitude' => -93.61022],
+        ['name' => 'Eastern Iowa Community Colleges', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.eicc.edu', 'latitude' => 41.52360, 'longitude' => -90.57760],
+        ['name' => 'Grinnell College', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.grinnell.edu', 'latitude' => 41.75112, 'longitude' => -92.71985],
+        ['name' => 'University of South Florida', 'state' => 'Florida', 'affected_people' => 'unknown', 'website' => 'https://www.usf.edu', 'latitude' => 28.06000, 'longitude' => -82.41384],
+    ];
+
     public function handle(): int {
         $token = (string) $this->option('token');
         $tableId = (string) $this->option('table');
@@ -104,6 +152,15 @@ class SyncVisaInstitutions extends Command {
                 $affected = self::AFFECTED_OVERRIDES[$name];
             }
 
+            // Coordinates: prefer the upstream geocode; fall back to a sourced
+            // override only when the upstream lat/lng is missing, so the row
+            // can still be placed on the map.
+            $latitude = $this->coord($row['latitude'] ?? null);
+            $longitude = $this->coord($row['longitude'] ?? null);
+            if (($latitude === null || $longitude === null) && isset(self::COORDINATE_OVERRIDES[$name])) {
+                [$latitude, $longitude] = self::COORDINATE_OVERRIDES[$name];
+            }
+
             $institutions[] = [
                 'name' => $name,
                 // Correct known wrong state values in the upstream data
@@ -113,8 +170,28 @@ class SyncVisaInstitutions extends Command {
                 'affected_people' => $affected,
                 'website' => (string) ($row['website'] ?? ''),
                 'wikipedia' => (string) ($row['wikipedia-url'] ?? ''),
-                'latitude' => $this->coord($row['latitude'] ?? null),
-                'longitude' => $this->coord($row['longitude'] ?? null),
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+            ];
+        }
+
+        // Append institutions confirmed by reporting but missing from the
+        // upstream dataset. Skip any whose name already arrived from Baserow
+        // so we never create a duplicate pin.
+        $existingNames = array_column($institutions, 'name');
+        foreach (self::ADDITIONAL_INSTITUTIONS as $extra) {
+            if (in_array($extra['name'], $existingNames, true)) {
+                continue;
+            }
+
+            $institutions[] = [
+                'name' => $extra['name'],
+                'state' => $extra['state'],
+                'affected_people' => $extra['affected_people'],
+                'website' => $extra['website'] ?? '',
+                'wikipedia' => $extra['wikipedia'] ?? '',
+                'latitude' => $extra['latitude'],
+                'longitude' => $extra['longitude'],
             ];
         }
 
