@@ -625,8 +625,8 @@ function svrFilterInstitutions(q) {
      map service or token: the US basemap is a vendored TopoJSON and the
      points come from the synced institutions snapshot, rendered server-side
      into the script below. --}}
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="{{ asset('js/d3.min.js') }}"></script>
+<script src="{{ asset('js/topojson-client.min.js') }}"></script>
 <script>
 (function () {
     var POINTS = @json($mapPoints ?? []);
@@ -648,7 +648,7 @@ function svrFilterInstitutions(q) {
     tip.className = 'svr-map-tip';
     canvas.appendChild(tip);
 
-    d3.json('{{ asset('vendor/us-states-10m.json') }}').then(function (us) {
+    d3.json('{{ asset('images/us-states-10m.json') }}').then(function (us) {
         var statesFc = topojson.feature(us, us.objects.states);
         var W = canvas.clientWidth || 900;
         var H = canvas.clientHeight || 560;
