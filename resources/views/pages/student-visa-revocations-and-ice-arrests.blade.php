@@ -98,6 +98,8 @@
     .svr-map-note { font-size: 13px; color: rgba(255,255,255,.55); max-width: 540px; margin: 0; }
     .svr-map-embed { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
     .svr-map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .svr-table-embed { width: 100%; height: clamp(420px, 56vh, 560px); margin: 8px 0 22px; background: #fff; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
+    .svr-table-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
 
     /* ---- trackers + news lists ---- */
     .svr-list { list-style: none; margin: 0; padding: 0; }
@@ -202,6 +204,14 @@
                     <iframe
                         src="https://observablehq.com/embed/bf4a008daf711602@252?cells=viewof+state%2Cviewof+StateMap"
                         title="Real-time map of visa revocation locations — Nimble Tent Data Viewer"
+                        loading="lazy" allow="fullscreen"></iframe>
+                </div>
+                <h3 style="margin-top: 8px;">Affected institutions</h3>
+                <p class="svr-map-sub">The running total of known affected people, and the full list of colleges and universities, searchable by name and state.</p>
+                <div class="svr-table-embed">
+                    <iframe
+                        src="https://observablehq.com/embed/bf4a008daf711602@255?cells=totalDisplay%2Cviewof+FullInstitutionsTable"
+                        title="Affected institutions and total known affected people — Nimble Tent Data Viewer"
                         loading="lazy" allow="fullscreen"></iframe>
                 </div>
                 <div class="svr-map-foot">
