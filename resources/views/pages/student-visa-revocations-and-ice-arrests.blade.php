@@ -118,8 +118,11 @@
     .svr-pop-meta { font-size: 12px; color: rgba(255,255,255,.6); }
     .svr-pop-meta b { color: #aab0ff; }
     /* ---- native institutions table ---- */
-    .svr-tbl-total { font-size: 1.35rem; font-weight: 800; color: #fff; margin: 6px 0 14px; }
+    .svr-tbl-total { font-size: 1.35rem; font-weight: 800; color: #fff; margin: 6px 0 10px; }
     .svr-tbl-total span { font-weight: 600; font-size: 1rem; color: rgba(255,255,255,.55); }
+    .svr-tbl-context { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,.62); max-width: 760px; margin: 0 0 18px; }
+    .svr-tbl-context strong { color: rgba(255,255,255,.9); font-weight: 700; }
+    .svr-tbl-foot { font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,.5); max-width: 760px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.08); }
     .svr-tbl-search { width: 100%; max-width: 420px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 10px 14px; font-size: 14px; border-radius: 8px; outline: none; margin-bottom: 16px; }
     .svr-tbl-search::placeholder { color: rgba(255,255,255,.4); }
     .svr-tbl-search:focus { border-color: #5660fe; }
@@ -288,6 +291,7 @@
                 <p class="svr-map-sub">The running total of known affected people, and the full list of colleges and universities. Search by name or state.</p>
                 @if($institutions)
                     <div class="svr-tbl-total">TOTAL: {{ number_format((int) $totalAffected) }} known affected people <span>· {{ number_format((int) $instCount) }} institutions</span></div>
+                    <p class="svr-tbl-context">This total counts only students who could be tied to a <strong>specific, named campus</strong> — through a university statement, a registrar, or a lawsuit. The government's own figures are far larger: roughly <strong>3,000 student visas revoked</strong> and <strong>4,700 SEVIS records terminated</strong> in the spring 2025 wave, and the State Department later said it had revoked about <strong>8,000 student visas</strong> over all of 2025. But those were released as national totals with <strong>no list of schools</strong>, so the students behind them can't be placed on a map. The gap between this figure and the headlines is mostly students whose institution was never publicly disclosed — not a gap in this list.</p>
                     <input type="text" class="svr-tbl-search" id="svr-inst-search" placeholder="Search institutions or states…" onkeyup="svrFilterInstitutions(this.value)" aria-label="Search affected institutions">
                     <div class="svr-tbl-wrap">
                         <table class="svr-tbl" id="svr-inst-table">
@@ -318,6 +322,7 @@
                         </table>
                         <p class="svr-tbl-empty" id="svr-inst-empty" hidden>No institutions match your search.</p>
                     </div>
+                    <p class="svr-tbl-foot"><strong>Harvard University</strong> is a special case kept off this list. In May 2025 the Department of Homeland Security moved to revoke Harvard's certification to enroll any international students at all — a threat to its entire body of roughly 6,800, rather than a count of individual revocations. A federal court blocked the move, and DHS later stipulated it would not act on the May 22 letter. Counting it here would conflate a single contested institutional action with the per-student totals above.</p>
                 @else
                     <p class="svr-map-note">Institution data is being synced. Run <code>php artisan visa:sync-institutions</code> to populate it.</p>
                 @endif
