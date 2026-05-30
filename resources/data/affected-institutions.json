@@ -1,7 +1,7 @@
 {
     "source": "Nimble Tent Data Viewer · Baserow table 503380",
-    "synced_at": "2026-05-30T09:27:34+00:00",
-    "total_affected": 1958,
+    "synced_at": "2026-05-30T10:24:53+00:00",
+    "total_affected": 1994,
     "count": 302,
     "institutions": [
         {
@@ -1186,7 +1186,7 @@
         {
             "name": "Purdue University",
             "state": "Indiana",
-            "affected_people": "unknown",
+            "affected_people": 5,
             "website": "https://purdue.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/Purdue_University",
             "latitude": 40.425,
@@ -1906,7 +1906,7 @@
         {
             "name": "University of California, Santa Barbara",
             "state": "California",
-            "affected_people": "unknown",
+            "affected_people": 10,
             "website": "https://ucsb.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Barbara",
             "latitude": 34.416,
@@ -2104,7 +2104,7 @@
         {
             "name": "University of Maryland",
             "state": "Maryland",
-            "affected_people": "unknown",
+            "affected_people": 7,
             "website": "https://umd.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_College_Park",
             "latitude": 38.988,
@@ -2203,7 +2203,7 @@
         {
             "name": "University of Missouri",
             "state": "Missouri",
-            "affected_people": "unknown",
+            "affected_people": 5,
             "website": "https://www.missouri.edu/",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Missouri",
             "latitude": 38.945,
@@ -2221,7 +2221,7 @@
         {
             "name": "University of Nebraska System",
             "state": "Nebraska",
-            "affected_people": "unknown",
+            "affected_people": 3,
             "website": "",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska_system",
             "latitude": 40.818,
@@ -2527,7 +2527,7 @@
         {
             "name": "University of Wyoming",
             "state": "Wyoming",
-            "affected_people": "unknown",
+            "affected_people": 6,
             "website": "http://www.uwyo.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wyoming",
             "latitude": 41.313,

@@ -35,6 +35,27 @@ class SyncVisaInstitutions extends Command {
         'Bridgewater State University' => 'Massachusetts', // tagged "Minnesota" upstream; campus is in Bridgewater, MA
     ];
 
+    /**
+     * Affected-people counts for institutions the upstream data left as
+     * "unknown" but for which a specific figure was publicly reported. Keyed
+     * by exact institution name; applied on every sync. Each is sourced:
+     *
+     *  - U. of Maryland (7): dbknews.com 2025-04-17 — university confirmed 7.
+     *  - UC Santa Barbara (10): Daily Nexus 2025-04-09 — 7 students + 3 OPT grads.
+     *  - U. of Wyoming (6): Cowboy State Daily 2025-04-28 — "six to 10"; 6 reinstated.
+     *  - U. of Missouri (5): KOMU — Pres. Mun Choi; corroborated by 5-student suit.
+     *  - Purdue University (5): Purdue Exponent — 5 ACLU plaintiffs (6 later restored).
+     *  - U. of Nebraska System (3): Daily Nebraskan — 3 at UNL flagship.
+     */
+    public const AFFECTED_OVERRIDES = [
+        'University of Maryland' => 7,
+        'University of California, Santa Barbara' => 10,
+        'University of Wyoming' => 6,
+        'University of Missouri' => 5,
+        'Purdue University' => 5,
+        'University of Nebraska System' => 3,
+    ];
+
     public function handle(): int {
         $token = (string) $this->option('token');
         $tableId = (string) $this->option('table');
@@ -74,13 +95,22 @@ class SyncVisaInstitutions extends Command {
         $institutions = [];
         foreach ($rows as $row) {
             $name = (string) ($row['institution'] ?? '');
+
+            // Affected count: prefer the upstream tally; fall back to a
+            // sourced override only when the upstream value is "unknown" so
+            // a real reported number is never overwritten.
+            $affected = $this->affectedPeople($row['tally'] ?? null);
+            if ($affected === 'unknown' && isset(self::AFFECTED_OVERRIDES[$name])) {
+                $affected = self::AFFECTED_OVERRIDES[$name];
+            }
+
             $institutions[] = [
                 'name' => $name,
                 // Correct known wrong state values in the upstream data
                 // (e.g. Bridgewater State University is tagged Minnesota but
                 // its campus and coordinates are in Massachusetts).
                 'state' => self::STATE_CORRECTIONS[$name] ?? (string) ($row['state'] ?? ''),
-                'affected_people' => $this->affectedPeople($row['tally'] ?? null),
+                'affected_people' => $affected,
                 'website' => (string) ($row['website'] ?? ''),
                 'wikipedia' => (string) ($row['wikipedia-url'] ?? ''),
                 'latitude' => $this->coord($row['latitude'] ?? null),
