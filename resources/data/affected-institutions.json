@@ -1,8 +1,8 @@
 {
     "source": "Nimble Tent Data Viewer · Baserow table 503380",
-    "synced_at": "2026-05-30T10:24:53+00:00",
-    "total_affected": 1994,
-    "count": 302,
+    "synced_at": "2026-05-30T11:30:06+00:00",
+    "total_affected": 2011,
+    "count": 315,
     "institutions": [
         {
             "name": "American University",
@@ -120,6 +120,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Bowling_Green_State_University",
             "latitude": 41.38,
             "longitude": -83.64
+        },
+        {
+            "name": "Brandeis University",
+            "state": "Massachusetts",
+            "affected_people": "unknown",
+            "website": "https://www.brandeis.edu",
+            "wikipedia": "",
+            "latitude": 42.36651,
+            "longitude": -71.25802
         },
         {
             "name": "Bridgewater State University",
@@ -311,6 +320,15 @@
             "longitude": -71.823
         },
         {
+            "name": "Clarke University",
+            "state": "Iowa",
+            "affected_people": 1,
+            "website": "https://www.clarke.edu",
+            "wikipedia": "",
+            "latitude": 42.50962,
+            "longitude": -90.69069
+        },
+        {
             "name": "Clemson University",
             "state": "South Carolina",
             "affected_people": "unknown",
@@ -327,6 +345,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Cleveland_State_University",
             "latitude": 41.502,
             "longitude": -81.675
+        },
+        {
+            "name": "Coe College",
+            "state": "Iowa",
+            "affected_people": "unknown",
+            "website": "https://www.coe.edu",
+            "wikipedia": "",
+            "latitude": 41.9906,
+            "longitude": -91.65697
         },
         {
             "name": "College of Idaho",
@@ -446,6 +473,15 @@
             "longitude": -87.654
         },
         {
+            "name": "Des Moines Area Community College",
+            "state": "Iowa",
+            "affected_people": "unknown",
+            "website": "https://www.dmacc.edu",
+            "wikipedia": "",
+            "latitude": 41.70769,
+            "longitude": -93.61022
+        },
+        {
             "name": "Drury University",
             "state": "Missouri",
             "affected_people": 1,
@@ -471,6 +507,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Illinois_University",
             "latitude": 39.484,
             "longitude": -88.175
+        },
+        {
+            "name": "Eastern Iowa Community Colleges",
+            "state": "Iowa",
+            "affected_people": "unknown",
+            "website": "https://www.eicc.edu",
+            "wikipedia": "",
+            "latitude": 41.5236,
+            "longitude": -90.5776
         },
         {
             "name": "Eastern Michigan University",
@@ -525,6 +570,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Florida_A%26M_University",
             "latitude": 30.418,
             "longitude": -84.285
+        },
+        {
+            "name": "Florida Atlantic University",
+            "state": "Florida",
+            "affected_people": 6,
+            "website": "https://www.fau.edu",
+            "wikipedia": "",
+            "latitude": 26.37434,
+            "longitude": -80.10272
         },
         {
             "name": "Florida International University",
@@ -651,6 +705,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Grand_Valley_State_University",
             "latitude": 42.964,
             "longitude": -85.889
+        },
+        {
+            "name": "Grinnell College",
+            "state": "Iowa",
+            "affected_people": "unknown",
+            "website": "https://www.grinnell.edu",
+            "wikipedia": "",
+            "latitude": 41.75112,
+            "longitude": -92.71985
         },
         {
             "name": "Harvard University",
@@ -813,6 +876,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Los_Rios_Community_College_District",
             "latitude": 38.579,
             "longitude": -121.417
+        },
+        {
+            "name": "Luther College",
+            "state": "Iowa",
+            "affected_people": "unknown",
+            "website": "https://www.luther.edu",
+            "wikipedia": "",
+            "latitude": 43.31695,
+            "longitude": -91.7985
         },
         {
             "name": "Madison Area Technical College",
@@ -1310,6 +1382,15 @@
             "longitude": -117.072
         },
         {
+            "name": "San Francisco State University",
+            "state": "California",
+            "affected_people": 5,
+            "website": "https://www.sfsu.edu",
+            "wikipedia": "",
+            "latitude": 37.72452,
+            "longitude": -122.48
+        },
+        {
             "name": "San Jacinto College",
             "state": "Texas",
             "affected_people": 6,
@@ -1405,8 +1486,8 @@
             "affected_people": 2,
             "website": "",
             "wikipedia": "",
-            "latitude": null,
-            "longitude": null
+            "latitude": 39.36055,
+            "longitude": -111.58067
         },
         {
             "name": "South Central College",
@@ -1414,8 +1495,8 @@
             "affected_people": 1,
             "website": "",
             "wikipedia": "",
-            "latitude": null,
-            "longitude": null
+            "latitude": 44.17466,
+            "longitude": -94.04647
         },
         {
             "name": "South Dakota School of Mines and Technology",
@@ -1542,6 +1623,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Spring_Hill_College",
             "latitude": 30.694,
             "longitude": -88.137
+        },
+        {
+            "name": "St. Ambrose University",
+            "state": "Iowa",
+            "affected_people": 2,
+            "website": "https://www.sau.edu",
+            "wikipedia": "",
+            "latitude": 41.53975,
+            "longitude": -90.58118
         },
         {
             "name": "St. Bonaventure University",
@@ -1963,8 +2053,8 @@
             "affected_people": 34,
             "website": "",
             "wikipedia": "",
-            "latitude": null,
-            "longitude": null
+            "latitude": 40.00701,
+            "longitude": -105.26644
         },
         {
             "name": "University of Connecticut",
@@ -2138,6 +2228,15 @@
             "longitude": -71.038
         },
         {
+            "name": "University of Massachusetts Dartmouth",
+            "state": "Massachusetts",
+            "affected_people": 1,
+            "website": "https://www.umassd.edu",
+            "wikipedia": "",
+            "latitude": 41.6225,
+            "longitude": -71.00734
+        },
+        {
             "name": "University of Massachusetts Lowell",
             "state": "Massachusetts",
             "affected_people": 1,
@@ -2300,6 +2399,15 @@
             "longitude": -79.811
         },
         {
+            "name": "University of North Florida",
+            "state": "Florida",
+            "affected_people": 2,
+            "website": "https://www.unf.edu",
+            "wikipedia": "",
+            "latitude": 30.26899,
+            "longitude": -81.50966
+        },
+        {
             "name": "University of North Texas",
             "state": "Texas",
             "affected_people": 27,
@@ -2370,6 +2478,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_South_Carolina",
             "latitude": 33.998,
             "longitude": -81.025
+        },
+        {
+            "name": "University of South Florida",
+            "state": "Florida",
+            "affected_people": "unknown",
+            "website": "https://www.usf.edu",
+            "wikipedia": "",
+            "latitude": 28.06,
+            "longitude": -82.41384
         },
         {
             "name": "University of Tennessee",
