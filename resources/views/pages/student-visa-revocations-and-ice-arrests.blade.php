@@ -1,134 +1,149 @@
 @extends('app')
 
-@section('title', "Detained for Dissent — Student Visa Revocations & ICE Arrests | NPPC")
+@section('title', "Campus Abductions & Visa Revocations — Student Visa Revocations & ICE Arrests | NPPC")
 
 @section('head')
-<meta name="description" content="A briefing on the 2025 U.S. crackdown on international students — the targeted ICE arrests of student activists, the mass visa revocations and SEVIS terminations, and the courts' response — compiled from reporting by the Associated Press, CNN, NPR, and Inside Higher Ed, the work of the ACLU and the Knight First Amendment Institute, and court filings.">
+<meta name="description" content="A living resource on the 2025 U.S. crackdown on international students and scholars — the ICE arrests of student activists, the mass visa revocations and SEVIS terminations, the courts' response, and profiles of the people detained — compiled from reporting by the Associated Press, CNN, NPR, and Inside Higher Ed, the ACLU and the Knight First Amendment Institute, and court filings.">
 <style>
     /* ============================================================
-       Student Visa Revocations & ICE Arrests — hand-crafted briefing.
-       Long-form report layout in the NPPC briefing series. All classes
-       are scoped with the svr- prefix so nothing leaks into the rest
-       of the site. Amber accent distinguishes it from the Iran page.
+       Campus Abductions & Visa Revocations — clean white resource
+       page, modeled on the We Are Higher Ed "Campus Abductions"
+       layout: action alert, latest-update box, report banner, a
+       locations map, trackers + news lists, and individual case
+       profiles. All classes are scoped with the svr- prefix.
        ============================================================ */
-    .svr { background: #0b0b0d; color: #fff; }
-    .svr-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
-    .svr a { color: #e0a23c; }
-    .svr a:hover { color: #fff; }
+    .svr { background: #fff; color: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    .svr *, .svr *::before, .svr *::after { box-sizing: border-box; }
+    .svr a { color: #1c4ed8; }
+    .svr a:hover { color: #c8102e; }
 
-    /* ---- Hero ---- */
-    .svr-hero { position: relative; overflow: hidden; background: #000; min-height: 620px; display: flex; align-items: flex-end; }
-    .svr-hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .svr-hero-bg svg { width: 100%; height: 100%; display: block; }
-    .svr-hero-overlay { position: absolute; inset: 0; z-index: 1;
-        background: radial-gradient(120% 90% at 72% 0%, rgba(200,134,42,0.16), transparent 60%),
-                    linear-gradient(180deg, rgba(11,11,13,0.35) 0%, rgba(11,11,13,0.72) 55%, #0b0b0d 100%); }
-    .svr-hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; width: 100%; padding: 120px 24px 56px; }
-    .svr-kicker { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #e0a23c; margin-bottom: 22px; }
-    .svr-kicker::before { content: ""; width: 34px; height: 2px; background: #c8862a; display: inline-block; }
-    .svr-hero-title { font-size: 4.6rem; line-height: 0.98; font-weight: 700; color: #fff; margin: 0 0 18px; letter-spacing: -0.02em; }
-    .svr-hero-sub { font-size: 1.4rem; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 720px; margin: 0 0 28px; }
-    .svr-hero-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-    .svr-hero-meta span { display: inline-flex; align-items: center; }
-    .svr-hero-meta span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #c8862a; margin-right: 18px; }
+    /* ---- layout primitives ---- */
+    .svr-wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .svr-wide { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .svr-section { padding: 52px 0; }
+    .svr-section--tight { padding: 30px 0; }
+    .svr-divider { border: 0; border-top: 1px solid #e7e9ee; margin: 0; }
 
-    /* ---- Layout primitives ---- */
-    .svr-wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
-    .svr-section { padding: 72px 0; border-top: 1px solid rgba(255,255,255,0.08); }
-    .svr-section:first-of-type { border-top: 0; }
-    .svr-eyebrow { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #e0a23c; margin-bottom: 18px; }
-    .svr-eyebrow .svr-num { font-family: Georgia, serif; color: rgba(255,255,255,0.4); }
-    .svr-h2 { font-size: 2.6rem; line-height: 1.1; font-weight: 700; color: #fff; margin: 0 0 24px; }
-    .svr-h3 { font-size: 1.5rem; font-weight: 700; color: #fff; margin: 36px 0 14px; }
-    .svr-p { font-size: 17px; line-height: 1.85; color: rgba(255,255,255,0.76); margin: 0 0 1.4em; }
-    .svr-p strong { color: #fff; font-weight: 700; }
-    .svr-cite { font-size: 13px; color: rgba(255,255,255,0.45); }
-    .svr-cite a { color: rgba(255,255,255,0.55); text-decoration: underline; }
-    .svr-cite a:hover { color: #e0a23c; }
+    /* ---- hero ---- */
+    .svr-hero { padding: 64px 0 38px; }
+    .svr-alert { display: inline-flex; align-items: center; gap: 9px; background: #fdeaec; color: #c8102e; font-weight: 800; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 8px 15px; border-radius: 999px; border: 1px solid #f3c2c8; margin-bottom: 22px; }
+    .svr-alert::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #c8102e; animation: svrpulse 2s infinite; }
+    @@keyframes svrpulse { 0% { box-shadow: 0 0 0 0 rgba(200,16,46,.5); } 70% { box-shadow: 0 0 0 8px rgba(200,16,46,0); } 100% { box-shadow: 0 0 0 0 rgba(200,16,46,0); } }
+    .svr-h1 { font-size: 3.6rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 20px; color: #111; }
+    .svr-hero-sub { font-size: 1.25rem; line-height: 1.6; color: #444; max-width: 720px; margin: 0; }
+    .svr-hero-meta { margin-top: 24px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #8a8f98; }
+    .svr-hero-meta span + span::before { content: "•"; margin: 0 10px; color: #c8102e; }
 
-    /* ---- Lead ---- */
-    .svr-lead .svr-p { font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; line-height: 1.5; color: #fff; }
-    .svr-lead .svr-p:first-child::first-letter { float: left; font-size: 4.2em; line-height: 0.72; padding: 0.05em 0.12em 0 0; color: #c8862a; font-weight: 700; }
+    /* ---- latest-update box ---- */
+    .svr-update { display: flex; gap: 18px; align-items: flex-start; background: #f9fafb; border: 1px solid #e7e9ee; border-left: 4px solid #c8102e; border-radius: 8px; padding: 22px 24px; }
+    .svr-update-ico { flex: 0 0 auto; color: #c8102e; margin-top: 2px; }
+    .svr-update-tag { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #c8102e; }
+    .svr-update h3 { font-size: 1.15rem; font-weight: 800; color: #111; margin: 5px 0 6px; }
+    .svr-update p { margin: 0; color: #444; font-size: 15px; line-height: 1.6; }
 
-    /* ---- Stats ---- */
-    .svr-stats-band { background: #000; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .svr-stats { max-width: 1080px; margin: 0 auto; padding: 8px 24px; display: grid; grid-template-columns: repeat(4, 1fr); }
-    .svr-stat { padding: 48px 24px; border-left: 1px solid rgba(255,255,255,0.08); }
-    .svr-stat:first-child { border-left: 0; }
-    .svr-stat-num { font-family: Georgia, serif; font-size: 3.4rem; line-height: 1; font-weight: 700; color: #e0a23c; letter-spacing: -0.02em; }
-    .svr-stat-num small { font-size: 0.45em; color: rgba(255,255,255,0.45); }
-    .svr-stat-label { margin-top: 14px; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.72); }
-    .svr-stat-src { margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.4); }
+    /* ---- eyebrow + headings ---- */
+    .svr-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #c8102e; margin-bottom: 14px; }
+    .svr-eyebrow::before { content: ""; width: 26px; height: 2px; background: #c8102e; }
+    .svr-h2 { font-size: 2.1rem; line-height: 1.12; font-weight: 800; color: #111; margin: 0 0 18px; letter-spacing: -.015em; }
+    .svr-h3 { font-size: 1.3rem; font-weight: 800; color: #111; margin: 30px 0 12px; }
+    .svr-p { font-size: 17px; line-height: 1.75; color: #333; margin: 0 0 1.2em; }
+    .svr-p:last-child { margin-bottom: 0; }
+    .svr-p strong { color: #111; font-weight: 700; }
+    .svr-cite { font-size: 13px; color: #6b7280; }
 
-    /* ---- Pull quote ---- */
-    .svr-pull { border-left: 3px solid #c8862a; padding: 6px 0 6px 28px; margin: 8px 0; }
-    .svr-pull p { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; line-height: 1.3; color: #fff; margin: 0 0 14px; }
-    .svr-pull cite { font-style: normal; font-size: 14px; letter-spacing: 0.04em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+    /* ---- stats ---- */
+    .svr-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #e7e9ee; border: 1px solid #e7e9ee; border-radius: 10px; overflow: hidden; margin-top: 34px; }
+    .svr-stat { background: #fff; padding: 26px 22px; }
+    .svr-stat-num { font-size: 2.5rem; font-weight: 800; color: #c8102e; line-height: 1; letter-spacing: -.02em; }
+    .svr-stat-num small { font-size: .45em; }
+    .svr-stat-label { margin-top: 10px; font-size: 14px; line-height: 1.5; color: #444; }
+    .svr-stat-src { margin-top: 8px; font-size: 12px; color: #9aa0a6; }
 
-    /* ---- Pattern cards ---- */
-    .svr-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
-    .svr-card { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 26px; transition: border-color 0.25s, transform 0.25s; }
-    .svr-card:hover { border-color: rgba(200,134,42,0.4); transform: translateY(-3px); }
-    .svr-card-icon { color: #c8862a; margin-bottom: 14px; }
-    .svr-card h3 { font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0 0 8px; }
-    .svr-card p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.62); margin: 0; }
+    /* ---- pull quote ---- */
+    .svr-pull { border-left: 3px solid #c8102e; padding: 4px 0 4px 26px; margin: 0; }
+    .svr-pull p { font-size: 1.9rem; line-height: 1.3; font-weight: 700; color: #111; margin: 0 0 12px; }
+    .svr-pull cite { font-style: normal; font-size: 14px; letter-spacing: .03em; color: #6b7280; text-transform: uppercase; }
 
-    /* ---- Named cases ---- */
-    .svr-case { display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.08); }
-    .svr-case:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .svr-avatar { width: 56px; height: 56px; border-radius: 50%; background: #1a1a1f; border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-weight: 700; font-size: 1.05rem; color: #e0a23c; }
-    .svr-case h3 { font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 2px; }
-    .svr-case-role { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 0 0 10px; }
-    .svr-case p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.72); margin: 0; }
-    .svr-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; margin-top: 12px; }
-    .svr-tag-risk { background: rgba(200,134,42,0.15); color: #e0a23c; border: 1px solid rgba(200,134,42,0.4); }
-    .svr-tag-free { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); }
+    /* ---- report banner ---- */
+    .svr-banner { background: #111; color: #fff; border-radius: 12px; padding: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+    .svr-banner h3 { font-size: 1.4rem; font-weight: 800; margin: 0 0 6px; color: #fff; }
+    .svr-banner p { margin: 0; color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.55; max-width: 560px; }
 
-    /* ---- Sources & note ---- */
-    .svr-note { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 28px; margin-bottom: 32px; }
-    .svr-note p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.72); margin: 0 0 12px; }
+    /* ---- buttons ---- */
+    .svr-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none; padding: 13px 26px; border-radius: 999px; transition: transform .15s, background .15s, color .15s, border-color .15s; white-space: nowrap; }
+    .svr-btn svg { width: 17px; height: 17px; }
+    .svr-btn-red { background: #c8102e; color: #fff; }
+    .svr-btn-red:hover { background: #a50d26; color: #fff; transform: translateY(-1px); }
+    .svr-btn-light { background: #fff; color: #111; }
+    .svr-btn-light:hover { background: #f1f1f1; color: #000; transform: translateY(-1px); }
+    .svr-btn-ghost { background: transparent; color: #111; border: 1px solid #d1d5db; }
+    .svr-btn-ghost:hover { border-color: #111; color: #111; transform: translateY(-1px); }
+
+    /* ---- locations map ---- */
+    .svr-map { position: relative; border: 1px solid #e7e9ee; border-radius: 12px; overflow: hidden;
+        background: radial-gradient(circle at 1px 1px, #e2e5ea 1px, transparent 0) 0 0 / 22px 22px, #f6f7f9; }
+    .svr-map-inner { padding: 30px 28px; }
+    .svr-map h3 { font-size: 1.5rem; font-weight: 800; color: #111; margin: 0 0 6px; }
+    .svr-map-sub { font-size: 14px; color: #6b7280; margin: 0 0 22px; }
+    .svr-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .svr-chip { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e0e3e8; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600; color: #1a1a1a; }
+    .svr-chip::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #c8102e; flex: 0 0 auto; }
+    .svr-chip span { color: #6b7280; font-weight: 500; }
+    .svr-map-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px dashed #d7dade; padding-top: 20px; }
+    .svr-map-note { font-size: 13px; color: #6b7280; max-width: 540px; margin: 0; }
+
+    /* ---- trackers + news lists ---- */
+    .svr-list { list-style: none; margin: 0; padding: 0; }
+    .svr-list li { border-top: 1px solid #e7e9ee; padding: 16px 0; }
+    .svr-list li:last-child { border-bottom: 1px solid #e7e9ee; }
+    .svr-list a { font-weight: 700; text-decoration: none; }
+    .svr-list a:hover { text-decoration: underline; }
+    .svr-list .svr-src { display: block; font-size: 13px; color: #6b7280; margin-top: 3px; font-weight: 400; }
+
+    /* ---- cases ---- */
+    .svr-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .svr-case { border: 1px solid #e7e9ee; border-radius: 12px; padding: 22px; display: flex; gap: 16px; align-items: flex-start; background: #fff; transition: border-color .2s, box-shadow .2s; }
+    .svr-case:hover { border-color: #d6d9df; box-shadow: 0 8px 24px rgba(17,17,17,.06); }
+    .svr-avatar { width: 58px; height: 58px; border-radius: 50%; flex: 0 0 auto; background: #fbe9ec; color: #c8102e; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; border: 1px solid #f3c2c8; letter-spacing: .02em; }
+    .svr-case-body { min-width: 0; }
+    .svr-case h3 { font-size: 1.15rem; font-weight: 800; color: #111; margin: 0 0 2px; }
+    .svr-case-role { font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: #6b7280; margin: 0 0 10px; font-weight: 700; }
+    .svr-case p { font-size: 14.5px; line-height: 1.6; color: #444; margin: 0 0 12px; }
+    .svr-tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
+    .svr-tag-detained { background: #fdeaec; color: #c8102e; border: 1px solid #f3c2c8; }
+    .svr-tag-released { background: #eaf6ee; color: #1a7f37; border: 1px solid #b7e1c3; }
+    .svr-tag-removed { background: #fff4e5; color: #b45309; border: 1px solid #f5d9a8; }
+    .svr-tag-court { background: #eef2ff; color: #3538cd; border: 1px solid #c7cdfb; }
+    .svr-coverage { font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+
+    /* ---- methodology / sources ---- */
+    .svr-note { background: #f9fafb; border: 1px solid #e7e9ee; border-radius: 10px; padding: 24px; margin-bottom: 28px; }
+    .svr-note p { font-size: 15px; line-height: 1.7; color: #444; margin: 0 0 12px; }
     .svr-note p:last-child { margin: 0; }
-    .svr-note strong { color: #fff; }
-    .svr-sources { list-style: none; margin: 0; padding: 0; }
-    .svr-sources li { border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0; }
-    .svr-sources li:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .svr-sources a { font-weight: 700; color: #fff; text-decoration: none; }
-    .svr-sources a:hover { color: #e0a23c; }
-    .svr-sources span { display: block; font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .svr-note strong { color: #111; }
 
-    /* ---- CTA ---- */
-    .svr-cta { background: linear-gradient(135deg, #6e4f16, #3f2c0c); text-align: center; padding: 80px 24px; }
-    .svr-cta h2 { font-family: Georgia, serif; font-size: 2.6rem; font-weight: 700; color: #fff; margin: 0 0 16px; }
-    .svr-cta p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.88); max-width: 600px; margin: 0 auto 30px; }
-    .svr-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-    .svr-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none; padding: 15px 30px; border-radius: 999px; transition: transform 0.2s, background 0.2s; }
-    .svr-btn-primary { background: #fff; color: #1a1a1a; }
-    .svr-btn-primary:hover { transform: translateY(-2px); color: #000; }
-    .svr-btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.55); }
-    .svr-btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); color: #fff; }
+    /* ---- footer CTA ---- */
+    .svr-foot { background: #c8102e; color: #fff; text-align: center; padding: 64px 24px; }
+    .svr-foot h2 { font-size: 2.2rem; font-weight: 800; margin: 0 0 14px; color: #fff; letter-spacing: -.01em; }
+    .svr-foot p { font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.92); max-width: 620px; margin: 0 auto 26px; }
+    .svr-foot .svr-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .svr-foot .svr-btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+    .svr-foot .svr-btn-ghost:hover { background: rgba(255,255,255,.12); color: #fff; border-color: #fff; }
 
-    /* ---- Responsive ---- */
-    @@media (max-width: 900px) {
-        .svr-hero { min-height: 500px; }
-        .svr-hero-title { font-size: 3rem; }
-        .svr-hero-sub { font-size: 1.15rem; }
-        .svr-h2 { font-size: 2.1rem; }
+    /* ---- responsive ---- */
+    @@media (max-width: 820px) {
+        .svr-h1 { font-size: 2.5rem; }
+        .svr-h2 { font-size: 1.7rem; }
+        .svr-pull p { font-size: 1.5rem; }
         .svr-stats { grid-template-columns: 1fr 1fr; }
-        .svr-stat { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 16px; }
-        .svr-stat:first-child, .svr-stat:nth-child(2) { border-top: 0; }
-        .svr-cards { grid-template-columns: 1fr 1fr; }
-        .svr-pull p { font-size: 1.6rem; }
+        .svr-cases { grid-template-columns: 1fr; }
+        .svr-banner { flex-direction: column; align-items: flex-start; }
     }
-    @@media (max-width: 600px) {
-        .svr-hero-content { padding: 100px 20px 40px; }
-        .svr-hero-title { font-size: 2.3rem; }
-        .svr-h2 { font-size: 1.8rem; }
-        .svr-lead .svr-p { font-size: 1.2rem; }
+    @@media (max-width: 520px) {
+        .svr-h1 { font-size: 2.05rem; }
+        .svr-hero-sub { font-size: 1.1rem; }
         .svr-stats { grid-template-columns: 1fr; }
-        .svr-stat, .svr-stat:nth-child(2) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
-        .svr-stat:first-child { border-top: 0; }
-        .svr-cards { grid-template-columns: 1fr; }
-        .svr-cta h2 { font-size: 2rem; }
+        .svr-foot h2 { font-size: 1.8rem; }
     }
 </style>
 @endsection
@@ -137,250 +152,344 @@
 <div class="svr">
 
     {{-- ==================== HERO ==================== --}}
-    <div class="svr-hero">
-        <div class="svr-hero-bg" aria-hidden="true">
-            <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <linearGradient id="svrSky" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stop-color="#1b1b22"/>
-                        <stop offset="1" stop-color="#0b0b0d"/>
-                    </linearGradient>
-                </defs>
-                <rect width="1200" height="640" fill="url(#svrSky)"/>
-                {{-- faint document text lines --}}
-                <g stroke="#23232b" stroke-width="6" stroke-linecap="round">
-                    <line x1="80" y1="170" x2="540" y2="170"/>
-                    <line x1="80" y1="212" x2="470" y2="212"/>
-                    <line x1="80" y1="254" x2="560" y2="254"/>
-                    <line x1="80" y1="296" x2="430" y2="296"/>
-                    <line x1="80" y1="338" x2="520" y2="338"/>
-                    <line x1="80" y1="380" x2="380" y2="380"/>
-                    <line x1="80" y1="422" x2="500" y2="422"/>
-                    <line x1="80" y1="464" x2="440" y2="464"/>
-                </g>
-                {{-- revocation stamp --}}
-                <g transform="rotate(-13 880 300)" fill="none" stroke="#c8862a" opacity="0.5">
-                    <rect x="710" y="208" width="330" height="156" rx="14" stroke-width="8"/>
-                    <rect x="732" y="230" width="286" height="112" rx="8" stroke-width="3"/>
-                </g>
-                {{-- stamp ring --}}
-                <g fill="none" stroke="#c8862a" opacity="0.26">
-                    <circle cx="1024" cy="150" r="72" stroke-width="6"/>
-                    <circle cx="1024" cy="150" r="54" stroke-width="2"/>
-                </g>
-            </svg>
-        </div>
-        <div class="svr-hero-overlay" aria-hidden="true"></div>
-        <div class="svr-hero-content">
-            <span class="svr-kicker">A briefing on student visa revocations &amp; ICE arrests</span>
-            <h1 class="svr-hero-title svr-serif">Detained for Dissent</h1>
-            <p class="svr-hero-sub">In the spring of 2025, the United States jailed student activists over their speech and stripped the legal status of thousands of others — turning immigration enforcement on its own campuses.</p>
-            <div class="svr-hero-meta">
-                <span>Briefing</span><span>Spring 2025</span><span>NPPC</span>
+    <div class="svr-wrap svr-hero">
+        <span class="svr-alert">Immediate action required</span>
+        <h1 class="svr-h1">Campus Abductions &amp; Visa Revocations</h1>
+        <p class="svr-hero-sub">In 2025 the federal government began arresting international students and scholars over their speech and stripping the legal status of thousands more. This page tracks what is happening, names the people detained, and points to where you can report a case and follow the litigation.</p>
+        <div class="svr-hero-meta"><span>Living resource</span><span>Updated 2025</span><span>NPPC</span></div>
+    </div>
+
+    {{-- ==================== LATEST UPDATE ==================== --}}
+    <div class="svr-wrap svr-section--tight">
+        <div class="svr-update">
+            <div class="svr-update-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+            <div>
+                <div class="svr-update-tag">Latest development</div>
+                <h3>April 25 — ICE reverses course on SEVIS terminations</h3>
+                <p>After more than 100 lawsuits and a cascade of court orders, the government told judges it would restore terminated student records nationwide while it wrote a formal policy — then circulated a draft framework that advocates warned could trigger a second round. <a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Read more →</a></p>
             </div>
         </div>
     </div>
 
-    {{-- ==================== LEAD ==================== --}}
-    <div class="svr-section svr-lead">
-        <div class="svr-wrap">
-            <p class="svr-p">In the spring of 2025, the federal government moved against international students on two fronts at once. On one, masked agents arrested and jailed a handful of student activists — green-card holders and visa students alike — over op-eds, protests, and campus organizing. On the other, the government quietly canceled the legal status of thousands more, running student names through criminal databases and switching off their records with little notice and, in most cases, no connection to any protest at all.</p>
-            <p class="svr-p">This briefing draws together reporting by the Associated Press, CNN, NPR, and Inside Higher Ed, along with court filings and the work of the ACLU, the Knight First Amendment Institute, and the Presidents' Alliance on Higher Education and Immigration, to set out what happened — and to put names to the people swept up in it.</p>
+    {{-- ==================== REPORT BANNER ==================== --}}
+    <div class="svr-wrap svr-section--tight">
+        <div class="svr-banner">
+            <div>
+                <h3>Know a student who's been detained or had a visa revoked?</h3>
+                <p>If you or someone at your campus has been arrested by ICE, had a visa revoked, or found a SEVIS record terminated, tell us. We add documented cases to this page and connect people with legal and advocacy support.</p>
+            </div>
+            <a class="svr-btn svr-btn-red" href="/contact">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>
+                Report a case
+            </a>
         </div>
     </div>
 
-    {{-- ==================== STATS ==================== --}}
-    <div class="svr-stats-band">
+    {{-- ==================== LOCATIONS MAP ==================== --}}
+    <div class="svr-wide svr-section--tight">
+        <div class="svr-map">
+            <div class="svr-map-inner">
+                <h3>Where it's happening</h3>
+                <p class="svr-map-sub">Documented arrests, deportations and visa actions have spanned 40+ states and 280+ campuses. A sample of the institutions named in reporting:</p>
+                <div class="svr-chips">
+                    <span class="svr-chip">Columbia University <span>· New York</span></span>
+                    <span class="svr-chip">Tufts University <span>· Massachusetts</span></span>
+                    <span class="svr-chip">Georgetown University <span>· Washington, D.C.</span></span>
+                    <span class="svr-chip">Harvard University <span>· Massachusetts</span></span>
+                    <span class="svr-chip">Brown University <span>· Rhode Island</span></span>
+                    <span class="svr-chip">Cornell University <span>· New York</span></span>
+                    <span class="svr-chip">University of Minnesota <span>· Minnesota</span></span>
+                    <span class="svr-chip">Minnesota State, Mankato <span>· Minnesota</span></span>
+                    <span class="svr-chip">University of Alabama <span>· Alabama</span></span>
+                    <span class="svr-chip">Indiana University <span>· Indiana</span></span>
+                </div>
+                <div class="svr-map-foot">
+                    <p class="svr-map-note">This is a static overview. Reporting a case helps us map where students are being detained and visas pulled.</p>
+                    <a class="svr-btn svr-btn-ghost" href="/contact">Report a visa revocation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="svr-divider">
+
+    {{-- ==================== CONTEXT + STATS ==================== --}}
+    <div class="svr-wrap svr-section">
+        <div class="svr-eyebrow">What's happening</div>
+        <h2 class="svr-h2">A campaign on two fronts</h2>
+        <p class="svr-p">Within days of the January 2025 inauguration, the administration signaled it would use immigration law against campus protest. By early March, officials described a State Department effort — reported as <strong>"Catch and Revoke"</strong> — that would use AI to scan visa holders' social-media accounts for apparent support of Hamas. <span class="svr-cite">(Axios; Inside Higher Ed)</span></p>
+        <p class="svr-p">What followed ran on two tracks. The first was loud and individual: high-profile arrests of student organizers, justified by a rarely used clause of immigration law that lets the Secretary of State declare a noncitizen's very presence a foreign-policy problem. The second was quiet and vast: the mass termination of student records in <strong>SEVIS</strong>, the federal database that tracks international students — most of it driven not by protest, but by hits against a criminal-records database for minor or long-closed matters.</p>
+
         <div class="svr-stats">
             <div class="svr-stat">
                 <div class="svr-stat-num">300<small>+</small></div>
-                <div class="svr-stat-label">student visas the Secretary of State said had already been revoked &mdash; by late March.</div>
+                <div class="svr-stat-label">student visas the Secretary of State said had already been revoked by late March.</div>
                 <div class="svr-stat-src">Marco Rubio, March 2025</div>
             </div>
             <div class="svr-stat">
                 <div class="svr-stat-num">~4,700</div>
-                <div class="svr-stat-label">student records terminated in the federal SEVIS system by early May, across 40+ states.</div>
+                <div class="svr-stat-label">student records terminated in SEVIS by early May, across 40+ states.</div>
                 <div class="svr-stat-src">Presidents' Alliance · NAFSA</div>
             </div>
             <div class="svr-stat">
                 <div class="svr-stat-num">280<small>+</small></div>
-                <div class="svr-stat-label">colleges and universities where students abruptly lost their status.</div>
+                <div class="svr-stat-label">colleges and universities where students abruptly lost status.</div>
                 <div class="svr-stat-src">Inside Higher Ed, April 2025</div>
             </div>
             <div class="svr-stat">
                 <div class="svr-stat-num">100<small>+</small></div>
-                <div class="svr-stat-label">lawsuits filed; judges ordered records restored in dozens of them.</div>
+                <div class="svr-stat-label">lawsuits filed; judges ordered records restored in dozens.</div>
                 <div class="svr-stat-src">Inside Higher Ed · NPR</div>
             </div>
         </div>
     </div>
 
-    {{-- ==================== CONTEXT ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <div class="svr-eyebrow"><span class="svr-num">01</span> Two tracks</div>
-            <h2 class="svr-h2 svr-serif">A campaign on two fronts</h2>
-            <p class="svr-p">Within days of the January 2025 inauguration, the administration signaled it would use immigration law against campus protest. A January 29 executive order on combating antisemitism (Executive Order 14188) directed agencies to find and remove noncitizens tied to post&ndash;October 7 demonstrations. By early March, officials described a State Department effort &mdash; reported as <strong>"Catch and Revoke"</strong> &mdash; that would use AI to scan tens of thousands of visa holders' social-media accounts for apparent support of Hamas. <span class="svr-cite">(Axios; Inside Higher Ed)</span></p>
-            <p class="svr-p">What followed ran on two tracks. The first was loud and individual: a small number of high-profile arrests of student organizers, justified by a rarely used clause of immigration law that lets the Secretary of State declare a noncitizen's very presence a foreign-policy problem. The second was quiet and vast: the mass termination of student records in <strong>SEVIS</strong>, the federal database that tracks international students &mdash; most of it driven not by protest, but by hits against a criminal-records database for minor or long-closed matters.</p>
-        </div>
-    </div>
-
     {{-- ==================== PULL QUOTE ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <blockquote class="svr-pull">
-                <p>We do it every day. Every time I find one of these lunatics, I take away their visa.</p>
-                <cite>&mdash; Secretary of State Marco Rubio, March 27, 2025</cite>
-            </blockquote>
-        </div>
+    <div class="svr-wrap svr-section--tight">
+        <blockquote class="svr-pull">
+            <p>"We do it every day. Every time I find one of these lunatics, I take away their visa."</p>
+            <cite>— Secretary of State Marco Rubio, March 27, 2025</cite>
+        </blockquote>
     </div>
 
-    {{-- ==================== ARRESTS ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <div class="svr-eyebrow"><span class="svr-num">02</span> Arrested for what they said</div>
-            <h2 class="svr-h2 svr-serif">Jailed over op-eds and protests</h2>
-            <p class="svr-p">Beginning with the arrest of Columbia graduate <strong>Mahmoud Khalil</strong> on March 8, federal agents detained a series of students and scholars who had taken part in pro-Palestinian advocacy. None was charged with a crime. Instead, the government leaned on a seldom-used provision of the Immigration and Nationality Act &mdash; <strong>&sect;237(a)(4)(C)</strong> (8 U.S.C. &sect;1227(a)(4)(C)) &mdash; which permits deportation when the Secretary of State has "reasonable ground to believe" a person's presence would carry "potentially serious adverse foreign policy consequences." <span class="svr-cite">(NBC News; The Hill; NPR)</span></p>
-            <p class="svr-p">In Khalil's case, the government's evidence was a <strong>two-page memo</strong> from Secretary Rubio asserting that his "participation and roles in antisemitic protests and disruptive activities" undercut U.S. foreign policy. Several of those detained were flown far from their homes, lawyers, and courts &mdash; to immigration facilities in <strong>Louisiana and Texas</strong> &mdash; within hours of arrest.</p>
-        </div>
+    <hr class="svr-divider">
+
+    {{-- ==================== TRACKERS ==================== --}}
+    <div class="svr-wrap svr-section">
+        <div class="svr-eyebrow">Follow the data</div>
+        <h2 class="svr-h2">Trackers</h2>
+        <p class="svr-p">Independent trackers following detentions, deportations and the student-status crackdown in real time:</p>
+        <ul class="svr-list">
+            <li>
+                <a href="https://forward.com" target="_blank" rel="noopener">ICE detention &amp; deportation tracker — The Forward →</a>
+                <span class="svr-src">Running list of people detained and deported by ICE.</span>
+            </li>
+            <li>
+                <a href="https://www.insidehighered.com/news/global/international-students-us" target="_blank" rel="noopener">International students in the U.S. — Inside Higher Ed →</a>
+                <span class="svr-src">Ongoing coverage and counts of visa revocations and SEVIS terminations.</span>
+            </li>
+            <li>
+                <a href="https://knightcolumbia.org/cases/aaup-v-rubio" target="_blank" rel="noopener">AAUP v. Rubio — Knight First Amendment Institute →</a>
+                <span class="svr-src">Docket and filings in the challenge to the "ideological deportation" policy.</span>
+            </li>
+        </ul>
     </div>
 
-    {{-- ==================== THE PURGE ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <div class="svr-eyebrow"><span class="svr-num">03</span> The quiet purge</div>
-            <h2 class="svr-h2 svr-serif">Thousands stripped of status, by database</h2>
-            <p class="svr-p">Away from the cameras, a far larger number of students simply found their legal status gone. Estimates climbed through the spring: <strong>more than 1,000</strong> by mid-April, <span class="svr-cite">(<a href="https://www.cnn.com/2025/04/17/us/university-international-student-visas-revoked" target="_blank" rel="noopener">CNN</a>)</span> nearly <strong>2,000 across 280+ institutions</strong> by late April, <span class="svr-cite">(<a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Inside Higher Ed</a>)</span> and roughly <strong>4,700 SEVIS terminations</strong> across more than 40 states by early May. <span class="svr-cite">(Presidents' Alliance; NAFSA)</span> The figures differ because they count different things &mdash; visa revocations, database terminations, and unique students &mdash; and because the number kept growing.</p>
-            <p class="svr-p">According to Associated Press reporting tied to the <em>AAUP v. Rubio</em> litigation, the surge was generated by a Department of Homeland Security effort that ran roughly <strong>1.3 million</strong> foreign-student names through the FBI's National Crime Information Center (NCIC) database and flagged about <strong>6,400</strong> with any law-enforcement encounter. <span class="svr-cite">(Associated Press)</span> Reporting and court filings showed the great majority of terminations were tied to <strong>minor or dismissed matters</strong> &mdash; a years-old traffic stop, a dropped charge, an infraction that never led to conviction &mdash; and some students had no record at all. The government later conceded it would not terminate a record "solely based on the NCIC finding."</p>
+    <hr class="svr-divider">
 
-            <div class="svr-cards">
-                <div class="svr-card">
-                    <div class="svr-card-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
-                    <h3>Foreign-policy deportation</h3>
-                    <p>A rarely used clause letting the Secretary of State declare a noncitizen's presence a foreign-policy threat &mdash; the basis for the marquee arrests.</p>
-                </div>
-                <div class="svr-card">
-                    <div class="svr-card-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg></div>
-                    <h3>"Catch and Revoke"</h3>
-                    <p>An AI-assisted State Department review of visa holders' social-media accounts for apparent support of Hamas.</p>
-                </div>
-                <div class="svr-card">
-                    <div class="svr-card-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></div>
-                    <h3>The NCIC dragnet</h3>
-                    <p>~1.3 million student names run through an FBI criminal database; ~6,400 flagged &mdash; mostly for minor or dismissed matters.</p>
-                </div>
-                <div class="svr-card">
-                    <div class="svr-card-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3h14v18l-7-4-7 4z"/><path d="M9 8h6"/></svg></div>
-                    <h3>SEVIS termination</h3>
-                    <p>Status records switched off without warning, ending work authorization and lawful presence overnight.</p>
-                </div>
-                <div class="svr-card">
-                    <div class="svr-card-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5-7-11a7 7 0 0 1 14 0c0 6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-                    <h3>Detention far from home</h3>
-                    <p>Detainees moved within hours to remote facilities in Louisiana and Texas, far from their lawyers and courts.</p>
-                </div>
-                <div class="svr-card">
-                    <div class="svr-card-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/><path d="m14 8 4 4-4 4M18 12H8"/></svg></div>
-                    <h3>Self-deportation</h3>
-                    <p>Facing arrest, other students abandoned degrees and left the country &mdash; the chilling effect, by design.</p>
-                </div>
-            </div>
-        </div>
+    {{-- ==================== IN THE NEWS ==================== --}}
+    <div class="svr-wrap svr-section">
+        <div class="svr-eyebrow">In the news</div>
+        <h2 class="svr-h2">Selected coverage</h2>
+        <ul class="svr-list">
+            <li>
+                <a href="https://www.cnn.com/2025/04/17/us/university-international-student-visas-revoked" target="_blank" rel="noopener">More than 1,000 international students have had visas or status revoked — CNN</a>
+                <span class="svr-src">CNN · April 17, 2025</span>
+            </li>
+            <li>
+                <a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">ICE reverses course on SEVIS terminations — Inside Higher Ed</a>
+                <span class="svr-src">Inside Higher Ed · April 25, 2025</span>
+            </li>
+            <li>
+                <a href="https://apnews.com/hub/immigration" target="_blank" rel="noopener">DHS ran ~1.3 million student names through an FBI criminal database — Associated Press</a>
+                <span class="svr-src">Associated Press · Spring 2025</span>
+            </li>
+            <li>
+                <a href="https://www.npr.org" target="_blank" rel="noopener">Judges order release of detained students Öztürk, Mahdawi and Khan Suri — NPR</a>
+                <span class="svr-src">NPR · May 2025</span>
+            </li>
+            <li>
+                <a href="https://knightcolumbia.org/cases/aaup-v-rubio" target="_blank" rel="noopener">Faculty groups sue over the ideological-deportation policy — Knight First Amendment Institute</a>
+                <span class="svr-src">Filed March 25, 2025</span>
+            </li>
+        </ul>
     </div>
 
-    {{-- ==================== COURTS ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <div class="svr-eyebrow"><span class="svr-num">04</span> The courts push back</div>
-            <h2 class="svr-h2 svr-serif">Judges intervene &mdash; and a U-turn</h2>
-            <p class="svr-p">The two tracks met the same obstacle: federal judges. In the detention cases, courts in Vermont, New Jersey, and Virginia found that the arrests likely punished protected speech or rested on no evidence, and ordered the students released one after another &mdash; <strong>Mohsen Mahdawi</strong> on April 30, <strong>Rümeysa Öztürk</strong> on May 9, <strong>Badar Khan Suri</strong> on May 14, and <strong>Mahmoud Khalil</strong> on bail in June. A New York judge barred the government from detaining <strong>Yunseo Chung</strong> at all.</p>
-            <p class="svr-p">In the SEVIS cases, more than <strong>100 lawsuits</strong> produced a cascade of restraining orders. On <strong>April 25, 2025</strong>, the government abruptly reversed course, telling courts it would <strong>restore the terminated records</strong> nationwide while it wrote a formal policy. <span class="svr-cite">(<a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Inside Higher Ed</a>)</span> Days later, a draft ICE framework surfaced in a filing that broadened the stated grounds for future terminations &mdash; including treating a visa revocation as itself a basis to end status &mdash; which advocates warned set up a second round. Meanwhile the broader challenge to the "ideological deportation" policy, <em>AAUP v. Rubio</em> &mdash; brought March 25 by the Knight First Amendment Institute with the AAUP and the Middle East Studies Association &mdash; headed toward a federal trial. <span class="svr-cite">(<a href="https://knightcolumbia.org/cases/aaup-v-rubio" target="_blank" rel="noopener">Knight First Amendment Institute</a>)</span></p>
-        </div>
-    </div>
+    <hr class="svr-divider">
 
-    {{-- ==================== NAMED CASES ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <div class="svr-eyebrow"><span class="svr-num">05</span> The faces behind the numbers</div>
-            <h2 class="svr-h2 svr-serif">Names, not statistics</h2>
-            <p class="svr-p">A few of the documented cases from the spring of 2025:</p>
+    {{-- ==================== CASE PROFILES ==================== --}}
+    <div class="svr-wide svr-section">
+        <div class="svr-wrap" style="padding-left:0;padding-right:0;">
+            <div class="svr-eyebrow">The faces behind the numbers</div>
+            <h2 class="svr-h2">Specific cases</h2>
+            <p class="svr-p">Documented arrests, deportations and visa actions from 2025. Details are drawn from news reporting and court filings; outcomes in individual cases continue to change.</p>
+        </div>
+
+        <div class="svr-cases">
 
             <div class="svr-case">
                 <div class="svr-avatar" aria-hidden="true">MK</div>
-                <div>
+                <div class="svr-case-body">
                     <h3>Mahmoud Khalil</h3>
-                    <p class="svr-case-role">Columbia University &middot; Lawful permanent resident</p>
-                    <p>A recent graduate and prominent protest negotiator, arrested at his university apartment on March 8 and not charged with any crime. The case rested on a two-page memo from Secretary Rubio invoking the foreign-policy deportation ground. He was held for months at a remote facility in Jena, Louisiana, before a federal court freed him on bail in June.</p>
-                    <span class="svr-tag svr-tag-free">Detained &middot; released on bail</span>
+                    <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
+                    <span class="svr-tag svr-tag-released">Detained · released on bail</span>
+                    <p>A recent graduate and lead protest negotiator, arrested at his university apartment on March 8 and not charged with any crime. The case rested on a two-page memo from Secretary Rubio invoking the foreign-policy deportation ground. He was held for months in Jena, Louisiana, before a federal court freed him on bail in June.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Mahmoud%20Khalil" target="_blank" rel="noopener">Coverage of Mahmoud Khalil →</a>
                 </div>
             </div>
+
             <div class="svr-case">
                 <div class="svr-avatar" aria-hidden="true">RÖ</div>
-                <div>
+                <div class="svr-case-body">
                     <h3>Rümeysa Öztürk</h3>
-                    <p class="svr-case-role">Tufts University &middot; F-1 student</p>
-                    <p>A PhD student seized off a Somerville, Massachusetts street by plainclothes agents on March 25 as she walked to an iftar dinner; her visa had been quietly revoked days earlier. The only basis cited was a co-authored op-ed in the student newspaper. A Vermont judge ordered her released on May 9, finding her arrest likely retaliation for protected speech.</p>
-                    <span class="svr-tag svr-tag-free">Detained &middot; released</span>
+                    <p class="svr-case-role">Tufts University · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-released">Detained · released</span>
+                    <p>Seized off a Somerville, Massachusetts street by plainclothes agents on March 25 as she walked to an iftar dinner; her visa had been quietly revoked days earlier. The only basis cited was a co-authored student-newspaper op-ed. A Vermont judge ordered her released on May 9, finding her arrest likely retaliation for protected speech.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Rumeysa%20Ozturk" target="_blank" rel="noopener">Coverage of Rümeysa Öztürk →</a>
                 </div>
             </div>
+
             <div class="svr-case">
                 <div class="svr-avatar" aria-hidden="true">BS</div>
-                <div>
+                <div class="svr-case-body">
                     <h3>Badar Khan Suri</h3>
-                    <p class="svr-case-role">Georgetown University &middot; J-1 scholar</p>
-                    <p>A postdoctoral fellow arrested outside his Virginia home on March 17 by masked agents and moved to a Texas detention center. DHS alleged he "spread Hamas propaganda"; his lawyers said he was being punished for his Gaza advocacy and his wife's family ties. He was released on May 14 after a judge found no evidence to justify his detention.</p>
-                    <span class="svr-tag svr-tag-free">Detained &middot; released</span>
+                    <p class="svr-case-role">Georgetown University · J-1 scholar</p>
+                    <span class="svr-tag svr-tag-released">Detained · released</span>
+                    <p>A postdoctoral fellow arrested outside his Virginia home on March 17 by masked agents and moved to a Texas detention center. DHS alleged he "spread Hamas propaganda"; his lawyers said he was punished for his Gaza advocacy and his wife's family ties. He was released on May 14 after a judge found no evidence to justify his detention.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Badar%20Khan%20Suri" target="_blank" rel="noopener">Coverage of Badar Khan Suri →</a>
                 </div>
             </div>
+
             <div class="svr-case">
                 <div class="svr-avatar" aria-hidden="true">MM</div>
-                <div>
+                <div class="svr-case-body">
                     <h3>Mohsen Mahdawi</h3>
-                    <p class="svr-case-role">Columbia University &middot; Lawful permanent resident</p>
+                    <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
+                    <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>A Palestinian organizer who grew up in a West Bank refugee camp, arrested on April 14 when he arrived for his U.S. citizenship interview in Vermont. A federal judge ordered him released on April 30, finding a "substantial claim" the arrest was meant to stifle disagreeable speech.</p>
-                    <span class="svr-tag svr-tag-free">Detained &middot; released</span>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Mohsen%20Mahdawi" target="_blank" rel="noopener">Coverage of Mohsen Mahdawi →</a>
                 </div>
             </div>
+
             <div class="svr-case">
                 <div class="svr-avatar" aria-hidden="true">YC</div>
-                <div>
+                <div class="svr-case-body">
                     <h3>Yunseo Chung</h3>
-                    <p class="svr-case-role">Columbia University &middot; Lawful permanent resident</p>
-                    <p>A 21-year-old who came to the United States as a child. After a March campus protest, ICE sought to arrest her under the same foreign-policy provision &mdash; but she sued first, and a federal judge in New York barred the government from detaining her.</p>
-                    <span class="svr-tag svr-tag-risk">Protected by court order</span>
+                    <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
+                    <span class="svr-tag svr-tag-court">Protected by court order</span>
+                    <p>A 21-year-old who came to the United States as a child. After a March campus protest, ICE sought to arrest her under the same foreign-policy provision — but she sued first, and a federal judge in New York barred the government from detaining her.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Yunseo%20Chung" target="_blank" rel="noopener">Coverage of Yunseo Chung →</a>
                 </div>
             </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">RA</div>
+                <div class="svr-case-body">
+                    <h3>Rasha Alawieh</h3>
+                    <p class="svr-case-role">Brown University · H-1B physician</p>
+                    <span class="svr-tag svr-tag-removed">Deported</span>
+                    <p>A kidney-transplant specialist and assistant professor detained at Boston Logan in March while returning from Lebanon, and deported despite a court order temporarily blocking her removal. The government cited photos and attendance at a funeral; her colleagues said she was a vital clinician.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Rasha%20Alawieh" target="_blank" rel="noopener">Coverage of Rasha Alawieh →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">KP</div>
+                <div class="svr-case-body">
+                    <h3>Kseniia Petrova</h3>
+                    <p class="svr-case-role">Harvard Medical School · J-1 researcher</p>
+                    <span class="svr-tag svr-tag-detained">Detained</span>
+                    <p>A scientist detained on February 16 returning from France over undeclared research samples. She faced deportation to Russia — which she had fled after protesting the war in Ukraine — and was held for months in an immigration facility while her case proceeded.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Kseniia%20Petrova" target="_blank" rel="noopener">Coverage of Kseniia Petrova →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">DG</div>
+                <div class="svr-case-body">
+                    <h3>Doğukan Günaydın</h3>
+                    <p class="svr-case-role">University of Minnesota · F-1 graduate student</p>
+                    <span class="svr-tag svr-tag-detained">Detained</span>
+                    <p>A graduate business student detained on March 27; the government tied his status to a prior DUI. The university said it received no advance notice of the arrest of one of its international students.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Dogukan%20Gunaydin" target="_blank" rel="noopener">Coverage of Doğukan Günaydın →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">AD</div>
+                <div class="svr-case-body">
+                    <h3>Alireza Doroudi</h3>
+                    <p class="svr-case-role">University of Alabama · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-detained">Detained</span>
+                    <p>A mechanical-engineering doctoral student detained on March 26. The university said it had no information about the basis for his detention; he later chose to return to Iran rather than remain in custody.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Alireza%20Doroudi" target="_blank" rel="noopener">Coverage of Alireza Doroudi →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">MT</div>
+                <div class="svr-case-body">
+                    <h3>Momodou Taal</h3>
+                    <p class="svr-case-role">Cornell University · PhD student</p>
+                    <span class="svr-tag svr-tag-removed">Left the U.S.</span>
+                    <p>A dual British-Gambian doctoral student and pro-Palestine protester whose visa was revoked amid a lawsuit he had joined challenging the executive orders. Facing detention, he left the country rather than be held.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Momodou%20Taal" target="_blank" rel="noopener">Coverage of Momodou Taal →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">RS</div>
+                <div class="svr-case-body">
+                    <h3>Ranjani Srinivasan</h3>
+                    <p class="svr-case-role">Columbia University · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-removed">Left the U.S.</span>
+                    <p>An urban-planning doctoral student whose visa was revoked after she was swept up near campus protest arrests. DHS publicly labeled her a "terrorist sympathizer"; she left for Canada rather than face detention.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Ranjani%20Srinivasan" target="_blank" rel="noopener">Coverage of Ranjani Srinivasan →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">XW</div>
+                <div class="svr-case-body">
+                    <h3>Xiaofeng Wang</h3>
+                    <p class="svr-case-role">Indiana University · Professor</p>
+                    <span class="svr-tag svr-tag-detained">Under investigation</span>
+                    <p>A tenured cryptography professor and associate dean who, with his wife, dropped from public view after an FBI raid on their homes on March 27. The university removed their faculty profiles and gave no explanation; their whereabouts drew national concern.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Xiaofeng%20Wang%20Indiana" target="_blank" rel="noopener">Coverage of Xiaofeng Wang →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <div class="svr-avatar" aria-hidden="true">LK</div>
+                <div class="svr-case-body">
+                    <h3>Leqaa Kordia</h3>
+                    <p class="svr-case-role">Columbia protests · Palestinian</p>
+                    <span class="svr-tag svr-tag-detained">Detained</span>
+                    <p>A Palestinian woman detained on March 14 and taken to a North Texas facility. DHS cited a visa overstay; immigration experts noted that detention over such a status issue is unusual and pointed to her presence at Columbia protests.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Leqaa%20Kordia" target="_blank" rel="noopener">Coverage of Leqaa Kordia →</a>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <hr class="svr-divider">
 
     {{-- ==================== METHODOLOGY & SOURCES ==================== --}}
-    <div class="svr-section">
-        <div class="svr-wrap">
-            <div class="svr-eyebrow"><span class="svr-num">06</span> Methodology &amp; sources</div>
-            <h2 class="svr-h2 svr-serif">How this briefing was assembled</h2>
-            <div class="svr-note">
-                <p><strong>About this page.</strong> NPPC did not conduct the reporting described here. This briefing <strong>compiles and cites</strong> the published work of news organizations, advocacy and legal groups, and court filings, focused on the period from January through June 2025. Figures for visa revocations and SEVIS terminations were a moving target throughout the spring; each number is paired with its source and date and counts a slightly different thing.</p>
-                <p>The foreign-policy deportation power and the database-driven terminations were both still being litigated as this page was written; outcomes in individual cases have continued to change. Where a detail could not be independently confirmed, it is attributed to the outlet that reported it.</p>
-            </div>
-            <ul class="svr-sources">
-                <li><a href="https://www.cnn.com/2025/04/17/us/university-international-student-visas-revoked" target="_blank" rel="noopener">CNN — More than 1,000 international students have had visas or legal status revoked</a><span>April 2025</span></li>
-                <li><a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Inside Higher Ed — ICE reverses course on SEVIS terminations</a><span>April 2025</span></li>
-                <li><a href="https://knightcolumbia.org/cases/aaup-v-rubio" target="_blank" rel="noopener">Knight First Amendment Institute — AAUP v. Rubio (ideological-deportation challenge)</a><span>Filed March 2025</span></li>
-                <li><a href="https://apnews.com/hub/immigration" target="_blank" rel="noopener">Associated Press — Reporting on visa revocations and the NCIC student name-check</a><span>Spring 2025</span></li>
-                <li><a href="https://www.aclu.org/" target="_blank" rel="noopener">ACLU — Litigation over the detention of student activists</a><span>2025</span></li>
-                <li><a href="https://www.presidentsalliance.org/" target="_blank" rel="noopener">Presidents' Alliance on Higher Education and Immigration — SEVIS termination tracking</a><span>May 2025</span></li>
-                <li><a href="https://www.npr.org/" target="_blank" rel="noopener">NPR — Coverage of the Khalil, Öztürk, Mahdawi and Khan Suri cases</a><span>2025</span></li>
-            </ul>
+    <div class="svr-wrap svr-section">
+        <div class="svr-eyebrow">Methodology &amp; sources</div>
+        <h2 class="svr-h2">How this page was assembled</h2>
+        <div class="svr-note">
+            <p><strong>About this page.</strong> NPPC did not conduct the reporting described here. This page <strong>compiles and cites</strong> the published work of news organizations, advocacy and legal groups, and court filings, focused on 2025. Figures for visa revocations and SEVIS terminations were a moving target; each number is paired with its source and date and counts a slightly different thing.</p>
+            <p>The foreign-policy deportation power and the database-driven terminations were both still being litigated as this page was written, and outcomes in individual cases have continued to change. Where a detail could not be independently confirmed, it is attributed to the outlet that reported it. To correct or add a case, <a href="/contact">get in touch</a>.</p>
         </div>
+        <ul class="svr-list">
+            <li><a href="https://www.cnn.com/2025/04/17/us/university-international-student-visas-revoked" target="_blank" rel="noopener">CNN — More than 1,000 international students have had visas or legal status revoked</a><span class="svr-src">April 2025</span></li>
+            <li><a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Inside Higher Ed — ICE reverses course on SEVIS terminations</a><span class="svr-src">April 2025</span></li>
+            <li><a href="https://knightcolumbia.org/cases/aaup-v-rubio" target="_blank" rel="noopener">Knight First Amendment Institute — AAUP v. Rubio (ideological-deportation challenge)</a><span class="svr-src">Filed March 2025</span></li>
+            <li><a href="https://apnews.com/hub/immigration" target="_blank" rel="noopener">Associated Press — Reporting on visa revocations and the NCIC student name-check</a><span class="svr-src">Spring 2025</span></li>
+            <li><a href="https://www.aclu.org" target="_blank" rel="noopener">ACLU — Litigation over the detention of student activists</a><span class="svr-src">2025</span></li>
+            <li><a href="https://www.presidentsalliance.org" target="_blank" rel="noopener">Presidents' Alliance on Higher Education and Immigration — SEVIS termination tracking</a><span class="svr-src">May 2025</span></li>
+        </ul>
     </div>
 
-    {{-- ==================== CTA ==================== --}}
-    <div class="svr-cta">
-        <h2>The right to speak shouldn't depend on a passport.</h2>
-        <p>People are easiest to remove when no one is watching. Documentation, naming, and sustained pressure protect those the government would rather move in the dark.</p>
+    {{-- ==================== FOOTER CTA ==================== --}}
+    <div class="svr-foot">
+        <h2>People are easiest to remove when no one is watching.</h2>
+        <p>Documentation, naming, and sustained pressure protect those the government would rather move in the dark. Report a case, or get involved.</p>
         <div class="svr-btns">
-            <a class="svr-btn svr-btn-primary" href="/volunteer">Get involved</a>
-            <a class="svr-btn svr-btn-ghost" href="/petitions">Sign a petition</a>
+            <a class="svr-btn svr-btn-light" href="/contact">Report a case</a>
+            <a class="svr-btn svr-btn-ghost" href="/volunteer">Get involved</a>
         </div>
     </div>
 
