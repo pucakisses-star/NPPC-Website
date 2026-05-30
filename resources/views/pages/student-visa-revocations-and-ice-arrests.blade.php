@@ -102,9 +102,6 @@
     .svr-map-select:focus { border-color: #5660fe; }
     .svr-map-select option { color: #111; }
     .svr-map-canvas { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
-    .svr-map-canvas .mapboxgl-popup-content { background: #16161c; color: #fff; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 12px 14px; font-family: inherit; }
-    .svr-map-canvas .mapboxgl-popup-close-button { color: rgba(255,255,255,.6); font-size: 18px; }
-    .svr-map-canvas .mapboxgl-popup-tip { border-top-color: #16161c; border-bottom-color: #16161c; }
     .svr-pop-name { font-weight: 800; font-size: 14px; color: #fff; margin: 0 0 2px; }
     .svr-pop-meta { font-size: 12px; color: rgba(255,255,255,.6); }
     .svr-pop-meta b { color: #aab0ff; }
@@ -236,7 +233,7 @@
                         .($syncedLabel ? ', last synced '.$syncedLabel : '').'.';
 
                     // Geocoded points for the native map: only institutions with
-                    // numeric coordinates. Built server-side and passed to Mapbox.
+                    // numeric coordinates. Built server-side and drawn by D3.
                     $mapPoints = [];
                     foreach ($institutions as $i) {
                         if (is_numeric($i['latitude'] ?? null) && is_numeric($i['longitude'] ?? null)) {
