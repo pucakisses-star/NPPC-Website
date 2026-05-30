@@ -34,7 +34,10 @@
     .svr-divider { border: 0; border-top: 1px solid rgba(255,255,255,.10); margin: 0; }
 
     /* ---- top-region background image (hero + latest-update + report banner) ---- */
-    .svr-topbg { position: relative; }
+    /* Break out of the centered .container to the full viewport width so the
+       background photo spans edge to edge; the inner .svr-wrap blocks keep the
+       content itself centered and capped. */
+    .svr-topbg { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow: hidden; }
     .svr-topbg::before { content: ""; position: absolute; inset: 0; z-index: 0;
         background-image:
             linear-gradient(180deg, rgba(11,11,13,0.55) 0%, rgba(11,11,13,0.78) 55%, #0b0b0d 100%),
