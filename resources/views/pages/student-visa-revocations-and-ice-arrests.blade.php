@@ -85,12 +85,10 @@
     .svr-map-inner { padding: 30px 28px; }
     .svr-map h3 { font-size: 1.5rem; font-weight: 800; color: #111; margin: 0 0 6px; }
     .svr-map-sub { font-size: 14px; color: #6b7280; margin: 0 0 22px; }
-    .svr-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
-    .svr-chip { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e0e3e8; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600; color: #1a1a1a; }
-    .svr-chip::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #c8102e; flex: 0 0 auto; }
-    .svr-chip span { color: #6b7280; font-weight: 500; }
     .svr-map-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px dashed #d7dade; padding-top: 20px; }
     .svr-map-note { font-size: 13px; color: #6b7280; max-width: 540px; margin: 0; }
+    .svr-map-embed { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid #1f1f24; border-radius: 10px; overflow: hidden; }
+    .svr-map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
     /* ---- trackers + news lists ---- */
     .svr-list { list-style: none; margin: 0; padding: 0; }
@@ -189,22 +187,16 @@
     <div class="svr-wide svr-section--tight">
         <div class="svr-map">
             <div class="svr-map-inner">
-                <h3>Where it's happening</h3>
-                <p class="svr-map-sub">Documented arrests, deportations and visa actions have spanned 40+ states and 280+ campuses. A sample of the institutions named in reporting:</p>
-                <div class="svr-chips">
-                    <span class="svr-chip">Columbia University <span>· New York</span></span>
-                    <span class="svr-chip">Tufts University <span>· Massachusetts</span></span>
-                    <span class="svr-chip">Georgetown University <span>· Washington, D.C.</span></span>
-                    <span class="svr-chip">Harvard University <span>· Massachusetts</span></span>
-                    <span class="svr-chip">Brown University <span>· Rhode Island</span></span>
-                    <span class="svr-chip">Cornell University <span>· New York</span></span>
-                    <span class="svr-chip">University of Minnesota <span>· Minnesota</span></span>
-                    <span class="svr-chip">Minnesota State, Mankato <span>· Minnesota</span></span>
-                    <span class="svr-chip">University of Alabama <span>· Alabama</span></span>
-                    <span class="svr-chip">Indiana University <span>· Indiana</span></span>
+                <h3>Real-time map of visa revocation locations</h3>
+                <p class="svr-map-sub">Pick a state to filter. Each dot is a documented student visa revocation or SEVIS termination — spanning 40+ states and 280+ campuses. Live data via the Nimble Tent Data Viewer (Observable).</p>
+                <div class="svr-map-embed">
+                    <iframe
+                        src="https://observablehq.com/embed/bf4a008daf711602@252?cells=viewof+state%2Cviewof+StateMap"
+                        title="Real-time map of visa revocation locations — Nimble Tent Data Viewer"
+                        loading="lazy" allow="fullscreen"></iframe>
                 </div>
                 <div class="svr-map-foot">
-                    <p class="svr-map-note">This is a static overview. Reporting a case helps us map where students are being detained and visas pulled.</p>
+                    <p class="svr-map-note">Map data is compiled and maintained by the Nimble Tent Data Viewer. Reporting a case helps document where students are being detained and visas pulled.</p>
                     <a class="svr-btn svr-btn-ghost" href="/contact">Report a visa revocation</a>
                 </div>
             </div>
