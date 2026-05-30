@@ -1,6 +1,6 @@
 {
     "source": "Nimble Tent Data Viewer · Baserow table 503380",
-    "synced_at": "2026-05-30T07:35:22+00:00",
+    "synced_at": "2026-05-30T09:27:34+00:00",
     "total_affected": 1958,
     "count": 302,
     "institutions": [
@@ -123,7 +123,7 @@
         },
         {
             "name": "Bridgewater State University",
-            "state": "Minnesota",
+            "state": "Massachusetts",
             "affected_people": 1,
             "website": "https://bridgew.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/Bridgewater_State_University",
