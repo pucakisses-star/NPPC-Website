@@ -228,6 +228,11 @@
                     $institutions = $instData['institutions'] ?? [];
                     $totalAffected = $instData['total_affected'] ?? null;
                     $instCount = $instData['count'] ?? count($institutions);
+                    $syncedLabel = ! empty($instData['synced_at'])
+                        ? \Illuminate\Support\Carbon::parse($instData['synced_at'])->format('M j, Y')
+                        : null;
+                    $mirrorNote = 'the table is mirrored and rendered by NPPC'
+                        .($syncedLabel ? ', last synced '.$syncedLabel : '').'.';
                 @endphp
                 <p class="svr-map-sub">The running total of known affected people, and the full list of colleges and universities. Search by name or state.</p>
                 @if($institutions)
@@ -266,7 +271,7 @@
                     <p class="svr-map-note">Institution data is being synced. Run <code>php artisan visa:sync-institutions</code> to populate it.</p>
                 @endif
                 <div class="svr-map-foot">
-                    <p class="svr-map-note">Map and institution data compiled by the Nimble Tent Data Viewer; the table is mirrored and rendered by NPPC@if(! empty($instData['synced_at'])), last synced {{ \Illuminate\Support\Carbon::parse($instData['synced_at'])->format('M j, Y') }}@endif. Reporting a case helps document where students are being detained and visas pulled.</p>
+                    <p class="svr-map-note">Map and institution data compiled by the Nimble Tent Data Viewer; {{ $mirrorNote }} Reporting a case helps document where students are being detained and visas pulled.</p>
                     <a class="svr-btn svr-btn-ghost" href="/contact">Report a visa revocation</a>
                 </div>
             </div>
