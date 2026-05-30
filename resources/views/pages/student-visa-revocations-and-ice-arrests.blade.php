@@ -583,6 +583,50 @@
                 </div>
             </div>
 
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">FZ</span>
+                <div class="svr-case-body">
+                    <h3>Felipe Zapata Velásquez</h3>
+                    <p class="svr-case-role">University of Florida · F-1 student</p>
+                    <span class="svr-tag svr-tag-removed">Returned to Colombia</span>
+                    <p>A junior studying food and resource economics, arrested on March 28 after a Gainesville traffic stop over an expired registration and a suspended license. ICE took custody and held him at the Krome facility in Miami; he returned to Colombia in early April. DHS described it as a deportation, while his family did not confirm whether he signed self-deportation paperwork.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Felipe%20Zapata%20Velazquez" target="_blank" rel="noopener">Coverage of Felipe Zapata Velásquez →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">MH</span>
+                <div class="svr-case-body">
+                    <h3>Mohammed Hoque</h3>
+                    <p class="svr-case-role">Minnesota State University, Mankato · F-1 student</p>
+                    <span class="svr-tag svr-tag-released">Detained · released</span>
+                    <p>An information-systems undergraduate arrested at his home by plainclothes agents on March 28, in front of his visiting parents, after his student record was revoked. The government cited a roughly two-year-old misdemeanor; he said he was targeted for pro-Palestinian posts. A federal judge ordered his release in early May, after about 40 days in jail, finding his speech — not the old charge — had made him a target.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Mohammed%20Hoque%20Mankato" target="_blank" rel="noopener">Coverage of Mohammed Hoque →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">AH</span>
+                <div class="svr-case-body">
+                    <h3>Aditya Wahyu Harsono</h3>
+                    <p class="svr-case-role">Southwest Minnesota State University · Recent graduate on a student visa</p>
+                    <span class="svr-tag svr-tag-released">Detained · released</span>
+                    <p>A recent SMSU graduate working as a hospital supply-chain manager in Marshall, Minnesota, whose student visa was quietly revoked on March 23 and who was arrested at his workplace on March 27. The cited basis was a 2022 misdemeanor for spray-painted graffiti; his lawyers pointed to his pro-Palestinian activism. A federal judge ordered his release, finding the detention violated the First Amendment.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Aditya%20Harsono" target="_blank" rel="noopener">Coverage of Aditya Wahyu Harsono →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">AS</span>
+                <div class="svr-case-body">
+                    <h3>Ahwar Sultan</h3>
+                    <p class="svr-case-role">Ohio State University · F-1 graduate student</p>
+                    <span class="svr-tag svr-tag-court">Protected by court order</span>
+                    <p>A master's graduate pursuing a PhD in art history, told to stop teaching and attending in early April after his SEVIS record was terminated and his visa revoked. The stated basis was a 2024 campus-protest trespassing arrest whose charges were later dismissed and expunged. A federal judge ordered his status restored, ruling it could not be pulled over the dismissed arrest; he was not detained.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Ahwar%20Sultan%20Ohio%20State" target="_blank" rel="noopener">Coverage of Ahwar Sultan →</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
