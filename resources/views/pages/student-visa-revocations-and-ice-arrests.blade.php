@@ -96,8 +96,18 @@
     .svr-map-sub { font-size: 14px; color: rgba(255,255,255,.55); margin: 0 0 22px; }
     .svr-map-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px dashed rgba(255,255,255,.18); padding-top: 20px; }
     .svr-map-note { font-size: 13px; color: rgba(255,255,255,.55); max-width: 540px; margin: 0; }
-    .svr-map-embed { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
-    .svr-map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .svr-map-controls { display: flex; align-items: center; gap: 10px; margin: 4px 0 14px; flex-wrap: wrap; }
+    .svr-map-label { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+    .svr-map-select { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 9px 12px; font-size: 14px; border-radius: 8px; outline: none; min-width: 200px; }
+    .svr-map-select:focus { border-color: #5660fe; }
+    .svr-map-select option { color: #111; }
+    .svr-map-canvas { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
+    .svr-map-canvas .mapboxgl-popup-content { background: #16161c; color: #fff; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 12px 14px; font-family: inherit; }
+    .svr-map-canvas .mapboxgl-popup-close-button { color: rgba(255,255,255,.6); font-size: 18px; }
+    .svr-map-canvas .mapboxgl-popup-tip { border-top-color: #16161c; border-bottom-color: #16161c; }
+    .svr-pop-name { font-weight: 800; font-size: 14px; color: #fff; margin: 0 0 2px; }
+    .svr-pop-meta { font-size: 12px; color: rgba(255,255,255,.6); }
+    .svr-pop-meta b { color: #aab0ff; }
     /* ---- native institutions table ---- */
     .svr-tbl-total { font-size: 1.35rem; font-weight: 800; color: #fff; margin: 6px 0 14px; }
     .svr-tbl-total span { font-weight: 600; font-size: 1rem; color: rgba(255,255,255,.55); }
@@ -213,15 +223,6 @@
     <div class="svr-wide svr-section--tight">
         <div class="svr-map">
             <div class="svr-map-inner">
-                <h3>Real-time map of visa revocation locations</h3>
-                <p class="svr-map-sub">Pick a state to filter. Each dot is a documented student visa revocation or SEVIS termination — spanning 40+ states and 280+ campuses. Live data via the Nimble Tent Data Viewer (Observable).</p>
-                <div class="svr-map-embed">
-                    <iframe
-                        src="https://observablehq.com/embed/bf4a008daf711602@252?cells=viewof+state%2Cviewof+StateMap"
-                        title="Real-time map of visa revocation locations — Nimble Tent Data Viewer"
-                        loading="lazy" allow="fullscreen"></iframe>
-                </div>
-                <h3 style="margin-top: 8px;">Affected institutions</h3>
                 @php
                     $instPath = base_path('resources/data/affected-institutions.json');
                     $instData = is_file($instPath) ? json_decode(file_get_contents($instPath), true) : null;
@@ -231,9 +232,45 @@
                     $syncedLabel = ! empty($instData['synced_at'])
                         ? \Illuminate\Support\Carbon::parse($instData['synced_at'])->format('M j, Y')
                         : null;
-                    $mirrorNote = 'the table is mirrored and rendered by NPPC'
+                    $mirrorNote = 'the map and table are mirrored and rendered by NPPC'
                         .($syncedLabel ? ', last synced '.$syncedLabel : '').'.';
+
+                    // Geocoded points for the native map: only institutions with
+                    // numeric coordinates. Built server-side and passed to Mapbox.
+                    $mapPoints = [];
+                    foreach ($institutions as $i) {
+                        if (is_numeric($i['latitude'] ?? null) && is_numeric($i['longitude'] ?? null)) {
+                            $mapPoints[] = [
+                                'name' => $i['name'],
+                                'state' => $i['state'],
+                                'affected' => $i['affected_people'],
+                                'lat' => (float) $i['latitude'],
+                                'lng' => (float) $i['longitude'],
+                            ];
+                        }
+                    }
+                    $mapStates = collect($mapPoints)->pluck('state')->filter()->unique()->sort()->values();
                 @endphp
+
+                <h3>Map of visa revocation locations</h3>
+                @if($mapPoints)
+                    <p class="svr-map-sub">Each dot is a campus where a student visa was revoked or a SEVIS record terminated — {{ number_format(count($mapPoints)) }} geocoded institutions across {{ $mapStates->count() }} states. Filter by state, or click a dot for detail.</p>
+                    <div class="svr-map-controls">
+                        <label for="svr-state-select" class="svr-map-label">Select state:</label>
+                        <select id="svr-state-select" class="svr-map-select" onchange="svrFilterMap(this.value)">
+                            <option value="">United States (all)</option>
+                            @foreach($mapStates as $st)
+                                <option value="{{ $st }}">{{ $st }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div id="svr-map-canvas" class="svr-map-canvas" data-points="{{ count($mapPoints) }}"></div>
+                    <p class="svr-map-note" id="svr-map-fallback" hidden>The interactive map needs JavaScript and a map service. See the full list below.</p>
+                @else
+                    <p class="svr-map-note">Map data is being synced. Run <code>php artisan visa:sync-institutions</code> to populate it.</p>
+                @endif
+
+                <h3 style="margin-top: 28px;">Affected institutions</h3>
                 <p class="svr-map-sub">The running total of known affected people, and the full list of colleges and universities. Search by name or state.</p>
                 @if($institutions)
                     <div class="svr-tbl-total">TOTAL: {{ number_format((int) $totalAffected) }} known affected people <span>· {{ number_format((int) $instCount) }} institutions</span></div>
@@ -582,5 +619,97 @@ function svrFilterInstitutions(q) {
     var empty = document.getElementById('svr-inst-empty');
     if (empty) empty.hidden = shown !== 0;
 }
+</script>
+
+{{-- Native interactive map (Mapbox GL) — replaces the Observable embed.
+     Points are rendered server-side from the synced institutions snapshot. --}}
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+<script>
+(function () {
+    var POINTS = @json($mapPoints ?? []);
+    var TOKEN = @json(config('services.mapbox.token', ''));
+    var canvas = document.getElementById('svr-map-canvas');
+    if (!canvas) return;
+
+    // Without Mapbox or a token there's nothing to draw — surface the
+    // text fallback and bail rather than leaving an empty black box.
+    if (typeof mapboxgl === 'undefined' || !TOKEN || !POINTS.length) {
+        var fb = document.getElementById('svr-map-fallback');
+        if (fb) fb.hidden = false;
+        canvas.style.display = 'none';
+        return;
+    }
+
+    mapboxgl.accessToken = TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'svr-map-canvas',
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [-98.5795, 39.8283],
+        zoom: 3.4,
+        attributionControl: true,
+    });
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    var features = POINTS.map(function (p) {
+        return {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
+            properties: {
+                name: p.name,
+                state: p.state,
+                affected: (p.affected === null || p.affected === undefined) ? 'unknown' : p.affected
+            }
+        };
+    });
+    var fc = { type: 'FeatureCollection', features: features };
+
+    function boundsFor(feats) {
+        if (!feats.length) return null;
+        var b = new mapboxgl.LngLatBounds();
+        feats.forEach(function (f) { b.extend(f.geometry.coordinates); });
+        return b;
+    }
+
+    map.on('load', function () {
+        map.addSource('svr-institutions', { type: 'geojson', data: fc });
+        map.addLayer({
+            id: 'svr-dots',
+            type: 'circle',
+            source: 'svr-institutions',
+            paint: {
+                'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 4, 7, 7],
+                'circle-color': '#5660fe',
+                'circle-opacity': 0.85,
+                'circle-stroke-width': 1.5,
+                'circle-stroke-color': '#fff'
+            }
+        });
+
+        var popup = new mapboxgl.Popup({ closeButton: true, closeOnClick: true });
+        map.on('click', 'svr-dots', function (e) {
+            var pr = e.features[0].properties;
+            var affected = (pr.affected === 'unknown') ? 'unknown' : Number(pr.affected).toLocaleString();
+            var html = '<div class="svr-pop-name">' + pr.name + '</div>'
+                     + '<div class="svr-pop-meta">' + pr.state + ' · affected: <b>' + affected + '</b></div>';
+            popup.setLngLat(e.features[0].geometry.coordinates).setHTML(html).addTo(map);
+        });
+        map.on('mouseenter', 'svr-dots', function () { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'svr-dots', function () { map.getCanvas().style.cursor = ''; });
+    });
+
+    // State filter: hide non-matching dots and zoom to the selection.
+    window.svrFilterMap = function (state) {
+        if (!map.isStyleLoaded() || !map.getLayer('svr-dots')) return;
+        if (!state) {
+            map.setFilter('svr-dots', null);
+            map.flyTo({ center: [-98.5795, 39.8283], zoom: 3.4 });
+            return;
+        }
+        map.setFilter('svr-dots', ['==', ['get', 'state'], state]);
+        var b = boundsFor(features.filter(function (f) { return f.properties.state === state; }));
+        if (b) map.fitBounds(b, { padding: 60, maxZoom: 9, duration: 800 });
+    };
+})();
 </script>
 @endsection

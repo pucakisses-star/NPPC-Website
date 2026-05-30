@@ -70,6 +70,8 @@ class SyncVisaInstitutions extends Command {
                 'affected_people' => $this->affectedPeople($row['tally'] ?? null),
                 'website' => (string) ($row['website'] ?? ''),
                 'wikipedia' => (string) ($row['wikipedia-url'] ?? ''),
+                'latitude' => $this->coord($row['latitude'] ?? null),
+                'longitude' => $this->coord($row['longitude'] ?? null),
             ];
         }
 
@@ -134,5 +136,18 @@ class SyncVisaInstitutions extends Command {
         }
 
         return $valid > 0 ? $total : 'unknown';
+    }
+
+    /**
+     * Parse a Baserow coordinate field into a float, or null when blank or
+     * non-numeric (some institutions have no geocode). Rounded to 5 dp —
+     * ~1 metre precision, plenty for campus map pins, and keeps the JSON small.
+     */
+    private function coord(mixed $value): ?float {
+        if ($value === null || $value === '' || ! is_numeric($value)) {
+            return null;
+        }
+
+        return round((float) $value, 5);
     }
 }
