@@ -1,7 +1,7 @@
 {
     "source": "Nimble Tent Data Viewer · Baserow table 503380",
-    "synced_at": "2026-05-30T11:30:06+00:00",
-    "total_affected": 2011,
+    "synced_at": "2026-05-30T13:01:26+00:00",
+    "total_affected": 2124,
     "count": 315,
     "institutions": [
         {
@@ -178,7 +178,7 @@
         {
             "name": "California State University, East Bay",
             "state": "California",
-            "affected_people": 0,
+            "affected_people": 3,
             "website": "https://www.csueastbay.edu/",
             "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_East_Bay",
             "latitude": 37.657,
@@ -187,7 +187,7 @@
         {
             "name": "California State University, Fullerton",
             "state": "California",
-            "affected_people": 0,
+            "affected_people": 8,
             "website": "https://www.fullerton.edu/",
             "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Fullerton",
             "latitude": 33.881,
@@ -196,7 +196,7 @@
         {
             "name": "California State University, Long Beach",
             "state": "California",
-            "affected_people": 0,
+            "affected_people": 6,
             "website": "https://www.csulb.edu/",
             "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Long_Beach",
             "latitude": 33.782,
@@ -421,7 +421,7 @@
         {
             "name": "Cornell University",
             "state": "New York",
-            "affected_people": 18,
+            "affected_people": 26,
             "website": "https://cornell.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/Cornell_University",
             "latitude": 42.449,
@@ -457,7 +457,7 @@
         {
             "name": "De Anza College",
             "state": "California",
-            "affected_people": 6,
+            "affected_people": 9,
             "website": "http://www.deanza.edu/",
             "wikipedia": "https://en.wikipedia.org/wiki/De_Anza_College",
             "latitude": 37.319,
@@ -2554,7 +2554,7 @@
         {
             "name": "University of Texas System",
             "state": "Texas",
-            "affected_people": 85,
+            "affected_people": 170,
             "website": "",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_System",
             "latitude": 30.286,

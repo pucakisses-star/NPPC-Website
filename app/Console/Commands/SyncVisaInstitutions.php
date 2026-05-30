@@ -57,6 +57,30 @@ class SyncVisaInstitutions extends Command {
     ];
 
     /**
+     * Affected-people floors from the Inside Higher Ed national tracker
+     * (insidehighered.com, "Where Students Have Had Their Visas Revoked"),
+     * keyed by exact institution name. Unlike AFFECTED_OVERRIDES (which only
+     * fills "unknown"), these raise the count to the floor when our figure is
+     * unknown or lower — applied as max(upstream, floor) so a larger upstream
+     * number always wins and a number is never lowered. Each is sourced:
+     *
+     *  - U. of Texas System (170): IHE tracker aggregate for all UT campuses.
+     *  - Cornell University (26): Ithaca Voice 2025-04 — SEVIS terminations.
+     *  - De Anza College (9): La Voz 2025-04-11 — Foothill–De Anza district.
+     *  - CSU Fullerton (8): Daily Titan 2025-04 — academic senate briefing.
+     *  - CSU Long Beach (6): LB Current 2025-04-11 — Pres. Conoley confirmed 6.
+     *  - CSU East Bay (3): Times-Herald 2025-04-08 — Bay Area cancellations.
+     */
+    public const AFFECTED_FLOORS = [
+        'University of Texas System' => 170,
+        'Cornell University' => 26,
+        'De Anza College' => 9,
+        'California State University, Fullerton' => 8,
+        'California State University, Long Beach' => 6,
+        'California State University, East Bay' => 3,
+    ];
+
+    /**
      * Coordinates for institutions the upstream data left ungeocoded, keyed
      * by exact name. Applied only when the upstream lat/lng is missing, so a
      * real upstream geocode is never overwritten. Without these the row is
@@ -150,6 +174,14 @@ class SyncVisaInstitutions extends Command {
             $affected = $this->affectedPeople($row['tally'] ?? null);
             if ($affected === 'unknown' && isset(self::AFFECTED_OVERRIDES[$name])) {
                 $affected = self::AFFECTED_OVERRIDES[$name];
+            }
+
+            // Raise to the Inside Higher Ed tracker floor when ours is
+            // unknown or lower — max(upstream, floor) — so a larger upstream
+            // number still wins and a count is never lowered.
+            if (isset(self::AFFECTED_FLOORS[$name])) {
+                $floor = self::AFFECTED_FLOORS[$name];
+                $affected = is_int($affected) ? max($affected, $floor) : $floor;
             }
 
             // Coordinates: prefer the upstream geocode; fall back to a sourced
