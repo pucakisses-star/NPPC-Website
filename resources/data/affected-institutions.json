@@ -1,8 +1,8 @@
 {
     "source": "Nimble Tent Data Viewer · Baserow table 503380",
-    "synced_at": "2026-05-30T13:01:26+00:00",
-    "total_affected": 2124,
-    "count": 315,
+    "synced_at": "2026-05-30T14:03:56+00:00",
+    "total_affected": 2126,
+    "count": 318,
     "institutions": [
         {
             "name": "American University",
@@ -57,6 +57,15 @@
             "wikipedia": "",
             "latitude": null,
             "longitude": null
+        },
+        {
+            "name": "Barnard College",
+            "state": "New York",
+            "affected_people": 1,
+            "website": "https://barnard.edu",
+            "wikipedia": "",
+            "latitude": 40.80949,
+            "longitude": -73.96355
         },
         {
             "name": "Baylor University",
@@ -563,6 +572,15 @@
             "longitude": -96.18
         },
         {
+            "name": "Ensign College",
+            "state": "Utah",
+            "affected_people": "unknown",
+            "website": "https://www.ensign.edu",
+            "wikipedia": "",
+            "latitude": 40.77113,
+            "longitude": -111.90025
+        },
+        {
             "name": "Florida A&M University",
             "state": "Florida",
             "affected_people": 1,
@@ -750,6 +768,15 @@
             "wikipedia": "https://en.wikipedia.org/wiki/Illinois_State_University",
             "latitude": 40.511,
             "longitude": -88.993
+        },
+        {
+            "name": "Indiana Institute of Technology",
+            "state": "Indiana",
+            "affected_people": 1,
+            "website": "https://www.indianatech.edu",
+            "wikipedia": "",
+            "latitude": 41.07755,
+            "longitude": -85.11768
         },
         {
             "name": "Indiana University Bloomington",

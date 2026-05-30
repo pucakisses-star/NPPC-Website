@@ -111,6 +111,11 @@ class SyncVisaInstitutions extends Command {
      *  - Coe College, Luther College, Des Moines Area CC, Eastern Iowa CC,
      *    Grinnell College (unknown): Iowa Capital Dispatch 2025-04 roundup.
      *  - U. of South Florida (unknown): USF Oracle 2025-04-22 (~a dozen per atty).
+     *  - Barnard College (1): named case (Yunseo Chung); The Hill / Al Jazeera.
+     *  - Indiana Institute of Technology (1): WFYI / Mirror Indy — 1 student
+     *    restored per the 2025-04-28 court filing.
+     *  - Ensign College (unknown): named in the ACLU of Utah suit (2025-04-18),
+     *    alongside Utah and BYU.
      */
     public const ADDITIONAL_INSTITUTIONS = [
         ['name' => 'Florida Atlantic University', 'state' => 'Florida', 'affected_people' => 6, 'website' => 'https://www.fau.edu', 'latitude' => 26.37434, 'longitude' => -80.10272],
@@ -126,6 +131,9 @@ class SyncVisaInstitutions extends Command {
         ['name' => 'Eastern Iowa Community Colleges', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.eicc.edu', 'latitude' => 41.52360, 'longitude' => -90.57760],
         ['name' => 'Grinnell College', 'state' => 'Iowa', 'affected_people' => 'unknown', 'website' => 'https://www.grinnell.edu', 'latitude' => 41.75112, 'longitude' => -92.71985],
         ['name' => 'University of South Florida', 'state' => 'Florida', 'affected_people' => 'unknown', 'website' => 'https://www.usf.edu', 'latitude' => 28.06000, 'longitude' => -82.41384],
+        ['name' => 'Barnard College', 'state' => 'New York', 'affected_people' => 1, 'website' => 'https://barnard.edu', 'latitude' => 40.80949, 'longitude' => -73.96355],
+        ['name' => 'Indiana Institute of Technology', 'state' => 'Indiana', 'affected_people' => 1, 'website' => 'https://www.indianatech.edu', 'latitude' => 41.07755, 'longitude' => -85.11768],
+        ['name' => 'Ensign College', 'state' => 'Utah', 'affected_people' => 'unknown', 'website' => 'https://www.ensign.edu', 'latitude' => 40.77113, 'longitude' => -111.90025],
     ];
 
     public function handle(): int {
