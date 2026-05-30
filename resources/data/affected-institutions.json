@@ -1,0 +1,2122 @@
+{
+    "source": "Nimble Tent Data Viewer · Baserow table 503380",
+    "synced_at": "2026-05-30T07:12:24+00:00",
+    "total_affected": 1958,
+    "count": 302,
+    "institutions": [
+        {
+            "name": "American University",
+            "state": "District of Columbia",
+            "affected_people": "unknown",
+            "website": "https://american.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/American_University"
+        },
+        {
+            "name": "Appalachian State University",
+            "state": "North Carolina",
+            "affected_people": 1,
+            "website": "https://www.appstate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Appalachian_State_University"
+        },
+        {
+            "name": "Arizona State University",
+            "state": "Arizona",
+            "affected_people": 100,
+            "website": "https://www.asu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Arizona_State_University"
+        },
+        {
+            "name": "Auburn University",
+            "state": "Alabama",
+            "affected_people": 15,
+            "website": "https://auburn.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Auburn_University"
+        },
+        {
+            "name": "Augustana College",
+            "state": "Illinois",
+            "affected_people": 3,
+            "website": "http://www.augustana.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Augustana_College_(Illinois)"
+        },
+        {
+            "name": "Babson College",
+            "state": "Massachusetts",
+            "affected_people": "unknown",
+            "website": "",
+            "wikipedia": ""
+        },
+        {
+            "name": "Baylor University",
+            "state": "Texas",
+            "affected_people": 3,
+            "website": "https://www.baylor.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Baylor_University"
+        },
+        {
+            "name": "Bentley University",
+            "state": "Massachusetts",
+            "affected_people": 5,
+            "website": "https://www.bentley.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Bentley_University"
+        },
+        {
+            "name": "Berklee College of Music",
+            "state": "Massachusetts",
+            "affected_people": 3,
+            "website": "https://www.berklee.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Berklee_College_of_Music"
+        },
+        {
+            "name": "Binghamton University",
+            "state": "New York",
+            "affected_people": 5,
+            "website": "https://www.binghamton.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Binghamton_University"
+        },
+        {
+            "name": "Black Hills State University",
+            "state": "South Dakota",
+            "affected_people": "unknown",
+            "website": "https://www.bhsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Black_Hills_State_University"
+        },
+        {
+            "name": "Boston University",
+            "state": "Massachusetts",
+            "affected_people": "unknown",
+            "website": "https://bu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Boston_University"
+        },
+        {
+            "name": "Bowling Green State University",
+            "state": "Ohio",
+            "affected_people": 1,
+            "website": "https://www.bgsu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Bowling_Green_State_University"
+        },
+        {
+            "name": "Bridgewater State University",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "https://bridgew.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Bridgewater_State_University"
+        },
+        {
+            "name": "Brigham Young University",
+            "state": "Utah",
+            "affected_people": 1,
+            "website": "https://www.byu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Brigham_Young_University"
+        },
+        {
+            "name": "Brown University",
+            "state": "Rhode Island",
+            "affected_people": 2,
+            "website": "https://www.brown.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Brown_University"
+        },
+        {
+            "name": "California Polytechnic State University",
+            "state": "California",
+            "affected_people": 4,
+            "website": "https://www.calpoly.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_Polytechnic_State_University,_San_Luis_Obispo"
+        },
+        {
+            "name": "California State University",
+            "state": "California",
+            "affected_people": 70,
+            "website": "http://www.calstate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University"
+        },
+        {
+            "name": "California State University, East Bay",
+            "state": "California",
+            "affected_people": 0,
+            "website": "https://www.csueastbay.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_East_Bay"
+        },
+        {
+            "name": "California State University, Fullerton",
+            "state": "California",
+            "affected_people": 0,
+            "website": "https://www.fullerton.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Fullerton"
+        },
+        {
+            "name": "California State University, Long Beach",
+            "state": "California",
+            "affected_people": 0,
+            "website": "https://www.csulb.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Long_Beach"
+        },
+        {
+            "name": "California State University, Northridge",
+            "state": "California",
+            "affected_people": "unknown",
+            "website": "https://www.csun.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Northridge"
+        },
+        {
+            "name": "California State University, Sacramento",
+            "state": "California",
+            "affected_people": "unknown",
+            "website": "https://www.csus.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University"
+        },
+        {
+            "name": "Campbellsville University",
+            "state": "Kentucky",
+            "affected_people": "unknown",
+            "website": "https://www.campbellsville.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Campbellsville_University"
+        },
+        {
+            "name": "Carnegie Mellon University",
+            "state": "Pennsylvania",
+            "affected_people": 7,
+            "website": "https://cmu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Carnegie_Mellon_University"
+        },
+        {
+            "name": "Carthage College",
+            "state": "Wisconsin",
+            "affected_people": 1,
+            "website": "http://www.carthage.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Carthage_College"
+        },
+        {
+            "name": "Case Western Reserve University",
+            "state": "Ohio",
+            "affected_people": 4,
+            "website": "https://case.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Case_Western_Reserve_University"
+        },
+        {
+            "name": "Central Methodist University",
+            "state": "Missouri",
+            "affected_people": 1,
+            "website": "https://www.centralmethodist.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Central_Methodist_University"
+        },
+        {
+            "name": "Central Michigan University",
+            "state": "Michigan",
+            "affected_people": 7,
+            "website": "https://www.cmich.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Central_Michigan_University"
+        },
+        {
+            "name": "Central Washington University",
+            "state": "Washington",
+            "affected_people": 2,
+            "website": "https://www.cwu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Central_Washington_University"
+        },
+        {
+            "name": "Chapman University",
+            "state": "California",
+            "affected_people": 3,
+            "website": "https://www.chapman.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Chapman_University"
+        },
+        {
+            "name": "Christian Brothers University",
+            "state": "Tennessee",
+            "affected_people": 10,
+            "website": "http://www.CBU.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Christian_Brothers_University"
+        },
+        {
+            "name": "City University of New York",
+            "state": "New York",
+            "affected_people": 17,
+            "website": "https://cuny.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/City_University_of_New_York"
+        },
+        {
+            "name": "Clark University",
+            "state": "Massachusetts",
+            "affected_people": 12,
+            "website": "http://www.clarku.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Clark_University"
+        },
+        {
+            "name": "Clemson University",
+            "state": "South Carolina",
+            "affected_people": "unknown",
+            "website": "https://www.clemson.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Clemson_University"
+        },
+        {
+            "name": "Cleveland State University",
+            "state": "Ohio",
+            "affected_people": 1,
+            "website": "http://www.csuohio.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Cleveland_State_University"
+        },
+        {
+            "name": "College of Idaho",
+            "state": "Idaho",
+            "affected_people": 1,
+            "website": "http://www.collegeofidaho.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/College_of_Idaho"
+        },
+        {
+            "name": "Collin College",
+            "state": "Texas",
+            "affected_people": 7,
+            "website": "https://www.collin.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Collin_College"
+        },
+        {
+            "name": "Colorado State University",
+            "state": "Colorado",
+            "affected_people": 16,
+            "website": "https://www.colostate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Colorado_State_University"
+        },
+        {
+            "name": "Columbia University",
+            "state": "New York",
+            "affected_people": 9,
+            "website": "https://columbia.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Columbia_University"
+        },
+        {
+            "name": "Columbus State Community College",
+            "state": "Ohio",
+            "affected_people": 1,
+            "website": "https://www.cscc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Columbus_State_Community_College"
+        },
+        {
+            "name": "Concordia University St. Paul",
+            "state": "Minnesota",
+            "affected_people": 5,
+            "website": "https://www.csp.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University,_St._Paul"
+        },
+        {
+            "name": "Concordia University Wisconsin",
+            "state": "Wisconsin",
+            "affected_people": 10,
+            "website": "https://www.cuw.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University_Wisconsin"
+        },
+        {
+            "name": "Cornell University",
+            "state": "New York",
+            "affected_people": 18,
+            "website": "https://cornell.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Cornell_University"
+        },
+        {
+            "name": "Cuyahoga Community College",
+            "state": "Ohio",
+            "affected_people": 3,
+            "website": "http://www.tri-c.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Cuyahoga_Community_College"
+        },
+        {
+            "name": "Dallas College",
+            "state": "Texas",
+            "affected_people": 34,
+            "website": "https://www.dallascollege.edu/pages/default.aspx",
+            "wikipedia": "https://en.wikipedia.org/wiki/Dallas_College"
+        },
+        {
+            "name": "Dartmouth College",
+            "state": "New Hampshire",
+            "affected_people": 2,
+            "website": "https://home.dartmouth.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Dartmouth_College"
+        },
+        {
+            "name": "De Anza College",
+            "state": "California",
+            "affected_people": 6,
+            "website": "http://www.deanza.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/De_Anza_College"
+        },
+        {
+            "name": "DePaul University",
+            "state": "Illinois",
+            "affected_people": 1,
+            "website": "http://www.depaul.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/DePaul_University"
+        },
+        {
+            "name": "Drury University",
+            "state": "Missouri",
+            "affected_people": 1,
+            "website": "http://www.drury.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Drury_University"
+        },
+        {
+            "name": "Duke University",
+            "state": "North Carolina",
+            "affected_people": 7,
+            "website": "https://duke.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Duke_University"
+        },
+        {
+            "name": "Eastern Illinois University",
+            "state": "Illinois",
+            "affected_people": 11,
+            "website": "http://www.eiu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Illinois_University"
+        },
+        {
+            "name": "Eastern Michigan University",
+            "state": "Michigan",
+            "affected_people": 2,
+            "website": "https://www.emich.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Michigan_University"
+        },
+        {
+            "name": "El Paso Community College",
+            "state": "Texas",
+            "affected_people": 2,
+            "website": "http://www.epcc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/El_Paso_Community_College"
+        },
+        {
+            "name": "Emerson College",
+            "state": "Massachusetts",
+            "affected_people": 1,
+            "website": "https://emerson.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Emerson_College"
+        },
+        {
+            "name": "Emory University",
+            "state": "Georgia",
+            "affected_people": 4,
+            "website": "https://emory.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Emory_University"
+        },
+        {
+            "name": "Emporia State University",
+            "state": "Kansas",
+            "affected_people": 2,
+            "website": "http://www.emporia.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Emporia_State_University"
+        },
+        {
+            "name": "Florida A&M University",
+            "state": "Florida",
+            "affected_people": 1,
+            "website": "https://www.famu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Florida_A%26M_University"
+        },
+        {
+            "name": "Florida International University",
+            "state": "Florida",
+            "affected_people": 18,
+            "website": "https://www.fiu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Florida_International_University"
+        },
+        {
+            "name": "Florida State University",
+            "state": "Florida",
+            "affected_people": 3,
+            "website": "https://fsu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Florida_State_University"
+        },
+        {
+            "name": "Foothill College",
+            "state": "California",
+            "affected_people": 3,
+            "website": "http://www.foothill.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Foothill_College"
+        },
+        {
+            "name": "Fordham University",
+            "state": "New York",
+            "affected_people": 4,
+            "website": "https://fordham.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Fordham_University"
+        },
+        {
+            "name": "Fullerton College",
+            "state": "California",
+            "affected_people": 2,
+            "website": "https://www.fullcoll.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Fullerton_College"
+        },
+        {
+            "name": "Furman University",
+            "state": "South Carolina",
+            "affected_people": 2,
+            "website": "http://www.furman.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Furman_University"
+        },
+        {
+            "name": "Gannon University",
+            "state": "Pennsylvania",
+            "affected_people": 5,
+            "website": "https://www.gannon.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Gannon_University"
+        },
+        {
+            "name": "George Mason University",
+            "state": "Virginia",
+            "affected_people": 15,
+            "website": "https://www.gmu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/George_Mason_University"
+        },
+        {
+            "name": "George Washington University",
+            "state": "District of Columbia",
+            "affected_people": 10,
+            "website": "https://www.gwu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/George_Washington_University"
+        },
+        {
+            "name": "Georgetown University",
+            "state": "District of Columbia",
+            "affected_people": 10,
+            "website": "https://www.georgetown.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Georgetown_University"
+        },
+        {
+            "name": "Georgia Tech",
+            "state": "Georgia",
+            "affected_people": 1,
+            "website": "https://gatech.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Georgia_Tech"
+        },
+        {
+            "name": "Gonzaga University",
+            "state": "Washington",
+            "affected_people": 2,
+            "website": "https://www.gonzaga.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Gonzaga_University"
+        },
+        {
+            "name": "Graceland University",
+            "state": "Iowa",
+            "affected_people": 1,
+            "website": "http://www.graceland.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Graceland_University"
+        },
+        {
+            "name": "Grand Valley State University",
+            "state": "Michigan",
+            "affected_people": 4,
+            "website": "http://www.gvsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Grand_Valley_State_University"
+        },
+        {
+            "name": "Harvard University",
+            "state": "Massachusetts",
+            "affected_people": 13,
+            "website": "https://harvard.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Harvard_University"
+        },
+        {
+            "name": "Houston Community College",
+            "state": "Texas",
+            "affected_people": 12,
+            "website": "https://www.hccs.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Houston_Community_College"
+        },
+        {
+            "name": "Howard University",
+            "state": "District of Columbia",
+            "affected_people": 3,
+            "website": "https://howard.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Howard_University"
+        },
+        {
+            "name": "Illinois State University",
+            "state": "Illinois",
+            "affected_people": "unknown",
+            "website": "https://illinoisstate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Illinois_State_University"
+        },
+        {
+            "name": "Indiana University Bloomington",
+            "state": "Indiana",
+            "affected_people": 10,
+            "website": "https://bloomington.iu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Bloomington"
+        },
+        {
+            "name": "Indiana University Indianapolis",
+            "state": "Indiana",
+            "affected_people": 1,
+            "website": "https://indianapolis.iu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Indianapolis"
+        },
+        {
+            "name": "Indiana University Northwest",
+            "state": "Indiana",
+            "affected_people": 5,
+            "website": "http://www.iun.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Northwest"
+        },
+        {
+            "name": "Iowa State University",
+            "state": "Iowa",
+            "affected_people": 2,
+            "website": "https://www.extension.iastate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Iowa_State_University"
+        },
+        {
+            "name": "Johns Hopkins University",
+            "state": "Maryland",
+            "affected_people": 37,
+            "website": "https://jhu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Johns_Hopkins_University"
+        },
+        {
+            "name": "Juilliard School",
+            "state": "New York",
+            "affected_people": 1,
+            "website": "http://www.juilliard.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Juilliard_School"
+        },
+        {
+            "name": "Kennesaw State University",
+            "state": "Georgia",
+            "affected_people": 2,
+            "website": "https://www.kennesaw.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Kennesaw_State_University"
+        },
+        {
+            "name": "Kent State University",
+            "state": "Ohio",
+            "affected_people": 12,
+            "website": "https://www.kent.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Kent_State_University"
+        },
+        {
+            "name": "La Roche University",
+            "state": "Pennsylvania",
+            "affected_people": 1,
+            "website": "https://www.laroche.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/La_Roche_University"
+        },
+        {
+            "name": "Lamar University",
+            "state": "Texas",
+            "affected_people": 5,
+            "website": "http://www.lamar.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Lamar_University"
+        },
+        {
+            "name": "Lehigh University",
+            "state": "Pennsylvania",
+            "affected_people": "unknown",
+            "website": "https://www2.lehigh.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Lehigh_University"
+        },
+        {
+            "name": "Lehman College",
+            "state": "New York",
+            "affected_people": 1,
+            "website": "http://www.lehman.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Lehman_College"
+        },
+        {
+            "name": "Lindenwood University",
+            "state": "Missouri",
+            "affected_people": "unknown",
+            "website": "http://www.lindenwood.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Lindenwood_University"
+        },
+        {
+            "name": "Los Rios Community College District",
+            "state": "California",
+            "affected_people": 1,
+            "website": "http://www.losrios.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Los_Rios_Community_College_District"
+        },
+        {
+            "name": "Madison Area Technical College",
+            "state": "Wisconsin",
+            "affected_people": 1,
+            "website": "https://madisoncollege.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Madison_Area_Technical_College"
+        },
+        {
+            "name": "Marquette University",
+            "state": "Wisconsin",
+            "affected_people": 1,
+            "website": "https://www.marquette.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Marquette_University"
+        },
+        {
+            "name": "Marshall University",
+            "state": "West Virginia",
+            "affected_people": 2,
+            "website": "http://www.marshall.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Marshall_University"
+        },
+        {
+            "name": "Massachusetts Institute of Technology",
+            "state": "Massachusetts",
+            "affected_people": 9,
+            "website": "https://mit.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology"
+        },
+        {
+            "name": "Mercer University",
+            "state": "Georgia",
+            "affected_people": 4,
+            "website": "http://www.mercer.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Mercer_University"
+        },
+        {
+            "name": "Metropolitan State University",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "http://www.metrostate.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Metropolitan_State_University"
+        },
+        {
+            "name": "Michigan State University",
+            "state": "Michigan",
+            "affected_people": 12,
+            "website": "https://msu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Michigan_State_University"
+        },
+        {
+            "name": "Middle Tennessee State University",
+            "state": "Tennessee",
+            "affected_people": 8,
+            "website": "https://www.mtsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Middle_Tennessee_State_University"
+        },
+        {
+            "name": "Middlebury College",
+            "state": "Vermont",
+            "affected_people": 1,
+            "website": "https://www.middlebury.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Middlebury_College"
+        },
+        {
+            "name": "Millersville University of Pennsylvania",
+            "state": "Pennsylvania",
+            "affected_people": "unknown",
+            "website": "http://www.millersville.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Millersville_University_of_Pennsylvania"
+        },
+        {
+            "name": "Minnesota State University, Mankato",
+            "state": "Minnesota",
+            "affected_people": 5,
+            "website": "https://www.mnsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Minnesota_State_University,_Mankato"
+        },
+        {
+            "name": "Minnesota West Community and Technical College",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "https://www.mnwest.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Minnesota_West_Community_and_Technical_College"
+        },
+        {
+            "name": "Missouri State University",
+            "state": "Missouri",
+            "affected_people": 7,
+            "website": "https://www.missouristate.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Missouri_State_University"
+        },
+        {
+            "name": "Montana State University",
+            "state": "Montana",
+            "affected_people": 3,
+            "website": "https://www.montana.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Montana_State_University"
+        },
+        {
+            "name": "Montclair State University",
+            "state": "New Jersey",
+            "affected_people": 4,
+            "website": "https://www.montclair.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Montclair_State_University"
+        },
+        {
+            "name": "Mount Mercy University",
+            "state": "Iowa",
+            "affected_people": 2,
+            "website": "http://www.mtmercy.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Mount_Mercy_University"
+        },
+        {
+            "name": "Murray State University",
+            "state": "Kentucky",
+            "affected_people": 1,
+            "website": "http://www.murraystate.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Murray_State_University"
+        },
+        {
+            "name": "New England College",
+            "state": "New Hampshire",
+            "affected_people": 1,
+            "website": "https://online.nec.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/New_England_College"
+        },
+        {
+            "name": "New Mexico Institute of Mining and Technology",
+            "state": "New Mexico",
+            "affected_people": 1,
+            "website": "http://www.nmt.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/New_Mexico_Institute_of_Mining_and_Technology"
+        },
+        {
+            "name": "New Mexico State University",
+            "state": "New Mexico",
+            "affected_people": 9,
+            "website": "https://www.nmsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/New_Mexico_State_University"
+        },
+        {
+            "name": "New York Institute of Technology",
+            "state": "",
+            "affected_people": 1,
+            "website": "https://www.nyit.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/New_York_Institute_of_Technology"
+        },
+        {
+            "name": "New York University",
+            "state": "New York",
+            "affected_people": "unknown",
+            "website": "https://nyu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/New_York_University"
+        },
+        {
+            "name": "North Carolina State University",
+            "state": "North Carolina",
+            "affected_people": 2,
+            "website": "https://ncsu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/North_Carolina_State_University"
+        },
+        {
+            "name": "North Dakota State University",
+            "state": "North Dakota",
+            "affected_people": 1,
+            "website": "https://www.ndsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/North_Dakota_State_University"
+        },
+        {
+            "name": "Northeastern University",
+            "state": "Massachusetts",
+            "affected_people": 40,
+            "website": "https://www.northeastern.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Northeastern_University"
+        },
+        {
+            "name": "Northern Illinois University",
+            "state": "Illinois",
+            "affected_people": 5,
+            "website": "https://www.niu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Northern_Illinois_University"
+        },
+        {
+            "name": "Northwest Missouri State University",
+            "state": "Missouri",
+            "affected_people": 43,
+            "website": "https://www.nwmissouri.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Northwest_Missouri_State_University"
+        },
+        {
+            "name": "Northwestern University",
+            "state": "Illinois",
+            "affected_people": "unknown",
+            "website": "",
+            "wikipedia": "https://en.wikipedia.org/wiki/Northwestern_University"
+        },
+        {
+            "name": "Oakland University",
+            "state": "Michigan",
+            "affected_people": 4,
+            "website": "http://www.oakland.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Oakland_University"
+        },
+        {
+            "name": "Ohio State University",
+            "state": "Ohio",
+            "affected_people": 12,
+            "website": "https://osu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Ohio_State_University"
+        },
+        {
+            "name": "Oklahoma Christian University",
+            "state": "Oklahoma",
+            "affected_people": 3,
+            "website": "https://www.oc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Oklahoma_Christian_University"
+        },
+        {
+            "name": "Oklahoma State University–Stillwater",
+            "state": "Oklahoma",
+            "affected_people": 8,
+            "website": "https://go.okstate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Oklahoma_State_University"
+        },
+        {
+            "name": "Oregon State University",
+            "state": "Oregon",
+            "affected_people": 13,
+            "website": "https://oregonstate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Oregon_State_University"
+        },
+        {
+            "name": "Park University",
+            "state": "Missouri",
+            "affected_people": 2,
+            "website": "https://www.park.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Park_University"
+        },
+        {
+            "name": "Pasadena City College",
+            "state": "California",
+            "affected_people": 2,
+            "website": "http://www.pasadena.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Pasadena_City_College"
+        },
+        {
+            "name": "Pennsylvania State University",
+            "state": "Pennsylvania",
+            "affected_people": 22,
+            "website": "",
+            "wikipedia": "https://en.wikipedia.org/wiki/Pennsylvania_State_University"
+        },
+        {
+            "name": "Pima Community College",
+            "state": "",
+            "affected_people": 1,
+            "website": "http://www.pima.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Pima_Community_College"
+        },
+        {
+            "name": "Portland Community College",
+            "state": "Oregon",
+            "affected_people": 3,
+            "website": "https://www.pcc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Portland_Community_College"
+        },
+        {
+            "name": "Portland State University",
+            "state": "Oregon",
+            "affected_people": 3,
+            "website": "https://www.pdx.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Portland_State_University"
+        },
+        {
+            "name": "Prairie View A&M University",
+            "state": "Texas",
+            "affected_people": 1,
+            "website": "http://www.pvamu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Prairie_View_A%26M_University"
+        },
+        {
+            "name": "Princeton University",
+            "state": "New Jersey",
+            "affected_people": 2,
+            "website": "https://princeton.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Princeton_University"
+        },
+        {
+            "name": "Purdue University",
+            "state": "Indiana",
+            "affected_people": "unknown",
+            "website": "https://purdue.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Purdue_University"
+        },
+        {
+            "name": "Rensselaer Polytechnic Institute",
+            "state": "New York",
+            "affected_people": 3,
+            "website": "http://www.rpi.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Rensselaer_Polytechnic_Institute"
+        },
+        {
+            "name": "Rhode Island School of Design",
+            "state": "Rhode Island",
+            "affected_people": 1,
+            "website": "https://www.risd.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Rhode_Island_School_of_Design"
+        },
+        {
+            "name": "Rice University",
+            "state": "Texas",
+            "affected_people": 5,
+            "website": "https://rice.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Rice_University"
+        },
+        {
+            "name": "Ridgewater College",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "https://ridgewater.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Ridgewater_College"
+        },
+        {
+            "name": "Riverland Community College",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "http://www.riverland.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Riverland_Community_College"
+        },
+        {
+            "name": "Rochester Institute of Technology",
+            "state": "New York",
+            "affected_people": 8,
+            "website": "https://www.rit.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Rochester_Institute_of_Technology"
+        },
+        {
+            "name": "Roux Institute",
+            "state": "Maine",
+            "affected_people": 1,
+            "website": "https://roux.northeastern.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Roux_Institute"
+        },
+        {
+            "name": "Rowan University",
+            "state": "New Jersey",
+            "affected_people": 8,
+            "website": "https://www.rowan.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Rowan_University"
+        },
+        {
+            "name": "Rutgers University",
+            "state": "New Jersey",
+            "affected_people": 16,
+            "website": "https://www.rutgers.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Rutgers_University"
+        },
+        {
+            "name": "Saginaw Valley State University",
+            "state": "Michigan",
+            "affected_people": 4,
+            "website": "https://www.svsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Saginaw_Valley_State_University"
+        },
+        {
+            "name": "Saint Louis University",
+            "state": "Missouri",
+            "affected_people": 1,
+            "website": "https://www.slu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Saint_Louis_University"
+        },
+        {
+            "name": "Salt Lake Community College",
+            "state": "Utah",
+            "affected_people": 3,
+            "website": "http://www.slcc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Salt_Lake_Community_College"
+        },
+        {
+            "name": "San Diego State University",
+            "state": "California",
+            "affected_people": 1,
+            "website": "https://www.sdsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/San_Diego_State_University"
+        },
+        {
+            "name": "San Jacinto College",
+            "state": "Texas",
+            "affected_people": 6,
+            "website": "https://www.sanjac.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/San_Jacinto_College"
+        },
+        {
+            "name": "San José State University",
+            "state": "California",
+            "affected_people": 13,
+            "website": "https://www.sjsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/San_Jose_State_University"
+        },
+        {
+            "name": "San Mateo County Community College District",
+            "state": "California",
+            "affected_people": 1,
+            "website": "",
+            "wikipedia": ""
+        },
+        {
+            "name": "Santa Clara University",
+            "state": "California",
+            "affected_people": 1,
+            "website": "http://www.scu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Santa_Clara_University"
+        },
+        {
+            "name": "Santa Monica College",
+            "state": "California",
+            "affected_people": 9,
+            "website": "https://www.smc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Santa_Monica_College"
+        },
+        {
+            "name": "Seattle Central College",
+            "state": "Washington",
+            "affected_people": 1,
+            "website": "http://www.seattlecentral.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Seattle_Central_College"
+        },
+        {
+            "name": "Seattle University",
+            "state": "Washington",
+            "affected_people": 6,
+            "website": "https://seattleu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Seattle_University"
+        },
+        {
+            "name": "Shoreline Community College",
+            "state": "Washington",
+            "affected_people": 3,
+            "website": "http://www.shoreline.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Shoreline_Community_College"
+        },
+        {
+            "name": "Siena College",
+            "state": "New York",
+            "affected_people": 1,
+            "website": "http://www.siena.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Siena_College"
+        },
+        {
+            "name": "Sinclair Community College",
+            "state": "Ohio",
+            "affected_people": 3,
+            "website": "https://www.sinclair.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Sinclair_Community_College"
+        },
+        {
+            "name": "Snow College",
+            "state": "Utah",
+            "affected_people": 2,
+            "website": "",
+            "wikipedia": ""
+        },
+        {
+            "name": "South Central College",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "",
+            "wikipedia": ""
+        },
+        {
+            "name": "South Dakota School of Mines and Technology",
+            "state": "South Dakota",
+            "affected_people": 1,
+            "website": "https://www.sdsmt.edu/index.html",
+            "wikipedia": "https://en.wikipedia.org/wiki/South_Dakota_School_of_Mines_and_Technology"
+        },
+        {
+            "name": "South Dakota State University",
+            "state": "South Dakota",
+            "affected_people": "unknown",
+            "website": "https://sdstate.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/South_Dakota_State_University"
+        },
+        {
+            "name": "Southeast Missouri State University",
+            "state": "Missouri",
+            "affected_people": 24,
+            "website": "https://semo.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southeast_Missouri_State_University"
+        },
+        {
+            "name": "Southeastern Community College",
+            "state": "Mississippi",
+            "affected_people": 2,
+            "website": "http://www.sccnc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Community_College_(North_Carolina)"
+        },
+        {
+            "name": "Southeastern Community College",
+            "state": "Mississippi",
+            "affected_people": "unknown",
+            "website": "http://www.scciowa.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Community_College_(Iowa)"
+        },
+        {
+            "name": "Southern Illinois University Carbondale",
+            "state": "Illinois",
+            "affected_people": 1,
+            "website": "https://siu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Illinois_University_Carbondale"
+        },
+        {
+            "name": "Southern Illinois University Edwardsville",
+            "state": "Illinois",
+            "affected_people": 8,
+            "website": "https://www.siue.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Illinois_University_Edwardsville"
+        },
+        {
+            "name": "Southern Methodist University",
+            "state": "Texas",
+            "affected_people": "unknown",
+            "website": "https://www.smu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Methodist_University"
+        },
+        {
+            "name": "Southern New Hampshire University",
+            "state": "New Hampshire",
+            "affected_people": "unknown",
+            "website": "http://www.snhu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_New_Hampshire_University"
+        },
+        {
+            "name": "Southern University",
+            "state": "Louisiana",
+            "affected_people": 7,
+            "website": "http://www.subr.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_University"
+        },
+        {
+            "name": "Southern University at New Orleans",
+            "state": "Louisiana",
+            "affected_people": 2,
+            "website": "https://www.suno.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_University_at_New_Orleans"
+        },
+        {
+            "name": "Southern Utah University",
+            "state": "Utah",
+            "affected_people": 9,
+            "website": "http://www.suu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Utah_University"
+        },
+        {
+            "name": "Southwest Minnesota State University",
+            "state": "Minnesota",
+            "affected_people": 3,
+            "website": "https://www.smsu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Southwest_Minnesota_State_University"
+        },
+        {
+            "name": "Spring Hill College",
+            "state": "Alabama",
+            "affected_people": 1,
+            "website": "http://www.shc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Spring_Hill_College"
+        },
+        {
+            "name": "St. Bonaventure University",
+            "state": "New York",
+            "affected_people": 1,
+            "website": "http://www.sbu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/St._Bonaventure_University"
+        },
+        {
+            "name": "St. Cloud State University",
+            "state": "Minnesota",
+            "affected_people": 8,
+            "website": "https://www.stcloudstate.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/St._Cloud_State_University"
+        },
+        {
+            "name": "Stanford University",
+            "state": "California",
+            "affected_people": 6,
+            "website": "https://stanford.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University"
+        },
+        {
+            "name": "State University of New York at Albany",
+            "state": "New York",
+            "affected_people": 4,
+            "website": "https://www.albany.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_at_Albany,_SUNY"
+        },
+        {
+            "name": "State University of New York at Plattsburgh",
+            "state": "New York",
+            "affected_people": 1,
+            "website": "https://www.plattsburgh.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/State_University_of_New_York_at_Plattsburgh"
+        },
+        {
+            "name": "Stetson University",
+            "state": "Florida",
+            "affected_people": 1,
+            "website": "http://www.stetson.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Stetson_University"
+        },
+        {
+            "name": "Stony Brook University",
+            "state": "New York",
+            "affected_people": 11,
+            "website": "https://www.stonybrook.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Stony_Brook_University"
+        },
+        {
+            "name": "Syracuse University",
+            "state": "New York",
+            "affected_people": 3,
+            "website": "https://www.syracuse.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Syracuse_University"
+        },
+        {
+            "name": "Tarrant County College",
+            "state": "",
+            "affected_people": 5,
+            "website": "https://www.tccd.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Tarrant_County_College"
+        },
+        {
+            "name": "Temple University",
+            "state": "Pennsylvania",
+            "affected_people": 5,
+            "website": "https://www.temple.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Temple_University"
+        },
+        {
+            "name": "Texas A&M International University",
+            "state": "Texas",
+            "affected_people": 1,
+            "website": "http://www.tamiu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_International_University"
+        },
+        {
+            "name": "Texas A&M University",
+            "state": "Texas",
+            "affected_people": 23,
+            "website": "https://www.tamu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University"
+        },
+        {
+            "name": "Texas A&M University at Galveston",
+            "state": "Texas",
+            "affected_people": 1,
+            "website": "https://www.tamug.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University_at_Galveston"
+        },
+        {
+            "name": "Texas A&M University–Corpus Christi",
+            "state": "Texas",
+            "affected_people": 3,
+            "website": "http://www.tamucc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Corpus_Christi"
+        },
+        {
+            "name": "Texas A&M University–Kingsville",
+            "state": "Texas",
+            "affected_people": 9,
+            "website": "https://www.tamuk.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Kingsville"
+        },
+        {
+            "name": "Texas A&M University–Texarkana",
+            "state": "Texas",
+            "affected_people": 1,
+            "website": "https://tamut.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Texarkana"
+        },
+        {
+            "name": "Texas State University",
+            "state": "Texas",
+            "affected_people": 2,
+            "website": "https://www.txst.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_State_University"
+        },
+        {
+            "name": "Texas Tech University",
+            "state": "Texas",
+            "affected_people": 3,
+            "website": "https://www.ttu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Tech_University"
+        },
+        {
+            "name": "Texas Wesleyan University",
+            "state": "Texas",
+            "affected_people": 4,
+            "website": "https://www.txwes.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Wesleyan_University"
+        },
+        {
+            "name": "Texas Woman's University",
+            "state": "Texas",
+            "affected_people": 4,
+            "website": "https://twu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Woman%27s_University"
+        },
+        {
+            "name": "The Catholic University of America",
+            "state": "District of Columbia",
+            "affected_people": 1,
+            "website": "https://www.catholic.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Catholic_University_of_America"
+        },
+        {
+            "name": "The New School",
+            "state": "New York",
+            "affected_people": 7,
+            "website": "https://www.newschool.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/The_New_School"
+        },
+        {
+            "name": "Trine University",
+            "state": "Indiana",
+            "affected_people": 1,
+            "website": "https://www.trine.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Trine_University"
+        },
+        {
+            "name": "Troy University",
+            "state": "Alabama",
+            "affected_people": 2,
+            "website": "http://www.troy.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Troy_University"
+        },
+        {
+            "name": "Tufts University",
+            "state": "Massachusetts",
+            "affected_people": 2,
+            "website": "https://tufts.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Tufts_University"
+        },
+        {
+            "name": "Tulane University",
+            "state": "Louisiana",
+            "affected_people": 2,
+            "website": "https://tulane.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Tulane_University"
+        },
+        {
+            "name": "Underwood University",
+            "state": "Georgia",
+            "affected_people": 1,
+            "website": "https://underwood.edu/",
+            "wikipedia": ""
+        },
+        {
+            "name": "University at Buffalo",
+            "state": "New York",
+            "affected_people": 13,
+            "website": "https://www.buffalo.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_at_Buffalo"
+        },
+        {
+            "name": "University of Akron",
+            "state": "Ohio",
+            "affected_people": 2,
+            "website": "http://www.uakron.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Akron"
+        },
+        {
+            "name": "University of Alabama",
+            "state": "Alabama",
+            "affected_people": 1,
+            "website": "https://www.ua.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alabama"
+        },
+        {
+            "name": "University of Alaska Anchorage",
+            "state": "Alaska",
+            "affected_people": 4,
+            "website": "https://www.uaa.alaska.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alaska_Anchorage"
+        },
+        {
+            "name": "University of Arizona",
+            "state": "Arizona",
+            "affected_people": "unknown",
+            "website": "https://www.arizona.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Arizona"
+        },
+        {
+            "name": "University of Arkansas",
+            "state": "Arkansas",
+            "affected_people": 5,
+            "website": "https://www.uark.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Arkansas"
+        },
+        {
+            "name": "University of California, Berkeley",
+            "state": "California",
+            "affected_people": 29,
+            "website": "https://berkeley.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Berkeley"
+        },
+        {
+            "name": "University of California, Davis",
+            "state": "California",
+            "affected_people": 23,
+            "website": "https://ucdavis.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Davis"
+        },
+        {
+            "name": "University of California, Irvine",
+            "state": "California",
+            "affected_people": 5,
+            "website": "https://uci.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Irvine"
+        },
+        {
+            "name": "University of California, Los Angeles",
+            "state": "California",
+            "affected_people": 12,
+            "website": "https://ucla.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Los_Angeles"
+        },
+        {
+            "name": "University of California, Merced",
+            "state": "California",
+            "affected_people": 4,
+            "website": "https://www.ucmerced.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Merced"
+        },
+        {
+            "name": "University of California, Riverside",
+            "state": "California",
+            "affected_people": 6,
+            "website": "https://ucr.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Riverside"
+        },
+        {
+            "name": "University of California, San Diego",
+            "state": "California",
+            "affected_people": 35,
+            "website": "https://ucsd.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_San_Diego"
+        },
+        {
+            "name": "University of California, Santa Barbara",
+            "state": "California",
+            "affected_people": "unknown",
+            "website": "https://ucsb.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Barbara"
+        },
+        {
+            "name": "University of California, Santa Cruz",
+            "state": "California",
+            "affected_people": 3,
+            "website": "https://www.ucsc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Cruz"
+        },
+        {
+            "name": "University of Central Florida",
+            "state": "Florida",
+            "affected_people": 15,
+            "website": "http://www.ucf.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Central_Florida"
+        },
+        {
+            "name": "University of Central Oklahoma",
+            "state": "Oklahoma",
+            "affected_people": 4,
+            "website": "https://www.uco.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Central_Oklahoma"
+        },
+        {
+            "name": "University of Chicago",
+            "state": "Illinois",
+            "affected_people": 7,
+            "website": "https://www.uchicago.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Chicago"
+        },
+        {
+            "name": "University of Cincinnati",
+            "state": "Ohio",
+            "affected_people": 1,
+            "website": "https://www.uc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Cincinnati"
+        },
+        {
+            "name": "University of Colorado (all campuses)",
+            "state": "Colorado",
+            "affected_people": 34,
+            "website": "",
+            "wikipedia": ""
+        },
+        {
+            "name": "University of Connecticut",
+            "state": "Connecticut",
+            "affected_people": 13,
+            "website": "https://uconn.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Connecticut"
+        },
+        {
+            "name": "University of Delaware",
+            "state": "Delaware",
+            "affected_people": 8,
+            "website": "https://www.udel.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Delaware"
+        },
+        {
+            "name": "University of Findlay",
+            "state": "Ohio",
+            "affected_people": 3,
+            "website": "https://www.findlay.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Findlay"
+        },
+        {
+            "name": "University of Florida",
+            "state": "Florida",
+            "affected_people": 8,
+            "website": "https://www.ufl.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Florida"
+        },
+        {
+            "name": "University of Georgia",
+            "state": "Georgia",
+            "affected_people": "unknown",
+            "website": "https://uga.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Georgia"
+        },
+        {
+            "name": "University of Hawaiʻi System",
+            "state": "Hawaiʻi",
+            "affected_people": "unknown",
+            "website": "https://www.hawaii.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Hawai%CA%BBi_System"
+        },
+        {
+            "name": "University of Houston",
+            "state": "Texas",
+            "affected_people": 1,
+            "website": "https://www.uh.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Houston"
+        },
+        {
+            "name": "University of Idaho",
+            "state": "Idaho",
+            "affected_people": 4,
+            "website": "https://www.uidaho.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Idaho"
+        },
+        {
+            "name": "University of Illinois at Chicago",
+            "state": "Illinois",
+            "affected_people": "unknown",
+            "website": "https://www.uic.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Chicago"
+        },
+        {
+            "name": "University of Illinois Urbana–Champaign",
+            "state": "Illinois",
+            "affected_people": 19,
+            "website": "https://illinois.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Urbana-Champaign"
+        },
+        {
+            "name": "University of Iowa",
+            "state": "Iowa",
+            "affected_people": 5,
+            "website": "https://uiowa.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Iowa"
+        },
+        {
+            "name": "University of Kansas",
+            "state": "Kansas",
+            "affected_people": "unknown",
+            "website": "https://www.ku.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Kansas"
+        },
+        {
+            "name": "University of Kentucky",
+            "state": "Kentucky",
+            "affected_people": "unknown",
+            "website": "https://uky.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Kentucky"
+        },
+        {
+            "name": "University of Louisiana at Lafayette",
+            "state": "Louisiana",
+            "affected_people": 3,
+            "website": "https://louisiana.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Louisiana_at_Lafayette"
+        },
+        {
+            "name": "University of Louisville",
+            "state": "Kentucky",
+            "affected_people": 3,
+            "website": "http://www.louisville.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Louisville"
+        },
+        {
+            "name": "University of Maryland",
+            "state": "Maryland",
+            "affected_people": "unknown",
+            "website": "https://umd.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_College_Park"
+        },
+        {
+            "name": "University of Maryland, Baltimore County",
+            "state": "Maryland",
+            "affected_people": 4,
+            "website": "https://www.umbc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_Baltimore_County"
+        },
+        {
+            "name": "University of Massachusetts Amherst",
+            "state": "Massachusetts",
+            "affected_people": 13,
+            "website": "https://www.umass.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Amherst"
+        },
+        {
+            "name": "University of Massachusetts Boston",
+            "state": "Massachusetts",
+            "affected_people": 11,
+            "website": "https://www.umb.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Boston"
+        },
+        {
+            "name": "University of Massachusetts Lowell",
+            "state": "Massachusetts",
+            "affected_people": 1,
+            "website": "http://www.uml.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Lowell"
+        },
+        {
+            "name": "University of Memphis",
+            "state": "Tennessee",
+            "affected_people": 5,
+            "website": "http://www.memphis.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Memphis"
+        },
+        {
+            "name": "University of Miami",
+            "state": "Florida",
+            "affected_people": 11,
+            "website": "https://welcome.miami.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Miami"
+        },
+        {
+            "name": "University of Michigan",
+            "state": "Michigan",
+            "affected_people": 22,
+            "website": "https://umich.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan"
+        },
+        {
+            "name": "University of Michigan–Dearborn",
+            "state": "Michigan",
+            "affected_people": 6,
+            "website": "http://www.umd.umich.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan%E2%80%93Dearborn"
+        },
+        {
+            "name": "University of Michigan–Flint",
+            "state": "Michigan",
+            "affected_people": 3,
+            "website": "http://www.umflint.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan%E2%80%93Flint"
+        },
+        {
+            "name": "University of Minnesota",
+            "state": "Minnesota",
+            "affected_people": 11,
+            "website": "https://twin-cities.umn.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Minnesota"
+        },
+        {
+            "name": "University of Missouri",
+            "state": "Missouri",
+            "affected_people": "unknown",
+            "website": "https://www.missouri.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Missouri"
+        },
+        {
+            "name": "University of Montana",
+            "state": "Montana",
+            "affected_people": 1,
+            "website": "http://www.umt.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Montana"
+        },
+        {
+            "name": "University of Nebraska System",
+            "state": "Nebraska",
+            "affected_people": "unknown",
+            "website": "",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska_system"
+        },
+        {
+            "name": "University of Nebraska–Lincoln",
+            "state": "Nebraska",
+            "affected_people": 3,
+            "website": "http://www.unl.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska%E2%80%93Lincoln"
+        },
+        {
+            "name": "University of Nevada, Las Vegas",
+            "state": "Nevada",
+            "affected_people": 4,
+            "website": "https://unlv.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nevada,_Las_Vegas"
+        },
+        {
+            "name": "University of New Hampshire",
+            "state": "New Hampshire",
+            "affected_people": 3,
+            "website": "https://www.unh.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Hampshire"
+        },
+        {
+            "name": "University of New Mexico",
+            "state": "New Mexico",
+            "affected_people": "unknown",
+            "website": "https://www.unm.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Mexico"
+        },
+        {
+            "name": "University of New Orleans",
+            "state": "Louisiana",
+            "affected_people": 2,
+            "website": "http://www.uno.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Orleans"
+        },
+        {
+            "name": "University of North Carolina at Chapel Hill",
+            "state": "North Carolina",
+            "affected_people": 6,
+            "website": "https://unc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Chapel_Hill"
+        },
+        {
+            "name": "University of North Carolina at Charlotte",
+            "state": "North Carolina",
+            "affected_people": 6,
+            "website": "https://charlotte.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Charlotte"
+        },
+        {
+            "name": "University of North Carolina at Greensboro",
+            "state": "North Carolina",
+            "affected_people": 2,
+            "website": "http://www.uncg.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Greensboro"
+        },
+        {
+            "name": "University of North Texas",
+            "state": "Texas",
+            "affected_people": 27,
+            "website": "https://www.unt.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Texas"
+        },
+        {
+            "name": "University of Northern Iowa",
+            "state": "Iowa",
+            "affected_people": 2,
+            "website": "http://www.uni.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Northern_Iowa"
+        },
+        {
+            "name": "University of Notre Dame",
+            "state": "Indiana",
+            "affected_people": 4,
+            "website": "https://www.nd.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Notre_Dame"
+        },
+        {
+            "name": "University of Oregon",
+            "state": "Oregon",
+            "affected_people": 4,
+            "website": "http://www.uoregon.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oregon"
+        },
+        {
+            "name": "University of Pennsylvania",
+            "state": "Pennsylvania",
+            "affected_people": 8,
+            "website": "https://upenn.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Pennsylvania"
+        },
+        {
+            "name": "University of Pittsburgh",
+            "state": "Pennsylvania",
+            "affected_people": 3,
+            "website": "https://www.pitt.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Pittsburgh"
+        },
+        {
+            "name": "University of Rochester",
+            "state": "New York",
+            "affected_people": 11,
+            "website": "https://www.rochester.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Rochester"
+        },
+        {
+            "name": "University of South Carolina",
+            "state": "South Carolina",
+            "affected_people": 12,
+            "website": "https://sc.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_South_Carolina"
+        },
+        {
+            "name": "University of Tennessee",
+            "state": "Tennessee",
+            "affected_people": 4,
+            "website": "https://www.utk.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tennessee"
+        },
+        {
+            "name": "University of Texas at Arlington",
+            "state": "Texas",
+            "affected_people": 27,
+            "website": "http://www.uta.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Arlington"
+        },
+        {
+            "name": "University of Texas at Austin",
+            "state": "Texas",
+            "affected_people": 16,
+            "website": "https://www.utexas.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Austin"
+        },
+        {
+            "name": "University of Texas at Dallas",
+            "state": "Texas",
+            "affected_people": 19,
+            "website": "https://www.utdallas.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Dallas"
+        },
+        {
+            "name": "University of Texas at El Paso",
+            "state": "Texas",
+            "affected_people": 10,
+            "website": "https://www.utep.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_El_Paso"
+        },
+        {
+            "name": "University of Texas at San Antonio",
+            "state": "Texas",
+            "affected_people": 4,
+            "website": "http://www.utsa.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_San_Antonio"
+        },
+        {
+            "name": "University of Texas Rio Grande Valley",
+            "state": "Texas",
+            "affected_people": 9,
+            "website": "http://www.utrgv.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_Rio_Grande_Valley"
+        },
+        {
+            "name": "University of Texas System",
+            "state": "Texas",
+            "affected_people": 85,
+            "website": "",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_System"
+        },
+        {
+            "name": "University of the Pacific",
+            "state": "California",
+            "affected_people": 2,
+            "website": "https://www.pacific.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Pacific_(United_States)"
+        },
+        {
+            "name": "University of Toledo",
+            "state": "Ohio",
+            "affected_people": "unknown",
+            "website": "http://www.utoledo.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Toledo"
+        },
+        {
+            "name": "University of Utah",
+            "state": "Utah",
+            "affected_people": 20,
+            "website": "https://www.utah.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Utah"
+        },
+        {
+            "name": "University of Virginia",
+            "state": "Virginia",
+            "affected_people": 3,
+            "website": "https://virginia.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Virginia"
+        },
+        {
+            "name": "University of Washington",
+            "state": "Washington",
+            "affected_people": 23,
+            "website": "https://washington.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Washington"
+        },
+        {
+            "name": "University of Washington Tacoma",
+            "state": "Washington",
+            "affected_people": 2,
+            "website": "http://www.tacoma.uw.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Washington_Tacoma"
+        },
+        {
+            "name": "University of Wisconsin-Superior",
+            "state": "Wisconsin",
+            "affected_people": 1,
+            "website": "http://www.uwsuper.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Superior"
+        },
+        {
+            "name": "University of Wisconsin–Madison",
+            "state": "Wisconsin",
+            "affected_people": 14,
+            "website": "https://wisc.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison"
+        },
+        {
+            "name": "University of Wisconsin–Milwaukee",
+            "state": "Wisconsin",
+            "affected_people": 13,
+            "website": "http://www.uwm.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Milwaukee"
+        },
+        {
+            "name": "University of Wyoming",
+            "state": "Wyoming",
+            "affected_people": "unknown",
+            "website": "http://www.uwyo.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wyoming"
+        },
+        {
+            "name": "Utah State University",
+            "state": "Utah",
+            "affected_people": 18,
+            "website": "http://www.usu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Utah_State_University"
+        },
+        {
+            "name": "Utah Tech University",
+            "state": "Utah",
+            "affected_people": 9,
+            "website": "https://utahtech.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Utah_Tech_University"
+        },
+        {
+            "name": "Utah Valley University",
+            "state": "Utah",
+            "affected_people": 3,
+            "website": "https://www.uvu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Utah_Valley_University"
+        },
+        {
+            "name": "Virginia Commonwealth University",
+            "state": "Virginia",
+            "affected_people": 3,
+            "website": "https://www.vcu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Virginia_Commonwealth_University"
+        },
+        {
+            "name": "Virginia Tech",
+            "state": "Virginia",
+            "affected_people": 9,
+            "website": "https://www.vt.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Virginia_Tech"
+        },
+        {
+            "name": "Walsh University",
+            "state": "Ohio",
+            "affected_people": 4,
+            "website": "http://www.walsh.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Walsh_University"
+        },
+        {
+            "name": "Washington State University",
+            "state": "Washington",
+            "affected_people": 3,
+            "website": "https://wsu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Washington_State_University"
+        },
+        {
+            "name": "Washington University in St. Louis",
+            "state": "Missouri",
+            "affected_people": "unknown",
+            "website": "https://washu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Washington_University_in_St._Louis"
+        },
+        {
+            "name": "Wayne State University",
+            "state": "Michigan",
+            "affected_people": 12,
+            "website": "https://wayne.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Wayne_State_University"
+        },
+        {
+            "name": "Weber State University",
+            "state": "Utah",
+            "affected_people": 5,
+            "website": "https://www.weber.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Weber_State_University"
+        },
+        {
+            "name": "Webster University",
+            "state": "Missouri",
+            "affected_people": 18,
+            "website": "https://www.webster.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Webster_University"
+        },
+        {
+            "name": "Webster University San Antonio",
+            "state": "Texas",
+            "affected_people": 6,
+            "website": "https://www.webster.edu/locations/sanantonio/",
+            "wikipedia": "https://en.wikipedia.org/wiki/Webster_University"
+        },
+        {
+            "name": "West Virginia University",
+            "state": "West Virginia",
+            "affected_people": 9,
+            "website": "http://www.wvu.edu/",
+            "wikipedia": "https://en.wikipedia.org/wiki/West_Virginia_University"
+        },
+        {
+            "name": "West Virginia University Institute of Technology",
+            "state": "West Virginia",
+            "affected_people": 1,
+            "website": "http://www.wvutech.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/West_Virginia_University_Institute_of_Technology"
+        },
+        {
+            "name": "Western Illinois University",
+            "state": "Illinois",
+            "affected_people": "unknown",
+            "website": "http://www.wiu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Western_Illinois_University"
+        },
+        {
+            "name": "Western Michigan University",
+            "state": "Michigan",
+            "affected_people": 4,
+            "website": "https://wmich.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Western_Michigan_University"
+        },
+        {
+            "name": "Winona State University",
+            "state": "Minnesota",
+            "affected_people": 1,
+            "website": "http://www.winona.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Winona_State_University"
+        },
+        {
+            "name": "Worcester Polytechnic Institute",
+            "state": "Massachusetts",
+            "affected_people": 4,
+            "website": "http://www.wpi.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Worcester_Polytechnic_Institute"
+        },
+        {
+            "name": "Xavier University",
+            "state": "Ohio",
+            "affected_people": 4,
+            "website": "http://www.xavier.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Xavier_University"
+        },
+        {
+            "name": "Yale University",
+            "state": "Connecticut",
+            "affected_people": 4,
+            "website": "https://yale.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Yale_University"
+        },
+        {
+            "name": "Youngstown State University",
+            "state": "Ohio",
+            "affected_people": 14,
+            "website": "http://www.ysu.edu",
+            "wikipedia": "https://en.wikipedia.org/wiki/Youngstown_State_University"
+        }
+    ]
+}
