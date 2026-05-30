@@ -658,11 +658,16 @@ function svrFilterInstitutions(q) {
             .attr('preserveAspectRatio', 'xMidYMid meet');
         var g = svg.append('g');
 
-        // State outlines
+        // State outlines. Paint via presentation attributes (not just the
+        // CSS class) so a global SVG rule can't override the fill and hide
+        // the map or paint over the dots.
         g.append('g').selectAll('path')
             .data(statesFc.features)
             .join('path')
             .attr('class', 'svr-state')
+            .attr('fill', '#15151b')
+            .attr('stroke', 'rgba(255,255,255,.28)')
+            .attr('stroke-width', 0.6)
             .attr('d', path);
 
         // Project points once; keep only those the projection can place
@@ -679,6 +684,12 @@ function svrFilterInstitutions(q) {
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; })
             .attr('r', 3.5)
+            // Set paint as presentation attributes so the dots render even if
+            // the page's CSS for .svr-dot is overridden by a global SVG rule.
+            .attr('fill', '#5660fe')
+            .attr('stroke', '#ffffff')
+            .attr('stroke-width', 1.2)
+            .style('cursor', 'pointer')
             .attr('data-state', function (d) { return d.p.state || ''; });
 
         dots.on('mousemove', function (event, d) {
