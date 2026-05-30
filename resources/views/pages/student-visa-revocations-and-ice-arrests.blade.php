@@ -98,8 +98,23 @@
     .svr-map-note { font-size: 13px; color: rgba(255,255,255,.55); max-width: 540px; margin: 0; }
     .svr-map-embed { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
     .svr-map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-    .svr-table-embed { width: 100%; height: clamp(420px, 56vh, 560px); margin: 8px 0 22px; background: #fff; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
-    .svr-table-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+    /* ---- native institutions table ---- */
+    .svr-tbl-total { font-size: 1.35rem; font-weight: 800; color: #fff; margin: 6px 0 14px; }
+    .svr-tbl-total span { font-weight: 600; font-size: 1rem; color: rgba(255,255,255,.55); }
+    .svr-tbl-search { width: 100%; max-width: 420px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 10px 14px; font-size: 14px; border-radius: 8px; outline: none; margin-bottom: 16px; }
+    .svr-tbl-search::placeholder { color: rgba(255,255,255,.4); }
+    .svr-tbl-search:focus { border-color: #5660fe; }
+    .svr-tbl-wrap { max-height: clamp(420px, 56vh, 560px); overflow-y: auto; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; }
+    .svr-tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .svr-tbl thead th { position: sticky; top: 0; background: #16161c; color: #fff; text-align: left; font-weight: 800; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.14); z-index: 1; }
+    .svr-tbl tbody td { padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,.07); color: rgba(255,255,255,.82); vertical-align: top; }
+    .svr-tbl tbody tr:last-child td { border-bottom: 0; }
+    .svr-tbl tbody tr:hover td { background: rgba(255,255,255,.03); }
+    .svr-tbl a { color: #8b92ff; text-decoration: none; }
+    .svr-tbl a:hover { color: #fff; text-decoration: underline; }
+    .svr-tbl-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .svr-tbl-unknown { color: rgba(255,255,255,.4); font-style: italic; }
+    .svr-tbl-empty { padding: 22px 16px; margin: 0; color: rgba(255,255,255,.5); font-style: italic; }
 
     /* ---- trackers + news lists ---- */
     .svr-list { list-style: none; margin: 0; padding: 0; }
@@ -207,15 +222,51 @@
                         loading="lazy" allow="fullscreen"></iframe>
                 </div>
                 <h3 style="margin-top: 8px;">Affected institutions</h3>
-                <p class="svr-map-sub">The running total of known affected people, and the full list of colleges and universities, searchable by name and state.</p>
-                <div class="svr-table-embed">
-                    <iframe
-                        src="https://observablehq.com/embed/bf4a008daf711602@255?cells=totalDisplay%2Cviewof+FullInstitutionsTable"
-                        title="Affected institutions and total known affected people — Nimble Tent Data Viewer"
-                        loading="lazy" allow="fullscreen"></iframe>
-                </div>
+                @php
+                    $instPath = base_path('resources/data/affected-institutions.json');
+                    $instData = is_file($instPath) ? json_decode(file_get_contents($instPath), true) : null;
+                    $institutions = $instData['institutions'] ?? [];
+                    $totalAffected = $instData['total_affected'] ?? null;
+                    $instCount = $instData['count'] ?? count($institutions);
+                @endphp
+                <p class="svr-map-sub">The running total of known affected people, and the full list of colleges and universities. Search by name or state.</p>
+                @if($institutions)
+                    <div class="svr-tbl-total">TOTAL: {{ number_format((int) $totalAffected) }} known affected people <span>· {{ number_format((int) $instCount) }} institutions</span></div>
+                    <input type="text" class="svr-tbl-search" id="svr-inst-search" placeholder="Search institutions or states…" onkeyup="svrFilterInstitutions(this.value)" aria-label="Search affected institutions">
+                    <div class="svr-tbl-wrap">
+                        <table class="svr-tbl" id="svr-inst-table">
+                            <thead>
+                                <tr><th>Institution</th><th>State</th><th class="svr-tbl-num">Affected people</th></tr>
+                            </thead>
+                            <tbody>
+                                @foreach($institutions as $inst)
+                                    <tr>
+                                        <td>
+                                            @if(! empty($inst['website']))
+                                                <a href="{{ $inst['website'] }}" target="_blank" rel="noopener">{{ $inst['name'] }}</a>
+                                            @else
+                                                {{ $inst['name'] }}
+                                            @endif
+                                        </td>
+                                        <td>{{ $inst['state'] }}</td>
+                                        <td class="svr-tbl-num">
+                                            @if(is_numeric($inst['affected_people']))
+                                                {{ number_format((int) $inst['affected_people']) }}
+                                            @else
+                                                <span class="svr-tbl-unknown">unknown</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <p class="svr-tbl-empty" id="svr-inst-empty" hidden>No institutions match your search.</p>
+                    </div>
+                @else
+                    <p class="svr-map-note">Institution data is being synced. Run <code>php artisan visa:sync-institutions</code> to populate it.</p>
+                @endif
                 <div class="svr-map-foot">
-                    <p class="svr-map-note">Map data is compiled and maintained by the Nimble Tent Data Viewer. Reporting a case helps document where students are being detained and visas pulled.</p>
+                    <p class="svr-map-note">Map and institution data compiled by the Nimble Tent Data Viewer; the table is mirrored and rendered by NPPC@if(! empty($instData['synced_at'])), last synced {{ \Illuminate\Support\Carbon::parse($instData['synced_at'])->format('M j, Y') }}@endif. Reporting a case helps document where students are being detained and visas pulled.</p>
                     <a class="svr-btn svr-btn-ghost" href="/contact">Report a visa revocation</a>
                 </div>
             </div>
@@ -505,4 +556,26 @@
     </div>
 
 </div>
+
+<script>
+// Client-side filter for the affected-institutions table: match the typed
+// query against the institution name and state, hide non-matching rows, and
+// show an empty-state message when nothing matches.
+function svrFilterInstitutions(q) {
+    q = (q || '').trim().toLowerCase();
+    var table = document.getElementById('svr-inst-table');
+    if (!table) return;
+    var rows = table.tBodies[0] ? table.tBodies[0].rows : [];
+    var shown = 0;
+    for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].cells;
+        var hay = ((cells[0] ? cells[0].textContent : '') + ' ' + (cells[1] ? cells[1].textContent : '')).toLowerCase();
+        var match = q === '' || hay.indexOf(q) !== -1;
+        rows[i].style.display = match ? '' : 'none';
+        if (match) shown++;
+    }
+    var empty = document.getElementById('svr-inst-empty');
+    if (empty) empty.hidden = shown !== 0;
+}
+</script>
 @endsection
