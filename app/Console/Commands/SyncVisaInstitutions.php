@@ -26,6 +26,15 @@ class SyncVisaInstitutions extends Command {
     /** Where the snapshot lives; the Blade page reads this file. */
     public const SNAPSHOT_PATH = 'resources/data/affected-institutions.json';
 
+    /**
+     * Known wrong state values in the upstream Baserow data, keyed by exact
+     * institution name. Applied on every sync so the map's state filter
+     * groups these campuses correctly.
+     */
+    public const STATE_CORRECTIONS = [
+        'Bridgewater State University' => 'Massachusetts', // tagged "Minnesota" upstream; campus is in Bridgewater, MA
+    ];
+
     public function handle(): int {
         $token = (string) $this->option('token');
         $tableId = (string) $this->option('table');
@@ -64,9 +73,13 @@ class SyncVisaInstitutions extends Command {
 
         $institutions = [];
         foreach ($rows as $row) {
+            $name = (string) ($row['institution'] ?? '');
             $institutions[] = [
-                'name' => (string) ($row['institution'] ?? ''),
-                'state' => (string) ($row['state'] ?? ''),
+                'name' => $name,
+                // Correct known wrong state values in the upstream data
+                // (e.g. Bridgewater State University is tagged Minnesota but
+                // its campus and coordinates are in Massachusetts).
+                'state' => self::STATE_CORRECTIONS[$name] ?? (string) ($row['state'] ?? ''),
                 'affected_people' => $this->affectedPeople($row['tally'] ?? null),
                 'website' => (string) ($row['website'] ?? ''),
                 'wikipedia' => (string) ($row['wikipedia-url'] ?? ''),

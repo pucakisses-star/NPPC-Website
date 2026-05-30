@@ -732,7 +732,9 @@ function svrFilterInstitutions(q) {
             var b = path.bounds(feat);
             var dx = b[1][0] - b[0][0], dy = b[1][1] - b[0][1];
             var x = (b[0][0] + b[1][0]) / 2, y = (b[0][1] + b[1][1]) / 2;
-            var scale = Math.min(12, 0.85 / Math.max(dx / W, dy / H));
+            // Fill ~115% of the viewport (state slightly overflows the frame)
+            // so the selected state zooms in close, capped at 16x.
+            var scale = Math.min(16, 1.15 / Math.max(dx / W, dy / H));
             var translate = [W / 2 - scale * x, H / 2 - scale * y];
             svg.transition().duration(800).call(
                 zoom.transform,
