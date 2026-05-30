@@ -104,7 +104,7 @@
     .svr-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .svr-case { border: 1px solid #e7e9ee; border-radius: 12px; padding: 22px; display: flex; gap: 16px; align-items: flex-start; background: #fff; transition: border-color .2s, box-shadow .2s; }
     .svr-case:hover { border-color: #d6d9df; box-shadow: 0 8px 24px rgba(17,17,17,.06); }
-    .svr-avatar { width: 58px; height: 58px; border-radius: 50%; flex: 0 0 auto; background: #fbe9ec; color: #c8102e; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; border: 1px solid #f3c2c8; letter-spacing: .02em; }
+    .svr-avatar { width: 58px; height: 58px; border-radius: 50%; flex: 0 0 auto; background: #fbe9ec; color: #c8102e; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; border: 1px solid #f3c2c8; letter-spacing: .02em; object-fit: cover; overflow: hidden; }
     .svr-case-body { min-width: 0; }
     .svr-case h3 { font-size: 1.15rem; font-weight: 800; color: #111; margin: 0 0 2px; }
     .svr-case-role { font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: #6b7280; margin: 0 0 10px; font-weight: 700; }
@@ -318,7 +318,7 @@
         <div class="svr-cases">
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">MK</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/mahmoud-khalil.webp') }}" alt="Mahmoud Khalil" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Mahmoud Khalil</h3>
                     <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
@@ -329,7 +329,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">RÖ</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/rumeysa-ozturk.webp') }}" alt="Rümeysa Öztürk" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Rümeysa Öztürk</h3>
                     <p class="svr-case-role">Tufts University · F-1 PhD student</p>
@@ -340,7 +340,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">BS</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/badar-khan-suri.webp') }}" alt="Badar Khan Suri" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Badar Khan Suri</h3>
                     <p class="svr-case-role">Georgetown University · J-1 scholar</p>
@@ -351,7 +351,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">MM</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/mohsen-mahdawi.webp') }}" alt="Mohsen Mahdawi" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Mohsen Mahdawi</h3>
                     <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
@@ -362,7 +362,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">YC</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/yunseo-chung.webp') }}" alt="Yunseo Chung" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Yunseo Chung</h3>
                     <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
@@ -373,7 +373,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">RA</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/rasha-alawieh.webp') }}" alt="Rasha Alawieh" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Rasha Alawieh</h3>
                     <p class="svr-case-role">Brown University · H-1B physician</p>
@@ -384,7 +384,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">KP</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/kseniia-petrova.webp') }}" alt="Kseniia Petrova" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Kseniia Petrova</h3>
                     <p class="svr-case-role">Harvard Medical School · J-1 researcher</p>
@@ -395,7 +395,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">DG</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/dogukan-gunaydin.webp') }}" alt="Doğukan Günaydın" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Doğukan Günaydın</h3>
                     <p class="svr-case-role">University of Minnesota · F-1 graduate student</p>
@@ -406,7 +406,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">AD</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/alireza-doroudi.webp') }}" alt="Alireza Doroudi" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Alireza Doroudi</h3>
                     <p class="svr-case-role">University of Alabama · F-1 PhD student</p>
@@ -417,7 +417,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">MT</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/momodou-taal.webp') }}" alt="Momodou Taal" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Momodou Taal</h3>
                     <p class="svr-case-role">Cornell University · PhD student</p>
@@ -428,7 +428,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">RS</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/ranjani-srinivasan.webp') }}" alt="Ranjani Srinivasan" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Ranjani Srinivasan</h3>
                     <p class="svr-case-role">Columbia University · F-1 PhD student</p>
@@ -439,7 +439,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">XW</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/xiaofeng-wang.webp') }}" alt="Xiaofeng Wang" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Xiaofeng Wang</h3>
                     <p class="svr-case-role">Indiana University · Professor</p>
@@ -450,7 +450,7 @@
             </div>
 
             <div class="svr-case">
-                <div class="svr-avatar" aria-hidden="true">LK</div>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/leqaa-kordia.webp') }}" alt="Leqaa Kordia" loading="lazy" width="58" height="58">
                 <div class="svr-case-body">
                     <h3>Leqaa Kordia</h3>
                     <p class="svr-case-role">Columbia protests · Palestinian</p>
