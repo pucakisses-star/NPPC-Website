@@ -643,6 +643,13 @@ function svrFilterInstitutions(q) {
 
     var tip = document.createElement('div');
     tip.className = 'svr-map-tip';
+    // Inline styles so the page's global CSS can't override the tooltip
+    // (the same override that turned the dots black hides this box's styling).
+    tip.style.cssText = 'position:absolute;pointer-events:none;z-index:5;'
+        + 'background:#16161c;color:#fff;border:1px solid rgba(255,255,255,.14);'
+        + 'border-radius:8px;padding:9px 12px;font-size:12px;line-height:1.4;'
+        + 'max-width:240px;opacity:0;transition:opacity .12s;'
+        + 'transform:translate(-50%, calc(-100% - 12px));box-shadow:0 6px 20px rgba(0,0,0,.5);';
     canvas.appendChild(tip);
 
     d3.json('{{ asset('images/us-states-10m.json') }}').then(function (us) {
@@ -695,8 +702,8 @@ function svrFilterInstitutions(q) {
         dots.on('mousemove', function (event, d) {
             var aff = (d.p.affected === null || d.p.affected === undefined || d.p.affected === 'unknown')
                 ? 'unknown' : Number(d.p.affected).toLocaleString();
-            tip.innerHTML = '<div class="svr-pop-name">' + d.p.name + '</div>'
-                + '<div class="svr-pop-meta">' + (d.p.state || '') + ' · affected: <b>' + aff + '</b></div>';
+            tip.innerHTML = '<div style="font-weight:800;font-size:13px;color:#fff;margin:0 0 2px;">' + d.p.name + '</div>'
+                + '<div style="font-size:12px;color:rgba(255,255,255,.65);">' + (d.p.state || '') + ' · affected: <b style="color:#aab0ff;">' + aff + '</b></div>';
             var r = canvas.getBoundingClientRect();
             tip.style.left = (event.clientX - r.left) + 'px';
             tip.style.top = (event.clientY - r.top) + 'px';
