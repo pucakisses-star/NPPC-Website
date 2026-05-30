@@ -1,6 +1,6 @@
 {
     "source": "Nimble Tent Data Viewer · Baserow table 503380",
-    "synced_at": "2026-05-30T07:12:24+00:00",
+    "synced_at": "2026-05-30T07:35:22+00:00",
     "total_affected": 1958,
     "count": 302,
     "institutions": [
@@ -9,2114 +9,2718 @@
             "state": "District of Columbia",
             "affected_people": "unknown",
             "website": "https://american.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/American_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/American_University",
+            "latitude": 38.937,
+            "longitude": -77.087
         },
         {
             "name": "Appalachian State University",
             "state": "North Carolina",
             "affected_people": 1,
             "website": "https://www.appstate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Appalachian_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Appalachian_State_University",
+            "latitude": 36.214,
+            "longitude": -81.679
         },
         {
             "name": "Arizona State University",
             "state": "Arizona",
             "affected_people": 100,
             "website": "https://www.asu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Arizona_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Arizona_State_University",
+            "latitude": 33.424,
+            "longitude": -111.936
         },
         {
             "name": "Auburn University",
             "state": "Alabama",
             "affected_people": 15,
             "website": "https://auburn.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Auburn_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Auburn_University",
+            "latitude": 32.603,
+            "longitude": -85.486
         },
         {
             "name": "Augustana College",
             "state": "Illinois",
             "affected_people": 3,
             "website": "http://www.augustana.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Augustana_College_(Illinois)"
+            "wikipedia": "https://en.wikipedia.org/wiki/Augustana_College_(Illinois)",
+            "latitude": 41.502,
+            "longitude": -90.55
         },
         {
             "name": "Babson College",
             "state": "Massachusetts",
             "affected_people": "unknown",
             "website": "",
-            "wikipedia": ""
+            "wikipedia": "",
+            "latitude": null,
+            "longitude": null
         },
         {
             "name": "Baylor University",
             "state": "Texas",
             "affected_people": 3,
             "website": "https://www.baylor.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Baylor_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Baylor_University",
+            "latitude": 31.547,
+            "longitude": -97.114
         },
         {
             "name": "Bentley University",
             "state": "Massachusetts",
             "affected_people": 5,
             "website": "https://www.bentley.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Bentley_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Bentley_University",
+            "latitude": 42.388,
+            "longitude": -71.221
         },
         {
             "name": "Berklee College of Music",
             "state": "Massachusetts",
             "affected_people": 3,
             "website": "https://www.berklee.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Berklee_College_of_Music"
+            "wikipedia": "https://en.wikipedia.org/wiki/Berklee_College_of_Music",
+            "latitude": 42.346,
+            "longitude": -71.087
         },
         {
             "name": "Binghamton University",
             "state": "New York",
             "affected_people": 5,
             "website": "https://www.binghamton.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Binghamton_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Binghamton_University",
+            "latitude": 42.089,
+            "longitude": -75.97
         },
         {
             "name": "Black Hills State University",
             "state": "South Dakota",
             "affected_people": "unknown",
             "website": "https://www.bhsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Black_Hills_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Black_Hills_State_University",
+            "latitude": 44.497,
+            "longitude": -103.873
         },
         {
             "name": "Boston University",
             "state": "Massachusetts",
             "affected_people": "unknown",
             "website": "https://bu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Boston_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Boston_University",
+            "latitude": 42.349,
+            "longitude": -71.1
         },
         {
             "name": "Bowling Green State University",
             "state": "Ohio",
             "affected_people": 1,
             "website": "https://www.bgsu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Bowling_Green_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Bowling_Green_State_University",
+            "latitude": 41.38,
+            "longitude": -83.64
         },
         {
             "name": "Bridgewater State University",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "https://bridgew.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Bridgewater_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Bridgewater_State_University",
+            "latitude": 41.989,
+            "longitude": -70.966
         },
         {
             "name": "Brigham Young University",
             "state": "Utah",
             "affected_people": 1,
             "website": "https://www.byu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Brigham_Young_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Brigham_Young_University",
+            "latitude": 40.252,
+            "longitude": -111.652
         },
         {
             "name": "Brown University",
             "state": "Rhode Island",
             "affected_people": 2,
             "website": "https://www.brown.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Brown_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Brown_University",
+            "latitude": 41.826,
+            "longitude": -71.403
         },
         {
             "name": "California Polytechnic State University",
             "state": "California",
             "affected_people": 4,
             "website": "https://www.calpoly.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_Polytechnic_State_University,_San_Luis_Obispo"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_Polytechnic_State_University,_San_Luis_Obispo",
+            "latitude": 35.302,
+            "longitude": -120.66
         },
         {
             "name": "California State University",
             "state": "California",
             "affected_people": 70,
             "website": "http://www.calstate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University",
+            "latitude": 33.764,
+            "longitude": -118.201
         },
         {
             "name": "California State University, East Bay",
             "state": "California",
             "affected_people": 0,
             "website": "https://www.csueastbay.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_East_Bay"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_East_Bay",
+            "latitude": 37.657,
+            "longitude": -122.058
         },
         {
             "name": "California State University, Fullerton",
             "state": "California",
             "affected_people": 0,
             "website": "https://www.fullerton.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Fullerton"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Fullerton",
+            "latitude": 33.881,
+            "longitude": -117.885
         },
         {
             "name": "California State University, Long Beach",
             "state": "California",
             "affected_people": 0,
             "website": "https://www.csulb.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Long_Beach"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Long_Beach",
+            "latitude": 33.782,
+            "longitude": -118.122
         },
         {
             "name": "California State University, Northridge",
             "state": "California",
             "affected_people": "unknown",
             "website": "https://www.csun.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Northridge"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University,_Northridge",
+            "latitude": 34.242,
+            "longitude": -118.528
         },
         {
             "name": "California State University, Sacramento",
             "state": "California",
             "affected_people": "unknown",
             "website": "https://www.csus.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/California_State_University",
+            "latitude": 38.56,
+            "longitude": -121.428
         },
         {
             "name": "Campbellsville University",
             "state": "Kentucky",
             "affected_people": "unknown",
             "website": "https://www.campbellsville.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Campbellsville_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Campbellsville_University",
+            "latitude": 37.344,
+            "longitude": -85.348
         },
         {
             "name": "Carnegie Mellon University",
             "state": "Pennsylvania",
             "affected_people": 7,
             "website": "https://cmu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Carnegie_Mellon_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Carnegie_Mellon_University",
+            "latitude": 40.443,
+            "longitude": -79.943
         },
         {
             "name": "Carthage College",
             "state": "Wisconsin",
             "affected_people": 1,
             "website": "http://www.carthage.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Carthage_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Carthage_College",
+            "latitude": 42.623,
+            "longitude": -87.82
         },
         {
             "name": "Case Western Reserve University",
             "state": "Ohio",
             "affected_people": 4,
             "website": "https://case.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Case_Western_Reserve_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Case_Western_Reserve_University",
+            "latitude": 41.504,
+            "longitude": -81.608
         },
         {
             "name": "Central Methodist University",
             "state": "Missouri",
             "affected_people": 1,
             "website": "https://www.centralmethodist.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Central_Methodist_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Central_Methodist_University",
+            "latitude": 39.15,
+            "longitude": -92.685
         },
         {
             "name": "Central Michigan University",
             "state": "Michigan",
             "affected_people": 7,
             "website": "https://www.cmich.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Central_Michigan_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Central_Michigan_University",
+            "latitude": 43.59,
+            "longitude": -84.778
         },
         {
             "name": "Central Washington University",
             "state": "Washington",
             "affected_people": 2,
             "website": "https://www.cwu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Central_Washington_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Central_Washington_University",
+            "latitude": 47.002,
+            "longitude": -120.54
         },
         {
             "name": "Chapman University",
             "state": "California",
             "affected_people": 3,
             "website": "https://www.chapman.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Chapman_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Chapman_University",
+            "latitude": 33.793,
+            "longitude": -117.851
         },
         {
             "name": "Christian Brothers University",
             "state": "Tennessee",
             "affected_people": 10,
             "website": "http://www.CBU.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Christian_Brothers_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Christian_Brothers_University",
+            "latitude": 35.127,
+            "longitude": -89.982
         },
         {
             "name": "City University of New York",
             "state": "New York",
             "affected_people": 17,
             "website": "https://cuny.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/City_University_of_New_York"
+            "wikipedia": "https://en.wikipedia.org/wiki/City_University_of_New_York",
+            "latitude": 40.751,
+            "longitude": -73.974
         },
         {
             "name": "Clark University",
             "state": "Massachusetts",
             "affected_people": 12,
             "website": "http://www.clarku.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Clark_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Clark_University",
+            "latitude": 42.251,
+            "longitude": -71.823
         },
         {
             "name": "Clemson University",
             "state": "South Carolina",
             "affected_people": "unknown",
             "website": "https://www.clemson.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Clemson_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Clemson_University",
+            "latitude": 34.678,
+            "longitude": -82.839
         },
         {
             "name": "Cleveland State University",
             "state": "Ohio",
             "affected_people": 1,
             "website": "http://www.csuohio.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Cleveland_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Cleveland_State_University",
+            "latitude": 41.502,
+            "longitude": -81.675
         },
         {
             "name": "College of Idaho",
             "state": "Idaho",
             "affected_people": 1,
             "website": "http://www.collegeofidaho.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/College_of_Idaho"
+            "wikipedia": "https://en.wikipedia.org/wiki/College_of_Idaho",
+            "latitude": 43.653,
+            "longitude": -116.676
         },
         {
             "name": "Collin College",
             "state": "Texas",
             "affected_people": 7,
             "website": "https://www.collin.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Collin_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Collin_College",
+            "latitude": 33.219,
+            "longitude": -96.642
         },
         {
             "name": "Colorado State University",
             "state": "Colorado",
             "affected_people": 16,
             "website": "https://www.colostate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Colorado_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Colorado_State_University",
+            "latitude": 40.575,
+            "longitude": -105.081
         },
         {
             "name": "Columbia University",
             "state": "New York",
             "affected_people": 9,
             "website": "https://columbia.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Columbia_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Columbia_University",
+            "latitude": 40.808,
+            "longitude": -73.962
         },
         {
             "name": "Columbus State Community College",
             "state": "Ohio",
             "affected_people": 1,
             "website": "https://www.cscc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Columbus_State_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Columbus_State_Community_College",
+            "latitude": 39.969,
+            "longitude": -82.989
         },
         {
             "name": "Concordia University St. Paul",
             "state": "Minnesota",
             "affected_people": 5,
             "website": "https://www.csp.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University,_St._Paul"
+            "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University,_St._Paul",
+            "latitude": 44.95,
+            "longitude": -93.155
         },
         {
             "name": "Concordia University Wisconsin",
             "state": "Wisconsin",
             "affected_people": 10,
             "website": "https://www.cuw.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University_Wisconsin"
+            "wikipedia": "https://en.wikipedia.org/wiki/Concordia_University_Wisconsin",
+            "latitude": 43.254,
+            "longitude": -87.915
         },
         {
             "name": "Cornell University",
             "state": "New York",
             "affected_people": 18,
             "website": "https://cornell.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Cornell_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Cornell_University",
+            "latitude": 42.449,
+            "longitude": -76.484
         },
         {
             "name": "Cuyahoga Community College",
             "state": "Ohio",
             "affected_people": 3,
             "website": "http://www.tri-c.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Cuyahoga_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Cuyahoga_Community_College",
+            "latitude": 41.099,
+            "longitude": -81.842
         },
         {
             "name": "Dallas College",
             "state": "Texas",
             "affected_people": 34,
             "website": "https://www.dallascollege.edu/pages/default.aspx",
-            "wikipedia": "https://en.wikipedia.org/wiki/Dallas_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Dallas_College",
+            "latitude": 32.78,
+            "longitude": -96.805
         },
         {
             "name": "Dartmouth College",
             "state": "New Hampshire",
             "affected_people": 2,
             "website": "https://home.dartmouth.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Dartmouth_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Dartmouth_College",
+            "latitude": 43.703,
+            "longitude": -72.288
         },
         {
             "name": "De Anza College",
             "state": "California",
             "affected_people": 6,
             "website": "http://www.deanza.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/De_Anza_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/De_Anza_College",
+            "latitude": 37.319,
+            "longitude": -122.045
         },
         {
             "name": "DePaul University",
             "state": "Illinois",
             "affected_people": 1,
             "website": "http://www.depaul.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/DePaul_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/DePaul_University",
+            "latitude": 41.924,
+            "longitude": -87.654
         },
         {
             "name": "Drury University",
             "state": "Missouri",
             "affected_people": 1,
             "website": "http://www.drury.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Drury_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Drury_University",
+            "latitude": 37.22,
+            "longitude": -93.286
         },
         {
             "name": "Duke University",
             "state": "North Carolina",
             "affected_people": 7,
             "website": "https://duke.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Duke_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Duke_University",
+            "latitude": 36.001,
+            "longitude": -78.939
         },
         {
             "name": "Eastern Illinois University",
             "state": "Illinois",
             "affected_people": 11,
             "website": "http://www.eiu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Illinois_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Illinois_University",
+            "latitude": 39.484,
+            "longitude": -88.175
         },
         {
             "name": "Eastern Michigan University",
             "state": "Michigan",
             "affected_people": 2,
             "website": "https://www.emich.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Michigan_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Eastern_Michigan_University",
+            "latitude": 42.25,
+            "longitude": -83.624
         },
         {
             "name": "El Paso Community College",
             "state": "Texas",
             "affected_people": 2,
             "website": "http://www.epcc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/El_Paso_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/El_Paso_Community_College",
+            "latitude": 31.891,
+            "longitude": -106.438
         },
         {
             "name": "Emerson College",
             "state": "Massachusetts",
             "affected_people": 1,
             "website": "https://emerson.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Emerson_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Emerson_College",
+            "latitude": 42.352,
+            "longitude": -71.066
         },
         {
             "name": "Emory University",
             "state": "Georgia",
             "affected_people": 4,
             "website": "https://emory.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Emory_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Emory_University",
+            "latitude": 33.791,
+            "longitude": -84.323
         },
         {
             "name": "Emporia State University",
             "state": "Kansas",
             "affected_people": 2,
             "website": "http://www.emporia.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Emporia_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Emporia_State_University",
+            "latitude": 38.416,
+            "longitude": -96.18
         },
         {
             "name": "Florida A&M University",
             "state": "Florida",
             "affected_people": 1,
             "website": "https://www.famu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Florida_A%26M_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Florida_A%26M_University",
+            "latitude": 30.418,
+            "longitude": -84.285
         },
         {
             "name": "Florida International University",
             "state": "Florida",
             "affected_people": 18,
             "website": "https://www.fiu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Florida_International_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Florida_International_University",
+            "latitude": 25.753,
+            "longitude": -80.373
         },
         {
             "name": "Florida State University",
             "state": "Florida",
             "affected_people": 3,
             "website": "https://fsu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Florida_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Florida_State_University",
+            "latitude": 30.442,
+            "longitude": -84.295
         },
         {
             "name": "Foothill College",
             "state": "California",
             "affected_people": 3,
             "website": "http://www.foothill.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Foothill_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Foothill_College",
+            "latitude": 37.361,
+            "longitude": -122.129
         },
         {
             "name": "Fordham University",
             "state": "New York",
             "affected_people": 4,
             "website": "https://fordham.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Fordham_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Fordham_University",
+            "latitude": 40.863,
+            "longitude": -73.886
         },
         {
             "name": "Fullerton College",
             "state": "California",
             "affected_people": 2,
             "website": "https://www.fullcoll.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Fullerton_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Fullerton_College",
+            "latitude": 33.874,
+            "longitude": -117.919
         },
         {
             "name": "Furman University",
             "state": "South Carolina",
             "affected_people": 2,
             "website": "http://www.furman.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Furman_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Furman_University",
+            "latitude": 34.926,
+            "longitude": -82.436
         },
         {
             "name": "Gannon University",
             "state": "Pennsylvania",
             "affected_people": 5,
             "website": "https://www.gannon.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Gannon_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Gannon_University",
+            "latitude": 42.128,
+            "longitude": -80.09
         },
         {
             "name": "George Mason University",
             "state": "Virginia",
             "affected_people": 15,
             "website": "https://www.gmu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/George_Mason_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/George_Mason_University",
+            "latitude": 38.831,
+            "longitude": -77.308
         },
         {
             "name": "George Washington University",
             "state": "District of Columbia",
             "affected_people": 10,
             "website": "https://www.gwu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/George_Washington_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/George_Washington_University",
+            "latitude": 38.901,
+            "longitude": -77.051
         },
         {
             "name": "Georgetown University",
             "state": "District of Columbia",
             "affected_people": 10,
             "website": "https://www.georgetown.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Georgetown_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Georgetown_University",
+            "latitude": 38.907,
+            "longitude": -77.073
         },
         {
             "name": "Georgia Tech",
             "state": "Georgia",
             "affected_people": 1,
             "website": "https://gatech.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Georgia_Tech"
+            "wikipedia": "https://en.wikipedia.org/wiki/Georgia_Tech",
+            "latitude": 33.776,
+            "longitude": -84.395
         },
         {
             "name": "Gonzaga University",
             "state": "Washington",
             "affected_people": 2,
             "website": "https://www.gonzaga.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Gonzaga_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Gonzaga_University",
+            "latitude": 47.667,
+            "longitude": -117.402
         },
         {
             "name": "Graceland University",
             "state": "Iowa",
             "affected_people": 1,
             "website": "http://www.graceland.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Graceland_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Graceland_University",
+            "latitude": 40.616,
+            "longitude": -93.926
         },
         {
             "name": "Grand Valley State University",
             "state": "Michigan",
             "affected_people": 4,
             "website": "http://www.gvsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Grand_Valley_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Grand_Valley_State_University",
+            "latitude": 42.964,
+            "longitude": -85.889
         },
         {
             "name": "Harvard University",
             "state": "Massachusetts",
             "affected_people": 13,
             "website": "https://harvard.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Harvard_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Harvard_University",
+            "latitude": 42.374,
+            "longitude": -71.117
         },
         {
             "name": "Houston Community College",
             "state": "Texas",
             "affected_people": 12,
             "website": "https://www.hccs.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Houston_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Houston_Community_College",
+            "latitude": 29.742,
+            "longitude": -95.377
         },
         {
             "name": "Howard University",
             "state": "District of Columbia",
             "affected_people": 3,
             "website": "https://howard.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Howard_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Howard_University",
+            "latitude": 38.922,
+            "longitude": -77.02
         },
         {
             "name": "Illinois State University",
             "state": "Illinois",
             "affected_people": "unknown",
             "website": "https://illinoisstate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Illinois_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Illinois_State_University",
+            "latitude": 40.511,
+            "longitude": -88.993
         },
         {
             "name": "Indiana University Bloomington",
             "state": "Indiana",
             "affected_people": 10,
             "website": "https://bloomington.iu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Bloomington"
+            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Bloomington",
+            "latitude": 39.167,
+            "longitude": -86.521
         },
         {
             "name": "Indiana University Indianapolis",
             "state": "Indiana",
             "affected_people": 1,
             "website": "https://indianapolis.iu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Indianapolis"
+            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Indianapolis",
+            "latitude": 39.774,
+            "longitude": -86.176
         },
         {
             "name": "Indiana University Northwest",
             "state": "Indiana",
             "affected_people": 5,
             "website": "http://www.iun.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Northwest"
+            "wikipedia": "https://en.wikipedia.org/wiki/Indiana_University_Northwest",
+            "latitude": 41.557,
+            "longitude": -87.338
         },
         {
             "name": "Iowa State University",
             "state": "Iowa",
             "affected_people": 2,
             "website": "https://www.extension.iastate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Iowa_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Iowa_State_University",
+            "latitude": 42.026,
+            "longitude": -93.648
         },
         {
             "name": "Johns Hopkins University",
             "state": "Maryland",
             "affected_people": 37,
             "website": "https://jhu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Johns_Hopkins_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Johns_Hopkins_University",
+            "latitude": 39.329,
+            "longitude": -76.621
         },
         {
             "name": "Juilliard School",
             "state": "New York",
             "affected_people": 1,
             "website": "http://www.juilliard.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Juilliard_School"
+            "wikipedia": "https://en.wikipedia.org/wiki/Juilliard_School",
+            "latitude": 40.774,
+            "longitude": -73.983
         },
         {
             "name": "Kennesaw State University",
             "state": "Georgia",
             "affected_people": 2,
             "website": "https://www.kennesaw.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Kennesaw_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Kennesaw_State_University",
+            "latitude": 34.038,
+            "longitude": -84.581
         },
         {
             "name": "Kent State University",
             "state": "Ohio",
             "affected_people": 12,
             "website": "https://www.kent.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Kent_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Kent_State_University",
+            "latitude": 41.147,
+            "longitude": -81.343
         },
         {
             "name": "La Roche University",
             "state": "Pennsylvania",
             "affected_people": 1,
             "website": "https://www.laroche.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/La_Roche_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/La_Roche_University",
+            "latitude": 40.57,
+            "longitude": -80.013
         },
         {
             "name": "Lamar University",
             "state": "Texas",
             "affected_people": 5,
             "website": "http://www.lamar.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Lamar_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Lamar_University",
+            "latitude": 30.042,
+            "longitude": -94.075
         },
         {
             "name": "Lehigh University",
             "state": "Pennsylvania",
             "affected_people": "unknown",
             "website": "https://www2.lehigh.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Lehigh_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Lehigh_University",
+            "latitude": 40.607,
+            "longitude": -75.379
         },
         {
             "name": "Lehman College",
             "state": "New York",
             "affected_people": 1,
             "website": "http://www.lehman.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Lehman_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Lehman_College",
+            "latitude": 40.873,
+            "longitude": -73.894
         },
         {
             "name": "Lindenwood University",
             "state": "Missouri",
             "affected_people": "unknown",
             "website": "http://www.lindenwood.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Lindenwood_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Lindenwood_University",
+            "latitude": 38.787,
+            "longitude": -90.502
         },
         {
             "name": "Los Rios Community College District",
             "state": "California",
             "affected_people": 1,
             "website": "http://www.losrios.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Los_Rios_Community_College_District"
+            "wikipedia": "https://en.wikipedia.org/wiki/Los_Rios_Community_College_District",
+            "latitude": 38.579,
+            "longitude": -121.417
         },
         {
             "name": "Madison Area Technical College",
             "state": "Wisconsin",
             "affected_people": 1,
             "website": "https://madisoncollege.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Madison_Area_Technical_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Madison_Area_Technical_College",
+            "latitude": 43.122,
+            "longitude": -89.328
         },
         {
             "name": "Marquette University",
             "state": "Wisconsin",
             "affected_people": 1,
             "website": "https://www.marquette.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Marquette_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Marquette_University",
+            "latitude": 43.039,
+            "longitude": -87.933
         },
         {
             "name": "Marshall University",
             "state": "West Virginia",
             "affected_people": 2,
             "website": "http://www.marshall.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Marshall_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Marshall_University",
+            "latitude": 38.425,
+            "longitude": -82.421
         },
         {
             "name": "Massachusetts Institute of Technology",
             "state": "Massachusetts",
             "affected_people": 9,
             "website": "https://mit.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology"
+            "wikipedia": "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology",
+            "latitude": 42.36,
+            "longitude": -71.092
         },
         {
             "name": "Mercer University",
             "state": "Georgia",
             "affected_people": 4,
             "website": "http://www.mercer.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Mercer_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Mercer_University",
+            "latitude": 32.829,
+            "longitude": -83.649
         },
         {
             "name": "Metropolitan State University",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "http://www.metrostate.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Metropolitan_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Metropolitan_State_University",
+            "latitude": 44.957,
+            "longitude": -93.074
         },
         {
             "name": "Michigan State University",
             "state": "Michigan",
             "affected_people": 12,
             "website": "https://msu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Michigan_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Michigan_State_University",
+            "latitude": 42.702,
+            "longitude": -84.482
         },
         {
             "name": "Middle Tennessee State University",
             "state": "Tennessee",
             "affected_people": 8,
             "website": "https://www.mtsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Middle_Tennessee_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Middle_Tennessee_State_University",
+            "latitude": 35.849,
+            "longitude": -86.361
         },
         {
             "name": "Middlebury College",
             "state": "Vermont",
             "affected_people": 1,
             "website": "https://www.middlebury.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Middlebury_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Middlebury_College",
+            "latitude": 44.009,
+            "longitude": -73.177
         },
         {
             "name": "Millersville University of Pennsylvania",
             "state": "Pennsylvania",
             "affected_people": "unknown",
             "website": "http://www.millersville.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Millersville_University_of_Pennsylvania"
+            "wikipedia": "https://en.wikipedia.org/wiki/Millersville_University_of_Pennsylvania",
+            "latitude": 40.0,
+            "longitude": -76.356
         },
         {
             "name": "Minnesota State University, Mankato",
             "state": "Minnesota",
             "affected_people": 5,
             "website": "https://www.mnsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Minnesota_State_University,_Mankato"
+            "wikipedia": "https://en.wikipedia.org/wiki/Minnesota_State_University,_Mankato",
+            "latitude": 44.146,
+            "longitude": -93.999
         },
         {
             "name": "Minnesota West Community and Technical College",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "https://www.mnwest.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Minnesota_West_Community_and_Technical_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Minnesota_West_Community_and_Technical_College",
+            "latitude": 43.622,
+            "longitude": -95.627
         },
         {
             "name": "Missouri State University",
             "state": "Missouri",
             "affected_people": 7,
             "website": "https://www.missouristate.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Missouri_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Missouri_State_University",
+            "latitude": 37.2,
+            "longitude": -93.281
         },
         {
             "name": "Montana State University",
             "state": "Montana",
             "affected_people": 3,
             "website": "https://www.montana.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Montana_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Montana_State_University",
+            "latitude": 45.668,
+            "longitude": -111.05
         },
         {
             "name": "Montclair State University",
             "state": "New Jersey",
             "affected_people": 4,
             "website": "https://www.montclair.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Montclair_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Montclair_State_University",
+            "latitude": 40.859,
+            "longitude": -74.199
         },
         {
             "name": "Mount Mercy University",
             "state": "Iowa",
             "affected_people": 2,
             "website": "http://www.mtmercy.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Mount_Mercy_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Mount_Mercy_University",
+            "latitude": 42.002,
+            "longitude": -91.652
         },
         {
             "name": "Murray State University",
             "state": "Kentucky",
             "affected_people": 1,
             "website": "http://www.murraystate.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Murray_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Murray_State_University",
+            "latitude": 36.616,
+            "longitude": -88.322
         },
         {
             "name": "New England College",
             "state": "New Hampshire",
             "affected_people": 1,
             "website": "https://online.nec.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/New_England_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/New_England_College",
+            "latitude": 43.176,
+            "longitude": -71.822
         },
         {
             "name": "New Mexico Institute of Mining and Technology",
             "state": "New Mexico",
             "affected_people": 1,
             "website": "http://www.nmt.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/New_Mexico_Institute_of_Mining_and_Technology"
+            "wikipedia": "https://en.wikipedia.org/wiki/New_Mexico_Institute_of_Mining_and_Technology",
+            "latitude": 34.067,
+            "longitude": -106.906
         },
         {
             "name": "New Mexico State University",
             "state": "New Mexico",
             "affected_people": 9,
             "website": "https://www.nmsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/New_Mexico_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/New_Mexico_State_University",
+            "latitude": 32.283,
+            "longitude": -106.748
         },
         {
             "name": "New York Institute of Technology",
             "state": "",
             "affected_people": 1,
             "website": "https://www.nyit.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/New_York_Institute_of_Technology"
+            "wikipedia": "https://en.wikipedia.org/wiki/New_York_Institute_of_Technology",
+            "latitude": 40.808,
+            "longitude": -73.603
         },
         {
             "name": "New York University",
             "state": "New York",
             "affected_people": "unknown",
             "website": "https://nyu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/New_York_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/New_York_University",
+            "latitude": 40.73,
+            "longitude": -73.995
         },
         {
             "name": "North Carolina State University",
             "state": "North Carolina",
             "affected_people": 2,
             "website": "https://ncsu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/North_Carolina_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/North_Carolina_State_University",
+            "latitude": 35.787,
+            "longitude": -78.671
         },
         {
             "name": "North Dakota State University",
             "state": "North Dakota",
             "affected_people": 1,
             "website": "https://www.ndsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/North_Dakota_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/North_Dakota_State_University",
+            "latitude": 46.892,
+            "longitude": -96.8
         },
         {
             "name": "Northeastern University",
             "state": "Massachusetts",
             "affected_people": 40,
             "website": "https://www.northeastern.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Northeastern_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Northeastern_University",
+            "latitude": 42.34,
+            "longitude": -71.088
         },
         {
             "name": "Northern Illinois University",
             "state": "Illinois",
             "affected_people": 5,
             "website": "https://www.niu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Northern_Illinois_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Northern_Illinois_University",
+            "latitude": 41.934,
+            "longitude": -88.778
         },
         {
             "name": "Northwest Missouri State University",
             "state": "Missouri",
             "affected_people": 43,
             "website": "https://www.nwmissouri.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Northwest_Missouri_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Northwest_Missouri_State_University",
+            "latitude": 40.353,
+            "longitude": -94.883
         },
         {
             "name": "Northwestern University",
             "state": "Illinois",
             "affected_people": "unknown",
             "website": "",
-            "wikipedia": "https://en.wikipedia.org/wiki/Northwestern_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Northwestern_University",
+            "latitude": 42.055,
+            "longitude": -87.674
         },
         {
             "name": "Oakland University",
             "state": "Michigan",
             "affected_people": 4,
             "website": "http://www.oakland.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Oakland_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Oakland_University",
+            "latitude": 42.673,
+            "longitude": -83.216
         },
         {
             "name": "Ohio State University",
             "state": "Ohio",
             "affected_people": 12,
             "website": "https://osu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Ohio_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Ohio_State_University",
+            "latitude": 40.0,
+            "longitude": -83.013
         },
         {
             "name": "Oklahoma Christian University",
             "state": "Oklahoma",
             "affected_people": 3,
             "website": "https://www.oc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Oklahoma_Christian_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Oklahoma_Christian_University",
+            "latitude": 35.612,
+            "longitude": -97.47
         },
         {
             "name": "Oklahoma State University–Stillwater",
             "state": "Oklahoma",
             "affected_people": 8,
             "website": "https://go.okstate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Oklahoma_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Oklahoma_State_University",
+            "latitude": 36.132,
+            "longitude": -97.081
         },
         {
             "name": "Oregon State University",
             "state": "Oregon",
             "affected_people": 13,
             "website": "https://oregonstate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Oregon_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Oregon_State_University",
+            "latitude": 44.566,
+            "longitude": -123.279
         },
         {
             "name": "Park University",
             "state": "Missouri",
             "affected_people": 2,
             "website": "https://www.park.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Park_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Park_University",
+            "latitude": 39.19,
+            "longitude": -94.68
         },
         {
             "name": "Pasadena City College",
             "state": "California",
             "affected_people": 2,
             "website": "http://www.pasadena.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Pasadena_City_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Pasadena_City_College",
+            "latitude": 34.15,
+            "longitude": -118.117
         },
         {
             "name": "Pennsylvania State University",
             "state": "Pennsylvania",
             "affected_people": 22,
             "website": "",
-            "wikipedia": "https://en.wikipedia.org/wiki/Pennsylvania_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Pennsylvania_State_University",
+            "latitude": 40.796,
+            "longitude": -77.863
         },
         {
             "name": "Pima Community College",
             "state": "",
             "affected_people": 1,
             "website": "http://www.pima.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Pima_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Pima_Community_College",
+            "latitude": 32.227,
+            "longitude": -111.018
         },
         {
             "name": "Portland Community College",
             "state": "Oregon",
             "affected_people": 3,
             "website": "https://www.pcc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Portland_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Portland_Community_College",
+            "latitude": 45.439,
+            "longitude": -122.731
         },
         {
             "name": "Portland State University",
             "state": "Oregon",
             "affected_people": 3,
             "website": "https://www.pdx.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Portland_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Portland_State_University",
+            "latitude": 45.513,
+            "longitude": -122.685
         },
         {
             "name": "Prairie View A&M University",
             "state": "Texas",
             "affected_people": 1,
             "website": "http://www.pvamu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Prairie_View_A%26M_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Prairie_View_A%26M_University",
+            "latitude": 30.092,
+            "longitude": -95.989
         },
         {
             "name": "Princeton University",
             "state": "New Jersey",
             "affected_people": 2,
             "website": "https://princeton.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Princeton_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Princeton_University",
+            "latitude": 40.345,
+            "longitude": -74.656
         },
         {
             "name": "Purdue University",
             "state": "Indiana",
             "affected_people": "unknown",
             "website": "https://purdue.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Purdue_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Purdue_University",
+            "latitude": 40.425,
+            "longitude": -86.923
         },
         {
             "name": "Rensselaer Polytechnic Institute",
             "state": "New York",
             "affected_people": 3,
             "website": "http://www.rpi.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Rensselaer_Polytechnic_Institute"
+            "wikipedia": "https://en.wikipedia.org/wiki/Rensselaer_Polytechnic_Institute",
+            "latitude": 42.729,
+            "longitude": -73.677
         },
         {
             "name": "Rhode Island School of Design",
             "state": "Rhode Island",
             "affected_people": 1,
             "website": "https://www.risd.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Rhode_Island_School_of_Design"
+            "wikipedia": "https://en.wikipedia.org/wiki/Rhode_Island_School_of_Design",
+            "latitude": 41.826,
+            "longitude": -71.408
         },
         {
             "name": "Rice University",
             "state": "Texas",
             "affected_people": 5,
             "website": "https://rice.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Rice_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Rice_University",
+            "latitude": 29.717,
+            "longitude": -95.403
         },
         {
             "name": "Ridgewater College",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "https://ridgewater.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Ridgewater_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Ridgewater_College",
+            "latitude": 45.138,
+            "longitude": -95.072
         },
         {
             "name": "Riverland Community College",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "http://www.riverland.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Riverland_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Riverland_Community_College",
+            "latitude": 43.676,
+            "longitude": -92.996
         },
         {
             "name": "Rochester Institute of Technology",
             "state": "New York",
             "affected_people": 8,
             "website": "https://www.rit.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Rochester_Institute_of_Technology"
+            "wikipedia": "https://en.wikipedia.org/wiki/Rochester_Institute_of_Technology",
+            "latitude": 43.084,
+            "longitude": -77.675
         },
         {
             "name": "Roux Institute",
             "state": "Maine",
             "affected_people": 1,
             "website": "https://roux.northeastern.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Roux_Institute"
+            "wikipedia": "https://en.wikipedia.org/wiki/Roux_Institute",
+            "latitude": 43.662,
+            "longitude": -70.247
         },
         {
             "name": "Rowan University",
             "state": "New Jersey",
             "affected_people": 8,
             "website": "https://www.rowan.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Rowan_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Rowan_University",
+            "latitude": 39.711,
+            "longitude": -75.118
         },
         {
             "name": "Rutgers University",
             "state": "New Jersey",
             "affected_people": 16,
             "website": "https://www.rutgers.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Rutgers_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Rutgers_University",
+            "latitude": 40.502,
+            "longitude": -74.448
         },
         {
             "name": "Saginaw Valley State University",
             "state": "Michigan",
             "affected_people": 4,
             "website": "https://www.svsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Saginaw_Valley_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Saginaw_Valley_State_University",
+            "latitude": 43.514,
+            "longitude": -83.962
         },
         {
             "name": "Saint Louis University",
             "state": "Missouri",
             "affected_people": 1,
             "website": "https://www.slu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Saint_Louis_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Saint_Louis_University",
+            "latitude": 38.636,
+            "longitude": -90.234
         },
         {
             "name": "Salt Lake Community College",
             "state": "Utah",
             "affected_people": 3,
             "website": "http://www.slcc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Salt_Lake_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Salt_Lake_Community_College",
+            "latitude": 40.672,
+            "longitude": -111.944
         },
         {
             "name": "San Diego State University",
             "state": "California",
             "affected_people": 1,
             "website": "https://www.sdsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/San_Diego_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/San_Diego_State_University",
+            "latitude": 32.775,
+            "longitude": -117.072
         },
         {
             "name": "San Jacinto College",
             "state": "Texas",
             "affected_people": 6,
             "website": "https://www.sanjac.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/San_Jacinto_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/San_Jacinto_College",
+            "latitude": 29.657,
+            "longitude": -95.115
         },
         {
             "name": "San José State University",
             "state": "California",
             "affected_people": 13,
             "website": "https://www.sjsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/San_Jose_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/San_Jose_State_University",
+            "latitude": 37.336,
+            "longitude": -121.881
         },
         {
             "name": "San Mateo County Community College District",
             "state": "California",
             "affected_people": 1,
             "website": "",
-            "wikipedia": ""
+            "wikipedia": "",
+            "latitude": null,
+            "longitude": null
         },
         {
             "name": "Santa Clara University",
             "state": "California",
             "affected_people": 1,
             "website": "http://www.scu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Santa_Clara_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Santa_Clara_University",
+            "latitude": 37.349,
+            "longitude": -121.938
         },
         {
             "name": "Santa Monica College",
             "state": "California",
             "affected_people": 9,
             "website": "https://www.smc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Santa_Monica_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Santa_Monica_College",
+            "latitude": 34.017,
+            "longitude": -118.471
         },
         {
             "name": "Seattle Central College",
             "state": "Washington",
             "affected_people": 1,
             "website": "http://www.seattlecentral.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Seattle_Central_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Seattle_Central_College",
+            "latitude": 47.617,
+            "longitude": -122.322
         },
         {
             "name": "Seattle University",
             "state": "Washington",
             "affected_people": 6,
             "website": "https://seattleu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Seattle_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Seattle_University",
+            "latitude": 47.61,
+            "longitude": -122.319
         },
         {
             "name": "Shoreline Community College",
             "state": "Washington",
             "affected_people": 3,
             "website": "http://www.shoreline.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Shoreline_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Shoreline_Community_College",
+            "latitude": 47.748,
+            "longitude": -122.359
         },
         {
             "name": "Siena College",
             "state": "New York",
             "affected_people": 1,
             "website": "http://www.siena.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Siena_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Siena_College",
+            "latitude": 42.718,
+            "longitude": -73.754
         },
         {
             "name": "Sinclair Community College",
             "state": "Ohio",
             "affected_people": 3,
             "website": "https://www.sinclair.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Sinclair_Community_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Sinclair_Community_College",
+            "latitude": 39.757,
+            "longitude": -84.2
         },
         {
             "name": "Snow College",
             "state": "Utah",
             "affected_people": 2,
             "website": "",
-            "wikipedia": ""
+            "wikipedia": "",
+            "latitude": null,
+            "longitude": null
         },
         {
             "name": "South Central College",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "",
-            "wikipedia": ""
+            "wikipedia": "",
+            "latitude": null,
+            "longitude": null
         },
         {
             "name": "South Dakota School of Mines and Technology",
             "state": "South Dakota",
             "affected_people": 1,
             "website": "https://www.sdsmt.edu/index.html",
-            "wikipedia": "https://en.wikipedia.org/wiki/South_Dakota_School_of_Mines_and_Technology"
+            "wikipedia": "https://en.wikipedia.org/wiki/South_Dakota_School_of_Mines_and_Technology",
+            "latitude": 44.074,
+            "longitude": -103.206
         },
         {
             "name": "South Dakota State University",
             "state": "South Dakota",
             "affected_people": "unknown",
             "website": "https://sdstate.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/South_Dakota_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/South_Dakota_State_University",
+            "latitude": 44.317,
+            "longitude": -96.786
         },
         {
             "name": "Southeast Missouri State University",
             "state": "Missouri",
             "affected_people": 24,
             "website": "https://semo.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southeast_Missouri_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southeast_Missouri_State_University",
+            "latitude": 37.315,
+            "longitude": -89.529
         },
         {
             "name": "Southeastern Community College",
             "state": "Mississippi",
             "affected_people": 2,
             "website": "http://www.sccnc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Community_College_(North_Carolina)"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Community_College_(North_Carolina)",
+            "latitude": 34.332,
+            "longitude": -78.784
         },
         {
             "name": "Southeastern Community College",
             "state": "Mississippi",
             "affected_people": "unknown",
             "website": "http://www.scciowa.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Community_College_(Iowa)"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southeastern_Community_College_(Iowa)",
+            "latitude": 40.81,
+            "longitude": -91.174
         },
         {
             "name": "Southern Illinois University Carbondale",
             "state": "Illinois",
             "affected_people": 1,
             "website": "https://siu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Illinois_University_Carbondale"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Illinois_University_Carbondale",
+            "latitude": 37.716,
+            "longitude": -89.22
         },
         {
             "name": "Southern Illinois University Edwardsville",
             "state": "Illinois",
             "affected_people": 8,
             "website": "https://www.siue.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Illinois_University_Edwardsville"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Illinois_University_Edwardsville",
+            "latitude": 38.793,
+            "longitude": -89.998
         },
         {
             "name": "Southern Methodist University",
             "state": "Texas",
             "affected_people": "unknown",
             "website": "https://www.smu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Methodist_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Methodist_University",
+            "latitude": 32.844,
+            "longitude": -96.785
         },
         {
             "name": "Southern New Hampshire University",
             "state": "New Hampshire",
             "affected_people": "unknown",
             "website": "http://www.snhu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_New_Hampshire_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_New_Hampshire_University",
+            "latitude": 43.04,
+            "longitude": -71.454
         },
         {
             "name": "Southern University",
             "state": "Louisiana",
             "affected_people": 7,
             "website": "http://www.subr.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_University",
+            "latitude": 30.525,
+            "longitude": -91.19
         },
         {
             "name": "Southern University at New Orleans",
             "state": "Louisiana",
             "affected_people": 2,
             "website": "https://www.suno.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_University_at_New_Orleans"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_University_at_New_Orleans",
+            "latitude": 30.028,
+            "longitude": -90.067
         },
         {
             "name": "Southern Utah University",
             "state": "Utah",
             "affected_people": 9,
             "website": "http://www.suu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Utah_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southern_Utah_University",
+            "latitude": 37.675,
+            "longitude": -113.072
         },
         {
             "name": "Southwest Minnesota State University",
             "state": "Minnesota",
             "affected_people": 3,
             "website": "https://www.smsu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Southwest_Minnesota_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Southwest_Minnesota_State_University",
+            "latitude": 44.454,
+            "longitude": -95.759
         },
         {
             "name": "Spring Hill College",
             "state": "Alabama",
             "affected_people": 1,
             "website": "http://www.shc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Spring_Hill_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Spring_Hill_College",
+            "latitude": 30.694,
+            "longitude": -88.137
         },
         {
             "name": "St. Bonaventure University",
             "state": "New York",
             "affected_people": 1,
             "website": "http://www.sbu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/St._Bonaventure_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/St._Bonaventure_University",
+            "latitude": 42.078,
+            "longitude": -78.481
         },
         {
             "name": "St. Cloud State University",
             "state": "Minnesota",
             "affected_people": 8,
             "website": "https://www.stcloudstate.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/St._Cloud_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/St._Cloud_State_University",
+            "latitude": 45.552,
+            "longitude": -94.153
         },
         {
             "name": "Stanford University",
             "state": "California",
             "affected_people": 6,
             "website": "https://stanford.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University",
+            "latitude": 37.428,
+            "longitude": -122.17
         },
         {
             "name": "State University of New York at Albany",
             "state": "New York",
             "affected_people": 4,
             "website": "https://www.albany.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_at_Albany,_SUNY"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_at_Albany,_SUNY",
+            "latitude": 42.686,
+            "longitude": -73.824
         },
         {
             "name": "State University of New York at Plattsburgh",
             "state": "New York",
             "affected_people": 1,
             "website": "https://www.plattsburgh.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/State_University_of_New_York_at_Plattsburgh"
+            "wikipedia": "https://en.wikipedia.org/wiki/State_University_of_New_York_at_Plattsburgh",
+            "latitude": 44.693,
+            "longitude": -73.466
         },
         {
             "name": "Stetson University",
             "state": "Florida",
             "affected_people": 1,
             "website": "http://www.stetson.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Stetson_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Stetson_University",
+            "latitude": 29.035,
+            "longitude": -81.303
         },
         {
             "name": "Stony Brook University",
             "state": "New York",
             "affected_people": 11,
             "website": "https://www.stonybrook.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Stony_Brook_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Stony_Brook_University",
+            "latitude": 40.917,
+            "longitude": -73.125
         },
         {
             "name": "Syracuse University",
             "state": "New York",
             "affected_people": 3,
             "website": "https://www.syracuse.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Syracuse_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Syracuse_University",
+            "latitude": 43.038,
+            "longitude": -76.134
         },
         {
             "name": "Tarrant County College",
             "state": "",
             "affected_people": 5,
             "website": "https://www.tccd.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Tarrant_County_College"
+            "wikipedia": "https://en.wikipedia.org/wiki/Tarrant_County_College",
+            "latitude": 32.748,
+            "longitude": -97.328
         },
         {
             "name": "Temple University",
             "state": "Pennsylvania",
             "affected_people": 5,
             "website": "https://www.temple.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Temple_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Temple_University",
+            "latitude": 39.981,
+            "longitude": -75.154
         },
         {
             "name": "Texas A&M International University",
             "state": "Texas",
             "affected_people": 1,
             "website": "http://www.tamiu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_International_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_International_University",
+            "latitude": 27.573,
+            "longitude": -99.435
         },
         {
             "name": "Texas A&M University",
             "state": "Texas",
             "affected_people": 23,
             "website": "https://www.tamu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University",
+            "latitude": 30.61,
+            "longitude": -96.344
         },
         {
             "name": "Texas A&M University at Galveston",
             "state": "Texas",
             "affected_people": 1,
             "website": "https://www.tamug.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University_at_Galveston"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University_at_Galveston",
+            "latitude": 29.316,
+            "longitude": -94.818
         },
         {
             "name": "Texas A&M University–Corpus Christi",
             "state": "Texas",
             "affected_people": 3,
             "website": "http://www.tamucc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Corpus_Christi"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Corpus_Christi",
+            "latitude": 27.712,
+            "longitude": -97.325
         },
         {
             "name": "Texas A&M University–Kingsville",
             "state": "Texas",
             "affected_people": 9,
             "website": "https://www.tamuk.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Kingsville"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Kingsville",
+            "latitude": 27.525,
+            "longitude": -97.883
         },
         {
             "name": "Texas A&M University–Texarkana",
             "state": "Texas",
             "affected_people": 1,
             "website": "https://tamut.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Texarkana"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_A%26M_University%E2%80%93Texarkana",
+            "latitude": 33.491,
+            "longitude": -94.097
         },
         {
             "name": "Texas State University",
             "state": "Texas",
             "affected_people": 2,
             "website": "https://www.txst.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_State_University",
+            "latitude": 29.889,
+            "longitude": -97.939
         },
         {
             "name": "Texas Tech University",
             "state": "Texas",
             "affected_people": 3,
             "website": "https://www.ttu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Tech_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Tech_University",
+            "latitude": 33.585,
+            "longitude": -101.88
         },
         {
             "name": "Texas Wesleyan University",
             "state": "Texas",
             "affected_people": 4,
             "website": "https://www.txwes.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Wesleyan_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Wesleyan_University",
+            "latitude": 32.733,
+            "longitude": -97.28
         },
         {
             "name": "Texas Woman's University",
             "state": "Texas",
             "affected_people": 4,
             "website": "https://twu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Woman%27s_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Texas_Woman%27s_University",
+            "latitude": 33.225,
+            "longitude": -97.128
         },
         {
             "name": "The Catholic University of America",
             "state": "District of Columbia",
             "affected_people": 1,
             "website": "https://www.catholic.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Catholic_University_of_America"
+            "wikipedia": "https://en.wikipedia.org/wiki/Catholic_University_of_America",
+            "latitude": 38.934,
+            "longitude": -76.999
         },
         {
             "name": "The New School",
             "state": "New York",
             "affected_people": 7,
             "website": "https://www.newschool.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/The_New_School"
+            "wikipedia": "https://en.wikipedia.org/wiki/The_New_School",
+            "latitude": 40.735,
+            "longitude": -73.997
         },
         {
             "name": "Trine University",
             "state": "Indiana",
             "affected_people": 1,
             "website": "https://www.trine.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Trine_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Trine_University",
+            "latitude": 41.632,
+            "longitude": -85.006
         },
         {
             "name": "Troy University",
             "state": "Alabama",
             "affected_people": 2,
             "website": "http://www.troy.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Troy_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Troy_University",
+            "latitude": 31.798,
+            "longitude": -85.954
         },
         {
             "name": "Tufts University",
             "state": "Massachusetts",
             "affected_people": 2,
             "website": "https://tufts.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Tufts_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Tufts_University",
+            "latitude": 42.407,
+            "longitude": -71.12
         },
         {
             "name": "Tulane University",
             "state": "Louisiana",
             "affected_people": 2,
             "website": "https://tulane.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Tulane_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Tulane_University",
+            "latitude": 29.935,
+            "longitude": -90.123
         },
         {
             "name": "Underwood University",
             "state": "Georgia",
             "affected_people": 1,
             "website": "https://underwood.edu/",
-            "wikipedia": ""
+            "wikipedia": "",
+            "latitude": 34.031,
+            "longitude": -84.04
         },
         {
             "name": "University at Buffalo",
             "state": "New York",
             "affected_people": 13,
             "website": "https://www.buffalo.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_at_Buffalo"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_at_Buffalo",
+            "latitude": 43.0,
+            "longitude": -78.789
         },
         {
             "name": "University of Akron",
             "state": "Ohio",
             "affected_people": 2,
             "website": "http://www.uakron.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Akron"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Akron",
+            "latitude": 41.075,
+            "longitude": -81.512
         },
         {
             "name": "University of Alabama",
             "state": "Alabama",
             "affected_people": 1,
             "website": "https://www.ua.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alabama"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alabama",
+            "latitude": 33.211,
+            "longitude": -87.546
         },
         {
             "name": "University of Alaska Anchorage",
             "state": "Alaska",
             "affected_people": 4,
             "website": "https://www.uaa.alaska.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alaska_Anchorage"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Alaska_Anchorage",
+            "latitude": 61.19,
+            "longitude": -149.827
         },
         {
             "name": "University of Arizona",
             "state": "Arizona",
             "affected_people": "unknown",
             "website": "https://www.arizona.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Arizona"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Arizona",
+            "latitude": 32.232,
+            "longitude": -110.952
         },
         {
             "name": "University of Arkansas",
             "state": "Arkansas",
             "affected_people": 5,
             "website": "https://www.uark.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Arkansas"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Arkansas",
+            "latitude": 36.069,
+            "longitude": -94.176
         },
         {
             "name": "University of California, Berkeley",
             "state": "California",
             "affected_people": 29,
             "website": "https://berkeley.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Berkeley"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Berkeley",
+            "latitude": 37.872,
+            "longitude": -122.258
         },
         {
             "name": "University of California, Davis",
             "state": "California",
             "affected_people": 23,
             "website": "https://ucdavis.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Davis"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Davis",
+            "latitude": 38.54,
+            "longitude": -121.75
         },
         {
             "name": "University of California, Irvine",
             "state": "California",
             "affected_people": 5,
             "website": "https://uci.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Irvine"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Irvine",
+            "latitude": 33.645,
+            "longitude": -117.843
         },
         {
             "name": "University of California, Los Angeles",
             "state": "California",
             "affected_people": 12,
             "website": "https://ucla.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Los_Angeles"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Los_Angeles",
+            "latitude": 34.072,
+            "longitude": -118.443
         },
         {
             "name": "University of California, Merced",
             "state": "California",
             "affected_people": 4,
             "website": "https://www.ucmerced.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Merced"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Merced",
+            "latitude": 37.366,
+            "longitude": -120.424
         },
         {
             "name": "University of California, Riverside",
             "state": "California",
             "affected_people": 6,
             "website": "https://ucr.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Riverside"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Riverside",
+            "latitude": 33.976,
+            "longitude": -117.331
         },
         {
             "name": "University of California, San Diego",
             "state": "California",
             "affected_people": 35,
             "website": "https://ucsd.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_San_Diego"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_San_Diego",
+            "latitude": 32.881,
+            "longitude": -117.238
         },
         {
             "name": "University of California, Santa Barbara",
             "state": "California",
             "affected_people": "unknown",
             "website": "https://ucsb.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Barbara"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Barbara",
+            "latitude": 34.416,
+            "longitude": -119.846
         },
         {
             "name": "University of California, Santa Cruz",
             "state": "California",
             "affected_people": 3,
             "website": "https://www.ucsc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Cruz"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_California,_Santa_Cruz",
+            "latitude": 36.991,
+            "longitude": -122.058
         },
         {
             "name": "University of Central Florida",
             "state": "Florida",
             "affected_people": 15,
             "website": "http://www.ucf.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Central_Florida"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Central_Florida",
+            "latitude": 28.602,
+            "longitude": -81.201
         },
         {
             "name": "University of Central Oklahoma",
             "state": "Oklahoma",
             "affected_people": 4,
             "website": "https://www.uco.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Central_Oklahoma"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Central_Oklahoma",
+            "latitude": 35.658,
+            "longitude": -97.472
         },
         {
             "name": "University of Chicago",
             "state": "Illinois",
             "affected_people": 7,
             "website": "https://www.uchicago.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Chicago"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Chicago",
+            "latitude": 41.79,
+            "longitude": -87.6
         },
         {
             "name": "University of Cincinnati",
             "state": "Ohio",
             "affected_people": 1,
             "website": "https://www.uc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Cincinnati"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Cincinnati",
+            "latitude": 39.133,
+            "longitude": -84.515
         },
         {
             "name": "University of Colorado (all campuses)",
             "state": "Colorado",
             "affected_people": 34,
             "website": "",
-            "wikipedia": ""
+            "wikipedia": "",
+            "latitude": null,
+            "longitude": null
         },
         {
             "name": "University of Connecticut",
             "state": "Connecticut",
             "affected_people": 13,
             "website": "https://uconn.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Connecticut"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Connecticut",
+            "latitude": 41.807,
+            "longitude": -72.253
         },
         {
             "name": "University of Delaware",
             "state": "Delaware",
             "affected_people": 8,
             "website": "https://www.udel.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Delaware"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Delaware",
+            "latitude": 39.679,
+            "longitude": -75.752
         },
         {
             "name": "University of Findlay",
             "state": "Ohio",
             "affected_people": 3,
             "website": "https://www.findlay.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Findlay"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Findlay",
+            "latitude": 41.055,
+            "longitude": -83.655
         },
         {
             "name": "University of Florida",
             "state": "Florida",
             "affected_people": 8,
             "website": "https://www.ufl.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Florida"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Florida",
+            "latitude": 29.648,
+            "longitude": -82.345
         },
         {
             "name": "University of Georgia",
             "state": "Georgia",
             "affected_people": "unknown",
             "website": "https://uga.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Georgia"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Georgia",
+            "latitude": 33.956,
+            "longitude": -83.375
         },
         {
             "name": "University of Hawaiʻi System",
             "state": "Hawaiʻi",
             "affected_people": "unknown",
             "website": "https://www.hawaii.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Hawai%CA%BBi_System"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Hawai%CA%BBi_System",
+            "latitude": 21.297,
+            "longitude": -157.817
         },
         {
             "name": "University of Houston",
             "state": "Texas",
             "affected_people": 1,
             "website": "https://www.uh.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Houston"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Houston",
+            "latitude": 29.719,
+            "longitude": -95.339
         },
         {
             "name": "University of Idaho",
             "state": "Idaho",
             "affected_people": 4,
             "website": "https://www.uidaho.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Idaho"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Idaho",
+            "latitude": 46.726,
+            "longitude": -117.011
         },
         {
             "name": "University of Illinois at Chicago",
             "state": "Illinois",
             "affected_people": "unknown",
             "website": "https://www.uic.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Chicago"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Chicago",
+            "latitude": 41.872,
+            "longitude": -87.649
         },
         {
             "name": "University of Illinois Urbana–Champaign",
             "state": "Illinois",
             "affected_people": 19,
             "website": "https://illinois.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Urbana-Champaign"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Illinois_Urbana-Champaign",
+            "latitude": 40.111,
+            "longitude": -88.228
         },
         {
             "name": "University of Iowa",
             "state": "Iowa",
             "affected_people": 5,
             "website": "https://uiowa.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Iowa"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Iowa",
+            "latitude": 41.662,
+            "longitude": -91.536
         },
         {
             "name": "University of Kansas",
             "state": "Kansas",
             "affected_people": "unknown",
             "website": "https://www.ku.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Kansas"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Kansas",
+            "latitude": 38.958,
+            "longitude": -95.248
         },
         {
             "name": "University of Kentucky",
             "state": "Kentucky",
             "affected_people": "unknown",
             "website": "https://uky.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Kentucky"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Kentucky",
+            "latitude": 38.033,
+            "longitude": -84.503
         },
         {
             "name": "University of Louisiana at Lafayette",
             "state": "Louisiana",
             "affected_people": 3,
             "website": "https://louisiana.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Louisiana_at_Lafayette"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Louisiana_at_Lafayette",
+            "latitude": 30.213,
+            "longitude": -92.019
         },
         {
             "name": "University of Louisville",
             "state": "Kentucky",
             "affected_people": 3,
             "website": "http://www.louisville.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Louisville"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Louisville",
+            "latitude": 38.215,
+            "longitude": -85.76
         },
         {
             "name": "University of Maryland",
             "state": "Maryland",
             "affected_people": "unknown",
             "website": "https://umd.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_College_Park"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_College_Park",
+            "latitude": 38.988,
+            "longitude": -76.943
         },
         {
             "name": "University of Maryland, Baltimore County",
             "state": "Maryland",
             "affected_people": 4,
             "website": "https://www.umbc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_Baltimore_County"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Maryland,_Baltimore_County",
+            "latitude": 39.256,
+            "longitude": -76.711
         },
         {
             "name": "University of Massachusetts Amherst",
             "state": "Massachusetts",
             "affected_people": 13,
             "website": "https://www.umass.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Amherst"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Amherst",
+            "latitude": 42.389,
+            "longitude": -72.528
         },
         {
             "name": "University of Massachusetts Boston",
             "state": "Massachusetts",
             "affected_people": 11,
             "website": "https://www.umb.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Boston"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Boston",
+            "latitude": 42.313,
+            "longitude": -71.038
         },
         {
             "name": "University of Massachusetts Lowell",
             "state": "Massachusetts",
             "affected_people": 1,
             "website": "http://www.uml.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Lowell"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Lowell",
+            "latitude": 42.65,
+            "longitude": -71.323
         },
         {
             "name": "University of Memphis",
             "state": "Tennessee",
             "affected_people": 5,
             "website": "http://www.memphis.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Memphis"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Memphis",
+            "latitude": 35.119,
+            "longitude": -89.937
         },
         {
             "name": "University of Miami",
             "state": "Florida",
             "affected_people": 11,
             "website": "https://welcome.miami.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Miami"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Miami",
+            "latitude": 25.722,
+            "longitude": -80.279
         },
         {
             "name": "University of Michigan",
             "state": "Michigan",
             "affected_people": 22,
             "website": "https://umich.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan",
+            "latitude": 42.277,
+            "longitude": -83.738
         },
         {
             "name": "University of Michigan–Dearborn",
             "state": "Michigan",
             "affected_people": 6,
             "website": "http://www.umd.umich.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan%E2%80%93Dearborn"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan%E2%80%93Dearborn",
+            "latitude": 42.32,
+            "longitude": -83.233
         },
         {
             "name": "University of Michigan–Flint",
             "state": "Michigan",
             "affected_people": 3,
             "website": "http://www.umflint.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan%E2%80%93Flint"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Michigan%E2%80%93Flint",
+            "latitude": 43.018,
+            "longitude": -83.689
         },
         {
             "name": "University of Minnesota",
             "state": "Minnesota",
             "affected_people": 11,
             "website": "https://twin-cities.umn.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Minnesota"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Minnesota",
+            "latitude": 44.975,
+            "longitude": -93.235
         },
         {
             "name": "University of Missouri",
             "state": "Missouri",
             "affected_people": "unknown",
             "website": "https://www.missouri.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Missouri"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Missouri",
+            "latitude": 38.945,
+            "longitude": -92.329
         },
         {
             "name": "University of Montana",
             "state": "Montana",
             "affected_people": 1,
             "website": "http://www.umt.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Montana"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Montana",
+            "latitude": 46.86,
+            "longitude": -113.985
         },
         {
             "name": "University of Nebraska System",
             "state": "Nebraska",
             "affected_people": "unknown",
             "website": "",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska_system"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska_system",
+            "latitude": 40.818,
+            "longitude": -96.701
         },
         {
             "name": "University of Nebraska–Lincoln",
             "state": "Nebraska",
             "affected_people": 3,
             "website": "http://www.unl.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska%E2%80%93Lincoln"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska%E2%80%93Lincoln",
+            "latitude": 40.818,
+            "longitude": -96.701
         },
         {
             "name": "University of Nevada, Las Vegas",
             "state": "Nevada",
             "affected_people": 4,
             "website": "https://unlv.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nevada,_Las_Vegas"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nevada,_Las_Vegas",
+            "latitude": 36.108,
+            "longitude": -115.144
         },
         {
             "name": "University of New Hampshire",
             "state": "New Hampshire",
             "affected_people": 3,
             "website": "https://www.unh.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Hampshire"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Hampshire",
+            "latitude": 43.136,
+            "longitude": -70.932
         },
         {
             "name": "University of New Mexico",
             "state": "New Mexico",
             "affected_people": "unknown",
             "website": "https://www.unm.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Mexico"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Mexico",
+            "latitude": 35.084,
+            "longitude": -106.619
         },
         {
             "name": "University of New Orleans",
             "state": "Louisiana",
             "affected_people": 2,
             "website": "http://www.uno.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Orleans"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_New_Orleans",
+            "latitude": 30.028,
+            "longitude": -90.067
         },
         {
             "name": "University of North Carolina at Chapel Hill",
             "state": "North Carolina",
             "affected_people": 6,
             "website": "https://unc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Chapel_Hill"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Chapel_Hill",
+            "latitude": 35.909,
+            "longitude": -79.049
         },
         {
             "name": "University of North Carolina at Charlotte",
             "state": "North Carolina",
             "affected_people": 6,
             "website": "https://charlotte.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Charlotte"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Charlotte",
+            "latitude": 35.306,
+            "longitude": -80.733
         },
         {
             "name": "University of North Carolina at Greensboro",
             "state": "North Carolina",
             "affected_people": 2,
             "website": "http://www.uncg.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Greensboro"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Carolina_at_Greensboro",
+            "latitude": 36.07,
+            "longitude": -79.811
         },
         {
             "name": "University of North Texas",
             "state": "Texas",
             "affected_people": 27,
             "website": "https://www.unt.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Texas"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_North_Texas",
+            "latitude": 33.211,
+            "longitude": -97.147
         },
         {
             "name": "University of Northern Iowa",
             "state": "Iowa",
             "affected_people": 2,
             "website": "http://www.uni.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Northern_Iowa"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Northern_Iowa",
+            "latitude": 42.515,
+            "longitude": -92.461
         },
         {
             "name": "University of Notre Dame",
             "state": "Indiana",
             "affected_people": 4,
             "website": "https://www.nd.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Notre_Dame"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Notre_Dame",
+            "latitude": 41.7,
+            "longitude": -86.239
         },
         {
             "name": "University of Oregon",
             "state": "Oregon",
             "affected_people": 4,
             "website": "http://www.uoregon.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oregon"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Oregon",
+            "latitude": 44.044,
+            "longitude": -123.076
         },
         {
             "name": "University of Pennsylvania",
             "state": "Pennsylvania",
             "affected_people": 8,
             "website": "https://upenn.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Pennsylvania"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Pennsylvania",
+            "latitude": 39.954,
+            "longitude": -75.193
         },
         {
             "name": "University of Pittsburgh",
             "state": "Pennsylvania",
             "affected_people": 3,
             "website": "https://www.pitt.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Pittsburgh"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Pittsburgh",
+            "latitude": 40.445,
+            "longitude": -79.953
         },
         {
             "name": "University of Rochester",
             "state": "New York",
             "affected_people": 11,
             "website": "https://www.rochester.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Rochester"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Rochester",
+            "latitude": 43.128,
+            "longitude": -77.628
         },
         {
             "name": "University of South Carolina",
             "state": "South Carolina",
             "affected_people": 12,
             "website": "https://sc.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_South_Carolina"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_South_Carolina",
+            "latitude": 33.998,
+            "longitude": -81.025
         },
         {
             "name": "University of Tennessee",
             "state": "Tennessee",
             "affected_people": 4,
             "website": "https://www.utk.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tennessee"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Tennessee",
+            "latitude": 35.952,
+            "longitude": -83.93
         },
         {
             "name": "University of Texas at Arlington",
             "state": "Texas",
             "affected_people": 27,
             "website": "http://www.uta.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Arlington"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Arlington",
+            "latitude": 32.731,
+            "longitude": -97.115
         },
         {
             "name": "University of Texas at Austin",
             "state": "Texas",
             "affected_people": 16,
             "website": "https://www.utexas.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Austin"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Austin",
+            "latitude": 30.286,
+            "longitude": -97.739
         },
         {
             "name": "University of Texas at Dallas",
             "state": "Texas",
             "affected_people": 19,
             "website": "https://www.utdallas.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Dallas"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_Dallas",
+            "latitude": 32.985,
+            "longitude": -96.75
         },
         {
             "name": "University of Texas at El Paso",
             "state": "Texas",
             "affected_people": 10,
             "website": "https://www.utep.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_El_Paso"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_El_Paso",
+            "latitude": 31.77,
+            "longitude": -106.505
         },
         {
             "name": "University of Texas at San Antonio",
             "state": "Texas",
             "affected_people": 4,
             "website": "http://www.utsa.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_San_Antonio"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_at_San_Antonio",
+            "latitude": 29.59,
+            "longitude": -98.62
         },
         {
             "name": "University of Texas Rio Grande Valley",
             "state": "Texas",
             "affected_people": 9,
             "website": "http://www.utrgv.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_Rio_Grande_Valley"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_Rio_Grande_Valley",
+            "latitude": 26.305,
+            "longitude": -98.174
         },
         {
             "name": "University of Texas System",
             "state": "Texas",
             "affected_people": 85,
             "website": "",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_System"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_System",
+            "latitude": 30.286,
+            "longitude": -97.739
         },
         {
             "name": "University of the Pacific",
             "state": "California",
             "affected_people": 2,
             "website": "https://www.pacific.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Pacific_(United_States)"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_the_Pacific_(United_States)",
+            "latitude": 37.977,
+            "longitude": -121.314
         },
         {
             "name": "University of Toledo",
             "state": "Ohio",
             "affected_people": "unknown",
             "website": "http://www.utoledo.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Toledo"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Toledo",
+            "latitude": 41.658,
+            "longitude": -83.614
         },
         {
             "name": "University of Utah",
             "state": "Utah",
             "affected_people": 20,
             "website": "https://www.utah.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Utah"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Utah",
+            "latitude": 40.764,
+            "longitude": -111.846
         },
         {
             "name": "University of Virginia",
             "state": "Virginia",
             "affected_people": 3,
             "website": "https://virginia.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Virginia"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Virginia",
+            "latitude": 38.036,
+            "longitude": -78.503
         },
         {
             "name": "University of Washington",
             "state": "Washington",
             "affected_people": 23,
             "website": "https://washington.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Washington"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Washington",
+            "latitude": 47.654,
+            "longitude": -122.308
         },
         {
             "name": "University of Washington Tacoma",
             "state": "Washington",
             "affected_people": 2,
             "website": "http://www.tacoma.uw.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Washington_Tacoma"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Washington_Tacoma",
+            "latitude": 47.245,
+            "longitude": -122.438
         },
         {
             "name": "University of Wisconsin-Superior",
             "state": "Wisconsin",
             "affected_people": 1,
             "website": "http://www.uwsuper.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Superior"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Superior",
+            "latitude": 46.718,
+            "longitude": -92.09
         },
         {
             "name": "University of Wisconsin–Madison",
             "state": "Wisconsin",
             "affected_people": 14,
             "website": "https://wisc.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison",
+            "latitude": 43.075,
+            "longitude": -89.404
         },
         {
             "name": "University of Wisconsin–Milwaukee",
             "state": "Wisconsin",
             "affected_people": 13,
             "website": "http://www.uwm.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Milwaukee"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Milwaukee",
+            "latitude": 43.075,
+            "longitude": -87.883
         },
         {
             "name": "University of Wyoming",
             "state": "Wyoming",
             "affected_people": "unknown",
             "website": "http://www.uwyo.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wyoming"
+            "wikipedia": "https://en.wikipedia.org/wiki/University_of_Wyoming",
+            "latitude": 41.313,
+            "longitude": -105.581
         },
         {
             "name": "Utah State University",
             "state": "Utah",
             "affected_people": 18,
             "website": "http://www.usu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Utah_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Utah_State_University",
+            "latitude": 41.743,
+            "longitude": -111.813
         },
         {
             "name": "Utah Tech University",
             "state": "Utah",
             "affected_people": 9,
             "website": "https://utahtech.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Utah_Tech_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Utah_Tech_University",
+            "latitude": 37.095,
+            "longitude": -113.578
         },
         {
             "name": "Utah Valley University",
             "state": "Utah",
             "affected_people": 3,
             "website": "https://www.uvu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Utah_Valley_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Utah_Valley_University",
+            "latitude": 40.278,
+            "longitude": -111.714
         },
         {
             "name": "Virginia Commonwealth University",
             "state": "Virginia",
             "affected_people": 3,
             "website": "https://www.vcu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Virginia_Commonwealth_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Virginia_Commonwealth_University",
+            "latitude": 37.547,
+            "longitude": -77.453
         },
         {
             "name": "Virginia Tech",
             "state": "Virginia",
             "affected_people": 9,
             "website": "https://www.vt.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Virginia_Tech"
+            "wikipedia": "https://en.wikipedia.org/wiki/Virginia_Tech",
+            "latitude": 37.225,
+            "longitude": -80.425
         },
         {
             "name": "Walsh University",
             "state": "Ohio",
             "affected_people": 4,
             "website": "http://www.walsh.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Walsh_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Walsh_University",
+            "latitude": 40.874,
+            "longitude": -81.371
         },
         {
             "name": "Washington State University",
             "state": "Washington",
             "affected_people": 3,
             "website": "https://wsu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Washington_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Washington_State_University",
+            "latitude": 46.725,
+            "longitude": -117.16
         },
         {
             "name": "Washington University in St. Louis",
             "state": "Missouri",
             "affected_people": "unknown",
             "website": "https://washu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Washington_University_in_St._Louis"
+            "wikipedia": "https://en.wikipedia.org/wiki/Washington_University_in_St._Louis",
+            "latitude": 38.648,
+            "longitude": -90.305
         },
         {
             "name": "Wayne State University",
             "state": "Michigan",
             "affected_people": 12,
             "website": "https://wayne.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Wayne_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Wayne_State_University",
+            "latitude": 42.357,
+            "longitude": -83.07
         },
         {
             "name": "Weber State University",
             "state": "Utah",
             "affected_people": 5,
             "website": "https://www.weber.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Weber_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Weber_State_University",
+            "latitude": 41.193,
+            "longitude": -111.944
         },
         {
             "name": "Webster University",
             "state": "Missouri",
             "affected_people": 18,
             "website": "https://www.webster.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Webster_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Webster_University",
+            "latitude": 38.589,
+            "longitude": -90.346
         },
         {
             "name": "Webster University San Antonio",
             "state": "Texas",
             "affected_people": 6,
             "website": "https://www.webster.edu/locations/sanantonio/",
-            "wikipedia": "https://en.wikipedia.org/wiki/Webster_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Webster_University",
+            "latitude": 29.329,
+            "longitude": -98.543
         },
         {
             "name": "West Virginia University",
             "state": "West Virginia",
             "affected_people": 9,
             "website": "http://www.wvu.edu/",
-            "wikipedia": "https://en.wikipedia.org/wiki/West_Virginia_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/West_Virginia_University",
+            "latitude": 39.636,
+            "longitude": -79.955
         },
         {
             "name": "West Virginia University Institute of Technology",
             "state": "West Virginia",
             "affected_people": 1,
             "website": "http://www.wvutech.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/West_Virginia_University_Institute_of_Technology"
+            "wikipedia": "https://en.wikipedia.org/wiki/West_Virginia_University_Institute_of_Technology",
+            "latitude": 38.179,
+            "longitude": -81.325
         },
         {
             "name": "Western Illinois University",
             "state": "Illinois",
             "affected_people": "unknown",
             "website": "http://www.wiu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Western_Illinois_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Western_Illinois_University",
+            "latitude": 40.47,
+            "longitude": -90.688
         },
         {
             "name": "Western Michigan University",
             "state": "Michigan",
             "affected_people": 4,
             "website": "https://wmich.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Western_Michigan_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Western_Michigan_University",
+            "latitude": 42.283,
+            "longitude": -85.615
         },
         {
             "name": "Winona State University",
             "state": "Minnesota",
             "affected_people": 1,
             "website": "http://www.winona.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Winona_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Winona_State_University",
+            "latitude": 44.047,
+            "longitude": -91.644
         },
         {
             "name": "Worcester Polytechnic Institute",
             "state": "Massachusetts",
             "affected_people": 4,
             "website": "http://www.wpi.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Worcester_Polytechnic_Institute"
+            "wikipedia": "https://en.wikipedia.org/wiki/Worcester_Polytechnic_Institute",
+            "latitude": 42.273,
+            "longitude": -71.807
         },
         {
             "name": "Xavier University",
             "state": "Ohio",
             "affected_people": 4,
             "website": "http://www.xavier.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Xavier_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Xavier_University",
+            "latitude": 39.15,
+            "longitude": -84.474
         },
         {
             "name": "Yale University",
             "state": "Connecticut",
             "affected_people": 4,
             "website": "https://yale.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Yale_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Yale_University",
+            "latitude": 41.311,
+            "longitude": -72.927
         },
         {
             "name": "Youngstown State University",
             "state": "Ohio",
             "affected_people": 14,
             "website": "http://www.ysu.edu",
-            "wikipedia": "https://en.wikipedia.org/wiki/Youngstown_State_University"
+            "wikipedia": "https://en.wikipedia.org/wiki/Youngstown_State_University",
+            "latitude": 41.107,
+            "longitude": -80.647
         }
     ]
 }
