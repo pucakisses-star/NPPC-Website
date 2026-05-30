@@ -675,6 +675,10 @@ function svrFilterInstitutions(q) {
             .attr('fill', '#15151b')
             .attr('stroke', 'rgba(255,255,255,.28)')
             .attr('stroke-width', 0.6)
+            // Keep the border a constant on-screen width when zoomed in, so it
+            // doesn't fatten to a thick grey glow at high zoom (the CSS
+            // vector-effect rule is overridden, so set it as an attribute).
+            .attr('vector-effect', 'non-scaling-stroke')
             .attr('d', path);
 
         // Project points once; keep only those the projection can place
@@ -696,6 +700,8 @@ function svrFilterInstitutions(q) {
             .attr('fill', '#5660fe')
             .attr('stroke', '#ffffff')
             .attr('stroke-width', 1.2)
+            // Constant on-screen stroke width at any zoom (matches the borders).
+            .attr('vector-effect', 'non-scaling-stroke')
             .style('cursor', 'pointer')
             .attr('data-state', function (d) { return d.p.state || ''; });
 
