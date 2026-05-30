@@ -33,6 +33,15 @@
     .svr-section--tight { padding: 30px 0; }
     .svr-divider { border: 0; border-top: 1px solid rgba(255,255,255,.10); margin: 0; }
 
+    /* ---- top-region background image (hero + latest-update + report banner) ---- */
+    .svr-topbg { position: relative; }
+    .svr-topbg::before { content: ""; position: absolute; inset: 0; z-index: 0;
+        background-image:
+            linear-gradient(180deg, rgba(11,11,13,0.55) 0%, rgba(11,11,13,0.78) 55%, #0b0b0d 100%),
+            url('{{ asset('images/hero-bg.jpg') }}');
+        background-size: cover; background-position: center; background-repeat: no-repeat; }
+    .svr-topbg > * { position: relative; z-index: 1; }
+
     /* ---- hero ---- */
     .svr-hero { padding: 64px 0 38px; }
     .svr-alert { display: inline-flex; align-items: center; gap: 9px; background: rgba(86,96,254,.16); color: #aab0ff; font-weight: 800; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(86,96,254,.45); margin-bottom: 22px; }
@@ -182,6 +191,9 @@
 @section('body')
 <div class="svr">
 
+    {{-- Top region with the full-width background image behind it --}}
+    <div class="svr-topbg">
+
     {{-- ==================== HERO ==================== --}}
     <div class="svr-wrap svr-hero">
         <span class="svr-alert">Immediate action required</span>
@@ -215,6 +227,8 @@
             </a>
         </div>
     </div>
+
+    </div>{{-- /svr-topbg --}}
 
     {{-- ==================== LOCATIONS MAP ==================== --}}
     <div class="svr-wide svr-section--tight">
