@@ -265,7 +265,7 @@
                         </select>
                     </div>
                     <div id="svr-map-canvas" class="svr-map-canvas" data-points="{{ count($mapPoints) }}"></div>
-                    <p class="svr-map-note" id="svr-map-fallback" hidden>The interactive map needs JavaScript and a map service. See the full list below.</p>
+                    <p class="svr-map-note" id="svr-map-fallback" hidden>The interactive map needs JavaScript. See the full list of institutions below.</p>
                 @else
                     <p class="svr-map-note">Map data is being synced. Run <code>php artisan visa:sync-institutions</code> to populate it.</p>
                 @endif
@@ -621,95 +621,113 @@ function svrFilterInstitutions(q) {
 }
 </script>
 
-{{-- Native interactive map (Mapbox GL) — replaces the Observable embed.
-     Points are rendered server-side from the synced institutions snapshot. --}}
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+{{-- Native interactive map — self-hosted D3 (geoAlbersUsa). No third-party
+     map service or token: the US basemap is a vendored TopoJSON and the
+     points come from the synced institutions snapshot, rendered server-side
+     into the script below. --}}
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
 (function () {
     var POINTS = @json($mapPoints ?? []);
-    var TOKEN = @json(config('services.mapbox.token', ''));
     var canvas = document.getElementById('svr-map-canvas');
     if (!canvas) return;
 
-    // Without Mapbox or a token there's nothing to draw — surface the
-    // text fallback and bail rather than leaving an empty black box.
-    if (typeof mapboxgl === 'undefined' || !TOKEN || !POINTS.length) {
+    function showFallback() {
         var fb = document.getElementById('svr-map-fallback');
         if (fb) fb.hidden = false;
         canvas.style.display = 'none';
+    }
+    // Need D3 + TopoJSON + at least one point, else fall back to the list.
+    if (typeof d3 === 'undefined' || typeof topojson === 'undefined' || !POINTS.length) {
+        showFallback();
         return;
     }
 
-    mapboxgl.accessToken = TOKEN;
-    var map = new mapboxgl.Map({
-        container: 'svr-map-canvas',
-        style: 'mapbox://styles/mapbox/dark-v11',
-        center: [-98.5795, 39.8283],
-        zoom: 3.4,
-        attributionControl: true,
-    });
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    var tip = document.createElement('div');
+    tip.className = 'svr-map-tip';
+    canvas.appendChild(tip);
 
-    var features = POINTS.map(function (p) {
-        return {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
-            properties: {
-                name: p.name,
-                state: p.state,
-                affected: (p.affected === null || p.affected === undefined) ? 'unknown' : p.affected
-            }
-        };
-    });
-    var fc = { type: 'FeatureCollection', features: features };
+    d3.json('{{ asset('vendor/us-states-10m.json') }}').then(function (us) {
+        var statesFc = topojson.feature(us, us.objects.states);
+        var W = canvas.clientWidth || 900;
+        var H = canvas.clientHeight || 560;
 
-    function boundsFor(feats) {
-        if (!feats.length) return null;
-        var b = new mapboxgl.LngLatBounds();
-        feats.forEach(function (f) { b.extend(f.geometry.coordinates); });
-        return b;
-    }
+        var projection = d3.geoAlbersUsa().fitSize([W, H], statesFc);
+        var path = d3.geoPath(projection);
 
-    map.on('load', function () {
-        map.addSource('svr-institutions', { type: 'geojson', data: fc });
-        map.addLayer({
-            id: 'svr-dots',
-            type: 'circle',
-            source: 'svr-institutions',
-            paint: {
-                'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 4, 7, 7],
-                'circle-color': '#5660fe',
-                'circle-opacity': 0.85,
-                'circle-stroke-width': 1.5,
-                'circle-stroke-color': '#fff'
-            }
+        var svg = d3.select(canvas).append('svg')
+            .attr('viewBox', '0 0 ' + W + ' ' + H)
+            .attr('preserveAspectRatio', 'xMidYMid meet');
+        var g = svg.append('g');
+
+        // State outlines
+        g.append('g').selectAll('path')
+            .data(statesFc.features)
+            .join('path')
+            .attr('class', 'svr-state')
+            .attr('d', path);
+
+        // Project points once; keep only those the projection can place
+        // (geoAlbersUsa returns null for coords outside the US frame).
+        var placed = POINTS.map(function (p) {
+            var xy = projection([p.lng, p.lat]);
+            return xy ? { p: p, x: xy[0], y: xy[1] } : null;
+        }).filter(Boolean);
+
+        var dots = g.append('g').selectAll('circle')
+            .data(placed)
+            .join('circle')
+            .attr('class', 'svr-dot')
+            .attr('cx', function (d) { return d.x; })
+            .attr('cy', function (d) { return d.y; })
+            .attr('r', 3.5)
+            .attr('data-state', function (d) { return d.p.state || ''; });
+
+        dots.on('mousemove', function (event, d) {
+            var aff = (d.p.affected === null || d.p.affected === undefined || d.p.affected === 'unknown')
+                ? 'unknown' : Number(d.p.affected).toLocaleString();
+            tip.innerHTML = '<div class="svr-pop-name">' + d.p.name + '</div>'
+                + '<div class="svr-pop-meta">' + (d.p.state || '') + ' · affected: <b>' + aff + '</b></div>';
+            var r = canvas.getBoundingClientRect();
+            tip.style.left = (event.clientX - r.left) + 'px';
+            tip.style.top = (event.clientY - r.top) + 'px';
+            tip.style.opacity = '1';
+        }).on('mouseleave', function () { tip.style.opacity = '0'; });
+
+        // Zoom / pan, with a programmatic zoom-to-bounding-box for the filter.
+        var zoom = d3.zoom().scaleExtent([1, 12]).on('zoom', function (event) {
+            g.attr('transform', event.transform);
+            g.selectAll('.svr-dot').attr('r', 3.5 / event.transform.k);
         });
+        svg.call(zoom);
 
-        var popup = new mapboxgl.Popup({ closeButton: true, closeOnClick: true });
-        map.on('click', 'svr-dots', function (e) {
-            var pr = e.features[0].properties;
-            var affected = (pr.affected === 'unknown') ? 'unknown' : Number(pr.affected).toLocaleString();
-            var html = '<div class="svr-pop-name">' + pr.name + '</div>'
-                     + '<div class="svr-pop-meta">' + pr.state + ' · affected: <b>' + affected + '</b></div>';
-            popup.setLngLat(e.features[0].geometry.coordinates).setHTML(html).addTo(map);
-        });
-        map.on('mouseenter', 'svr-dots', function () { map.getCanvas().style.cursor = 'pointer'; });
-        map.on('mouseleave', 'svr-dots', function () { map.getCanvas().style.cursor = ''; });
-    });
-
-    // State filter: hide non-matching dots and zoom to the selection.
-    window.svrFilterMap = function (state) {
-        if (!map.isStyleLoaded() || !map.getLayer('svr-dots')) return;
-        if (!state) {
-            map.setFilter('svr-dots', null);
-            map.flyTo({ center: [-98.5795, 39.8283], zoom: 3.4 });
-            return;
+        function resetZoom() {
+            svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity);
         }
-        map.setFilter('svr-dots', ['==', ['get', 'state'], state]);
-        var b = boundsFor(features.filter(function (f) { return f.properties.state === state; }));
-        if (b) map.fitBounds(b, { padding: 60, maxZoom: 9, duration: 800 });
-    };
+        function zoomToState(state) {
+            var feat = statesFc.features.find(function (f) { return f.properties.name === state; });
+            if (!feat) { resetZoom(); return; }
+            var b = path.bounds(feat);
+            var dx = b[1][0] - b[0][0], dy = b[1][1] - b[0][1];
+            var x = (b[0][0] + b[1][0]) / 2, y = (b[0][1] + b[1][1]) / 2;
+            var scale = Math.min(12, 0.85 / Math.max(dx / W, dy / H));
+            var translate = [W / 2 - scale * x, H / 2 - scale * y];
+            svg.transition().duration(800).call(
+                zoom.transform,
+                d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+            );
+        }
+
+        // Wire up the "Select state" dropdown: dim non-matching dots + zoom.
+        window.svrFilterMap = function (state) {
+            g.selectAll('.svr-dot')
+                .style('opacity', function (d) {
+                    return (!state || d.p.state === state) ? 0.9 : 0.08;
+                });
+            if (state) { zoomToState(state); } else { resetZoom(); }
+        };
+    }).catch(function () { showFallback(); });
 })();
 </script>
 @endsection
