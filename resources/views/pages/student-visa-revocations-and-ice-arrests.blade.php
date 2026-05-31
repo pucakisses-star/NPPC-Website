@@ -306,10 +306,11 @@
                             </thead>
                             <tbody>
                                 @foreach($institutions as $inst)
+                                    @php($instLink = ! empty($inst['website']) ? $inst['website'] : ($inst['wikipedia'] ?? ''))
                                     <tr>
                                         <td>
-                                            @if(! empty($inst['website']))
-                                                <a href="{{ $inst['website'] }}" target="_blank" rel="noopener">{{ $inst['name'] }}</a>
+                                            @if(! empty($instLink))
+                                                <a href="{{ $instLink }}" target="_blank" rel="noopener">{{ $inst['name'] }}</a>
                                             @else
                                                 {{ $inst['name'] }}
                                             @endif
