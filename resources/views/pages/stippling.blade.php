@@ -22,7 +22,7 @@
 
     .stp-stage { display: grid; grid-template-columns: 1fr 260px; gap: 22px; align-items: start; }
     .stp-canvas-wrap { position: relative; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; background: #0e0e10; min-height: 320px; display: flex; align-items: center; justify-content: center; }
-    #stp-canvas { display: block; width: 100%; height: auto; }
+    #stp-canvas { display: block; width: 100%; height: auto; cursor: crosshair; }
     .stp-drop { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; opacity: 0; transition: opacity 0.15s ease; background: rgba(224,168,46,0.14); border: 2px dashed rgba(224,168,46,0.7); border-radius: 12px; font-weight: 700; color: #fff; }
     .stp-canvas-wrap.is-drag .stp-drop { opacity: 1; }
 
@@ -55,7 +55,7 @@
     <div class="stp-wrap">
         <div class="stp-kicker">Experiment</div>
         <h1 class="stp-h1">Voronoi Stippling</h1>
-        <p class="stp-lede">Turn an image into a field of dots whose density follows its tones — denser where the image is dark, sparse where it's light. The dots start scattered and settle over a few seconds via weighted Lloyd's relaxation (a centroidal Voronoi tessellation). Drop in your own image to try it.</p>
+        <p class="stp-lede">Turn an image into a field of dots whose density follows its tones — denser where the image is dark, sparse where it's light. The dots start scattered and settle over a few seconds via weighted Lloyd's relaxation (a centroidal Voronoi tessellation). Then move your cursor over the image to push the dots around — they spring back when you leave. Drop in your own image to try it.</p>
 
         <div class="stp-stage">
             <div class="stp-canvas-wrap" id="stp-drop">
@@ -104,6 +104,7 @@
 
         var MAXW = 720, MAX_ITERS = 90;
         var W = 0, H = 0, density = null, points = null, pointDensity = null, n = 0, raf = 0, iter = 0, lastImage = null;
+        var home = null, disp = null, mouse = { x: 0, y: 0, active: false }, interacting = false, iraf = 0;
         var opts = { n: 4800, r: 1.7, gamma: 1.0, dark: true };
 
         function computeDensity(image) {
@@ -167,7 +168,8 @@
             }
         }
 
-        function draw() {
+        function draw(pos) {
+            pos = pos || disp || points;
             ctx.fillStyle = opts.dark ? '#0a0a0b' : '#f4f1ea';
             ctx.fillRect(0, 0, W, H);
             ctx.fillStyle = opts.dark ? '#ece9e2' : '#14110e';
@@ -179,7 +181,7 @@
                 var d;
                 if (pointDensity) { d = pointDensity[i]; }
                 else {
-                    var xi = points[i * 2] | 0, yi = points[i * 2 + 1] | 0;
+                    var xi = pos[i * 2] | 0, yi = pos[i * 2 + 1] | 0;
                     if (xi < 0) xi = 0; else if (xi >= W) xi = W - 1;
                     if (yi < 0) yi = 0; else if (yi >= H) yi = H - 1;
                     d = density[yi * W + xi];
@@ -187,7 +189,7 @@
                 if (d < 0) d = 0; else if (d > 1) d = 1;
                 var r = rMin + span * Math.sqrt(d);
                 ctx.beginPath();
-                ctx.arc(points[i * 2], points[i * 2 + 1], r, 0, 6.283185307179586);
+                ctx.arc(pos[i * 2], pos[i * 2 + 1], r, 0, 6.283185307179586);
                 ctx.fill();
             }
         }
@@ -195,17 +197,69 @@
         function tick() {
             step(); draw(); iter++;
             if (iter < MAX_ITERS) { setStatus('Relaxing… ' + iter + ' / ' + MAX_ITERS); raf = requestAnimationFrame(tick); }
-            else { setStatus('Done · ' + n.toLocaleString() + ' dots'); }
+            else { setStatus('Done · ' + n.toLocaleString() + ' dots — drag your cursor over it'); startInteraction(); }
         }
 
         function start() {
             cancelAnimationFrame(raf);
+            cancelAnimationFrame(iraf);
+            interacting = false;
+            home = null; disp = null;
             iter = 0;
             pointDensity = null;
             if (!density) return;
             seed(); draw();
             raf = requestAnimationFrame(tick);
         }
+
+        // ---- cursor interaction: dots part around the cursor, then ease back ----
+        function startInteraction() {
+            home = points.slice(0);
+            disp = points.slice(0);
+            if (!interacting) { interacting = true; iraf = requestAnimationFrame(interactFrame); }
+        }
+
+        function interactFrame() {
+            var R = Math.max(W, H) * 0.15, R2 = R * R, maxPush = R * 0.8, ease = 0.18;
+            var moving = false;
+            for (var i = 0; i < n; i++) {
+                var ix = i * 2, iy = ix + 1;
+                var tx = home[ix], ty = home[iy];
+                if (mouse.active) {
+                    var dx = home[ix] - mouse.x, dy = home[iy] - mouse.y;
+                    var d2 = dx * dx + dy * dy;
+                    if (d2 < R2) {
+                        var d = Math.sqrt(d2) || 0.0001;
+                        var amt = (1 - d / R) * maxPush;
+                        tx = home[ix] + (dx / d) * amt;
+                        ty = home[iy] + (dy / d) * amt;
+                    }
+                }
+                var nx = disp[ix] + (tx - disp[ix]) * ease;
+                var ny = disp[iy] + (ty - disp[iy]) * ease;
+                if (Math.abs(nx - disp[ix]) > 0.05 || Math.abs(ny - disp[iy]) > 0.05) moving = true;
+                disp[ix] = nx; disp[iy] = ny;
+            }
+            draw(disp);
+            if (mouse.active || moving) { iraf = requestAnimationFrame(interactFrame); }
+            else { interacting = false; }
+        }
+
+        function kick() { if (home && !interacting) { interacting = true; iraf = requestAnimationFrame(interactFrame); } }
+
+        function pointerMove(clientX, clientY) {
+            var rect = cv.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            mouse.x = (clientX - rect.left) / rect.width * W;
+            mouse.y = (clientY - rect.top) / rect.height * H;
+            mouse.active = true;
+            kick();
+        }
+
+        cv.addEventListener('mousemove', function (e) { pointerMove(e.clientX, e.clientY); });
+        cv.addEventListener('mouseleave', function () { mouse.active = false; kick(); });
+        cv.addEventListener('touchmove', function (e) { if (e.touches[0]) { pointerMove(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+        cv.addEventListener('touchend', function () { mouse.active = false; kick(); });
 
         function loadImage(src) {
             var img = new Image();
