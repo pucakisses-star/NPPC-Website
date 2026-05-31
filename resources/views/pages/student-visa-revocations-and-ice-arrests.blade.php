@@ -42,7 +42,7 @@
         background-image:
             linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.78) 55%, #000 100%),
             url('{{ asset('images/original.avif') }}');
-        background-size: cover; background-position: center; background-repeat: no-repeat; }
+        background-size: cover; background-position: center top; background-repeat: no-repeat; }
     .svr-topbg > * { position: relative; z-index: 1; }
 
     /* ---- hero ---- */
