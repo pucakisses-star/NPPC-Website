@@ -37,12 +37,16 @@
     /* Break out of the centered .container to the full viewport width so the
        background photo spans edge to edge; the inner .svr-wrap blocks keep the
        content itself centered and capped. */
-    .svr-topbg { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow: hidden; }
+    /* The band takes the photo's own aspect ratio and uses `contain` so the
+       ENTIRE image is always visible, never cropped. The gradient stays light
+       through the middle (full scene shows) and fades to solid black at the
+       bottom so the photo blends into the page. */
+    .svr-topbg { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow: hidden; aspect-ratio: 1952 / 1098; background: #000; }
     .svr-topbg::before { content: ""; position: absolute; inset: 0; z-index: 0;
         background-image:
-            linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.78) 55%, #000 100%),
+            linear-gradient(180deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.26) 13%, rgba(0,0,0,0.10) 30%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0.72) 86%, #000 100%),
             url('{{ asset('images/original.avif') }}');
-        background-size: cover; background-position: center 40%; background-repeat: no-repeat; }
+        background-size: 100% 100%, contain; background-position: center top; background-repeat: no-repeat; }
     .svr-topbg > * { position: relative; z-index: 1; }
 
     /* ---- hero ---- */
