@@ -48,6 +48,8 @@
             url('{{ asset('images/original.avif') }}');
         background-size: 100% 100%, contain; background-position: center top; background-repeat: no-repeat; }
     .svr-topbg > * { position: relative; z-index: 1; }
+    /* Photo credit pinned to the band's bottom-right, over the area that fades to black. */
+    .svr-topbg-credit { position: absolute; right: 16px; bottom: 12px; z-index: 2; margin: 0; font-size: 12px; letter-spacing: .03em; color: rgba(255,255,255,.6); text-shadow: 0 1px 3px rgba(0,0,0,.6); }
 
     /* ---- hero ---- */
     /* margin-top:auto pushes the hero to the bottom of the photo band so the
@@ -232,6 +234,7 @@
         <div class="svr-hero-meta"><span>Living resource</span><span>Updated 2025</span><span>NPPC</span></div>
     </div>
 
+        <p class="svr-topbg-credit">Photo: Mark Abramson / The New York Times</p>
     </div>{{-- /svr-topbg --}}
 
     {{-- ==================== LOCATIONS MAP ==================== --}}
