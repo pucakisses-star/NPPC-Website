@@ -124,7 +124,7 @@
     .svr-tbl-context strong { color: rgba(255,255,255,.9); font-weight: 700; }
     .svr-tbl-foot { font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,.5); max-width: 760px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.08); }
     .svr-credit { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 16px 0 0; }
-    .svr-credit-logo { display: inline-flex; background: #fff; padding: 9px 13px; border-radius: 8px; line-height: 0; }
+    .svr-credit-logo { display: inline-flex; line-height: 0; }
     .svr-credit-logo img { height: 30px; width: auto; display: block; }
     .svr-credit-cap { font-size: 13px; color: rgba(255,255,255,.6); margin: 0; }
     .svr-tbl-search { width: 100%; max-width: 420px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 10px 14px; font-size: 14px; border-radius: 8px; outline: none; margin-bottom: 16px; }
