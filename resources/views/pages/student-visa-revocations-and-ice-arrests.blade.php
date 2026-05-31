@@ -957,6 +957,28 @@
                 </div>
             </div>
 
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">ZJ</span>
+                <div class="svr-case-body">
+                    <h3>Ziliang Jin</h3>
+                    <p class="svr-case-role">University of Minnesota · F-1 student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A graduate student from China in geographic-information science, told on April 8 that ICE had "unilaterally terminated" his SEVIS record — the only basis being four petty-misdemeanor traffic violations, among them a parking ticket and a speeding citation. He sued in Minnesota; a federal judge ordered his status reinstated retroactively and barred any adverse action, and the case was dismissed after ICE restored it.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Ziliang%20Jin%20Minnesota%20visa" target="_blank" rel="noopener">Coverage of Ziliang Jin →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">RR</span>
+                <div class="svr-case-body">
+                    <h3>Rattanand Ratsantiboon</h3>
+                    <p class="svr-case-role">Metropolitan State University · F-1 student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A 31-year-old nursing student from Thailand, in the U.S. since 2014, whose SEVIS record was terminated on March 28 over 2018 driving offenses flagged in a "criminal records check" — a careless-driving citation and a DWI for which he had completed probation in 2021. ICE notified neither him nor the university; he sued, and a federal judge ordered his status reinstated retroactive to March 28.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Rattanand%20Ratsantiboon%20Metro%20State%20ICE" target="_blank" rel="noopener">Coverage of Rattanand Ratsantiboon →</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
