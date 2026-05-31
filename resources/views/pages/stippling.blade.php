@@ -220,7 +220,7 @@
         }
 
         function interactFrame() {
-            var R = Math.max(W, H) * 0.15, R2 = R * R, maxPush = R * 0.8, ease = 0.18;
+            var R = Math.max(W, H) * 0.05, R2 = R * R, maxPush = R * 0.8, ease = 0.18;
             var moving = false;
             for (var i = 0; i < n; i++) {
                 var ix = i * 2, iy = ix + 1;
