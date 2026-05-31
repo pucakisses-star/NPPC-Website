@@ -117,6 +117,35 @@
     .ppd-foot-link { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: var(--amber); }
     .ppd-foot-link:hover { color: #fff; }
 
+    /* ---- timeline scrubber (below the map) ---- */
+    .ppd-timeline { display: flex; align-items: center; gap: 18px; padding: 18px 22px 22px; border-bottom: 1px solid var(--line); background: #0b0b0d; }
+    .ppd-tl-play { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); background: #141418; color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .12s ease, border-color .12s ease, color .12s ease; }
+    .ppd-tl-play:hover { background: #20202a; border-color: rgba(224,168,46,0.5); color: var(--amber); }
+    .ppd-tl-play .ppd-tl-ico-pause { display: none; }
+    .ppd-tl-play.is-playing .ppd-tl-ico-play { display: none; }
+    .ppd-tl-play.is-playing .ppd-tl-ico-pause { display: inline; color: var(--amber); }
+    .ppd-tl-main { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; }
+    .ppd-tl-main::-webkit-scrollbar { height: 8px; }
+    .ppd-tl-main::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 8px; }
+    .ppd-tl-scroll { min-width: 640px; }
+    .ppd-tl-bar { position: relative; height: 16px; }
+    .ppd-tl-rail { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 3px; border-radius: 999px; background: rgba(255,255,255,0.12); }
+    .ppd-tl-fill { position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 3px; width: 0; border-radius: 999px; background: linear-gradient(90deg, rgba(224,168,46,0.3), var(--amber)); }
+    .ppd-tl-handle { position: absolute; top: 50%; left: 0; width: 16px; height: 16px; margin-left: -8px; transform: translateY(-50%); border-radius: 50%; background: var(--amber); border: 2px solid #0b0b0d; box-shadow: 0 0 0 1px var(--amber), 0 2px 6px rgba(0,0,0,0.5); cursor: grab; touch-action: none; }
+    .ppd-tl-handle:active { cursor: grabbing; }
+    .ppd-tl-handle:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+    .ppd-tl-ticks { display: flex; position: relative; margin-top: 9px; }
+    .ppd-tl-tick { flex: 1 1 0; min-width: 16px; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .ppd-tl-tick::before { content: ""; width: 1px; height: 4px; background: rgba(255,255,255,0.14); }
+    .ppd-tl-num { font-size: 11px; font-weight: 700; color: rgba(236,233,226,0.34); line-height: 1; min-height: 11px; font-variant-numeric: tabular-nums; }
+    .ppd-tl-date { font-size: 9px; color: rgba(236,233,226,0.28); line-height: 1; white-space: nowrap; letter-spacing: 0.02em; }
+    .ppd-tl-tick.is-passed::before { background: rgba(224,168,46,0.5); }
+    .ppd-tl-tick.is-passed .ppd-tl-num { color: rgba(236,233,226,0.62); }
+    .ppd-tl-tick.is-current::before { height: 7px; background: var(--amber); }
+    .ppd-tl-tick.is-current .ppd-tl-num { color: #fff; }
+    .ppd-tl-tick.is-current .ppd-tl-date { color: var(--amber); }
+    @@media (max-width: 540px) { .ppd-timeline { padding: 14px 14px 18px; gap: 12px; } .ppd-tl-play { width: 34px; height: 34px; } }
+
     /* ---- responsive ---- */
     @@media (max-width: 900px) {
         .ppd-bar-title { display: none; }
@@ -201,28 +230,62 @@
     $feed   = $prisoners->take(40);
     $ticker = $prisoners->take(14);
 
+    // ---- timeline scrubber: one tick per day across the full documented
+    // range (earliest -> latest created_at). Date labels are thinned to ~53
+    // max so the row stays readable no matter how wide the span is. The handle
+    // "plays back" the database growing: the map + feed show only cases
+    // documented on or before the selected day. ----
+    $dayOf = fn ($p) => $p->created_at?->startOfDay();
+    $tlStamps = $prisoners->map(fn ($p) => optional($p->created_at)->timestamp)->filter()->values();
+    $tlEnd   = $tlStamps->isNotEmpty() ? \Illuminate\Support\Carbon::createFromTimestamp($tlStamps->max()) : now();
+    $tlStart = $tlStamps->isNotEmpty() ? \Illuminate\Support\Carbon::createFromTimestamp($tlStamps->min()) : now()->copy()->subDays(52);
+    $tlStart = $tlStart->startOfDay();
+    $tlEnd   = $tlEnd->startOfDay();
+    if ($tlEnd->lt($tlStart)) { $tlEnd = $tlStart->copy(); }
+    $tlCount = $tlStart->diffInDays($tlEnd) + 1;
+    $tlStep  = (int) max(1, ceil($tlCount / 53));
+    $tlDays  = [];
+    for ($i = 0; $i < $tlCount; $i++) {
+        $d = $tlStart->copy()->addDays($i);
+        $tlDays[] = [
+            'n'     => $i + 1,
+            'label' => $d->format('M j'),
+            'show'  => ($i % $tlStep === 0) || ($i === $tlCount - 1),
+        ];
+    }
+    // day index (0-based) for a prisoner, clamped into the tick range
+    $dayIndex = function ($p) use ($tlStart, $tlCount, $dayOf) {
+        $d = $dayOf($p);
+        if (! $d) return 0;
+        $i = $tlStart->diffInDays($d, false);
+        return (int) max(0, min($tlCount - 1, $i));
+    };
+
     // map points: prisoners with coordinates, coloured by status
     $mapPoints = $prisoners
         ->filter(fn ($p) => $p->lat !== null && $p->lng !== null)
-        ->map(function ($p) use ($statusKey, $statusMeta) {
+        ->map(function ($p) use ($statusKey, $statusMeta, $dayIndex) {
             $sk = $statusKey($p);
             return [
                 'lat'    => (float) $p->lat,
                 'lng'    => (float) $p->lng,
                 'name'   => $p->name,
                 'status' => $sk,
+                'day'    => $dayIndex($p),
                 'meta'   => collect([$statusMeta[$sk][0] ?? null, $p->state])->filter()->join(' · '),
                 'url'    => $p->url,
             ];
         })->values();
 
-    // fallback for the map if no prisoner has coordinates: facilities
+    // fallback for the map if no prisoner has coordinates: facilities. These
+    // carry no documented-date, so they sit at day 0 (always visible).
     $mapFacilities = \App\Models\Institution::query()
         ->whereNotNull('lat')->whereNotNull('lng')->withCount('cases')->get()
         ->map(fn ($i) => [
             'lat'   => (float) $i->lat,
             'lng'   => (float) $i->lng,
             'name'  => $i->name,
+            'day'   => 0,
             'meta'  => collect([$i->city, $i->state])->filter()->join(', '),
             'count' => (int) $i->cases_count,
         ])->values();
@@ -286,7 +349,7 @@
             </div>
             @forelse ($feed as $p)
                 @php $sk = $statusKey($p); @endphp
-                <a class="ppd-feed-item" href="{{ $p->url }}" data-status="{{ $sk }}">
+                <a class="ppd-feed-item" href="{{ $p->url }}" data-status="{{ $sk }}" data-day="{{ $dayIndex($p) }}">
                     <span class="ppd-feed-name">{{ $p->name }}</span>
                     <span class="ppd-feed-sub">
                         <span class="ppd-tagchip" style="background: {{ $statusMeta[$sk][1] }}">{{ $statusMeta[$sk][0] }}</span>
@@ -309,6 +372,33 @@
                         <span class="ppd-leg-n">{{ number_format($val) }}</span>
                     </button>
                 @endforeach
+            </div>
+        </div>
+    </div>
+
+    {{-- ==================== TIMELINE SCRUBBER (below the map) ==================== --}}
+    <div class="ppd-timeline">
+        <button type="button" class="ppd-tl-play" id="ppd-tl-play" aria-label="Play timeline">
+            <svg class="ppd-tl-ico-play" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="ppd-tl-ico-pause" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <div class="ppd-tl-main">
+            <div class="ppd-tl-scroll">
+                <div class="ppd-tl-bar" id="ppd-tl-bar">
+                    <div class="ppd-tl-rail"></div>
+                    <div class="ppd-tl-fill" id="ppd-tl-fill"></div>
+                    <div class="ppd-tl-handle" id="ppd-tl-handle" role="slider" tabindex="0"
+                         aria-label="Timeline day"
+                         aria-valuemin="1" aria-valuemax="{{ max(1, $tlCount) }}" aria-valuenow="{{ max(1, $tlCount) }}"></div>
+                </div>
+                <div class="ppd-tl-ticks" id="ppd-tl-ticks">
+                    @foreach ($tlDays as $i => $day)
+                        <div class="ppd-tl-tick" data-i="{{ $i }}">
+                            <span class="ppd-tl-num">{{ $day['show'] ? $day['n'] : '' }}</span>
+                            <span class="ppd-tl-date">{{ $day['show'] ? $day['label'] : '' }}</span>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -394,62 +484,185 @@
         var facilityPts = @json($mapFacilities);
         var mapEl = document.getElementById('ppd-map');
 
-        if (!mapEl || !window.L) { if (mapEl) mapEl.innerHTML = '<div class="ppd-map-empty">Map library unavailable.</div>'; return; }
-
         var useFacilities = prisonerPts.length === 0;
         var points = useFacilities ? facilityPts : prisonerPts;
-        if (!points.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
 
-        var map = L.map('ppd-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: true }).setView([39, -97], 4);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            subdomains: 'abcd', maxZoom: 19,
-            attribution: '&copy; OpenStreetMap &copy; CARTO'
-        }).addTo(map);
-        setTimeout(function () { map.invalidateSize(); }, 200);
-
+        // The map is optional: if Leaflet fails to load we still wire up the
+        // feed + timeline filtering below, so the page degrades gracefully.
+        var map = null;
         var markers = [];
-        var latlngs = [];
-        points.forEach(function (p) {
-            var color = useFacilities ? '#e0a82e' : (statusColors[p.status] || '#9aa0a6');
-            var radius = useFacilities ? Math.max(5, Math.min(20, 4 + Math.sqrt(p.count || 1) * 3)) : 6;
-            var m = L.circleMarker([p.lat, p.lng], {
-                radius: radius, color: color, weight: 1.5, opacity: 0.9,
-                fillColor: color, fillOpacity: 0.5
-            });
-            var extra = useFacilities ? ((p.count || 0) + ' case' + (p.count === 1 ? '' : 's')) : (p.meta || '');
-            m.bindPopup('<b>' + esc(p.name) + '</b>' + (extra ? '<br><span class="ppd-pop-meta">' + esc(extra) + '</span>' : ''));
-            m.addTo(map);
-            markers.push({ marker: m, status: useFacilities ? 'other' : p.status });
-            latlngs.push([p.lat, p.lng]);
-        });
-        if (latlngs.length) { map.fitBounds(latlngs, { padding: [42, 42], maxZoom: 7 }); }
+        if (!mapEl || !window.L) {
+            if (mapEl) mapEl.innerHTML = '<div class="ppd-map-empty">Map library unavailable.</div>';
+        } else {
+            if (!points.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
 
-        // ---- legend acts as a status filter (map markers + feed) ----
+            map = L.map('ppd-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: true }).setView([39, -97], 4);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                subdomains: 'abcd', maxZoom: 19,
+                attribution: '&copy; OpenStreetMap &copy; CARTO'
+            }).addTo(map);
+            setTimeout(function () { map.invalidateSize(); }, 200);
+
+            var latlngs = [];
+            points.forEach(function (p) {
+                var color = useFacilities ? '#e0a82e' : (statusColors[p.status] || '#9aa0a6');
+                var radius = useFacilities ? Math.max(5, Math.min(20, 4 + Math.sqrt(p.count || 1) * 3)) : 6;
+                var m = L.circleMarker([p.lat, p.lng], {
+                    radius: radius, color: color, weight: 1.5, opacity: 0.9,
+                    fillColor: color, fillOpacity: 0.5
+                });
+                var extra = useFacilities ? ((p.count || 0) + ' case' + (p.count === 1 ? '' : 's')) : (p.meta || '');
+                m.bindPopup('<b>' + esc(p.name) + '</b>' + (extra ? '<br><span class="ppd-pop-meta">' + esc(extra) + '</span>' : ''));
+                m.addTo(map);
+                markers.push({ marker: m, status: useFacilities ? 'other' : p.status, day: p.day || 0 });
+                latlngs.push([p.lat, p.lng]);
+            });
+            if (latlngs.length) { map.fitBounds(latlngs, { padding: [42, 42], maxZoom: 7 }); }
+        }
+
+        // ---- shared filtering: legend status AND timeline day compose ----
         var legend = document.getElementById('ppd-legend');
         var legRows = legend ? legend.querySelectorAll('.ppd-leg') : [];
         var feedItems = document.querySelectorAll('.ppd-feed-item');
-        var active = null;
+        var statusFilter = null;     // status key, or null for "all statuses"
+        var dayFilter = Infinity;    // show items documented on/before this day index
 
-        function apply(f) {
-            markers.forEach(function (o) {
-                var on = (f === null) || (o.status === f);
-                if (on) { if (!map.hasLayer(o.marker)) o.marker.addTo(map); }
-                else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
-            });
+        function visible(status, day) {
+            return (statusFilter === null || status === statusFilter) && (day <= dayFilter);
+        }
+        function applyFilters() {
+            if (map) {
+                markers.forEach(function (o) {
+                    var on = visible(o.status, o.day);
+                    if (on) { if (!map.hasLayer(o.marker)) o.marker.addTo(map); }
+                    else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
+                });
+            }
             feedItems.forEach(function (el) {
-                el.style.display = (f === null || el.getAttribute('data-status') === f) ? '' : 'none';
+                var st = el.getAttribute('data-status');
+                var dy = parseInt(el.getAttribute('data-day'), 10) || 0;
+                el.style.display = visible(st, dy) ? '' : 'none';
             });
-            legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === f); });
-            if (legend) legend.classList.toggle('is-filtered', f !== null);
+            legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
+            if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
         }
 
         legRows.forEach(function (row) {
             row.addEventListener('click', function () {
                 var f = row.getAttribute('data-filter');
-                active = (active === f) ? null : f;     // click active row again to reset
-                apply(active);
+                statusFilter = (statusFilter === f) ? null : f;   // click active row again to reset
+                applyFilters();
             });
         });
+
+        // ---- timeline scrubber under the map ----
+        // The play button sweeps the handle across the documented days; drag or
+        // click to seek. As the day changes, the map markers and the feed filter
+        // to cases documented on or before that day (composing with the status
+        // filter above) — a playback of the database growing over time.
+        (function () {
+            var bar = document.getElementById('ppd-tl-bar');
+            var handle = document.getElementById('ppd-tl-handle');
+            var fill = document.getElementById('ppd-tl-fill');
+            var ticksWrap = document.getElementById('ppd-tl-ticks');
+            var playBtn = document.getElementById('ppd-tl-play');
+            if (!bar || !handle || !fill || !ticksWrap || !playBtn) return;
+
+            var ticks = Array.prototype.slice.call(ticksWrap.querySelectorAll('.ppd-tl-tick'));
+            var count = ticks.length;
+            if (!count) return;
+
+            var current = count - 1;      // park at the latest day (all cases shown)
+            var playing = false, rafId = null;
+
+            function centerOf(i) { return ticks[i].offsetLeft + ticks[i].offsetWidth / 2; }
+
+            function render() {
+                var x = centerOf(current);
+                handle.style.left = x + 'px';
+                fill.style.width = Math.max(0, x) + 'px';
+                handle.setAttribute('aria-valuenow', current + 1);
+                for (var i = 0; i < count; i++) {
+                    ticks[i].classList.toggle('is-passed', i < current);
+                    ticks[i].classList.toggle('is-current', i === current);
+                }
+                // Re-filter the map + feed only when the day actually advances.
+                if (dayFilter !== current) { dayFilter = current; applyFilters(); }
+            }
+            function setCurrent(i) {
+                i = i | 0;
+                current = i < 0 ? 0 : (i > count - 1 ? count - 1 : i);
+                render();
+            }
+            function nearestIndex(clientX) {
+                var x = clientX - ticksWrap.getBoundingClientRect().left;
+                var best = 0, bestD = Infinity;
+                for (var i = 0; i < count; i++) {
+                    var d = Math.abs(centerOf(i) - x);
+                    if (d < bestD) { bestD = d; best = i; }
+                }
+                return best;
+            }
+
+            // ---- play / pause ----
+            function stop() {
+                if (!playing) return;
+                playing = false;
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = null;
+                playBtn.classList.remove('is-playing');
+                playBtn.setAttribute('aria-label', 'Play timeline');
+            }
+            function start() {
+                if (playing) return;
+                if (current >= count - 1) setCurrent(0);   // replay from the start
+                playing = true;
+                playBtn.classList.add('is-playing');
+                playBtn.setAttribute('aria-label', 'Pause timeline');
+                var startIdx = current, endIdx = count - 1;
+                var dur = Math.min(9000, Math.max(2500, count * 130));
+                var t0 = null;
+                function frame(ts) {
+                    if (!playing) return;
+                    if (t0 === null) t0 = ts;
+                    var p = Math.min(1, (ts - t0) / dur);
+                    setCurrent(Math.round(startIdx + (endIdx - startIdx) * p));
+                    if (p < 1) { rafId = requestAnimationFrame(frame); } else { stop(); }
+                }
+                rafId = requestAnimationFrame(frame);
+            }
+            playBtn.addEventListener('click', function () { playing ? stop() : start(); });
+
+            // ---- drag the handle / click the rail or ticks to seek ----
+            function beginDrag(e) {
+                e.preventDefault();
+                stop();
+                function move(ev) { setCurrent(nearestIndex(ev.clientX)); }
+                function up() {
+                    document.removeEventListener('pointermove', move);
+                    document.removeEventListener('pointerup', up);
+                }
+                document.addEventListener('pointermove', move);
+                document.addEventListener('pointerup', up);
+            }
+            handle.addEventListener('pointerdown', beginDrag);
+            bar.addEventListener('pointerdown', function (e) {
+                if (e.target === handle) return;
+                stop();
+                setCurrent(nearestIndex(e.clientX));
+                beginDrag(e);
+            });
+            ticksWrap.addEventListener('click', function (e) { stop(); setCurrent(nearestIndex(e.clientX)); });
+            handle.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { stop(); setCurrent(current - 1); e.preventDefault(); }
+                else if (e.key === 'ArrowRight') { stop(); setCurrent(current + 1); e.preventDefault(); }
+            });
+
+            var rt;
+            window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(render, 120); });
+
+            requestAnimationFrame(render);   // initial paint once layout settles
+        })();
     });
 </script>
 @endsection
