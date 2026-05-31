@@ -65,8 +65,8 @@
 
             <div class="stp-panel">
                 <div class="stp-field">
-                    <div class="stp-field-lab">Dots <b id="stp-dots-v">2,600</b></div>
-                    <input type="range" id="stp-dots" min="500" max="8000" step="100" value="2600">
+                    <div class="stp-field-lab">Dots <b id="stp-dots-v">4,800</b></div>
+                    <input type="range" id="stp-dots" min="500" max="12000" step="100" value="4800">
                 </div>
                 <div class="stp-field">
                     <div class="stp-field-lab">Dot size <b id="stp-size-v">1.4</b></div>
@@ -102,9 +102,9 @@
         var off = document.createElement('canvas');
         var octx = off.getContext('2d', { willReadFrequently: true });
 
-        var MAXW = 600, MAX_ITERS = 90;
+        var MAXW = 720, MAX_ITERS = 90;
         var W = 0, H = 0, density = null, points = null, n = 0, raf = 0, iter = 0, lastImage = null;
-        var opts = { n: 2600, r: 1.4, gamma: 1.0, dark: true };
+        var opts = { n: 4800, r: 1.4, gamma: 1.0, dark: true };
 
         function computeDensity(image) {
             var s = Math.min(1, MAXW / image.width);
