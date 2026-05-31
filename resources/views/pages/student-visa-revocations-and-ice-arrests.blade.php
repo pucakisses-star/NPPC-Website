@@ -226,7 +226,7 @@
 
     {{-- ==================== HERO ==================== --}}
     <div class="svr-wrap svr-hero">
-        <span class="svr-alert">Immediate action required</span>
+        <span class="svr-alert">Exclusive Report</span>
         <h1 class="svr-h1">Campus Abductions &amp; Visa Revocations</h1>
         <p class="svr-hero-sub">In 2025 the federal government began arresting international students and scholars over their speech and stripping the legal status of thousands more. This page tracks what is happening, names the people detained, and points to where you can report a case and follow the litigation.</p>
         <div class="svr-hero-meta"><span>Living resource</span><span>Updated 2025</span><span>NPPC</span></div>
