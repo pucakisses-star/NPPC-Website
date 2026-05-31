@@ -98,8 +98,7 @@
     .svr-btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.08); color: #fff; transform: translateY(-1px); }
 
     /* ---- locations map ---- */
-    .svr-map { position: relative; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; overflow: hidden;
-        background: #000; }
+    .svr-map { position: relative; background: #000; }
     .svr-map-inner { padding: 30px 28px; }
     .svr-map h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0 0 6px; }
     .svr-map-sub { font-size: 14px; color: rgba(255,255,255,.55); margin: 0 0 22px; }
