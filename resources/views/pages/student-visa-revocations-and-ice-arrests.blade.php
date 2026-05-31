@@ -27,7 +27,7 @@
     .svr a:hover { color: #fff; }
 
     /* ---- layout primitives ---- */
-    .svr-wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .svr-wrap { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 24px; }
     .svr-wide { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
     .svr-section { padding: 52px 0; }
     .svr-section--tight { padding: 30px 0; }
@@ -41,7 +41,7 @@
        ENTIRE image is always visible, never cropped. The gradient stays light
        through the middle (full scene shows) and fades to solid black at the
        bottom so the photo blends into the page. */
-    .svr-topbg { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow: hidden; aspect-ratio: 1952 / 1098; background: #000; }
+    .svr-topbg { position: relative; display: flex; flex-direction: column; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow: hidden; aspect-ratio: 1952 / 1098; background: #000; }
     .svr-topbg::before { content: ""; position: absolute; inset: 0; z-index: 0;
         background-image:
             linear-gradient(180deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.26) 13%, rgba(0,0,0,0.10) 30%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.20) 72%, rgba(0,0,0,0.72) 86%, #000 100%),
@@ -50,13 +50,16 @@
     .svr-topbg > * { position: relative; z-index: 1; }
 
     /* ---- hero ---- */
-    .svr-hero { padding: 28px 0 44px; }
+    /* margin-top:auto pushes the hero to the bottom of the photo band so the
+       title sits low over the image (where it fades to black), while the
+       Latest-development card stays anchored at the top. */
+    .svr-hero { margin-top: auto; padding: 28px 0 52px; }
     .svr-alert { display: inline-flex; align-items: center; gap: 9px; background: rgba(86,96,254,.16); color: #aab0ff; font-weight: 800; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(86,96,254,.45); margin-bottom: 22px; }
     .svr-alert::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #5660fe; animation: svrpulse 2s infinite; }
     @@keyframes svrpulse { 0% { box-shadow: 0 0 0 0 rgba(86,96,254,.5); } 70% { box-shadow: 0 0 0 8px rgba(86,96,254,0); } 100% { box-shadow: 0 0 0 0 rgba(86,96,254,0); } }
-    .svr-h1 { font-size: 3.6rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 20px; color: #fff; }
-    .svr-hero-sub { font-size: 1.25rem; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 720px; margin: 0; }
-    .svr-hero-meta { margin-top: 24px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .svr-h1 { font-size: 4.4rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 22px; color: #fff; }
+    .svr-hero-sub { font-size: 1.45rem; line-height: 1.6; color: rgba(255,255,255,.78); max-width: 760px; margin: 0; }
+    .svr-hero-meta { margin-top: 26px; font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.55); }
     .svr-hero-meta span + span::before { content: "•"; margin: 0 10px; color: #5660fe; }
 
     /* ---- latest-update box ---- */
@@ -183,7 +186,8 @@
 
     /* ---- responsive ---- */
     @@media (max-width: 820px) {
-        .svr-h1 { font-size: 2.5rem; }
+        .svr-h1 { font-size: 3rem; }
+        .svr-hero-sub { font-size: 1.3rem; }
         .svr-h2 { font-size: 1.7rem; }
         .svr-pull p { font-size: 1.5rem; }
         .svr-stats { grid-template-columns: 1fr 1fr; }
@@ -192,8 +196,8 @@
         .svr-case-body { max-width: none; }
     }
     @@media (max-width: 520px) {
-        .svr-h1 { font-size: 2.05rem; }
-        .svr-hero-sub { font-size: 1.1rem; }
+        .svr-h1 { font-size: 2.4rem; }
+        .svr-hero-sub { font-size: 1.22rem; }
         .svr-stats { grid-template-columns: 1fr; }
         .svr-foot h2 { font-size: 1.8rem; }
     }
