@@ -153,14 +153,13 @@
     .svr-list .svr-src { display: block; font-size: 13px; color: rgba(255,255,255,.5); margin-top: 3px; font-weight: 400; }
 
     /* ---- cases ---- */
-    .svr-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .svr-case { border: 1px solid rgba(255,255,255,.10); border-radius: 12px; padding: 22px; display: flex; gap: 16px; align-items: flex-start; background: #121216; transition: border-color .2s, box-shadow .2s; }
-    .svr-case:hover { border-color: rgba(255,255,255,.22); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
-    .svr-avatar { width: 58px; height: 58px; border-radius: 50%; flex: 0 0 auto; background: rgba(86,96,254,.16); color: #aab0ff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; border: 1px solid rgba(86,96,254,.4); letter-spacing: .02em; object-fit: cover; overflow: hidden; }
-    .svr-case-body { min-width: 0; }
-    .svr-case h3 { font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0 0 2px; }
-    .svr-case-role { font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: rgba(255,255,255,.5); margin: 0 0 10px; font-weight: 700; }
-    .svr-case p { font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,.72); margin: 0 0 12px; }
+    .svr-cases { display: flex; flex-direction: column; gap: 46px; }
+    .svr-case { display: grid; grid-template-columns: 200px minmax(0, 1fr); grid-template-areas: "name name" "photo body"; column-gap: 30px; row-gap: 16px; align-items: start; }
+    .svr-avatar { grid-area: photo; width: 200px; height: 200px; border-radius: 8px; flex: 0 0 auto; background: rgba(86,96,254,.16); color: #aab0ff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 2.6rem; border: 1px solid rgba(86,96,254,.4); letter-spacing: .02em; object-fit: cover; overflow: hidden; }
+    .svr-case-body { grid-area: body; min-width: 0; max-width: 640px; }
+    .svr-case > h3 { grid-area: name; font-size: 1.9rem; font-weight: 800; color: #fff; margin: 0; text-transform: uppercase; letter-spacing: -.005em; line-height: 1.1; }
+    .svr-case-role { font-size: 12.5px; letter-spacing: .03em; text-transform: uppercase; color: rgba(255,255,255,.5); margin: 0 0 12px; font-weight: 700; }
+    .svr-case p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.72); margin: 0 0 12px; }
     .svr-tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
     .svr-tag-detained { background: rgba(255,255,255,.08); color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.2); }
     .svr-tag-released { background: rgba(34,197,94,.15); color: #5cd98a; border: 1px solid rgba(34,197,94,.4); }
@@ -188,7 +187,9 @@
         .svr-h2 { font-size: 1.7rem; }
         .svr-pull p { font-size: 1.5rem; }
         .svr-stats { grid-template-columns: 1fr 1fr; }
-        .svr-cases { grid-template-columns: 1fr; }
+        .svr-case { grid-template-columns: 1fr; grid-template-areas: "name" "photo" "body"; }
+        .svr-avatar { width: 100%; max-width: 260px; height: auto; aspect-ratio: 1 / 1; }
+        .svr-case-body { max-width: none; }
     }
     @@media (max-width: 520px) {
         .svr-h1 { font-size: 2.05rem; }
@@ -423,19 +424,17 @@
     <hr class="svr-divider">
 
     {{-- ==================== CASE PROFILES ==================== --}}
-    <div class="svr-wide svr-section">
-        <div class="svr-wrap" style="padding-left:0;padding-right:0;">
-            <div class="svr-eyebrow">The faces behind the numbers</div>
-            <h2 class="svr-h2">Specific cases</h2>
-            <p class="svr-p">Documented arrests, deportations and visa actions from 2025. Details are drawn from news reporting and court filings; outcomes in individual cases continue to change.</p>
-        </div>
+    <div class="svr-wrap svr-section">
+        <div class="svr-eyebrow">The faces behind the numbers</div>
+        <h2 class="svr-h2">Specific cases</h2>
+        <p class="svr-p">Documented arrests, deportations and visa actions from 2025. Details are drawn from news reporting and court filings; outcomes in individual cases continue to change.</p>
 
         <div class="svr-cases">
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/mahmoud-khalil.webp') }}" alt="Mahmoud Khalil" loading="lazy" width="58" height="58">
+                <h3>Mahmoud Khalil</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/mahmoud-khalil.webp') }}" alt="Mahmoud Khalil" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Mahmoud Khalil</h3>
                     <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
                     <span class="svr-tag svr-tag-released">Detained · released on bail</span>
                     <p>A recent graduate and lead protest negotiator, arrested at his university apartment on March 8 and not charged with any crime. The case rested on a two-page memo from Secretary Rubio invoking the foreign-policy deportation ground. He was held for months in Jena, Louisiana, before a federal court freed him on bail in June.</p>
@@ -444,9 +443,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/rumeysa-ozturk.webp') }}" alt="Rümeysa Öztürk" loading="lazy" width="58" height="58">
+                <h3>Rümeysa Öztürk</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/rumeysa-ozturk.webp') }}" alt="Rümeysa Öztürk" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Rümeysa Öztürk</h3>
                     <p class="svr-case-role">Tufts University · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>Seized off a Somerville, Massachusetts street by plainclothes agents on March 25 as she walked to an iftar dinner; her visa had been quietly revoked days earlier. The only basis cited was a co-authored student-newspaper op-ed. A Vermont judge ordered her released on May 9, finding her arrest likely retaliation for protected speech.</p>
@@ -455,9 +454,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/badar-khan-suri.webp') }}" alt="Badar Khan Suri" loading="lazy" width="58" height="58">
+                <h3>Badar Khan Suri</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/badar-khan-suri.webp') }}" alt="Badar Khan Suri" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Badar Khan Suri</h3>
                     <p class="svr-case-role">Georgetown University · J-1 scholar</p>
                     <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>A postdoctoral fellow arrested outside his Virginia home on March 17 by masked agents and moved to a Texas detention center. DHS alleged he "spread Hamas propaganda"; his lawyers said he was punished for his Gaza advocacy and his wife's family ties. He was released on May 14 after a judge found no evidence to justify his detention.</p>
@@ -466,9 +465,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/mohsen-mahdawi.webp') }}" alt="Mohsen Mahdawi" loading="lazy" width="58" height="58">
+                <h3>Mohsen Mahdawi</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/mohsen-mahdawi.webp') }}" alt="Mohsen Mahdawi" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Mohsen Mahdawi</h3>
                     <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
                     <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>A Palestinian organizer who grew up in a West Bank refugee camp, arrested on April 14 when he arrived for his U.S. citizenship interview in Vermont. A federal judge ordered him released on April 30, finding a "substantial claim" the arrest was meant to stifle disagreeable speech.</p>
@@ -477,9 +476,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/yunseo-chung.webp') }}" alt="Yunseo Chung" loading="lazy" width="58" height="58">
+                <h3>Yunseo Chung</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/yunseo-chung.webp') }}" alt="Yunseo Chung" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Yunseo Chung</h3>
                     <p class="svr-case-role">Columbia University · Lawful permanent resident</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>A 21-year-old who came to the United States as a child. After a March campus protest, ICE sought to arrest her under the same foreign-policy provision — but she sued first, and a federal judge in New York barred the government from detaining her.</p>
@@ -488,9 +487,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/rasha-alawieh.webp') }}" alt="Rasha Alawieh" loading="lazy" width="58" height="58">
+                <h3>Rasha Alawieh</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/rasha-alawieh.webp') }}" alt="Rasha Alawieh" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Rasha Alawieh</h3>
                     <p class="svr-case-role">Brown University · H-1B physician</p>
                     <span class="svr-tag svr-tag-removed">Deported</span>
                     <p>A kidney-transplant specialist and assistant professor detained at Boston Logan in March while returning from Lebanon, and deported despite a court order temporarily blocking her removal. The government cited photos and attendance at a funeral; her colleagues said she was a vital clinician.</p>
@@ -499,9 +498,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/kseniia-petrova.webp') }}" alt="Kseniia Petrova" loading="lazy" width="58" height="58">
+                <h3>Kseniia Petrova</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/kseniia-petrova.webp') }}" alt="Kseniia Petrova" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Kseniia Petrova</h3>
                     <p class="svr-case-role">Harvard Medical School · J-1 researcher</p>
                     <span class="svr-tag svr-tag-detained">Detained</span>
                     <p>A scientist detained on February 16 returning from France over undeclared research samples. She faced deportation to Russia — which she had fled after protesting the war in Ukraine — and was held for months in an immigration facility while her case proceeded.</p>
@@ -510,9 +509,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/dogukan-gunaydin.webp') }}" alt="Doğukan Günaydın" loading="lazy" width="58" height="58">
+                <h3>Doğukan Günaydın</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/dogukan-gunaydin.webp') }}" alt="Doğukan Günaydın" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Doğukan Günaydın</h3>
                     <p class="svr-case-role">University of Minnesota · F-1 graduate student</p>
                     <span class="svr-tag svr-tag-detained">Detained</span>
                     <p>A graduate business student detained on March 27; the government tied his status to a prior DUI. The university said it received no advance notice of the arrest of one of its international students.</p>
@@ -521,9 +520,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/alireza-doroudi.webp') }}" alt="Alireza Doroudi" loading="lazy" width="58" height="58">
+                <h3>Alireza Doroudi</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/alireza-doroudi.webp') }}" alt="Alireza Doroudi" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Alireza Doroudi</h3>
                     <p class="svr-case-role">University of Alabama · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-detained">Detained</span>
                     <p>A mechanical-engineering doctoral student detained on March 26. The university said it had no information about the basis for his detention; he later chose to return to Iran rather than remain in custody.</p>
@@ -532,9 +531,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/momodou-taal.webp') }}" alt="Momodou Taal" loading="lazy" width="58" height="58">
+                <h3>Momodou Taal</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/momodou-taal.webp') }}" alt="Momodou Taal" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Momodou Taal</h3>
                     <p class="svr-case-role">Cornell University · PhD student</p>
                     <span class="svr-tag svr-tag-removed">Left the U.S.</span>
                     <p>A dual British-Gambian doctoral student and pro-Palestine protester whose visa was revoked amid a lawsuit he had joined challenging the executive orders. Facing detention, he left the country rather than be held.</p>
@@ -543,9 +542,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/ranjani-srinivasan.webp') }}" alt="Ranjani Srinivasan" loading="lazy" width="58" height="58">
+                <h3>Ranjani Srinivasan</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/ranjani-srinivasan.webp') }}" alt="Ranjani Srinivasan" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Ranjani Srinivasan</h3>
                     <p class="svr-case-role">Columbia University · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-removed">Left the U.S.</span>
                     <p>An urban-planning doctoral student whose visa was revoked after she was swept up near campus protest arrests. DHS publicly labeled her a "terrorist sympathizer"; she left for Canada rather than face detention.</p>
@@ -554,9 +553,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/xiaofeng-wang.webp') }}" alt="Xiaofeng Wang" loading="lazy" width="58" height="58">
+                <h3>Xiaofeng Wang</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/xiaofeng-wang.webp') }}" alt="Xiaofeng Wang" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Xiaofeng Wang</h3>
                     <p class="svr-case-role">Indiana University · Professor</p>
                     <span class="svr-tag svr-tag-detained">Under investigation</span>
                     <p>A tenured cryptography professor and associate dean who, with his wife, dropped from public view after an FBI raid on their homes on March 27. The university removed their faculty profiles and gave no explanation; their whereabouts drew national concern.</p>
@@ -565,9 +564,9 @@
             </div>
 
             <div class="svr-case">
-                <img class="svr-avatar" src="{{ asset('images/campus-cases/leqaa-kordia.webp') }}" alt="Leqaa Kordia" loading="lazy" width="58" height="58">
+                <h3>Leqaa Kordia</h3>
+                <img class="svr-avatar" src="{{ asset('images/campus-cases/leqaa-kordia.webp') }}" alt="Leqaa Kordia" loading="lazy" width="200" height="200">
                 <div class="svr-case-body">
-                    <h3>Leqaa Kordia</h3>
                     <p class="svr-case-role">Columbia protests · Palestinian</p>
                     <span class="svr-tag svr-tag-detained">Detained</span>
                     <p>A Palestinian woman detained on March 14 and taken to a North Texas facility. DHS cited a visa overstay; immigration experts noted that detention over such a status issue is unusual and pointed to her presence at Columbia protests.</p>
@@ -576,9 +575,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Felipe Zapata Velásquez</h3>
                 <span class="svr-avatar" aria-hidden="true">FZ</span>
                 <div class="svr-case-body">
-                    <h3>Felipe Zapata Velásquez</h3>
                     <p class="svr-case-role">University of Florida · F-1 student</p>
                     <span class="svr-tag svr-tag-removed">Returned to Colombia</span>
                     <p>A junior studying food and resource economics, arrested on March 28 after a Gainesville traffic stop over an expired registration and a suspended license. ICE took custody and held him at the Krome facility in Miami; he returned to Colombia in early April. DHS described it as a deportation, while his family did not confirm whether he signed self-deportation paperwork.</p>
@@ -587,9 +586,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Mohammed Hoque</h3>
                 <span class="svr-avatar" aria-hidden="true">MH</span>
                 <div class="svr-case-body">
-                    <h3>Mohammed Hoque</h3>
                     <p class="svr-case-role">Minnesota State University, Mankato · F-1 student</p>
                     <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>An information-systems undergraduate arrested at his home by plainclothes agents on March 28, in front of his visiting parents, after his student record was revoked. The government cited a roughly two-year-old misdemeanor; he said he was targeted for pro-Palestinian posts. A federal judge ordered his release in early May, after about 40 days in jail, finding his speech — not the old charge — had made him a target.</p>
@@ -598,9 +597,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Aditya Wahyu Harsono</h3>
                 <span class="svr-avatar" aria-hidden="true">AH</span>
                 <div class="svr-case-body">
-                    <h3>Aditya Wahyu Harsono</h3>
                     <p class="svr-case-role">Southwest Minnesota State University · Recent graduate on a student visa</p>
                     <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>A recent SMSU graduate working as a hospital supply-chain manager in Marshall, Minnesota, whose student visa was quietly revoked on March 23 and who was arrested at his workplace on March 27. The cited basis was a 2022 misdemeanor for spray-painted graffiti; his lawyers pointed to his pro-Palestinian activism. A federal judge ordered his release, finding the detention violated the First Amendment.</p>
@@ -609,9 +608,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Ahwar Sultan</h3>
                 <span class="svr-avatar" aria-hidden="true">AS</span>
                 <div class="svr-case-body">
-                    <h3>Ahwar Sultan</h3>
                     <p class="svr-case-role">Ohio State University · F-1 graduate student</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>A master's graduate pursuing a PhD in art history, told to stop teaching and attending in early April after his SEVIS record was terminated and his visa revoked. The stated basis was a 2024 campus-protest trespassing arrest whose charges were later dismissed and expunged. A federal judge ordered his status restored, ruling it could not be pulled over the dismissed arrest; he was not detained.</p>
@@ -620,9 +619,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Xiaotian Liu</h3>
                 <span class="svr-avatar" aria-hidden="true">XL</span>
                 <div class="svr-case-body">
-                    <h3>Xiaotian Liu</h3>
                     <p class="svr-case-role">Dartmouth College · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A computer-science PhD candidate with no criminal record whose SEVIS record was terminated on April 4 with no individualized explanation. He sued in New Hampshire, and Judge Samantha Elliott granted a temporary restraining order preserving his status on April 9 — among the first such orders in the country. The government restored his status that summer, and he dismissed the suit.</p>
@@ -631,9 +630,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Suguru Onda</h3>
                 <span class="svr-avatar" aria-hidden="true">SO</span>
                 <div class="svr-case-body">
-                    <h3>Suguru Onda</h3>
                     <p class="svr-case-role">Brigham Young University · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A computer-science PhD candidate from Japan, about a year from finishing, whose status was terminated on April 8 citing a criminal-records "match." His only record was a since-dismissed 2019 fishing-limit citation and a couple of speeding tickets. He sued; his record was restored "as if it was never revoked" just minutes after the filing — his attorney suspected an automated flag.</p>
@@ -642,9 +641,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Zhuoer Chen</h3>
                 <span class="svr-avatar" aria-hidden="true">ZC</span>
                 <div class="svr-case-body">
-                    <h3>Zhuoer Chen</h3>
                     <p class="svr-case-role">UC Berkeley · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>A master's student in architecture, in the U.S. since 2017, told on April 8 that her SEVIS record was terminated with no reason or chance to respond; her only prior police contact was a 2022 incident that brought no charges. As lead plaintiff in <em>Chen v. Noem</em>, she won a San Francisco court order barring the government from detaining or removing her and her co-plaintiffs — Mengcheng Yu at Carnegie Mellon, Jiarong Ouyang at Cincinnati and Gexi Guo, a Columbia graduate.</p>
@@ -653,9 +652,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Chinmay Deore</h3>
                 <span class="svr-avatar" aria-hidden="true">CD</span>
                 <div class="svr-case-body">
-                    <h3>Chinmay Deore</h3>
                     <p class="svr-case-role">Wayne State University · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 21-year-old computer-science undergraduate from India whose SEVIS record was terminated on April 4 over a "criminal records check" — his record was a paid speeding ticket and a parking ticket. He is the lead plaintiff in the ACLU of Michigan's suit, alongside Yogesh Joshi at Wayne State and Xiangyun Bu and Qiuyi Yang at the University of Michigan. Their records were restored and the case settled in May, barring re-termination on the same basis.</p>
@@ -664,9 +663,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Krish Lal Isserdasani</h3>
                 <span class="svr-avatar" aria-hidden="true">KI</span>
                 <div class="svr-case-body">
-                    <h3>Krish Lal Isserdasani</h3>
                     <p class="svr-case-role">University of Wisconsin–Madison · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>A computer-engineering senior from India whose SEVIS record was terminated weeks before his May graduation, apparently over a late-2024 disorderly-conduct arrest that prosecutors never charged. His family had spent roughly $240,000 on his education. On April 15, Judge William Conley issued a restraining order, finding an "overwhelming" likelihood his status was ended without cause; it was reinstated days later.</p>
@@ -675,9 +674,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Yue “Alison” Yang</h3>
                 <span class="svr-avatar" aria-hidden="true">YY</span>
                 <div class="svr-case-body">
-                    <h3>Yue “Alison” Yang</h3>
                     <p class="svr-case-role">University of Wisconsin–Madison · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 21-year-old business student from China, set to graduate in May, whose F-1 status was terminated apparently over a February speeding ticket she had already resolved. Judge William Conley called the termination "arbitrary" and "an abuse of discretion," noting it would leave her having paid some $130,000 in tuition for no degree. Her status was reinstated.</p>
@@ -686,9 +685,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Jiarong Ouyang</h3>
                 <span class="svr-avatar" aria-hidden="true">JO</span>
                 <div class="svr-case-body">
-                    <h3>Jiarong Ouyang</h3>
                     <p class="svr-case-role">University of Cincinnati · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A statistics doctoral candidate from China, in the U.S. since 2012 and working as a graduate assistant at Cincinnati Children's Hospital, whose status was terminated in April over a 2019 domestic-dispute arrest that was dismissed without conviction. The first UC student to sue Secretary Noem, he won a restraining order, and his status was restored in the nationwide reversal.</p>
@@ -697,9 +696,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Jelena Liu</h3>
                 <span class="svr-avatar" aria-hidden="true">JL</span>
                 <div class="svr-case-body">
-                    <h3>Jelena Liu</h3>
                     <p class="svr-case-role">Indiana University Indianapolis · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A second-year informatics graduate student from China with no criminal record, told on April 3 that her status and SEVIS record were terminated — flagged, per an ACLU complaint, as a "match" to a 2018 border encounter. One of seven ACLU of Indiana plaintiffs, she had her status restored on April 29; she still does not know the underlying reason.</p>
@@ -708,9 +707,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Anjan Roy</h3>
                 <span class="svr-avatar" aria-hidden="true">AR</span>
                 <div class="svr-case-body">
-                    <h3>Anjan Roy</h3>
                     <p class="svr-case-role">Missouri State University · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 23-year-old computer-science master's student from Bangladesh, emailed on April 10 that a database check showed his status terminated for reasons unknown; the U.S. embassy separately warned his visa was revoked and he could be detained at any time. His only prior contact with police was a 2021 campus inquiry that produced no charges. His status was restored after students prevailed in court.</p>
@@ -719,9 +718,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The “Purdue Five”</h3>
                 <span class="svr-avatar" aria-hidden="true">P5</span>
                 <div class="svr-case-body">
-                    <h3>The “Purdue Five”</h3>
                     <p class="svr-case-role">Purdue University · International students</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Five Chinese students — Nina Hu, Junde Zhu, Xiaotian Yu, Xilai Dai and Zhaorui Ni — were emailed on April 9 that their status had been revoked, most citing vague "criminal records" the ACLU argued met no legal threshold for termination. A judge initially declined to block the terminations, leaving them at risk while they sued; their statuses were restored within weeks as the administration reversed course.</p>
@@ -730,9 +729,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The Pasula plaintiffs</h3>
                 <span class="svr-avatar" aria-hidden="true">NE</span>
                 <div class="svr-case-body">
-                    <h3>The Pasula plaintiffs</h3>
                     <p class="svr-case-role">Rivier University &amp; WPI · F-1 students</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Five named plaintiffs in a New England class action — Manikanta Pasula, Likhith Babu Gorrela and Thanuj Kumar Gummadavelli, computer-science students at Rivier University, and Hangrui Zhang and Haoyang An at Worcester Polytechnic — had their SEVIS records terminated in early April, several just weeks from graduating. After a wave of court orders nationwide, DHS reversed the terminations on April 25 and the case later settled.</p>
@@ -741,9 +740,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Saleh Al Gurad</h3>
                 <span class="svr-avatar" aria-hidden="true">SA</span>
                 <div class="svr-case-body">
-                    <h3>Saleh Al Gurad</h3>
                     <p class="svr-case-role">North Carolina State University · Student visa</p>
                     <span class="svr-tag svr-tag-removed">Returned to Saudi Arabia</span>
                     <p>A master's student in engineering management from Saudi Arabia, emailed on March 27 that his visa had been canceled with no explanation given. His roommate said he was apolitical and involved in no activism. Rather than risk detention, he packed up and flew home to Saudi Arabia on March 31, with the option of appealing from abroad.</p>
@@ -752,9 +751,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Hyeongseon Jeon</h3>
                 <span class="svr-avatar" aria-hidden="true">HJ</span>
                 <div class="svr-case-body">
-                    <h3>Hyeongseon Jeon</h3>
                     <p class="svr-case-role">University of Houston · Assistant professor</p>
                     <span class="svr-tag svr-tag-removed">Returned to South Korea</span>
                     <p>An assistant professor of mathematics, hired in 2024, who told his students on April 13 that he could no longer teach because of the "unexpected termination" of his visa and had to return to South Korea immediately. The university said his authorization was pulled over his prior status as a doctoral student elsewhere. His case came amid a wave that hit more than 250 students and scholars across Texas campuses.</p>
@@ -763,9 +762,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Pouria Pourhosseinhendabad &amp; Parisa Firouzabadi</h3>
                 <span class="svr-avatar" aria-hidden="true">P&amp;F</span>
                 <div class="svr-case-body">
-                    <h3>Pouria Pourhosseinhendabad &amp; Parisa Firouzabadi</h3>
                     <p class="svr-case-role">Louisiana State University · PhD students</p>
                     <span class="svr-tag svr-tag-released">Detained · released</span>
                     <p>An Iranian married couple in LSU's mechanical-engineering PhD program, arrested by ICE in Baton Rouge in late June — hours after U.S. airstrikes on Iran. Their lawyers said agents used a "ruse," luring them out under the pretext of investigating a hit-and-run the couple had themselves reported. After nearly a month in detention, a federal magistrate found a "grave risk" of irreparable harm and both were released.</p>
@@ -774,9 +773,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Sajawal Ali Sohail</h3>
                 <span class="svr-avatar" aria-hidden="true">SS</span>
                 <div class="svr-case-body">
-                    <h3>Sajawal Ali Sohail</h3>
                     <p class="svr-case-role">West Virginia University · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 25-year-old computer-science student from Pakistan whose SEVIS record was terminated on April 10 over a "criminal records" flag. The record stemmed from a scam in which his father was defrauded while paying his tuition — a case in which a judge had ruled Sohail and his family were the victims, not the perpetrators. The ACLU of West Virginia sued, and his status was restored on April 25.</p>
@@ -785,9 +784,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Matthew Ariwoola</h3>
                 <span class="svr-avatar" aria-hidden="true">MA</span>
                 <div class="svr-case-body">
-                    <h3>Matthew Ariwoola</h3>
                     <p class="svr-case-role">University of South Carolina · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 32-year-old chemistry PhD candidate from Nigeria who taught undergraduates and researched making medications more effective, told on April 8 that his status was terminated and he could neither study nor teach. The cited basis was a 2023 Georgia arrest warrant — though he had never been to Georgia and the charges were dismissed. The ACLU of South Carolina sued; a judge granted a restraining order and his status was restored.</p>
@@ -796,9 +795,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Hamidreza Khademi</h3>
                 <span class="svr-avatar" aria-hidden="true">HK</span>
                 <div class="svr-case-body">
-                    <h3>Hamidreza Khademi</h3>
                     <p class="svr-case-role">Iowa State University · F-1, OPT</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>A 34-year-old from Iran who earned a master's in architecture and was working on OPT as a project manager at the Dallas-Fort Worth airport. Iowa State told him on April 10 that his SEVIS record was terminated over a February 2024 traffic stop — one the Texas state police themselves determined was not a violation, with no charges filed. He sued and won early injunctive relief, and the case continued in Washington.</p>
@@ -807,9 +806,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Priya Saxena</h3>
                 <span class="svr-avatar" aria-hidden="true">PS</span>
                 <div class="svr-case-body">
-                    <h3>Priya Saxena</h3>
                     <p class="svr-case-role">South Dakota Mines · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 28-year-old chemical-and-biological-engineering PhD candidate from India, weeks from her May graduation, whose visa was revoked in early April citing "additional information." The trigger was a single minor 2020 misdemeanor — failing to stop for an emergency vehicle. Judge Karen Schreier found a due-process violation and ordered her status restored, clearing her to attend commencement.</p>
@@ -818,9 +817,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Kiran Manjunatha</h3>
                 <span class="svr-avatar" aria-hidden="true">KM</span>
                 <div class="svr-case-body">
-                    <h3>Kiran Manjunatha</h3>
                     <p class="svr-case-role">University at Buffalo (SUNY) · F-1, OPT</p>
                     <span class="svr-tag svr-tag-removed">Left the U.S.</span>
                     <p>A finance graduate from India working at Citibank on OPT, whose SEVIS record was terminated in early April over a since-dismissed misdemeanor for driving without a valid license. One of 13 current and former Buffalo students flagged, he sued — but, fearing detention and deportation to El Salvador, he left the United States, and would need a new visa to return.</p>
@@ -829,9 +828,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Jideofor Odoeze</h3>
                 <span class="svr-avatar" aria-hidden="true">JO</span>
                 <div class="svr-case-body">
-                    <h3>Jideofor Odoeze</h3>
                     <p class="svr-case-role">University of Notre Dame · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A Nigerian electrical-engineering doctoral candidate set to graduate in May, in South Bend since 2018 with his wife and two U.S.-citizen children, whose status was terminated with no notice; Notre Dame advised him to prepare to leave the country. A plaintiff in the ACLU of Indiana's suit, he had his SEVIS record reactivated by late April, with ICE agreeing not to re-terminate on the same basis.</p>
@@ -840,9 +839,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Parth Atul Chatwani</h3>
                 <span class="svr-avatar" aria-hidden="true">PC</span>
                 <div class="svr-case-body">
-                    <h3>Parth Atul Chatwani</h3>
                     <p class="svr-case-role">Northwestern University · F-1, OPT</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A recent graduate from India working under OPT, whose F-1 record was terminated in the April wave with no individualized reason — he had no criminal record and no political activity. He sued, and on May 12 Judge Sara Ellis ordered DHS to reinstate his lawful status.</p>
@@ -851,9 +850,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Aaron Ortega Gonzalez</h3>
                 <span class="svr-avatar" aria-hidden="true">AG</span>
                 <div class="svr-case-body">
-                    <h3>Aaron Ortega Gonzalez</h3>
                     <p class="svr-case-role">Oregon State University · F-1 PhD student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A doctoral student from Mexico researching how wildfires affect ranchlands, whose F-1 record was covertly terminated on April 4 and who was told to leave immediately; his attorneys said he had never even received a traffic ticket. With the ACLU of Oregon he sued, and Judge Michael McShane ordered his status restored, calling the termination "so arbitrary and capricious." He was never detained.</p>
@@ -862,9 +861,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Jean Kashikov</h3>
                 <span class="svr-avatar" aria-hidden="true">JK</span>
                 <div class="svr-case-body">
-                    <h3>Jean Kashikov</h3>
                     <p class="svr-case-role">University of Alaska Anchorage · F-1, OPT</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 2024 graduate from Kazakhstan — a mathematics and professional-piloting major working as a flight instructor on OPT — who learned in a restaurant on April 10 that his SEVIS record was terminated. His only record was a dropped 2022 Arizona arrest and a dismissed speeding ticket. The ACLU of Alaska sued, and his status was restored days later.</p>
@@ -873,9 +872,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Edward Zhou</h3>
                 <span class="svr-avatar" aria-hidden="true">EZ</span>
                 <div class="svr-case-body">
-                    <h3>Edward Zhou</h3>
                     <p class="svr-case-role">UCLA · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>A fourth-year undergraduate from China told on April 3 that his F-1 record was terminated over an unspecified "criminal records" notation, with his visa revoked two days later. He sued ICE, and on April 15 Judge Cynthia Valenzuela set aside the termination and reinstated his status, finding the government had exceeded its authority and that he faced irreparable harm. He was not detained.</p>
@@ -884,9 +883,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The University of Iowa four</h3>
                 <span class="svr-avatar" aria-hidden="true">UI</span>
                 <div class="svr-case-body">
-                    <h3>The University of Iowa four</h3>
                     <p class="svr-case-role">University of Iowa · F-1 students</p>
                     <span class="svr-tag svr-tag-court">Protected by court order</span>
                     <p>Four University of Iowa students and recent graduates — Sri Chaitanya Krishna Akondy, an epidemiologist working on OPT; chemical-engineering student Prasoon Kumar; and undergraduates Songli Cai and Haoran Yang — had their SEVIS records terminated on April 10 with no explanation, then received embassy warnings of possible detention. They sued, and on May 15 Judge Rebecca Goodgame Ebinger barred the government from detaining or removing them, citing a "strong likelihood" they would prevail.</p>
@@ -895,9 +894,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The Connecticut plaintiffs</h3>
                 <span class="svr-avatar" aria-hidden="true">CT</span>
                 <div class="svr-case-body">
-                    <h3>The Connecticut plaintiffs</h3>
                     <p class="svr-case-role">Yale &amp; UConn · F-1 students</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Four students in a single ACLU of Connecticut suit — Yale PhD candidates Yan Du and Mengni He, with UConn's Elika Shams, a biomedical-engineering PhD from Iran, and Stephen Azu, a Ghanaian researcher on OPT — had their SEVIS records terminated in early April over dismissed or trivial records. Their status was restored within weeks, and a federal judge barred the government from removing them from Connecticut while the case proceeded.</p>
@@ -906,9 +905,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Zeel &amp; Vraj Patel</h3>
                 <span class="svr-avatar" aria-hidden="true">ZV</span>
                 <div class="svr-case-body">
-                    <h3>Zeel &amp; Vraj Patel</h3>
                     <p class="svr-case-role">Gannon University · F-1 students</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Zeel Patel, a graduate management student, and Vraj V. Patel, an information-systems undergraduate near graduation — both from India — had their visas revoked in early April over minor matters such as a roommate dispute and traffic tickets. On April 17, Judge W. Scott Hardy granted restraining orders restoring their status while their suits proceeded.</p>
@@ -917,9 +916,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The North Texas plaintiffs</h3>
                 <span class="svr-avatar" aria-hidden="true">TX</span>
                 <div class="svr-case-body">
-                    <h3>The North Texas plaintiffs</h3>
                     <p class="svr-case-role">UT Dallas &amp; UT Arlington · F-1 / OPT</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Three North Texas students and graduates — data engineer Manoj Mashatti of UT Dallas, and thermal engineer Chandraprakash Hinge and information-systems student Akshar Patel of UT Arlington — sued after their SEVIS records were terminated over old or dismissed traffic and misdemeanor records. In Patel's case, Judge Ana Reyes publicly called the terminations "arbitrary and capricious"; all three had their status restored.</p>
@@ -928,9 +927,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The UTRGV plaintiffs</h3>
                 <span class="svr-avatar" aria-hidden="true">RGV</span>
                 <div class="svr-case-body">
-                    <h3>The UTRGV plaintiffs</h3>
                     <p class="svr-case-role">UT Rio Grande Valley · F-1 students</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Four students at UT Rio Grande Valley — physics PhD candidates Hugo Adrián Villar Castellanos of Mexico and Shishir Timilsena of Nepal, finance PhD student Amir Gholami of Iran, and computer-science undergraduate Julio Dylan Sanchez Wong of Mexico — learned on April 8 that their SEVIS records were terminated over minor, mostly dismissed citations, and lost their campus jobs. They sued Secretary Noem, and their records were restored in the late-April reversal.</p>
@@ -939,9 +938,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>The DePaul plaintiffs</h3>
                 <span class="svr-avatar" aria-hidden="true">DP</span>
                 <div class="svr-case-body">
-                    <h3>The DePaul plaintiffs</h3>
                     <p class="svr-case-role">DePaul University · F-1 students</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>Two DePaul students from India — business-analytics student Vishnu Vardhan Nali and recent graduate Satyanarayana Mekarthi, on OPT — had their SEVIS records terminated on April 8 over a dropped shoplifting arrest and a minor traffic charge. Both sued; a judge ordered Nali's record reinstated, and their status was restored in the nationwide reversal.</p>
@@ -950,9 +949,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Ziliang Jin</h3>
                 <span class="svr-avatar" aria-hidden="true">ZJ</span>
                 <div class="svr-case-body">
-                    <h3>Ziliang Jin</h3>
                     <p class="svr-case-role">University of Minnesota · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A graduate student from China in geographic-information science, told on April 8 that ICE had "unilaterally terminated" his SEVIS record — the only basis being four petty-misdemeanor traffic violations, among them a parking ticket and a speeding citation. He sued in Minnesota; a federal judge ordered his status reinstated retroactively and barred any adverse action, and the case was dismissed after ICE restored it.</p>
@@ -961,9 +960,9 @@
             </div>
 
             <div class="svr-case">
+                <h3>Rattanand Ratsantiboon</h3>
                 <span class="svr-avatar" aria-hidden="true">RR</span>
                 <div class="svr-case-body">
-                    <h3>Rattanand Ratsantiboon</h3>
                     <p class="svr-case-role">Metropolitan State University · F-1 student</p>
                     <span class="svr-tag svr-tag-court">Status restored</span>
                     <p>A 31-year-old nursing student from Thailand, in the U.S. since 2014, whose SEVIS record was terminated on March 28 over 2018 driving offenses flagged in a "criminal records check" — a careless-driving citation and a DWI for which he had completed probation in 2021. ICE notified neither him nor the university; he sued, and a federal judge ordered his status reinstated retroactive to March 28.</p>
