@@ -53,7 +53,7 @@
             "name": "Babson College",
             "state": "Massachusetts",
             "affected_people": "unknown",
-            "website": "",
+            "website": "https://www.babson.edu",
             "wikipedia": "",
             "latitude": null,
             "longitude": null
@@ -1160,7 +1160,7 @@
             "name": "Northwestern University",
             "state": "Illinois",
             "affected_people": "unknown",
-            "website": "",
+            "website": "https://www.northwestern.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/Northwestern_University",
             "latitude": 42.055,
             "longitude": -87.674
@@ -1232,7 +1232,7 @@
             "name": "Pennsylvania State University",
             "state": "Pennsylvania",
             "affected_people": 22,
-            "website": "",
+            "website": "https://www.psu.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/Pennsylvania_State_University",
             "latitude": 40.796,
             "longitude": -77.863
@@ -1439,7 +1439,7 @@
             "name": "San Mateo County Community College District",
             "state": "California",
             "affected_people": 1,
-            "website": "",
+            "website": "https://smccd.edu",
             "wikipedia": "",
             "latitude": null,
             "longitude": null
@@ -1511,7 +1511,7 @@
             "name": "Snow College",
             "state": "Utah",
             "affected_people": 2,
-            "website": "",
+            "website": "https://www.snow.edu",
             "wikipedia": "",
             "latitude": 39.36055,
             "longitude": -111.58067
@@ -1520,7 +1520,7 @@
             "name": "South Central College",
             "state": "Minnesota",
             "affected_people": 1,
-            "website": "",
+            "website": "https://southcentral.edu",
             "wikipedia": "",
             "latitude": 44.17466,
             "longitude": -94.04647
@@ -2078,7 +2078,7 @@
             "name": "University of Colorado (all campuses)",
             "state": "Colorado",
             "affected_people": 34,
-            "website": "",
+            "website": "https://www.cu.edu",
             "wikipedia": "",
             "latitude": 40.00701,
             "longitude": -105.26644
@@ -2348,7 +2348,7 @@
             "name": "University of Nebraska System",
             "state": "Nebraska",
             "affected_people": 3,
-            "website": "",
+            "website": "https://nebraska.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Nebraska_system",
             "latitude": 40.818,
             "longitude": -96.701
@@ -2582,7 +2582,7 @@
             "name": "University of Texas System",
             "state": "Texas",
             "affected_people": 170,
-            "website": "",
+            "website": "https://www.utsystem.edu",
             "wikipedia": "https://en.wikipedia.org/wiki/University_of_Texas_System",
             "latitude": 30.286,
             "longitude": -97.739

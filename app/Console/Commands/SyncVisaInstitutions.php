@@ -36,6 +36,26 @@ class SyncVisaInstitutions extends Command {
     ];
 
     /**
+     * Official homepages for institutions the upstream data leaves without a
+     * "website" value, keyed by exact name. Applied only when the upstream
+     * website is blank (a real upstream URL is never overwritten) so every
+     * row in the table can link out. The four campuses that ship a Wikipedia
+     * URL upstream still get their official site here so the link points to
+     * the institution rather than the encyclopedia. Verified official domains.
+     */
+    public const WEBSITE_OVERRIDES = [
+        'Northwestern University' => 'https://www.northwestern.edu',
+        'Pennsylvania State University' => 'https://www.psu.edu',
+        'University of Nebraska System' => 'https://nebraska.edu',
+        'University of Texas System' => 'https://www.utsystem.edu',
+        'Babson College' => 'https://www.babson.edu',
+        'San Mateo County Community College District' => 'https://smccd.edu',
+        'Snow College' => 'https://www.snow.edu',
+        'South Central College' => 'https://southcentral.edu',
+        'University of Colorado (all campuses)' => 'https://www.cu.edu',
+    ];
+
+    /**
      * Affected-people counts for institutions the upstream data left as
      * "unknown" but for which a specific figure was publicly reported. Keyed
      * by exact institution name; applied on every sync. Each is sourced:
@@ -201,6 +221,14 @@ class SyncVisaInstitutions extends Command {
                 [$latitude, $longitude] = self::COORDINATE_OVERRIDES[$name];
             }
 
+            // Website: prefer the upstream value; fall back to a verified
+            // official homepage only when upstream is blank, so every row can
+            // link out and a real upstream URL is never overwritten.
+            $website = (string) ($row['website'] ?? '');
+            if ($website === '' && isset(self::WEBSITE_OVERRIDES[$name])) {
+                $website = self::WEBSITE_OVERRIDES[$name];
+            }
+
             $institutions[] = [
                 'name' => $name,
                 // Correct known wrong state values in the upstream data
@@ -208,7 +236,7 @@ class SyncVisaInstitutions extends Command {
                 // its campus and coordinates are in Massachusetts).
                 'state' => self::STATE_CORRECTIONS[$name] ?? (string) ($row['state'] ?? ''),
                 'affected_people' => $affected,
-                'website' => (string) ($row['website'] ?? ''),
+                'website' => $website,
                 'wikipedia' => (string) ($row['wikipedia-url'] ?? ''),
                 'latitude' => $latitude,
                 'longitude' => $longitude,
