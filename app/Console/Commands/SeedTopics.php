@@ -49,20 +49,38 @@ class SeedTopics extends Command
                 'title' => 'Eras',
                 'body'  => "Repression in the United States arrives in waves, and each wave shapes a generation of political prisoners. The period that produced a person's case usually predicts the framework used to prosecute them — the same conspiracy and seditious-libel doctrine that imprisoned Wobblies in 1918 was reapplied to Black Panthers in 1969, Plowshares activists in 1981, ALF defendants in 2006, and Stop Cop City defendants in 2024.",
                 'children' => [
+                    ['title' => 'Abolitionism & the Slave Power (1850–1861)',
+                     'body'  => "The first Americans imprisoned and executed for defying the federal government's defining institution were enemies of slavery. The Fugitive Slave Act of 1850 made aiding an escape a federal crime and produced the prosecutions that followed the Christiana Resistance (1851), the Jerry Rescue (1851), and the Oberlin–Wellington Rescue (1858). John Brown was hanged for treason against Virginia after the October 1859 raid on Harpers Ferry, and his captured co-defendants — including John Anthony Copeland Jr. and Shields Green — were executed alongside him."],
+                    ['title' => 'The Haymarket Affair & the Anti-Anarchist Era (1886–1903)',
+                     'body'  => "After a bomb killed police at a Chicago labor rally on May 4, 1886, eight anarchists were convicted with no evidence linking them to the device; August Spies, Albert Parsons, Adolph Fischer, and George Engel were hanged on November 11, 1887, and Louis Lingg died in his cell. Eugene V. Debs was jailed during the 1894 Pullman Strike, and after Leon Czolgosz assassinated President McKinley in 1901, Congress passed the Anarchist Exclusion Act of 1903 — the first federal law to bar immigrants purely for their political beliefs."],
                     ['title' => 'The First Red Scare (1917–1920)',
                      'body'  => "Triggered by U.S. entry into World War I and the Russian Revolution, the First Red Scare federalized political prosecution through the Espionage Act of 1917 and the Sedition Act of 1918. The 1917 IWW mass trial in Chicago, the prosecutions of Eugene V. Debs and Victor L. Berger, the November 1919–January 1920 Palmer Raids, and the deportation of Emma Goldman and Alexander Berkman to Soviet Russia all came out of this period."],
+                    ['title' => 'World War II: Japanese Incarceration & the First Smith Act Trials (1941–1945)',
+                     'body'  => "The 1941 Minneapolis trial of Socialist Workers Party and Teamsters Local 544 leaders was the first prosecution under the new Smith Act, imprisoning eighteen organizers for their politics. The next year, Executive Order 9066 forced roughly 120,000 Japanese Americans into incarceration camps — resistance that produced the Supreme Court cases of Fred Korematsu, Gordon Hirabayashi, and Minoru Yasui, and the 1944 imprisonment of the Heart Mountain Fair Play Committee draft resisters."],
                     ['title' => 'McCarthyism (1947–1957)',
                      'body'  => "The Smith Act of 1940 was used to prosecute Communist Party USA leadership in waves of trials beginning in 1949. The Rosenberg execution (1953), the imprisonment of W.E.B. Du Bois, Paul Robeson's passport revocation, and the Hollywood Ten contempt-of-Congress prosecutions defined the era. Several Smith Act prisoners served time at the U.S. Penitentiary in Terre Haute, Indiana."],
                     ['title' => 'COINTELPRO (1956–1971)',
                      'body'  => "The FBI's Counterintelligence Program targeted civil-rights organizations, the Black Panther Party, the American Indian Movement, the Puerto Rican independence movement, and the New Left through illegal surveillance, infiltration, manufactured evidence, and coordinated prosecutions. Many of the convictions COINTELPRO produced are still being served fifty years later — including those of Mumia Abu-Jamal, Sundiata Acoli, Veronza Bowers, and Ed Poindexter."],
                     ['title' => 'The Vietnam War Era (1964–1975)',
                      'body'  => "The Vietnam War produced a generation of draft resisters, military deserters, and civil-disobedience defendants. The Catonsville Nine (1968), the Camden 28 (1971), the Pentagon Papers prosecutions of Daniel Ellsberg and Anthony Russo (1971–1973), the Chicago Eight conspiracy trial (1968–1970), and the Wilmington Ten (1971) all date to this period."],
+                    ['title' => 'The American Indian Movement & Wounded Knee (1973–1977)',
+                     'body'  => "The American Indian Movement's 71-day occupation of Wounded Knee in 1973, and the 'reign of terror' that followed on the Pine Ridge Reservation, drew a massive federal response. After a 1975 firefight in which two FBI agents and AIM member Joe Stuntz were killed, Leonard Peltier was convicted in 1977 on evidence later shown to have been coerced and fabricated; he became the longest-serving Indigenous political prisoner in U.S. history before his release to home confinement in February 2025."],
                     ['title' => 'The Reagan Era (1981–1989)',
                      'body'  => "The Reagan years saw the federal terrorism prosecutions of FALN and Macheteros members, the 1981 Brink's robbery prosecutions of Black Liberation Army and Weather Underground veterans (Mutulu Shakur, Marilyn Buck, David Gilbert), the founding of SOA Watch and the Plowshares trials, and the 1985 Philadelphia police bombing of MOVE."],
+                    ['title' => 'The Anti-Globalization Movement (1999–2001)',
+                     'body'  => "The 1999 'Battle of Seattle' shut down the World Trade Organization summit and opened a new cycle of mass summit protest — met by a new style of policing built on preemptive mass arrest, 'kettling,' and military-grade 'less-lethal' weapons. The sweeping arrests at the 2000 Republican and Democratic conventions and the 2001 protests in Quebec City and Genoa pioneered crowd-control tactics later turned against nearly every protest movement of the next two decades."],
                     ['title' => 'The War on Terror (2001–)',
                      'body'  => "Post-9/11 federal counterterrorism prosecutions produced new tools — the PATRIOT Act, material support statutes, the Special Administrative Measures (SAMs), and the Communications Management Units. Most defendants prosecuted under this framework were Muslim, and many were caught in FBI sting operations that critics characterize as entrapment. The Holy Land Foundation Five, the Newburgh Four, the Liberty City Seven, and the Lackawanna Six all came out of this period."],
                     ['title' => 'The Green Scare (2005–2010)',
                      'body'  => "Operation Backfire (2005–2006) targeted the Earth Liberation Front and Animal Liberation Front through cooperator-driven federal prosecutions. The 2006 Animal Enterprise Terrorism Act (AETA) federalized animal-rights organizing as terrorism. Daniel McGowan, Marius Mason, Jeff Luers, Tre Arrow, and the AETA Four came out of this period."],
+                    ['title' => 'Occupy Wall Street (2011–2012)',
+                     'body'  => "The occupation of Zuccotti Park in September 2011 spread to hundreds of cities and produced roughly 8,000 arrests within a year. The NATO 3 were tried in Chicago under Illinois's never-before-used state terrorism statute — acquitted of terrorism but convicted of lesser charges; Cecily McMillan was imprisoned over an alleged assault on the officer who had grabbed her; and Pacific Northwest grand-jury resisters Leah-Lynn Plante, Matt Duran, and Katherine 'KteeO' Olejnik were jailed for refusing to testify about fellow activists."],
+                    ['title' => 'Ferguson & the Movement for Black Lives (2014–2016)',
+                     'body'  => "The 2014 Ferguson uprising after the police killing of Michael Brown, and the 2015 Baltimore uprising after Freddie Gray died in police custody, produced the first wave of Black Lives Matter prosecutions and an unprecedented military response to American protest. Several prominent Ferguson organizers — among them Darren Seals and DeAndre Joshua — were later found shot dead in burned cars in killings that remain unsolved."],
+                    ['title' => 'Standing Rock & the #NoDAPL Water Protectors (2016–2017)',
+                     'body'  => "The Oceti Sakowin camp's stand against the Dakota Access Pipeline met a militarized coalition of law enforcement and TigerSwan, the private security firm hired by pipeline builder Energy Transfer. Hundreds of water protectors were arrested, including Red Fawn Fallis; Jessica Reznicek and Ruby Montoya, who sabotaged the pipeline, were charged federally — and Reznicek was sentenced under a domestic-terrorism enhancement in 2021."],
+                    ['title' => 'J20: The Inauguration Day Prosecutions (2017)',
+                     'body'  => "Police mass-arrested some 230 people during protests at Donald Trump's first inauguration and charged them collectively with felony rioting that carried decades in prison. The prosecution collapsed in 2018 after the first juries acquitted every defendant and a judge sanctioned prosecutors for withholding evidence — but the case helped establish the sweeping conspiracy-charging template later used against Stop Cop City and George Floyd defendants."],
                     ['title' => 'The George Floyd Uprising (2020)',
                      'body'  => "The summer-2020 Black Lives Matter protests following the police murder of George Floyd produced hundreds of state and federal prosecutions for arson, riot, civil disorder, and federal explosives offenses. Many defendants are still serving multi-year sentences (José Felan, Margaret Channon, Montez Lee, David Elmakayes, Brandon Wolfe, Matthew White, Ellie Brett)."],
                     ['title' => 'The Stop Cop City Era (2022–)',
@@ -161,8 +179,19 @@ class SeedTopics extends Command
                 $childSort += 10;
                 $childSlug = Str::slug($childDef['title']);
 
-                if (Topic::where('slug', $childSlug)->exists()) {
-                    $this->line("  Child exists: {$childDef['title']}");
+                $existingChild = Topic::where('slug', $childSlug)->first();
+                if ($existingChild) {
+                    // Preserve any admin edits to the title/body, but re-assert
+                    // the seed ordering so entries inserted into the middle of
+                    // the list (e.g. newly added eras) slot into their correct
+                    // chronological position instead of colliding with the sort
+                    // values of topics created on an earlier run.
+                    if ((int) $existingChild->sort_order !== $childSort) {
+                        $existingChild->update(['sort_order' => $childSort]);
+                        $this->line("  Child reordered: {$childDef['title']} (→ {$childSort})");
+                    } else {
+                        $this->line("  Child exists: {$childDef['title']}");
+                    }
                     $skipped++;
                     continue;
                 }
