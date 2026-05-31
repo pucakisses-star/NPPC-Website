@@ -208,7 +208,14 @@ final class SiteController extends Controller {
     }
 
     public function topics(Request $request, ?string $slug = null) {
-        $rootTopics = Topic::published()->roots()->with('children')->orderBy('sort_order')->get();
+        // Sections hidden from the topics explorer. They stay in the database
+        // but are excluded from the nav, the A–Z index, and direct URLs.
+        $hiddenRootSlugs = ['repressive-tools'];
+        $hiddenRootIds = Topic::whereIn('slug', $hiddenRootSlugs)->pluck('id');
+
+        $rootTopics = Topic::published()->roots()
+            ->whereNotIn('slug', $hiddenRootSlugs)
+            ->with('children')->orderBy('sort_order')->get();
 
         $activeTopic = null;
         $activeChild = null;
@@ -220,17 +227,25 @@ final class SiteController extends Controller {
             // letter. A leading article ("The ...") is ignored for sorting.
             $indexGroups = Topic::published()
                 ->whereNotNull('parent_id')
+                ->whereNotIn('parent_id', $hiddenRootIds)
                 ->get()
                 ->sortBy(fn ($t) => $this->indexSortKey($t->title), SORT_NATURAL | SORT_FLAG_CASE)
                 ->groupBy(fn ($t) => strtoupper(mb_substr($this->indexSortKey($t->title), 0, 1)));
         } elseif ($slug) {
-            // Try to find as root topic
-            $activeTopic = Topic::published()->where('slug', $slug)->first();
+            // Try to find as root topic. A hidden section resolves to nothing
+            // and falls back to the default first section below.
+            $activeTopic = Topic::published()
+                ->whereNotIn('slug', $hiddenRootSlugs)
+                ->where('slug', $slug)->first();
 
             if ($activeTopic && $activeTopic->parent_id) {
-                // It's a child — find its parent
-                $activeChild = $activeTopic;
-                $activeTopic = $activeChild->parent;
+                // It's a child — hide it too if it belongs to a hidden section.
+                if ($hiddenRootIds->contains($activeTopic->parent_id)) {
+                    $activeTopic = null;
+                } else {
+                    $activeChild = $activeTopic;
+                    $activeTopic = $activeChild->parent;
+                }
             }
         }
 
