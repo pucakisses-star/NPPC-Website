@@ -106,14 +106,27 @@
         return '/images/prison-hell.jpg';
     };
 
+    // Per-topic full-bleed background overrides, keyed by the active leaf
+    // topic's slug. Lets a specific sub-topic carry its own backdrop instead
+    // of inheriting its section's image. Applied to both the backdrop and the
+    // detail-panel hero so the same photo is not shown twice.
+    $bgOverrides = [
+        'anti-fascism' => 'https://static01.nyt.com/images/2026/04/07/us/politics/dc-antifa-01/dc-antifa-01-superJumbo.jpg?quality=75&auto=webp',
+    ];
+    $activeOverride = ($displayTopic && isset($bgOverrides[$displayTopic->slug]))
+        ? $bgOverrides[$displayTopic->slug]
+        : null;
+
     $bgImage = $showIndex
         ? '/images/fence.jpg'
-        : ($activeTopic && $activeTopic->image
-            ? Storage::url($activeTopic->image)
-            : $defaultFor($activeTopic));
-    $heroImage = $displayTopic && $displayTopic->image
-        ? Storage::url($displayTopic->image)
-        : $defaultFor($displayTopic);
+        : ($activeOverride
+            ?: ($activeTopic && $activeTopic->image
+                ? Storage::url($activeTopic->image)
+                : $defaultFor($activeTopic)));
+    $heroImage = $activeOverride
+        ?: ($displayTopic && $displayTopic->image
+            ? Storage::url($displayTopic->image)
+            : $defaultFor($displayTopic));
 
     // Only show the detail-panel hero when it's a different image from the
     // full-bleed backdrop. A topic with no image of its own falls back to its
