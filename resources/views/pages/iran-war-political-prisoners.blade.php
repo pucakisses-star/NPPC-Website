@@ -20,6 +20,8 @@
     .iwp-hero { position: relative; overflow: hidden; background: #000; min-height: 620px; display: flex; align-items: flex-end; }
     .iwp-hero-bg { position: absolute; inset: 0; z-index: 0; }
     .iwp-hero-bg svg { width: 100%; height: 100%; display: block; }
+    .iwp-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .iwp-hero-credit { position: absolute; top: 16px; right: 18px; z-index: 2; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
     .iwp-hero-overlay { position: absolute; inset: 0; z-index: 1;
         background: radial-gradient(120% 90% at 72% 0%, rgba(216,57,43,0.18), transparent 60%),
                     linear-gradient(180deg, rgba(10,10,12,0.35) 0%, rgba(10,10,12,0.72) 55%, #0a0a0c 100%); }
@@ -145,37 +147,10 @@
     {{-- ==================== HERO ==================== --}}
     <div class="iwp-hero">
         <div class="iwp-hero-bg" aria-hidden="true">
-            <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <linearGradient id="iwpSky" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stop-color="#1a1a1f"/>
-                        <stop offset="1" stop-color="#0a0a0c"/>
-                    </linearGradient>
-                </defs>
-                <rect width="1200" height="640" fill="url(#iwpSky)"/>
-                <g fill="#16161b">
-                    <path d="M150 640 v-130 a52 52 0 0 1 104 0 v130 z"/><circle cx="202" cy="492" r="32"/>
-                    <path d="M360 640 v-104 a44 44 0 0 1 88 0 v104 z"/><circle cx="404" cy="520" r="28"/>
-                    <path d="M560 640 v-142 a55 55 0 0 1 110 0 v142 z"/><circle cx="615" cy="478" r="34"/>
-                    <path d="M780 640 v-96 a42 42 0 0 1 84 0 v96 z"/><circle cx="822" cy="528" r="26"/>
-                    <path d="M960 640 v-126 a50 50 0 0 1 100 0 v126 z"/><circle cx="1010" cy="496" r="31"/>
-                </g>
-                <g stroke="#060607" stroke-width="24">
-                    <line x1="70" y1="0" x2="70" y2="640"/><line x1="210" y1="0" x2="210" y2="640"/>
-                    <line x1="350" y1="0" x2="350" y2="640"/><line x1="490" y1="0" x2="490" y2="640"/>
-                    <line x1="630" y1="0" x2="630" y2="640"/><line x1="770" y1="0" x2="770" y2="640"/>
-                    <line x1="910" y1="0" x2="910" y2="640"/><line x1="1050" y1="0" x2="1050" y2="640"/>
-                    <line x1="1190" y1="0" x2="1190" y2="640"/>
-                </g>
-                <g stroke="#2a2a31" stroke-width="3">
-                    <line x1="58" y1="0" x2="58" y2="640"/><line x1="198" y1="0" x2="198" y2="640"/>
-                    <line x1="338" y1="0" x2="338" y2="640"/><line x1="478" y1="0" x2="478" y2="640"/>
-                    <line x1="618" y1="0" x2="618" y2="640"/><line x1="758" y1="0" x2="758" y2="640"/>
-                    <line x1="898" y1="0" x2="898" y2="640"/><line x1="1038" y1="0" x2="1038" y2="640"/>
-                </g>
-            </svg>
+            <img src="{{ asset('images/iran-war-hero.jpg') }}" alt="">
         </div>
         <div class="iwp-hero-overlay" aria-hidden="true"></div>
+        <div class="iwp-hero-credit">Photo: Getty Images</div>
         <div class="iwp-hero-content">
             <span class="iwp-kicker">A briefing on political imprisonment in Iran</span>
             <h1 class="iwp-hero-title iwp-serif">Under Cover of War</h1>
