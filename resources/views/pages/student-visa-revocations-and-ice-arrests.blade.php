@@ -19,9 +19,9 @@
        there are no white gutters around the page. */
     body.page-student-visa-revocations-and-ice-arrests main.container,
     body.page-student-visa-revocations-and-ice-arrests .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
-    body.page-student-visa-revocations-and-ice-arrests { background: #0b0b0d; }
+    body.page-student-visa-revocations-and-ice-arrests { background: #000; }
 
-    .svr { background: #0b0b0d; color: rgba(255,255,255,.82); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    .svr { background: #000; color: rgba(255,255,255,.82); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
     .svr *, .svr *::before, .svr *::after { box-sizing: border-box; }
     .svr a { color: #8b92ff; }
     .svr a:hover { color: #fff; }
@@ -40,7 +40,7 @@
     .svr-topbg { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); overflow: hidden; }
     .svr-topbg::before { content: ""; position: absolute; inset: 0; z-index: 0;
         background-image:
-            linear-gradient(180deg, rgba(11,11,13,0.55) 0%, rgba(11,11,13,0.78) 55%, #0b0b0d 100%),
+            linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.78) 55%, #000 100%),
             url('{{ asset('images/hero-bg.jpg') }}');
         background-size: cover; background-position: center; background-repeat: no-repeat; }
     .svr-topbg > * { position: relative; z-index: 1; }
@@ -102,7 +102,7 @@
 
     /* ---- locations map ---- */
     .svr-map { position: relative; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; overflow: hidden;
-        background: #0b0b0d; }
+        background: #000; }
     .svr-map-inner { padding: 30px 28px; }
     .svr-map h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0 0 6px; }
     .svr-map-sub { font-size: 14px; color: rgba(255,255,255,.55); margin: 0 0 22px; }
@@ -113,7 +113,7 @@
     .svr-map-select { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 9px 12px; font-size: 14px; border-radius: 8px; outline: none; min-width: 200px; }
     .svr-map-select:focus { border-color: #5660fe; }
     .svr-map-select option { color: #111; }
-    .svr-map-canvas { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #0b0b0d; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
+    .svr-map-canvas { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #000; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
     .svr-pop-name { font-weight: 800; font-size: 14px; color: #fff; margin: 0 0 2px; }
     .svr-pop-meta { font-size: 12px; color: rgba(255,255,255,.6); }
     .svr-pop-meta b { color: #aab0ff; }
