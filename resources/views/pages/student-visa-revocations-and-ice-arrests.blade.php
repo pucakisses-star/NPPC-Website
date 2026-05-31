@@ -137,6 +137,8 @@
     .svr-tbl-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
     .svr-tbl-unknown { color: rgba(255,255,255,.4); font-style: italic; }
     .svr-tbl-empty { padding: 22px 16px; margin: 0; color: rgba(255,255,255,.5); font-style: italic; }
+    .svr-tbl-yes { color: #5cd98a; font-weight: 700; }
+    .svr-tbl-part { color: #f0b860; font-weight: 700; }
 
     /* ---- trackers + news lists ---- */
     .svr-list { list-style: none; margin: 0; padding: 0; }
@@ -984,6 +986,52 @@
 
     <hr class="svr-divider">
 
+    {{-- ==================== SEVIS LAWSUITS ==================== --}}
+    <div class="svr-wrap svr-section">
+        <div class="svr-eyebrow">The legal fight</div>
+        <h2 class="svr-h2">SEVIS lawsuits</h2>
+        <p class="svr-p">When the government abruptly terminated thousands of SEVIS records in spring 2025, students fought back in federal court — and largely won. By late April, at least 290 of them were litigating across roughly 65 lawsuits, and about 35 had secured emergency court orders pausing their removal before the government reversed course. A selection of those suits, drawn from public court filings:</p>
+        <input type="text" class="svr-tbl-search" id="svr-lawsuits-search" placeholder="Search by case, court, or school…" onkeyup="svrFilterLawsuits(this.value)" aria-label="Search SEVIS lawsuits">
+        <div class="svr-tbl-wrap">
+            <table class="svr-tbl" id="svr-lawsuits-table">
+                <thead>
+                    <tr><th>Lawsuit</th><th class="svr-tbl-num">Plaintiffs</th><th>District</th><th>Filed</th><th>Outcome</th><th>School(s)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Student Doe 1 v. Noem</td><td class="svr-tbl-num">1</td><td>C.D. Cal.</td><td>Apr 5, 2025</td><td><span class="svr-tbl-unknown">No ruling</span></td><td>A college in the Inland Empire, CA</td></tr>
+                    <tr><td>Student Doe 2 v. Noem</td><td class="svr-tbl-num">1</td><td>C.D. Cal.</td><td>Apr 6, 2025</td><td><span class="svr-tbl-unknown">No ruling</span></td><td>A college in Orange County, CA</td></tr>
+                    <tr><td>Chengkai Zou v. Lyons</td><td class="svr-tbl-num">1</td><td>C.D. Cal.</td><td>Apr 7, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>UCLA</td></tr>
+                    <tr><td>Liu v. Noem</td><td class="svr-tbl-num">1</td><td>D.N.H.</td><td>Apr 7, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>Dartmouth</td></tr>
+                    <tr><td>Shandilya v. Noem</td><td class="svr-tbl-num">2</td><td>W.D. Pa.</td><td>Apr 7, 2025</td><td><span class="svr-tbl-part">TRO granted in part</span></td><td>An institution in W.D. Pennsylvania</td></tr>
+                    <tr><td>Deore v. DHS</td><td class="svr-tbl-num">4</td><td>E.D. Mich.</td><td>Apr 10, 2025</td><td><span class="svr-tbl-part">TRO denied; later restored</span></td><td>Wayne State, U. of Michigan</td></tr>
+                    <tr><td>Chatwani v. Noem</td><td class="svr-tbl-num">1</td><td>N.D. Ill.</td><td>Apr 14, 2025</td><td><span class="svr-tbl-yes">Injunction</span></td><td>Northwestern</td></tr>
+                    <tr><td>ACLU of Indiana suit</td><td class="svr-tbl-num">7</td><td>N.D./S.D. Ind.</td><td>Apr 15, 2025</td><td><span class="svr-tbl-part">Mixed; restored</span></td><td>Purdue, IU Indianapolis, Notre Dame</td></tr>
+                    <tr><td>Khademi v. Noem</td><td class="svr-tbl-num">1</td><td>W.D. Wis. → D.D.C.</td><td>Apr 15, 2025</td><td><span class="svr-tbl-yes">Injunctive relief</span></td><td>Iowa State</td></tr>
+                    <tr><td>Zeel Patel v. Bondi</td><td class="svr-tbl-num">2</td><td>W.D. Pa.</td><td>Apr 15, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>Gannon</td></tr>
+                    <tr><td>Isserdasani v. Noem</td><td class="svr-tbl-num">1</td><td>W.D. Wis.</td><td>Apr 15, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>UW–Madison</td></tr>
+                    <tr><td>Chen v. Noem</td><td class="svr-tbl-num">4</td><td>N.D. Cal.</td><td>Apr 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>UC Berkeley, Carnegie Mellon, Cincinnati, Columbia</td></tr>
+                    <tr><td>Ortega Gonzalez v. Noem</td><td class="svr-tbl-num">2</td><td>D. Or.</td><td>Apr 17, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>Oregon State, U. of Oregon</td></tr>
+                    <tr><td>Saxena v. Noem</td><td class="svr-tbl-num">1</td><td>D.S.D.</td><td>Apr 17, 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>South Dakota Mines</td></tr>
+                    <tr><td>Jin v. Noem</td><td class="svr-tbl-num">1</td><td>D. Minn.</td><td>Apr 17, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>U. of Minnesota</td></tr>
+                    <tr><td>Ariwoola v. Noem</td><td class="svr-tbl-num">1</td><td>D.S.C.</td><td>Apr 18, 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>U. of South Carolina</td></tr>
+                    <tr><td>Pasula v. DHS</td><td class="svr-tbl-num">5</td><td>D.N.H.</td><td>Apr 18, 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>Rivier, WPI</td></tr>
+                    <tr><td>Ratsantiboon v. Noem</td><td class="svr-tbl-num">1</td><td>D. Minn.</td><td>Apr 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>Metropolitan State U.</td></tr>
+                    <tr><td>Kashikov v. Noem</td><td class="svr-tbl-num">1</td><td>D. Alaska</td><td>Apr 23, 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>U. of Alaska Anchorage</td></tr>
+                    <tr><td>Du v. DHS</td><td class="svr-tbl-num">4</td><td>D. Conn.</td><td>Apr 24, 2025</td><td><span class="svr-tbl-yes">TRO → injunction</span></td><td>Yale, UConn</td></tr>
+                    <tr><td>Manjunatha v. Noem</td><td class="svr-tbl-num">1</td><td>W.D.N.Y.</td><td>Apr 2025</td><td><span class="svr-tbl-unknown">Plaintiff left the U.S.</span></td><td>University at Buffalo</td></tr>
+                    <tr><td>Akshar Patel v. Lyons</td><td class="svr-tbl-num">3</td><td>D.D.C.</td><td>Apr 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>UT Arlington, UT Dallas</td></tr>
+                    <tr><td>Villar Castellanos v. Noem</td><td class="svr-tbl-num">4</td><td>S.D. Tex.</td><td>Apr 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>UT Rio Grande Valley</td></tr>
+                    <tr><td>Nali v. Noem</td><td class="svr-tbl-num">1</td><td>N.D. Ill.</td><td>Apr 2025</td><td><span class="svr-tbl-yes">TRO granted</span></td><td>DePaul</td></tr>
+                    <tr><td>Onda v. Noem</td><td class="svr-tbl-num">1</td><td>D. Utah</td><td>Apr 2025</td><td><span class="svr-tbl-yes">Status restored</span></td><td>BYU</td></tr>
+                </tbody>
+            </table>
+            <p class="svr-tbl-empty" id="svr-lawsuits-empty" hidden>No lawsuits match your search.</p>
+        </div>
+        <p class="svr-tbl-foot">A non-exhaustive selection compiled from public court filings and reporting; the original lawsuit tracking is <a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/07/where-students-have-had-their-visas-revoked" target="_blank" rel="noopener">Inside Higher Ed's SEVIS-lawsuits database</a> (Johanna Alonso). Case captions and outcomes are summarized and have continued to evolve; many further suits were filed with anonymous "Doe" plaintiffs or undisclosed schools and are not all listed here.</p>
+    </div>
+
+    <hr class="svr-divider">
+
     {{-- ==================== METHODOLOGY & SOURCES ==================== --}}
     <div class="svr-wrap svr-section">
         <div class="svr-eyebrow">Methodology &amp; sources</div>
@@ -1032,6 +1080,26 @@ function svrFilterInstitutions(q) {
         if (match) shown++;
     }
     var empty = document.getElementById('svr-inst-empty');
+    if (empty) empty.hidden = shown !== 0;
+}
+</script>
+
+<script>
+// Client-side filter for the SEVIS-lawsuits table: match the typed query
+// against every cell (case name, court, school…), hide non-matching rows,
+// and show an empty-state message when nothing matches.
+function svrFilterLawsuits(q) {
+    q = (q || '').trim().toLowerCase();
+    var table = document.getElementById('svr-lawsuits-table');
+    if (!table) return;
+    var rows = table.tBodies[0] ? table.tBodies[0].rows : [];
+    var shown = 0;
+    for (var i = 0; i < rows.length; i++) {
+        var match = q === '' || rows[i].textContent.toLowerCase().indexOf(q) !== -1;
+        rows[i].style.display = match ? '' : 'none';
+        if (match) shown++;
+    }
+    var empty = document.getElementById('svr-lawsuits-empty');
     if (empty) empty.hidden = shown !== 0;
 }
 </script>
