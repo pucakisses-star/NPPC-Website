@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 final class FormSubmissionController extends Controller {
     public function submit(Request $request, string $form) {
         // Validate the form type against an allowed list
-        $allowedForms = ['contact', 'volunteer', 'prisoner-letter'];
+        $allowedForms = ['contact', 'volunteer', 'prisoner-letter', 'contribution'];
         if (! in_array($form, $allowedForms, true)) {
             abort(404);
         }
@@ -74,6 +74,10 @@ final class FormSubmissionController extends Controller {
             $subject = 'Letter to a prisoner';
         }
 
+        if ($form === 'contribution') {
+            $subject = 'Database contribution';
+        }
+
         // The submission is already persisted, so a mail failure can't lose
         // data — but it CAN silently strand notifications. Log loudly with
         // enough context to track it down (submission id + form + driver +
@@ -97,6 +101,7 @@ final class FormSubmissionController extends Controller {
 
         $redirectPath = match ($form) {
             'prisoner-letter' => '/prisoner-outreach',
+            'contribution' => '/topics/contributions',
             default => "/{$form}",
         };
 

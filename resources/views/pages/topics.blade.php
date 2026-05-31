@@ -51,6 +51,17 @@
     .tpx-detail-body p { margin-bottom: 1.2em; }
     .tpx-detail-body a { color: #1f3df0; }
     .tpx-detail-empty { font-size: 16px; color: #9aa0a6; font-style: italic; }
+    /* Contribute-to-the-database panel */
+    .tpx-contribute-thanks { background: #eafaf1; border: 1px solid #46c08d; color: #176b48; border-radius: 8px; padding: 12px 14px; font-size: 14px; margin-bottom: 18px; }
+    .tpx-contribute { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+    .tpx-cf { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; }
+    .tpx-cf input, .tpx-cf select, .tpx-cf textarea { font: inherit; font-weight: 400; letter-spacing: normal; text-transform: none; color: #1a1a1a; background: #fff; border: 1px solid #d6d3cd; border-radius: 7px; padding: 9px 11px; width: 100%; }
+    .tpx-cf textarea { resize: vertical; }
+    .tpx-cf input:focus, .tpx-cf select:focus, .tpx-cf textarea:focus { outline: none; border-color: #5660fe; box-shadow: 0 0 0 3px rgba(86,96,254,0.15); }
+    .tpx-cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tpx-contribute-btn { align-self: flex-start; font: inherit; font-weight: 700; background: #5660fe; color: #fff; border: 0; border-radius: 8px; padding: 11px 22px; cursor: pointer; transition: background 0.15s ease; }
+    .tpx-contribute-btn:hover { background: #3f49e0; }
+    @@media (max-width: 560px) { .tpx-cf-row { grid-template-columns: 1fr; } }
 
     /* Index — alphabetical list of all sub-topics */
     .tpx-index-letter { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #6b7280; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 6px; margin: 26px 0 8px; }
@@ -163,6 +174,7 @@
                 </a>
             @endforeach
             <a href="/topics/index" data-no-fade class="tpx-nav-item {{ $showIndex ? 'active' : '' }}">Index</a>
+            <a href="/topics/contributions" data-fullload class="tpx-nav-item {{ $showContribute ? 'active' : '' }}">Contributions</a>
             <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
         </div>
 
@@ -181,7 +193,45 @@
 
         {{-- Column 3: white detail panel --}}
         <div class="tpx-detail">
-            @if($showIndex)
+            @if($showContribute)
+                <div class="tpx-detail-eyebrow">Contribute to the database</div>
+                @if(request('form_submitted'))
+                    <div class="tpx-contribute-thanks">Thank you — your contribution has been received. Our research team reviews every submission before it goes live.</div>
+                @endif
+                <div class="tpx-detail-body">
+                    <p>This database is built and corrected by people like you. Know of a political prisoner we're missing, a detail that's wrong, or a source we should cite? Send it here — researchers verify every submission before it's published.</p>
+                </div>
+                <form class="tpx-contribute" method="POST" action="/form/contribution">
+                    @csrf
+                    <label class="tpx-cf">Type of contribution
+                        <select name="contribution_type">
+                            <option>New case / prisoner</option>
+                            <option>Correction to an existing case</option>
+                            <option>Additional source or document</option>
+                            <option>Other</option>
+                        </select>
+                    </label>
+                    <label class="tpx-cf">Person or case this concerns
+                        <input type="text" name="subject_name" placeholder="Name of the prisoner or case">
+                    </label>
+                    <label class="tpx-cf">Details
+                        <textarea name="details" rows="5" required placeholder="What should we add, change, or correct?"></textarea>
+                    </label>
+                    <label class="tpx-cf">Sources / links
+                        <textarea name="sources" rows="2" placeholder="Court records, news articles, organization reports…"></textarea>
+                    </label>
+                    <div class="tpx-cf-row">
+                        <label class="tpx-cf">Your name
+                            <input type="text" name="contributor_name">
+                        </label>
+                        <label class="tpx-cf">Your email
+                            <input type="email" name="contributor_email" placeholder="So we can follow up">
+                        </label>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6LdREZkqAAAAADv7Ei5dS_SZ1oVaz6A5FE7nacrw"></div>
+                    <button type="submit" class="tpx-contribute-btn">Submit contribution</button>
+                </form>
+            @elseif($showIndex)
                 <div class="tpx-detail-eyebrow">Index — All Topics A–Z</div>
                 @forelse($indexGroups as $letter => $topics)
                     <div class="tpx-index-letter">{{ $letter }}</div>
@@ -328,6 +378,7 @@ function tpxShare() {
     document.addEventListener('click', function (e) {
         var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link');
         if (!a) return;
+        if (a.hasAttribute('data-fullload')) return;   // let this link do a full page load (form + reCAPTCHA)
         // Respect new-tab / modified clicks.
         if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         var href = a.getAttribute('href');
@@ -338,6 +389,7 @@ function tpxShare() {
     });
 
     window.addEventListener('popstate', function () {
+        if (window.location.pathname === '/topics/contributions') { window.location.reload(); return; }
         if (window.location.pathname.indexOf('/topics') === 0) {
             swapTopic(window.location.href, false);
         } else {

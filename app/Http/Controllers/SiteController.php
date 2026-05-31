@@ -220,6 +220,7 @@ final class SiteController extends Controller {
         $activeTopic = null;
         $activeChild = null;
         $showIndex = ($slug === 'index');
+        $showContribute = ($slug === 'contributions');
         $indexGroups = collect();
 
         if ($showIndex) {
@@ -231,7 +232,7 @@ final class SiteController extends Controller {
                 ->get()
                 ->sortBy(fn ($t) => $this->indexSortKey($t->title), SORT_NATURAL | SORT_FLAG_CASE)
                 ->groupBy(fn ($t) => strtoupper(mb_substr($this->indexSortKey($t->title), 0, 1)));
-        } elseif ($slug) {
+        } elseif ($slug && ! $showContribute) {
             // Try to find as root topic. A hidden section resolves to nothing
             // and falls back to the default first section below.
             $activeTopic = Topic::published()
@@ -249,7 +250,7 @@ final class SiteController extends Controller {
             }
         }
 
-        if (! $showIndex && ! $activeTopic && $rootTopics->isNotEmpty()) {
+        if (! $showIndex && ! $showContribute && ! $activeTopic && $rootTopics->isNotEmpty()) {
             $activeTopic = $rootTopics->first();
         }
 
@@ -271,7 +272,7 @@ final class SiteController extends Controller {
             })->limit(20)->get();
         }
 
-        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners', 'showIndex', 'indexGroups'));
+        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups'));
     }
 
     /** Sort/group key for the topic index: drops a leading article. */
