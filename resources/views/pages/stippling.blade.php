@@ -69,8 +69,8 @@
                     <input type="range" id="stp-dots" min="500" max="12000" step="100" value="4800">
                 </div>
                 <div class="stp-field">
-                    <div class="stp-field-lab">Dot size <b id="stp-size-v">1.4</b></div>
-                    <input type="range" id="stp-size" min="0.5" max="3" step="0.1" value="1.4">
+                    <div class="stp-field-lab">Max dot size <b id="stp-size-v">1.7</b></div>
+                    <input type="range" id="stp-size" min="0.5" max="3" step="0.1" value="1.7">
                 </div>
                 <div class="stp-field">
                     <div class="stp-field-lab">Contrast <b id="stp-contrast-v">1.0</b></div>
@@ -103,8 +103,8 @@
         var octx = off.getContext('2d', { willReadFrequently: true });
 
         var MAXW = 720, MAX_ITERS = 90;
-        var W = 0, H = 0, density = null, points = null, n = 0, raf = 0, iter = 0, lastImage = null;
-        var opts = { n: 4800, r: 1.4, gamma: 1.0, dark: true };
+        var W = 0, H = 0, density = null, points = null, pointDensity = null, n = 0, raf = 0, iter = 0, lastImage = null;
+        var opts = { n: 4800, r: 1.7, gamma: 1.0, dark: true };
 
         function computeDensity(image) {
             var s = Math.min(1, MAXW / image.width);
@@ -151,18 +151,19 @@
 
         function step() {
             var del = new d3.Delaunay(points);
-            var cx = new Float64Array(n), cy = new Float64Array(n), cw = new Float64Array(n);
+            var cx = new Float64Array(n), cy = new Float64Array(n), cw = new Float64Array(n), cc = new Float64Array(n);
             var hint = 0;
             for (var y = 0, i = 0; y < H; y++) {
                 for (var x = 0; x < W; x++, i++) {
                     var w = density[i];
-                    if (w <= 0) continue;
                     hint = del.find(x, y, hint);
-                    cx[hint] += x * w; cy[hint] += y * w; cw[hint] += w;
+                    cx[hint] += x * w; cy[hint] += y * w; cw[hint] += w; cc[hint]++;
                 }
             }
+            if (!pointDensity || pointDensity.length !== n) pointDensity = new Float64Array(n);
             for (var k = 0; k < n; k++) {
                 if (cw[k] > 0) { points[k * 2] = cx[k] / cw[k]; points[k * 2 + 1] = cy[k] / cw[k]; }
+                pointDensity[k] = cc[k] > 0 ? cw[k] / cc[k] : 0;   // mean tone of the cell → drives dot size
             }
         }
 
@@ -170,8 +171,21 @@
             ctx.fillStyle = opts.dark ? '#0a0a0b' : '#f4f1ea';
             ctx.fillRect(0, 0, W, H);
             ctx.fillStyle = opts.dark ? '#ece9e2' : '#14110e';
-            var r = opts.r;
+            // Dot radius scales with the darkness of each point's cell, so dark
+            // areas get larger dots and highlights get tiny ones — tone is
+            // carried by size and spacing both, as in the reference.
+            var rMax = opts.r, rMin = Math.max(0.3, rMax * 0.25), span = rMax - rMin;
             for (var i = 0; i < n; i++) {
+                var d;
+                if (pointDensity) { d = pointDensity[i]; }
+                else {
+                    var xi = points[i * 2] | 0, yi = points[i * 2 + 1] | 0;
+                    if (xi < 0) xi = 0; else if (xi >= W) xi = W - 1;
+                    if (yi < 0) yi = 0; else if (yi >= H) yi = H - 1;
+                    d = density[yi * W + xi];
+                }
+                if (d < 0) d = 0; else if (d > 1) d = 1;
+                var r = rMin + span * Math.sqrt(d);
                 ctx.beginPath();
                 ctx.arc(points[i * 2], points[i * 2 + 1], r, 0, 6.283185307179586);
                 ctx.fill();
@@ -187,6 +201,7 @@
         function start() {
             cancelAnimationFrame(raf);
             iter = 0;
+            pointDensity = null;
             if (!density) return;
             seed(); draw();
             raf = requestAnimationFrame(tick);
