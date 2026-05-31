@@ -46,7 +46,7 @@
     .svr-topbg > * { position: relative; z-index: 1; }
 
     /* ---- hero ---- */
-    .svr-hero { padding: 64px 0 38px; }
+    .svr-hero { padding: 28px 0 44px; }
     .svr-alert { display: inline-flex; align-items: center; gap: 9px; background: rgba(86,96,254,.16); color: #aab0ff; font-weight: 800; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(86,96,254,.45); margin-bottom: 22px; }
     .svr-alert::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #5660fe; animation: svrpulse 2s infinite; }
     @@keyframes svrpulse { 0% { box-shadow: 0 0 0 0 rgba(86,96,254,.5); } 70% { box-shadow: 0 0 0 8px rgba(86,96,254,0); } 100% { box-shadow: 0 0 0 0 rgba(86,96,254,0); } }
@@ -201,16 +201,8 @@
     {{-- Top region with the full-width background image behind it --}}
     <div class="svr-topbg">
 
-    {{-- ==================== HERO ==================== --}}
-    <div class="svr-wrap svr-hero">
-        <span class="svr-alert">Immediate action required</span>
-        <h1 class="svr-h1">Campus Abductions &amp; Visa Revocations</h1>
-        <p class="svr-hero-sub">In 2025 the federal government began arresting international students and scholars over their speech and stripping the legal status of thousands more. This page tracks what is happening, names the people detained, and points to where you can report a case and follow the litigation.</p>
-        <div class="svr-hero-meta"><span>Living resource</span><span>Updated 2025</span><span>NPPC</span></div>
-    </div>
-
     {{-- ==================== LATEST UPDATE ==================== --}}
-    <div class="svr-wrap svr-section--tight">
+    <div class="svr-wrap svr-section--tight" style="padding-top:56px;">
         <div class="svr-update">
             <div class="svr-update-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
             <div>
@@ -219,6 +211,14 @@
                 <p>After more than 100 lawsuits and a cascade of court orders, the government told judges it would restore terminated student records nationwide while it wrote a formal policy — then circulated a draft framework that advocates warned could trigger a second round. <a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Read more →</a></p>
             </div>
         </div>
+    </div>
+
+    {{-- ==================== HERO ==================== --}}
+    <div class="svr-wrap svr-hero">
+        <span class="svr-alert">Immediate action required</span>
+        <h1 class="svr-h1">Campus Abductions &amp; Visa Revocations</h1>
+        <p class="svr-hero-sub">In 2025 the federal government began arresting international students and scholars over their speech and stripping the legal status of thousands more. This page tracks what is happening, names the people detained, and points to where you can report a case and follow the litigation.</p>
+        <div class="svr-hero-meta"><span>Living resource</span><span>Updated 2025</span><span>NPPC</span></div>
     </div>
 
     </div>{{-- /svr-topbg --}}
