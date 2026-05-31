@@ -52,15 +52,15 @@
     /* ---- hero ---- */
     /* margin-top:auto pushes the hero to the bottom of the photo band so the
        title sits low over the image (where it fades to black), while the
-       Latest-development card stays anchored at the top. The 1120px cap (with
-       24px gutters) widens the hero and aligns its left edge with the locations
-       map below, instead of leaving it as a narrow centred column. */
-    .svr-hero { margin-top: auto; max-width: 1120px; padding: 28px 24px 52px; }
+       Latest-development card stays anchored at the top. The wide 1400px cap
+       (with 24px gutters) lets the hero spread across most of the photo rather
+       than sitting in a narrow centred column. */
+    .svr-hero { margin-top: auto; max-width: 1400px; padding: 28px 24px 52px; }
     .svr-alert { display: inline-flex; align-items: center; gap: 9px; background: rgba(86,96,254,.16); color: #aab0ff; font-weight: 800; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(86,96,254,.45); margin-bottom: 22px; }
     .svr-alert::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #5660fe; animation: svrpulse 2s infinite; }
     @@keyframes svrpulse { 0% { box-shadow: 0 0 0 0 rgba(86,96,254,.5); } 70% { box-shadow: 0 0 0 8px rgba(86,96,254,0); } 100% { box-shadow: 0 0 0 0 rgba(86,96,254,0); } }
     .svr-h1 { font-size: 4.4rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 22px; color: #fff; }
-    .svr-hero-sub { font-size: 1.45rem; line-height: 1.6; color: rgba(255,255,255,.78); max-width: 960px; margin: 0; }
+    .svr-hero-sub { font-size: 1.45rem; line-height: 1.6; color: rgba(255,255,255,.78); max-width: 1100px; margin: 0; }
     .svr-hero-meta { margin-top: 26px; font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.55); }
     .svr-hero-meta span + span::before { content: "•"; margin: 0 10px; color: #5660fe; }
 
