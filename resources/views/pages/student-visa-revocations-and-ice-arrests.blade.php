@@ -1082,6 +1082,12 @@
             </a>
             <figcaption class="svr-credit-cap">Source: Johanna Alonso / Inside Higher Ed</figcaption>
         </figure>
+        <figure class="svr-credit">
+            <a class="svr-credit-logo" href="https://images.squarespace-cdn.com/content/v1/67e1a4df85201d775809fd02/680f2e04-8ac2-4985-9efa-d8ff5d2654c1/We+are+higher+ed+red+Logo.png?format=1500w" target="_blank" rel="noopener">
+                <img src="{{ asset('images/we-are-higher-ed-logo.webp') }}" alt="We Are Higher Ed" loading="lazy" width="420" height="281">
+            </a>
+            <figcaption class="svr-credit-cap">Source: We Are Higher Ed</figcaption>
+        </figure>
     </div>
 
     <hr class="svr-divider">
