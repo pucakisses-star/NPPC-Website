@@ -86,9 +86,6 @@
     .svr-pull cite { font-style: normal; font-size: 14px; letter-spacing: .03em; color: rgba(255,255,255,.5); text-transform: uppercase; }
 
     /* ---- report banner ---- */
-    .svr-banner { background: #16161c; color: #fff; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; padding: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
-    .svr-banner h3 { font-size: 1.4rem; font-weight: 800; margin: 0 0 6px; color: #fff; }
-    .svr-banner p { margin: 0; color: rgba(255,255,255,.7); font-size: 15px; line-height: 1.55; max-width: 560px; }
 
     /* ---- buttons ---- */
     .svr-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none; padding: 13px 26px; border-radius: 999px; transition: transform .15s, background .15s, color .15s, border-color .15s; white-space: nowrap; }
@@ -189,7 +186,6 @@
         .svr-pull p { font-size: 1.5rem; }
         .svr-stats { grid-template-columns: 1fr 1fr; }
         .svr-cases { grid-template-columns: 1fr; }
-        .svr-banner { flex-direction: column; align-items: flex-start; }
     }
     @@media (max-width: 520px) {
         .svr-h1 { font-size: 2.05rem; }
@@ -223,20 +219,6 @@
                 <h3>April 25 — ICE reverses course on SEVIS terminations</h3>
                 <p>After more than 100 lawsuits and a cascade of court orders, the government told judges it would restore terminated student records nationwide while it wrote a formal policy — then circulated a draft framework that advocates warned could trigger a second round. <a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/25/ice-reverses-course-sevis-terminations" target="_blank" rel="noopener">Read more →</a></p>
             </div>
-        </div>
-    </div>
-
-    {{-- ==================== REPORT BANNER ==================== --}}
-    <div class="svr-wrap svr-section--tight">
-        <div class="svr-banner">
-            <div>
-                <h3>Know a student who's been detained or had a visa revoked?</h3>
-                <p>If you or someone at your campus has been arrested by ICE, had a visa revoked, or found a SEVIS record terminated, tell us. We add documented cases to this page and connect people with legal and advocacy support.</p>
-            </div>
-            <a class="svr-btn svr-btn-red" href="/contact">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>
-                Report a case
-            </a>
         </div>
     </div>
 
