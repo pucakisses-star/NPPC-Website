@@ -123,6 +123,10 @@
     .svr-tbl-context { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,.62); max-width: 760px; margin: 0 0 18px; }
     .svr-tbl-context strong { color: rgba(255,255,255,.9); font-weight: 700; }
     .svr-tbl-foot { font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,.5); max-width: 760px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.08); }
+    .svr-credit { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 16px 0 0; }
+    .svr-credit-logo { display: inline-flex; background: #fff; padding: 9px 13px; border-radius: 8px; line-height: 0; }
+    .svr-credit-logo img { height: 30px; width: auto; display: block; }
+    .svr-credit-cap { font-size: 13px; color: rgba(255,255,255,.6); margin: 0; }
     .svr-tbl-search { width: 100%; max-width: 420px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.18); color: #fff; padding: 10px 14px; font-size: 14px; border-radius: 8px; outline: none; margin-bottom: 16px; }
     .svr-tbl-search::placeholder { color: rgba(255,255,255,.4); }
     .svr-tbl-search:focus { border-color: #5660fe; }
@@ -1072,6 +1076,12 @@
             <p class="svr-tbl-empty" id="svr-lawsuits-empty" hidden>No lawsuits match your search.</p>
         </div>
         <p class="svr-tbl-foot">Reproduces <a href="https://www.insidehighered.com/news/global/international-students-us/2025/04/07/where-students-have-had-their-visas-revoked" target="_blank" rel="noopener">Inside Higher Ed's SEVIS-lawsuits database</a> (Johanna Alonso), based on court filings as of midday April 23, 2025; the final rows are suits filed on or just after that date. "Outcome" reflects each case's status at that snapshot — so suits later resolved in the students' favor may still read "no ruling" — and "Not disclosed" marks plaintiffs or schools that filed anonymously. Case captions are abbreviated.</p>
+        <figure class="svr-credit">
+            <a class="svr-credit-logo" href="https://www.insidehighered.com/news/global/international-students-us/2025/04/07/where-students-have-had-their-visas-revoked" target="_blank" rel="noopener">
+                <img src="{{ asset('images/inside-higher-ed-logo.png') }}" alt="Inside Higher Ed" loading="lazy" width="150" height="74">
+            </a>
+            <figcaption class="svr-credit-cap">Source: Johanna Alonso / Inside Higher Ed</figcaption>
+        </figure>
     </div>
 
     <hr class="svr-divider">
