@@ -781,6 +781,182 @@
                 </div>
             </div>
 
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">SS</span>
+                <div class="svr-case-body">
+                    <h3>Sajawal Ali Sohail</h3>
+                    <p class="svr-case-role">West Virginia University · F-1 student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A 25-year-old computer-science student from Pakistan whose SEVIS record was terminated on April 10 over a "criminal records" flag. The record stemmed from a scam in which his father was defrauded while paying his tuition — a case in which a judge had ruled Sohail and his family were the victims, not the perpetrators. The ACLU of West Virginia sued, and his status was restored on April 25.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Sajawal%20Ali%20Sohail%20WVU" target="_blank" rel="noopener">Coverage of Sajawal Ali Sohail →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">MA</span>
+                <div class="svr-case-body">
+                    <h3>Matthew Ariwoola</h3>
+                    <p class="svr-case-role">University of South Carolina · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A 32-year-old chemistry PhD candidate from Nigeria who taught undergraduates and researched making medications more effective, told on April 8 that his status was terminated and he could neither study nor teach. The cited basis was a 2023 Georgia arrest warrant — though he had never been to Georgia and the charges were dismissed. The ACLU of South Carolina sued; a judge granted a restraining order and his status was restored.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Matthew%20Ariwoola%20South%20Carolina%20visa" target="_blank" rel="noopener">Coverage of Matthew Ariwoola →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">HK</span>
+                <div class="svr-case-body">
+                    <h3>Hamidreza Khademi</h3>
+                    <p class="svr-case-role">Iowa State University · F-1, OPT</p>
+                    <span class="svr-tag svr-tag-court">Protected by court order</span>
+                    <p>A 34-year-old from Iran who earned a master's in architecture and was working on OPT as a project manager at the Dallas-Fort Worth airport. Iowa State told him on April 10 that his SEVIS record was terminated over a February 2024 traffic stop — one the Texas state police themselves determined was not a violation, with no charges filed. He sued and won early injunctive relief, and the case continued in Washington.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Hamidreza%20Khademi%20Iowa%20State%20visa" target="_blank" rel="noopener">Coverage of Hamidreza Khademi →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">PS</span>
+                <div class="svr-case-body">
+                    <h3>Priya Saxena</h3>
+                    <p class="svr-case-role">South Dakota Mines · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A 28-year-old chemical-and-biological-engineering PhD candidate from India, weeks from her May graduation, whose visa was revoked in early April citing "additional information." The trigger was a single minor 2020 misdemeanor — failing to stop for an emergency vehicle. Judge Karen Schreier found a due-process violation and ordered her status restored, clearing her to attend commencement.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Priya%20Saxena%20South%20Dakota%20Mines%20visa" target="_blank" rel="noopener">Coverage of Priya Saxena →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">KM</span>
+                <div class="svr-case-body">
+                    <h3>Kiran Manjunatha</h3>
+                    <p class="svr-case-role">University at Buffalo (SUNY) · F-1, OPT</p>
+                    <span class="svr-tag svr-tag-removed">Left the U.S.</span>
+                    <p>A finance graduate from India working at Citibank on OPT, whose SEVIS record was terminated in early April over a since-dismissed misdemeanor for driving without a valid license. One of 13 current and former Buffalo students flagged, he sued — but, fearing detention and deportation to El Salvador, he left the United States, and would need a new visa to return.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Kiran%20Manjunatha%20Buffalo%20visa" target="_blank" rel="noopener">Coverage of Kiran Manjunatha →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">JO</span>
+                <div class="svr-case-body">
+                    <h3>Jideofor Odoeze</h3>
+                    <p class="svr-case-role">University of Notre Dame · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A Nigerian electrical-engineering doctoral candidate set to graduate in May, in South Bend since 2018 with his wife and two U.S.-citizen children, whose status was terminated with no notice; Notre Dame advised him to prepare to leave the country. A plaintiff in the ACLU of Indiana's suit, he had his SEVIS record reactivated by late April, with ICE agreeing not to re-terminate on the same basis.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Jideofor%20Odoeze%20Notre%20Dame%20visa" target="_blank" rel="noopener">Coverage of Jideofor Odoeze →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">PC</span>
+                <div class="svr-case-body">
+                    <h3>Parth Atul Chatwani</h3>
+                    <p class="svr-case-role">Northwestern University · F-1, OPT</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A recent graduate from India working under OPT, whose F-1 record was terminated in the April wave with no individualized reason — he had no criminal record and no political activity. He sued, and on May 12 Judge Sara Ellis ordered DHS to reinstate his lawful status.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Parth%20Chatwani%20Northwestern%20visa" target="_blank" rel="noopener">Coverage of Parth Chatwani →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">AG</span>
+                <div class="svr-case-body">
+                    <h3>Aaron Ortega Gonzalez</h3>
+                    <p class="svr-case-role">Oregon State University · F-1 PhD student</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A doctoral student from Mexico researching how wildfires affect ranchlands, whose F-1 record was covertly terminated on April 4 and who was told to leave immediately; his attorneys said he had never even received a traffic ticket. With the ACLU of Oregon he sued, and Judge Michael McShane ordered his status restored, calling the termination "so arbitrary and capricious." He was never detained.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Aaron%20Ortega%20Gonzalez%20Oregon%20State%20visa" target="_blank" rel="noopener">Coverage of Aaron Ortega Gonzalez →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">JK</span>
+                <div class="svr-case-body">
+                    <h3>Jean Kashikov</h3>
+                    <p class="svr-case-role">University of Alaska Anchorage · F-1, OPT</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>A 2024 graduate from Kazakhstan — a mathematics and professional-piloting major working as a flight instructor on OPT — who learned in a restaurant on April 10 that his SEVIS record was terminated. His only record was a dropped 2022 Arizona arrest and a dismissed speeding ticket. The ACLU of Alaska sued, and his status was restored days later.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Jean%20Kashikov%20Alaska%20visa" target="_blank" rel="noopener">Coverage of Jean Kashikov →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">EZ</span>
+                <div class="svr-case-body">
+                    <h3>Edward Zhou</h3>
+                    <p class="svr-case-role">UCLA · F-1 student</p>
+                    <span class="svr-tag svr-tag-court">Protected by court order</span>
+                    <p>A fourth-year undergraduate from China told on April 3 that his F-1 record was terminated over an unspecified "criminal records" notation, with his visa revoked two days later. He sued ICE, and on April 15 Judge Cynthia Valenzuela set aside the termination and reinstated his status, finding the government had exceeded its authority and that he faced irreparable harm. He was not detained.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Edward%20Zhou%20UCLA%20visa" target="_blank" rel="noopener">Coverage of Edward Zhou →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">UI</span>
+                <div class="svr-case-body">
+                    <h3>The University of Iowa four</h3>
+                    <p class="svr-case-role">University of Iowa · F-1 students</p>
+                    <span class="svr-tag svr-tag-court">Protected by court order</span>
+                    <p>Four University of Iowa students and recent graduates — Sri Chaitanya Krishna Akondy, an epidemiologist working on OPT; chemical-engineering student Prasoon Kumar; and undergraduates Songli Cai and Haoran Yang — had their SEVIS records terminated on April 10 with no explanation, then received embassy warnings of possible detention. They sued, and on May 15 Judge Rebecca Goodgame Ebinger barred the government from detaining or removing them, citing a "strong likelihood" they would prevail.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=University%20of%20Iowa%20students%20visa%20lawsuit%20Ebinger" target="_blank" rel="noopener">Coverage of the Iowa students →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">CT</span>
+                <div class="svr-case-body">
+                    <h3>The Connecticut plaintiffs</h3>
+                    <p class="svr-case-role">Yale &amp; UConn · F-1 students</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>Four students in a single ACLU of Connecticut suit — Yale PhD candidates Yan Du and Mengni He, with UConn's Elika Shams, a biomedical-engineering PhD from Iran, and Stephen Azu, a Ghanaian researcher on OPT — had their SEVIS records terminated in early April over dismissed or trivial records. Their status was restored within weeks, and a federal judge barred the government from removing them from Connecticut while the case proceeded.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Connecticut%20students%20visa%20Du%20DHS%20ACLU" target="_blank" rel="noopener">Coverage of the Connecticut students →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">ZV</span>
+                <div class="svr-case-body">
+                    <h3>Zeel &amp; Vraj Patel</h3>
+                    <p class="svr-case-role">Gannon University · F-1 students</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>Zeel Patel, a graduate management student, and Vraj V. Patel, an information-systems undergraduate near graduation — both from India — had their visas revoked in early April over minor matters such as a roommate dispute and traffic tickets. On April 17, Judge W. Scott Hardy granted restraining orders restoring their status while their suits proceeded.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Gannon%20University%20students%20visa%20Patel" target="_blank" rel="noopener">Coverage of the Gannon students →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">TX</span>
+                <div class="svr-case-body">
+                    <h3>The North Texas plaintiffs</h3>
+                    <p class="svr-case-role">UT Dallas &amp; UT Arlington · F-1 / OPT</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>Three North Texas students and graduates — data engineer Manoj Mashatti of UT Dallas, and thermal engineer Chandraprakash Hinge and information-systems student Akshar Patel of UT Arlington — sued after their SEVIS records were terminated over old or dismissed traffic and misdemeanor records. In Patel's case, Judge Ana Reyes publicly called the terminations "arbitrary and capricious"; all three had their status restored.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=Patel%20v%20Lyons%20Texas%20students%20visa%20Reyes" target="_blank" rel="noopener">Coverage of the North Texas students →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">RGV</span>
+                <div class="svr-case-body">
+                    <h3>The UTRGV plaintiffs</h3>
+                    <p class="svr-case-role">UT Rio Grande Valley · F-1 students</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>Four students at UT Rio Grande Valley — physics PhD candidates Hugo Adrián Villar Castellanos of Mexico and Shishir Timilsena of Nepal, finance PhD student Amir Gholami of Iran, and computer-science undergraduate Julio Dylan Sanchez Wong of Mexico — learned on April 8 that their SEVIS records were terminated over minor, mostly dismissed citations, and lost their campus jobs. They sued Secretary Noem, and their records were restored in the late-April reversal.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=UTRGV%20students%20visa%20lawsuit%20Noem" target="_blank" rel="noopener">Coverage of the UTRGV students →</a>
+                </div>
+            </div>
+
+            <div class="svr-case">
+                <span class="svr-avatar" aria-hidden="true">DP</span>
+                <div class="svr-case-body">
+                    <h3>The DePaul plaintiffs</h3>
+                    <p class="svr-case-role">DePaul University · F-1 students</p>
+                    <span class="svr-tag svr-tag-court">Status restored</span>
+                    <p>Two DePaul students from India — business-analytics student Vishnu Vardhan Nali and recent graduate Satyanarayana Mekarthi, on OPT — had their SEVIS records terminated on April 8 over a dropped shoplifting arrest and a minor traffic charge. Both sued; a judge ordered Nali's record reinstated, and their status was restored in the nationwide reversal.</p>
+                    <a class="svr-coverage" href="https://news.google.com/search?q=DePaul%20students%20visa%20lawsuit%20Nali" target="_blank" rel="noopener">Coverage of the DePaul students →</a>
+                </div>
+            </div>
+
         </div>
     </div>
 
