@@ -58,9 +58,11 @@
     .ppd-ticker-track { position: absolute; top: 0; left: 0; height: 100%; display: inline-flex; align-items: center; white-space: nowrap; animation: ppdmarquee 48s linear infinite; }
     .ppd-ticker-view:hover .ppd-ticker-track { animation-play-state: paused; }
     @@keyframes ppdmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .ppd-tk { display: inline-flex; align-items: center; gap: 9px; padding: 0 26px; font-size: 12.5px; color: rgba(236,233,226,0.82); }
-    .ppd-tk::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
-    .ppd-tk b { color: #fff; font-weight: 700; }
+    .ppd-tk { display: inline-flex; align-items: center; gap: 9px; padding: 0 26px; font-size: 12.5px; color: rgba(236,233,226,0.82); text-decoration: none; transition: color 0.12s ease; }
+    .ppd-tk::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex: 0 0 auto; }
+    .ppd-tk b { color: #fff; font-weight: 700; transition: color 0.12s ease; }
+    a.ppd-tk:hover b { color: var(--amber); }
+    .ppd-tk-cat { font-size: 9.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); opacity: 0.85; }
 
     /* ---- main body: feed + map ---- */
     .ppd-body { display: grid; grid-template-columns: 372px 1fr; height: min(74vh, 760px); min-height: 480px; border-bottom: 1px solid var(--line); }
@@ -250,7 +252,8 @@
         ->where('published_at', '<=', now())
         ->orderByDesc('published_at')
         ->take(40)->get();
-    $ticker = $prisoners->take(14);
+    // the top scroller is a news ticker of the same recent articles
+    $ticker = $recentArticles->take(16);
 
     // ---- timeline scrubber: one tick per day across the full documented
     // range (earliest -> latest created_at). Date labels are thinned to ~53
@@ -348,14 +351,15 @@
     {{-- ==================== RECENT TICKER ==================== --}}
     @if ($ticker->isNotEmpty())
     <div class="ppd-ticker">
-        <span class="ppd-ticker-tag"><span class="ppd-dot" style="background:#19140a"></span> Recently documented</span>
+        <span class="ppd-ticker-tag"><span class="ppd-dot" style="background:#19140a"></span> Latest news</span>
         <div class="ppd-ticker-view">
+            {{-- Duplicated twice so the marquee loops seamlessly (see ppdmarquee: -50%). --}}
             <div class="ppd-ticker-track">
-                @foreach ($ticker as $p)
-                    <span class="ppd-tk"><b>{{ $p->name }}</b> — {{ $statusMeta[$statusKey($p)][0] }}</span>
+                @foreach ($ticker as $a)
+                    <a class="ppd-tk" href="{{ $a->url }}"><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
                 @endforeach
-                @foreach ($ticker as $p)
-                    <span class="ppd-tk"><b>{{ $p->name }}</b> — {{ $statusMeta[$statusKey($p)][0] }}</span>
+                @foreach ($ticker as $a)
+                    <a class="ppd-tk" href="{{ $a->url }}" aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
                 @endforeach
             </div>
         </div>
