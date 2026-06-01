@@ -842,6 +842,11 @@ final class SiteController extends Controller {
             abort(404);
         }
 
+        // Link items have no internal page — send visitors to the source.
+        if (filled($article->external_url)) {
+            return redirect($article->external_url);
+        }
+
         return view('article', compact('article'));
     }
 
