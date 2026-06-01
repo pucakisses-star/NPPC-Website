@@ -88,15 +88,6 @@
         }
     </script>
     @else
-        {{-- No board members listed and no page body yet — show a placeholder
-             instead of an empty page. --}}
-        <div class="container mx-auto px-4 py-24 md:py-32 text-center">
-            <svg class="mx-auto mb-6 h-14 w-14 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path>
-            </svg>
-            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Under construction</p>
-            <h2 class="text-3xl md:text-4xl font-semibold text-gray-200 mb-4">Coming soon</h2>
-            <p class="text-lg text-gray-500 max-w-xl mx-auto">Our board of directors will be announced here soon. Please check back shortly.</p>
-        </div>
+        @include('sections.coming-soon', ['message' => 'Our board of directors will be announced here soon. Please check back shortly.'])
     @endif
 @endsection

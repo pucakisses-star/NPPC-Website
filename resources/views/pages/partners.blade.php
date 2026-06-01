@@ -340,6 +340,7 @@
     <div class="pp-list">
         <h2 class="pp-list-title">Our Partners</h2>
 
+        @if ($partners->isNotEmpty())
         @php
             $categorized = $partners->groupBy(fn ($p) => $p->category ?: 'Partners');
         @endphp
@@ -367,6 +368,9 @@
                 @endforeach
             </div>
         @endforeach
+        @else
+            @include('sections.coming-soon', ['message' => 'Our partners will be listed here soon. Please check back shortly.'])
+        @endif
     </div>
 
     {{-- Become a Partner CTA --}}
