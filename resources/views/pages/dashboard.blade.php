@@ -75,6 +75,24 @@
     .ppd-tagchip { font-size: 9.5px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; color: #0a0a0b; }
     .ppd-feed-date { font-size: 11px; color: var(--mut); letter-spacing: 0.02em; }
     .ppd-feed-empty { padding: 24px 18px; color: var(--mut); font-style: italic; font-size: 13px; }
+    /* "+ Add" article button + suggest-an-article form in the feed head */
+    .ppd-feed-add { font: inherit; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber); background: rgba(224,168,46,0.10); border: 1px solid rgba(224,168,46,0.40); border-radius: 5px; padding: 4px 10px; cursor: pointer; line-height: 1.2; transition: background 0.12s ease; }
+    .ppd-feed-add:hover { background: rgba(224,168,46,0.20); }
+    .ppd-feed-add[aria-expanded="true"] { font-size: 15px; padding: 1px 9px; }
+    .ppd-addform { display: none; padding: 16px 18px; border-bottom: 1px solid var(--line); background: #0d0d10; }
+    .ppd-addform.is-open { display: block; }
+    .ppd-addform-thanks { font-size: 12.5px; line-height: 1.5; color: #bfe9cf; background: rgba(63,208,127,0.10); border: 1px solid rgba(63,208,127,0.35); border-radius: 6px; padding: 9px 11px; margin-bottom: 12px; }
+    .ppd-addfield { display: block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mut); margin-bottom: 11px; }
+    .ppd-addfield-opt { font-weight: 600; text-transform: none; letter-spacing: 0; opacity: 0.7; }
+    .ppd-addfield input, .ppd-addfield textarea { display: block; width: 100%; margin-top: 5px; font: inherit; font-size: 13px; letter-spacing: normal; text-transform: none; font-weight: 400; color: var(--ink); background: #141418; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+    .ppd-addfield textarea { resize: vertical; min-height: 76px; }
+    .ppd-addfield input:focus, .ppd-addfield textarea:focus { outline: none; border-color: rgba(224,168,46,0.6); }
+    .ppd-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+    .ppd-addform-actions { display: flex; gap: 9px; align-items: center; }
+    .ppd-addform-submit { font: inherit; font-size: 12px; font-weight: 800; color: #19140a; background: var(--amber); border: 0; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+    .ppd-addform-submit:hover { background: #f0bb47; }
+    .ppd-addform-cancel { font: inherit; font-size: 12px; font-weight: 700; color: var(--mut); background: none; border: 0; cursor: pointer; }
+    .ppd-addform-cancel:hover { color: var(--ink); }
 
     /* ---- map ---- */
     .ppd-mapwrap { position: relative; background: #07090c; }
@@ -226,8 +244,12 @@
         ['deceased', 'Deceased',       $deceased],
     ];
 
-    // intelligence feed + ticker
-    $feed   = $prisoners->take(40);
+    // recent articles for the side feed + prisoner ticker
+    $recentArticles = \App\Models\Article::query()
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->orderByDesc('published_at')
+        ->take(40)->get();
     $ticker = $prisoners->take(14);
 
     // ---- timeline scrubber: one tick per day across the full documented
@@ -344,20 +366,46 @@
     <div class="ppd-body">
         <aside class="ppd-feed">
             <div class="ppd-feed-head">
-                <span class="ppd-label">Intelligence feed · Recent cases</span>
-                <span class="ppd-label">{{ number_format($total) }}</span>
+                <span class="ppd-label">Newswire · Recent articles</span>
+                <button type="button" class="ppd-feed-add" id="ppd-feed-add" aria-expanded="false">+ Add</button>
             </div>
-            @forelse ($feed as $p)
-                @php $sk = $statusKey($p); @endphp
-                <a class="ppd-feed-item" href="{{ $p->url }}" data-status="{{ $sk }}" data-day="{{ $dayIndex($p) }}">
-                    <span class="ppd-feed-name">{{ $p->name }}</span>
+
+            {{-- Suggest-an-article form. Public page, so a submission is stored
+                 for admin review (as a FormSubmission) rather than published
+                 directly. Hidden until the "+ Add" button is clicked. --}}
+            <form class="ppd-addform" id="ppd-addform" method="POST" action="/form/article-submission">
+                @csrf
+                @if (request('form_submitted') && request('form') === 'article')
+                    <div class="ppd-addform-thanks">Thanks — your article was submitted for review. An editor will publish it if it's a fit.</div>
+                @endif
+                <label class="ppd-addfield">Title
+                    <input type="text" name="title" maxlength="200" required placeholder="Article headline">
+                </label>
+                <label class="ppd-addfield">Article
+                    <textarea name="body" rows="5" required placeholder="Write the article, or paste it with a source link…"></textarea>
+                </label>
+                <label class="ppd-addfield">Your email <span class="ppd-addfield-opt">(optional)</span>
+                    <input type="email" name="submitter_email" placeholder="So an editor can follow up">
+                </label>
+                <input type="text" name="website" tabindex="-1" autocomplete="off" class="ppd-hp" aria-hidden="true">
+                <div class="ppd-addform-actions">
+                    <button type="submit" class="ppd-addform-submit">Submit for review</button>
+                    <button type="button" class="ppd-addform-cancel" id="ppd-addform-cancel">Cancel</button>
+                </div>
+            </form>
+
+            @forelse ($recentArticles as $a)
+                <a class="ppd-feed-item" href="{{ $a->url }}">
+                    <span class="ppd-feed-name">{{ $a->title }}</span>
                     <span class="ppd-feed-sub">
-                        <span class="ppd-tagchip" style="background: {{ $statusMeta[$sk][1] }}">{{ $statusMeta[$sk][0] }}</span>
-                        <span class="ppd-feed-date">{{ collect([$p->state, optional($p->created_at)->format('M j, Y')])->filter()->join(' · ') }}</span>
+                        @if ($a->category)
+                            <span class="ppd-tagchip" style="background: #e0a82e">{{ $a->category->title }}</span>
+                        @endif
+                        <span class="ppd-feed-date">{{ optional($a->published_at)->format('M j, Y') }}</span>
                     </span>
                 </a>
             @empty
-                <div class="ppd-feed-empty">No cases documented yet.</div>
+                <div class="ppd-feed-empty">No articles published yet.</div>
             @endforelse
         </aside>
 
@@ -521,11 +569,12 @@
         }
 
         // ---- shared filtering: legend status AND timeline day compose ----
+        // The side feed is articles (not cases), so it is intentionally not
+        // touched here — only the map markers respond to these filters.
         var legend = document.getElementById('ppd-legend');
         var legRows = legend ? legend.querySelectorAll('.ppd-leg') : [];
-        var feedItems = document.querySelectorAll('.ppd-feed-item');
         var statusFilter = null;     // status key, or null for "all statuses"
-        var dayFilter = Infinity;    // show items documented on/before this day index
+        var dayFilter = Infinity;    // show markers documented on/before this day index
 
         function visible(status, day) {
             return (statusFilter === null || status === statusFilter) && (day <= dayFilter);
@@ -538,11 +587,6 @@
                     else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
                 });
             }
-            feedItems.forEach(function (el) {
-                var st = el.getAttribute('data-status');
-                var dy = parseInt(el.getAttribute('data-day'), 10) || 0;
-                el.style.display = visible(st, dy) ? '' : 'none';
-            });
             legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
             if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
         }
@@ -662,6 +706,28 @@
             window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(render, 120); });
 
             requestAnimationFrame(render);   // initial paint once layout settles
+        })();
+
+        // ---- "+ Add" article form: toggle open/closed ----
+        (function () {
+            var addBtn = document.getElementById('ppd-feed-add');
+            var form = document.getElementById('ppd-addform');
+            var cancel = document.getElementById('ppd-addform-cancel');
+            if (!addBtn || !form) return;
+
+            function open(on) {
+                form.classList.toggle('is-open', on);
+                addBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+                addBtn.textContent = on ? '×' : '+ Add';
+                if (on) { var t = form.querySelector('input[name="title"]'); if (t) t.focus(); }
+            }
+            addBtn.addEventListener('click', function () {
+                open(!form.classList.contains('is-open'));
+            });
+            if (cancel) cancel.addEventListener('click', function () { open(false); });
+
+            // Keep it open if the page came back showing the thank-you message.
+            if (form.querySelector('.ppd-addform-thanks')) { open(true); }
         })();
     });
 </script>

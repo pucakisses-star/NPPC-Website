@@ -11,9 +11,17 @@ use Illuminate\Support\Facades\Mail;
 final class FormSubmissionController extends Controller {
     public function submit(Request $request, string $form) {
         // Validate the form type against an allowed list
-        $allowedForms = ['contact', 'volunteer', 'prisoner-letter', 'contribution'];
+        $allowedForms = ['contact', 'volunteer', 'prisoner-letter', 'contribution', 'article-submission'];
         if (! in_array($form, $allowedForms, true)) {
             abort(404);
+        }
+
+        // Honeypot: a hidden "website" field that real users never fill. If a
+        // bot populates it, pretend the submission succeeded but store nothing.
+        if (filled($request->input('website'))) {
+            return $form === 'article-submission'
+                ? redirect('/dashboard?form_submitted=true&form=article')
+                : redirect()->back();
         }
 
         // reCAPTCHA validation (only if secret is configured)
@@ -38,7 +46,7 @@ final class FormSubmissionController extends Controller {
 
         $data = [];
         foreach ($request->all() as $k => $v) {
-            if (in_array($k, ['_token', 'g-recaptcha-response'], true)) {
+            if (in_array($k, ['_token', 'g-recaptcha-response', 'website'], true)) {
                 continue;
             }
             $data[$k] = $v;
@@ -78,6 +86,10 @@ final class FormSubmissionController extends Controller {
             $subject = 'Database contribution';
         }
 
+        if ($form === 'article-submission') {
+            $subject = 'Article submitted for review';
+        }
+
         // The submission is already persisted, so a mail failure can't lose
         // data — but it CAN silently strand notifications. Log loudly with
         // enough context to track it down (submission id + form + driver +
@@ -102,9 +114,13 @@ final class FormSubmissionController extends Controller {
         $redirectPath = match ($form) {
             'prisoner-letter' => '/prisoner-outreach',
             'contribution' => '/topics/contributions',
+            'article-submission' => '/dashboard',
             default => "/{$form}",
         };
 
-        return redirect("{$redirectPath}?form_submitted=true");
+        // The dashboard form distinguishes its thank-you via &form=article.
+        $extra = $form === 'article-submission' ? '&form=article' : '';
+
+        return redirect("{$redirectPath}?form_submitted=true{$extra}");
     }
 }
