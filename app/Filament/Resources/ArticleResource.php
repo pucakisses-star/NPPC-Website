@@ -31,14 +31,8 @@ class ArticleResource extends Resource {
                     ->label('Image Caption')
                     ->placeholder('e.g. Photo by John Doe / Reuters')
                     ->helperText('Credit or caption displayed below the article image.'),
-                Forms\Components\TextInput::make('external_url')
-                    ->label('External link URL')
-                    ->url()
-                    ->maxLength(2048)
-                    ->live(onBlur: true)
-                    ->helperText('Optional. If set, this becomes a link item: it points to this external URL (opens in a new tab) instead of an internal article page — use it to surface outside news in the dashboard ticker and newswire. A body is not required for link items, but set a Published date for it to appear.'),
                 \FilamentTiptapEditor\TiptapEditor::make('body')
-                    ->required(fn (\Filament\Forms\Get $get): bool => blank($get('external_url')))
+                    ->required()
                     ->profile('default')
                     ->columnSpanFull(),
                 Forms\Components\DatePicker::make('published_at'),

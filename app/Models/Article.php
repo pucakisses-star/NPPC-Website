@@ -83,7 +83,6 @@ final class Article extends Model {
     }
 
     public function getUrlAttribute(): string {
-        // Link items point to an external source; everything else to /news/{slug}.
-        return $this->external_url ?: '/news/'.$this->slug;
+        return '/news/'.$this->slug;
     }
 }
