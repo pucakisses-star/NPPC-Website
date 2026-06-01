@@ -25,6 +25,7 @@ const stateNames: Record<string, string> = {
   TN: 'Tennessee',      TX: 'Texas',          UT: 'Utah',
   VT: 'Vermont',        VA: 'Virginia',       WA: 'Washington',
   WV: 'West Virginia',  WI: 'Wisconsin',      WY: 'Wyoming',
+  PR: 'Puerto Rico',
 };
 
 // abbr, row, col (1-indexed); same layout as Intercept's Trial and Terror
@@ -36,7 +37,7 @@ const grid: Cell[] = [
   { abbr: 'CA', row: 4, col: 1 }, { abbr: 'UT', row: 4, col: 2 }, { abbr: 'CO', row: 4, col: 3 }, { abbr: 'NE', row: 4, col: 4 }, { abbr: 'MO', row: 4, col: 5 }, { abbr: 'IL', row: 4, col: 6 }, { abbr: 'KY', row: 4, col: 7 }, { abbr: 'DC', row: 4, col: 8 }, { abbr: 'DE', row: 4, col: 9 }, { abbr: 'NJ', row: 4, col: 10 },
   { abbr: 'AZ', row: 5, col: 2 }, { abbr: 'NM', row: 5, col: 3 }, { abbr: 'KS', row: 5, col: 4 }, { abbr: 'AR', row: 5, col: 5 }, { abbr: 'TN', row: 5, col: 6 }, { abbr: 'WV', row: 5, col: 7 }, { abbr: 'VA', row: 5, col: 8 }, { abbr: 'NC', row: 5, col: 9 },
   { abbr: 'OK', row: 6, col: 4 }, { abbr: 'LA', row: 6, col: 5 }, { abbr: 'MS', row: 6, col: 6 }, { abbr: 'AL', row: 6, col: 7 }, { abbr: 'GA', row: 6, col: 8 }, { abbr: 'SC', row: 6, col: 9 },
-  { abbr: 'AK', row: 7, col: 1 }, { abbr: 'HI', row: 7, col: 2 }, { abbr: 'TX', row: 7, col: 4 }, { abbr: 'FL', row: 7, col: 10 },
+  { abbr: 'AK', row: 7, col: 1 }, { abbr: 'HI', row: 7, col: 2 }, { abbr: 'TX', row: 7, col: 4 }, { abbr: 'FL', row: 7, col: 10 }, { abbr: 'PR', row: 7, col: 11 },
 ];
 
 // Build a name → abbr lookup so records with full state names match
