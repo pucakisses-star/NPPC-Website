@@ -13,7 +13,6 @@ use Illuminate\Support\Str;
  *   Introduction        (overview essay — the default landing view)
  *   Movements           -> Black Lives Matter, Environmental Justice, ...
  *   Eras                -> Civil Rights & Black Power, The Green Scare, ...
- *   Repressive Tools    -> COINTELPRO, Grand Juries, ...
  *
  * Existing top-level cause topics (Black Lives Matter, Environmental
  * Justice, Anti-War Activism) are reparented under "Movements". The
@@ -24,15 +23,14 @@ use Illuminate\Support\Str;
 final class ReorganizeTopics extends Command {
     protected $signature = 'topics:reorganize';
 
-    protected $description = 'Restructure Topics into Introduction / Movements / Eras / Repressive Tools with starter content';
+    protected $description = 'Restructure Topics into Introduction / Movements / Eras with starter content';
 
     public function handle(): int {
         // --- Section roots (order drives the left nav; Introduction is first) ---
         $sections = [
-            ['Introduction', 0, '<p>The National Political Prisoner Coalition documents people imprisoned in the United States for their political beliefs, associations, or activism. This explorer organizes those cases by the <strong>movements</strong> people acted within, the <strong>eras</strong> in which they were prosecuted, and the <strong>repressive tools</strong> the state has used against dissent.</p><p>Use the menu on the left to move between sections. Selecting a section reveals its sub-topics; choosing a sub-topic opens an overview alongside the related cases from our database.</p>'],
+            ['Introduction', 0, '<p>The National Political Prisoner Coalition documents people imprisoned in the United States for their political beliefs, associations, or activism. This explorer organizes those cases by the <strong>movements</strong> people acted within and the <strong>eras</strong> in which they were prosecuted.</p><p>Use the menu on the left to move between sections. Selecting a section reveals its sub-topics; choosing a sub-topic opens an overview alongside the related cases from our database.</p>'],
             ['Movements', 1, '<p>Political imprisonment in the United States has rarely targeted ideas in the abstract — it has targeted organized movements for social change. This section groups cases by the struggles people were part of, from the fight against racist policing to the defense of land and water.</p>'],
             ['Eras', 2, '<p>The targets and tactics of political repression shift over time. This section traces political imprisonment across distinct historical periods, from the Civil Rights and Black Power era to the post-9/11 War on Terror.</p>'],
-            ['Repressive Tools', 3, '<p>The state has relied on a recurring toolkit to monitor, disrupt, and imprison dissidents. This section explains the mechanisms — from secret counterintelligence programs to charging strategies and conditions of confinement — that appear again and again across these cases.</p>'],
         ];
 
         $roots = [];
@@ -54,13 +52,6 @@ final class ReorganizeTopics extends Command {
                 ['Civil Rights & Black Power', '<p>The civil-rights and Black Power movements of the 1950s through the 1970s coincided with an unprecedented expansion of domestic surveillance. Many activists prosecuted in this period were later shown to have been targets of the FBI counterintelligence program known as COINTELPRO.</p>'],
                 ['The Green Scare', '<p>Green Scare refers to the federal crackdown on radical environmental and animal-rights activists in the late 1990s and 2000s, in which property-destruction offenses were prosecuted as terrorism and often carried sharply enhanced sentences.</p>'],
                 ['The War on Terror', '<p>After September 11, 2001, sweeping new surveillance and material-support statutes reshaped political prosecutions. Muslim communities in particular faced preemptive prosecutions, informant-driven sting operations, and confinement in restrictive units.</p>'],
-            ],
-            'Repressive Tools' => [
-                ['COINTELPRO', '<p>COINTELPRO, the FBI Counter Intelligence Program exposed in 1971, was a covert effort to surveil, infiltrate, and disrupt domestic political organizations — especially Black, Indigenous, Puerto Rican, and New Left movements. Its tactics included forged documents, paid informants, and attempts to manufacture criminal cases against activists.</p>'],
-                ['Grand Juries', '<p>Federal grand juries have been used not only to indict but to investigate movements. Activists subpoenaed to testify about their associates can be jailed for civil contempt if they refuse to cooperate — a practice known as grand-jury resistance.</p>'],
-                ['Conspiracy & RICO Charges', '<p>Broad conspiracy statutes, including the Racketeer Influenced and Corrupt Organizations Act, let prosecutors tie individuals to the acts of others and secure long sentences without proving that the defendant personally committed an underlying crime.</p>'],
-                ['Solitary Confinement & CMUs', '<p>Politically active prisoners have frequently been held in prolonged solitary confinement or in Communication Management Units — restrictive federal units that sharply limit contact with the outside world and have disproportionately held Muslim and politically active prisoners.</p>'],
-                ['Surveillance & Informants', '<p>Infiltration by informants and undercover agents has shaped political prosecutions for decades, raising persistent questions of entrapment — particularly in post-9/11 sting operations where an informant supplied the means and the plan for an alleged plot.</p>'],
             ],
         ];
 

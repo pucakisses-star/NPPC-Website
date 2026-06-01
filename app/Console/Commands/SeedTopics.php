@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class SeedTopics extends Command
 {
     protected $signature = 'topics:seed';
-    protected $description = 'Seed the Topics explorer with hierarchical topics covering movements, eras, repressive tools, and prisoner categories.';
+    protected $description = 'Seed the Topics explorer with hierarchical topics covering movements, eras, and prisoner categories.';
 
     public function handle(): int
     {
@@ -87,38 +87,6 @@ class SeedTopics extends Command
                      'body'  => "The campaign against the Atlanta Public Safety Training Center ('Cop City') produced the most aggressive use of state RICO and domestic-terrorism statutes against environmental and racial-justice organizers in U.S. history. Tortuguita was killed by Georgia state troopers on January 18, 2023; the 61 RICO defendants face decades-long sentences for forest-defense and bail-fund organizing."],
                     ['title' => 'The Trump-Era Crackdown on Palestine Solidarity (2024–)',
                      'body'  => "Beginning with the campus encampment crackdown in spring 2024 and accelerating after January 2025, U.S. authorities have used immigration enforcement, visa revocation, and ICE administrative detention to remove pro-Palestinian organizers — without filing criminal charges in most cases. Mahmoud Khalil, Rumeysa Öztürk, Badar Khan Suri, Momodou Taal, Ranjani Srinivasan, and Lelo (Alfredo Juarez) are among those caught up in this campaign."],
-                ],
-            ],
-
-            // ─── REPRESSIVE TOOLS ──────────────────────────────────
-            [
-                'title' => 'Repressive Tools',
-                'body'  => "The legal and administrative machinery used to imprison political dissidents has evolved over two centuries, but its components recur with surprising consistency. Conspiracy doctrine, sedition and seditious-libel statutes, immigration removal, racketeering and 'enterprise' statutes, and administrative detention are the recurring tools — often deployed against new targets using language and statutory architecture inherited from earlier waves of repression.",
-                'children' => [
-                    ['title' => 'The Espionage Act of 1917',
-                     'body'  => "Signed by Woodrow Wilson during World War I, the Espionage Act criminalizes 'willfully' obstructing recruitment or causing 'insubordination, disloyalty, mutiny, or refusal of duty' in the armed forces. It was used to imprison Eugene V. Debs (1918), the IWW leadership (1918), and ~2,000 anti-war organizers in 1917–1919. Since 2008 it has been the primary statute used against whistleblowers — Chelsea Manning, Edward Snowden, Reality Winner, Daniel Hale, Jeffrey Sterling, John Kiriakou, and Joshua Schulte."],
-                    ['title' => 'The Sedition Act of 1918',
-                     'body'  => "Amended the Espionage Act to also prohibit 'disloyal, profane, scurrilous, or abusive' language about the United States government, the flag, or the armed forces. It was used to imprison hundreds of socialists, anarchists, and labor organizers between 1918 and its repeal in 1920. The architectural precedent it set — criminalizing speech alone, not just specific acts — was invoked again by COINTELPRO and the post-9/11 material-support statutes."],
-                    ['title' => 'The Smith Act (1940)',
-                     'body'  => "Made it a federal crime to advocate the overthrow of the U.S. government or to organize or be a member of any group advocating such overthrow. It was used in the late-1940s and 1950s to prosecute the entire leadership of the Communist Party USA, sending dozens of organizers to federal prison. Its reach was finally narrowed by the Supreme Court in Yates v. United States (1957) and Scales v. United States (1961), but it has never been repealed."],
-                    ['title' => 'COINTELPRO',
-                     'body'  => "The FBI's Counterintelligence Program (1956–1971) was an internal initiative that used illegal wiretaps, infiltration, agents provocateurs, manufactured evidence, and coordinated prosecutions to neutralize political movements. After it was exposed in the 1971 Media, PA office break-in and the 1975 Church Committee hearings, the FBI publicly disavowed it — but the convictions it produced were never reopened. Many are still being served."],
-                    ['title' => 'The Animal Enterprise Terrorism Act (AETA, 2006)',
-                     'body'  => "Federal statute that turned property damage and protest activity targeting animal-research facilities and factory farms into federal terrorism offenses. It expanded the older Animal Enterprise Protection Act of 1992 to include actions causing 'economic damage' — including secondary protests at executives' homes and the publication of corporate addresses. The AETA Four, Marius Mason, Daniel McGowan, and others were prosecuted under this framework."],
-                    ['title' => 'The PATRIOT Act (2001)',
-                     'body'  => "Passed six weeks after September 11, 2001, the PATRIOT Act expanded federal authorities to surveil, detain, and prosecute people in connection with 'terrorism' broadly defined. Its material-support statute (18 U.S.C. § 2339A and § 2339B) has been the central legal tool in post-9/11 political-prisoner prosecutions, including the Holy Land Foundation Five, the Newburgh Four, and the Lackawanna Six."],
-                    ['title' => 'Special Administrative Measures (SAMs)',
-                     'body'  => "Administrative orders issued by the U.S. Attorney General that severely restrict a federal prisoner's communication with the outside world — limiting mail, phone calls, and visits. SAMs were imposed on Lynne Stewart, Daniel Hale, the Holy Land Foundation prisoners, and others. They are renewable annually and have been imposed on prisoners for over a decade."],
-                    ['title' => 'Communications Management Units (CMUs)',
-                     'body'  => "Special federal prison housing units, currently at FCI Terre Haute (Indiana) and FCI Marion (Illinois), where prisoners' contact with the outside world is severely restricted. Mail is read and copied before delivery; phone calls are limited to a few minutes per week and conducted in English. CMUs were created in 2006 without public notice or rulemaking and disproportionately house Muslim and political prisoners."],
-                    ['title' => 'ADX Florence Supermax',
-                     'body'  => "The U.S. Penitentiary Administrative Maximum Facility in Florence, Colorado is the federal supermax — the highest-security prison in the federal system. Prisoners are held in single cells for 22–23 hours per day with extreme communication restrictions. Political prisoners held at ADX have included H. Rap Brown / Jamil al-Amin, Russell Maroon Shoatz, and Ramzi Yousef."],
-                    ['title' => 'Solitary Confinement',
-                     'body'  => "The use of long-term solitary confinement — what the United Nations classifies as torture beyond 15 days — is endemic in U.S. prisons and has been used as a particular tool against political organizers inside. Albert Woodfox spent 43 years in solitary at Angola; Russell 'Maroon' Shoatz spent 22; the Pelican Bay hunger strikes (2011, 2013) drew national attention to California's use of indefinite solitary."],
-                    ['title' => 'The Federal Terrorism Enhancement (USSG §3A1.4)',
-                     'body'  => "A federal sentencing-guideline enhancement that, when applied, raises a defendant's offense level by 12 points and treats them as having a Category VI criminal history regardless of actual record. It has been routinely applied to AETA defendants, Stop Cop City defendants, and Plowshares-era environmental defendants — producing sentences several times longer than non-political defendants convicted of similar conduct."],
-                    ['title' => 'Immigration Enforcement as Political Tool',
-                     'body'  => "ICE detention and deportation have been used since at least the 1919 Palmer Raids — which deported 249 anarchists including Emma Goldman to Soviet Russia — as a workaround for criminal-prosecution requirements. The 2024–2025 detentions of pro-Palestinian student organizers under visa-revocation authority (Mahmoud Khalil, Rumeysa Öztürk, Badar Khan Suri) follow this pattern, allowing the government to remove organizers without proving any criminal offense."],
                 ],
             ],
 
