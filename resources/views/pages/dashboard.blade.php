@@ -272,8 +272,11 @@
     // max so the row stays readable no matter how wide the span is. The handle
     // "plays back" the database growing: the map + feed show only cases
     // documented on or before the selected day. ----
-    $dayOf = fn ($p) => $p->created_at?->startOfDay();
-    $tlStamps = $prisoners->map(fn ($p) => optional($p->created_at)->timestamp)->filter()->values();
+    // The range spans both documented cases (created_at) and news items
+    // (published date), so scrubbing reveals each as time reaches it.
+    $tlStamps = $prisoners->map(fn ($p) => optional($p->created_at)->timestamp)
+        ->concat($newsItems->map(fn ($it) => optional($it->date)->timestamp))
+        ->filter()->values();
     $tlEnd   = $tlStamps->isNotEmpty() ? \Illuminate\Support\Carbon::createFromTimestamp($tlStamps->max()) : now();
     $tlStart = $tlStamps->isNotEmpty() ? \Illuminate\Support\Carbon::createFromTimestamp($tlStamps->min()) : now()->copy()->subDays(52);
     $tlStart = $tlStart->startOfDay();
@@ -290,10 +293,10 @@
             'show'  => ($i % $tlStep === 0) || ($i === $tlCount - 1),
         ];
     }
-    // day index (0-based) for a prisoner, clamped into the tick range
-    $dayIndex = function ($p) use ($tlStart, $tlCount, $dayOf) {
-        $d = $dayOf($p);
-        if (! $d) return 0;
+    // 0-based day index for any date, clamped into the tick range
+    $dayIndex = function ($date) use ($tlStart, $tlCount) {
+        if (! $date) return 0;
+        $d = \Illuminate\Support\Carbon::parse($date)->startOfDay();
         $i = $tlStart->diffInDays($d, false);
         return (int) max(0, min($tlCount - 1, $i));
     };
@@ -308,7 +311,7 @@
                 'lng'    => (float) $p->lng,
                 'name'   => $p->name,
                 'status' => $sk,
-                'day'    => $dayIndex($p),
+                'day'    => $dayIndex($p->created_at),
                 'meta'   => collect([$statusMeta[$sk][0] ?? null, $p->state])->filter()->join(' · '),
                 'url'    => $p->url,
             ];
@@ -411,7 +414,7 @@
             </form>
 
             @forelse ($feedItems as $a)
-                <a class="ppd-feed-item" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif>
+                <a class="ppd-feed-item" href="{{ $a->url }}" data-day="{{ $dayIndex($a->date) }}"@if ($a->external) target="_blank" rel="noopener"@endif>
                     <span class="ppd-feed-name">{{ $a->title }}</span>
                     <span class="ppd-feed-sub">
                         @if ($a->label)
@@ -594,13 +597,13 @@
             if (latlngs.length) { map.fitBounds(latlngs, { padding: [42, 42], maxZoom: 7 }); }
         }
 
-        // ---- shared filtering: legend status AND timeline day compose ----
-        // The side feed is articles (not cases), so it is intentionally not
-        // touched here — only the map markers respond to these filters.
+        // ---- shared filtering: the legend status filters the map markers; the
+        // timeline day filters BOTH the map markers and the newswire items. ----
         var legend = document.getElementById('ppd-legend');
         var legRows = legend ? legend.querySelectorAll('.ppd-leg') : [];
+        var feedItems = document.querySelectorAll('.ppd-feed-item');
         var statusFilter = null;     // status key, or null for "all statuses"
-        var dayFilter = Infinity;    // show markers documented on/before this day index
+        var dayFilter = Infinity;    // show items dated on/before this day index
 
         function visible(status, day) {
             return (statusFilter === null || status === statusFilter) && (day <= dayFilter);
@@ -613,6 +616,11 @@
                     else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
                 });
             }
+            // Newswire items hide once the scrubber goes before their date.
+            feedItems.forEach(function (el) {
+                var dy = parseInt(el.getAttribute('data-day'), 10) || 0;
+                el.style.display = (dy <= dayFilter) ? '' : 'none';
+            });
             legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
             if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
         }
