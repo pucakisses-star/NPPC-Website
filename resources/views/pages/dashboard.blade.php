@@ -108,8 +108,6 @@
     .leaflet-popup-content .ppd-pop-meta { color: var(--mut); }
     .leaflet-bar a { background: #15151a; color: var(--ink); border-color: var(--line); }
     .leaflet-bar a:hover { background: #20202a; }
-    .leaflet-control-attribution { background: rgba(0,0,0,0.55) !important; color: rgba(255,255,255,0.4) !important; }
-    .leaflet-control-attribution a { color: rgba(255,255,255,0.55) !important; }
     /* ---- map markers: glowing dot + radar "ping" pulse (--c = status colour) ---- */
     .ppd-mk-wrap { background: transparent; border: 0; }
     .ppd-mk { position: relative; display: block; }
@@ -555,7 +553,7 @@
         } else {
             if (!points.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
 
-            map = L.map('ppd-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: true }).setView([39, -97], 4);
+            map = L.map('ppd-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: false }).setView([39, -97], 4);
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 subdomains: 'abcd', maxZoom: 19,
                 attribution: '&copy; OpenStreetMap &copy; CARTO'
