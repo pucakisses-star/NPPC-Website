@@ -190,16 +190,6 @@
 
 @section('body')
 @php
-    $prisoners = \App\Models\Prisoner::query()->orderByDesc('created_at')->get();
-
-    $total     = $prisoners->count();
-    $inCustody = $prisoners->where('in_custody', true)->count();
-    $released  = $prisoners->where('released', true)->count();
-    $inExile   = $prisoners->where('currently_in_exile', true)->count();
-    $deceased  = $prisoners->filter(fn ($p) => $p->death_date)->count();
-    $awaiting  = $prisoners->where('awaiting_trial', true)->count();
-    $totalFacilities = \App\Models\Institution::count();
-
     // status key (most salient first) + label + colour, reused everywhere
     $statusKey = function ($p) {
         if ($p->death_date)         return 'deceased';
@@ -209,12 +199,23 @@
         if ($p->released)           return 'released';
         return 'other';
     };
+
+    // The dashboard is a live tracker of active cases — released and deceased
+    // people are dropped from the map, stats, legend and timeline.
+    $prisoners = \App\Models\Prisoner::query()->orderByDesc('created_at')->get()
+        ->reject(fn ($p) => in_array($statusKey($p), ['released', 'deceased'], true))
+        ->values();
+
+    $total     = $prisoners->count();
+    $inCustody = $prisoners->where('in_custody', true)->count();
+    $inExile   = $prisoners->where('currently_in_exile', true)->count();
+    $awaiting  = $prisoners->where('awaiting_trial', true)->count();
+    $totalFacilities = \App\Models\Institution::count();
+
     $statusMeta = [
         'custody'  => ['In custody',     '#e5484d'],
         'awaiting' => ['Awaiting trial', '#4c8dff'],
         'exile'    => ['In exile',       '#e0a82e'],
-        'released' => ['Released',        '#46c08d'],
-        'deceased' => ['Deceased',        '#d7d3ca'],
         'other'    => ['Documented',      '#9aa0a6'],
     ];
 
@@ -223,8 +224,6 @@
         ['custody',  $inCustody],
         ['awaiting', $awaiting],
         ['exile',    $inExile],
-        ['released', $released],
-        ['deceased', $deceased],
     ];
 
     // breakdown panels
@@ -247,8 +246,6 @@
         ['custody',  'In custody',     $inCustody],
         ['awaiting', 'Awaiting trial', $awaiting],
         ['exile',    'In exile',       $inExile],
-        ['released', 'Released',       $released],
-        ['deceased', 'Deceased',       $deceased],
     ];
 
     // Newswire + ticker: published articles plus curated DashboardLinks, merged
