@@ -110,6 +110,13 @@
     .leaflet-bar a:hover { background: #20202a; }
     .leaflet-control-attribution { background: rgba(0,0,0,0.55) !important; color: rgba(255,255,255,0.4) !important; }
     .leaflet-control-attribution a { color: rgba(255,255,255,0.55) !important; }
+    /* ---- map markers: glowing dot + radar "ping" pulse (--c = status colour) ---- */
+    .ppd-mk-wrap { background: transparent; border: 0; }
+    .ppd-mk { position: relative; display: block; }
+    .ppd-mk-dot { position: absolute; inset: 0; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1px rgba(0,0,0,0.45), 0 0 8px var(--c); pointer-events: none; }
+    .ppd-mk-ping { position: absolute; inset: 0; border-radius: 50%; background: var(--c); opacity: 0.5; pointer-events: none; animation: ppd-ping 2.6s cubic-bezier(0,0,0.2,1) infinite; }
+    @keyframes ppd-ping { 0% { transform: scale(1); opacity: 0.5; } 70% { opacity: 0; } 100% { transform: scale(3.4); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ppd-mk-ping { animation: none; opacity: 0; } }
 
     .ppd-legend { position: absolute; top: 14px; right: 14px; z-index: 600; background: rgba(12,12,14,0.92); border: 1px solid var(--line); border-radius: 8px; padding: 12px 13px 10px; backdrop-filter: blur(4px); min-width: 150px; }
     .ppd-legend-h { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mut); margin-bottom: 9px; }
@@ -558,11 +565,21 @@
             var latlngs = [];
             points.forEach(function (p) {
                 var color = useFacilities ? '#e0a82e' : (statusColors[p.status] || '#9aa0a6');
+                // dot diameter: fixed for prisoners, scaled by case count for facilities
                 var radius = useFacilities ? Math.max(5, Math.min(20, 4 + Math.sqrt(p.count || 1) * 3)) : 6;
-                var m = L.circleMarker([p.lat, p.lng], {
-                    radius: radius, color: color, weight: 1.5, opacity: 0.9,
-                    fillColor: color, fillOpacity: 0.5
+                var sz = Math.round(radius * 2);
+                // negative random delay so the rings pulse out of phase, not in lockstep
+                var delay = (-Math.random() * 2.6).toFixed(2);
+                var icon = L.divIcon({
+                    className: 'ppd-mk-wrap',
+                    iconSize: [sz, sz],
+                    iconAnchor: [sz / 2, sz / 2],
+                    popupAnchor: [0, -sz / 2],
+                    html: '<span class="ppd-mk" style="--c:' + color + ';width:' + sz + 'px;height:' + sz + 'px">'
+                        + '<span class="ppd-mk-ping" style="animation-delay:' + delay + 's"></span>'
+                        + '<span class="ppd-mk-dot"></span></span>'
                 });
+                var m = L.marker([p.lat, p.lng], { icon: icon, keyboard: false });
                 var extra = useFacilities ? ((p.count || 0) + ' case' + (p.count === 1 ? '' : 's')) : (p.meta || '');
                 m.bindPopup('<b>' + esc(p.name) + '</b>' + (extra ? '<br><span class="ppd-pop-meta">' + esc(extra) + '</span>' : ''));
                 m.addTo(map);
