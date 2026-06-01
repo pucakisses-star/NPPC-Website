@@ -251,14 +251,24 @@
         ['deceased', 'Deceased',       $deceased],
     ];
 
-    // recent articles for the side feed + prisoner ticker
-    $recentArticles = \App\Models\Article::query()
-        ->whereNotNull('published_at')
-        ->where('published_at', '<=', now())
-        ->orderByDesc('published_at')
-        ->take(40)->get();
-    // the top scroller is a news ticker of the same recent articles
-    $ticker = $recentArticles->take(16);
+    // Newswire + ticker: published articles plus curated DashboardLinks, merged
+    // newest-first into a uniform list of items ({title,url,label,date,external}).
+    $articleItems = \App\Models\Article::query()
+        ->whereNotNull('published_at')->where('published_at', '<=', now())
+        ->with('category')->orderByDesc('published_at')->take(40)->get()
+        ->map(fn ($a) => (object) [
+            'title' => $a->title, 'url' => $a->url,
+            'label' => $a->category?->title, 'date' => $a->published_at, 'external' => false,
+        ]);
+    $linkItems = \App\Models\DashboardLink::published()
+        ->orderByDesc('published_at')->take(40)->get()
+        ->map(fn ($l) => (object) [
+            'title' => $l->title, 'url' => $l->url,
+            'label' => $l->source, 'date' => $l->published_at, 'external' => true,
+        ]);
+    $newsItems = $articleItems->concat($linkItems)->sortByDesc('date')->values();
+    $feedItems = $newsItems->take(40);   // side newswire
+    $ticker    = $newsItems->take(16);   // top scroller
 
     // ---- timeline scrubber: one tick per day across the full documented
     // range (earliest -> latest created_at). Date labels are thinned to ~53
@@ -361,10 +371,10 @@
             {{-- Duplicated twice so the marquee loops seamlessly (see ppdmarquee: -50%). --}}
             <div class="ppd-ticker-track">
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external_url) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat">{{ $a->label }}</span>@endif</a>
                 @endforeach
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external_url) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat">{{ $a->label }}</span>@endif</a>
                 @endforeach
             </div>
         </div>
@@ -403,18 +413,18 @@
                 </div>
             </form>
 
-            @forelse ($recentArticles as $a)
-                <a class="ppd-feed-item" href="{{ $a->url }}"@if ($a->external_url) target="_blank" rel="noopener"@endif>
+            @forelse ($feedItems as $a)
+                <a class="ppd-feed-item" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif>
                     <span class="ppd-feed-name">{{ $a->title }}</span>
                     <span class="ppd-feed-sub">
-                        @if ($a->category)
-                            <span class="ppd-tagchip" style="background: #e0a82e">{{ $a->category->title }}</span>
+                        @if ($a->label)
+                            <span class="ppd-tagchip" style="background: #e0a82e">{{ $a->label }}</span>
                         @endif
-                        <span class="ppd-feed-date">{{ optional($a->published_at)->format('M j, Y') }}</span>
+                        <span class="ppd-feed-date">{{ optional($a->date)->format('M j, Y') }}</span>
                     </span>
                 </a>
             @empty
-                <div class="ppd-feed-empty">No articles published yet.</div>
+                <div class="ppd-feed-empty">No news yet.</div>
             @endforelse
         </aside>
 
