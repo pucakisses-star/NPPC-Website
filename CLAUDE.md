@@ -95,7 +95,6 @@ AnnualReport, Article, Author, CalendarEntry, Category, ClaudeSession, ContactSu
 - `calendar:generate` -- auto-generate calendar entries from case dates
 - `articles:import-from-site` -- scrape articles from live site
 - `prisoners:download-photos` -- download photos from Airtable CDN
-- `prisoners:generate-slugs` -- generate URL slugs for prisoners
 - `prisoners:split-names` -- split full names into first/middle/last
 - `prisoners:match-photos` -- match local photo files to prisoners
 
