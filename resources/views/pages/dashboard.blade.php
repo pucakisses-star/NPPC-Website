@@ -55,7 +55,7 @@
     .ppd-ticker { display: flex; align-items: stretch; border-bottom: 1px solid var(--line); background: #0c0c0e; height: 38px; overflow: hidden; }
     .ppd-ticker-tag { display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; background: var(--amber); color: #19140a; font-size: 10.5px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; flex: 0 0 auto; }
     .ppd-ticker-view { position: relative; flex: 1 1 auto; overflow: hidden; }
-    .ppd-ticker-track { position: absolute; top: 0; left: 0; height: 100%; display: inline-flex; align-items: center; white-space: nowrap; animation: ppdmarquee 48s linear infinite; }
+    .ppd-ticker-track { position: absolute; top: 0; left: 0; height: 100%; display: inline-flex; align-items: center; white-space: nowrap; animation: ppdmarquee 120s linear infinite; }
     .ppd-ticker-view:hover .ppd-ticker-track { animation-play-state: paused; }
     @@keyframes ppdmarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .ppd-tk { display: inline-flex; align-items: center; gap: 9px; padding: 0 26px; font-size: 12.5px; color: rgba(236,233,226,0.82); text-decoration: none; transition: color 0.12s ease; }
