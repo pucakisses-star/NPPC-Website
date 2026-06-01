@@ -361,10 +361,10 @@
             {{-- Duplicated twice so the marquee loops seamlessly (see ppdmarquee: -50%). --}}
             <div class="ppd-ticker-track">
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external_url) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
                 @endforeach
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}" aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external_url) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->category) <span class="ppd-tk-cat">{{ $a->category->title }}</span>@endif</a>
                 @endforeach
             </div>
         </div>
@@ -404,7 +404,7 @@
             </form>
 
             @forelse ($recentArticles as $a)
-                <a class="ppd-feed-item" href="{{ $a->url }}">
+                <a class="ppd-feed-item" href="{{ $a->url }}"@if ($a->external_url) target="_blank" rel="noopener"@endif>
                     <span class="ppd-feed-name">{{ $a->title }}</span>
                     <span class="ppd-feed-sub">
                         @if ($a->category)
