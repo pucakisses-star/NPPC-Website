@@ -160,7 +160,7 @@
     .ppd-tl-handle:active { cursor: grabbing; }
     .ppd-tl-handle:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
     .ppd-tl-ticks { display: flex; position: relative; margin-top: 9px; }
-    .ppd-tl-tick { flex: 1 1 0; min-width: 16px; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .ppd-tl-tick { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .ppd-tl-tick::before { content: ""; width: 1px; height: 4px; background: rgba(255,255,255,0.14); }
     .ppd-tl-num { font-size: 11px; font-weight: 700; color: rgba(236,233,226,0.34); line-height: 1; min-height: 11px; font-variant-numeric: tabular-nums; }
     .ppd-tl-date { font-size: 9px; color: rgba(236,233,226,0.28); line-height: 1; white-space: nowrap; letter-spacing: 0.02em; }
@@ -267,23 +267,15 @@
     $feedItems = $newsItems->take(40);   // side newswire
     $ticker    = $newsItems->take(16);   // top scroller
 
-    // ---- timeline scrubber: one tick per day across the full documented
-    // range (earliest -> latest created_at). Date labels are thinned to ~53
-    // max so the row stays readable no matter how wide the span is. The handle
-    // "plays back" the database growing: the map + feed show only cases
-    // documented on or before the selected day. ----
-    // The range spans both documented cases (created_at) and news items
-    // (published date), so scrubbing reveals each as time reaches it.
-    $tlStamps = $prisoners->map(fn ($p) => optional($p->created_at)->timestamp)
-        ->concat($newsItems->map(fn ($it) => optional($it->date)->timestamp))
-        ->filter()->values();
-    $tlEnd   = $tlStamps->isNotEmpty() ? \Illuminate\Support\Carbon::createFromTimestamp($tlStamps->max()) : now();
-    $tlStart = $tlStamps->isNotEmpty() ? \Illuminate\Support\Carbon::createFromTimestamp($tlStamps->min()) : now()->copy()->subDays(52);
-    $tlStart = $tlStart->startOfDay();
-    $tlEnd   = $tlEnd->startOfDay();
-    if ($tlEnd->lt($tlStart)) { $tlEnd = $tlStart->copy(); }
-    $tlCount = $tlStart->diffInDays($tlEnd) + 1;
-    $tlStep  = (int) max(1, ceil($tlCount / 53));
+    // ---- timeline scrubber: a fixed window of the last ~year, one tick per
+    // day, ending today (it never reaches into the future). Date labels are
+    // thinned to roughly monthly for readability. The handle selects how far back to
+    // look — the map + newswire show items dated from the handle up to today —
+    // and it defaults to the last 30 days (see the JS). ----
+    $tlEnd   = now()->startOfDay();
+    $tlStart = $tlEnd->copy()->subDays(365);
+    $tlCount = 366;   // 365 days back + today
+    $tlStep  = (int) max(1, ceil($tlCount / 13));
     $tlDays  = [];
     for ($i = 0; $i < $tlCount; $i++) {
         $d = $tlStart->copy()->addDays($i);
@@ -603,10 +595,10 @@
         var legRows = legend ? legend.querySelectorAll('.ppd-leg') : [];
         var feedItems = document.querySelectorAll('.ppd-feed-item');
         var statusFilter = null;     // status key, or null for "all statuses"
-        var dayFilter = Infinity;    // show items dated on/before this day index
+        var dayFilter = 0;           // lookback start: show items dated on/after this day index
 
         function visible(status, day) {
-            return (statusFilter === null || status === statusFilter) && (day <= dayFilter);
+            return (statusFilter === null || status === statusFilter) && (day >= dayFilter);
         }
         function applyFilters() {
             if (map) {
@@ -616,10 +608,10 @@
                     else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
                 });
             }
-            // Newswire items hide once the scrubber goes before their date.
+            // Newswire items show only within the lookback window (date >= handle).
             feedItems.forEach(function (el) {
                 var dy = parseInt(el.getAttribute('data-day'), 10) || 0;
-                el.style.display = (dy <= dayFilter) ? '' : 'none';
+                el.style.display = (dy >= dayFilter) ? '' : 'none';
             });
             legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
             if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
@@ -634,10 +626,9 @@
         });
 
         // ---- timeline scrubber under the map ----
-        // The play button sweeps the handle across the documented days; drag or
-        // click to seek. As the day changes, the map markers and the feed filter
-        // to cases documented on or before that day (composing with the status
-        // filter above) — a playback of the database growing over time.
+        // The handle is a lookback control: the map markers + newswire show items
+        // dated from the handle's day up to today. It defaults to the last 30
+        // days; drag/click/play to look further back (up to ~a year).
         (function () {
             var bar = document.getElementById('ppd-tl-bar');
             var handle = document.getElementById('ppd-tl-handle');
@@ -650,21 +641,25 @@
             var count = ticks.length;
             if (!count) return;
 
-            var current = count - 1;      // park at the latest day (all cases shown)
+            var defaultIdx = Math.max(0, count - 1 - 30);   // default lookback: ~last 30 days
+            var current = defaultIdx;
             var playing = false, rafId = null;
 
             function centerOf(i) { return ticks[i].offsetLeft + ticks[i].offsetWidth / 2; }
 
             function render() {
                 var x = centerOf(current);
+                var right = centerOf(count - 1);
                 handle.style.left = x + 'px';
-                fill.style.width = Math.max(0, x) + 'px';
+                // Fill the active window: from the handle rightwards to today.
+                fill.style.left = x + 'px';
+                fill.style.width = Math.max(0, right - x) + 'px';
                 handle.setAttribute('aria-valuenow', current + 1);
                 for (var i = 0; i < count; i++) {
-                    ticks[i].classList.toggle('is-passed', i < current);
+                    ticks[i].classList.toggle('is-passed', i > current);   // within the lookback window
                     ticks[i].classList.toggle('is-current', i === current);
                 }
-                // Re-filter the map + feed only when the day actually advances.
+                // Re-filter the map + newswire only when the handle actually moves.
                 if (dayFilter !== current) { dayFilter = current; applyFilters(); }
             }
             function setCurrent(i) {
@@ -693,11 +688,11 @@
             }
             function start() {
                 if (playing) return;
-                if (current >= count - 1) setCurrent(0);   // replay from the start
+                if (current <= 0) setCurrent(defaultIdx);   // replay from the default window
                 playing = true;
                 playBtn.classList.add('is-playing');
                 playBtn.setAttribute('aria-label', 'Pause timeline');
-                var startIdx = current, endIdx = count - 1;
+                var startIdx = current, endIdx = 0;          // sweep back toward ~a year ago
                 var dur = Math.min(9000, Math.max(2500, count * 130));
                 var t0 = null;
                 function frame(ts) {
@@ -739,7 +734,8 @@
             var rt;
             window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(render, 120); });
 
-            requestAnimationFrame(render);   // initial paint once layout settles
+            dayFilter = current; applyFilters();   // apply the default 30-day window immediately
+            requestAnimationFrame(render);         // then position the handle once layout settles
         })();
 
         // ---- "+ Add" article form: toggle open/closed ----
