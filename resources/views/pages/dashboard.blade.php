@@ -269,13 +269,14 @@
 
     // ---- timeline scrubber: a fixed window of the last ~year, one tick per
     // day, ending today (it never reaches into the future). Date labels are
-    // thinned to roughly monthly for readability. The handle selects how far back to
+    // shown about weekly; only ~30 days are visible at a time and the bar scrolls
+    // to slide into the next 30 as you move back. The handle selects how far back to
     // look — the map + newswire show items dated from the handle up to today —
     // and it defaults to the last 30 days (see the JS). ----
     $tlEnd   = now()->startOfDay();
     $tlStart = $tlEnd->copy()->subDays(365);
     $tlCount = 366;   // 365 days back + today
-    $tlStep  = (int) max(1, ceil($tlCount / 13));
+    $tlStep  = 7;   // a date label about once a week
     $tlDays  = [];
     for ($i = 0; $i < $tlCount; $i++) {
         $d = $tlStart->copy()->addDays($i);
@@ -641,11 +642,27 @@
             var count = ticks.length;
             if (!count) return;
 
+            var main = document.querySelector('.ppd-tl-main');
+            var scrollEl = document.querySelector('.ppd-tl-scroll');
             var defaultIdx = Math.max(0, count - 1 - 30);   // default lookback: ~last 30 days
             var current = defaultIdx;
             var playing = false, rafId = null;
 
             function centerOf(i) { return ticks[i].offsetLeft + ticks[i].offsetWidth / 2; }
+
+            // Size the bar so ~30 days fill the viewport; the rest scrolls horizontally.
+            function sizeBar() {
+                if (main && scrollEl) scrollEl.style.width = Math.round(count / 30 * main.clientWidth) + 'px';
+            }
+            // Keep the handle in view, sliding the 30-day window as it nears an edge.
+            function ensureVisible() {
+                if (!main) return;
+                var x = centerOf(current);
+                var pad = main.clientWidth * 0.12;
+                var left = main.scrollLeft, right = left + main.clientWidth;
+                if (x < left + pad) main.scrollLeft = Math.max(0, x - pad);
+                else if (x > right - pad) main.scrollLeft = Math.min(main.scrollWidth - main.clientWidth, x - main.clientWidth + pad);
+            }
 
             function render() {
                 var x = centerOf(current);
@@ -666,6 +683,7 @@
                 i = i | 0;
                 current = i < 0 ? 0 : (i > count - 1 ? count - 1 : i);
                 render();
+                ensureVisible();
             }
             function nearestIndex(clientX) {
                 var x = clientX - ticksWrap.getBoundingClientRect().left;
@@ -732,10 +750,15 @@
             });
 
             var rt;
-            window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(render, 120); });
+            window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { sizeBar(); render(); ensureVisible(); }, 120); });
 
             dayFilter = current; applyFilters();   // apply the default 30-day window immediately
-            requestAnimationFrame(render);         // then position the handle once layout settles
+            requestAnimationFrame(function () {
+                sizeBar();
+                render();
+                // default view: the last ~30 days, with the handle near the left edge
+                if (main && ticks[current]) main.scrollLeft = ticks[current].offsetLeft;
+            });
         })();
 
         // ---- "+ Add" article form: toggle open/closed ----
