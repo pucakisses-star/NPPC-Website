@@ -67,6 +67,7 @@
     <div class="staff-divider"></div>
 
     {{-- Staff Grid --}}
+    @if (count($staff) > 0)
     <div class="staff-grid">
         @foreach ($staff as $member)
             <div class="staff-card" onclick="openStaffModal('{{ $member->id }}')">
@@ -89,6 +90,9 @@
             </div>
         @endforeach
     </div>
+    @else
+        @include('sections.coming-soon', ['message' => 'Our staff will be listed here soon. Please check back shortly.'])
+    @endif
 </div>
 
 {{-- Modal --}}

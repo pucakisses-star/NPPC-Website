@@ -9,6 +9,7 @@
     <main class="container">
         <div class="line mt-8"></div>
         <h1 class="text-6xl mt-12 mb-16">Annual Reports</h1>
+        @if (count($reports) > 0)
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24 pb-24">
 
             @foreach($reports as $report)
@@ -27,5 +28,8 @@
                 </div>
             @endforeach
         </div>
+        @else
+            @include('sections.coming-soon', ['message' => 'Our annual reports will be posted here soon. Please check back shortly.'])
+        @endif
     </main>
 @endsection
