@@ -708,11 +708,11 @@
             }
             function start() {
                 if (playing) return;
-                if (current <= 0) setCurrent(defaultIdx);   // replay from the default window
+                setCurrent(0);   // begin a year ago and play forward toward the present
                 playing = true;
                 playBtn.classList.add('is-playing');
                 playBtn.setAttribute('aria-label', 'Pause timeline');
-                var startIdx = current, endIdx = 0;          // sweep back toward ~a year ago
+                var startIdx = 0, endIdx = defaultIdx;       // forward: oldest -> the last-30-days default
                 var dur = Math.min(9000, Math.max(2500, count * 130));
                 var t0 = null;
                 function frame(ts) {
