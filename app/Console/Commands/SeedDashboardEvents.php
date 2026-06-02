@@ -246,6 +246,22 @@ final class SeedDashboardEvents extends Command {
 
         // ── Los Angeles CA · City Hall (student walkout) · Feb 4, 2026 ──
         ['Several arrested as LA students walk out against ICE operations', 'https://www.cbsnews.com/losangeles/news/lapd-arrests-protesters-students-gathered-downtown-los-angeles-ice-operations-immigration/', 'CBS Los Angeles', '2026-02-04', 34.0536961, -118.2429212, 'Los Angeles City Hall (student walkout), CA'],
+
+        // ===== additional curated data-center / ICE conflict items =====
+        // ── Claremore OK · Rogers State University · Feb 17, 2026 (additional source) ──
+        ['Tension over a proposed AI data center leads to an arrest in Oklahoma', 'https://africa.businessinsider.com/news/tension-over-a-proposed-ai-data-center-leads-to-an-arrest-in-oklahoma/jk912pd', 'Business Insider Africa', '2026-02-17', null, null, null],
+        // ── Woodland Park CO · cell tower sabotage · Aug 28, 2025 ──
+        ['Man arrested for sabotaging cell tower, causing Woodland Park outage', 'https://www.datacenterdynamics.com/en/news/man-arrested-for-causing-cell-tower-outage-in-colorado/', 'DataCenter Dynamics', '2025-08-28', 38.9938016, -105.0570450, 'Woodland Park, CO'],
+        // ── Williston VT · ICE surveillance center · Oct 6, 2025 (context, no arrest) ──
+        ['ICE expands social-media surveillance hub in Vermont', 'https://vtdigger.org/2025/10/06/ice-plans-to-boost-its-surveillance-on-social-media-using-contractors-in-vermont/', 'VTDigger', '2025-10-06', null, null, null],
+        // ── Port Washington WI · Common Council · Dec 3, 2025 (additional source) ──
+        ['Chaos erupts at Port Washington data center hearing; three removed', 'https://ozaukeepress.com/content/meeting-erupts-chaos-over-data-center', 'Ozaukee Press', '2025-12-03', null, null, null],
+        // ── Williston VT · White Cap Business Park · Jan 11, 2026 (banner drop, no arrest) ──
+        ['Activists target ICE surveillance office with banner drop in Williston', 'https://vtdigger.org/2026/01/14/activists-target-ice-digital-surveillance-site-in-williston/', 'VTDigger', '2026-01-11', null, null, null],
+        // ── Trinidad TX · May 8, 2026 (Facebook-post arrest) ──
+        ["Woman arrested over Facebook post about her town's water", 'https://www.fox4news.com/news/woman-arrested-facebook-post-concerning-trinidad-water-poisoning', 'FOX 4', '2026-05-08', 32.1440417, -96.0910814, 'Trinidad, TX'],
+        // ── Indianapolis IN · Martindale-Brightwood · Apr 6, 2026 (data-center backlash shooting) ──
+        ["13 shots fired at Indianapolis councilor's home with 'No Data Centers' note", 'https://www.cbsnews.com/news/indianapolis-councilor-ron-gibson-home-shooting-data-centers-note/', 'CBS News', '2026-04-06', 39.8082861, -86.1197981, 'Martindale-Brightwood, Indianapolis, IN'],
     ];
 
     public function handle(): int {
