@@ -276,15 +276,17 @@
     $tlEnd   = now()->startOfDay();
     $tlStart = $tlEnd->copy()->subDays(365);
     $tlCount = 366;   // 365 days back + today
-    $tlStep  = 7;   // a date label about once a week
     $tlDays  = [];
+    $prevMonth = null;
     for ($i = 0; $i < $tlCount; $i++) {
         $d = $tlStart->copy()->addDays($i);
+        $month = $d->format('M');
         $tlDays[] = [
-            'n'     => $i + 1,
-            'label' => $d->format('M j'),
-            'show'  => ($i % $tlStep === 0) || ($i === $tlCount - 1),
+            'dom'   => $d->format('j'),                        // day of month — shown on every tick
+            'month' => ($month !== $prevMonth) ? $month : '',  // month label only where it changes
+            'label' => $d->format('M j'),                      // full date (tooltip)
         ];
+        $prevMonth = $month;
     }
     // 0-based day index for any date, clamped into the tick range
     $dayIndex = function ($date) use ($tlStart, $tlCount) {
@@ -453,9 +455,9 @@
                 </div>
                 <div class="ppd-tl-ticks" id="ppd-tl-ticks">
                     @foreach ($tlDays as $i => $day)
-                        <div class="ppd-tl-tick" data-i="{{ $i }}">
-                            <span class="ppd-tl-num">{{ $day['show'] ? $day['n'] : '' }}</span>
-                            <span class="ppd-tl-date">{{ $day['show'] ? $day['label'] : '' }}</span>
+                        <div class="ppd-tl-tick" data-i="{{ $i }}" title="{{ $day['label'] }}">
+                            <span class="ppd-tl-num">{{ $day['dom'] }}</span>
+                            <span class="ppd-tl-date">{{ $day['month'] }}</span>
                         </div>
                     @endforeach
                 </div>
