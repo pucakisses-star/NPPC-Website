@@ -611,6 +611,20 @@
             });
             legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
             if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
+            // Legend counts track the timeline window, so each number matches the
+            // markers actually on screen and updates as you scrub.
+            if (map) {
+                var winCounts = {};
+                markers.forEach(function (o) {
+                    if (o.day >= loFilter && o.day <= hiFilter) {
+                        winCounts[o.status] = (winCounts[o.status] || 0) + 1;
+                    }
+                });
+                legRows.forEach(function (r) {
+                    var n = r.querySelector('.ppd-leg-n');
+                    if (n) { n.textContent = (winCounts[r.getAttribute('data-filter')] || 0).toLocaleString(); }
+                });
+            }
         }
 
         legRows.forEach(function (row) {
