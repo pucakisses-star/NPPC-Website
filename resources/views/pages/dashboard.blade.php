@@ -485,8 +485,11 @@
                 <div class="ppd-tl-bar" id="ppd-tl-bar">
                     <div class="ppd-tl-rail"></div>
                     <div class="ppd-tl-fill" id="ppd-tl-fill"></div>
-                    <div class="ppd-tl-handle" id="ppd-tl-handle" role="slider" tabindex="0"
-                         aria-label="Timeline day"
+                    <div class="ppd-tl-handle" id="ppd-tl-handle-lo" role="slider" tabindex="0"
+                         aria-label="Range start day"
+                         aria-valuemin="1" aria-valuemax="{{ max(1, $tlCount) }}" aria-valuenow="{{ max(1, $tlCount - 30) }}"></div>
+                    <div class="ppd-tl-handle" id="ppd-tl-handle-hi" role="slider" tabindex="0"
+                         aria-label="Range end day"
                          aria-valuemin="1" aria-valuemax="{{ max(1, $tlCount) }}" aria-valuenow="{{ max(1, $tlCount) }}"></div>
                 </div>
                 <div class="ppd-tl-ticks" id="ppd-tl-ticks">
@@ -649,10 +652,10 @@
         var legRows = legend ? legend.querySelectorAll('.ppd-leg') : [];
         var feedItems = document.querySelectorAll('.ppd-feed-item');
         var statusFilter = null;     // status key, or null for "all statuses"
-        var dayFilter = 0;           // playhead day index: show items dated on/before this day
+        var loFilter = 0, hiFilter = 1e9;   // date-range window: show items dated within [lo, hi]
 
         function visible(status, day) {
-            return (statusFilter === null || status === statusFilter) && (day <= dayFilter);
+            return (statusFilter === null || status === statusFilter) && (day >= loFilter && day <= hiFilter);
         }
         function applyFilters() {
             if (map) {
@@ -662,10 +665,10 @@
                     else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
                 });
             }
-            // Newswire items show only up to the playhead (date <= handle).
+            // Newswire items show only within the selected window (lo <= date <= hi).
             feedItems.forEach(function (el) {
                 var dy = parseInt(el.getAttribute('data-day'), 10) || 0;
-                el.style.display = (dy <= dayFilter) ? '' : 'none';
+                el.style.display = (dy >= loFilter && dy <= hiFilter) ? '' : 'none';
             });
             legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
             if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
@@ -680,16 +683,18 @@
         });
 
         // ---- timeline scrubber under the map ----
-        // The handle is a playhead: the map markers + newswire show items dated up
-        // to (on/before) the handle's day. It defaults to today (everything up to
-        // now); drag/click left to rewind, or play to sweep from the oldest day forward.
+        // Two handles bound a date range: the map markers + newswire show items
+        // dated within [lo, hi]. It defaults to the last ~30 days; drag either
+        // handle to widen or narrow the window, click the rail to move the nearer
+        // handle, or press play to replay history sweeping the end to today.
         (function () {
             var bar = document.getElementById('ppd-tl-bar');
-            var handle = document.getElementById('ppd-tl-handle');
+            var loH = document.getElementById('ppd-tl-handle-lo');
+            var hiH = document.getElementById('ppd-tl-handle-hi');
             var fill = document.getElementById('ppd-tl-fill');
             var ticksWrap = document.getElementById('ppd-tl-ticks');
             var playBtn = document.getElementById('ppd-tl-play');
-            if (!bar || !handle || !fill || !ticksWrap || !playBtn) return;
+            if (!bar || !loH || !hiH || !fill || !ticksWrap || !playBtn) return;
 
             var ticks = Array.prototype.slice.call(ticksWrap.querySelectorAll('.ppd-tl-tick'));
             var count = ticks.length;
@@ -697,8 +702,8 @@
 
             var main = document.querySelector('.ppd-tl-main');
             var scrollEl = document.querySelector('.ppd-tl-scroll');
-            var defaultIdx = count - 1;   // default playhead: today (everything up to now)
-            var current = defaultIdx;
+            var lo = Math.max(0, count - 1 - 30);   // default window start: ~30 days back
+            var hi = count - 1;                      // default window end: today
             var playing = false, rafId = null;
 
             function centerOf(i) { return ticks[i].offsetLeft + ticks[i].offsetWidth / 2; }
@@ -714,10 +719,10 @@
                 var perTick = Math.max(MIN_TICK, main.clientWidth / 30);
                 scrollEl.style.width = Math.round(perTick * count) + 'px';
             }
-            // Keep the handle in view, sliding the 30-day window as it nears an edge.
-            function ensureVisible() {
+            // Keep a given index in view, sliding the window as it nears an edge.
+            function ensureVisible(i) {
                 if (!main) return;
-                var x = centerOf(current);
+                var x = centerOf(i);
                 var pad = main.clientWidth * 0.12;
                 var left = main.scrollLeft, right = left + main.clientWidth;
                 if (x < left + pad) main.scrollLeft = Math.max(0, x - pad);
@@ -725,26 +730,24 @@
             }
 
             function render() {
-                var x = centerOf(current);
-                var left0 = centerOf(0);
-                handle.style.left = x + 'px';
-                // Fill the elapsed range: from the start up to the playhead.
-                fill.style.left = left0 + 'px';
-                fill.style.width = Math.max(0, x - left0) + 'px';
-                handle.setAttribute('aria-valuenow', current + 1);
+                var xl = centerOf(lo), xh = centerOf(hi);
+                loH.style.left = xl + 'px';
+                hiH.style.left = xh + 'px';
+                // Fill the selected window: the span between the two handles.
+                fill.style.left = xl + 'px';
+                fill.style.width = Math.max(0, xh - xl) + 'px';
+                loH.setAttribute('aria-valuenow', lo + 1);
+                hiH.setAttribute('aria-valuenow', hi + 1);
                 for (var i = 0; i < count; i++) {
-                    ticks[i].classList.toggle('is-passed', i <= current);   // elapsed (up to the playhead)
-                    ticks[i].classList.toggle('is-current', i === current);
+                    ticks[i].classList.toggle('is-passed', i >= lo && i <= hi);    // inside the window
+                    ticks[i].classList.toggle('is-current', i === lo || i === hi); // the two endpoints
                 }
-                // Re-filter the map + newswire only when the handle actually moves.
-                if (dayFilter !== current) { dayFilter = current; applyFilters(); }
+                // Re-filter the map + newswire only when the window actually changes.
+                if (loFilter !== lo || hiFilter !== hi) { loFilter = lo; hiFilter = hi; applyFilters(); }
             }
-            function setCurrent(i) {
-                i = i | 0;
-                current = i < 0 ? 0 : (i > count - 1 ? count - 1 : i);
-                render();
-                ensureVisible();
-            }
+            function clamp(i) { i = i | 0; return i < 0 ? 0 : (i > count - 1 ? count - 1 : i); }
+            function setLo(i) { lo = Math.min(clamp(i), hi); render(); ensureVisible(lo); }   // can't pass hi
+            function setHi(i) { hi = Math.max(clamp(i), lo); render(); ensureVisible(hi); }   // can't pass lo
             function nearestIndex(clientX) {
                 var x = clientX - ticksWrap.getBoundingClientRect().left;
                 var best = 0, bestD = Infinity;
@@ -755,7 +758,7 @@
                 return best;
             }
 
-            // ---- play / pause ----
+            // ---- play / pause: replay history, sweeping the end handle to today ----
             function stop() {
                 if (!playing) return;
                 playing = false;
@@ -766,29 +769,31 @@
             }
             function start() {
                 if (playing) return;
-                setCurrent(0);   // begin at the oldest day and play forward to today
+                lo = 0; setHi(0);   // collapse the window onto the oldest day, then grow it
                 playing = true;
                 playBtn.classList.add('is-playing');
                 playBtn.setAttribute('aria-label', 'Pause timeline');
-                var startIdx = 0, endIdx = count - 1;        // forward: oldest -> today
+                var startIdx = 0, endIdx = count - 1;   // sweep the end handle: oldest -> today
                 var dur = Math.min(9000, Math.max(2500, count * 130));
                 var t0 = null;
                 function frame(ts) {
                     if (!playing) return;
                     if (t0 === null) t0 = ts;
                     var p = Math.min(1, (ts - t0) / dur);
-                    setCurrent(Math.round(startIdx + (endIdx - startIdx) * p));
+                    setHi(Math.round(startIdx + (endIdx - startIdx) * p));
                     if (p < 1) { rafId = requestAnimationFrame(frame); } else { stop(); }
                 }
                 rafId = requestAnimationFrame(frame);
             }
             playBtn.addEventListener('click', function () { playing ? stop() : start(); });
 
-            // ---- drag the handle / click the rail or ticks to seek ----
-            function beginDrag(e) {
+            // ---- drag a handle, or click the rail/ticks to move the nearer one ----
+            function beginDrag(which, e) {
                 e.preventDefault();
                 stop();
-                function move(ev) { setCurrent(nearestIndex(ev.clientX)); }
+                var move = (which === 'lo')
+                    ? function (ev) { setLo(nearestIndex(ev.clientX)); }
+                    : function (ev) { setHi(nearestIndex(ev.clientX)); };
                 function up() {
                     document.removeEventListener('pointermove', move);
                     document.removeEventListener('pointerup', up);
@@ -796,27 +801,37 @@
                 document.addEventListener('pointermove', move);
                 document.addEventListener('pointerup', up);
             }
-            handle.addEventListener('pointerdown', beginDrag);
-            bar.addEventListener('pointerdown', function (e) {
-                if (e.target === handle) return;
+            function seek(clientX) {
                 stop();
-                setCurrent(nearestIndex(e.clientX));
-                beginDrag(e);
+                var i = nearestIndex(clientX);
+                // move whichever handle sits closer to the click (ties favour the start)
+                if (Math.abs(i - lo) <= Math.abs(i - hi)) { setLo(i); return 'lo'; }
+                setHi(i); return 'hi';
+            }
+            loH.addEventListener('pointerdown', function (e) { beginDrag('lo', e); });
+            hiH.addEventListener('pointerdown', function (e) { beginDrag('hi', e); });
+            bar.addEventListener('pointerdown', function (e) {
+                if (e.target === loH || e.target === hiH) return;
+                beginDrag(seek(e.clientX), e);
             });
-            ticksWrap.addEventListener('click', function (e) { stop(); setCurrent(nearestIndex(e.clientX)); });
-            handle.addEventListener('keydown', function (e) {
-                if (e.key === 'ArrowLeft') { stop(); setCurrent(current - 1); e.preventDefault(); }
-                else if (e.key === 'ArrowRight') { stop(); setCurrent(current + 1); e.preventDefault(); }
+            ticksWrap.addEventListener('click', function (e) { seek(e.clientX); });
+            loH.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { stop(); setLo(lo - 1); e.preventDefault(); }
+                else if (e.key === 'ArrowRight') { stop(); setLo(lo + 1); e.preventDefault(); }
+            });
+            hiH.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') { stop(); setHi(hi - 1); e.preventDefault(); }
+                else if (e.key === 'ArrowRight') { stop(); setHi(hi + 1); e.preventDefault(); }
             });
 
             var rt;
-            window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { sizeBar(); render(); ensureVisible(); }, 120); });
+            window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { sizeBar(); render(); ensureVisible(hi); }, 120); });
 
-            dayFilter = current; applyFilters();   // show everything up to today on load
+            loFilter = lo; hiFilter = hi; applyFilters();   // apply the default window immediately
             requestAnimationFrame(function () {
                 sizeBar();
                 render();
-                // default view: most recent ~30 days, with the playhead (today) at the right edge
+                // default view: most recent ~30 days, with the end handle (today) at the right edge
                 if (main) main.scrollLeft = main.scrollWidth;
             });
         })();
