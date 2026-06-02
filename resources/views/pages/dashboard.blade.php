@@ -151,14 +151,16 @@
     .ppd-tl-play .ppd-tl-ico-pause { display: none; }
     .ppd-tl-play.is-playing .ppd-tl-ico-play { display: none; }
     .ppd-tl-play.is-playing .ppd-tl-ico-pause { display: inline; color: var(--amber); }
-    .ppd-tl-main { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 2px; }
+    .ppd-tl-main { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; padding: 10px 0 2px; }
     .ppd-tl-main::-webkit-scrollbar { height: 8px; }
     .ppd-tl-main::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 8px; }
     .ppd-tl-scroll { min-width: 640px; }
     .ppd-tl-bar { position: relative; height: 16px; }
     .ppd-tl-rail { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 3px; border-radius: 999px; background: rgba(255,255,255,0.12); }
-    .ppd-tl-fill { position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 3px; width: 0; border-radius: 999px; background: linear-gradient(90deg, rgba(224,168,46,0.3), var(--amber)); }
-    .ppd-tl-handle { position: absolute; top: 50%; left: 0; width: 16px; height: 16px; margin-left: -8px; transform: translateY(-50%); border-radius: 50%; background: var(--amber); border: 2px solid #0b0b0d; box-shadow: 0 0 0 1px var(--amber), 0 2px 6px rgba(0,0,0,0.5); cursor: grab; touch-action: none; }
+    .ppd-tl-fill { position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 4px; width: 0; border-radius: 999px; background: var(--amber); box-shadow: 0 0 9px 1px rgba(224,168,46,0.5); }
+    .ppd-tl-handle { position: absolute; top: 50%; left: 0; box-sizing: border-box; width: 18px; height: 18px; margin-left: -9px; transform: translateY(-50%); border-radius: 50%; background: var(--amber); border: 0; box-shadow: 0 0 0 1px rgba(224,168,46,0.9), 0 0 12px 2px rgba(224,168,46,0.6), 0 0 22px 6px rgba(224,168,46,0.22); cursor: grab; touch-action: none; }
+    /* start handle = open amber ring (dark centre); end handle = solid amber disk; both glow */
+    #ppd-tl-handle-lo { background: #141418; border: 4px solid var(--amber); }
     .ppd-tl-handle:active { cursor: grabbing; }
     .ppd-tl-handle:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
     .ppd-tl-ticks { display: flex; position: relative; margin-top: 9px; }
