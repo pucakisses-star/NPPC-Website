@@ -270,15 +270,15 @@
     $feedItems = $newsItems->take(40);   // side newswire
     $ticker    = $newsItems->take(16);   // top scroller
 
-    // ---- timeline scrubber: a fixed window from Sept 18, 2025 to today, one tick
+    // ---- timeline scrubber: a fixed window from May 7, 2025 to today, one tick
     // per day (it never reaches into the future). Date labels are shown about
     // weekly; only ~30 days are visible at a time and the bar scrolls to slide
     // into the next 30 as you move back. The handle selects how far back to look —
     // the map + newswire show items dated from the handle up to today — and it
     // defaults to the last 30 days (see the JS). Dates before the start clamp to it. ----
     $tlEnd   = now()->startOfDay();
-    $tlStart = \Illuminate\Support\Carbon::create(2025, 9, 18)->startOfDay();
-    $tlCount = $tlStart->diffInDays($tlEnd) + 1;   // Sept 18, 2025 → today, inclusive
+    $tlStart = \Illuminate\Support\Carbon::create(2025, 5, 7)->startOfDay();
+    $tlCount = $tlStart->diffInDays($tlEnd) + 1;   // May 7, 2025 → today, inclusive
     $curYear = (int) $tlEnd->year;
     // Format a date showing the year only when it falls in a previous year.
     $smartDate = function ($date) use ($curYear) {
