@@ -430,6 +430,16 @@ final class SeedDashboardEvents extends Command {
         ['Thousands rally at the Rhode Island State House for No Kings', 'https://www.golocalprov.com/news/PHOTOS-Thousands-Attend-No-Kings-Protest-at-Rhode-Island-State-House', 'GoLocalProv', '2025-10-18', 41.8308956, -71.4149587, 'Rhode Island State House, Providence, RI'],
         // ── Hawaii · Honolulu No Kings · Oct 18, 2025 ──
         ['Thousands gather in Honolulu for the No Kings day of protest', 'https://spectrumlocalnews.com/hi/hawaii/news/2025/10/19/honolulu-no-kings-demonstration-draws-thousands', 'Spectrum News Hawaii', '2025-10-18', 21.3073335, -157.8569903, 'Hawaii State Capitol, Honolulu, HI'],
+
+        // ===== round 5: major political-prosecution & political-prisoner cases =====
+        // ── Stop Cop City · RICO charges dismissed against all 61 defendants · Dec 30, 2025 ──
+        ['Judge dismisses RICO charges against 61 Stop Cop City defendants', 'https://www.atlantanewsfirst.com/2025/12/31/racketeering-charges-brought-against-public-safety-training-center-protesters-dismissed/', 'Atlanta News First', '2025-12-30', 33.7499951, -84.3907337, 'Fulton County Courthouse, Atlanta, GA'],
+        // ── Political prisoner · Mahmoud Khalil (Columbia) freed · Jun 20, 2025 ──
+        ['Columbia activist Mahmoud Khalil freed from ICE detention over his Gaza activism', 'https://www.npr.org/2025/06/20/nx-s1-5440351/judge-orders-release-of-columbia-activist-mahmoud-khalil', 'NPR', '2025-06-20', 31.7080563, -92.1507019, 'Central Louisiana ICE Processing Center, Jena, LA'],
+        // ── Political prisoner · Rümeysa Öztürk (Tufts) freed · May 9, 2025 ──
+        ['Tufts student Rümeysa Öztürk freed from ICE detention over a Gaza op-ed', 'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention', 'NPR', '2025-05-09', 30.4827000, -92.5938000, 'South Louisiana ICE Processing Center, Basile, LA'],
+        // ── Delaware · No Kings · Oct 18, 2025 (the last unmapped state) ──
+        ['Thousands across Delaware rally for the No Kings day of protest', 'https://www.wdel.com/no-kings-2-0-rallies-set-for-saturday-in-delaware/article_cb54b54a-0518-4807-86d1-8aa78a347f85.html', 'WDEL', '2025-10-18', 39.1573179, -75.5197365, 'Legislative Hall, Dover, DE'],
     ];
 
     /**
@@ -505,6 +515,9 @@ final class SeedDashboardEvents extends Command {
             'https://lostcoastoutpost.com/2026/mar/6/three-students-handed-interim-suspensions-nelson-h/',
             // round 4 — Fairhope AL inflatable-costume arrest at a No Kings protest
             'https://alabamareflector.com/2025/10/20/fairhope-police-arrest-woman-in-penis-costume-at-no-kings-protest/',
+            // round 5 — pro-Palestine activist detentions (Khalil, Öztürk)
+            'https://www.npr.org/2025/06/20/nx-s1-5440351/judge-orders-release-of-columbia-activist-mahmoud-khalil',
+            'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
@@ -534,6 +547,8 @@ final class SeedDashboardEvents extends Command {
             'https://www.foxnews.com/us/spokane-3-protesters-convicted-federal-conspiracy-charges-blocking-ice-transfer-washington',
             'https://mynewsla.com/crime/2026/04/07/2-of-3-defendants-acquitted-in-uci-protest-trial/',
             'https://paw.princeton.edu/article/clio-hall-protest-trial-municipal-court-delayed-until-june',
+            // round 5 — Stop Cop City RICO dismissal
+            'https://www.atlantanewsfirst.com/2025/12/31/racketeering-charges-brought-against-public-safety-training-center-protesters-dismissed/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
