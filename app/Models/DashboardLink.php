@@ -15,9 +15,18 @@ use Illuminate\Database\Eloquent\Builder;
  * @property float|null                      $lat
  * @property float|null                      $lng
  * @property string|null                     $location_label
+ * @property string|null                     $category
  * @property \Illuminate\Support\Carbon|null $published_at
  */
 final class DashboardLink extends Model {
+    /** Event categories — the key is stored, the value is the display label. */
+    public const CATEGORIES = [
+        'protest'     => 'Protest',
+        'arrest'      => 'Arrest',
+        'prosecution' => 'Prosecution',
+        'other'       => 'Other',
+    ];
+
     protected $casts = [
         'published_at' => 'datetime',
     ];
