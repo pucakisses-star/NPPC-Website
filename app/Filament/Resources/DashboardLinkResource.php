@@ -37,6 +37,22 @@ class DashboardLinkResource extends Resource {
                 Forms\Components\DateTimePicker::make('published_at')
                     ->label('Published at')
                     ->helperText('Set this (now or a past time) for the item to appear. Items show newest first.'),
+                Forms\Components\Fieldset::make('Map location (optional)')
+                    ->schema([
+                        Forms\Components\TextInput::make('location_label')
+                            ->label('Location label')
+                            ->maxLength(255)
+                            ->helperText('Place name shown in the marker popup, e.g. Newark, NJ.'),
+                        Forms\Components\TextInput::make('lat')
+                            ->label('Latitude')
+                            ->numeric()
+                            ->minValue(-90)->maxValue(90)
+                            ->helperText('Set both latitude and longitude to plot this as an event marker on the map.'),
+                        Forms\Components\TextInput::make('lng')
+                            ->label('Longitude')
+                            ->numeric()
+                            ->minValue(-180)->maxValue(180),
+                    ])->columns(3),
             ]);
     }
 
@@ -49,6 +65,15 @@ class DashboardLinkResource extends Resource {
                     ->tooltip(fn ($record) => $record->title),
                 Tables\Columns\TextColumn::make('source')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('location_label')
+                    ->label('Location')
+                    ->placeholder('—')
+                    ->toggleable(),
+                Tables\Columns\IconColumn::make('on_map')
+                    ->label('On map')
+                    ->boolean()
+                    ->state(fn ($record) => $record->lat !== null && $record->lng !== null)
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('url')
                     ->limit(40),
                 Tables\Columns\TextColumn::make('published_at')

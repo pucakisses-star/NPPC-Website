@@ -106,6 +106,8 @@
     .leaflet-popup-content { margin: 10px 13px; font-size: 13px; line-height: 1.45; }
     .leaflet-popup-content b { color: #fff; }
     .leaflet-popup-content .ppd-pop-meta { color: var(--mut); }
+    .leaflet-popup-content .ppd-pop-link { display: inline-block; margin-top: 6px; color: #19c37d; font-weight: 700; text-decoration: none; }
+    .leaflet-popup-content .ppd-pop-link:hover { text-decoration: underline; }
     .leaflet-bar a { background: #15151a; color: var(--ink); border-color: var(--line); }
     .leaflet-bar a:hover { background: #20202a; }
     /* ---- map markers: glowing dot + radar "ping" pulse (--c = status colour) ---- */
@@ -217,6 +219,7 @@
         'awaiting' => ['Awaiting trial', '#4c8dff'],
         'exile'    => ['In exile',       '#e0a82e'],
         'other'    => ['Documented',      '#9aa0a6'],
+        'event'    => ['Event',          '#19c37d'],  // curated news/event markers
     ];
 
     // strip breakdown counters
@@ -324,6 +327,23 @@
             'meta'  => collect([$i->city, $i->state])->filter()->join(', '),
             'count' => (int) $i->cases_count,
         ])->values();
+
+    // event markers: curated dashboard links that carry coordinates. They sit on
+    // the map alongside prisoners, coloured as "event", and scrub with the timeline.
+    // Guarded so the page still renders if the lat/lng migration hasn't run yet.
+    $eventPoints = \Illuminate\Support\Facades\Schema::hasColumn('dashboard_links', 'lat')
+        ? \App\Models\DashboardLink::onMap()
+            ->orderByDesc('published_at')->get()
+            ->map(fn ($l) => [
+                'lat'    => (float) $l->lat,
+                'lng'    => (float) $l->lng,
+                'name'   => $l->title,
+                'status' => 'event',
+                'day'    => $dayIndex($l->published_at),
+                'meta'   => collect([$l->location_label, $l->source])->filter()->join(' · '),
+                'url'    => $l->url,
+            ])->values()
+        : collect();
 
     $statusColors = collect($statusMeta)->map(fn ($m) => $m[1]); // key => colour
 @endphp
@@ -434,6 +454,13 @@
                         <span class="ppd-leg-n">{{ number_format($val) }}</span>
                     </button>
                 @endforeach
+                @if ($eventPoints->isNotEmpty())
+                    <button type="button" class="ppd-leg" data-filter="event">
+                        <span class="ppd-leg-dot" style="background: {{ $statusMeta['event'][1] }}"></span>
+                        <span class="ppd-leg-lab">{{ $statusMeta['event'][0] }}</span>
+                        <span class="ppd-leg-n">{{ number_format($eventPoints->count()) }}</span>
+                    </button>
+                @endif
             </div>
         </div>
     </div>
@@ -544,6 +571,7 @@
         var statusColors = @json($statusColors);
         var prisonerPts = @json($mapPoints);
         var facilityPts = @json($mapFacilities);
+        var eventPts    = @json($eventPoints);
         var mapEl = document.getElementById('ppd-map');
 
         var useFacilities = prisonerPts.length === 0;
@@ -556,7 +584,7 @@
         if (!mapEl || !window.L) {
             if (mapEl) mapEl.innerHTML = '<div class="ppd-map-empty">Map library unavailable.</div>';
         } else {
-            if (!points.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
+            if (!points.length && !eventPts.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
 
             map = L.map('ppd-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: false }).setView([39, -97], 4);
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -566,11 +594,9 @@
             setTimeout(function () { map.invalidateSize(); }, 200);
 
             var latlngs = [];
-            points.forEach(function (p) {
-                var color = useFacilities ? '#e0a82e' : (statusColors[p.status] || '#9aa0a6');
-                // dot diameter: fixed for prisoners, scaled by case count for facilities
-                var radius = useFacilities ? Math.max(5, Math.min(20, 4 + Math.sqrt(p.count || 1) * 3)) : 6;
-                var sz = Math.round(radius * 2);
+            // Build a pulsing "ping" marker, register it for legend/timeline filtering,
+            // and track its coordinate for fitBounds. Shared by all three layers.
+            function addPing(p, color, sz, popupHtml, status) {
                 // negative random delay so the rings pulse out of phase, not in lockstep
                 var delay = (-Math.random() * 2.6).toFixed(2);
                 var icon = L.divIcon({
@@ -583,12 +609,28 @@
                         + '<span class="ppd-mk-dot"></span></span>'
                 });
                 var m = L.marker([p.lat, p.lng], { icon: icon, keyboard: false });
-                var extra = useFacilities ? ((p.count || 0) + ' case' + (p.count === 1 ? '' : 's')) : (p.meta || '');
-                m.bindPopup('<b>' + esc(p.name) + '</b>' + (extra ? '<br><span class="ppd-pop-meta">' + esc(extra) + '</span>' : ''));
+                if (popupHtml) m.bindPopup(popupHtml);
                 m.addTo(map);
-                markers.push({ marker: m, status: useFacilities ? 'other' : p.status, day: p.day || 0 });
+                markers.push({ marker: m, status: status, day: p.day || 0 });
                 latlngs.push([p.lat, p.lng]);
+            }
+
+            points.forEach(function (p) {
+                var color = useFacilities ? '#e0a82e' : (statusColors[p.status] || '#9aa0a6');
+                // dot diameter: fixed for prisoners, scaled by case count for facilities
+                var radius = useFacilities ? Math.max(5, Math.min(20, 4 + Math.sqrt(p.count || 1) * 3)) : 6;
+                var extra = useFacilities ? ((p.count || 0) + ' case' + (p.count === 1 ? '' : 's')) : (p.meta || '');
+                var popup = '<b>' + esc(p.name) + '</b>' + (extra ? '<br><span class="ppd-pop-meta">' + esc(extra) + '</span>' : '');
+                addPing(p, color, Math.round(radius * 2), popup, useFacilities ? 'other' : p.status);
             });
+
+            // curated event markers sit on top, independent of the prisoner/facility base layer
+            eventPts.forEach(function (p) {
+                var meta = p.meta ? '<br><span class="ppd-pop-meta">' + esc(p.meta) + '</span>' : '';
+                var link = p.url ? '<br><a class="ppd-pop-link" href="' + esc(p.url) + '" target="_blank" rel="noopener">Read &rsaquo;</a>' : '';
+                addPing(p, statusColors['event'] || '#19c37d', 16, '<b>' + esc(p.name) + '</b>' + meta + link, 'event');
+            });
+
             if (latlngs.length) { map.fitBounds(latlngs, { padding: [42, 42], maxZoom: 7 }); }
         }
 
