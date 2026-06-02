@@ -391,6 +391,9 @@ final class SeedDashboardEvents extends Command {
         ["Nine climate activists arrested in a sit-in at Gov. Lamont's office", 'https://ctnewsjunkie.com/2025/11/18/nine-arrested-after-ct-climate-activists-stage-sit-in-at-governors-office/', 'CT News Junkie', '2025-11-17', null, null, null],
         // ── Anti-ICE · ICE garage blockade, Center City Philadelphia · Mar 30, 2026 ──
         ['10 arrested blocking an ICE garage in Center City Philadelphia', 'https://www.inquirer.com/news/immigration-protest-ice-garage-center-city-philadelphia-20260330.html', 'The Philadelphia Inquirer', '2026-03-30', 39.9540235, -75.1530279, 'ICE garage, 8th & Cherry St, Center City, Philadelphia, PA'],
+
+        // ── Policy · White House "pre-crime" counterterrorism strategy · May 6, 2026 ──
+        ["White House 'pre-crime' counterterrorism strategy targets left-wing activists", 'https://www.kenklippenstein.com/p/insane-pre-crime-strategy-unveiled', 'Ken Klippenstein', '2026-05-06', 38.8976387, -77.0365528, 'White House, Washington, DC'],
     ];
 
     /**
@@ -501,6 +504,8 @@ final class SeedDashboardEvents extends Command {
             'https://vtdigger.org/2025/10/06/ice-plans-to-boost-its-surveillance-on-social-media-using-contractors-in-vermont/',
             // Indianapolis — councilor's home shot with a "No Data Centers" note
             'https://www.cbsnews.com/news/indianapolis-councilor-ron-gibson-home-shooting-data-centers-note/',
+            // White House "pre-crime" counterterrorism strategy
+            'https://www.kenklippenstein.com/p/insane-pre-crime-strategy-unveiled',
         ],
     ];
 
