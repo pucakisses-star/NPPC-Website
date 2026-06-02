@@ -237,6 +237,10 @@
     $maxEra      = $byEra->max() ?: 1;
     $maxMovement = $byMovement ? max($byMovement) : 1;
 
+    // The tracker only covers events from this date onward (the timeline start);
+    // anything published earlier — old site articles especially — is out of range.
+    $tlStart = \Illuminate\Support\Carbon::create(2025, 5, 7)->startOfDay();
+
     // Newswire + ticker: published articles plus curated DashboardLinks, merged
     // newest-first into a uniform list of items ({title,url,label,date,external}).
     // Load the FULL set (every event link + plenty of articles), not just the newest
@@ -244,7 +248,7 @@
     // rendered the latest ~40 items, scrubbing the timeline back would empty the list
     // even though the map still shows pins for that window.
     $articleItems = \App\Models\Article::query()
-        ->whereNotNull('published_at')->where('published_at', '<=', now())
+        ->whereBetween('published_at', [$tlStart, now()])
         ->with('category')->orderByDesc('published_at')->take(120)->get()
         ->map(fn ($a) => (object) [
             'title' => $a->title, 'url' => $a->url,
@@ -256,7 +260,9 @@
             'title' => $l->title, 'url' => $l->url,
             'label' => $l->source, 'date' => $l->published_at, 'external' => true,
         ]);
-    $newsItems = $articleItems->concat($linkItems)->sortByDesc('date')->values();
+    $newsItems = $articleItems->concat($linkItems)
+        ->filter(fn ($i) => $i->date && $i->date->gte($tlStart))   // nothing before the tracker start
+        ->sortByDesc('date')->values();
     $feedItems = $newsItems;              // side newswire — full list; the timeline shows/hides
     $ticker    = $newsItems->take(16);    // top scroller — newest only
 
@@ -267,8 +273,7 @@
     // the map + newswire show items dated from the handle up to today — and it
     // defaults to the last 30 days (see the JS). Dates before the start clamp to it. ----
     $tlEnd   = now()->startOfDay();
-    $tlStart = \Illuminate\Support\Carbon::create(2025, 5, 7)->startOfDay();
-    $tlCount = $tlStart->diffInDays($tlEnd) + 1;   // May 7, 2025 → today, inclusive
+    $tlCount = $tlStart->diffInDays($tlEnd) + 1;   // May 7, 2025 → today, inclusive (see $tlStart above)
     $curYear = (int) $tlEnd->year;
     // Format a date showing the year only when it falls in a previous year.
     $smartDate = function ($date) use ($curYear) {
