@@ -440,6 +440,9 @@ final class SeedDashboardEvents extends Command {
         ['Tufts student Rümeysa Öztürk freed from ICE detention over a Gaza op-ed', 'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention', 'NPR', '2025-05-09', 30.4827000, -92.5938000, 'South Louisiana ICE Processing Center, Basile, LA'],
         // ── Delaware · No Kings · Oct 18, 2025 (the last unmapped state) ──
         ['Thousands across Delaware rally for the No Kings day of protest', 'https://www.wdel.com/no-kings-2-0-rallies-set-for-saturday-in-delaware/article_cb54b54a-0518-4807-86d1-8aa78a347f85.html', 'WDEL', '2025-10-18', 39.1573179, -75.5197365, 'Legislative Hall, Dover, DE'],
+
+        // ── Political prisoner · activist Jeanette Vizguerra freed from the Aurora ICE jail · Dec 22, 2025 ──
+        ['Activist Jeanette Vizguerra freed from the Aurora ICE jail after nine months', 'https://coloradosun.com/2025/12/22/jeanette-vizguerra-released-ice/', 'The Colorado Sun', '2025-12-22', 39.7612260, -104.8505622, 'Aurora ICE Processing Center, Aurora, CO'],
     ];
 
     /**
@@ -518,6 +521,8 @@ final class SeedDashboardEvents extends Command {
             // round 5 — pro-Palestine activist detentions (Khalil, Öztürk)
             'https://www.npr.org/2025/06/20/nx-s1-5440351/judge-orders-release-of-columbia-activist-mahmoud-khalil',
             'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention',
+            // local — Colorado activist Jeanette Vizguerra freed from Aurora ICE jail
+            'https://coloradosun.com/2025/12/22/jeanette-vizguerra-released-ice/',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
