@@ -128,7 +128,7 @@
     .ppd-legend.is-filtered .ppd-leg:not(.is-active) { opacity: 0.42; }
 
     /* ---- bottom breakdown strip ---- */
-    .ppd-breakdowns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); }
+    .ppd-breakdowns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
     .ppd-bd { background: #0b0b0d; padding: 18px 20px 20px; }
     .ppd-bd-h { font-size: 10.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mut); margin: 0 0 14px; }
     .ppd-row { display: grid; grid-template-columns: 1fr 38px; align-items: center; gap: 10px; margin-bottom: 9px; }
@@ -204,31 +204,18 @@
         return 'other';
     };
 
-    // The dashboard is a live tracker of active cases — released and deceased
-    // people are dropped from the map, stats, legend and timeline.
+    // Active cases drive the stat strip and the breakdown panels — released and
+    // deceased people are dropped from those counts. (The map itself is events-only.)
     $prisoners = \App\Models\Prisoner::query()->orderByDesc('created_at')->get()
         ->reject(fn ($p) => in_array($statusKey($p), ['released', 'deceased'], true))
         ->values();
 
     $total     = $prisoners->count();
-    $inCustody = $prisoners->where('in_custody', true)->count();
-    $inExile   = $prisoners->where('currently_in_exile', true)->count();
-    $awaiting  = $prisoners->where('awaiting_trial', true)->count();
     $totalFacilities = \App\Models\Institution::count();
 
+    // colour key for the curated event markers (the map is events-only now)
     $statusMeta = [
-        'custody'  => ['In custody',     '#e5484d'],
-        'awaiting' => ['Awaiting trial', '#4c8dff'],
-        'exile'    => ['In exile',       '#e0a82e'],
-        'other'    => ['Documented',      '#9aa0a6'],
-        'event'    => ['Event',          '#19c37d'],  // curated news/event markers
-    ];
-
-    // strip breakdown counters
-    $breaks = [
-        ['custody',  $inCustody],
-        ['awaiting', $awaiting],
-        ['exile',    $inExile],
+        'event' => ['Event', '#19c37d'],
     ];
 
     // breakdown panels
@@ -246,12 +233,6 @@
     $maxState    = $byState->max() ?: 1;
     $maxEra      = $byEra->max() ?: 1;
     $maxMovement = $byMovement ? max($byMovement) : 1;
-    $statusMax   = collect($breaks)->max(fn ($r) => $r[1]) ?: 1;
-    $statusBars  = [
-        ['custody',  'In custody',     $inCustody],
-        ['awaiting', 'Awaiting trial', $awaiting],
-        ['exile',    'In exile',       $inExile],
-    ];
 
     // Newswire + ticker: published articles plus curated DashboardLinks, merged
     // newest-first into a uniform list of items ({title,url,label,date,external}).
@@ -310,37 +291,9 @@
         return (int) max(0, min($tlCount - 1, $i));
     };
 
-    // map points: prisoners with coordinates, coloured by status
-    $mapPoints = $prisoners
-        ->filter(fn ($p) => $p->lat !== null && $p->lng !== null)
-        ->map(function ($p) use ($statusKey, $statusMeta, $dayIndex) {
-            $sk = $statusKey($p);
-            return [
-                'lat'    => (float) $p->lat,
-                'lng'    => (float) $p->lng,
-                'name'   => $p->name,
-                'status' => $sk,
-                'day'    => $dayIndex($p->created_at),
-                'meta'   => collect([$statusMeta[$sk][0] ?? null, $p->state])->filter()->join(' · '),
-                'url'    => $p->url,
-            ];
-        })->values();
-
-    // fallback for the map if no prisoner has coordinates: facilities. These
-    // carry no documented-date, so they sit at day 0 (always visible).
-    $mapFacilities = \App\Models\Institution::query()
-        ->whereNotNull('lat')->whereNotNull('lng')->withCount('cases')->get()
-        ->map(fn ($i) => [
-            'lat'   => (float) $i->lat,
-            'lng'   => (float) $i->lng,
-            'name'  => $i->name,
-            'day'   => 0,
-            'meta'  => collect([$i->city, $i->state])->filter()->join(', '),
-            'count' => (int) $i->cases_count,
-        ])->values();
-
-    // event markers: curated dashboard links that carry coordinates. They sit on
-    // the map alongside prisoners, coloured as "event", and scrub with the timeline.
+    // event markers: curated dashboard links that carry coordinates. The map is
+    // events-only, so these green markers are its sole layer, and they scrub with
+    // the timeline.
     // Guarded so the page still renders if the lat/lng migration hasn't run yet.
     $eventPoints = \Illuminate\Support\Facades\Schema::hasColumn('dashboard_links', 'lat')
         ? \App\Models\DashboardLink::onMap()
@@ -374,13 +327,11 @@
             <span class="ppd-total-num" data-count="{{ $total }}">{{ number_format($total) }}</span>
         </div>
         <div class="ppd-breaks">
-            @foreach ($breaks as [$key, $val])
-                <span class="ppd-bk">
-                    <span class="ppd-bk-dot" style="background: {{ $statusMeta[$key][1] }}"></span>
-                    <span class="ppd-bk-lab">{{ $statusMeta[$key][0] }}</span>
-                    <span class="ppd-bk-num" data-count="{{ $val }}">{{ number_format($val) }}</span>
-                </span>
-            @endforeach
+            <span class="ppd-bk">
+                <span class="ppd-bk-dot" style="background: #19c37d"></span>
+                <span class="ppd-bk-lab">Mapped events</span>
+                <span class="ppd-bk-num" data-count="{{ $eventPoints->count() }}">{{ number_format($eventPoints->count()) }}</span>
+            </span>
             <span class="ppd-bk">
                 <span class="ppd-bk-dot" style="background: #6b7280"></span>
                 <span class="ppd-bk-lab">Facilities</span>
@@ -457,14 +408,7 @@
         <div class="ppd-mapwrap">
             <div id="ppd-map"></div>
             <div class="ppd-legend" id="ppd-legend">
-                <div class="ppd-legend-h">Status</div>
-                @foreach ($statusBars as [$key, $label, $val])
-                    <button type="button" class="ppd-leg" data-filter="{{ $key }}">
-                        <span class="ppd-leg-dot" style="background: {{ $statusMeta[$key][1] }}"></span>
-                        <span class="ppd-leg-lab">{{ $label }}</span>
-                        <span class="ppd-leg-n">{{ number_format($val) }}</span>
-                    </button>
-                @endforeach
+                <div class="ppd-legend-h">Legend</div>
                 @if ($eventPoints->isNotEmpty())
                     <button type="button" class="ppd-leg" data-filter="event">
                         <span class="ppd-leg-dot" style="background: {{ $statusMeta['event'][1] }}"></span>
@@ -508,15 +452,6 @@
 
     {{-- ==================== BOTTOM BREAKDOWNS ==================== --}}
     <div class="ppd-breakdowns">
-        <div class="ppd-bd">
-            <h3 class="ppd-bd-h">By status</h3>
-            @foreach ($statusBars as [$key, $label, $val])
-                <div class="ppd-row">
-                    <div class="ppd-row-top"><span class="ppd-row-lab">{{ $label }}</span><span class="ppd-row-val">{{ number_format($val) }}</span></div>
-                    <span class="ppd-track"><span class="ppd-fill" style="width: {{ round($val / $statusMax * 100) }}%; background: {{ $statusMeta[$key][1] }}"></span></span>
-                </div>
-            @endforeach
-        </div>
         <div class="ppd-bd">
             <h3 class="ppd-bd-h">Top movements</h3>
             @forelse ($byMovement as $name => $count)
@@ -583,13 +518,8 @@
 
         // ---- map (Leaflet + Carto dark) ----
         var statusColors = @json($statusColors);
-        var prisonerPts = @json($mapPoints);
-        var facilityPts = @json($mapFacilities);
         var eventPts    = @json($eventPoints);
         var mapEl = document.getElementById('ppd-map');
-
-        var useFacilities = prisonerPts.length === 0;
-        var points = useFacilities ? facilityPts : prisonerPts;
 
         // The map is optional: if Leaflet fails to load we still wire up the
         // feed + timeline filtering below, so the page degrades gracefully.
@@ -598,7 +528,7 @@
         if (!mapEl || !window.L) {
             if (mapEl) mapEl.innerHTML = '<div class="ppd-map-empty">Map library unavailable.</div>';
         } else {
-            if (!points.length && !eventPts.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
+            if (!eventPts.length) { mapEl.innerHTML = '<div class="ppd-map-empty">No mapped coordinates recorded yet.</div>'; }
 
             map = L.map('ppd-map', { zoomControl: true, scrollWheelZoom: false, attributionControl: false }).setView([39, -97], 4);
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -609,7 +539,7 @@
 
             var latlngs = [];
             // Build a pulsing "ping" marker, register it for legend/timeline filtering,
-            // and track its coordinate for fitBounds. Shared by all three layers.
+            // and track its coordinate for fitBounds.
             function addPing(p, color, sz, popupHtml, status) {
                 // negative random delay so the rings pulse out of phase, not in lockstep
                 var delay = (-Math.random() * 2.6).toFixed(2);
@@ -629,16 +559,7 @@
                 latlngs.push([p.lat, p.lng]);
             }
 
-            points.forEach(function (p) {
-                var color = useFacilities ? '#e0a82e' : (statusColors[p.status] || '#9aa0a6');
-                // dot diameter: fixed for prisoners, scaled by case count for facilities
-                var radius = useFacilities ? Math.max(5, Math.min(20, 4 + Math.sqrt(p.count || 1) * 3)) : 6;
-                var extra = useFacilities ? ((p.count || 0) + ' case' + (p.count === 1 ? '' : 's')) : (p.meta || '');
-                var popup = '<b>' + esc(p.name) + '</b>' + (extra ? '<br><span class="ppd-pop-meta">' + esc(extra) + '</span>' : '');
-                addPing(p, color, Math.round(radius * 2), popup, useFacilities ? 'other' : p.status);
-            });
-
-            // curated event markers sit on top, independent of the prisoner/facility base layer
+            // curated event markers are the only map layer
             eventPts.forEach(function (p) {
                 var meta = p.meta ? '<br><span class="ppd-pop-meta">' + esc(p.meta) + '</span>' : '';
                 var link = p.url ? '<br><a class="ppd-pop-link" href="' + esc(p.url) + '" target="_blank" rel="noopener">Read &rsaquo;</a>' : '';
