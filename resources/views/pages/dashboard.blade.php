@@ -703,9 +703,16 @@
 
             function centerOf(i) { return ticks[i].offsetLeft + ticks[i].offsetWidth / 2; }
 
-            // Size the bar so ~30 days fill the viewport; the rest scrolls horizontally.
+            // Size the bar so ~30 days fill the viewport; the rest scrolls
+            // horizontally. But never let a day get so narrow that its number
+            // collides with its neighbour on smaller screens — clamp to a
+            // minimum tick width so every date stays legible (fewer days show
+            // at once and you scroll to see the rest).
+            var MIN_TICK = 26;
             function sizeBar() {
-                if (main && scrollEl) scrollEl.style.width = Math.round(count / 30 * main.clientWidth) + 'px';
+                if (!main || !scrollEl) return;
+                var perTick = Math.max(MIN_TICK, main.clientWidth / 30);
+                scrollEl.style.width = Math.round(perTick * count) + 'px';
             }
             // Keep the handle in view, sliding the 30-day window as it nears an edge.
             function ensureVisible() {
