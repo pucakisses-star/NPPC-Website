@@ -279,15 +279,24 @@
     $tlEnd   = now()->startOfDay();
     $tlStart = $tlEnd->copy()->subDays(365);
     $tlCount = 366;   // 365 days back + today
+    $curYear = (int) $tlEnd->year;
+    // Format a date showing the year only when it falls in a previous year.
+    $smartDate = function ($date) use ($curYear) {
+        if (! $date) return '';
+        $d = \Illuminate\Support\Carbon::parse($date);
+        return $d->format($d->year < $curYear ? 'M j, Y' : 'M j');
+    };
     $tlDays  = [];
     $prevMonth = null;
     for ($i = 0; $i < $tlCount; $i++) {
         $d = $tlStart->copy()->addDays($i);
         $month = $d->format('M');
+        // older months also carry a short year ("Jun '25") so the lookback isn't ambiguous
+        $monthLabel = $month . ($d->year < $curYear ? " '" . $d->format('y') : '');
         $tlDays[] = [
-            'dom'   => $d->format('j'),                        // day of month — shown on every tick
-            'month' => ($month !== $prevMonth) ? $month : '',  // month label only where it changes
-            'label' => $d->format('M j'),                      // full date (tooltip)
+            'dom'   => $d->format('j'),                            // day of month — shown on every tick
+            'month' => ($month !== $prevMonth) ? $monthLabel : '',  // month label only where it changes
+            'label' => $smartDate($d),                             // full date (tooltip), year if older
         ];
         $prevMonth = $month;
     }
@@ -435,7 +444,7 @@
                         @if ($a->label)
                             <span class="ppd-tagchip" style="background: #e0a82e">{{ $a->label }}</span>
                         @endif
-                        <span class="ppd-feed-date">{{ optional($a->date)->format('M j, Y') }}</span>
+                        <span class="ppd-feed-date">{{ $smartDate($a->date) }}</span>
                     </span>
                 </a>
             @empty
