@@ -264,12 +264,110 @@ final class SeedDashboardEvents extends Command {
         ["13 shots fired at Indianapolis councilor's home with 'No Data Centers' note", 'https://www.cbsnews.com/news/indianapolis-councilor-ron-gibson-home-shooting-data-centers-note/', 'CBS News', '2026-04-06', 39.8082861, -86.1197981, 'Martindale-Brightwood, Indianapolis, IN'],
     ];
 
+    /**
+     * Per-event category override; every link defaults to "protest" (a
+     * demonstration / march / sit-in). The URLs below reclassify an event as
+     * "arrest" (a targeted detention — data-center-meeting, threat or sabotage
+     * arrests, ICE detentions, named journalist / official arrests),
+     * "prosecution" (charges, indictments or sentencing) or "other" (a shooting
+     * or surveillance reporting). Additional sources inherit their event's marker.
+     */
+    private array $categories = [
+        'arrest' => [
+            // Claremore, OK — data-center town hall arrest
+            'https://www.newson6.com/tulsa-oklahoma-news/arrest-made-during-heated-claremore-meeting-over-proposed-data-center',
+            'https://ktul.com/news/local/community-activist-arrested-at-data-center-meeting-in-claremore',
+            'https://www.businessinsider.com/data-center-meeting-claremore-oklahoma-man-arrested-beale-infrastructure-ai-2026-2',
+            'https://www.tomshardware.com/tech-industry/big-tech/oklahoma-farmer-arrested-and-jailed-for-trespassing-during-ai-data-center-town-hall-removed-by-officers-after-going-a-few-seconds-over-allotted-speaking-time-trying-to-hand-paperwork-to-counselors',
+            'https://africa.businessinsider.com/news/tension-over-a-proposed-ai-data-center-leads-to-an-arrest-in-oklahoma/jk912pd',
+            // Port Washington, WI — data-center hearing arrests
+            'https://www.datacenterdynamics.com/en/news/three-arrested-at-data-center-hearing-in-port-washington-wisconsin/',
+            'https://www.fox6now.com/news/port-washington-data-center-meeting-arrests',
+            'https://www.fox6now.com/news/port-washington-data-center-concerns-arrests-city-meeting',
+            'https://spectrumnews1.com/wi/milwaukee/news/2025/12/07/port-washington-data-center-peaceful-protest-arrest',
+            'https://www.alternet.org/woman-violently-arrested-after-speaking-out-against-ai-data-centers/',
+            'https://ozaukeepress.com/content/meeting-erupts-chaos-over-data-center',
+            // Columbus, OH — blogger arrested outside Statehouse
+            'https://signalohio.org/progressive-blogger-the-rooster-arrested-outside-statehouse-charged-with-harassment/',
+            // Dixon, IL — data-center threats arrest
+            'https://www.datacenterdynamics.com/en/news/illinois-man-arrested-after-threatening-local-authorities-to-stop-data-center-development/',
+            'https://www.businessinsider.com/dixon-illinois-data-center-development-critic-arrested-2026-5',
+            'https://hoodline.com/2026/05/dixon-man-busted-after-threats-over-rock-falls-data-center-site/',
+            // El Centro, CA — board-meeting arrest + online-threats arrest
+            'https://www.latimes.com/california/story/2026-04-11/man-speaking-against-data-center-arrested-at-imperial-county-board-meeting-as-tensions-flare-nationwide',
+            'https://www.kpbs.org/news/public-safety/2026/04/20/el-centro-resident-arrested-for-allegedly-making-online-threats-against-data-center-developer',
+            // Andover Township, NJ — town-meeting arrest
+            'https://thenerdstash.com/new-jersey-man-arrested-at-town-meeting-after-confronting-officials-over-secret-ai-data-center-deal-how-much-are-they-paying-you/',
+            // Hobart, IN — data-center meeting arrest
+            'https://www.chicagotribune.com/2026/05/09/hobart-meeting-on-data-centers-brings-large-crowd-tight-security-and-one-arrest/',
+            'https://www.fox32chicago.com/news/video-shows-man-removed-arrested-indiana-data-center-meeting',
+            'https://www.fox32chicago.com/video/fmc-qtdelt547oamiybt',
+            // Brooklyn, NY — Council member Chi Ossé arrested
+            'https://ny1.com/nyc/brooklyn/news/2026/04/22/councilmember-chi-oss--arrested-during-eviction-dispute-in-brooklyn',
+            'https://www.democracynow.org/2026/4/23/headlines/nyc_councilmember_chi_osse_released_after_violent_arrest_at_anti_eviction_protest',
+            // Hart Senate Office Building, DC — Marine veteran Brian McGinnis arrested
+            'https://www.military.com/feature/2026/03/05/brian-mcginnis-removed-senate-hearing-after-protest-over-us-policy-toward-israel.html',
+            'https://www.democracynow.org/2026/3/11/brian_mcginnis_iran_war_protest_congress',
+            'https://abc11.com/post/marine-veteran-north-carolina-charged-protesting-war-iran-senate-hearing/18679829/',
+            // St. Paul, MN — journalists Don Lemon & Georgia Fort arrested
+            'https://www.aljazeera.com/news/2026/1/30/journalist-don-lemon-arrested-in-connection-to-minnesota-ice-protest',
+            'https://www.nbcnews.com/news/us-news/don-lemon-arrested-federal-authorities-attorney-says-rcna256680',
+            // Newark, NJ — Mayor Ras Baraka arrested at Delaney Hall
+            'https://www.cbsnews.com/newyork/news/newark-mayor-ras-baraka-ice-arrest/',
+            'https://www.washingtonpost.com/nation/2025/05/09/newark-mayor-ice-arrest-ras-baraka-nj/',
+            // Manhattan, NY — Comptroller Brad Lander detained by ICE
+            'https://www.cnn.com/2025/06/17/us/brad-lander-ice-arrest-nyc',
+            'https://www.thecity.nyc/2025/06/17/brad-lander-arrest-ice-immigration-court/',
+            // DeKalb County, GA — journalist Mario Guevara arrested
+            'https://www.11alive.com/article/news/local/protests/bodycam-video-salvadoran-journalist-arrested-dekalb-county-mario-guevara/85-8de24d09-dfb6-4546-be0e-7d1bb9e393f3',
+            'https://atlantaciviccircle.org/2025/06/18/dekalb-police-journalist-mario-guevara-ice-custody/',
+            // Worcester, MA — ICE detention of a mother
+            'https://www.bostonglobe.com/2025/05/08/metro/ice-arrests-worcester-woman-spurs-protest/',
+            'https://www.boston.com/news/local-news/2025/05/08/two-arrested-after-neighbors-try-to-stop-ice-agents-from-detaining-worcester-mother/',
+            'https://www.wbur.org/news/2025/05/16/worcester-police-ice-arrest-protesters-activists',
+            // Woodland Park, CO — cell-tower sabotage arrest
+            'https://www.datacenterdynamics.com/en/news/man-arrested-for-causing-cell-tower-outage-in-colorado/',
+            // Trinidad, TX — Facebook-post arrest
+            'https://www.fox4news.com/news/woman-arrested-facebook-post-concerning-trinidad-water-poisoning',
+        ],
+        'prosecution' => [
+            // SEIU leader David Huerta charged with felony
+            'https://www.cbsnews.com/news/david-huerta-seiu-charged-los-angeles-ice-protest-trump/',
+            'https://laist.com/news/la-immigration-raids-protests-huerta-charged',
+            // At least 71 charged after Los Angeles anti-ICE protests
+            'https://lapublicpress.org/2025/08/ice-raids-la-arrests-charges/',
+            // Nine Spokane ICE-protesters federally charged / indicted
+            'https://www.krem.com/article/news/local/former-spokane-city-council-ben-stuckart-federally-indicted-ice-protests/293-b7211c4d-12e8-407d-b3d9-17f42c3cf6f1',
+            'https://www.democracynow.org/2025/7/16/headlines/federal_agents_arrest_9_over_spokane_ice_protests_including_former_city_council_president',
+            // Four protesters charged after the Omaha ICE raid
+            'https://nebraskapublicmedia.org/en/news/news-articles/defendants-accused-of-interfering-with-law-enforcement-after-omaha-ice-raid-appear-in-federal-court/',
+        ],
+        'other' => [
+            // Philadelphia — police tracked anti-data-center speech as extremism
+            'https://theintercept.com/2026/06/01/ai-data-center-protest-police-surveillance/',
+            // Williston, VT — ICE social-media surveillance hub expansion
+            'https://vtdigger.org/2025/10/06/ice-plans-to-boost-its-surveillance-on-social-media-using-contractors-in-vermont/',
+            // Indianapolis — councilor's home shot with a "No Data Centers" note
+            'https://www.cbsnews.com/news/indianapolis-councilor-ron-gibson-home-shooting-data-centers-note/',
+        ],
+    ];
+
     public function handle(): int {
+        // flatten the override map into url => category (everything else: protest)
+        $catByUrl = [];
+        foreach ($this->categories as $category => $urls) {
+            foreach ($urls as $u) {
+                $catByUrl[$u] = $category;
+            }
+        }
+
         $created = 0;
         $updated = 0;
         $markers = 0;
+        $byCategory = [];
 
         foreach ($this->links as [$title, $url, $source, $date, $lat, $lng, $label]) {
+            $category = $catByUrl[$url] ?? 'protest';
             $link = DashboardLink::updateOrCreate(
                 ['url' => $url],
                 [
@@ -279,16 +377,20 @@ final class SeedDashboardEvents extends Command {
                     'lat' => $lat,
                     'lng' => $lng,
                     'location_label' => $label,
+                    'category' => $category,
                 ],
             );
 
             $link->wasRecentlyCreated ? $created++ : $updated++;
             if ($lat !== null) {
                 $markers++;
+                $byCategory[$category] = ($byCategory[$category] ?? 0) + 1;
             }
         }
 
-        $this->info("Done. {$created} created, {$updated} updated — " . count($this->links) . " newswire items, {$markers} map markers.");
+        ksort($byCategory);
+        $breakdown = collect($byCategory)->map(fn ($n, $c) => "{$c} {$n}")->implode(', ');
+        $this->info("Done. {$created} created, {$updated} updated — " . count($this->links) . " newswire items, {$markers} map markers ({$breakdown}).");
 
         return self::SUCCESS;
     }

@@ -213,9 +213,12 @@
     $total     = $prisoners->count();
     $totalFacilities = \App\Models\Institution::count();
 
-    // colour key for the curated event markers (the map is events-only now)
+    // event categories → [label, colour] for the map markers + legend filters
     $statusMeta = [
-        'event' => ['Event', '#19c37d'],
+        'protest'     => ['Protest',     '#19c37d'],
+        'arrest'      => ['Arrest',      '#e5484d'],
+        'prosecution' => ['Prosecution', '#a371f7'],
+        'other'       => ['Other',       '#9aa0a6'],
     ];
 
     // breakdown panels
@@ -302,7 +305,7 @@
                 'lat'    => (float) $l->lat,
                 'lng'    => (float) $l->lng,
                 'name'   => $l->title,
-                'status' => 'event',
+                'status' => $l->category ?: 'protest',
                 'day'    => $dayIndex($l->published_at),
                 'meta'   => collect([$l->location_label, $l->source])->filter()->join(' · '),
                 'url'    => $l->url,
@@ -310,6 +313,10 @@
         : collect();
 
     $statusColors = collect($statusMeta)->map(fn ($m) => $m[1]); // key => colour
+    // marker counts per category, in legend order, only where there are markers
+    $eventCategories = collect($statusMeta)->keys()
+        ->mapWithKeys(fn ($k) => [$k => $eventPoints->where('status', $k)->count()])
+        ->filter(fn ($n) => $n > 0);
 @endphp
 <div class="ppd">
 
@@ -408,14 +415,14 @@
         <div class="ppd-mapwrap">
             <div id="ppd-map"></div>
             <div class="ppd-legend" id="ppd-legend">
-                <div class="ppd-legend-h">Legend</div>
-                @if ($eventPoints->isNotEmpty())
-                    <button type="button" class="ppd-leg" data-filter="event">
-                        <span class="ppd-leg-dot" style="background: {{ $statusMeta['event'][1] }}"></span>
-                        <span class="ppd-leg-lab">{{ $statusMeta['event'][0] }}</span>
-                        <span class="ppd-leg-n">{{ number_format($eventPoints->count()) }}</span>
+                <div class="ppd-legend-h">Events</div>
+                @foreach ($eventCategories as $key => $count)
+                    <button type="button" class="ppd-leg" data-filter="{{ $key }}">
+                        <span class="ppd-leg-dot" style="background: {{ $statusMeta[$key][1] }}"></span>
+                        <span class="ppd-leg-lab">{{ $statusMeta[$key][0] }}</span>
+                        <span class="ppd-leg-n">{{ number_format($count) }}</span>
                     </button>
-                @endif
+                @endforeach
             </div>
         </div>
     </div>
@@ -559,11 +566,11 @@
                 latlngs.push([p.lat, p.lng]);
             }
 
-            // curated event markers are the only map layer
+            // curated event markers — coloured by category (protest/arrest/…)
             eventPts.forEach(function (p) {
                 var meta = p.meta ? '<br><span class="ppd-pop-meta">' + esc(p.meta) + '</span>' : '';
                 var link = p.url ? '<br><a class="ppd-pop-link" href="' + esc(p.url) + '" target="_blank" rel="noopener">Read &rsaquo;</a>' : '';
-                addPing(p, statusColors['event'] || '#19c37d', 16, '<b>' + esc(p.name) + '</b>' + meta + link, 'event');
+                addPing(p, statusColors[p.status] || '#9aa0a6', 16, '<b>' + esc(p.name) + '</b>' + meta + link, p.status);
             });
 
             if (latlngs.length) { map.fitBounds(latlngs, { padding: [42, 42], maxZoom: 7 }); }

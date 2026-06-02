@@ -34,6 +34,12 @@ class DashboardLinkResource extends Resource {
                 Forms\Components\TextInput::make('source')
                     ->maxLength(120)
                     ->helperText('Optional label shown as a tag, e.g. BBC or Reuters.'),
+                Forms\Components\Select::make('category')
+                    ->options(DashboardLink::CATEGORIES)
+                    ->default('protest')
+                    ->selectablePlaceholder(false)
+                    ->native(false)
+                    ->helperText('Sets the map marker colour and the legend grouping.'),
                 Forms\Components\DateTimePicker::make('published_at')
                     ->label('Published at')
                     ->helperText('Set this (now or a past time) for the item to appear. Items show newest first.'),
@@ -65,6 +71,10 @@ class DashboardLinkResource extends Resource {
                     ->tooltip(fn ($record) => $record->title),
                 Tables\Columns\TextColumn::make('source')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('category')
+                    ->badge()
+                    ->sortable()
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('location_label')
                     ->label('Location')
                     ->placeholder('—')
