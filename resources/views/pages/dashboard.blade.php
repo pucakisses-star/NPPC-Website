@@ -649,10 +649,10 @@
         var legRows = legend ? legend.querySelectorAll('.ppd-leg') : [];
         var feedItems = document.querySelectorAll('.ppd-feed-item');
         var statusFilter = null;     // status key, or null for "all statuses"
-        var dayFilter = 0;           // lookback start: show items dated on/after this day index
+        var dayFilter = 0;           // playhead day index: show items dated on/before this day
 
         function visible(status, day) {
-            return (statusFilter === null || status === statusFilter) && (day >= dayFilter);
+            return (statusFilter === null || status === statusFilter) && (day <= dayFilter);
         }
         function applyFilters() {
             if (map) {
@@ -662,10 +662,10 @@
                     else { if (map.hasLayer(o.marker)) map.removeLayer(o.marker); }
                 });
             }
-            // Newswire items show only within the lookback window (date >= handle).
+            // Newswire items show only up to the playhead (date <= handle).
             feedItems.forEach(function (el) {
                 var dy = parseInt(el.getAttribute('data-day'), 10) || 0;
-                el.style.display = (dy >= dayFilter) ? '' : 'none';
+                el.style.display = (dy <= dayFilter) ? '' : 'none';
             });
             legRows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-filter') === statusFilter); });
             if (legend) legend.classList.toggle('is-filtered', statusFilter !== null);
@@ -680,9 +680,9 @@
         });
 
         // ---- timeline scrubber under the map ----
-        // The handle is a lookback control: the map markers + newswire show items
-        // dated from the handle's day up to today. It defaults to the last 30
-        // days; drag/click/play to look further back (up to ~a year).
+        // The handle is a playhead: the map markers + newswire show items dated up
+        // to (on/before) the handle's day. It defaults to today (everything up to
+        // now); drag/click left to rewind, or play to sweep from the oldest day forward.
         (function () {
             var bar = document.getElementById('ppd-tl-bar');
             var handle = document.getElementById('ppd-tl-handle');
@@ -697,7 +697,7 @@
 
             var main = document.querySelector('.ppd-tl-main');
             var scrollEl = document.querySelector('.ppd-tl-scroll');
-            var defaultIdx = Math.max(0, count - 1 - 30);   // default lookback: ~last 30 days
+            var defaultIdx = count - 1;   // default playhead: today (everything up to now)
             var current = defaultIdx;
             var playing = false, rafId = null;
 
@@ -726,14 +726,14 @@
 
             function render() {
                 var x = centerOf(current);
-                var right = centerOf(count - 1);
+                var left0 = centerOf(0);
                 handle.style.left = x + 'px';
-                // Fill the active window: from the handle rightwards to today.
-                fill.style.left = x + 'px';
-                fill.style.width = Math.max(0, right - x) + 'px';
+                // Fill the elapsed range: from the start up to the playhead.
+                fill.style.left = left0 + 'px';
+                fill.style.width = Math.max(0, x - left0) + 'px';
                 handle.setAttribute('aria-valuenow', current + 1);
                 for (var i = 0; i < count; i++) {
-                    ticks[i].classList.toggle('is-passed', i > current);   // within the lookback window
+                    ticks[i].classList.toggle('is-passed', i <= current);   // elapsed (up to the playhead)
                     ticks[i].classList.toggle('is-current', i === current);
                 }
                 // Re-filter the map + newswire only when the handle actually moves.
@@ -766,11 +766,11 @@
             }
             function start() {
                 if (playing) return;
-                setCurrent(0);   // begin a year ago and play forward toward the present
+                setCurrent(0);   // begin at the oldest day and play forward to today
                 playing = true;
                 playBtn.classList.add('is-playing');
                 playBtn.setAttribute('aria-label', 'Pause timeline');
-                var startIdx = 0, endIdx = defaultIdx;       // forward: oldest -> the last-30-days default
+                var startIdx = 0, endIdx = count - 1;        // forward: oldest -> today
                 var dur = Math.min(9000, Math.max(2500, count * 130));
                 var t0 = null;
                 function frame(ts) {
@@ -812,12 +812,12 @@
             var rt;
             window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { sizeBar(); render(); ensureVisible(); }, 120); });
 
-            dayFilter = current; applyFilters();   // apply the default 30-day window immediately
+            dayFilter = current; applyFilters();   // show everything up to today on load
             requestAnimationFrame(function () {
                 sizeBar();
                 render();
-                // default view: the last ~30 days, with the handle near the left edge
-                if (main && ticks[current]) main.scrollLeft = ticks[current].offsetLeft;
+                // default view: most recent ~30 days, with the playhead (today) at the right edge
+                if (main) main.scrollLeft = main.scrollWidth;
             });
         })();
 
