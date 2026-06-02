@@ -239,22 +239,26 @@
 
     // Newswire + ticker: published articles plus curated DashboardLinks, merged
     // newest-first into a uniform list of items ({title,url,label,date,external}).
+    // Load the FULL set (every event link + plenty of articles), not just the newest
+    // few: the newswire is filtered client-side by the timeline window, so if we only
+    // rendered the latest ~40 items, scrubbing the timeline back would empty the list
+    // even though the map still shows pins for that window.
     $articleItems = \App\Models\Article::query()
         ->whereNotNull('published_at')->where('published_at', '<=', now())
-        ->with('category')->orderByDesc('published_at')->take(40)->get()
+        ->with('category')->orderByDesc('published_at')->take(120)->get()
         ->map(fn ($a) => (object) [
             'title' => $a->title, 'url' => $a->url,
             'label' => $a->category?->title, 'date' => $a->published_at, 'external' => false,
         ]);
     $linkItems = \App\Models\DashboardLink::published()
-        ->orderByDesc('published_at')->take(40)->get()
+        ->orderByDesc('published_at')->get()
         ->map(fn ($l) => (object) [
             'title' => $l->title, 'url' => $l->url,
             'label' => $l->source, 'date' => $l->published_at, 'external' => true,
         ]);
     $newsItems = $articleItems->concat($linkItems)->sortByDesc('date')->values();
-    $feedItems = $newsItems->take(40);   // side newswire
-    $ticker    = $newsItems->take(16);   // top scroller
+    $feedItems = $newsItems;              // side newswire — full list; the timeline shows/hides
+    $ticker    = $newsItems->take(16);    // top scroller — newest only
 
     // ---- timeline scrubber: a fixed window from May 7, 2025 to today, one tick
     // per day (it never reaches into the future). Date labels are shown about
