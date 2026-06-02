@@ -341,6 +341,56 @@ final class SeedDashboardEvents extends Command {
         ['Six SEIU county workers arrested in civil disobedience at the LA Board of Supervisors', 'https://mynewsla.com/government/2025/06/03/la-county-workers-gather-in-downtown-demanding-contract-negotiations-4/', 'MyNewsLA', '2025-06-03', 34.0568474, -118.2462025, 'Kenneth Hahn Hall of Administration, Los Angeles, CA'],
         // ── Labor · Culinary Union airport workers, Las Vegas · Dec 3, 2025 ──
         ['About two dozen Culinary Union airport workers arrested blocking a Las Vegas road', 'https://lasvegassun.com/news/2025/dec/03/las-vegas-airport-workers-arrested-in-civil-disobe/', 'Las Vegas Sun', '2025-12-03', 36.0861034, -115.1611002, 'Harry Reid International Airport, Las Vegas, NV'],
+
+        // ===== more curated events (round 3: prosecutions, ICE surges, statehouses) =====
+        // ── Prosecution · Portland ICE cases (Hatfield courthouse) ──
+        ['Portland man pleads guilty to arson at the ICE facility', 'https://local12.com/news/nation-world/portland-man-pleads-guilty-to-arson-at-ice-facility-faces-up-to-20-years-in-prison-trenten-barker-oregon-multnomah-county-immigration-customs-enforcement', 'Local 12', '2025-11-19', 45.5157824, -122.6763053, 'Mark O. Hatfield U.S. Courthouse, Portland, OR'],
+        ['Portlander pleads guilty to hitting an ICE officer with a rock at a protest', 'https://www.opb.org/article/2026/02/20/portlander-pleads-guilty-hitting-ice-officer-protest/', 'OPB', '2026-02-20', null, null, null],
+        // ── Prosecution · Los Angeles anti-ICE cases (Roybal courthouse, already pinned) ──
+        ['Man sentenced to 4 years for a Molotov cocktail at the LA anti-ICE protests', 'https://www.ksat.com/news/national/2026/02/01/man-sentenced-to-4-years-in-prison-for-throwing-molotov-cocktail-during-la-immigration-protest/', 'KSAT', '2026-01-30', null, null, null],
+        ['Elpidio Reyna pleads guilty to assaulting a federal officer with rocks', 'https://www.nbclosangeles.com/news/local/paramount-federal-officer-assault-elpidio-reyna/3849329/', 'NBC Los Angeles', '2026-02-17', null, null, null],
+        ['Six men plead guilty to attacking CHP officers at the LA anti-ICE protests', 'https://www.cbsnews.com/losangeles/news/california-men-plead-guilty-violence-chp-officers-los-angeles-immigration-protests/', 'CBS Los Angeles', '2026-04-23', null, null, null],
+        ['Two women convicted of stalking an ICE officer after a livestreamed pursuit', 'https://www.foxla.com/news/ice-officer-stalking-livestream-conviction-los-angeles', 'FOX 11 Los Angeles', '2026-03-03', null, null, null],
+        // ── Prosecution · San Diego "unmasking" sentencing · Mar 5, 2026 ──
+        ['Activist sentenced for unmasking an ICE agent at a San Diego raid', 'https://timesofsandiego.com/crime/2026/03/05/activist-home-detention-no-prison-federal-agent/', 'Times of San Diego', '2026-03-05', 32.7143363, -117.1647304, 'Edward J. Schwartz U.S. Courthouse, San Diego, CA'],
+        // ── Prosecution · Don Lemon indicted over a St. Paul protest · Jan 29, 2026 ──
+        ['Don Lemon and others indicted over a Minnesota anti-ICE church protest', 'https://www.pbs.org/newshour/nation/read-the-full-indictment-against-don-lemon-georgia-fort-and-others-charged-in-minnesota', 'PBS NewsHour', '2026-01-29', 44.9465967, -93.0891484, 'Warren E. Burger Federal Building, St. Paul, MN'],
+        // ── Prosecution · Broadview protesters' charges dropped · May 21, 2026 ──
+        ['Charges dropped against four Broadview ICE protesters over misconduct', 'https://blockclubchicago.org/2026/05/21/trial-date-for-broadview-protesters-vacated-just-days-ahead-of-expected-start/', 'Block Club Chicago', '2026-05-21', null, null, null],
+        // ── Prosecution · "Spokane 3" convicted · May 30, 2026 ──
+        ["The 'Spokane 3' are convicted of federal conspiracy over an anti-ICE blockade", 'https://www.foxnews.com/us/spokane-3-protesters-convicted-federal-conspiracy-charges-blocking-ice-transfer-washington', 'Fox News', '2026-05-30', null, null, null],
+        // ── Prosecution · UC Irvine pro-Palestine trial · Apr 7, 2026 ──
+        ['Jury acquits two in the UC Irvine pro-Palestine protest trial', 'https://mynewsla.com/crime/2026/04/07/2-of-3-defendants-acquitted-in-uci-protest-trial/', 'MyNewsLA', '2026-04-07', 33.6445025, -117.8441480, 'Physical Sciences Quad, UC Irvine, CA'],
+        // ── Prosecution · Princeton Clio Hall trespass trial · Jun 17, 2025 ──
+        ['Trespass trial set for 13 Princeton Clio Hall sit-in protesters', 'https://paw.princeton.edu/article/clio-hall-protest-trial-municipal-court-delayed-until-june', 'Princeton Alumni Weekly', '2025-06-17', 40.3476620, -74.6591469, 'Clio Hall, Princeton University, NJ'],
+        // ── Campus · Cal Poly Humboldt occupation arrest · Mar 6, 2026 ──
+        ["Activist arrested after a Palestine occupation of Cal Poly Humboldt's Nelson Hall", 'https://lostcoastoutpost.com/2026/mar/6/three-students-handed-interim-suspensions-nelson-h/', 'Lost Coast Outpost', '2026-03-06', 40.8764763, -124.0800564, 'Nelson Hall, Cal Poly Humboldt, Arcata, CA'],
+        // ── Campus · Brooklyn College encampment cleared · May 8, 2025 ──
+        ['NYPD clears a pro-Palestine encampment at Brooklyn College; seven arrested', 'https://www.cbsnews.com/newyork/news/brooklyn-college-protest-may-2025/', 'CBS News New York', '2025-05-08', 40.6310352, -73.9520082, 'Brooklyn College East Quad, Brooklyn, NY'],
+        // ── ICE surge · south Minneapolis (Lake St) · Dec 15, 2025 ──
+        ['ICE agents clash with residents; two arrested in south Minneapolis', 'https://www.cbsnews.com/minnesota/news/ice-agents-south-minneapolis-clash-protests/', 'CBS Minnesota', '2025-12-15', 44.9491775, -93.2814357, 'Lake St & Pillsbury Ave (Karmel Mall), Minneapolis, MN'],
+        // ── ICE surge · Minneapolis hotel housing ICE agents · Jan 29, 2026 ──
+        ['67 arrested protesting outside a Minneapolis hotel housing ICE agents', 'https://www.advocate.com/news/minneapolis-hotel-ice-arrests-67', 'The Advocate', '2026-01-29', 44.9737275, -93.2300222, 'Graduate by Hilton, 615 Washington Ave SE, Minneapolis, MN'],
+        // ── ICE surge · Broadview ICE facility (already pinned) · Sep 19, 2025 ──
+        ['At least four arrested in a 12-hour protest at the Broadview ICE facility', 'https://www.cbsnews.com/chicago/news/broadview-ice-facility-protest-illinois/', 'CBS Chicago', '2025-09-19', null, null, null],
+        // ── ICE surge · Whipple Federal Building (already pinned) · Feb 7, 2026 ──
+        ['54 arrested at an anti-ICE protest outside the Whipple Federal Building', 'https://kstp.com/kstp-news/top-news/unlawful-assembly-declared-outside-whipple-building-after-deputy-was-struck-in-the-head/', 'KSTP', '2026-02-07', null, null, null],
+        // ── ICE · 26 Federal Plaza (already pinned) · Sep 18, 2025 ──
+        ['70+ arrested, including 15 NY officials, at a 26 Federal Plaza ICE protest', 'https://www.cityandstateny.com/politics/2025/09/state-and-city-lawmakers-arrested-26-federal-plaza/408218/', 'City & State NY', '2025-09-18', null, null, null],
+        // ── ICE · SF immigration court (already pinned) · Dec 16, 2025 ──
+        ['42 faith leaders arrested chaining themselves to the SF immigration court', 'https://missionlocal.org/2025/12/faith-leaders-chain-immigration-court-san-francisco/', 'Mission Local', '2025-12-16', null, null, null],
+        // ── DC · about 60 veterans arrested at the US Capitol · Jun 13, 2025 ──
+        ['About 60 veterans arrested at the US Capitol over the military parade', 'https://www.cbsnews.com/news/police-arrest-protesters-u-s-capitol/', 'CBS News', '2025-06-13', 38.8898130, -77.0090208, 'U.S. Capitol grounds, Washington, DC'],
+        // ── DC · Moral Monday (US Capitol, already pinned) · Jun 30, 2025 ──
+        ['38 arrested with caskets at a Moral Monday protest of Medicaid cuts', 'https://wjla.com/news/local/protestors-arrested-capitol-opposing-medicaid-casket-donald-trump-big-beautiful-bill-bishop-william-j-barber-jamie-raskin-low-wage-americans-supreme-court-rotunda-moral-mondays-repairers-of-the-breach', 'WJLA', '2025-06-30', null, null, null],
+        // ── Statehouse · Sen. Capito's office sit-in, Charleston WV · Jun 25, 2025 ──
+        ["Six arrested in a sit-in at Sen. Capito's office over SNAP and Medicaid cuts", 'https://www.wvgazettemail.com/news/legal_affairs/6-arrested-during-sit-in-at-capitos-office-to-protest-one-big-beautiful-bill/article_44438316-d7e9-4bf2-ac69-657e6a385196.html', 'WV Gazette-Mail', '2025-06-25', 38.3511946, -81.6382586, "Sen. Capito's office (500 Virginia St E), Charleston, WV"],
+        // ── Statehouse · Texas Capitol redistricting (already pinned) · Aug 18, 2025 ──
+        ['Four arrested refusing to leave the Texas Capitol over redistricting', 'https://www.fox7austin.com/news/four-protesters-arrested-after-refusing-leave-texas-capitol-building', 'FOX 7 Austin', '2025-08-18', null, null, null],
+        // ── Statehouse · CT Capitol climate sit-in (already pinned) · Nov 17, 2025 ──
+        ["Nine climate activists arrested in a sit-in at Gov. Lamont's office", 'https://ctnewsjunkie.com/2025/11/18/nine-arrested-after-ct-climate-activists-stage-sit-in-at-governors-office/', 'CT News Junkie', '2025-11-17', null, null, null],
+        // ── Anti-ICE · ICE garage blockade, Center City Philadelphia · Mar 30, 2026 ──
+        ['10 arrested blocking an ICE garage in Center City Philadelphia', 'https://www.inquirer.com/news/immigration-protest-ice-garage-center-city-philadelphia-20260330.html', 'The Philadelphia Inquirer', '2026-03-30', 39.9540235, -75.1530279, 'ICE garage, 8th & Cherry St, Center City, Philadelphia, PA'],
     ];
 
     /**
@@ -412,6 +462,8 @@ final class SeedDashboardEvents extends Command {
             'https://hyperallergic.com/rollicking-protest-against-bezoss-met-gala-erupts-in-manhattan/',
             // Charlotte, NC — woman charged with assaulting an officer at an ICE protest
             'https://www.wfae.org/crime-justice/2025-11-21/charlotte-woman-faces-federal-charge-missing-property-after-arrest-at-ice-protest',
+            // round 3 — Cal Poly Humboldt occupation arrest
+            'https://lostcoastoutpost.com/2026/mar/6/three-students-handed-interim-suspensions-nelson-h/',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
@@ -428,6 +480,19 @@ final class SeedDashboardEvents extends Command {
             'https://www.paloaltoonline.com/crime/2025/10/03/grand-jury-indicts-11-pro-palestine-stanford-protestors/',
             // 33 charged over the UW engineering-building occupation
             'https://www.kuow.org/stories/33-charged-in-occupation-and-vandalism-of-university-of-washington-engineering-building',
+            // round 3 — anti-ICE / campus prosecutions
+            'https://local12.com/news/nation-world/portland-man-pleads-guilty-to-arson-at-ice-facility-faces-up-to-20-years-in-prison-trenten-barker-oregon-multnomah-county-immigration-customs-enforcement',
+            'https://www.opb.org/article/2026/02/20/portlander-pleads-guilty-hitting-ice-officer-protest/',
+            'https://www.ksat.com/news/national/2026/02/01/man-sentenced-to-4-years-in-prison-for-throwing-molotov-cocktail-during-la-immigration-protest/',
+            'https://www.nbclosangeles.com/news/local/paramount-federal-officer-assault-elpidio-reyna/3849329/',
+            'https://www.cbsnews.com/losangeles/news/california-men-plead-guilty-violence-chp-officers-los-angeles-immigration-protests/',
+            'https://www.foxla.com/news/ice-officer-stalking-livestream-conviction-los-angeles',
+            'https://timesofsandiego.com/crime/2026/03/05/activist-home-detention-no-prison-federal-agent/',
+            'https://www.pbs.org/newshour/nation/read-the-full-indictment-against-don-lemon-georgia-fort-and-others-charged-in-minnesota',
+            'https://blockclubchicago.org/2026/05/21/trial-date-for-broadview-protesters-vacated-just-days-ahead-of-expected-start/',
+            'https://www.foxnews.com/us/spokane-3-protesters-convicted-federal-conspiracy-charges-blocking-ice-transfer-washington',
+            'https://mynewsla.com/crime/2026/04/07/2-of-3-defendants-acquitted-in-uci-protest-trial/',
+            'https://paw.princeton.edu/article/clio-hall-protest-trial-municipal-court-delayed-until-june',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
