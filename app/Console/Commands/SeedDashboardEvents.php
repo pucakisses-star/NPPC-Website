@@ -301,6 +301,46 @@ final class SeedDashboardEvents extends Command {
 
         // ── Met Gala protest (Bezos-sponsored) · Chris Smalls arrested · May 4, 2026 ──
         ['Labor leader Chris Smalls arrested at the protest outside the Bezos-sponsored Met Gala', 'https://hyperallergic.com/rollicking-protest-against-bezoss-met-gala-erupts-in-manhattan/', 'Hyperallergic', '2026-05-04', 40.7794396, -73.9633825, 'Metropolitan Museum of Art (Met Gala), Manhattan, NY'],
+
+        // ===== more curated protest / arrest events (round 2) =====
+        // ── Pro-Palestine campus · University of Michigan (Rackham) · Oct 23, 2025 ──
+        ['Three arrested protesting an IDF-soldier talk at the University of Michigan', 'https://www.michigandaily.com/news/news-briefs/three-pro-palestine-activists-arrested-for-protesting-speech-given-by-former-israeli-soldiers/', 'The Michigan Daily', '2025-10-23', 42.2806127, -83.7373430, 'Rackham Graduate School, University of Michigan, Ann Arbor, MI'],
+        // ── Pro-Palestine campus · Ohio State University · Apr 15, 2026 ──
+        ['Two arrested at an Ohio State protest of a Students Supporting Israel event', 'https://www.wosu.org/politics-government/2026-04-15/protest-organizers-criticize-ohio-state-after-university-police-arrest-student-and-staff-member', 'WOSU', '2026-04-15', 39.9979095, -83.0081480, 'Ohio Union, Ohio State University, Columbus, OH'],
+        // ── Anti-ICE · Charlotte ICE office · Nov 17, 2025 ──
+        ['Woman charged with assaulting an officer at a Charlotte ICE-office protest', 'https://www.wfae.org/crime-justice/2025-11-21/charlotte-woman-faces-federal-charge-missing-property-after-arrest-at-ice-protest', 'WFAE', '2025-11-17', 35.1644837, -80.9110578, 'U.S. ICE office, southwest Charlotte, NC'],
+        // ── Anti-ICE · LA Metropolitan Detention Center (round-the-clock protest) · Aug 6, 2025 ──
+        ['18 arrested at a round-the-clock anti-ICE protest at the LA detention center', 'https://capitalandmain.com/federal-officers-continue-arresting-anti-ice-protesters-during-24-7-demonstrations', 'Capital & Main', '2025-08-06', 34.0535694, -118.2385494, 'Metropolitan Detention Center, Los Angeles, CA'],
+        // ── Anti-ICE · Columbia University gates · Feb 5, 2026 ──
+        ["NYPD arrests 12 at an anti-ICE demonstration outside Columbia's gates", 'https://abc7ny.com/post/anti-ice-protest-outside-columbia-university-leads-12-arrests/18549912/', 'ABC7 New York', '2026-02-05', 40.8077507, -73.9624901, 'Columbia University gates (Broadway & W 116th St), Manhattan, NY'],
+        // ── Anti-ICE · San Diego City Hall (mayor's office occupation) · Jan 23, 2026 ──
+        ["Six arrested occupying the San Diego mayor's office over ICE cooperation", 'https://www.nbcsandiego.com/news/local/anti-ice-protesters-occupy-san-diego-mayors-office/3965984/', 'NBC 7 San Diego', '2026-01-23', 32.7169986, -117.1628361, 'San Diego City Administration Building, CA'],
+        // ── "No Kings" · Salt Lake City · Jun 14, 2025 ──
+        ['No Kings march in Salt Lake City marred by a fatal shooting; one arrested', 'https://www.sltrib.com/news/2025/06/20/man-held-no-kings-shooting/', 'The Salt Lake Tribune', '2025-06-14', 40.7668142, -111.8871222, 'Wallace F. Bennett Federal Building, Salt Lake City, UT'],
+        // ── "No Kings" · Charlotte (First Ward Park) · Jun 14, 2025 ──
+        ['Two arrested after the No Kings protest in uptown Charlotte', 'https://www.wccbcharlotte.com/2025/06/14/cmpd-two-arrested-one-injured-after-conclusion-of-no-kings-protest-in-uptown-charlotte/', 'WCCB Charlotte', '2025-06-14', 35.2281758, -80.8359315, 'First Ward Park, Charlotte, NC'],
+        // ── "No Kings" · Nashville (Bicentennial Capitol Mall) · Jun 14, 2025 ──
+        ['Armed counter-protester arrested at the Nashville No Kings rally', 'https://www.wgnsradio.com/article/93378/murfreesboro-teen-arrested-at-nashville-protest-for-brandishing-handgun', 'WGNS Radio', '2025-06-14', 36.1711123, -86.7876691, 'Bicentennial Capitol Mall State Park, Nashville, TN'],
+        // ── "No Kings" · Tucson · Jun 14, 2025 ──
+        ['Two arrested after No Kings protesters clashed with Tucson police', 'https://www.kold.com/2025/06/16/tucson-police-arrest-two-after-officer-assaulted-during-weekend-protests/', 'KOLD News 13', '2025-06-14', 32.2097000, -110.9268000, 'E 22nd St & S Country Club Rd, Tucson, AZ'],
+        // ── "No Kings 2.0" · Portland OR ICE facility · Oct 18, 2025 (facility already pinned) ──
+        ['Three arrested at the Portland ICE building after a No Kings 2.0 rally', 'https://www.kptv.com/2025/10/18/latest-updates-people-protest-portland-ice-building-after-no-kings-20-rally/', 'KPTV FOX 12', '2025-10-18', null, null, null],
+        // ── "No Kings" · Spokane ICE facility · Mar 28, 2026 ──
+        ['Two arrested outside the ICE facility at a downtown Spokane No Kings rally', 'https://www.spokesman.com/stories/2026/mar/28/two-arrested-outside-ice-facility-at-downtown-spok/', 'The Spokesman-Review', '2026-03-28', 47.6658024, -117.4181787, 'ICE facility, 411 W Cataldo Ave, Spokane, WA'],
+        // ── Pro-Palestine · JVP sit-in at Sen. Schumer's office, Manhattan · Aug 1, 2025 ──
+        ["JVP sit-in at Schumer's office; 50 arrested over Gaza arms sales", 'https://www.commondreams.org/news/chuck-schumer-gaza', 'Common Dreams', '2025-08-01', 40.7550043, -73.9718262, 'Sens. Schumer & Gillibrand offices, 780 Third Ave, Manhattan, NY'],
+        // ── Anti-ICE · 26 Federal Plaza, Manhattan · Aug 8, 2025 (plaza already pinned) ──
+        ['15 arrested at an anti-ICE protest outside 26 Federal Plaza', 'https://www.cbsnews.com/newyork/news/federal-plaza-ice-protests-nyc/', 'CBS News New York', '2025-08-08', null, null, null],
+        // ── Anti-abortion · Red Rose Rescue, Delaware County · Jul 31, 2025 ──
+        ['Six Red Rose Rescue activists arrested at a Delaware County abortion clinic', 'https://www.liveaction.org/news/six-red-rose-rescuers-arrested-outreach-pennsylvania', 'Live Action', '2025-07-31', 39.8512000, -75.3835000, "Delaware County Women's Center, Upland, PA"],
+        // ── Anti-abortion · Operation Rescue blockade, Memphis · Dec 5, 2025 ──
+        ['14 anti-abortion activists arrested blockading a Memphis Planned Parenthood', 'https://msmagazine.com/2025/11/26/anti-abortion-traning-operation-rescue-trump-clinic-violence/', 'Ms. Magazine', '2025-12-05', 35.1396914, -89.9797158, 'Planned Parenthood, 2430 Poplar Ave, Memphis, TN'],
+        // ── Labor · teachers' sit-in at the Connecticut Capitol · May 21, 2025 ──
+        ["10 educators arrested in a sit-in at Gov. Lamont's office over school funding", 'https://ctmirror.org/2025/05/21/teachers-arrested-capitol-education-funding/', 'CT Mirror', '2025-05-21', 41.7641400, -72.6822665, 'Connecticut State Capitol, Hartford, CT'],
+        // ── Labor · SEIU 721 county workers, Los Angeles · Jun 3, 2025 ──
+        ['Six SEIU county workers arrested in civil disobedience at the LA Board of Supervisors', 'https://mynewsla.com/government/2025/06/03/la-county-workers-gather-in-downtown-demanding-contract-negotiations-4/', 'MyNewsLA', '2025-06-03', 34.0568474, -118.2462025, 'Kenneth Hahn Hall of Administration, Los Angeles, CA'],
+        // ── Labor · Culinary Union airport workers, Las Vegas · Dec 3, 2025 ──
+        ['About two dozen Culinary Union airport workers arrested blocking a Las Vegas road', 'https://lasvegassun.com/news/2025/dec/03/las-vegas-airport-workers-arrested-in-civil-disobe/', 'Las Vegas Sun', '2025-12-03', 36.0861034, -115.1611002, 'Harry Reid International Airport, Las Vegas, NV'],
     ];
 
     /**
@@ -370,6 +410,8 @@ final class SeedDashboardEvents extends Command {
             'https://www.fox4news.com/news/woman-arrested-facebook-post-concerning-trinidad-water-poisoning',
             // Met Gala protest (Bezos-sponsored) — Chris Smalls arrested
             'https://hyperallergic.com/rollicking-protest-against-bezoss-met-gala-erupts-in-manhattan/',
+            // Charlotte, NC — woman charged with assaulting an officer at an ICE protest
+            'https://www.wfae.org/crime-justice/2025-11-21/charlotte-woman-faces-federal-charge-missing-property-after-arrest-at-ice-protest',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
