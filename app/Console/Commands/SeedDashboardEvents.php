@@ -262,6 +262,42 @@ final class SeedDashboardEvents extends Command {
         ["Woman arrested over Facebook post about her town's water", 'https://www.fox4news.com/news/woman-arrested-facebook-post-concerning-trinidad-water-poisoning', 'FOX 4', '2026-05-08', 32.1440417, -96.0910814, 'Trinidad, TX'],
         // ── Indianapolis IN · Martindale-Brightwood · Apr 6, 2026 (data-center backlash shooting) ──
         ["13 shots fired at Indianapolis councilor's home with 'No Data Centers' note", 'https://www.cbsnews.com/news/indianapolis-councilor-ron-gibson-home-shooting-data-centers-note/', 'CBS News', '2026-04-06', 39.8082861, -86.1197981, 'Martindale-Brightwood, Indianapolis, IN'],
+
+        // ===== broader protest movements (May 2025 – May 2026) =====
+        // ── "No Kings" / 50501 anti-Trump ──
+        ["One arrested as 'No Kings' protesters fill the Arizona Capitol", 'https://www.azfamily.com/2025/10/18/no-kings-protests-planned-across-arizona-nationwide-amid-government-shutdown/', "Arizona's Family", '2025-10-18', 33.4481220, -112.0972114, 'Arizona State Capitol, Phoenix, AZ'],
+        ["14 arrested at a downtown LA 'No Kings' protest", 'https://laist.com/news/politics/lapd-made-at-least-13-arrests-at-saturdays-no-kings-protest', 'LAist', '2025-10-18', 34.0535694, -118.2385494, 'Metropolitan Detention Center, Los Angeles, CA'],
+        ["12 arrested at a Denver 'No Kings' rally as police deploy smoke", 'https://www.cbsnews.com/colorado/news/no-kings-rallies-colorado-october-2025/', 'CBS Colorado', '2025-10-18', 39.7399969, -104.9844034, 'Colorado State Capitol, Denver, CO'],
+        ["75 arrested after a 'No Kings' march in downtown Los Angeles", 'https://www.cbsnews.com/losangeles/news/no-kings-downtown-los-angeles-march-28/', 'CBS Los Angeles', '2026-03-28', 34.0555008, -118.2456965, 'Gloria Molina Grand Park, Los Angeles, CA'],
+
+        // ── May Day · Make Billionaires Pay (anti-billionaire / climate justice) ──
+        ['Climate activists block the New York Stock Exchange on May Day', 'https://www.cbsnews.com/newyork/news/may-day-protest-nyc-washington-square-park/', 'CBS New York', '2026-05-01', 40.7068530, -74.0112564, 'New York Stock Exchange, Manhattan, NY'],
+        ["About 25,000 march down Park Avenue to 'Make Billionaires Pay'", 'https://www.thenation.com/article/environment/make-billionaires-pay-march-climate-change/', 'The Nation', '2025-09-20', 40.7563245, -73.9721063, 'Park Avenue, Manhattan, NY'],
+
+        // ── Faith / labor anti-ICE actions ──
+        ["54 faith leaders arrested in a Hart Senate 'Abolish ICE' sit-in", 'https://www.indcatholicnews.com/news/54249', 'Independent Catholic News', '2026-01-30', 38.8928461, -77.0041747, 'Hart Senate Office Building, Washington, DC'],
+        ['At least 10 clergy arrested at the Philadelphia ICE field office', 'https://www.nbcphiladelphia.com/news/local/clergy-members-arrested-during-anti-ice-protest-in-philly/4377018/', 'NBC10 Philadelphia', '2026-03-30', 39.9512871, -75.1535469, 'ICE field office, N 8th St, Philadelphia, PA'],
+
+        // ── Pro-Palestine campus organizing ──
+        ["80 arrested as pro-Palestinian protesters occupy Columbia's Butler Library", 'https://www.cbsnews.com/newyork/news/columbia-university-library-pro-palestinian-demonstration/', 'CBS New York', '2025-05-07', 40.8077507, -73.9624901, 'Columbia University (Butler Library), New York, NY'],
+        ['13 arrested at a pro-Palestine Gaza protest on Boston Common', 'https://www.tuftsdaily.com/article/2025/10/two-students-arrested-at-pro-palestine-protest-in-boston', 'The Tufts Daily', '2025-10-07', 42.3550826, -71.0656909, 'Boston Common, Boston, MA'],
+        ["11 Stanford protesters indicted over the president's-office takeover", 'https://www.paloaltoonline.com/crime/2025/10/03/grand-jury-indicts-11-pro-palestine-stanford-protestors/', 'Palo Alto Online', '2025-10-03', 37.4289814, -122.1700548, 'Stanford University, Stanford, CA'],
+        ['33 charged over the UW engineering-building occupation', 'https://www.kuow.org/stories/33-charged-in-occupation-and-vandalism-of-university-of-washington-engineering-building', 'KUOW', '2026-03-04', 47.6554303, -122.3001692, 'University of Washington, Seattle, WA'],
+
+        // ── Anti–National Guard deployment ──
+        ["'Free the 901' coalition marches against the National Guard in Memphis", 'https://mlk50.com/2025/09/30/free-the-901-coalition-forms-to-oppose-recent-federal-intervention-in-memphis/', 'MLK50', '2025-09-28', 35.1489460, -90.0521594, 'Memphis City Hall, Memphis, TN'],
+
+        // ── Trans & LGBTQ rights ──
+        ['Nine trans activists arrested at the Supreme Court over the Skrmetti ruling', 'https://www.washingtonblade.com/2025/06/20/nine-trans-activists-arrested-outside-supreme-court/', 'Washington Blade', '2025-06-18', 38.8906043, -77.0044112, 'U.S. Supreme Court, Washington, DC'],
+        ['Trans activists stage a bathroom sit-in at the Texas Capitol over SB8', 'https://www.thepinknews.com/2025/08/25/texas-trans-bathroom-bill-protest/', 'PinkNews', '2025-08-22', 30.2746652, -97.7404598, 'Texas State Capitol, Austin, TX'],
+
+        // ── March for Life (anti-abortion) ──
+        ['Tens of thousands rally at the 53rd National March for Life', 'https://www.catholicbusinessjournal.com/news/life-and-liberty/csr-catholic-social-responsibility/life-issues/highlights-53rd-national-march-for-life-in-the-nations-capital-on-january-23-2026', 'Catholic Business Journal', '2026-01-23', 38.8897468, -77.0230745, 'National Mall, Washington, DC'],
+
+        // ── Synagogue / Israel-related demonstrations ──
+        ['Two arrested as a pro-Palestinian protest disrupts an LA synagogue event', 'https://www.jta.org/2025/12/04/united-states/2-arrested-after-pro-palestinian-protest-disrupts-event-on-la-synagogue-campus', 'Jewish Telegraphic Agency', '2025-12-04', 34.0621612, -118.3049974, 'Wilshire Boulevard Temple, Los Angeles, CA'],
+        ['Dueling crowds face off at Park East Synagogue over an Israeli real-estate expo', 'https://ny1.com/nyc/manhattan/news/2026/05/06/tense-protests-and-counter-protest-outside-park-east-synagogue', 'NY1', '2026-05-06', 40.7670121, -73.9633639, 'Park East Synagogue, Manhattan, NY'],
+        ['Four arrested at dueling protests over an Israeli real-estate expo in Brooklyn', 'https://www.brooklynpaper.com/midwood-pro-palestine-pro-israel-protest/', 'Brooklyn Paper', '2026-05-11', 40.6205176, -73.9558275, 'Young Israel of Midwood, Brooklyn, NY'],
     ];
 
     /**
@@ -341,6 +377,10 @@ final class SeedDashboardEvents extends Command {
             'https://www.democracynow.org/2025/7/16/headlines/federal_agents_arrest_9_over_spokane_ice_protests_including_former_city_council_president',
             // Four protesters charged after the Omaha ICE raid
             'https://nebraskapublicmedia.org/en/news/news-articles/defendants-accused-of-interfering-with-law-enforcement-after-omaha-ice-raid-appear-in-federal-court/',
+            // 11 pro-Palestine Stanford protesters indicted (president's-office takeover)
+            'https://www.paloaltoonline.com/crime/2025/10/03/grand-jury-indicts-11-pro-palestine-stanford-protestors/',
+            // 33 charged over the UW engineering-building occupation
+            'https://www.kuow.org/stories/33-charged-in-occupation-and-vandalism-of-university-of-washington-engineering-building',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
