@@ -298,6 +298,9 @@ final class SeedDashboardEvents extends Command {
         ['Two arrested as a pro-Palestinian protest disrupts an LA synagogue event', 'https://www.jta.org/2025/12/04/united-states/2-arrested-after-pro-palestinian-protest-disrupts-event-on-la-synagogue-campus', 'Jewish Telegraphic Agency', '2025-12-04', 34.0621612, -118.3049974, 'Wilshire Boulevard Temple, Los Angeles, CA'],
         ['Dueling crowds face off at Park East Synagogue over an Israeli real-estate expo', 'https://ny1.com/nyc/manhattan/news/2026/05/06/tense-protests-and-counter-protest-outside-park-east-synagogue', 'NY1', '2026-05-06', 40.7670121, -73.9633639, 'Park East Synagogue, Manhattan, NY'],
         ['Four arrested at dueling protests over an Israeli real-estate expo in Brooklyn', 'https://www.brooklynpaper.com/midwood-pro-palestine-pro-israel-protest/', 'Brooklyn Paper', '2026-05-11', 40.6205176, -73.9558275, 'Young Israel of Midwood, Brooklyn, NY'],
+
+        // ── Met Gala protest (Bezos-sponsored) · Chris Smalls arrested · May 4, 2026 ──
+        ['Labor leader Chris Smalls arrested at the protest outside the Bezos-sponsored Met Gala', 'https://hyperallergic.com/rollicking-protest-against-bezoss-met-gala-erupts-in-manhattan/', 'Hyperallergic', '2026-05-04', 40.7794396, -73.9633825, 'Metropolitan Museum of Art (Met Gala), Manhattan, NY'],
     ];
 
     /**
@@ -365,6 +368,8 @@ final class SeedDashboardEvents extends Command {
             'https://www.datacenterdynamics.com/en/news/man-arrested-for-causing-cell-tower-outage-in-colorado/',
             // Trinidad, TX — Facebook-post arrest
             'https://www.fox4news.com/news/woman-arrested-facebook-post-concerning-trinidad-water-poisoning',
+            // Met Gala protest (Bezos-sponsored) — Chris Smalls arrested
+            'https://hyperallergic.com/rollicking-protest-against-bezoss-met-gala-erupts-in-manhattan/',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
