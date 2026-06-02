@@ -444,7 +444,7 @@
                         @if ($a->label)
                             <span class="ppd-tagchip" style="background: #e0a82e">{{ $a->label }}</span>
                         @endif
-                        <span class="ppd-feed-date">{{ $smartDate($a->date) }}</span>
+                        <span class="ppd-feed-date">{{ optional($a->date)->format('M j, Y') }}</span>
                     </span>
                 </a>
             @empty
