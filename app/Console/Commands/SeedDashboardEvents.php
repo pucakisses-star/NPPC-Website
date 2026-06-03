@@ -394,6 +394,55 @@ final class SeedDashboardEvents extends Command {
 
         // ── Policy · White House "pre-crime" counterterrorism strategy · May 6, 2026 ──
         ["White House 'pre-crime' counterterrorism strategy targets left-wing activists", 'https://www.kenklippenstein.com/p/insane-pre-crime-strategy-unveiled', 'Ken Klippenstein', '2026-05-06', 38.8976387, -77.0365528, 'White House, Washington, DC'],
+
+        // ===== round 4: state-by-state fill (mostly No Kings rallies in unmapped states) =====
+        // ── South Carolina · Charleston No Kings · Jun 14, 2025 ──
+        ['Two arrested after the Charleston No Kings rally splinters into a march', 'https://www.counton2.com/news/local-news/video-shows-protesters-arrest-after-splintering-from-charleston-no-kings-rally/', 'WCBD News 2', '2025-06-14', 32.7861288, -79.9363609, 'Marion Square, Charleston, SC'],
+        // ── Alabama · Fairhope No Kings · Oct 18, 2025 (charges later dropped) ──
+        ['Woman in an inflatable costume arrested at the Fairhope No Kings protest', 'https://alabamareflector.com/2025/10/20/fairhope-police-arrest-woman-in-penis-costume-at-no-kings-protest/', 'Alabama Reflector', '2025-10-18', 30.5215729, -87.9012085, 'Fairhope, AL'],
+        // ── Montana · Kalispell No Kings · Jun 14, 2025 ──
+        ['Five arrested and one injured by a car at the Kalispell No Kings protest', 'https://dailyinterlake.com/news/2025/jun/17/five-arrested-and-one-injured-in-largely-peaceful-no-kings-protest-in-kalispell/', 'Daily Inter Lake', '2025-06-14', 48.1996415, -114.3133057, 'Depot Park, Kalispell, MT'],
+        // ── Virginia · Richmond No Kings · Oct 18, 2025 ──
+        ['Thousands flood Richmond for a No Kings rally at the Virginia Capitol', 'https://virginiamercury.com/2025/10/18/thousands-flood-richmond-streets-for-no-king-rally-in-protest-of-trump-administration/', 'Virginia Mercury', '2025-10-18', 37.5388175, -77.4335577, 'Virginia State Capitol, Richmond, VA'],
+        // ── Louisiana · New Orleans No Kings · Oct 18, 2025 ──
+        ['About 6,500 march through the Marigny for No Kings in New Orleans', 'https://www.nola.com/news/no-kings-louisiana/article_f5bd0b46-eab9-483a-bc9b-1d4045f3f4cc.html', 'NOLA.com', '2025-10-18', 29.9650386, -90.0573012, 'Washington Square Park (Marigny), New Orleans, LA'],
+        // ── Maryland · Baltimore No Kings · Oct 18, 2025 ──
+        ['Thousands rally in Baltimore for the No Kings day of protest', 'https://www.thebanner.com/politics-power/national-politics/no-kings-protest-baltimore-maryland-24ARQ7QOCBCHZD2Q5NZSKQQJWY/', 'The Baltimore Banner', '2025-10-18', 39.2855316, -76.6132279, 'McKeldin Square, Baltimore, MD'],
+        // ── Mississippi · Jackson No Kings · Jun 14, 2025 ──
+        ['About 1,500 surround the Mississippi Capitol for a No Kings protest', 'https://mississippitoday.org/2025/06/14/no-kings-mississippi-protests-donald-trump-jackson-gulfport/', 'Mississippi Today', '2025-06-14', 32.3038186, -90.1820767, 'Mississippi State Capitol, Jackson, MS'],
+        // ── Kansas · Topeka No Kings · Jun 14, 2025 ──
+        ['More than 5,000 rally at the Kansas Statehouse for No Kings', 'https://lawrencekstimes.com/2025/06/14/topeka-no-kings-protest/', 'Lawrence Times', '2025-06-14', 39.0481240, -95.6780165, 'Kansas State Capitol, Topeka, KS'],
+        // ── Iowa · Des Moines student walkouts over an ICE detention · Sep 26, 2025 ──
+        ['Des Moines students walk out over the ICE detention of their superintendent', 'https://www.nbcnews.com/news/us-news/des-moines-iowa-superintendent-ian-roberts-ice-detained-rcna234470', 'NBC News', '2025-09-26', 41.5910263, -93.6032079, 'Iowa State Capitol, Des Moines, IA'],
+        // ── Arkansas · Little Rock DHS deportation hub · Nov 19, 2025 ──
+        ["Daily anti-ICE protests outside Little Rock's DHS deportation hub", 'https://arktimes.com/arkansas-blog/2025/11/19/ices-little-rock-office-becomes-focus-of-protests-against-detentions-deportations-of-immigrants', 'Arkansas Times', '2025-11-19', 34.7214370, -92.2248431, 'DHS office, 4501 E Roosevelt Rd, Little Rock, AR'],
+        // ── Alaska · Anchorage No Kings · Oct 18, 2025 ──
+        ['Thousands pack Anchorage Town Square Park for No Kings', 'https://www.adn.com/alaska-news/anchorage/2025/10/18/no-kings-demonstrators-protest-in-downtown-anchorage/', 'Anchorage Daily News', '2025-10-18', 61.2171274, -149.8924689, 'Town Square Park, Anchorage, AK'],
+        // ── North Dakota · Bismarck No Kings · Jun 14, 2025 ──
+        ['Hundreds rally at the North Dakota Capitol for No Kings', 'https://bismarcktribune.com/news/state-regional/article_9d51f3b3-466d-45de-ae3f-3606c70a4c25.html', 'Bismarck Tribune', '2025-06-14', 46.8208186, -100.7830689, 'North Dakota State Capitol, Bismarck, ND'],
+        // ── South Dakota · Sioux Falls No Kings · Oct 18, 2025 ──
+        ['No Kings protesters take to the streets across South Dakota', 'https://southdakotasearchlight.com/briefs/enough-of-the-tyranny-no-kings-protesters-take-to-the-streets-in-south-dakota/', 'South Dakota Searchlight', '2025-10-18', 43.5460000, -96.7313000, 'downtown Sioux Falls, SD'],
+        // ── Wyoming · Cheyenne No Kings · Jun 14, 2025 ──
+        ['Hundreds crowd the Wyoming Capitol lawn for a No Kings protest', 'https://www.wyomingnews.com/news/local_news/hundreds-crowd-capitol-lawn-for-no-kings-protest/article_cce1b882-d070-4e1b-a893-0dbf8f48cc4b.html', 'Wyoming Tribune Eagle', '2025-06-14', 41.1402683, -104.8202289, 'Wyoming State Capitol, Cheyenne, WY'],
+        // ── New Hampshire · Concord No Kings · Oct 18, 2025 ──
+        ['No Kings day draws thousands to the New Hampshire State House', 'https://www.concordmonitor.com/2025/10/18/no-kings-day-protest-concord/', 'Concord Monitor', '2025-10-18', 43.2068627, -71.5381542, 'New Hampshire State House, Concord, NH'],
+        // ── Rhode Island · Providence No Kings · Oct 18, 2025 ──
+        ['Thousands rally at the Rhode Island State House for No Kings', 'https://www.golocalprov.com/news/PHOTOS-Thousands-Attend-No-Kings-Protest-at-Rhode-Island-State-House', 'GoLocalProv', '2025-10-18', 41.8308956, -71.4149587, 'Rhode Island State House, Providence, RI'],
+        // ── Hawaii · Honolulu No Kings · Oct 18, 2025 ──
+        ['Thousands gather in Honolulu for the No Kings day of protest', 'https://spectrumlocalnews.com/hi/hawaii/news/2025/10/19/honolulu-no-kings-demonstration-draws-thousands', 'Spectrum News Hawaii', '2025-10-18', 21.3073335, -157.8569903, 'Hawaii State Capitol, Honolulu, HI'],
+
+        // ===== round 5: major political-prosecution & political-prisoner cases =====
+        // ── Stop Cop City · RICO charges dismissed against all 61 defendants · Dec 30, 2025 ──
+        ['Judge dismisses RICO charges against 61 Stop Cop City defendants', 'https://www.atlantanewsfirst.com/2025/12/31/racketeering-charges-brought-against-public-safety-training-center-protesters-dismissed/', 'Atlanta News First', '2025-12-30', 33.7499951, -84.3907337, 'Fulton County Courthouse, Atlanta, GA'],
+        // ── Political prisoner · Mahmoud Khalil (Columbia) freed · Jun 20, 2025 ──
+        ['Columbia activist Mahmoud Khalil freed from ICE detention over his Gaza activism', 'https://www.npr.org/2025/06/20/nx-s1-5440351/judge-orders-release-of-columbia-activist-mahmoud-khalil', 'NPR', '2025-06-20', 31.7080563, -92.1507019, 'Central Louisiana ICE Processing Center, Jena, LA'],
+        // ── Political prisoner · Rümeysa Öztürk (Tufts) freed · May 9, 2025 ──
+        ['Tufts student Rümeysa Öztürk freed from ICE detention over a Gaza op-ed', 'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention', 'NPR', '2025-05-09', 30.4827000, -92.5938000, 'South Louisiana ICE Processing Center, Basile, LA'],
+        // ── Delaware · No Kings · Oct 18, 2025 (the last unmapped state) ──
+        ['Thousands across Delaware rally for the No Kings day of protest', 'https://www.wdel.com/no-kings-2-0-rallies-set-for-saturday-in-delaware/article_cb54b54a-0518-4807-86d1-8aa78a347f85.html', 'WDEL', '2025-10-18', 39.1573179, -75.5197365, 'Legislative Hall, Dover, DE'],
+
+        // ── Political prisoner · activist Jeanette Vizguerra freed from the Aurora ICE jail · Dec 22, 2025 ──
+        ['Activist Jeanette Vizguerra freed from the Aurora ICE jail after nine months', 'https://coloradosun.com/2025/12/22/jeanette-vizguerra-released-ice/', 'The Colorado Sun', '2025-12-22', 39.7612260, -104.8505622, 'Aurora ICE Processing Center, Aurora, CO'],
     ];
 
     /**
@@ -467,6 +516,13 @@ final class SeedDashboardEvents extends Command {
             'https://www.wfae.org/crime-justice/2025-11-21/charlotte-woman-faces-federal-charge-missing-property-after-arrest-at-ice-protest',
             // round 3 — Cal Poly Humboldt occupation arrest
             'https://lostcoastoutpost.com/2026/mar/6/three-students-handed-interim-suspensions-nelson-h/',
+            // round 4 — Fairhope AL inflatable-costume arrest at a No Kings protest
+            'https://alabamareflector.com/2025/10/20/fairhope-police-arrest-woman-in-penis-costume-at-no-kings-protest/',
+            // round 5 — pro-Palestine activist detentions (Khalil, Öztürk)
+            'https://www.npr.org/2025/06/20/nx-s1-5440351/judge-orders-release-of-columbia-activist-mahmoud-khalil',
+            'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention',
+            // local — Colorado activist Jeanette Vizguerra freed from Aurora ICE jail
+            'https://coloradosun.com/2025/12/22/jeanette-vizguerra-released-ice/',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
@@ -496,6 +552,8 @@ final class SeedDashboardEvents extends Command {
             'https://www.foxnews.com/us/spokane-3-protesters-convicted-federal-conspiracy-charges-blocking-ice-transfer-washington',
             'https://mynewsla.com/crime/2026/04/07/2-of-3-defendants-acquitted-in-uci-protest-trial/',
             'https://paw.princeton.edu/article/clio-hall-protest-trial-municipal-court-delayed-until-june',
+            // round 5 — Stop Cop City RICO dismissal
+            'https://www.atlantanewsfirst.com/2025/12/31/racketeering-charges-brought-against-public-safety-training-center-protesters-dismissed/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
