@@ -26,28 +26,28 @@ final class SeedDashboardEvents extends Command {
     private array $links = [
         // ── Claremore, OK · Rogers State University · Feb 17, 2026 (Project Mustang) ──
         ['Arrest made at heated Claremore data center meeting', 'https://www.newson6.com/tulsa-oklahoma-news/arrest-made-during-heated-claremore-meeting-over-proposed-data-center', 'News On 6', '2026-02-17', 36.3186099, -95.6361137, 'Rogers State University, Claremore, OK'],
-        ['Community activist arrested at Claremore data center meeting', 'https://ktul.com/news/local/community-activist-arrested-at-data-center-meeting-in-claremore', 'KTUL', '2026-02-17', null, null, null],
-        ['Oklahoma man arrested at AI data center meeting', 'https://www.businessinsider.com/data-center-meeting-claremore-oklahoma-man-arrested-beale-infrastructure-ai-2026-2', 'Business Insider', '2026-02-17', null, null, null],
-        ['Oklahoma farmer jailed for trespassing at AI data center town hall', 'https://www.tomshardware.com/tech-industry/big-tech/oklahoma-farmer-arrested-and-jailed-for-trespassing-during-ai-data-center-town-hall-removed-by-officers-after-going-a-few-seconds-over-allotted-speaking-time-trying-to-hand-paperwork-to-counselors', "Tom's Hardware", '2026-02-17', null, null, null],
+        ['Community activist arrested at Claremore data center meeting', 'https://ktul.com/news/local/community-activist-arrested-at-data-center-meeting-in-claremore', 'KTUL', '2026-02-17', 36.3186099, -95.6361137, 'Rogers State University, Claremore, OK'],
+        ['Oklahoma man arrested at AI data center meeting', 'https://www.businessinsider.com/data-center-meeting-claremore-oklahoma-man-arrested-beale-infrastructure-ai-2026-2', 'Business Insider', '2026-02-17', 36.3186099, -95.6361137, 'Rogers State University, Claremore, OK'],
+        ['Oklahoma farmer jailed for trespassing at AI data center town hall', 'https://www.tomshardware.com/tech-industry/big-tech/oklahoma-farmer-arrested-and-jailed-for-trespassing-during-ai-data-center-town-hall-removed-by-officers-after-going-a-few-seconds-over-allotted-speaking-time-trying-to-hand-paperwork-to-counselors', "Tom's Hardware", '2026-02-17', 36.3186099, -95.6361137, 'Rogers State University, Claremore, OK'],
 
         // ── Port Washington, WI · Common Council, City Hall · Dec 2, 2025 ──
         ['Three arrested at Port Washington data center hearing', 'https://www.datacenterdynamics.com/en/news/three-arrested-at-data-center-hearing-in-port-washington-wisconsin/', 'DataCenter Dynamics', '2025-12-02', 43.3876540, -87.8710410, 'Port Washington City Hall, WI'],
-        ['Arrests at Port Washington data center meeting', 'https://www.fox6now.com/news/port-washington-data-center-meeting-arrests', 'FOX6 Milwaukee', '2025-12-02', null, null, null],
-        ['Three arrested at Port Washington city data center meeting', 'https://www.fox6now.com/news/port-washington-data-center-concerns-arrests-city-meeting', 'FOX6 Milwaukee', '2025-12-03', null, null, null],
-        ['Arrest at Port Washington data center protest', 'https://spectrumnews1.com/wi/milwaukee/news/2025/12/07/port-washington-data-center-peaceful-protest-arrest', 'Spectrum News 1', '2025-12-02', null, null, null],
-        ['Woman dragged from council meeting over data center protest', 'https://www.alternet.org/woman-violently-arrested-after-speaking-out-against-ai-data-centers/', 'AlterNet', '2025-12-02', null, null, null],
+        ['Arrests at Port Washington data center meeting', 'https://www.fox6now.com/news/port-washington-data-center-meeting-arrests', 'FOX6 Milwaukee', '2025-12-02', 43.3876540, -87.8710410, 'Port Washington City Hall, WI'],
+        ['Three arrested at Port Washington city data center meeting', 'https://www.fox6now.com/news/port-washington-data-center-concerns-arrests-city-meeting', 'FOX6 Milwaukee', '2025-12-03', 43.3876540, -87.8710410, 'Port Washington City Hall, WI'],
+        ['Arrest at Port Washington data center protest', 'https://spectrumnews1.com/wi/milwaukee/news/2025/12/07/port-washington-data-center-peaceful-protest-arrest', 'Spectrum News 1', '2025-12-02', 43.3876540, -87.8710410, 'Port Washington City Hall, WI'],
+        ['Woman dragged from council meeting over data center protest', 'https://www.alternet.org/woman-violently-arrested-after-speaking-out-against-ai-data-centers/', 'AlterNet', '2025-12-02', 43.3876540, -87.8710410, 'Port Washington City Hall, WI'],
 
         // ── Columbus, OH · Ohio Statehouse · Jun 1, 2026 ──
         ["Blogger 'The Rooster' arrested outside Ohio Statehouse", 'https://signalohio.org/progressive-blogger-the-rooster-arrested-outside-statehouse-charged-with-harassment/', 'Signal Ohio', '2026-06-01', 39.9611755, -82.9987942, 'Ohio Statehouse, Columbus, OH'],
 
         // ── Dixon, IL · threats over a data center near Rock Falls · May 27, 2026 ──
         ['Illinois man arrested after threats over data center', 'https://www.datacenterdynamics.com/en/news/illinois-man-arrested-after-threatening-local-authorities-to-stop-data-center-development/', 'DataCenter Dynamics', '2026-05-27', 41.8426378, -89.4832453, 'Dixon, IL (Rock Falls data center dispute)'],
-        ['Dixon data center critic arrested', 'https://www.businessinsider.com/dixon-illinois-data-center-development-critic-arrested-2026-5', 'Business Insider', '2026-05-27', null, null, null],
-        ['Dixon man arrested over Rock Falls data center threats', 'https://hoodline.com/2026/05/dixon-man-busted-after-threats-over-rock-falls-data-center-site/', 'Hoodline', '2026-05-27', null, null, null],
+        ['Dixon data center critic arrested', 'https://www.businessinsider.com/dixon-illinois-data-center-development-critic-arrested-2026-5', 'Business Insider', '2026-05-27', 41.8426378, -89.4832453, 'Dixon, IL (Rock Falls data center dispute)'],
+        ['Dixon man arrested over Rock Falls data center threats', 'https://hoodline.com/2026/05/dixon-man-busted-after-threats-over-rock-falls-data-center-site/', 'Hoodline', '2026-05-27', 41.8426378, -89.4832453, 'Dixon, IL (Rock Falls data center dispute)'],
 
         // ── Williston, VT · White Cap Business Park (ICE targeting center) · Feb 9, 2026 ──
         ['11 arrested during ICE protest at Williston business park', 'https://vtdigger.org/2026/02/10/11-arrested-during-ice-protest-at-williston-business-park/', 'VTDigger', '2026-02-09', 44.4607481, -73.1229347, 'White Cap Business Park, Williston, VT'],
-        ['Arrests at Williston ICE surveillance center protest', 'https://vnews.com/2026/02/11/williston-ice-protest-arrests/', 'Valley News', '2026-02-09', null, null, null],
+        ['Arrests at Williston ICE surveillance center protest', 'https://vnews.com/2026/02/11/williston-ice-protest-arrests/', 'Valley News', '2026-02-09', 44.4607481, -73.1229347, 'White Cap Business Park, Williston, VT'],
 
         // ── El Centro, CA · Imperial County Board of Supervisors · Apr 11, 2026 ──
         ['Man arrested at Imperial County data center board meeting', 'https://www.latimes.com/california/story/2026-04-11/man-speaking-against-data-center-arrested-at-imperial-county-board-meeting-as-tensions-flare-nationwide', 'Los Angeles Times', '2026-04-11', 32.7929238, -115.5631508, 'Imperial County Admin Center, El Centro, CA'],
@@ -60,43 +60,43 @@ final class SeedDashboardEvents extends Command {
 
         // ── Hobart, IN · Police Court Complex, 705 E 4th St · May 7, 2026 ──
         ['Hobart data center meeting draws large crowd, one arrest', 'https://www.chicagotribune.com/2026/05/09/hobart-meeting-on-data-centers-brings-large-crowd-tight-security-and-one-arrest/', 'Chicago Tribune', '2026-05-07', 41.5316011, -87.2525158, 'Hobart Police Court Complex, IN'],
-        ['Man removed and arrested at Indiana data center meeting', 'https://www.fox32chicago.com/news/video-shows-man-removed-arrested-indiana-data-center-meeting', 'FOX 32 Chicago', '2026-05-07', null, null, null],
-        ['Video: man removed from Indiana data center meeting', 'https://www.fox32chicago.com/video/fmc-qtdelt547oamiybt', 'FOX 32 Chicago', '2026-05-07', null, null, null],
+        ['Man removed and arrested at Indiana data center meeting', 'https://www.fox32chicago.com/news/video-shows-man-removed-arrested-indiana-data-center-meeting', 'FOX 32 Chicago', '2026-05-07', 41.5316011, -87.2525158, 'Hobart Police Court Complex, IN'],
+        ['Video: man removed from Indiana data center meeting', 'https://www.fox32chicago.com/video/fmc-qtdelt547oamiybt', 'FOX 32 Chicago', '2026-05-07', 41.5316011, -87.2525158, 'Hobart Police Court Complex, IN'],
 
         // ── Philadelphia, PA · Delaware Valley Intelligence Center · Jun 1, 2026 ──
         ['Police tracked anti-data-center speech as extremism', 'https://theintercept.com/2026/06/01/ai-data-center-protest-police-surveillance/', 'The Intercept', '2026-06-01', 39.9105823, -75.2219422, 'Delaware Valley Intelligence Center, Philadelphia, PA'],
         // ── Climate · New York State Capitol, Albany NY · Apr 21, 2026 (+ Mar 25) ──
         ['18 arrested at NY Capitol over climate-law rollback', 'https://capitalregion.iheart.com/content/2026-04-22-protesters-arrested-at-new-york-state-capitol-over-climate-law/', 'iHeart Capital Region', '2026-04-21', 42.6525913, -73.7573712, 'New York State Capitol, Albany, NY'],
-        ['Climate advocates arrested at New York State Capitol', 'https://www.wamc.org/news/2026-03-25/climate-advocates-arrested-at-new-york-state-capitol', 'WAMC', '2026-03-25', null, null, null],
-        ['21 arrested as hundreds swarm Capitol over climate law', 'https://www.news10.com/capitol/climate-law-protests-arrests/', 'News10', '2026-03-25', null, null, null],
+        ['Climate advocates arrested at New York State Capitol', 'https://www.wamc.org/news/2026-03-25/climate-advocates-arrested-at-new-york-state-capitol', 'WAMC', '2026-03-25', 42.6525913, -73.7573712, 'New York State Capitol, Albany, NY'],
+        ['21 arrested as hundreds swarm Capitol over climate law', 'https://www.news10.com/capitol/climate-law-protests-arrests/', 'News10', '2026-03-25', 42.6525913, -73.7573712, 'New York State Capitol, Albany, NY'],
 
         // ── Housing · 212 Jefferson Ave, Bedford-Stuyvesant, Brooklyn · Apr 22, 2026 ──
         ['Council member Chi Ossé arrested at Brooklyn eviction protest', 'https://ny1.com/nyc/brooklyn/news/2026/04/22/councilmember-chi-oss--arrested-during-eviction-dispute-in-brooklyn', 'NY1', '2026-04-22', 40.6831871, -73.9491010, '212 Jefferson Ave, Bedford-Stuyvesant, Brooklyn'],
-        ['NYC councilmember released after violent arrest at anti-eviction protest', 'https://www.democracynow.org/2026/4/23/headlines/nyc_councilmember_chi_osse_released_after_violent_arrest_at_anti_eviction_protest', 'Democracy Now!', '2026-04-22', null, null, null],
+        ['NYC councilmember released after violent arrest at anti-eviction protest', 'https://www.democracynow.org/2026/4/23/headlines/nyc_councilmember_chi_osse_released_after_violent_arrest_at_anti_eviction_protest', 'Democracy Now!', '2026-04-22', 40.6831871, -73.9491010, '212 Jefferson Ave, Bedford-Stuyvesant, Brooklyn'],
 
         // ── Anti-war · Hart Senate Office Building, Washington DC · Mar 4, 2026 ──
         ['Marine veteran arrested at Senate hearing over Israel policy', 'https://www.military.com/feature/2026/03/05/brian-mcginnis-removed-senate-hearing-after-protest-over-us-policy-toward-israel.html', 'Military.com', '2026-03-04', 38.8928461, -77.0041747, 'Hart Senate Office Building, Washington, DC'],
-        ['Ex-Marine arrested, arm broken during Iran-war protest in Senate', 'https://www.democracynow.org/2026/3/11/brian_mcginnis_iran_war_protest_congress', 'Democracy Now!', '2026-03-04', null, null, null],
-        ['NC firefighter, Marine veteran charged after Senate hearing protest', 'https://abc11.com/post/marine-veteran-north-carolina-charged-protesting-war-iran-senate-hearing/18679829/', 'ABC11', '2026-03-04', null, null, null],
+        ['Ex-Marine arrested, arm broken during Iran-war protest in Senate', 'https://www.democracynow.org/2026/3/11/brian_mcginnis_iran_war_protest_congress', 'Democracy Now!', '2026-03-04', 38.8928461, -77.0041747, 'Hart Senate Office Building, Washington, DC'],
+        ['NC firefighter, Marine veteran charged after Senate hearing protest', 'https://abc11.com/post/marine-veteran-north-carolina-charged-protesting-war-iran-senate-hearing/18679829/', 'ABC11', '2026-03-04', 38.8928461, -77.0041747, 'Hart Senate Office Building, Washington, DC'],
 
         // ── Trans rights · Idaho State Capitol, Boise ID · Apr 1, 2026 (+ Apr 3) ──
         ['Nine arrested at Idaho Statehouse over anti-trans bill', 'https://idahocapitalsun.com/2026/04/01/protestors-urging-idaho-governor-to-veto-bill-outing-trans-kids-to-parents-arrested-at-statehouse/', 'Idaho Capital Sun', '2026-04-01', 43.6177696, -116.1996904, 'Idaho State Capitol, Boise, ID'],
-        ['Six arrested at Idaho Capitol over trans bathroom-ban sit-in', 'https://www.thepinknews.com/2026/04/06/idaho-trans-bathroom-ban/', 'PinkNews', '2026-04-03', null, null, null],
+        ['Six arrested at Idaho Capitol over trans bathroom-ban sit-in', 'https://www.thepinknews.com/2026/04/06/idaho-trans-bathroom-ban/', 'PinkNews', '2026-04-03', 43.6177696, -116.1996904, 'Idaho State Capitol, Boise, ID'],
 
         // ── Immigration · ICE facility, South Waterfront, Portland OR · Jan 9, 2026 ──
         ['Six arrested at Portland ICE facility protest', 'https://www.newsweek.com/portland-protest-outside-ice-facility-sees-multiple-people-arrested-10868665', 'Newsweek', '2026-01-09', 45.4925394, -122.6725455, 'ICE facility, South Waterfront, Portland, OR'],
-        ['PPB monitors protest near ICE facility; six arrests made', 'https://www.portland.gov/police/news/2026/1/9/ppb-monitors-protest-activity-near-ice-facility-six-arrests-made', 'City of Portland', '2026-01-09', null, null, null],
+        ['PPB monitors protest near ICE facility; six arrests made', 'https://www.portland.gov/police/news/2026/1/9/ppb-monitors-protest-activity-near-ice-facility-six-arrests-made', 'City of Portland', '2026-01-09', 45.4925394, -122.6725455, 'ICE facility, South Waterfront, Portland, OR'],
         // ── Disability rights / Medicaid · Russell Senate Office Building, DC · Jun 25, 2025 ──
         ['Dozens arrested protesting Medicaid cuts at Senate building', 'https://www.nbcwashington.com/news/politics/more-than-30-arrested-at-senate-building-while-protesting-medicaid-cuts/3944587/', 'NBC4 Washington', '2025-06-25', 38.8928229, -77.0062654, 'Russell Senate Office Building, Washington, DC'],
-        ['Wheelchair users zip-tied at Senate Medicaid-cuts protest', 'https://www.wusa9.com/article/news/local/dc/protestors-arrested-russell-senate-office-building/65-973a0d86-65ad-4658-bdae-e72343070601', 'WUSA9', '2025-06-25', null, null, null],
+        ['Wheelchair users zip-tied at Senate Medicaid-cuts protest', 'https://www.wusa9.com/article/news/local/dc/protestors-arrested-russell-senate-office-building/65-973a0d86-65ad-4658-bdae-e72343070601', 'WUSA9', '2025-06-25', 38.8928229, -77.0062654, 'Russell Senate Office Building, Washington, DC'],
 
         // ── Disability rights / Medicaid · Rayburn House Office Building, DC · May 13, 2025 ──
         ['25 arrested protesting Medicaid cuts at House hearing', 'https://www.axios.com/2025/05/13/capitol-police-arrest-protesters-medicaid-budget', 'Axios', '2025-05-13', 38.8867704, -77.0100669, 'Rayburn House Office Building, Washington, DC'],
-        ['Activists arrested outside Medicaid hearing at the Capitol', 'https://www.deseret.com/politics/2025/05/13/protesters-arrested-outside-medicaid-meeting/', 'Deseret News', '2025-05-13', null, null, null],
+        ['Activists arrested outside Medicaid hearing at the Capitol', 'https://www.deseret.com/politics/2025/05/13/protesters-arrested-outside-medicaid-meeting/', 'Deseret News', '2025-05-13', 38.8867704, -77.0100669, 'Rayburn House Office Building, Washington, DC'],
 
         // ── Labor · Empire State Building, Manhattan NY · Dec 4, 2025 (Starbucks strike) ──
         ['12 Starbucks workers arrested in Empire State Building sit-in', 'https://www.democracynow.org/2025/12/5/headlines/12_arrested_as_striking_starbucks_workers_hold_sit_in_protest_at_empire_state_building', 'Democracy Now!', '2025-12-04', 40.7484421, -73.9856589, 'Empire State Building, Manhattan, NY'],
-        ['12 striking Starbucks workers arrested at Empire State Building', 'https://abc7ny.com/post/12-starbucks-workers-arrested-protesting-outside-empire-state-building-manhattan/18253341/', 'ABC7 New York', '2025-12-04', null, null, null],
+        ['12 striking Starbucks workers arrested at Empire State Building', 'https://abc7ny.com/post/12-starbucks-workers-arrested-protesting-outside-empire-state-building-manhattan/18253341/', 'ABC7 New York', '2025-12-04', 40.7484421, -73.9856589, 'Empire State Building, Manhattan, NY'],
 
         // ── Labor · Starbucks Roasting Plant, York County PA · Dec 17, 2025 ──
         ['Starbucks workers arrested blocking York roasting plant', 'https://paydayreport.com/border-patrol-raids-picket-line-starbucks-workers-arrested-at-roasting-plant-ghiradelli-workers-move-to-strike/', 'Payday Report', '2025-12-17', 40.0516630, -76.7393755, 'Starbucks Roasting Plant, York County, PA'],
@@ -109,14 +109,14 @@ final class SeedDashboardEvents extends Command {
 
         // ── Press freedom · Cities Church, St. Paul MN · Jan 30, 2026 ──
         ['Journalists Don Lemon and Georgia Fort arrested over protest coverage', 'https://www.aljazeera.com/news/2026/1/30/journalist-don-lemon-arrested-in-connection-to-minnesota-ice-protest', 'Al Jazeera', '2026-01-30', 44.9409935, -93.1648789, 'Cities Church, St. Paul, MN'],
-        ['Don Lemon arrested by federal authorities, attorney says', 'https://www.nbcnews.com/news/us-news/don-lemon-arrested-federal-authorities-attorney-says-rcna256680', 'NBC News', '2026-01-30', null, null, null],
+        ['Don Lemon arrested by federal authorities, attorney says', 'https://www.nbcnews.com/news/us-news/don-lemon-arrested-federal-authorities-attorney-says-rcna256680', 'NBC News', '2026-01-30', 44.9409935, -93.1648789, 'Cities Church, St. Paul, MN'],
         // ── Immigration / labor · Edward R. Roybal Federal Building, Los Angeles · Jun 6, 2025 ──
         ['SEIU leader David Huerta charged with felony after ICE-raid arrest', 'https://www.cbsnews.com/news/david-huerta-seiu-charged-los-angeles-ice-protest-trump/', 'CBS News', '2025-06-06', 34.0528364, -118.2389802, 'Edward R. Roybal Federal Building, Los Angeles, CA'],
-        ['SEIU leader David Huerta released after charge for impeding ICE', 'https://laist.com/news/la-immigration-raids-protests-huerta-charged', 'LAist', '2025-06-06', null, null, null],
+        ['SEIU leader David Huerta released after charge for impeding ICE', 'https://laist.com/news/la-immigration-raids-protests-huerta-charged', 'LAist', '2025-06-06', 34.0528364, -118.2389802, 'Edward R. Roybal Federal Building, Los Angeles, CA'],
 
         // ── Immigration · Federal Building, 300 N Los Angeles St, Los Angeles · Jun 10, 2025 ──
         ['50 arrested at anti-ICE protest outside downtown LA federal building', 'https://abc7.com/live-updates/live-updates-protesters-clash-officers-during-ice-protest-downtown-la/18511419/', 'ABC7 Los Angeles', '2025-06-10', 34.0537473, -118.2396971, 'Federal Building, 300 N Los Angeles St, Los Angeles, CA'],
-        ['At least 71 charged after Los Angeles anti-ICE protests', 'https://lapublicpress.org/2025/08/ice-raids-la-arrests-charges/', 'LA Public Press', '2025-06-10', null, null, null],
+        ['At least 71 charged after Los Angeles anti-ICE protests', 'https://lapublicpress.org/2025/08/ice-raids-la-arrests-charges/', 'LA Public Press', '2025-06-10', 34.0537473, -118.2396971, 'Federal Building, 300 N Los Angeles St, Los Angeles, CA'],
 
         // ── "No Kings" day · Spokane City Hall, WA · Jun 14, 2025 ──
         ['11 arrested at Spokane No Kings protest outside City Hall', 'https://www.spokesman.com/stories/2025/jun/15/11-arrested-at-spokanes-no-kings-protest/', 'The Spokesman-Review', '2025-06-14', 47.6605613, -117.4241938, 'Spokane City Hall, WA'],
@@ -126,103 +126,103 @@ final class SeedDashboardEvents extends Command {
 
         // ── "No Kings" day · Civic Center, Denver CO · Jun 14, 2025 ──
         ['36 arrested after Denver No Kings demonstration', 'https://coloradosun.com/2025/06/15/no-kings-arrests-denver/', 'The Colorado Sun', '2025-06-14', 39.7392357, -104.9891142, 'Civic Center, Denver, CO'],
-        ['Denver police arrest dozens after No Kings protest', 'https://www.cbsnews.com/colorado/news/denver-police-arrest-17-people-in-connection-with-no-kings-protest-department-says/', 'CBS Colorado', '2025-06-14', null, null, null],
+        ['Denver police arrest dozens after No Kings protest', 'https://www.cbsnews.com/colorado/news/denver-police-arrest-17-people-in-connection-with-no-kings-protest-department-says/', 'CBS Colorado', '2025-06-14', 39.7392357, -104.9891142, 'Civic Center, Denver, CO'],
         // ── Newark NJ · Delaney Hall ICE detention center · May 9, 2025 (Mayor Ras Baraka) ──
         ['Newark Mayor Ras Baraka arrested at Delaney Hall ICE facility', 'https://www.cbsnews.com/newyork/news/newark-mayor-ras-baraka-ice-arrest/', 'CBS New York', '2025-05-09', 40.7180549, -74.1287016, 'Delaney Hall ICE detention center, Newark, NJ'],
-        ['Newark mayor charged with trespassing after ICE-facility arrest', 'https://www.washingtonpost.com/nation/2025/05/09/newark-mayor-ice-arrest-ras-baraka-nj/', 'The Washington Post', '2025-05-09', null, null, null],
+        ['Newark mayor charged with trespassing after ICE-facility arrest', 'https://www.washingtonpost.com/nation/2025/05/09/newark-mayor-ice-arrest-ras-baraka-nj/', 'The Washington Post', '2025-05-09', 40.7180549, -74.1287016, 'Delaney Hall ICE detention center, Newark, NJ'],
 
         // ── Manhattan NY · 26 Federal Plaza immigration court · Jun 17, 2025 (Comptroller Brad Lander) ──
         ['NYC Comptroller Brad Lander arrested by ICE at immigration court', 'https://www.cnn.com/2025/06/17/us/brad-lander-ice-arrest-nyc', 'CNN', '2025-06-17', 40.7154682, -74.0042025, '26 Federal Plaza immigration court, Manhattan, NY'],
-        ['Brad Lander detained by masked federal agents, released without charges', 'https://www.thecity.nyc/2025/06/17/brad-lander-arrest-ice-immigration-court/', 'THE CITY', '2025-06-17', null, null, null],
+        ['Brad Lander detained by masked federal agents, released without charges', 'https://www.thecity.nyc/2025/06/17/brad-lander-arrest-ice-immigration-court/', 'THE CITY', '2025-06-17', 40.7154682, -74.0042025, '26 Federal Plaza immigration court, Manhattan, NY'],
 
         // ── Broadview IL · Broadview ICE Processing Center · Nov 14, 2025 (clergy) ──
         ['At least seven faith leaders arrested at Broadview ICE facility', 'https://religionnews.com/2025/11/15/at-least-seven-faith-leaders-arrested-at-ice-facility-protest/', 'Religion News Service', '2025-11-14', 41.8681021, -87.8659406, 'Broadview ICE Processing Center, Broadview, IL'],
-        ['Evanston residents among 21 arrested in Broadview ICE protest', 'https://evanstonroundtable.com/2025/11/14/evanston-residents-among-21-arrested-in-ice-protest/', 'Evanston RoundTable', '2025-11-14', null, null, null],
-        ['Pastors describe brutality of arrests at Broadview ICE facility', 'https://chicago.suntimes.com/immigration/2025/11/16/clergy-arrests-broadview-ice', 'Chicago Sun-Times', '2025-11-14', null, null, null],
+        ['Evanston residents among 21 arrested in Broadview ICE protest', 'https://evanstonroundtable.com/2025/11/14/evanston-residents-among-21-arrested-in-ice-protest/', 'Evanston RoundTable', '2025-11-14', 41.8681021, -87.8659406, 'Broadview ICE Processing Center, Broadview, IL'],
+        ['Pastors describe brutality of arrests at Broadview ICE facility', 'https://chicago.suntimes.com/immigration/2025/11/16/clergy-arrests-broadview-ice', 'Chicago Sun-Times', '2025-11-14', 41.8681021, -87.8659406, 'Broadview ICE Processing Center, Broadview, IL'],
         // ── Trans rights · HHS headquarters (Humphrey Building), Washington DC · Feb 17, 2026 ──
         ['24 arrested blockading HHS over trans youth care ban', 'https://www.washingtonblade.com/2026/02/20/trans-activists-arrested-outside-hhs-headquarters-in-d-c/', 'Washington Blade', '2026-02-17', 38.8866298, -77.0143854, 'HHS headquarters (Humphrey Building), Washington, DC'],
-        ['25 arrested protesting HHS gender-affirming care rules', 'https://www.advocate.com/health/transgender-health/protest-anti-transgender-hhs-rules', 'The Advocate', '2026-02-17', null, null, null],
-        ['Moms risk arrest to protect gender-affirming care', 'https://19thnews.org/2026/03/moms-arrested-gender-affirming-care/', 'The 19th', '2026-02-17', null, null, null],
+        ['25 arrested protesting HHS gender-affirming care rules', 'https://www.advocate.com/health/transgender-health/protest-anti-transgender-hhs-rules', 'The Advocate', '2026-02-17', 38.8866298, -77.0143854, 'HHS headquarters (Humphrey Building), Washington, DC'],
+        ['Moms risk arrest to protect gender-affirming care', 'https://19thnews.org/2026/03/moms-arrested-gender-affirming-care/', 'The 19th', '2026-02-17', 38.8866298, -77.0143854, 'HHS headquarters (Humphrey Building), Washington, DC'],
 
         // ── Labor · Greater NY Hospital Association, 555 W 57th St, Manhattan · Feb 5, 2026 ──
         ['13 nurses arrested during NYC strike day of action', 'https://www.amny.com/news/nurses-strike-nyc-arrested-civil-disobedience/', 'amNewYork', '2026-02-05', 40.7703849, -73.9905079, 'Greater NY Hospital Association, 555 W 57th St, Manhattan, NY'],
         // ── Austin TX · J.J. Pickle Federal Building · Jun 9, 2025 ──
         ['At least 13 arrested after anti-ICE march in Austin', 'https://www.kxan.com/news/local/austin/austin-police-holds-press-conference-following-anti-ice-protest/', 'KXAN', '2025-06-09', 30.2694066, -97.7390923, 'J.J. Pickle Federal Building, Austin, TX'],
-        ['Austin anti-ICE protest met with tear gas, multiple arrested', 'https://www.fox7austin.com/news/austin-ice-protest-arrests-police-livestream', 'FOX 7 Austin', '2025-06-09', null, null, null],
+        ['Austin anti-ICE protest met with tear gas, multiple arrested', 'https://www.fox7austin.com/news/austin-ice-protest-arrests-police-livestream', 'FOX 7 Austin', '2025-06-09', 30.2694066, -97.7390923, 'J.J. Pickle Federal Building, Austin, TX'],
 
         // ── Seattle WA · Henry M. Jackson Federal Building · Jun 11, 2025 ──
         ['Eight arrested at anti-ICE protest outside Seattle federal building', 'https://www.king5.com/article/news/local/protest-blocks-intersections-downtown-seattle-ice/281-5eb88df3-e1cf-4d92-811d-82a901b3cdab', 'KING 5', '2025-06-11', 47.6045821, -122.3354856, 'Henry M. Jackson Federal Building, Seattle, WA'],
-        ['Several arrested during Seattle anti-ICE protest', 'https://www.fox13seattle.com/news/arrests-seattle-anti-ice-protest', 'FOX 13 Seattle', '2025-06-11', null, null, null],
+        ['Several arrested during Seattle anti-ICE protest', 'https://www.fox13seattle.com/news/arrests-seattle-anti-ice-protest', 'FOX 13 Seattle', '2025-06-11', 47.6045821, -122.3354856, 'Henry M. Jackson Federal Building, Seattle, WA'],
 
         // ── DeKalb County GA · Chamblee Tucker Rd (Embry Village) · Jun 14, 2025 (journalist Mario Guevara) ──
         ['Salvadoran journalist Mario Guevara arrested covering DeKalb protest', 'https://www.11alive.com/article/news/local/protests/bodycam-video-salvadoran-journalist-arrested-dekalb-county-mario-guevara/85-8de24d09-dfb6-4546-be0e-7d1bb9e393f3', '11Alive', '2025-06-14', 33.8854949, -84.2846477, 'Chamblee Tucker Rd (Embry Village), DeKalb County, GA'],
-        ['DeKalb police hand journalist Mario Guevara over to ICE', 'https://atlantaciviccircle.org/2025/06/18/dekalb-police-journalist-mario-guevara-ice-custody/', 'Atlanta Civic Circle', '2025-06-14', null, null, null],
+        ['DeKalb police hand journalist Mario Guevara over to ICE', 'https://atlantaciviccircle.org/2025/06/18/dekalb-police-journalist-mario-guevara-ice-custody/', 'Atlanta Civic Circle', '2025-06-14', 33.8854949, -84.2846477, 'Chamblee Tucker Rd (Embry Village), DeKalb County, GA'],
         // ── Las Vegas NV · downtown (Lloyd D. George Federal Courthouse) · Jun 11, 2025 ──
         ['Nearly 100 arrested at downtown Las Vegas anti-ICE protest', 'https://www.reviewjournal.com/crime/nearly-100-arrested-in-downtown-las-vegas-ice-protest-police-say-3384453/', 'Las Vegas Review-Journal', '2025-06-11', 36.1661179, -115.1426318, 'Downtown Las Vegas (federal courthouse), NV'],
-        ['Anti-ICE protest in downtown Las Vegas turns into standoff', 'https://lasvegassun.com/news/2025/jun/12/anti-ice-protest-in-downtown-las-vegas-turns-into/', 'Las Vegas Sun', '2025-06-11', null, null, null],
+        ['Anti-ICE protest in downtown Las Vegas turns into standoff', 'https://lasvegassun.com/news/2025/jun/12/anti-ice-protest-in-downtown-las-vegas-turns-into/', 'Las Vegas Sun', '2025-06-11', 36.1661179, -115.1426318, 'Downtown Las Vegas (federal courthouse), NV'],
 
         // ── St. Louis MO · St. Louis City Hall · Apr 17, 2026 (State of the City) ──
         ["Five arrested disrupting St. Louis mayor's State of the City", 'https://www.stlpr.org/government-politics-issues/2026-04-17/st-louis-mayor-cara-spencer-speech-protestors-arrested', 'St. Louis Public Radio', '2026-04-17', 38.6268322, -90.1994026, 'St. Louis City Hall, MO'],
-        ['St. Louis police defend arrests of north-city protesters', 'https://www.ksdk.com/article/news/local/state-of-city-chaos-st-louis-police-defend-arrests-of-north-city-protestors/63-c21bfa44-83e8-4ad7-9d67-da50478f04b2', 'KSDK', '2026-04-17', null, null, null],
+        ['St. Louis police defend arrests of north-city protesters', 'https://www.ksdk.com/article/news/local/state-of-city-chaos-st-louis-police-defend-arrests-of-north-city-protestors/63-c21bfa44-83e8-4ad7-9d67-da50478f04b2', 'KSDK', '2026-04-17', 38.6389941, -90.2314748, 'North St. Louis, MO'],
         // ── San Francisco CA · ICE field office, 630 Sansome St · Jun 8, 2025 ──
         ['Over 150 arrested at San Francisco anti-ICE protest', 'https://www.kqed.org/news/12043255/sf-protesters-denounce-ice-raids-and-trumps-national-guard-deployment-to-la', 'KQED', '2025-06-08', 37.7960291, -122.4016621, 'ICE field office, 630 Sansome St, San Francisco, CA'],
-        ['ICE protest in San Francisco ends with 154 arrested', 'https://sfstandard.com/2025/06/08/anti-ice-protest-s/', 'The San Francisco Standard', '2025-06-08', null, null, null],
+        ['ICE protest in San Francisco ends with 154 arrested', 'https://sfstandard.com/2025/06/08/anti-ice-protest-s/', 'The San Francisco Standard', '2025-06-08', 37.7960291, -122.4016621, 'ICE field office, 630 Sansome St, San Francisco, CA'],
 
         // ── Cincinnati / Covington · John A. Roebling Suspension Bridge · Jul 17, 2025 ──
         ['Police arrest more than a dozen at anti-ICE Roebling Bridge march', 'https://www.wvxu.org/local-news/2025-07-18/covington-police-arrest-at-anti-ice-march-across-roebling-bridge', 'WVXU', '2025-07-17', 39.0928989, -84.5098665, 'John A. Roebling Suspension Bridge, Covington, KY'],
-        ['UC students detained during Roebling Bridge ICE protest', 'https://www.newsrecord.org/news/uc-students-detained-during-roebling-bridge-ice-protest/article_4f71371c-9a6a-4705-9bda-c34012acdef5.html', 'The News Record', '2025-07-17', null, null, null],
+        ['UC students detained during Roebling Bridge ICE protest', 'https://www.newsrecord.org/news/uc-students-detained-during-roebling-bridge-ice-protest/article_4f71371c-9a6a-4705-9bda-c34012acdef5.html', 'The News Record', '2025-07-17', 39.0928989, -84.5098665, 'John A. Roebling Suspension Bridge, Covington, KY'],
         // ── Minneapolis MN · Minneapolis-St. Paul International Airport · Jan 23, 2026 ──
         ['About 100 clergy arrested at anti-ICE protest at MSP Airport', 'https://www.cbsnews.com/minnesota/news/clergy-members-arrested-minneapolis-st-paul-international-airport/', 'CBS Minnesota', '2026-01-23', 44.8780191, -93.2209281, 'Minneapolis-St. Paul International Airport, MN'],
-        ['100 clergy arrested at airport protest as Minnesotans strike against ICE', 'https://www.spokesman.com/stories/2026/jan/23/100-clergy-arrested-at-airport-protest-as-minnesot/', 'The Spokesman-Review', '2026-01-23', null, null, null],
+        ['100 clergy arrested at airport protest as Minnesotans strike against ICE', 'https://www.spokesman.com/stories/2026/jan/23/100-clergy-arrested-at-airport-protest-as-minnesot/', 'The Spokesman-Review', '2026-01-23', 44.8780191, -93.2209281, 'Minneapolis-St. Paul International Airport, MN'],
 
         // ── Spokane WA · Thomas S. Foley U.S. Courthouse · Jun 11, 2025 (blockade, later federal charges) ──
         ['Nine Spokane ICE-protesters, including ex-council president, federally charged', 'https://www.krem.com/article/news/local/former-spokane-city-council-ben-stuckart-federally-indicted-ice-protests/293-b7211c4d-12e8-407d-b3d9-17f42c3cf6f1', 'KREM', '2025-06-11', 47.6585808, -117.4260620, 'Thomas S. Foley U.S. Courthouse, Spokane, WA'],
-        ['Federal agents arrest 9 over Spokane ICE protest, including ex-council president', 'https://www.democracynow.org/2025/7/16/headlines/federal_agents_arrest_9_over_spokane_ice_protests_including_former_city_council_president', 'Democracy Now!', '2025-06-11', null, null, null],
+        ['Federal agents arrest 9 over Spokane ICE protest, including ex-council president', 'https://www.democracynow.org/2025/7/16/headlines/federal_agents_arrest_9_over_spokane_ice_protests_including_former_city_council_president', 'Democracy Now!', '2025-06-11', 47.6585808, -117.4260620, 'Thomas S. Foley U.S. Courthouse, Spokane, WA'],
         // ── Worcester MA · Eureka Street · May 8, 2025 ──
         ['Two arrested as Worcester neighbors confront ICE detention', 'https://www.bostonglobe.com/2025/05/08/metro/ice-arrests-worcester-woman-spurs-protest/', 'The Boston Globe', '2025-05-08', 42.2389790, -71.8491721, 'Eureka Street, Worcester, MA'],
-        ['Two arrested after neighbors try to stop ICE detaining Worcester mother', 'https://www.boston.com/news/local-news/2025/05/08/two-arrested-after-neighbors-try-to-stop-ice-agents-from-detaining-worcester-mother/', 'Boston.com', '2025-05-08', null, null, null],
-        ['Worcester ICE raid has city on edge', 'https://www.wbur.org/news/2025/05/16/worcester-police-ice-arrest-protesters-activists', 'WBUR', '2025-05-08', null, null, null],
+        ['Two arrested after neighbors try to stop ICE detaining Worcester mother', 'https://www.boston.com/news/local-news/2025/05/08/two-arrested-after-neighbors-try-to-stop-ice-agents-from-detaining-worcester-mother/', 'Boston.com', '2025-05-08', 42.2389790, -71.8491721, 'Eureka Street, Worcester, MA'],
+        ['Worcester ICE raid has city on edge', 'https://www.wbur.org/news/2025/05/16/worcester-police-ice-arrest-protesters-activists', 'WBUR', '2025-05-08', 42.2389790, -71.8491721, 'Eureka Street, Worcester, MA'],
         // ── Miami FL · Krome Detention Center · Nov 22, 2025 ──
         ["31 arrested blocking entrance to Miami's Krome Detention Center", 'https://www.nbcmiami.com/news/local/31-arrested-during-protest-at-krome-detention-center/3724939/', 'NBC 6 South Florida', '2025-11-22', 25.7534297, -80.4897094, 'Krome Detention Center, Miami, FL'],
-        ['Tampa photojournalist arrested covering Miami ICE protest', 'https://www.tampabay.com/news/tampa/2025/11/26/dave-decker-arrest-miami-ice-protest-immigration-creative-loafing-zuma-press/', 'Tampa Bay Times', '2025-11-22', null, null, null],
+        ['Tampa photojournalist arrested covering Miami ICE protest', 'https://www.tampabay.com/news/tampa/2025/11/26/dave-decker-arrest-miami-ice-protest-immigration-creative-loafing-zuma-press/', 'Tampa Bay Times', '2025-11-22', 25.7744981, -80.1919950, 'Miami, FL'],
 
         // ── Omaha NE · Glenn Valley Foods (68th & J St) · Jun 10, 2025 ──
         ['Four protesters charged after Omaha ICE raid at meatpacking plant', 'https://nebraskapublicmedia.org/en/news/news-articles/defendants-accused-of-interfering-with-law-enforcement-after-omaha-ice-raid-appear-in-federal-court/', 'Nebraska Public Media', '2025-06-10', 41.2149098, -96.0174295, 'Glenn Valley Foods, Omaha, NE'],
-        ['Immigration raid rocks Nebraska plant; protesters and police clash', 'https://flatwaterfreepress.org/ice-raids-hit-omaha-meatpacking-plants/', 'Flatwater Free Press', '2025-06-10', null, null, null],
+        ['Immigration raid rocks Nebraska plant; protesters and police clash', 'https://flatwaterfreepress.org/ice-raids-hit-omaha-meatpacking-plants/', 'Flatwater Free Press', '2025-06-10', 41.2149098, -96.0174295, 'Glenn Valley Foods, Omaha, NE'],
         // ── Chicago IL · Federal Plaza (the Loop) · Jun 10, 2025 ──
         ['17 arrested as thousands rally against ICE in downtown Chicago', 'https://www.wbez.org/crime/2025/06/11/17-arrested-4-charged-with-felonies-as-thousands-gathered-for-anti-ice-protests-in-downtown-chicago', 'WBEZ', '2025-06-10', 41.8791718, -87.6292686, 'Federal Plaza, downtown Chicago, IL'],
-        ['17 arrested, 4 charged with felonies at anti-ICE protest in the Loop', 'https://chicago.suntimes.com/crime/2025/06/11/17-arrested-4-charged-with-felonies-as-thousands-gathered-for-anti-ice-protests-in-downtown-chicago', 'Chicago Sun-Times', '2025-06-10', null, null, null],
-        ['17 arrested at anti-ICE protest in downtown Chicago', 'https://www.cbsnews.com/chicago/news/17-arrested-chicago-ice-protest-downtown-police/', 'CBS Chicago', '2025-06-10', null, null, null],
+        ['17 arrested, 4 charged with felonies at anti-ICE protest in the Loop', 'https://chicago.suntimes.com/crime/2025/06/11/17-arrested-4-charged-with-felonies-as-thousands-gathered-for-anti-ice-protests-in-downtown-chicago', 'Chicago Sun-Times', '2025-06-10', 41.8791718, -87.6292686, 'Federal Plaza, downtown Chicago, IL'],
+        ['17 arrested at anti-ICE protest in downtown Chicago', 'https://www.cbsnews.com/chicago/news/17-arrested-chicago-ice-protest-downtown-police/', 'CBS Chicago', '2025-06-10', 41.8791718, -87.6292686, 'Federal Plaza, downtown Chicago, IL'],
         // ── New York NY · Foley Square (Lower Manhattan) · Jun 10, 2025 ──
         ['Over 80 arrested as thousands flood Foley Square in anti-ICE protest', 'https://www.thecity.nyc/2025/06/10/ice-protests-arrests-nypd-trump-immigration/', 'THE CITY', '2025-06-10', 40.7144380, -74.0030793, 'Foley Square, Lower Manhattan, NY'],
-        ['86 arrested at NYC anti-ICE protest in Foley Square', 'https://abc7ny.com/post/80-protesters-arrested-demonstrators-marched-lower-manhattan-amid-trump-immigration-crackdown/16720891/', 'ABC7 New York', '2025-06-10', null, null, null],
+        ['86 arrested at NYC anti-ICE protest in Foley Square', 'https://abc7ny.com/post/80-protesters-arrested-demonstrators-marched-lower-manhattan-amid-trump-immigration-crackdown/16720891/', 'ABC7 New York', '2025-06-10', 40.7144380, -74.0030793, 'Foley Square, Lower Manhattan, NY'],
 
         // ── Philadelphia PA · Federal Detention Center (Center City) · Jun 10, 2025 ──
         ["15 arrested at anti-ICE protest in Philadelphia's Center City", 'https://whyy.org/articles/philadelphia-ice-protest-arrests-raids/', 'WHYY', '2025-06-10', 39.9528980, -75.1516234, 'Federal Detention Center, Center City, Philadelphia, PA'],
-        ['Anti-ICE protest in Philadelphia leads to 15 arrests', 'https://www.cbsnews.com/philadelphia/news/ice-protest-philadelphia-donald-trump/', 'CBS Philadelphia', '2025-06-10', null, null, null],
+        ['Anti-ICE protest in Philadelphia leads to 15 arrests', 'https://www.cbsnews.com/philadelphia/news/ice-protest-philadelphia-donald-trump/', 'CBS Philadelphia', '2025-06-10', 39.9655661, -75.1815202, 'Center City, Philadelphia, PA'],
         // ── Philadelphia PA · Target, Mifflin St (South Philly) · Feb 5, 2026 ──
         ['About 40 anti-ICE activists arrested at sit-in inside South Philly Target', 'https://www.inquirer.com/news/philadelphia/south-philadelphia-target-protest-ice-arrests-20260205.html', 'The Philadelphia Inquirer', '2026-02-05', 39.9243865, -75.1461590, 'Target, Mifflin St, South Philadelphia, PA'],
 
         // ── Burlington MA · ICE field office, 1000 District Ave · Apr 29, 2026 ──
         ['11 arrested in civil disobedience at Burlington ICE facility', 'https://www.boston.com/news/local-news/2026/04/29/11-arrested-outside-burlington-ice-facility-in-act-of-civil-disobedience-police-say/', 'Boston.com', '2026-04-29', 42.4826346, -71.2088722, 'ICE field office, 1000 District Ave, Burlington, MA'],
-        ['11 arrested after protesting outside Burlington ICE facility', 'https://www.wbur.org/news/2026/04/29/burlington-ice-detention-facility-arrests', 'WBUR', '2026-04-29', null, null, null],
+        ['11 arrested after protesting outside Burlington ICE facility', 'https://www.wbur.org/news/2026/04/29/burlington-ice-detention-facility-arrests', 'WBUR', '2026-04-29', 42.4826346, -71.2088722, 'ICE field office, 1000 District Ave, Burlington, MA'],
 
         // ── Albuquerque NM · ICE office (Watson Dr SE) · Jan 9, 2026 ──
         ['Two detained at Albuquerque ICE office protest', 'https://sourcenm.com/2026/01/09/protestors-ice-clash-at-albuquerque-dhs-facility/', 'Source New Mexico', '2026-01-09', 35.0012708, -106.6170198, 'ICE office (Watson Dr SE), Albuquerque, NM'],
-        ['Two arrested at Albuquerque ICE protest after confrontation', 'https://www.abqjournal.com/news/two-arrested-at-ice-protest-in-albuquerque/2957357', 'Albuquerque Journal', '2026-01-09', null, null, null],
+        ['Two arrested at Albuquerque ICE protest after confrontation', 'https://www.abqjournal.com/news/two-arrested-at-ice-protest-in-albuquerque/2957357', 'Albuquerque Journal', '2026-01-09', 35.0012708, -106.6170198, 'ICE office (Watson Dr SE), Albuquerque, NM'],
         // ── Portland ME · Sen. Susan Collins' office (Canal Plaza) · Jan 28, 2026 ──
         ["Nine anti-ICE protesters arrested at Sen. Collins' office in Portland, Maine", 'https://www.cbsnews.com/boston/news/susan-collins-ice-protest-portland-maine/', 'CBS Boston', '2026-01-28', 43.6570957, -70.2556842, "Sen. Susan Collins' office (Canal Plaza), Portland, ME"],
 
         // ── Denver CO · Colorado State Capitol · Jun 10, 2025 ──
         ['17 arrested at anti-ICE protest at the Colorado Capitol', 'https://www.coloradopolitics.com/colorado-in-dc/denver-protest-arrests-state-capitol/article_727b84fd-a17f-5c68-b716-ea952541141e.html', 'Colorado Politics', '2025-06-10', 39.7399969, -104.9844034, 'Colorado State Capitol, Denver, CO'],
-        ['Anti-ICE demonstrations expand to Colorado; police arrest 17', 'https://www.axios.com/local/denver/2025/06/11/ice-protests-colorado-los-angeles', 'Axios Denver', '2025-06-10', null, null, null],
+        ['Anti-ICE demonstrations expand to Colorado; police arrest 17', 'https://www.axios.com/local/denver/2025/06/11/ice-protests-colorado-los-angeles', 'Axios Denver', '2025-06-10', 39.7399969, -104.9844034, 'Colorado State Capitol, Denver, CO'],
         // ── Tucson AZ · ICE office (S Country Club Rd) · Jun 11, 2025 ──
         ['Three arrested at anti-ICE protest outside Tucson ICE office', 'https://ktar.com/immigration/ice-protest-in-tucson/5716880/', 'KTAR News', '2025-06-11', 32.1353443, -110.9260530, 'ICE office (S Country Club Rd), Tucson, AZ'],
-        ['Three arrested after anti-ICE protest in Tucson turns tense', 'https://www.azfamily.com/2025/06/12/watch-anti-ice-protest-tucson-turns-violent/', 'AZFamily', '2025-06-11', null, null, null],
+        ['Three arrested after anti-ICE protest in Tucson turns tense', 'https://www.azfamily.com/2025/06/12/watch-anti-ice-protest-tucson-turns-violent/', 'AZFamily', '2025-06-11', 32.1353443, -110.9260530, 'ICE office (S Country Club Rd), Tucson, AZ'],
 
         // ── Brookhaven / metro Atlanta GA · Buford Highway · Jun 10, 2025 ──
         ['6 arrested at anti-ICE protest along Buford Highway in Brookhaven', 'https://www.ajc.com/news/2025/06/immigration-protest-along-buford-highway-marred-by-tear-gas-and-fireworks/', 'The Atlanta Journal-Constitution', '2025-06-10', 33.8521948, -84.3185412, 'Buford Highway, Brookhaven (Atlanta), GA'],
-        ['Brookhaven police identify 6 arrested at Buford Highway anti-ICE protest', 'https://www.atlantanewsfirst.com/2025/06/11/brookhaven-police-identify-suspects-arrested-during-anti-ice-protest-buford-highway/', 'Atlanta News First', '2025-06-10', null, null, null],
+        ['Brookhaven police identify 6 arrested at Buford Highway anti-ICE protest', 'https://www.atlantanewsfirst.com/2025/06/11/brookhaven-police-identify-suspects-arrested-during-anti-ice-protest-buford-highway/', 'Atlanta News First', '2025-06-10', 33.8521948, -84.3185412, 'Buford Highway, Brookhaven (Atlanta), GA'],
 
         // ── Dallas TX · Margaret Hunt Hill Bridge · Jun 9, 2025 ──
         ["One arrested at anti-ICE march on Dallas' Margaret Hunt Hill Bridge", 'https://www.cbsnews.com/texas/news/arrest-during-ice-protest-margaret-hunt-hill-bridge-dallas/', 'CBS Texas', '2025-06-09', 32.7800134, -96.8220017, 'Margaret Hunt Hill Bridge, Dallas, TX'],
@@ -231,33 +231,33 @@ final class SeedDashboardEvents extends Command {
         ['Federal officers fire tear gas, arrest several at Portland ICE facility', 'https://www.opb.org/article/2025/10/04/portland-ice-facility-protest/', 'OPB', '2025-10-04', 45.4925394, -122.6725455, 'ICE facility, South Waterfront, Portland, OR'],
         // ── Newark NJ · Delaney Hall ICE jail · May 2026 (multi-night clashes) ──
         ['Protesters and police clash for days at the Delaney Hall ICE jail', 'https://www.cnn.com/2026/05/30/us/delaney-hall-new-jersey-ice-protests', 'CNN', '2026-05-29', 40.7180549, -74.1287016, 'Delaney Hall ICE detention center, Newark, NJ'],
-        ['Six arrested as protesters clash with agents outside Delaney Hall', 'https://abc7ny.com/post/delaney-hall-protests-6-arrests-protesters-clash-ice-agents-outside-newark-nj/19192526/', 'ABC7 New York', '2026-05-29', null, null, null],
+        ['Six arrested as protesters clash with agents outside Delaney Hall', 'https://abc7ny.com/post/delaney-hall-protests-6-arrests-protesters-clash-ice-agents-outside-newark-nj/19192526/', 'ABC7 New York', '2026-05-29', 40.7180549, -74.1287016, 'Delaney Hall ICE detention center, Newark, NJ'],
 
         // ── Minneapolis MN · Bishop Henry Whipple Federal Building · Jan 8, 2026 ──
         ['11 arrested at Whipple Federal Building protest after ICE shooting', 'https://www.fox9.com/news/minneapolis-ice-shooting-jan-8-2026', 'FOX 9', '2026-01-08', 44.8942120, -93.1948904, 'Bishop Henry Whipple Federal Building, Minneapolis (Fort Snelling), MN'],
-        ['Anti-ICE protests outside Whipple Federal Building bring arrests', 'https://www.mprnews.org/story/2026/01/23/antiice-protests-outside-whipple-federal-building-brings-arrests', 'MPR News', '2026-01-08', null, null, null],
+        ['Anti-ICE protests outside Whipple Federal Building bring arrests', 'https://www.mprnews.org/story/2026/01/23/antiice-protests-outside-whipple-federal-building-brings-arrests', 'MPR News', '2026-01-08', 44.8942120, -93.1948904, 'Bishop Henry Whipple Federal Building, Minneapolis (Fort Snelling), MN'],
 
         // ── Broadview IL · Broadview ICE Processing Center · Nov 7, 2025 ("suburban moms" sit-in) ──
         ['14 "suburban moms" arrested in sit-in at Broadview ICE facility', 'https://chicago.suntimes.com/immigration/2025/11/07/fourteen-suburban-moms-arrested-in-sit-in-protest-outside-broadview-ice-facility', 'Chicago Sun-Times', '2025-11-07', 41.8681021, -87.8659406, 'Broadview ICE Processing Center, Broadview, IL'],
-        ['Suburban moms arrested during sit-in at Broadview ICE facility', 'https://www.nbcchicago.com/news/local/suburban-moms-arrested-during-sit-in-at-ice-processing-facility-witnesses-say/3848961/', 'NBC Chicago', '2025-11-07', null, null, null],
+        ['Suburban moms arrested during sit-in at Broadview ICE facility', 'https://www.nbcchicago.com/news/local/suburban-moms-arrested-during-sit-in-at-ice-processing-facility-witnesses-say/3848961/', 'NBC Chicago', '2025-11-07', 41.8681021, -87.8659406, 'Broadview ICE Processing Center, Broadview, IL'],
         // ── San Francisco CA · Market & Van Ness · Jun 9, 2025 (second night) ──
         ['92 arrested on second night of San Francisco anti-ICE protests', 'https://www.kqed.org/news/12043544/dozens-more-arrested-in-calmer-night-of-san-francisco-ice-protests', 'KQED', '2025-06-09', 37.7753971, -122.4193700, 'Market & Van Ness, San Francisco, CA'],
-        ['SFPD arrests dozens on second night of mass ICE protests', 'https://missionlocal.org/2025/06/sf-mission-march-mobilized-thousands-against-ice/', 'Mission Local', '2025-06-09', null, null, null],
+        ['SFPD arrests dozens on second night of mass ICE protests', 'https://missionlocal.org/2025/06/sf-mission-march-mobilized-thousands-against-ice/', 'Mission Local', '2025-06-09', 37.7753971, -122.4193700, 'Market & Van Ness, San Francisco, CA'],
 
         // ── Los Angeles CA · City Hall (student walkout) · Feb 4, 2026 ──
         ['Several arrested as LA students walk out against ICE operations', 'https://www.cbsnews.com/losangeles/news/lapd-arrests-protesters-students-gathered-downtown-los-angeles-ice-operations-immigration/', 'CBS Los Angeles', '2026-02-04', 34.0536961, -118.2429212, 'Los Angeles City Hall (student walkout), CA'],
 
         // ===== additional curated data-center / ICE conflict items =====
         // ── Claremore OK · Rogers State University · Feb 17, 2026 (additional source) ──
-        ['Tension over a proposed AI data center leads to an arrest in Oklahoma', 'https://africa.businessinsider.com/news/tension-over-a-proposed-ai-data-center-leads-to-an-arrest-in-oklahoma/jk912pd', 'Business Insider Africa', '2026-02-17', null, null, null],
+        ['Tension over a proposed AI data center leads to an arrest in Oklahoma', 'https://africa.businessinsider.com/news/tension-over-a-proposed-ai-data-center-leads-to-an-arrest-in-oklahoma/jk912pd', 'Business Insider Africa', '2026-02-17', 36.3186099, -95.6361137, 'Rogers State University, Claremore, OK'],
         // ── Woodland Park CO · cell tower sabotage · Aug 28, 2025 ──
         ['Man arrested for sabotaging cell tower, causing Woodland Park outage', 'https://www.datacenterdynamics.com/en/news/man-arrested-for-causing-cell-tower-outage-in-colorado/', 'DataCenter Dynamics', '2025-08-28', 38.9938016, -105.0570450, 'Woodland Park, CO'],
         // ── Williston VT · ICE surveillance center · Oct 6, 2025 (context, no arrest) ──
-        ['ICE expands social-media surveillance hub in Vermont', 'https://vtdigger.org/2025/10/06/ice-plans-to-boost-its-surveillance-on-social-media-using-contractors-in-vermont/', 'VTDigger', '2025-10-06', null, null, null],
+        ['ICE expands social-media surveillance hub in Vermont', 'https://vtdigger.org/2025/10/06/ice-plans-to-boost-its-surveillance-on-social-media-using-contractors-in-vermont/', 'VTDigger', '2025-10-06', 44.4607481, -73.1229347, 'White Cap Business Park, Williston, VT'],
         // ── Port Washington WI · Common Council · Dec 3, 2025 (additional source) ──
-        ['Chaos erupts at Port Washington data center hearing; three removed', 'https://ozaukeepress.com/content/meeting-erupts-chaos-over-data-center', 'Ozaukee Press', '2025-12-03', null, null, null],
+        ['Chaos erupts at Port Washington data center hearing; three removed', 'https://ozaukeepress.com/content/meeting-erupts-chaos-over-data-center', 'Ozaukee Press', '2025-12-03', 43.3878941, -87.8713384, 'Port Washington City Hall, WI'],
         // ── Williston VT · White Cap Business Park · Jan 11, 2026 (banner drop, no arrest) ──
-        ['Activists target ICE surveillance office with banner drop in Williston', 'https://vtdigger.org/2026/01/14/activists-target-ice-digital-surveillance-site-in-williston/', 'VTDigger', '2026-01-11', null, null, null],
+        ['Activists target ICE surveillance office with banner drop in Williston', 'https://vtdigger.org/2026/01/14/activists-target-ice-digital-surveillance-site-in-williston/', 'VTDigger', '2026-01-11', 44.4607481, -73.1229347, 'White Cap Business Park, Williston, VT'],
         // ── Trinidad TX · May 8, 2026 (Facebook-post arrest) ──
         ["Woman arrested over Facebook post about her town's water", 'https://www.fox4news.com/news/woman-arrested-facebook-post-concerning-trinidad-water-poisoning', 'FOX 4', '2026-05-08', 32.1440417, -96.0910814, 'Trinidad, TX'],
         // ── Indianapolis IN · Martindale-Brightwood · Apr 6, 2026 (data-center backlash shooting) ──
@@ -324,13 +324,13 @@ final class SeedDashboardEvents extends Command {
         // ── "No Kings" · Tucson · Jun 14, 2025 ──
         ['Two arrested after No Kings protesters clashed with Tucson police', 'https://www.kold.com/2025/06/16/tucson-police-arrest-two-after-officer-assaulted-during-weekend-protests/', 'KOLD News 13', '2025-06-14', 32.2097000, -110.9268000, 'E 22nd St & S Country Club Rd, Tucson, AZ'],
         // ── "No Kings 2.0" · Portland OR ICE facility · Oct 18, 2025 (facility already pinned) ──
-        ['Three arrested at the Portland ICE building after a No Kings 2.0 rally', 'https://www.kptv.com/2025/10/18/latest-updates-people-protest-portland-ice-building-after-no-kings-20-rally/', 'KPTV FOX 12', '2025-10-18', null, null, null],
+        ['Three arrested at the Portland ICE building after a No Kings 2.0 rally', 'https://www.kptv.com/2025/10/18/latest-updates-people-protest-portland-ice-building-after-no-kings-20-rally/', 'KPTV FOX 12', '2025-10-18', 45.4925352, -122.6725241, 'Portland ICE facility, OR'],
         // ── "No Kings" · Spokane ICE facility · Mar 28, 2026 ──
         ['Two arrested outside the ICE facility at a downtown Spokane No Kings rally', 'https://www.spokesman.com/stories/2026/mar/28/two-arrested-outside-ice-facility-at-downtown-spok/', 'The Spokesman-Review', '2026-03-28', 47.6658024, -117.4181787, 'ICE facility, 411 W Cataldo Ave, Spokane, WA'],
         // ── Pro-Palestine · JVP sit-in at Sen. Schumer's office, Manhattan · Aug 1, 2025 ──
         ["JVP sit-in at Schumer's office; 50 arrested over Gaza arms sales", 'https://www.commondreams.org/news/chuck-schumer-gaza', 'Common Dreams', '2025-08-01', 40.7550043, -73.9718262, 'Sens. Schumer & Gillibrand offices, 780 Third Ave, Manhattan, NY'],
         // ── Anti-ICE · 26 Federal Plaza, Manhattan · Aug 8, 2025 (plaza already pinned) ──
-        ['15 arrested at an anti-ICE protest outside 26 Federal Plaza', 'https://www.cbsnews.com/newyork/news/federal-plaza-ice-protests-nyc/', 'CBS News New York', '2025-08-08', null, null, null],
+        ['15 arrested at an anti-ICE protest outside 26 Federal Plaza', 'https://www.cbsnews.com/newyork/news/federal-plaza-ice-protests-nyc/', 'CBS News New York', '2025-08-08', 40.7156451, -74.0033016, '26 Federal Plaza, Manhattan, NY'],
         // ── Anti-abortion · Red Rose Rescue, Delaware County · Jul 31, 2025 ──
         ['Six Red Rose Rescue activists arrested at a Delaware County abortion clinic', 'https://www.liveaction.org/news/six-red-rose-rescuers-arrested-outreach-pennsylvania', 'Live Action', '2025-07-31', 39.8512000, -75.3835000, "Delaware County Women's Center, Upland, PA"],
         // ── Anti-abortion · Operation Rescue blockade, Memphis · Dec 5, 2025 ──
@@ -345,18 +345,18 @@ final class SeedDashboardEvents extends Command {
         // ===== more curated events (round 3: prosecutions, ICE surges, statehouses) =====
         // ── Prosecution · Portland ICE cases (Hatfield courthouse) ──
         ['Portland man pleads guilty to arson at the ICE facility', 'https://local12.com/news/nation-world/portland-man-pleads-guilty-to-arson-at-ice-facility-faces-up-to-20-years-in-prison-trenten-barker-oregon-multnomah-county-immigration-customs-enforcement', 'Local 12', '2025-11-19', 45.5157824, -122.6763053, 'Mark O. Hatfield U.S. Courthouse, Portland, OR'],
-        ['Portlander pleads guilty to hitting an ICE officer with a rock at a protest', 'https://www.opb.org/article/2026/02/20/portlander-pleads-guilty-hitting-ice-officer-protest/', 'OPB', '2026-02-20', null, null, null],
+        ['Portlander pleads guilty to hitting an ICE officer with a rock at a protest', 'https://www.opb.org/article/2026/02/20/portlander-pleads-guilty-hitting-ice-officer-protest/', 'OPB', '2026-02-20', 45.5157824, -122.6763053, 'Mark O. Hatfield U.S. Courthouse, Portland, OR'],
         // ── Prosecution · Los Angeles anti-ICE cases (Roybal courthouse, already pinned) ──
-        ['Man sentenced to 4 years for a Molotov cocktail at the LA anti-ICE protests', 'https://www.ksat.com/news/national/2026/02/01/man-sentenced-to-4-years-in-prison-for-throwing-molotov-cocktail-during-la-immigration-protest/', 'KSAT', '2026-01-30', null, null, null],
-        ['Elpidio Reyna pleads guilty to assaulting a federal officer with rocks', 'https://www.nbclosangeles.com/news/local/paramount-federal-officer-assault-elpidio-reyna/3849329/', 'NBC Los Angeles', '2026-02-17', null, null, null],
-        ['Six men plead guilty to attacking CHP officers at the LA anti-ICE protests', 'https://www.cbsnews.com/losangeles/news/california-men-plead-guilty-violence-chp-officers-los-angeles-immigration-protests/', 'CBS Los Angeles', '2026-04-23', null, null, null],
-        ['Two women convicted of stalking an ICE officer after a livestreamed pursuit', 'https://www.foxla.com/news/ice-officer-stalking-livestream-conviction-los-angeles', 'FOX 11 Los Angeles', '2026-03-03', null, null, null],
+        ['Man sentenced to 4 years for a Molotov cocktail at the LA anti-ICE protests', 'https://www.ksat.com/news/national/2026/02/01/man-sentenced-to-4-years-in-prison-for-throwing-molotov-cocktail-during-la-immigration-protest/', 'KSAT', '2026-01-30', 34.0479960, -118.2521002, 'Los Angeles, CA'],
+        ['Elpidio Reyna pleads guilty to assaulting a federal officer with rocks', 'https://www.nbclosangeles.com/news/local/paramount-federal-officer-assault-elpidio-reyna/3849329/', 'NBC Los Angeles', '2026-02-17', 33.8989170, -118.1710050, 'Paramount, CA'],
+        ['Six men plead guilty to attacking CHP officers at the LA anti-ICE protests', 'https://www.cbsnews.com/losangeles/news/california-men-plead-guilty-violence-chp-officers-los-angeles-immigration-protests/', 'CBS Los Angeles', '2026-04-23', 34.0479960, -118.2521002, 'Los Angeles, CA'],
+        ['Two women convicted of stalking an ICE officer after a livestreamed pursuit', 'https://www.foxla.com/news/ice-officer-stalking-livestream-conviction-los-angeles', 'FOX 11 Los Angeles', '2026-03-03', 34.0479960, -118.2521002, 'Los Angeles, CA'],
         // ── Prosecution · San Diego "unmasking" sentencing · Mar 5, 2026 ──
         ['Activist sentenced for unmasking an ICE agent at a San Diego raid', 'https://timesofsandiego.com/crime/2026/03/05/activist-home-detention-no-prison-federal-agent/', 'Times of San Diego', '2026-03-05', 32.7143363, -117.1647304, 'Edward J. Schwartz U.S. Courthouse, San Diego, CA'],
         // ── Prosecution · Don Lemon indicted over a St. Paul protest · Jan 29, 2026 ──
         ['Don Lemon and others indicted over a Minnesota anti-ICE church protest', 'https://www.pbs.org/newshour/nation/read-the-full-indictment-against-don-lemon-georgia-fort-and-others-charged-in-minnesota', 'PBS NewsHour', '2026-01-29', 44.9465967, -93.0891484, 'Warren E. Burger Federal Building, St. Paul, MN'],
         // ── Prosecution · Broadview protesters' charges dropped · May 21, 2026 ──
-        ['Charges dropped against four Broadview ICE protesters over misconduct', 'https://blockclubchicago.org/2026/05/21/trial-date-for-broadview-protesters-vacated-just-days-ahead-of-expected-start/', 'Block Club Chicago', '2026-05-21', null, null, null],
+        ['Charges dropped against four Broadview ICE protesters over misconduct', 'https://blockclubchicago.org/2026/05/21/trial-date-for-broadview-protesters-vacated-just-days-ahead-of-expected-start/', 'Block Club Chicago', '2026-05-21', 41.8639650, -87.8533732, 'Broadview ICE facility, IL'],
         // ── Prosecution · "Spokane 3" convicted · May 30, 2026 ──
         ["The 'Spokane 3' are convicted of federal conspiracy over an anti-ICE blockade", 'https://www.foxnews.com/us/spokane-3-protesters-convicted-federal-conspiracy-charges-blocking-ice-transfer-washington', 'Fox News', '2026-05-30', null, null, null],
         // ── Prosecution · UC Irvine pro-Palestine trial · Apr 7, 2026 ──
@@ -372,21 +372,21 @@ final class SeedDashboardEvents extends Command {
         // ── ICE surge · Minneapolis hotel housing ICE agents · Jan 29, 2026 ──
         ['67 arrested protesting outside a Minneapolis hotel housing ICE agents', 'https://www.advocate.com/news/minneapolis-hotel-ice-arrests-67', 'The Advocate', '2026-01-29', 44.9737275, -93.2300222, 'Graduate by Hilton, 615 Washington Ave SE, Minneapolis, MN'],
         // ── ICE surge · Broadview ICE facility (already pinned) · Sep 19, 2025 ──
-        ['At least four arrested in a 12-hour protest at the Broadview ICE facility', 'https://www.cbsnews.com/chicago/news/broadview-ice-facility-protest-illinois/', 'CBS Chicago', '2025-09-19', null, null, null],
+        ['At least four arrested in a 12-hour protest at the Broadview ICE facility', 'https://www.cbsnews.com/chicago/news/broadview-ice-facility-protest-illinois/', 'CBS Chicago', '2025-09-19', 41.8639650, -87.8533732, 'Broadview ICE facility, IL'],
         // ── ICE surge · Whipple Federal Building (already pinned) · Feb 7, 2026 ──
-        ['54 arrested at an anti-ICE protest outside the Whipple Federal Building', 'https://kstp.com/kstp-news/top-news/unlawful-assembly-declared-outside-whipple-building-after-deputy-was-struck-in-the-head/', 'KSTP', '2026-02-07', null, null, null],
+        ['54 arrested at an anti-ICE protest outside the Whipple Federal Building', 'https://kstp.com/kstp-news/top-news/unlawful-assembly-declared-outside-whipple-building-after-deputy-was-struck-in-the-head/', 'KSTP', '2026-02-07', 44.8942120, -93.1948904, 'Whipple Federal Building, Minneapolis, MN'],
         // ── ICE · 26 Federal Plaza (already pinned) · Sep 18, 2025 ──
-        ['70+ arrested, including 15 NY officials, at a 26 Federal Plaza ICE protest', 'https://www.cityandstateny.com/politics/2025/09/state-and-city-lawmakers-arrested-26-federal-plaza/408218/', 'City & State NY', '2025-09-18', null, null, null],
+        ['70+ arrested, including 15 NY officials, at a 26 Federal Plaza ICE protest', 'https://www.cityandstateny.com/politics/2025/09/state-and-city-lawmakers-arrested-26-federal-plaza/408218/', 'City & State NY', '2025-09-18', 40.7156451, -74.0033016, '26 Federal Plaza, Manhattan, NY'],
         // ── ICE · SF immigration court (already pinned) · Dec 16, 2025 ──
-        ['42 faith leaders arrested chaining themselves to the SF immigration court', 'https://missionlocal.org/2025/12/faith-leaders-chain-immigration-court-san-francisco/', 'Mission Local', '2025-12-16', null, null, null],
+        ['42 faith leaders arrested chaining themselves to the SF immigration court', 'https://missionlocal.org/2025/12/faith-leaders-chain-immigration-court-san-francisco/', 'Mission Local', '2025-12-16', 37.7901682, -122.4021443, 'SF immigration court, CA'],
         // ── DC · about 60 veterans arrested at the US Capitol · Jun 13, 2025 ──
         ['About 60 veterans arrested at the US Capitol over the military parade', 'https://www.cbsnews.com/news/police-arrest-protesters-u-s-capitol/', 'CBS News', '2025-06-13', 38.8898130, -77.0090208, 'U.S. Capitol grounds, Washington, DC'],
         // ── DC · Moral Monday (US Capitol, already pinned) · Jun 30, 2025 ──
-        ['38 arrested with caskets at a Moral Monday protest of Medicaid cuts', 'https://wjla.com/news/local/protestors-arrested-capitol-opposing-medicaid-casket-donald-trump-big-beautiful-bill-bishop-william-j-barber-jamie-raskin-low-wage-americans-supreme-court-rotunda-moral-mondays-repairers-of-the-breach', 'WJLA', '2025-06-30', null, null, null],
+        ['38 arrested with caskets at a Moral Monday protest of Medicaid cuts', 'https://wjla.com/news/local/protestors-arrested-capitol-opposing-medicaid-casket-donald-trump-big-beautiful-bill-bishop-william-j-barber-jamie-raskin-low-wage-americans-supreme-court-rotunda-moral-mondays-repairers-of-the-breach', 'WJLA', '2025-06-30', 38.8898130, -77.0090208, 'U.S. Capitol grounds, Washington, DC'],
         // ── Statehouse · Sen. Capito's office sit-in, Charleston WV · Jun 25, 2025 ──
         ["Six arrested in a sit-in at Sen. Capito's office over SNAP and Medicaid cuts", 'https://www.wvgazettemail.com/news/legal_affairs/6-arrested-during-sit-in-at-capitos-office-to-protest-one-big-beautiful-bill/article_44438316-d7e9-4bf2-ac69-657e6a385196.html', 'WV Gazette-Mail', '2025-06-25', 38.3511946, -81.6382586, "Sen. Capito's office (500 Virginia St E), Charleston, WV"],
         // ── Statehouse · Texas Capitol redistricting (already pinned) · Aug 18, 2025 ──
-        ['Four arrested refusing to leave the Texas Capitol over redistricting', 'https://www.fox7austin.com/news/four-protesters-arrested-after-refusing-leave-texas-capitol-building', 'FOX 7 Austin', '2025-08-18', null, null, null],
+        ['Four arrested refusing to leave the Texas Capitol over redistricting', 'https://www.fox7austin.com/news/four-protesters-arrested-after-refusing-leave-texas-capitol-building', 'FOX 7 Austin', '2025-08-18', 30.2746912, -97.7405171, 'Texas Capitol, Austin, TX'],
         // ── Statehouse · CT Capitol climate sit-in (already pinned) · Nov 17, 2025 ──
         ["Nine climate activists arrested in a sit-in at Gov. Lamont's office", 'https://ctnewsjunkie.com/2025/11/18/nine-arrested-after-ct-climate-activists-stage-sit-in-at-governors-office/', 'CT News Junkie', '2025-11-17', null, null, null],
         // ── Anti-ICE · ICE garage blockade, Center City Philadelphia · Mar 30, 2026 ──
@@ -454,7 +454,7 @@ final class SeedDashboardEvents extends Command {
         // ── South Texas Family Residential Center · Dilley, TX · Jan 28, 2026 ──
         ['Two arrested and tear-gassed at a protest outside the Dilley family detention center', 'https://www.ksat.com/news/local/2026/01/28/protesters-detained-hit-by-tear-gas-outside-dilley-family-detention-facility/', 'KSAT', '2026-01-28', 28.6564798, -99.2021906, 'South Texas Family Residential Center, Dilley, TX'],
         // ── Aurora ICE Processing Center · Aurora, CO · Jul 7, 2025 (facility already pinned) ──
-        ['Lawmakers join a five-hour protest at the Aurora ICE detention center', 'https://sentinelcolorado.com/metro/local-leaders-join-hours-long-protest-against-ice-detention-center-in-aurora/', 'Sentinel Colorado', '2025-07-07', null, null, null],
+        ['Lawmakers join a five-hour protest at the Aurora ICE detention center', 'https://sentinelcolorado.com/metro/local-leaders-join-hours-long-protest-against-ice-detention-center-in-aurora/', 'Sentinel Colorado', '2025-07-07', 39.7599698, -104.8490663, 'Aurora ICE center, CO'],
 
         // ===== round 7: protest trials, acquittals & charges dropped =====
         // ── Prosecution · Rep. LaMonica McIver ordered to trial · Nov 13, 2025 ──
@@ -462,18 +462,18 @@ final class SeedDashboardEvents extends Command {
         // ── Prosecution · charges dropped, Clovis CA ICE-protest escort · Apr 2026 ──
         ['Charges dropped against a man who escorted students to a Clovis ICE protest', 'https://calmatters.org/justice/2026/04/ice-protests-clovis-charges/', 'CalMatters', '2026-04-15', 36.8516317, -119.6934914, 'Clovis, CA'],
         // ── Prosecution · Newark Mayor Baraka trespassing charge dismissed · May 21, 2025 ──
-        ['Trespassing charge dismissed against Newark Mayor Ras Baraka', 'https://www.washingtonpost.com/national-security/2025/05/21/mciver-baraka-newark-ice-court-charges/', 'The Washington Post', '2025-05-21', null, null, null],
+        ['Trespassing charge dismissed against Newark Mayor Ras Baraka', 'https://www.washingtonpost.com/national-security/2025/05/21/mciver-baraka-newark-ice-court-charges/', 'The Washington Post', '2025-05-21', 40.7297710, -74.1723023, 'MLK Courthouse, Newark, NJ'],
         // ── Prosecution · Stop Cop City · Ayla King mistrial · Jul 7, 2025 ──
-        ['Mistrial declared for the first Stop Cop City RICO defendant', 'https://www.11alive.com/article/news/crime/trials/public-safety-training-center-rico-case-speedy-trial-defendant-ayla-king-mistrial/85-6f96368d-c446-4a0a-b724-e6c2966817fd', '11Alive', '2025-07-07', null, null, null],
+        ['Mistrial declared for the first Stop Cop City RICO defendant', 'https://www.11alive.com/article/news/crime/trials/public-safety-training-center-rico-case-speedy-trial-defendant-ayla-king-mistrial/85-6f96368d-c446-4a0a-b724-e6c2966817fd', '11Alive', '2025-07-07', 33.7499951, -84.3907337, 'Fulton County Courthouse, Atlanta, GA'],
         // ── Prosecution · Portland ICE protester acquitted by a jury · Mar 28, 2026 ──
-        ['Portland ICE protester Angella Davis acquitted by a jury on all charges', 'https://www.kptv.com/2026/03/28/portland-ice-protester-acquitted-after-altercation-with-conservative-influencer-nick-sortor/', 'KPTV', '2026-03-28', null, null, null],
+        ['Portland ICE protester Angella Davis acquitted by a jury on all charges', 'https://www.kptv.com/2026/03/28/portland-ice-protester-acquitted-after-altercation-with-conservative-influencer-nick-sortor/', 'KPTV', '2026-03-28', 45.5157824, -122.6763053, 'Hatfield Courthouse, Portland, OR'],
 
         // ── Prosecution · Chicago jury acquits man of a Bovino murder-for-hire charge · Jan 22, 2026 ──
-        ['Chicago man acquitted of a murder-for-hire plot against Border Patrol cmdr. Bovino', 'https://news.wttw.com/2026/01/22/chicago-man-acquitted-murder-hire-charge-plot-allegedly-targeting-border-patrol-chief', 'WTTW', '2026-01-22', null, null, null],
+        ['Chicago man acquitted of a murder-for-hire plot against Border Patrol cmdr. Bovino', 'https://news.wttw.com/2026/01/22/chicago-man-acquitted-murder-hire-charge-plot-allegedly-targeting-border-patrol-chief', 'WTTW', '2026-01-22', 41.8788378, -87.6289654, 'Dirksen Courthouse, Chicago, IL'],
         // ── Prosecution · Fairhope "No Kings" costume case · acquitted · Apr 15, 2026 ──
-        ['Fairhope "No Kings" costume protester Renea Gamble acquitted on all charges', 'https://www.fox10tv.com/2026/04/15/fairhope-woman-found-not-guilty-penis-costume-arrest-case/', 'FOX10 News', '2026-04-15', null, null, null],
+        ['Fairhope "No Kings" costume protester Renea Gamble acquitted on all charges', 'https://www.fox10tv.com/2026/04/15/fairhope-woman-found-not-guilty-penis-costume-arrest-case/', 'FOX10 News', '2026-04-15', 30.5231647, -87.9028458, 'Fairhope, AL'],
         // ── Prosecution · Memphis No Kings charges dropped · Apr 16, 2026 ──
-        ['Charges dropped against three arrested at the Memphis No Kings protest', 'https://wreg.com/news/charges-dropped-against-three-arrested-during-no-kings-protest/', 'WREG', '2026-04-16', null, null, null],
+        ['Charges dropped against three arrested at the Memphis No Kings protest', 'https://wreg.com/news/charges-dropped-against-three-arrested-during-no-kings-protest/', 'WREG', '2026-04-16', 35.1489500, -90.0479460, 'Shelby County courthouse, Memphis, TN'],
 
         // ===== round 9: notable protests (no arrests) — Northeast =====
         ['Thousands rally at Niagara Square for the Buffalo No Kings protest', 'https://www.btpm.org/2025-06-16/no-kings-protests-draw-thousands-to-downtown-buffalo-and-across-wny', 'Buffalo Toronto Public Media', '2025-06-14', 42.8864213, -78.8781479, 'Niagara Square, Buffalo, NY'],
@@ -531,7 +531,7 @@ final class SeedDashboardEvents extends Command {
         ['Anti-ICE protesters fill downtown San Antonio near the National Guard', 'https://www.tpr.org/border-immigration/2025-06-11/anti-ice-protestors-fill-downtown-san-antonio-streets-as-national-guard-troops-gather-nearby', 'Texas Public Radio', '2025-06-11', 29.4245815, -98.4951255, 'San Antonio City Hall, TX'],
         ['March against ICE detentions and anti-LGBTQ policies in San Antonio', 'https://www.ksat.com/news/local/2025/08/02/protest-against-ice-detainments-anti-lgbtq-policies-to-be-held-downtown/', 'KSAT', '2025-08-02', 29.4281053, -98.4891496, 'Travis Park, San Antonio, TX'],
         ['About 6,500 rally at Burk Burnett Park for the Fort Worth No Kings', 'https://fortworthreport.org/2025/10/18/thousands-protest-in-downtown-fort-worth-for-no-kings-rally/', 'Fort Worth Report', '2025-10-18', 32.7531000, -97.3356000, 'Burk Burnett Park, Fort Worth, TX'],
-        ['LGBTQ Texans rally at the Capitol against anti-trans bills', 'https://www.kut.org/politics/2025-05-09/texas-lgbtq-rally-capitol-equality', 'KUT Austin', '2025-05-09', null, null, null],
+        ['LGBTQ Texans rally at the Capitol against anti-trans bills', 'https://www.kut.org/politics/2025-05-09/texas-lgbtq-rally-capitol-equality', 'KUT Austin', '2025-05-09', 30.2746912, -97.7405171, 'Texas Capitol, Austin, TX'],
         ['Over 1,500 rally at the Tulsa County Courthouse for No Kings', 'https://www.kjrh.com/news/local-news/protestors-gather-at-no-kings-demonstrations-across-tulsa', 'KJRH 2 News', '2025-06-14', 36.1495026, -95.9939171, 'Tulsa County Courthouse, Tulsa, OK'],
         ['Thousands march from Scissortail Park to OKC City Hall for No Kings', 'https://freepressokc.com/no-kings-protest-draws-1000s-to-downtown-oklahoma-city/', 'Free Press OKC', '2025-06-14', 35.4690000, -97.5195000, 'Oklahoma City Hall, OK'],
         ['Thousands line the Broadway Bridge for the Little Rock No Kings protest', 'https://www.ualrpublicradio.org/local-regional-news/2025-06-14/thousands-take-to-the-streets-in-little-rock-no-kings-protest', 'Little Rock Public Radio', '2025-06-14', 34.7499803, -92.2748844, 'Broadway Bridge, Little Rock, AR'],
@@ -561,7 +561,7 @@ final class SeedDashboardEvents extends Command {
         ['Thousands join the No Kings protest at Maritime Heritage Park', 'https://www.cascadiadaily.com/2025/oct/18/thousands-of-bellingham-residents-join-nationwide-no-kings-protest/', 'Cascadia Daily News', '2025-10-18', 48.7541366, -122.4826147, 'Maritime Heritage Park, Bellingham, WA'],
         ['No Kings march draws several thousand to the Vancouver Waterfront', 'https://www.camaspostrecord.com/news/2025/jun/19/vancouver-crowds-call-for-no-kings/', 'Camas-Washougal Post-Record', '2025-06-14', 45.6228825, -122.6776300, 'Vancouver Waterfront Park, Vancouver, WA'],
         ['Pro-Palestine, anti-war rally at the Red Wagon in Spokane', 'https://www.spokesman.com/stories/2025/jun/22/protesters-rally-at-red-wagon-against-iran-war/', 'The Spokesman-Review', '2025-06-22', 47.6610000, -117.4222000, 'Riverfront Park (Red Wagon), Spokane, WA'],
-        ['Pro-Ukraine demonstrators protest the Trump-Putin summit at a JBER gate', 'https://alaskapublic.org/news/anchorage/2025-08-15/from-simmering-rage-to-psilocybin-alaskans-share-thoughts-on-trump-putin-visit', 'Alaska Public Media', '2025-08-15', null, null, null],
+        ['Pro-Ukraine demonstrators protest the Trump-Putin summit at a JBER gate', 'https://alaskapublic.org/news/anchorage/2025-08-15/from-simmering-rage-to-psilocybin-alaskans-share-thoughts-on-trump-putin-visit', 'Alaska Public Media', '2025-08-15', 61.2517077, -149.6941751, 'JBER, Anchorage, AK'],
         ['No Kings rally draws 2,500 along the Hilo Bayfront', 'https://bigislandnow.com/2025/10/18/no-kings-rally-in-hilo-draws-2500-as-part-of-nationwide-protest-of-trump-and-his-administration/', 'Big Island Now', '2025-10-18', 19.7250000, -155.0860000, 'Kamehameha Ave (Bayfront), Hilo, HI'],
 
         // ===== round 10: notable no-arrest protests — new topics & small towns =====
@@ -611,19 +611,19 @@ final class SeedDashboardEvents extends Command {
         ['300+ hold a Labor Day ICE-detainee vigil in Hinds Plaza', 'https://www.dailyprincetonian.com/article/2025/09/princeton-news-broadfocus-town-protest-ice-immigrant-vigil-labor-day', 'The Daily Princetonian', '2025-09-01', 40.3513545, -74.6601680, 'Hinds Plaza, Princeton, NJ'],
 
         // Feed-only (no marker — already-pinned venue or dense city)
-        ['Bend rally: 100+ march against a public-lands sell-off', 'https://www.centraloregondaily.com/news/local/bend-protest-public-lands-sale-proposal-june-2025/article_19f8898d-80dc-492a-a729-3006b8058219.html', 'Central Oregon Daily', '2025-06-21', null, null, null],
-        ['Unite for Veterans: thousands protest VA cuts on the D-Day anniversary', 'https://www.stripes.com/veterans/2025-06-06/veterans-rally-national-mall-18036672.html', 'Stars and Stripes', '2025-06-06', null, null, null],
-        ['Homeless residents march against a looming encampment sweep in San Jose', 'https://sanjosespotlight.com/san-jose-homeless-residents-rally-against-looming-sweep/', 'San José Spotlight', '2025-08-12', null, null, null],
-        ['Shelter Is a Human Right rally against encampment sweeps in Ithaca', 'https://www.cornellsun.com/article/2025/11/shelter-is-a-human-right-community-members-rally-at-city-hall-to-protest-homeless-encampment-sweeps-lack-of-shelters', 'Cornell Daily Sun', '2025-11-12', null, null, null],
-        ['Hundreds rally at the Federal Building against US-Israel strikes on Iran', 'https://missionlocal.org/2026/02/sf-us-israel-iran-war-protest/', 'Mission Local', '2026-02-28', null, null, null],
-        ['100+ rally at the Seattle Federal Building against the war on Iran', 'https://www.fox13seattle.com/news/protest-war-iran-seattle-federal-building', 'FOX 13 Seattle', '2026-04-07', null, null, null],
-        ['Hundreds rally against sweeping faculty and program cuts at The New School', 'https://hyperallergic.com/hundreds-rally-against-sweeping-cuts-at-new-school/', 'Hyperallergic', '2025-12-10', null, null, null],
-        ['Students rally over Ohio State\'s compliance with anti-DEI Senate Bill 1', 'https://www.thelantern.com/2025/11/students-faculty-gather-on-campus-in-protest-of-ohio-states-compliance-with-senate-bill-1/', 'The Lantern', '2025-11-07', null, null, null],
-        ['Cancer survivors and disability advocates rally on Medicaid cuts at McCormick\'s office', 'https://whyy.org/articles/philadelphia-medicaid-cuts-rally-senate/', 'WHYY', '2025-05-28', null, null, null],
-        ['Nurses rally over Medicaid cuts outside Rep. Ciscomani\'s Tucson office', 'https://www.kgun9.com/news/community-inspired-journalism/midtown-news/tucson-nurses-protest-medicaid-cuts-in-big-beautiful-bill-outside-rep-ciscomanis-office', 'KGUN9', '2025-07-01', null, null, null],
-        ['Rep. LaMalfa jeered over Medicaid cuts at his first Chico town hall in 8 years', 'https://www.mynspr.org/news/2025-08-11/lamalfa-faces-loud-crowd-at-first-chico-town-hall-in-8-years', 'North State Public Radio', '2025-08-11', null, null, null],
-        ['Hundreds of CDC staff walk out after top officials resign over RFK Jr.', 'https://www.commondreams.org/news/cdc-staff-walkout', 'Common Dreams', '2025-08-28', null, null, null],
-        ['West Philadelphia rally demands SNAP benefits be restored: Fund SNAP, not ICE', 'https://whyy.org/articles/philadelphia-snap-benefits-freeze-protest/', 'WHYY', '2025-11-01', null, null, null],
+        ['Bend rally: 100+ march against a public-lands sell-off', 'https://www.centraloregondaily.com/news/local/bend-protest-public-lands-sale-proposal-june-2025/article_19f8898d-80dc-492a-a729-3006b8058219.html', 'Central Oregon Daily', '2025-06-21', 44.0584771, -121.3222223, 'Drake Park, Bend, OR'],
+        ['Unite for Veterans: thousands protest VA cuts on the D-Day anniversary', 'https://www.stripes.com/veterans/2025-06-06/veterans-rally-national-mall-18036672.html', 'Stars and Stripes', '2025-06-06', 38.8854281, -77.0414735, 'National Mall, Washington, DC'],
+        ['Homeless residents march against a looming encampment sweep in San Jose', 'https://sanjosespotlight.com/san-jose-homeless-residents-rally-against-looming-sweep/', 'San José Spotlight', '2025-08-12', 37.3380339, -121.8853233, 'San Jose City Hall, CA'],
+        ['Shelter Is a Human Right rally against encampment sweeps in Ithaca', 'https://www.cornellsun.com/article/2025/11/shelter-is-a-human-right-community-members-rally-at-city-hall-to-protest-homeless-encampment-sweeps-lack-of-shelters', 'Cornell Daily Sun', '2025-11-12', 42.4389044, -76.4985110, 'Ithaca City Hall, NY'],
+        ['Hundreds rally at the Federal Building against US-Israel strikes on Iran', 'https://missionlocal.org/2026/02/sf-us-israel-iran-war-protest/', 'Mission Local', '2026-02-28', 37.7796112, -122.4115426, 'SF Federal Building, CA'],
+        ['100+ rally at the Seattle Federal Building against the war on Iran', 'https://www.fox13seattle.com/news/protest-war-iran-seattle-federal-building', 'FOX 13 Seattle', '2026-04-07', 47.6045821, -122.3354856, 'Jackson Federal Building, Seattle, WA'],
+        ['Hundreds rally against sweeping faculty and program cuts at The New School', 'https://hyperallergic.com/hundreds-rally-against-sweeping-cuts-at-new-school/', 'Hyperallergic', '2025-12-10', 40.7354792, -73.9970709, 'The New School, Manhattan, NY'],
+        ['Students rally over Ohio State\'s compliance with anti-DEI Senate Bill 1', 'https://www.thelantern.com/2025/11/students-faculty-gather-on-campus-in-protest-of-ohio-states-compliance-with-senate-bill-1/', 'The Lantern', '2025-11-07', 39.9994828, -83.0127590, 'OSU Oval, Columbus, OH'],
+        ['Cancer survivors and disability advocates rally on Medicaid cuts at McCormick\'s office', 'https://whyy.org/articles/philadelphia-medicaid-cuts-rally-senate/', 'WHYY', '2025-05-28', 39.9655661, -75.1815202, 'Center City, Philadelphia, PA'],
+        ['Nurses rally over Medicaid cuts outside Rep. Ciscomani\'s Tucson office', 'https://www.kgun9.com/news/community-inspired-journalism/midtown-news/tucson-nurses-protest-medicaid-cuts-in-big-beautiful-bill-outside-rep-ciscomanis-office', 'KGUN9', '2025-07-01', 32.2228765, -110.9748470, 'Tucson, AZ'],
+        ['Rep. LaMalfa jeered over Medicaid cuts at his first Chico town hall in 8 years', 'https://www.mynspr.org/news/2025-08-11/lamalfa-faces-loud-crowd-at-first-chico-town-hall-in-8-years', 'North State Public Radio', '2025-08-11', 39.7284945, -121.8374777, 'Chico, CA'],
+        ['Hundreds of CDC staff walk out after top officials resign over RFK Jr.', 'https://www.commondreams.org/news/cdc-staff-walkout', 'Common Dreams', '2025-08-28', 33.7811778, -84.3230951, 'CDC Roybal Campus, Atlanta, GA'],
+        ['West Philadelphia rally demands SNAP benefits be restored: Fund SNAP, not ICE', 'https://whyy.org/articles/philadelphia-snap-benefits-freeze-protest/', 'WHYY', '2025-11-01', 39.9614679, -75.2368077, 'West Philadelphia, PA'],
 
         // ===== round 11: thin states, US territories, new movements & 2026 outcomes =====
         // Under-covered states & US territories (No Kings, Good Trouble, solidarity)
@@ -640,16 +640,16 @@ final class SeedDashboardEvents extends Command {
         ['Activists protest ICE detentions in a San Juan neighborhood', 'https://thelatinonewsletter.org/p/activists-protest-immigration-detentions-in-san-juan-neighborhood', 'The Latino Newsletter', '2025-11-16', 18.4046351, -66.0478486, 'Rio Piedras, San Juan, PR'],
         ['Guam holds the first No Kings rally in a US territory', 'https://www.islapublic.org/news/2025-06-15/no-kings-rally-in-guam-demands-protection-of-democracy-and-equal-rights', 'Isla Public', '2025-06-14', 13.5196540, 144.8171200, 'Micronesia Mall, Dededo, GU'],
         ['A No Kings motorcade and rally draws a crowd on the St. Croix bypass', 'https://www.virginislandsdailynews.com/news/virgin-islands-residents-join-no-kings-protest-movement/article_90e135d5-3804-493c-83ff-a10fbf45efdf.html', 'Virgin Islands Daily News', '2026-03-28', 17.7468293, -64.7078331, 'Christiansted bypass, St. Croix, VI'],
-        ['About 1,000 rally on Minnesota Avenue for a Sioux Falls No Kings day of action', 'https://www.dakotanewsnow.com/2025/06/14/sioux-falls-takes-part-nationwide-no-kings-rally/', 'Dakota News Now', '2025-06-14', null, null, null],
+        ['About 1,000 rally on Minnesota Avenue for a Sioux Falls No Kings day of action', 'https://www.dakotanewsnow.com/2025/06/14/sioux-falls-takes-part-nationwide-no-kings-rally/', 'Dakota News Now', '2025-06-14', 43.5480280, -96.7245684, 'Downtown Sioux Falls, SD'],
 
         // Tesla Takedown · climate / public lands · federal-worker (anti-DOGE)
         ['Indivisible Charlotte holds its 10th Tesla Takedown protest against DOGE', 'https://www.wsoctv.com/news/local/indivisible-charlotte-holds-10th-tesla-protest-matthews/5TSV4TMBWJATLM6I44FLJAT35U/', 'WSOC-TV', '2025-05-10', 35.1409085, -80.7189124, 'Tesla dealership, Matthews, NC'],
         ['Roughly 1,000 rally against Trump at the Montana Capitol', 'https://montanafreepress.org/2025/06/14/roughly-1000-rally-against-trump-at-montana-capitol/', 'Montana Free Press', '2025-06-14', 46.5857390, -112.0184275, 'Montana State Capitol, Helena, MT'],
-        ['NIOSH workers and AFGE rally against HHS layoffs in Washington', 'https://westvirginiawatch.com/2025/05/16/labor-unions-representing-laid-off-niosh-cdc-workers-to-protest-in-d-c-next-week/', 'West Virginia Watch', '2025-05-22', null, null, null],
-        ['Tesla Takedown protesters rally against Musk and DOGE in Matthews', 'https://www.wfae.org/charlotte-area/2025-07-15/protesters-rally-against-elon-musk-outside-tesla-dealership', 'WFAE', '2025-07-15', null, null, null],
-        ['Hundreds rally Not for Sale against a public-lands sell-off at the Wyoming Capitol', 'https://wyofile.com/public-lands-rally-draws-large-varied-crowd-to-wyoming-statehouse/', 'WyoFile', '2025-06-26', null, null, null],
-        ['Federal workers rally against the shutdown and DOGE cuts in Tucson', 'https://www.tucsonspotlight.org/federal-workers-leaders-rally-amid-government-shutdown/', 'Tucson Spotlight', '2025-10-06', null, null, null],
-        ['Federal workers rally against the shutdown and job cuts in Cincinnati', 'https://www.wvxu.org/local-news/2025-10-14/federal-workers-rally-cincinnati-shutdown', 'WVXU', '2025-10-14', null, null, null],
+        ['NIOSH workers and AFGE rally against HHS layoffs in Washington', 'https://westvirginiawatch.com/2025/05/16/labor-unions-representing-laid-off-niosh-cdc-workers-to-protest-in-d-c-next-week/', 'West Virginia Watch', '2025-05-22', 38.8866298, -77.0143854, 'HHS HQ, Washington, DC'],
+        ['Tesla Takedown protesters rally against Musk and DOGE in Matthews', 'https://www.wfae.org/charlotte-area/2025-07-15/protesters-rally-against-elon-musk-outside-tesla-dealership', 'WFAE', '2025-07-15', 35.1409085, -80.7189124, 'Tesla dealership, Matthews, NC'],
+        ['Hundreds rally Not for Sale against a public-lands sell-off at the Wyoming Capitol', 'https://wyofile.com/public-lands-rally-draws-large-varied-crowd-to-wyoming-statehouse/', 'WyoFile', '2025-06-26', 41.1402683, -104.8202289, 'Wyoming Capitol, Cheyenne, WY'],
+        ['Federal workers rally against the shutdown and DOGE cuts in Tucson', 'https://www.tucsonspotlight.org/federal-workers-leaders-rally-amid-government-shutdown/', 'Tucson Spotlight', '2025-10-06', 32.2229936, -110.9739013, 'El Presidio Plaza, Tucson, AZ'],
+        ['Federal workers rally against the shutdown and job cuts in Cincinnati', 'https://www.wvxu.org/local-news/2025-10-14/federal-workers-rally-cincinnati-shutdown', 'WVXU', '2025-10-14', 39.1016812, -84.5080828, 'Downtown Cincinnati, OH'],
 
         // Labor · healthcare · education strikes & pickets
         ['Houlton Regional Hospital nurses begin a four-day strike over ER staffing', 'https://www.wagmtv.com/2026/05/22/nurses-houlton-regional-hospital-plan-four-day-strike/', 'WAGM-TV', '2026-05-26', 46.1323216, -67.8429374, 'Houlton Regional Hospital, Houlton, ME'],
@@ -658,25 +658,25 @@ final class SeedDashboardEvents extends Command {
         ['Iowa City Starbucks baristas join a nationwide unfair-labor strike', 'https://www.kcrg.com/2025/12/04/iowa-starbucks-workers-join-national-strike/', 'KCRG-TV9', '2025-12-04', 41.6508937, -91.5346322, 'Starbucks, S Clinton St, Iowa City, IA'],
         ['UAW Local 2093 strikes American Axle over stagnant wages', 'https://www.clickondetroit.com/news/local/2026/06/01/uaw-workers-strike-at-american-axle-plant-in-michigan/', 'WDIV Local 4', '2026-06-01', 41.9345643, -85.6400717, 'American Axle (Dauch) plant, Three Rivers, MI'],
         ['Backus Hospital nurses hold an informational picket over patient care', 'https://www.wfsb.com/2025/05/15/nurses-backus-hospital-hold-demonstration-over-patient-care-concerns/', 'WFSB Channel 3', '2025-05-15', 41.5427325, -72.0886873, 'Backus Hospital, Norwich, CT'],
-        ['Butler Hospital workers strike over wages, staffing and pensions', 'https://thepublicsradio.org/labor/butler-hospital-workers-ratify-new-contract-ending-strike/', 'The Public\'s Radio', '2025-05-15', null, null, null],
-        ['Meriter nurses launch the first strike in the hospital\'s history over staffing', 'https://www.wpr.org/news/nurses-madison-meriter-hospital-on-strike-contract-demands', 'Wisconsin Public Radio', '2025-05-27', null, null, null],
-        ['OSU Wexner nurses picket over workplace violence and staffing', 'https://www.wosu.org/2025-06-25/osu-nurses-picket-for-safer-workplace-higher-wages-amid-contract-negotiations', 'WOSU', '2025-06-25', null, null, null],
-        ['Duluth nurses picket St. Luke\'s and Essentia over unsafe staffing', 'https://mnnurses.org/nurses-picket-twin-cities-duluth-hospitals-as-15000-seek-new-contracts-that-prioritize-patient-safety/', 'Minnesota Nurses Association', '2025-06-04', null, null, null],
-        ['Ascension Saint Agnes nurses hold a one-day strike over staffing', 'https://www.cbsnews.com/baltimore/news/maryland-nurses-strike-ascension-saint-agnes-hospital/', 'CBS News Baltimore', '2025-07-24', null, null, null],
-        ['UNM Hospital workers picket over understaffing and low wages', 'https://www.ems1.com/hospital/nurses-staff-protest-at-n-m-hospital-citing-heavy-workloads-and-low-wages', 'EMS1', '2025-10-31', null, null, null],
-        ['Memphis Starbucks baristas strike in the Red Cup Rebellion', 'https://www.actionnews5.com/2025/12/01/starbucks-workers-strike-outside-memphis-store-poplar-avenue/', 'Action News 5', '2025-11-30', null, null, null],
-        ['Stand Up for Science rally hits the Oklahoma Capitol against research cuts', 'https://freepressokc.com/despite-cold-pro-science-rally-draws-modest-crowd-to-capitol/', 'Free Press OKC', '2026-03-07', null, null, null],
-        ['UMC nurses strike for a fifth time over staffing and retention', 'https://www.wwno.org/public-health/2025-11-11/protestors-brave-cold-snap-to-support-striking-nurses-at-new-orleans-umc', 'WWNO', '2025-11-11', null, null, null],
-        ['Missoula scientists rally to Take Back Science against research cuts', 'https://www.mtpr.org/montana-news/2026-03-11/demonstrators-gather-in-missoula-to-stand-up-for-science', 'Montana Public Radio', '2026-03-07', null, null, null],
+        ['Butler Hospital workers strike over wages, staffing and pensions', 'https://thepublicsradio.org/labor/butler-hospital-workers-ratify-new-contract-ending-strike/', 'The Public\'s Radio', '2025-05-15', 41.8424483, -71.3807299, 'Butler Hospital, Providence, RI'],
+        ['Meriter nurses launch the first strike in the hospital\'s history over staffing', 'https://www.wpr.org/news/nurses-madison-meriter-hospital-on-strike-contract-demands', 'Wisconsin Public Radio', '2025-05-27', 43.0660496, -89.4017123, 'Meriter Hospital, Madison, WI'],
+        ['OSU Wexner nurses picket over workplace violence and staffing', 'https://www.wosu.org/2025-06-25/osu-nurses-picket-for-safer-workplace-higher-wages-amid-contract-negotiations', 'WOSU', '2025-06-25', 39.9948571, -83.0198739, 'OSU Wexner, Columbus, OH'],
+        ['Duluth nurses picket St. Luke\'s and Essentia over unsafe staffing', 'https://mnnurses.org/nurses-picket-twin-cities-duluth-hospitals-as-15000-seek-new-contracts-that-prioritize-patient-safety/', 'Minnesota Nurses Association', '2025-06-04', 46.7979957, -92.0864394, 'Duluth, MN'],
+        ['Ascension Saint Agnes nurses hold a one-day strike over staffing', 'https://www.cbsnews.com/baltimore/news/maryland-nurses-strike-ascension-saint-agnes-hospital/', 'CBS News Baltimore', '2025-07-24', 39.2837940, -76.7624370, 'St. Agnes Hospital, Baltimore, MD'],
+        ['UNM Hospital workers picket over understaffing and low wages', 'https://www.ems1.com/hospital/nurses-staff-protest-at-n-m-hospital-citing-heavy-workloads-and-low-wages', 'EMS1', '2025-10-31', 35.0884989, -106.6179208, 'UNM Hospital, Albuquerque, NM'],
+        ['Memphis Starbucks baristas strike in the Red Cup Rebellion', 'https://www.actionnews5.com/2025/12/01/starbucks-workers-strike-outside-memphis-store-poplar-avenue/', 'Action News 5', '2025-11-30', 35.1289637, -89.9495139, 'Poplar Ave, Memphis, TN'],
+        ['Stand Up for Science rally hits the Oklahoma Capitol against research cuts', 'https://freepressokc.com/despite-cold-pro-science-rally-draws-modest-crowd-to-capitol/', 'Free Press OKC', '2026-03-07', 35.4922055, -97.5033333, 'Oklahoma Capitol, Oklahoma City, OK'],
+        ['UMC nurses strike for a fifth time over staffing and retention', 'https://www.wwno.org/public-health/2025-11-11/protestors-brave-cold-snap-to-support-striking-nurses-at-new-orleans-umc', 'WWNO', '2025-11-11', 29.9597986, -90.0821311, 'UMC, New Orleans, LA'],
+        ['Missoula scientists rally to Take Back Science against research cuts', 'https://www.mtpr.org/montana-news/2026-03-11/demonstrators-gather-in-missoula-to-stand-up-for-science', 'Montana Public Radio', '2026-03-07', 46.8732919, -113.9959132, 'Missoula, MT'],
 
         // Prosecution outcomes & notable arrests (2025-26)
         ['Milwaukee judge Hannah Dugan is found guilty of obstructing ICE agents', 'https://en.wikipedia.org/wiki/Hannah_Dugan', 'Wikipedia', '2025-12-18', 43.0387634, -87.9050046, 'U.S. Courthouse, Milwaukee, WI'],
         ['Eight anti-ICE protesters are convicted on terrorism charges in the Prairieland trial', 'https://theintercept.com/2026/03/13/ice-protesters-terrorism-prairieland-antifa/', 'The Intercept', '2026-03-13', 32.7499470, -97.3329500, 'Eldon B. Mahon U.S. Courthouse, Fort Worth, TX'],
         ['A CBP officer is charged with assault over the Durango ICE protest', 'https://coloradonewsline.com/briefs/federal-officer-charged-durango-ice-protest/', 'Colorado Newsline', '2026-04-21', 37.2748174, -107.8787224, 'La Plata County Court, Durango, CO'],
-        ['Newark Mayor Ras Baraka sues the US Attorney for false arrest and malicious prosecution', 'https://www.pbs.org/newshour/politics/newark-mayor-sues-federal-prosecutor-saying-arrest-at-immigration-detention-site-was-political', 'PBS NewsHour', '2025-06-03', null, null, null],
-        ['A jury acquits ICE protester Brayan Ramos-Brito of assaulting a federal officer', 'https://www.cbsnews.com/losangeles/news/la-county-ice-protest-not-guilty-acquittal/', 'CBS News Los Angeles', '2025-09-17', null, null, null],
-        ['The Stanford protesters case ends in a hung jury and a mistrial on felony charges', 'https://www.kqed.org/news/12073534/stanford-pro-palestinian-protesters-case-ends-in-mistrial', 'KQED', '2026-02-14', null, null, null],
-        ['A man is indicted for trying to set fire to the Surprise ICE building', 'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/', 'Arizona\'s Family', '2026-05-07', null, null, null],
+        ['Newark Mayor Ras Baraka sues the US Attorney for false arrest and malicious prosecution', 'https://www.pbs.org/newshour/politics/newark-mayor-sues-federal-prosecutor-saying-arrest-at-immigration-detention-site-was-political', 'PBS NewsHour', '2025-06-03', 40.7297710, -74.1723023, 'MLK Courthouse, Newark, NJ'],
+        ['A jury acquits ICE protester Brayan Ramos-Brito of assaulting a federal officer', 'https://www.cbsnews.com/losangeles/news/la-county-ice-protest-not-guilty-acquittal/', 'CBS News Los Angeles', '2025-09-17', 34.0528364, -118.2389802, 'Roybal Courthouse, Los Angeles, CA'],
+        ['The Stanford protesters case ends in a hung jury and a mistrial on felony charges', 'https://www.kqed.org/news/12073534/stanford-pro-palestinian-protesters-case-ends-in-mistrial', 'KQED', '2026-02-14', 37.3937219, -121.9307405, 'Santa Clara County Court, San Jose, CA'],
+        ['A man is indicted for trying to set fire to the Surprise ICE building', 'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/', 'Arizona\'s Family', '2026-05-07', 33.4477432, -112.0804769, 'Phoenix federal courthouse, AZ'],
     ];
 
     /**
