@@ -167,10 +167,10 @@
     #ppd-tl-handle-lo { background: #141418; border: 4px solid var(--amber); }
     .ppd-tl-handle:active { cursor: grabbing; }
     .ppd-tl-handle:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
-    /* Single-handle timeline: only the "today" handle shows. The lookback start
-       handle and the amber range band are hidden, leaving a plain rail. */
-    #ppd-tl-handle-lo { display: none; }
-    .ppd-tl-fill { display: none; }
+    /* At today the timeline collapses to the single "today" dot; while scrubbing
+       back, the trailing dot + amber band (the active 30-day window) appear. */
+    .ppd-tl-bar.is-collapsed #ppd-tl-handle-lo,
+    .ppd-tl-bar.is-collapsed .ppd-tl-fill { display: none; }
     .ppd-tl-ticks { display: flex; position: relative; margin-top: 9px; }
     .ppd-tl-tick { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .ppd-tl-tick::before { content: ""; width: 1px; height: 4px; background: rgba(255,255,255,0.14); }
@@ -313,15 +313,14 @@
 
     // event markers: curated dashboard links that carry coordinates. The map is
     // events-only, so these markers are its sole layer, and they scrub with the
-    // timeline. They are a ROLLING 30-DAY WINDOW: an event drops off the map 30
-    // days after it occurs, so the map always reflects current activity. (Older
-    // events stay in the newswire/ticker; only the pins expire.) The map stat and
-    // legend counts derive from this set, so they track the window automatically.
+    // timeline. ALL geocoded events are sent to the browser; the timeline applies a
+    // rolling 30-day window client-side (see the scrubber JS), so a pin appears on
+    // its event date and drops off 30 days later — and dragging the timeline back
+    // reveals the pins that were active at that earlier point. The map stat and the
+    // legend counts derive from this full set; the legend recounts per window.
     // Guarded so the page still renders if the lat/lng migration hasn't run yet.
-    $mapWindowStart = now()->subDays(30)->startOfDay();   // pins live 30 days, then vanish
     $eventPoints = \Illuminate\Support\Facades\Schema::hasColumn('dashboard_links', 'lat')
         ? \App\Models\DashboardLink::onMap()
-            ->where('published_at', '>=', $mapWindowStart)
             ->orderByDesc('published_at')->get()
             ->map(fn ($l) => [
                 'lat'    => (float) $l->lat,
@@ -649,10 +648,11 @@
         });
 
         // ---- timeline scrubber under the map ----
-        // A single handle marks the end of the view (defaults to today). The map +
-        // newswire show a trailing 30-day window behind it. Drag the handle (or click
-        // the rail) to scrub that window back through history, or press play to sweep
-        // it forward to today. The start handle + amber band are hidden (plain rail).
+        // One dot marks the scrub date (defaults to today). The map + newswire show a
+        // rolling 30-day window ending at it. At today it's a single dot; drag it back
+        // and the trailing dot + amber band (the active window) appear — pins blink in
+        // on their event date and out 30 days later as the window slides. Play sweeps
+        // the window forward through history to today.
         (function () {
             var bar = document.getElementById('ppd-tl-bar');
             var loH = document.getElementById('ppd-tl-handle-lo');
@@ -695,19 +695,28 @@
                 else if (x > right - pad) main.scrollLeft = Math.min(main.scrollWidth - main.clientWidth, x - main.clientWidth + pad);
             }
 
-            // The window is a trailing 30 days ending at the handle (hi): [hi-30, hi].
+            // hi is the scrub dot (defaults to today). The active window is a trailing
+            // 30 days ending at it: [hi-30, hi]. At today it collapses to one dot; scrub
+            // back and the trailing dot + amber band (the 30-day window) appear, and
+            // pins blink in on their date and out 30 days later as the window slides.
             var WINDOW = 30;
             function render() {
-                var xh = centerOf(hi);
+                var winLo = Math.max(0, hi - WINDOW);       // trailing edge of the 30-day window
+                var collapsed = hi >= count - 1;            // at today → single dot
+                var xl = centerOf(winLo), xh = centerOf(hi);
                 hiH.style.left = xh + 'px';
+                loH.style.left = xl + 'px';
+                fill.style.left = xl + 'px';
+                fill.style.width = Math.max(0, xh - xl) + 'px';
                 hiH.setAttribute('aria-valuenow', hi + 1);
+                loH.setAttribute('aria-valuenow', winLo + 1);
+                bar.classList.toggle('is-collapsed', collapsed);
                 for (var i = 0; i < count; i++) {
-                    ticks[i].classList.remove('is-passed');             // plain rail — no window band
-                    ticks[i].classList.toggle('is-current', i === hi);  // mark the handle (today) only
+                    ticks[i].classList.remove('is-passed');
+                    ticks[i].classList.toggle('is-current', i === hi);  // mark the scrub (today) dot
                 }
                 // Re-filter the map + newswire only when the window actually changes.
-                var newLo = Math.max(0, hi - WINDOW);
-                if (loFilter !== newLo || hiFilter !== hi) { loFilter = newLo; hiFilter = hi; applyFilters(); }
+                if (loFilter !== winLo || hiFilter !== hi) { loFilter = winLo; hiFilter = hi; applyFilters(); }
             }
             function clamp(i) { i = i | 0; return i < 0 ? 0 : (i > count - 1 ? count - 1 : i); }
             function setHandle(i) { hi = clamp(i); render(); ensureVisible(hi); }
