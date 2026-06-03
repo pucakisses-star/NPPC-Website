@@ -455,6 +455,18 @@ final class SeedDashboardEvents extends Command {
         ['Two arrested and tear-gassed at a protest outside the Dilley family detention center', 'https://www.ksat.com/news/local/2026/01/28/protesters-detained-hit-by-tear-gas-outside-dilley-family-detention-facility/', 'KSAT', '2026-01-28', 28.6564798, -99.2021906, 'South Texas Family Residential Center, Dilley, TX'],
         // ── Aurora ICE Processing Center · Aurora, CO · Jul 7, 2025 (facility already pinned) ──
         ['Lawmakers join a five-hour protest at the Aurora ICE detention center', 'https://sentinelcolorado.com/metro/local-leaders-join-hours-long-protest-against-ice-detention-center-in-aurora/', 'Sentinel Colorado', '2025-07-07', null, null, null],
+
+        // ===== round 7: protest trials, acquittals & charges dropped =====
+        // ── Prosecution · Rep. LaMonica McIver ordered to trial · Nov 13, 2025 ──
+        ['Rep. LaMonica McIver ordered to trial over the Delaney Hall ICE visit', 'https://www.cnn.com/2025/11/13/politics/lamonica-mciver-charges-new-jersey-immigration-detention-center', 'CNN', '2025-11-13', 40.7297710, -74.1723023, 'MLK Jr. Federal Building & Courthouse, Newark, NJ'],
+        // ── Prosecution · charges dropped, Clovis CA ICE-protest escort · Apr 2026 ──
+        ['Charges dropped against a man who escorted students to a Clovis ICE protest', 'https://calmatters.org/justice/2026/04/ice-protests-clovis-charges/', 'CalMatters', '2026-04-15', 36.8516317, -119.6934914, 'Clovis, CA'],
+        // ── Prosecution · Newark Mayor Baraka trespassing charge dismissed · May 21, 2025 ──
+        ['Trespassing charge dismissed against Newark Mayor Ras Baraka', 'https://www.washingtonpost.com/national-security/2025/05/21/mciver-baraka-newark-ice-court-charges/', 'The Washington Post', '2025-05-21', null, null, null],
+        // ── Prosecution · Stop Cop City · Ayla King mistrial · Jul 7, 2025 ──
+        ['Mistrial declared for the first Stop Cop City RICO defendant', 'https://www.11alive.com/article/news/crime/trials/public-safety-training-center-rico-case-speedy-trial-defendant-ayla-king-mistrial/85-6f96368d-c446-4a0a-b724-e6c2966817fd', '11Alive', '2025-07-07', null, null, null],
+        // ── Prosecution · Portland ICE protester acquitted by a jury · Mar 28, 2026 ──
+        ['Portland ICE protester Angella Davis acquitted by a jury on all charges', 'https://www.kptv.com/2026/03/28/portland-ice-protester-acquitted-after-altercation-with-conservative-influencer-nick-sortor/', 'KPTV', '2026-03-28', null, null, null],
     ];
 
     /**
@@ -566,6 +578,12 @@ final class SeedDashboardEvents extends Command {
             'https://paw.princeton.edu/article/clio-hall-protest-trial-municipal-court-delayed-until-june',
             // round 5 — Stop Cop City RICO dismissal
             'https://www.atlantanewsfirst.com/2025/12/31/racketeering-charges-brought-against-public-safety-training-center-protesters-dismissed/',
+            // round 7 — trials / acquittals / charges dropped
+            'https://www.cnn.com/2025/11/13/politics/lamonica-mciver-charges-new-jersey-immigration-detention-center',
+            'https://calmatters.org/justice/2026/04/ice-protests-clovis-charges/',
+            'https://www.washingtonpost.com/national-security/2025/05/21/mciver-baraka-newark-ice-court-charges/',
+            'https://www.11alive.com/article/news/crime/trials/public-safety-training-center-rico-case-speedy-trial-defendant-ayla-king-mistrial/85-6f96368d-c446-4a0a-b724-e6c2966817fd',
+            'https://www.kptv.com/2026/03/28/portland-ice-protester-acquitted-after-altercation-with-conservative-influencer-nick-sortor/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
