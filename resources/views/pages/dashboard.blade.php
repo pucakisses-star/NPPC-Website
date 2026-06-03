@@ -163,6 +163,10 @@
     #ppd-tl-handle-lo { background: #141418; border: 4px solid var(--amber); }
     .ppd-tl-handle:active { cursor: grabbing; }
     .ppd-tl-handle:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+    /* Single-handle timeline: only the "today" handle shows. The lookback start
+       handle and the amber range band are hidden, leaving a plain rail. */
+    #ppd-tl-handle-lo { display: none; }
+    .ppd-tl-fill { display: none; }
     .ppd-tl-ticks { display: flex; position: relative; margin-top: 9px; }
     .ppd-tl-tick { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .ppd-tl-tick::before { content: ""; width: 1px; height: 4px; background: rgba(255,255,255,0.14); }
@@ -641,10 +645,10 @@
         });
 
         // ---- timeline scrubber under the map ----
-        // Two handles bound a date range: the map markers + newswire show items
-        // dated within [lo, hi]. It defaults to the last ~30 days; drag either
-        // handle to widen or narrow the window, click the rail to move the nearer
-        // handle, or press play to replay history sweeping the end to today.
+        // A single handle marks the end of the view (defaults to today). The map +
+        // newswire show a trailing 30-day window behind it. Drag the handle (or click
+        // the rail) to scrub that window back through history, or press play to sweep
+        // it forward to today. The start handle + amber band are hidden (plain rail).
         (function () {
             var bar = document.getElementById('ppd-tl-bar');
             var loH = document.getElementById('ppd-tl-handle-lo');
@@ -687,25 +691,23 @@
                 else if (x > right - pad) main.scrollLeft = Math.min(main.scrollWidth - main.clientWidth, x - main.clientWidth + pad);
             }
 
+            // The window is a trailing 30 days ending at the handle (hi): [hi-30, hi].
+            var WINDOW = 30;
             function render() {
-                var xl = centerOf(lo), xh = centerOf(hi);
-                loH.style.left = xl + 'px';
+                var xh = centerOf(hi);
                 hiH.style.left = xh + 'px';
-                // Fill the selected window: the span between the two handles.
-                fill.style.left = xl + 'px';
-                fill.style.width = Math.max(0, xh - xl) + 'px';
-                loH.setAttribute('aria-valuenow', lo + 1);
                 hiH.setAttribute('aria-valuenow', hi + 1);
                 for (var i = 0; i < count; i++) {
-                    ticks[i].classList.toggle('is-passed', i >= lo && i <= hi);    // inside the window
-                    ticks[i].classList.toggle('is-current', i === lo || i === hi); // the two endpoints
+                    ticks[i].classList.remove('is-passed');             // plain rail — no window band
+                    ticks[i].classList.toggle('is-current', i === hi);  // mark the handle (today) only
                 }
                 // Re-filter the map + newswire only when the window actually changes.
-                if (loFilter !== lo || hiFilter !== hi) { loFilter = lo; hiFilter = hi; applyFilters(); }
+                var newLo = Math.max(0, hi - WINDOW);
+                if (loFilter !== newLo || hiFilter !== hi) { loFilter = newLo; hiFilter = hi; applyFilters(); }
             }
             function clamp(i) { i = i | 0; return i < 0 ? 0 : (i > count - 1 ? count - 1 : i); }
-            function setLo(i) { lo = Math.min(clamp(i), hi); render(); ensureVisible(lo); }   // can't pass hi
-            function setHi(i) { hi = Math.max(clamp(i), lo); render(); ensureVisible(hi); }   // can't pass lo
+            function setHandle(i) { hi = clamp(i); render(); ensureVisible(hi); }
+            var setHi = setHandle, setLo = setHandle;   // every old entry point moves the single handle
             function nearestIndex(clientX) {
                 var x = clientX - ticksWrap.getBoundingClientRect().left;
                 var best = 0, bestD = Infinity;
@@ -785,13 +787,15 @@
             var rt;
             window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { sizeBar(); render(); ensureVisible(hi); }, 120); });
 
-            loFilter = lo; hiFilter = hi; applyFilters();   // apply the default window immediately
-            requestAnimationFrame(function () {
-                sizeBar();
-                render();
-                // default view: most recent ~30 days, with the end handle (today) at the right edge
-                if (main) main.scrollLeft = main.scrollWidth;
-            });
+            // Default: handle at today, trailing 30-day window, scrolled so today sits
+            // at the right edge. Re-run after fonts/layout settle — they can resize the
+            // ticks after first paint and otherwise leave the bar parked short of today.
+            hi = count - 1;
+            function toToday() { sizeBar(); render(); if (main) main.scrollLeft = main.scrollWidth; }
+            toToday();
+            requestAnimationFrame(function () { toToday(); requestAnimationFrame(toToday); });
+            if (document.fonts && document.fonts.ready) { document.fonts.ready.then(toToday); }
+            setTimeout(toToday, 250);
         })();
 
         // ---- "+ Add" article form: toggle open/closed ----
