@@ -443,6 +443,18 @@ final class SeedDashboardEvents extends Command {
 
         // ── Political prisoner · activist Jeanette Vizguerra freed from the Aurora ICE jail · Dec 22, 2025 ──
         ['Activist Jeanette Vizguerra freed from the Aurora ICE jail after nine months', 'https://coloradosun.com/2025/12/22/jeanette-vizguerra-released-ice/', 'The Colorado Sun', '2025-12-22', 39.7612260, -104.8505622, 'Aurora ICE Processing Center, Aurora, CO'],
+
+        // ===== round 6: ICE detention-center resistance (overlooked local stories) =====
+        // ── "Alligator Alcatraz" · Everglades, FL · Jun 28, 2025 ──
+        ['Hundreds line the Tamiami Trail to oppose the Everglades "Alligator Alcatraz"', 'https://www.wlrn.org/environment/2025-06-28/demonstrators-line-tamiami-trail-everglades-to-oppose-alligator-alcatraz', 'WLRN', '2025-06-28', 25.8631663, -80.8984570, 'Everglades Detention Facility ("Alligator Alcatraz"), Ochopee, FL'],
+        // ── Northwest ICE Processing Center · Tacoma, WA · Jun 6, 2025 ──
+        ['200 union members rally at the Tacoma ICE jail for a detained machinist', 'https://labornotes.org/2025/06/iam-max-machinists-rally-for-member-detained-ice', 'Labor Notes', '2025-06-06', 47.2490911, -122.4224454, 'Northwest ICE Processing Center, Tacoma, WA'],
+        // ── Camp East Montana · Fort Bliss, El Paso TX · Aug 17, 2025 ──
+        ['Protesters rally as a new tent detention camp opens at Fort Bliss', 'https://abcnews.go.com/US/opening-new-migrant-detention-center-texas-met-protests/story?id=124760368', 'ABC News', '2025-08-17', 31.8329886, -106.3253286, 'Camp East Montana, Fort Bliss, El Paso, TX'],
+        // ── South Texas Family Residential Center · Dilley, TX · Jan 28, 2026 ──
+        ['Two arrested and tear-gassed at a protest outside the Dilley family detention center', 'https://www.ksat.com/news/local/2026/01/28/protesters-detained-hit-by-tear-gas-outside-dilley-family-detention-facility/', 'KSAT', '2026-01-28', 28.6564798, -99.2021906, 'South Texas Family Residential Center, Dilley, TX'],
+        // ── Aurora ICE Processing Center · Aurora, CO · Jul 7, 2025 (facility already pinned) ──
+        ['Lawmakers join a five-hour protest at the Aurora ICE detention center', 'https://sentinelcolorado.com/metro/local-leaders-join-hours-long-protest-against-ice-detention-center-in-aurora/', 'Sentinel Colorado', '2025-07-07', null, null, null],
     ];
 
     /**
