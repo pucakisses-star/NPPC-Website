@@ -682,6 +682,7 @@ final class SeedDashboardEvents extends Command {
         ['SF Supervisors Mandelman and Chan and Sen. Becker arrested at the SFO May Day protest', 'https://missionlocal.org/2026/05/s-f-supervisors-past-and-present-arrested-at-sfo-anti-ice-protest/', 'Mission Local', '2026-05-01', 37.6157466, -122.3903590, 'SFO International Terminal, San Francisco, CA'],
         ['Oak Park Township Trustee Juan Muñoz detained by ICE at the Broadview facility protest', 'https://www.cbsnews.com/chicago/news/oak-park-officials-stand-with-protesters-broadview-ice-facility/', 'CBS News Chicago', '2025-10-03', null, null, null],
         ['Oak Park Trustee Brian Straw indicted over the Broadview ICE facility protest', 'https://capitolnewsillinois.com/news/democratic-candidates-officeholders-indicted-for-impeding-agent-outside-ice-facility/', 'Capitol News Illinois', '2025-09-26', null, null, null],
+        ['Ex-Worcester councilor Etel Haxhiaj convicted of assaulting an officer at an ICE arrest', 'https://www.cbsnews.com/boston/news/worcester-city-councilor-etel-haxhiaj-guilty-assault-police-ice/', 'CBS News Boston', '2026-02-11', 42.2674401, -71.8006902, 'Worcester courthouse, MA'],
     ];
 
     /**
@@ -816,6 +817,8 @@ final class SeedDashboardEvents extends Command {
             'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/',
             // Oak Park trustee indicted over the Broadview ICE protest
             'https://capitolnewsillinois.com/news/democratic-candidates-officeholders-indicted-for-impeding-agent-outside-ice-facility/',
+            // ex-Worcester councilor convicted over the ICE-arrest clash
+            'https://www.cbsnews.com/boston/news/worcester-city-councilor-etel-haxhiaj-guilty-assault-police-ice/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
