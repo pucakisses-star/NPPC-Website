@@ -467,6 +467,13 @@ final class SeedDashboardEvents extends Command {
         ['Mistrial declared for the first Stop Cop City RICO defendant', 'https://www.11alive.com/article/news/crime/trials/public-safety-training-center-rico-case-speedy-trial-defendant-ayla-king-mistrial/85-6f96368d-c446-4a0a-b724-e6c2966817fd', '11Alive', '2025-07-07', null, null, null],
         // ── Prosecution · Portland ICE protester acquitted by a jury · Mar 28, 2026 ──
         ['Portland ICE protester Angella Davis acquitted by a jury on all charges', 'https://www.kptv.com/2026/03/28/portland-ice-protester-acquitted-after-altercation-with-conservative-influencer-nick-sortor/', 'KPTV', '2026-03-28', null, null, null],
+
+        // ── Prosecution · Chicago jury acquits man of a Bovino murder-for-hire charge · Jan 22, 2026 ──
+        ['Chicago man acquitted of a murder-for-hire plot against Border Patrol cmdr. Bovino', 'https://news.wttw.com/2026/01/22/chicago-man-acquitted-murder-hire-charge-plot-allegedly-targeting-border-patrol-chief', 'WTTW', '2026-01-22', null, null, null],
+        // ── Prosecution · Fairhope "No Kings" costume case · acquitted · Apr 15, 2026 ──
+        ['Fairhope "No Kings" costume protester Renea Gamble acquitted on all charges', 'https://www.fox10tv.com/2026/04/15/fairhope-woman-found-not-guilty-penis-costume-arrest-case/', 'FOX10 News', '2026-04-15', null, null, null],
+        // ── Prosecution · Memphis No Kings charges dropped · Apr 16, 2026 ──
+        ['Charges dropped against three arrested at the Memphis No Kings protest', 'https://wreg.com/news/charges-dropped-against-three-arrested-during-no-kings-protest/', 'WREG', '2026-04-16', null, null, null],
     ];
 
     /**
@@ -584,6 +591,10 @@ final class SeedDashboardEvents extends Command {
             'https://www.washingtonpost.com/national-security/2025/05/21/mciver-baraka-newark-ice-court-charges/',
             'https://www.11alive.com/article/news/crime/trials/public-safety-training-center-rico-case-speedy-trial-defendant-ayla-king-mistrial/85-6f96368d-c446-4a0a-b724-e6c2966817fd',
             'https://www.kptv.com/2026/03/28/portland-ice-protester-acquitted-after-altercation-with-conservative-influencer-nick-sortor/',
+            // round 8 — more acquittals / charges dropped
+            'https://news.wttw.com/2026/01/22/chicago-man-acquitted-murder-hire-charge-plot-allegedly-targeting-border-patrol-chief',
+            'https://www.fox10tv.com/2026/04/15/fairhope-woman-found-not-guilty-penis-costume-arrest-case/',
+            'https://wreg.com/news/charges-dropped-against-three-arrested-during-no-kings-protest/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
