@@ -624,6 +624,59 @@ final class SeedDashboardEvents extends Command {
         ['Rep. LaMalfa jeered over Medicaid cuts at his first Chico town hall in 8 years', 'https://www.mynspr.org/news/2025-08-11/lamalfa-faces-loud-crowd-at-first-chico-town-hall-in-8-years', 'North State Public Radio', '2025-08-11', null, null, null],
         ['Hundreds of CDC staff walk out after top officials resign over RFK Jr.', 'https://www.commondreams.org/news/cdc-staff-walkout', 'Common Dreams', '2025-08-28', null, null, null],
         ['West Philadelphia rally demands SNAP benefits be restored: Fund SNAP, not ICE', 'https://whyy.org/articles/philadelphia-snap-benefits-freeze-protest/', 'WHYY', '2025-11-01', null, null, null],
+
+        // ===== round 11: thin states, US territories, new movements & 2026 outcomes =====
+        // Under-covered states & US territories (No Kings, Good Trouble, solidarity)
+        ['Thousands rally at a Portland No Kings protest; two arrested', 'https://www.bangordailynews.com/2025/06/14/portland/portland-police-courts/police-arrest-2-protesters-no-kings-rally-trump-portland/', 'Bangor Daily News', '2025-06-14', 43.6568471, -70.2598232, 'Monument Square, Portland, ME'],
+        ['Hundreds gather at the Maine State House for a Good Trouble protest', 'https://spectrumlocalnews.com/me/maine/politics/2025/07/17/hundreds-flock-to-maine-state-house-for--good-trouble--protest', 'Spectrum News Maine', '2025-07-17', 44.3065349, -69.7810851, 'Maine State House, Augusta, ME'],
+        ['Thousands fill Broadway Park for a second Bangor No Kings rally', 'https://www.wabi.tv/2025/10/18/bangor-joins-nationwide-no-kings-protest/', 'WABI-TV', '2025-10-18', 44.8109592, -68.7704614, 'Broadway Park, Bangor, ME'],
+        ['Hundreds rally in Lewiston in solidarity with the Somali community', 'https://www.mainepublic.org/immigration/2025-12-14/hundreds-rally-in-lewiston-in-solidarity-with-somali-community', 'Maine Public', '2025-12-13', 44.0992442, -70.2036716, 'Kennedy Park, Lewiston, ME'],
+        ['About 750 rally at the West Virginia Capitol for No Kings', 'https://wvpublic.org/no-kings-events-crisscross-w-va/', 'West Virginia Public Broadcasting', '2025-06-14', 38.3358429, -81.6142029, 'West Virginia State Capitol, Charleston, WV'],
+        ['Thousands fill downtown Wichita for a No Kings protest', 'https://www.kwch.com/2025/10/19/no-kings-protest-draws-large-crowd-downtown-wichita-cities-nationwide/', 'KWCH-TV', '2025-10-18', 37.6860264, -97.3355680, 'Douglas Ave & Broadway, Wichita, KS'],
+        ['No Kings protest fills Lawyers Mall by the Maryland State House', 'https://www.thebanner.com/politics-power/no-kings-protests-maryland-FF3BRTLNJRHKLNWSLBKMIVZ3DU/', 'The Baltimore Banner', '2025-06-14', 38.9790574, -76.4915458, 'Lawyers Mall, Annapolis, MD'],
+        ['Thousands rally on Dickson Street for a Fayetteville No Kings protest', 'https://www.kuaf.com/show/ozarks-at-large/2025-06-16/thousands-attend-no-kings-protest-in-downtown-fayetteville', 'KUAF', '2025-06-14', 36.0663679, -94.1624909, 'Dickson Street, Fayetteville, AR'],
+        ['About 5,000 rally at Railroad Park for a Birmingham No Kings protest', 'https://birminghamwatch.org/2025/10/18/thousands-rally-in-birmingham-as-part-of-no-kings-protests/', 'BirminghamWatch', '2025-10-18', 33.5095126, -86.8088454, 'Railroad Park, Birmingham, AL'],
+        ['Several thousand rally at Metro Hall for a Louisville No Kings protest', 'https://www.lpm.org/news/2025-06-14/no-kings-protestors-rally-across-kentucky-in-national-anti-authoritarian-display', 'Louisville Public Media', '2025-06-14', 38.2541239, -85.7591339, 'Metro Hall, Louisville, KY'],
+        ['Activists protest ICE detentions in a San Juan neighborhood', 'https://thelatinonewsletter.org/p/activists-protest-immigration-detentions-in-san-juan-neighborhood', 'The Latino Newsletter', '2025-11-16', 18.4046351, -66.0478486, 'Rio Piedras, San Juan, PR'],
+        ['Guam holds the first No Kings rally in a US territory', 'https://www.islapublic.org/news/2025-06-15/no-kings-rally-in-guam-demands-protection-of-democracy-and-equal-rights', 'Isla Public', '2025-06-14', 13.5196540, 144.8171200, 'Micronesia Mall, Dededo, GU'],
+        ['A No Kings motorcade and rally draws a crowd on the St. Croix bypass', 'https://www.virginislandsdailynews.com/news/virgin-islands-residents-join-no-kings-protest-movement/article_90e135d5-3804-493c-83ff-a10fbf45efdf.html', 'Virgin Islands Daily News', '2026-03-28', 17.7468293, -64.7078331, 'Christiansted bypass, St. Croix, VI'],
+        ['About 1,000 rally on Minnesota Avenue for a Sioux Falls No Kings day of action', 'https://www.dakotanewsnow.com/2025/06/14/sioux-falls-takes-part-nationwide-no-kings-rally/', 'Dakota News Now', '2025-06-14', null, null, null],
+
+        // Tesla Takedown · climate / public lands · federal-worker (anti-DOGE)
+        ['Indivisible Charlotte holds its 10th Tesla Takedown protest against DOGE', 'https://www.wsoctv.com/news/local/indivisible-charlotte-holds-10th-tesla-protest-matthews/5TSV4TMBWJATLM6I44FLJAT35U/', 'WSOC-TV', '2025-05-10', 35.1409085, -80.7189124, 'Tesla dealership, Matthews, NC'],
+        ['Roughly 1,000 rally against Trump at the Montana Capitol', 'https://montanafreepress.org/2025/06/14/roughly-1000-rally-against-trump-at-montana-capitol/', 'Montana Free Press', '2025-06-14', 46.5857390, -112.0184275, 'Montana State Capitol, Helena, MT'],
+        ['NIOSH workers and AFGE rally against HHS layoffs in Washington', 'https://westvirginiawatch.com/2025/05/16/labor-unions-representing-laid-off-niosh-cdc-workers-to-protest-in-d-c-next-week/', 'West Virginia Watch', '2025-05-22', null, null, null],
+        ['Tesla Takedown protesters rally against Musk and DOGE in Matthews', 'https://www.wfae.org/charlotte-area/2025-07-15/protesters-rally-against-elon-musk-outside-tesla-dealership', 'WFAE', '2025-07-15', null, null, null],
+        ['Hundreds rally Not for Sale against a public-lands sell-off at the Wyoming Capitol', 'https://wyofile.com/public-lands-rally-draws-large-varied-crowd-to-wyoming-statehouse/', 'WyoFile', '2025-06-26', null, null, null],
+        ['Federal workers rally against the shutdown and DOGE cuts in Tucson', 'https://www.tucsonspotlight.org/federal-workers-leaders-rally-amid-government-shutdown/', 'Tucson Spotlight', '2025-10-06', null, null, null],
+        ['Federal workers rally against the shutdown and job cuts in Cincinnati', 'https://www.wvxu.org/local-news/2025-10-14/federal-workers-rally-cincinnati-shutdown', 'WVXU', '2025-10-14', null, null, null],
+
+        // Labor · healthcare · education strikes & pickets
+        ['Houlton Regional Hospital nurses begin a four-day strike over ER staffing', 'https://www.wagmtv.com/2026/05/22/nurses-houlton-regional-hospital-plan-four-day-strike/', 'WAGM-TV', '2026-05-26', 46.1323216, -67.8429374, 'Houlton Regional Hospital, Houlton, ME'],
+        ['HACC faculty picket over a stalled contract and pay raises', 'https://local21news.com/news/local/hacc-faculty-union-plans-strike-picket-monday-amid-ongoing-contract-negotiations-haccea-pay-raise-tuition-harrisburg-area-community-college-education-association-pennsylvania-pa', 'CBS 21', '2025-11-03', 40.2943815, -76.8844305, 'HACC Harrisburg Campus, PA'],
+        ['District 11 teachers stage the first Colorado Springs strike in 50 years', 'https://coloradosun.com/2025/10/08/hundreds-of-colorado-springs-teachers-strike-over-loss-of-collective-bargaining/', 'The Colorado Sun', '2025-10-08', 38.8380344, -104.8229911, 'Acacia Park, Colorado Springs, CO'],
+        ['Iowa City Starbucks baristas join a nationwide unfair-labor strike', 'https://www.kcrg.com/2025/12/04/iowa-starbucks-workers-join-national-strike/', 'KCRG-TV9', '2025-12-04', 41.6508937, -91.5346322, 'Starbucks, S Clinton St, Iowa City, IA'],
+        ['UAW Local 2093 strikes American Axle over stagnant wages', 'https://www.clickondetroit.com/news/local/2026/06/01/uaw-workers-strike-at-american-axle-plant-in-michigan/', 'WDIV Local 4', '2026-06-01', 41.9345643, -85.6400717, 'American Axle (Dauch) plant, Three Rivers, MI'],
+        ['Backus Hospital nurses hold an informational picket over patient care', 'https://www.wfsb.com/2025/05/15/nurses-backus-hospital-hold-demonstration-over-patient-care-concerns/', 'WFSB Channel 3', '2025-05-15', 41.5427325, -72.0886873, 'Backus Hospital, Norwich, CT'],
+        ['Butler Hospital workers strike over wages, staffing and pensions', 'https://thepublicsradio.org/labor/butler-hospital-workers-ratify-new-contract-ending-strike/', 'The Public\'s Radio', '2025-05-15', null, null, null],
+        ['Meriter nurses launch the first strike in the hospital\'s history over staffing', 'https://www.wpr.org/news/nurses-madison-meriter-hospital-on-strike-contract-demands', 'Wisconsin Public Radio', '2025-05-27', null, null, null],
+        ['OSU Wexner nurses picket over workplace violence and staffing', 'https://www.wosu.org/2025-06-25/osu-nurses-picket-for-safer-workplace-higher-wages-amid-contract-negotiations', 'WOSU', '2025-06-25', null, null, null],
+        ['Duluth nurses picket St. Luke\'s and Essentia over unsafe staffing', 'https://mnnurses.org/nurses-picket-twin-cities-duluth-hospitals-as-15000-seek-new-contracts-that-prioritize-patient-safety/', 'Minnesota Nurses Association', '2025-06-04', null, null, null],
+        ['Ascension Saint Agnes nurses hold a one-day strike over staffing', 'https://www.cbsnews.com/baltimore/news/maryland-nurses-strike-ascension-saint-agnes-hospital/', 'CBS News Baltimore', '2025-07-24', null, null, null],
+        ['UNM Hospital workers picket over understaffing and low wages', 'https://www.ems1.com/hospital/nurses-staff-protest-at-n-m-hospital-citing-heavy-workloads-and-low-wages', 'EMS1', '2025-10-31', null, null, null],
+        ['Memphis Starbucks baristas strike in the Red Cup Rebellion', 'https://www.actionnews5.com/2025/12/01/starbucks-workers-strike-outside-memphis-store-poplar-avenue/', 'Action News 5', '2025-11-30', null, null, null],
+        ['Stand Up for Science rally hits the Oklahoma Capitol against research cuts', 'https://freepressokc.com/despite-cold-pro-science-rally-draws-modest-crowd-to-capitol/', 'Free Press OKC', '2026-03-07', null, null, null],
+        ['UMC nurses strike for a fifth time over staffing and retention', 'https://www.wwno.org/public-health/2025-11-11/protestors-brave-cold-snap-to-support-striking-nurses-at-new-orleans-umc', 'WWNO', '2025-11-11', null, null, null],
+        ['Missoula scientists rally to Take Back Science against research cuts', 'https://www.mtpr.org/montana-news/2026-03-11/demonstrators-gather-in-missoula-to-stand-up-for-science', 'Montana Public Radio', '2026-03-07', null, null, null],
+
+        // Prosecution outcomes & notable arrests (2025-26)
+        ['Milwaukee judge Hannah Dugan is found guilty of obstructing ICE agents', 'https://en.wikipedia.org/wiki/Hannah_Dugan', 'Wikipedia', '2025-12-18', 43.0387634, -87.9050046, 'U.S. Courthouse, Milwaukee, WI'],
+        ['Eight anti-ICE protesters are convicted on terrorism charges in the Prairieland trial', 'https://theintercept.com/2026/03/13/ice-protesters-terrorism-prairieland-antifa/', 'The Intercept', '2026-03-13', 32.7499470, -97.3329500, 'Eldon B. Mahon U.S. Courthouse, Fort Worth, TX'],
+        ['A CBP officer is charged with assault over the Durango ICE protest', 'https://coloradonewsline.com/briefs/federal-officer-charged-durango-ice-protest/', 'Colorado Newsline', '2026-04-21', 37.2748174, -107.8787224, 'La Plata County Court, Durango, CO'],
+        ['Newark Mayor Ras Baraka sues the US Attorney for false arrest and malicious prosecution', 'https://www.pbs.org/newshour/politics/newark-mayor-sues-federal-prosecutor-saying-arrest-at-immigration-detention-site-was-political', 'PBS NewsHour', '2025-06-03', null, null, null],
+        ['A jury acquits ICE protester Brayan Ramos-Brito of assaulting a federal officer', 'https://www.cbsnews.com/losangeles/news/la-county-ice-protest-not-guilty-acquittal/', 'CBS News Los Angeles', '2025-09-17', null, null, null],
+        ['The Stanford protesters case ends in a hung jury and a mistrial on felony charges', 'https://www.kqed.org/news/12073534/stanford-pro-palestinian-protesters-case-ends-in-mistrial', 'KQED', '2026-02-14', null, null, null],
+        ['A man is indicted for trying to set fire to the Surprise ICE building', 'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/', 'Arizona\'s Family', '2026-05-07', null, null, null],
     ];
 
     /**
@@ -745,6 +798,14 @@ final class SeedDashboardEvents extends Command {
             'https://news.wttw.com/2026/01/22/chicago-man-acquitted-murder-hire-charge-plot-allegedly-targeting-border-patrol-chief',
             'https://www.fox10tv.com/2026/04/15/fairhope-woman-found-not-guilty-penis-costume-arrest-case/',
             'https://wreg.com/news/charges-dropped-against-three-arrested-during-no-kings-protest/',
+            // round 11 — 2026 outcomes (verdicts, acquittals, charges, lawsuits)
+            'https://en.wikipedia.org/wiki/Hannah_Dugan',
+            'https://theintercept.com/2026/03/13/ice-protesters-terrorism-prairieland-antifa/',
+            'https://coloradonewsline.com/briefs/federal-officer-charged-durango-ice-protest/',
+            'https://www.pbs.org/newshour/politics/newark-mayor-sues-federal-prosecutor-saying-arrest-at-immigration-detention-site-was-political',
+            'https://www.cbsnews.com/losangeles/news/la-county-ice-protest-not-guilty-acquittal/',
+            'https://www.kqed.org/news/12073534/stanford-pro-palestinian-protesters-case-ends-in-mistrial',
+            'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
