@@ -304,11 +304,16 @@
     };
 
     // event markers: curated dashboard links that carry coordinates. The map is
-    // events-only, so these green markers are its sole layer, and they scrub with
-    // the timeline.
+    // events-only, so these markers are its sole layer, and they scrub with the
+    // timeline. They are a ROLLING 30-DAY WINDOW: an event drops off the map 30
+    // days after it occurs, so the map always reflects current activity. (Older
+    // events stay in the newswire/ticker; only the pins expire.) The map stat and
+    // legend counts derive from this set, so they track the window automatically.
     // Guarded so the page still renders if the lat/lng migration hasn't run yet.
+    $mapWindowStart = now()->subDays(30)->startOfDay();   // pins live 30 days, then vanish
     $eventPoints = \Illuminate\Support\Facades\Schema::hasColumn('dashboard_links', 'lat')
         ? \App\Models\DashboardLink::onMap()
+            ->where('published_at', '>=', $mapWindowStart)
             ->orderByDesc('published_at')->get()
             ->map(fn ($l) => [
                 'lat'    => (float) $l->lat,
