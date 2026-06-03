@@ -376,7 +376,7 @@ final class SeedDashboardEvents extends Command {
         // ── ICE surge · Whipple Federal Building (already pinned) · Feb 7, 2026 ──
         ['54 arrested at an anti-ICE protest outside the Whipple Federal Building', 'https://kstp.com/kstp-news/top-news/unlawful-assembly-declared-outside-whipple-building-after-deputy-was-struck-in-the-head/', 'KSTP', '2026-02-07', 44.8942120, -93.1948904, 'Whipple Federal Building, Minneapolis, MN'],
         // ── ICE · 26 Federal Plaza (already pinned) · Sep 18, 2025 ──
-        ['70+ arrested, including 15 NY officials, at a 26 Federal Plaza ICE protest', 'https://www.cityandstateny.com/politics/2025/09/state-and-city-lawmakers-arrested-26-federal-plaza/408218/', 'City & State NY', '2025-09-18', 40.7156451, -74.0033016, '26 Federal Plaza, Manhattan, NY'],
+        ['Public Advocate Jumaane Williams and 15 officials among 75+ arrested at 26 Federal Plaza', 'https://www.cityandstateny.com/politics/2025/09/state-and-city-lawmakers-arrested-26-federal-plaza/408218/', 'City & State NY', '2025-09-18', 40.7156451, -74.0033016, '26 Federal Plaza, Manhattan, NY'],
         // ── ICE · SF immigration court (already pinned) · Dec 16, 2025 ──
         ['42 faith leaders arrested chaining themselves to the SF immigration court', 'https://missionlocal.org/2025/12/faith-leaders-chain-immigration-court-san-francisco/', 'Mission Local', '2025-12-16', 37.7901682, -122.4021443, 'SF immigration court, CA'],
         // ── DC · about 60 veterans arrested at the US Capitol · Jun 13, 2025 ──
@@ -677,6 +677,11 @@ final class SeedDashboardEvents extends Command {
         ['A jury acquits ICE protester Brayan Ramos-Brito of assaulting a federal officer', 'https://www.cbsnews.com/losangeles/news/la-county-ice-protest-not-guilty-acquittal/', 'CBS News Los Angeles', '2025-09-17', 34.0528364, -118.2389802, 'Roybal Courthouse, Los Angeles, CA'],
         ['The Stanford protesters case ends in a hung jury and a mistrial on felony charges', 'https://www.kqed.org/news/12073534/stanford-pro-palestinian-protesters-case-ends-in-mistrial', 'KQED', '2026-02-14', 37.3937219, -121.9307405, 'Santa Clara County Court, San Jose, CA'],
         ['A man is indicted for trying to set fire to the Surprise ICE building', 'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/', 'Arizona\'s Family', '2026-05-07', 33.4477432, -112.0804769, 'Phoenix federal courthouse, AZ'],
+
+        // ===== elected officials arrested / charged at protests =====
+        ['SF Supervisors Mandelman and Chan and Sen. Becker arrested at the SFO May Day protest', 'https://missionlocal.org/2026/05/s-f-supervisors-past-and-present-arrested-at-sfo-anti-ice-protest/', 'Mission Local', '2026-05-01', 37.6157466, -122.3903590, 'SFO International Terminal, San Francisco, CA'],
+        ['Oak Park Township Trustee Juan Muñoz detained by ICE at the Broadview facility protest', 'https://www.cbsnews.com/chicago/news/oak-park-officials-stand-with-protesters-broadview-ice-facility/', 'CBS News Chicago', '2025-10-03', null, null, null],
+        ['Oak Park Trustee Brian Straw indicted over the Broadview ICE facility protest', 'https://capitolnewsillinois.com/news/democratic-candidates-officeholders-indicted-for-impeding-agent-outside-ice-facility/', 'Capitol News Illinois', '2025-09-26', null, null, null],
     ];
 
     /**
@@ -757,6 +762,9 @@ final class SeedDashboardEvents extends Command {
             'https://www.npr.org/2025/05/09/nx-s1-5393055/tufts-student-rumeysa-ozturk-ordered-freed-from-immigration-detention',
             // local — Colorado activist Jeanette Vizguerra freed from Aurora ICE jail
             'https://coloradosun.com/2025/12/22/jeanette-vizguerra-released-ice/',
+            // elected officials detained at protests
+            'https://missionlocal.org/2026/05/s-f-supervisors-past-and-present-arrested-at-sfo-anti-ice-protest/',
+            'https://www.cbsnews.com/chicago/news/oak-park-officials-stand-with-protesters-broadview-ice-facility/',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
@@ -806,6 +814,8 @@ final class SeedDashboardEvents extends Command {
             'https://www.cbsnews.com/losangeles/news/la-county-ice-protest-not-guilty-acquittal/',
             'https://www.kqed.org/news/12073534/stanford-pro-palestinian-protesters-case-ends-in-mistrial',
             'https://www.azfamily.com/2026/05/20/19-year-old-arrested-allegedly-setting-fire-surprise-ice-building/',
+            // Oak Park trustee indicted over the Broadview ICE protest
+            'https://capitolnewsillinois.com/news/democratic-candidates-officeholders-indicted-for-impeding-agent-outside-ice-facility/',
         ],
         'other' => [
             // Philadelphia — police tracked anti-data-center speech as extremism
