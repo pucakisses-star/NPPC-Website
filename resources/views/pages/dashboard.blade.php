@@ -758,7 +758,18 @@
                 }
                 rafId = requestAnimationFrame(frame);
             }
-            playBtn.addEventListener('click', function () { playing ? stop() : start(); });
+            // Tapping play must not scroll the page. The timeline sits near the bottom,
+            // so the browser's default "scroll the focused control into view" jumps you
+            // there. Focus the button without scrolling, and pin the page as a safety net.
+            playBtn.addEventListener('pointerdown', function (e) {
+                e.preventDefault();
+                playBtn.focus({ preventScroll: true });
+            });
+            playBtn.addEventListener('click', function () {
+                var x = window.pageXOffset, y = window.pageYOffset;
+                playing ? stop() : start();
+                window.scrollTo(x, y);
+            });
 
             // ---- drag a handle, or click the rail/ticks to move the nearer one ----
             function beginDrag(which, e) {
