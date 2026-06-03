@@ -683,6 +683,66 @@ final class SeedDashboardEvents extends Command {
         ['Oak Park Township Trustee Juan Muñoz detained by ICE at the Broadview facility protest', 'https://www.cbsnews.com/chicago/news/oak-park-officials-stand-with-protesters-broadview-ice-facility/', 'CBS News Chicago', '2025-10-03', null, null, null],
         ['Oak Park Trustee Brian Straw indicted over the Broadview ICE facility protest', 'https://capitolnewsillinois.com/news/democratic-candidates-officeholders-indicted-for-impeding-agent-outside-ice-facility/', 'Capitol News Illinois', '2025-09-26', null, null, null],
         ['Ex-Worcester councilor Etel Haxhiaj convicted of assaulting an officer at an ICE arrest', 'https://www.cbsnews.com/boston/news/worcester-city-councilor-etel-haxhiaj-guilty-assault-police-ice/', 'CBS News Boston', '2026-02-11', 42.2674401, -71.8006902, 'Worcester courthouse, MA'],
+
+        // ===== round 12: month-by-month sweep (events missed by topic/location passes) =====
+        // May–Jul 2025
+        ['Seattle police arrest 23 at an anti-LGBTQ Mayday USA rally and counterprotest', 'https://www.kuow.org/stories/anti-lgbtq-demonstrators-counterprotesters-descend-on-seattle-city-hall', 'KUOW', '2025-05-24', 47.6156732, -122.3182531, 'Cal Anderson Park, Seattle, WA'],
+        ['A driver accelerates an SUV into a crowd leaving a No Kings rally in Culpeper', 'https://www.nbcwashington.com/news/local/northern-virginia/man-accused-of-driving-through-crowd-of-protesters-in-culpeper/3936544/', 'NBC4 Washington', '2025-06-14', 38.4733823, -77.9961275, 'Culpeper, VA'],
+        ['A hit-and-run driver strikes a No Kings protester in downtown Riverside; two charged', 'https://abc7.com/post/police-arrest-driver-who-plowed-into-crowd-no-kings-protest-riverside/16766376/', 'ABC7 Los Angeles', '2025-06-14', null, null, null],
+        ['Three arrested, including a Proud Boy with brass knuckles, at an Ocala No Kings rally', 'https://352today.com/news/257752-three-arrested-during-no-kings-rally-in-ocalas-downtown-square/', '352Today', '2025-06-14', 29.1860001, -82.1360994, 'Ocala Downtown Square, FL'],
+        ['One counterprotester with a handgun arrested at a 10,000-strong Nashville No Kings protest', 'https://tennesseelookout.com/briefs/one-arrested-at-peaceful-no-kings-protest-in-nashville/', 'Tennessee Lookout', '2025-06-14', null, null, null],
+        ['DeKalb County drops the charges against arrested journalist Mario Guevara', 'https://www.atlantanewsfirst.com/2025/06/25/dekalb-county-drops-charges-against-journalist-arrested-during-anti-ice-protest/', 'Atlanta News First', '2025-06-25', null, null, null],
+        ['Gunfire ambush at the Prairieland ICE detention center wounds an officer; 11 charged', 'https://www.keranews.org/news/2025-07-11/prairieland-detention-center-alvarado-u-s-immigration-and-customs-enforcement-shooting-alvarado-police-officer-questions', 'KERA News', '2025-07-04', 32.4206417, -97.1967418, 'Prairieland Detention Center, Alvarado, TX'],
+        ['CSU Channel Islands professor arrested during an ICE raid at Glass House Farms', 'https://abc7.com/post/cal-state-channel-islands-professor-jonathan-caravello-arrested-during-camarillo-immigration-raid-due-court-monday/17117396/', 'ABC7 Los Angeles', '2025-07-10', 34.1799214, -119.0830036, 'Glass House Farms, Camarillo, CA'],
+        ['An ICE courthouse arrest sparks an ICE out of Philly rally at the criminal justice center', 'https://billypenn.com/2025/07/18/philadelphia-ice-arrest-courthouse-protest/', 'Billy Penn', '2025-07-18', null, null, null],
+
+        // Aug–Oct 2025
+        ['DOJ paralegal Sean Dunn arrested for throwing a sandwich at a Border Patrol agent', 'https://en.wikipedia.org/wiki/Trial_of_Sean_Dunn', 'Wikipedia', '2025-08-10', null, null, null],
+        ['About 3,200 IAM machinists strike Boeing fighter-jet plants', 'https://www.stlpr.org/economy-business/2025-08-04/boeing-union-workers-go-on-strike-in-st-louis-area', 'St. Louis Public Radio', '2025-08-04', 38.7488983, -90.3453298, 'Boeing Defense plant, Berkeley, MO'],
+        ['More than 750 nurses strike Henry Ford Genesys Hospital', 'https://www.wsws.org/en/articles/2025/09/05/smyb-s05.html', 'World Socialist Web Site', '2025-09-01', 42.8921370, -83.6424515, 'Henry Ford Genesys Hospital, Grand Blanc, MI'],
+        ['600+ nurse anesthetists and midwives strike Kaiser Permanente Oakland', 'https://unacuhcp.org/news/hundreds-of-northern-california-kaiser-healthcare-workers-will-strike-to-improve-patient-care/', 'UNAC/UHCP', '2025-09-08', 37.8233565, -122.2591941, 'Kaiser Permanente Oakland Medical Center, CA'],
+        ['DC college students walk out over the federal takeover of the capital', 'https://georgetownvoice.com/2025/09/10/walkout/', 'The Georgetown Voice', '2025-09-09', null, null, null],
+        ['18 arrested at the Broadview ICE facility during a visit by DHS Secretary Noem', 'https://www.cbsnews.com/chicago/news/protest-broadview-ice-facility-police-noem/', 'CBS News Chicago', '2025-10-03', null, null, null],
+        ['A No Kings rally packs B.A. Clark Park in north Spokane', 'https://www.spokesman.com/stories/2025/oct/18/no-kings-day-rally-packs-sidewalks-in-north-spokan/', 'The Spokesman-Review', '2025-10-18', null, null, null],
+        ['More than 10,000 rally at the Ohio Statehouse for No Kings day', 'https://www.statenews.org/government-politics/2025-10-19/thousands-rallied-in-no-kings-protests-in-ohio-including-huge-turnout-at-statehouse', 'Statehouse News Bureau', '2025-10-18', null, null, null],
+        ['About 8,000 join a No Kings march through downtown Knoxville', 'https://www.wvlt.tv/2025/10/19/no-arrests-made-after-thousands-participate-no-kings-protest-knoxville-police-say/', 'WVLT', '2025-10-18', 35.9646188, -83.9182821, 'Henley Street, Knoxville, TN'],
+        ['Woman charged with brandishing a gun from a car at a Myrtle Beach No Kings protest', 'https://wpde.com/news/local/arrested-suspect-no-kings-protest-myrtle-beach-chapin-memorial-park-drive-by-police-department-400-14th-avenue-north-woman-location', 'WPDE ABC15', '2025-10-18', 33.6176017, -78.9657127, 'Chapin Memorial Park, Myrtle Beach, SC'],
+
+        // Nov 2025–Jan 2026
+        ['Fund Food Stamps Now rally at the Georgia Capitol over the SNAP cutoff', 'https://www.fox5atlanta.com/news/georgia-food-stamps-snap-party-socialism-liberation-rally-capitol', 'FOX 5 Atlanta', '2025-11-01', 33.7490553, -84.3881711, 'Georgia State Capitol, Atlanta, GA'],
+        ['Charlotte woman charged with assaulting a federal officer at an ICE protest', 'https://www.wbtv.com/2025/11/19/charlotte-woman-accused-assaulting-federal-officer-over-weekend-officials-say/', 'WBTV', '2025-11-16', 35.1639886, -80.9106908, 'ICE office (Tyvola), Charlotte, NC'],
+        ['St. Paul man indicted for ramming an ICE vehicle in an arrest that sparked a protest', 'https://www.fox9.com/news/man-rammed-ice-vehicle-arrest-st-paul-protest-indictment-dec-2025', 'FOX 9', '2025-12-03', null, null, null],
+        ['Portland high school students walk out and march to City Hall over ICE detentions', 'https://www.mainepublic.org/immigration/2025-12-03/hundreds-of-portland-high-school-students-rally-against-trump-admins-immigration-policies', 'Maine Public', '2025-12-03', null, null, null],
+        ['Dozens march in New Orleans against a planned Border Patrol Swamp Sweep', 'https://www.wwno.org/immigration/2025-12-01/no-ice-no-fear-dozens-protest-in-new-orleans-ahead-of-louisiana-immigration-sweep', 'WWNO', '2025-12-01', null, null, null],
+        ['Hundreds of Washington County students walk out over ICE activity', 'https://www.opb.org/article/2025/12/08/washington-county-students-walkout-ice-arrests/', 'OPB', '2025-12-08', 45.4497535, -122.8080243, 'Southridge High School, Beaverton, OR'],
+        ['A crowd of 80+ confronts ICE during a Chanhassen rooftop standoff', 'https://kstp.com/kstp-news/top-news/crowd-gathers-in-chanhassen-in-response-to-a-supposed-ice-arrest/', 'KSTP', '2025-12-13', 44.8618403, -93.5307207, 'Avienda Pkwy, Chanhassen, MN'],
+        ['Residents rally at the Michigan Capitol against data center projects', 'https://www.wilx.com/2025/12/16/data-center-protest-outside-michigan-capitol/', 'WILX', '2025-12-16', 42.7336057, -84.5554583, 'Michigan State Capitol, Lansing, MI'],
+        ['Hundreds rally at Fountain Square over the ICE killing of Renée Good', 'https://www.wvxu.org/local-news/2026-01-08/cincinnati-protest-ice-shooting-renee-good', 'WVXU', '2026-01-08', null, null, null],
+        ['Up to 300 rally outside the Buffalo ICE office after the Minneapolis shooting', 'https://www.wxxinews.org/2026-01-08/buffalo-protesters-denounce-ice-in-response-to-fatal-shooting-in-minnesota', 'WXXI', '2026-01-08', 42.8911058, -78.8767093, 'ICE office, 250 Delaware Ave, Buffalo, NY'],
+        ['Hundreds hold a candlelight vigil and march for Renée Good in Cleveland', 'https://www.cleveland19.com/2026/01/10/hundreds-gather-vigil-march-cleveland-following-deadly-ice-shooting/', 'Cleveland 19 News', '2026-01-09', null, null, null],
+        ['A US citizen is detained for hours by ICE at a Phoenix protest', 'https://coppercourier.com/2026/01/27/citizen-detained-ice-phoenix/', 'Copper Courier', '2026-01-22', null, null, null],
+        ['16 anti-abortion activists arrested at an HHS protest over mifepristone', 'https://www.ms.now/news/anti-abortion-clinic-protests', 'Ms. Magazine', '2026-01-22', null, null, null],
+        ['66 arrested after anti-ICE protesters take over a Tribeca hotel lobby', 'https://ny1.com/nyc/manhattan/news/2026/01/28/anti-ice-protest-inside-tribeca-hilton-leads-to-dozens-of-arrests', 'NY1', '2026-01-27', null, null, null],
+
+        // Feb–Jun 2026
+        ['Houston students walk out of class over a classmate detained by ICE', 'https://www.houstonpublicmedia.org/articles/education/2026/02/04/542549/ice-protest-houston-school-tea/', 'Houston Public Media', '2026-02-03', 29.8488954, -95.3612575, 'Sam Houston MSTC, Houston, TX'],
+        ['East Central High students disciplined after an anti-ICE walkout', 'https://www.ksat.com/news/local/2026/02/20/30-students-disciplined-at-east-central-high-school-after-anti-ice-walkout/', 'KSAT', '2026-02-13', 29.3504990, -98.2949240, 'East Central High School, San Antonio, TX'],
+        ['A student-led anti-ICE march on Presidents Day from Main Plaza to the Alamo', 'https://www.tpr.org/news/2026-02-16/san-antonio-students-hold-anti-ice-press-conference-and-march-on-presidents-day', 'Texas Public Radio', '2026-02-16', null, null, null],
+        ['38 cited and one jailed at an anti-ICE protest outside the Whipple Federal Building', 'https://www.mprnews.org/story/2026/03/02/whipple-building-ice-protestors-cited-1-arrested-sunday', 'MPR News', '2026-03-01', null, null, null],
+        ['McGavock High students walk out to protest ICE activity in Nashville', 'https://www.nashvillescene.com/news/pithinthewind/mcgavock-high-students-protest-ice-nashville/article_df7a99e7-4495-4a45-9ab5-0fcf5cf253c1.html', 'Nashville Scene', '2026-03-06', null, null, null],
+        ['Strikers walk off the job at the JBS Swift beef plant in Greeley', 'https://coloradosun.com/2026/04/12/jbs-meatpackers-greeley-ratify-contract/', 'The Colorado Sun', '2026-03-16', 40.4248132, -104.6907136, 'JBS Swift Beef plant, Greeley, CO'],
+        ['Three arrested as about 500 protest an ICE warehouse-detention purchase', 'https://www.ksl.com/article/51468395/3-arrested-as-hundreds-protest-new-ice-purchase-of-salt-lake-warehouse', 'KSL.com', '2026-03-18', 40.6397675, -111.8984930, 'ICE warehouse, 6020 W 300 S, Salt Lake City, UT'],
+        ['Congressional candidate Don Leonard arrested at a Grove City No Kings protest', 'https://www.wosu.org/politics-government/2026-03-30/congressional-candidate-arrested-at-grove-city-no-kings-protest-after-using-megaphone', 'WOSU Public Media', '2026-03-28', 39.8819334, -83.0939180, 'Grove City Hall, OH'],
+        ['Union nurses rally against Columbia Memorial inpatient bed cuts', 'https://cbs6albany.com/news/local/union-workers-nurses-rally-over-proposed-patient-bed-cuts-at-hospital-columbia-memorial-hospital-albany-medical-center-wrgb', 'CBS6 Albany', '2026-04-15', null, null, null],
+        ['An emergency rally outside the immigration court after ICE detains parents at a hearing', 'https://bigeasymagazine.com/2026/04/17/ice-arrests-at-new-orleans-immigration-court-spark-outrage-and-protest/', 'Big Easy Magazine', '2026-04-17', null, null, null],
+        ['Harvard graduate workers launch a strike with picket lines', 'https://www.wbur.org/news/2026/04/21/harvard-graduate-student-union-strike', 'WBUR', '2026-04-21', 42.3763521, -71.1158262, 'Harvard Science Center Plaza, Cambridge, MA'],
+        ['Communities Not Cages rally against the Project Blue data center', 'https://www.tucsonspotlight.org/tucson-protesters-rally-against-project-blue-data-center/', 'Tucson Spotlight', '2026-04-25', 32.1335811, -110.9322259, 'Project Blue site (Houghton Rd), Tucson, AZ'],
+        ['Congressional candidate Chuck Park among 25 arrested in a May Day protest at the NYSE', 'https://qns.com/2026/05/chuck-park-arrested-may-day/', 'QNS', '2026-05-01', null, null, null],
+        ['Four arrested for interfering with a traffic stop near the ICE detention warehouse', 'https://www.ksl.com/article/51495984/protesters-at-ice-detention-facility-arrested-for-allegedly-interfering-with-traffic-stop', 'KSL.com', '2026-05-10', null, null, null],
+        ['More than 600 rally at the Utah Capitol against a Box Elder data center', 'https://www.ksl.com/article/51501551/hundreds-of-utahns-rally-against-proposed-box-elder-data-center', 'KSL.com', '2026-05-23', 40.7755406, -111.8881341, 'Utah State Capitol, Salt Lake City, UT'],
+        ['A Vermont prosecutor declines to charge six arrested at a South Burlington ICE operation', 'https://www.wcax.com/2026/04/23/state-officials-escalate-feud-with-prosecutor-over-dropped-protest-charges/', 'WCAX', '2026-03-11', null, null, null],
+        ['Bell County residents pack commissioners court to oppose a Temple data center', 'https://www.kwtx.com/2026/06/02/we-dont-want-this-bell-county-residents-show-up-by-masses-protest-data-center-asks-commissioners-court-intervention/', 'KWTX', '2026-06-01', 31.0415614, -97.4894434, 'Bell County Justice Complex, Belton, TX'],
+        ['Protesters in six counties rally demanding Rep. Dan Meuser hold a town hall', 'https://lebtown.com/2026/06/02/organizers-protestors-gathered-in-6-counties-across-meusers-district-demanding-town-hall/', 'LebTown', '2026-06-01', 40.3334311, -76.4237266, 'Lebanon County Courthouse, PA'],
     ];
 
     /**
@@ -766,6 +826,23 @@ final class SeedDashboardEvents extends Command {
             // elected officials detained at protests
             'https://missionlocal.org/2026/05/s-f-supervisors-past-and-present-arrested-at-sfo-anti-ice-protest/',
             'https://www.cbsnews.com/chicago/news/oak-park-officials-stand-with-protesters-broadview-ice-facility/',
+            // round 12 — targeted arrests / attacks at protests
+            'https://www.nbcwashington.com/news/local/northern-virginia/man-accused-of-driving-through-crowd-of-protesters-in-culpeper/3936544/',
+            'https://abc7.com/post/police-arrest-driver-who-plowed-into-crowd-no-kings-protest-riverside/16766376/',
+            'https://352today.com/news/257752-three-arrested-during-no-kings-rally-in-ocalas-downtown-square/',
+            'https://tennesseelookout.com/briefs/one-arrested-at-peaceful-no-kings-protest-in-nashville/',
+            'https://abc7.com/post/cal-state-channel-islands-professor-jonathan-caravello-arrested-during-camarillo-immigration-raid-due-court-monday/17117396/',
+            'https://en.wikipedia.org/wiki/Trial_of_Sean_Dunn',
+            'https://www.cbsnews.com/chicago/news/protest-broadview-ice-facility-police-noem/',
+            'https://wpde.com/news/local/arrested-suspect-no-kings-protest-myrtle-beach-chapin-memorial-park-drive-by-police-department-400-14th-avenue-north-woman-location',
+            'https://www.wbtv.com/2025/11/19/charlotte-woman-accused-assaulting-federal-officer-over-weekend-officials-say/',
+            'https://www.ms.now/news/anti-abortion-clinic-protests',
+            'https://ny1.com/nyc/manhattan/news/2026/01/28/anti-ice-protest-inside-tribeca-hilton-leads-to-dozens-of-arrests',
+            'https://www.mprnews.org/story/2026/03/02/whipple-building-ice-protestors-cited-1-arrested-sunday',
+            'https://www.ksl.com/article/51468395/3-arrested-as-hundreds-protest-new-ice-purchase-of-salt-lake-warehouse',
+            'https://www.wosu.org/politics-government/2026-03-30/congressional-candidate-arrested-at-grove-city-no-kings-protest-after-using-megaphone',
+            'https://qns.com/2026/05/chuck-park-arrested-may-day/',
+            'https://www.ksl.com/article/51495984/protesters-at-ice-detention-facility-arrested-for-allegedly-interfering-with-traffic-stop',
         ],
         'prosecution' => [
             // SEIU leader David Huerta charged with felony
@@ -819,8 +896,15 @@ final class SeedDashboardEvents extends Command {
             'https://capitolnewsillinois.com/news/democratic-candidates-officeholders-indicted-for-impeding-agent-outside-ice-facility/',
             // ex-Worcester councilor convicted over the ICE-arrest clash
             'https://www.cbsnews.com/boston/news/worcester-city-councilor-etel-haxhiaj-guilty-assault-police-ice/',
+            // round 12 — protest prosecutions / declinations
+            'https://www.atlantanewsfirst.com/2025/06/25/dekalb-county-drops-charges-against-journalist-arrested-during-anti-ice-protest/',
+            'https://www.fox9.com/news/man-rammed-ice-vehicle-arrest-st-paul-protest-indictment-dec-2025',
+            'https://www.wcax.com/2026/04/23/state-officials-escalate-feud-with-prosecutor-over-dropped-protest-charges/',
         ],
         'other' => [
+            // round 12 — violence / detention reporting at protests
+            'https://www.keranews.org/news/2025-07-11/prairieland-detention-center-alvarado-u-s-immigration-and-customs-enforcement-shooting-alvarado-police-officer-questions',
+            'https://coppercourier.com/2026/01/27/citizen-detained-ice-phoenix/',
             // Philadelphia — police tracked anti-data-center speech as extremism
             'https://theintercept.com/2026/06/01/ai-data-center-protest-police-surveillance/',
             // Williston, VT — ICE social-media surveillance hub expansion
