@@ -151,10 +151,14 @@
     .ppd-tl-play .ppd-tl-ico-pause { display: none; }
     .ppd-tl-play.is-playing .ppd-tl-ico-play { display: none; }
     .ppd-tl-play.is-playing .ppd-tl-ico-pause { display: inline; color: var(--amber); }
-    .ppd-tl-main { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; padding: 10px 0 2px; }
+    /* Top/bottom padding gives the handle's glow room before the scroll container
+       clips it (a horizontal scroller can't use overflow-y: visible). */
+    .ppd-tl-main { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; padding: 26px 0 6px; }
     .ppd-tl-main::-webkit-scrollbar { height: 8px; }
     .ppd-tl-main::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 8px; }
-    .ppd-tl-scroll { min-width: 640px; }
+    /* Side padding on the scrollable content (not the viewport, so it's honoured at
+       the scroll ends) gives the end handle's glow room at the left/right edges. */
+    .ppd-tl-scroll { min-width: 640px; padding: 0 22px; }
     .ppd-tl-bar { position: relative; height: 16px; }
     .ppd-tl-rail { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 3px; border-radius: 999px; background: rgba(255,255,255,0.12); }
     .ppd-tl-fill { position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 4px; width: 0; border-radius: 999px; background: var(--amber); box-shadow: 0 0 9px 1px rgba(224,168,46,0.5); }
