@@ -594,7 +594,15 @@
                 addPing(p, statusColors[p.status] || '#9aa0a6', 16, '<b>' + esc(p.name) + '</b>' + meta + link, p.status);
             });
 
-            if (latlngs.length) { map.fitBounds(latlngs, { padding: [42, 42], maxZoom: 7 }); }
+            // Frame the continental US (lower 48) on load. Far-flung markers —
+            // Puerto Rico, the Virgin Islands, Hawaii, Alaska — would otherwise
+            // stretch the bounds across the whole hemisphere and zoom the map all
+            // the way out. They stay on the map; the default view just centers on
+            // the mainland (fall back to the US-centered setView if none qualify).
+            var contLatLngs = latlngs.filter(function (c) {
+                return c[0] >= 24 && c[0] <= 50 && c[1] >= -125 && c[1] <= -66;
+            });
+            if (contLatLngs.length) { map.fitBounds(contLatLngs, { padding: [42, 42], maxZoom: 7 }); }
         }
 
         // ---- shared filtering: the legend status filters the map markers; the
