@@ -755,7 +755,7 @@
                 playBtn.classList.add('is-playing');
                 playBtn.setAttribute('aria-label', 'Pause timeline');
                 var startIdx = 0, endIdx = count - 1;   // sweep the end handle: oldest -> today
-                var dur = Math.min(9000, Math.max(2500, count * 130));
+                var dur = Math.min(18000, Math.max(5000, count * 250));   // total sweep time (ms): slower, ~18s over the full range
                 var t0 = null;
                 function frame(ts) {
                     if (!playing) return;
