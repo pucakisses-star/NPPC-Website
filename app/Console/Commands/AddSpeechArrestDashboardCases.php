@@ -458,6 +458,16 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 42.5048,
                 'lng'            => -71.1956,
             ],
+            [
+                'title'          => 'About two dozen Rise and Resist activists arrested in a sit-in at the Trump Tower lobby demanding the release of detained immigrants',
+                'url'            => 'https://www.amny.com/new-york/ice-raid-unrest-protest-trump-tower-immigrants-06092025/',
+                'source'         => 'amNewYork',
+                'category'       => 'protest',
+                'published_at'   => '2025-06-09',
+                'location_label' => 'Manhattan, NY',
+                'lat'            => 40.7629,
+                'lng'            => -73.9735,
+            ],
         ];
 
         $created = 0;
