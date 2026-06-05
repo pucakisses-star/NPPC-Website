@@ -18,13 +18,18 @@ class AddFaithGroupDashboardCases extends Command {
     protected $description = 'Add faith-leader / clergy protest arrest cases to the dashboard';
 
     public function handle(): int {
+        // The Barber "Moral Monday" marker was first seeded under an Episcopal News
+        // Service URL with the wrong date (June 2). Remove that stale record so the
+        // corrected June 30 entry below replaces it on re-run.
+        DashboardLink::where('url', 'https://episcopalnewsservice.org/2025/06/03/faith-leaders-health-care-advocates-arrested-while-protesting-gop-budget-bill-in-capitol/')->delete();
+
         $cases = [
             [
-                'title'          => 'Bishop William Barber and faith leaders arrested in the Capitol Rotunda during a "Moral Monday" protest against Medicaid cuts',
-                'url'            => 'https://episcopalnewsservice.org/2025/06/03/faith-leaders-health-care-advocates-arrested-while-protesting-gop-budget-bill-in-capitol/',
-                'source'         => 'Episcopal News Service',
+                'title'          => 'Bishop William Barber and faith leaders arrested in the Capitol Rotunda during a "Moral Monday" protest, bringing 51 caskets to oppose Medicaid and SNAP cuts',
+                'url'            => 'https://www.commondreams.org/news/big-beautiful-bill-protest',
+                'source'         => 'Common Dreams',
                 'category'       => 'protest',
-                'published_at'   => '2025-06-02',
+                'published_at'   => '2025-06-30',
                 'location_label' => 'Washington, DC',
                 'lat'            => 38.8899,
                 'lng'            => -77.0091,
