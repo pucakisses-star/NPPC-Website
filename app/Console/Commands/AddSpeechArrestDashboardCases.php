@@ -528,6 +528,16 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 38.8862,
                 'lng'            => -77.0088,
             ],
+            [
+                'title'          => 'About 60 veterans and military families arrested at the US Capitol protesting the June 2025 military parade (most charged with unlawful demonstration; some also with assault on an officer)',
+                'url'            => 'https://www.cnn.com/2025/06/13/politics/protesters-arrested-us-capitol',
+                'source'         => 'CNN',
+                'category'       => 'protest',
+                'published_at'   => '2025-06-13',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.8905,
+                'lng'            => -77.0091,
+            ],
         ];
 
         $created = 0;
