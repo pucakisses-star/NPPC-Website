@@ -438,6 +438,26 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 40.7570,
                 'lng'            => -73.9690,
             ],
+            [
+                'title'          => 'About two dozen parents and trans-rights activists (Gender Liberation Movement / ACT UP) arrested blockading HHS headquarters over a gender-affirming-care ban',
+                'url'            => 'https://www.washingtonblade.com/2026/02/20/trans-activists-arrested-outside-hhs-headquarters-in-d-c/',
+                'source'         => 'Washington Blade',
+                'category'       => 'protest',
+                'published_at'   => '2026-02-17',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.8868,
+                'lng'            => -77.0156,
+            ],
+            [
+                'title'          => 'Eleven activists arrested trying to deliver care packages to detainees at the Burlington ICE facility',
+                'url'            => 'https://www.bostonglobe.com/2026/04/29/metro/ice-activists-arrests-burlington-care-packages/',
+                'source'         => 'Boston Globe',
+                'category'       => 'protest',
+                'published_at'   => '2026-04-28',
+                'location_label' => 'Burlington, MA',
+                'lat'            => 42.5048,
+                'lng'            => -71.1956,
+            ],
         ];
 
         $created = 0;
