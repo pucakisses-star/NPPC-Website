@@ -38,6 +38,26 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 28.5306,
                 'lng'            => -81.3766,
             ],
+            [
+                'title'          => 'Julian Pecora Cardenas charged with conspiracy for livestreaming a Border Patrol convoy in San Pedro, CA',
+                'url'            => 'https://www.pbs.org/wgbh/frontline/article/caught-in-crackdown-ice-cbp-immigration-protests-arrests-convictions/',
+                'source'         => 'PBS FRONTLINE',
+                'category'       => 'arrest',
+                'published_at'   => '2025-07-05',
+                'location_label' => 'San Pedro, CA',
+                'lat'            => 33.7361,
+                'lng'            => -118.2922,
+            ],
+            [
+                'title'          => 'Army veteran Jay Carey arrested for burning a U.S. flag in protest near the White House; charges later dropped',
+                'url'            => 'https://www.nbcnews.com/politics/justice-department/drops-case-veteran-carey-arrested-burning-american-flag-white-house-rcna263438',
+                'source'         => 'NBC News',
+                'category'       => 'protest',
+                'published_at'   => '2025-08-25',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.9000,
+                'lng'            => -77.0365,
+            ],
         ];
 
         $created = 0;
