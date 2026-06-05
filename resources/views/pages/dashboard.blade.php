@@ -127,23 +127,6 @@
     .ppd-leg-n { font-size: 11px; font-weight: 700; color: var(--mut); font-variant-numeric: tabular-nums; }
     .ppd-legend.is-filtered .ppd-leg:not(.is-active) { opacity: 0.42; }
 
-    /* ---- bottom breakdown strip ---- */
-    .ppd-breakdowns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
-    .ppd-bd { background: #0b0b0d; padding: 18px 20px 20px; }
-    .ppd-bd-h { font-size: 10.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mut); margin: 0 0 14px; }
-    .ppd-row { display: grid; grid-template-columns: 1fr 38px; align-items: center; gap: 10px; margin-bottom: 9px; }
-    .ppd-row:last-child { margin-bottom: 0; }
-    .ppd-row-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .ppd-row-lab { font-size: 12px; color: rgba(236,233,226,0.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .ppd-row-val { font-size: 12px; font-weight: 700; color: #fff; text-align: right; }
-    .ppd-track { grid-column: 1 / -1; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.07); overflow: hidden; margin-top: -2px; }
-    .ppd-fill { display: block; height: 100%; border-radius: 999px; background: var(--amber); min-width: 2px; }
-    .ppd-empty { font-size: 12px; color: var(--mut); font-style: italic; margin: 0; }
-
-    .ppd-foot { display: flex; flex-wrap: wrap; gap: 24px; padding: 18px 22px 40px; }
-    .ppd-foot-link { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: var(--amber); }
-    .ppd-foot-link:hover { color: #fff; }
-
     /* ---- timeline scrubber (below the map) ---- */
     .ppd-timeline { display: flex; align-items: center; gap: 18px; padding: 18px 22px 22px; border-bottom: 1px solid var(--line); background: #0b0b0d; }
     .ppd-tl-play { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); background: #141418; color: var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .12s ease, border-color .12s ease, color .12s ease; }
@@ -190,12 +173,10 @@
         .ppd-feed { max-height: 360px; border-right: 0; border-bottom: 1px solid var(--line); }
         .ppd-mapwrap { height: 420px; }
         #ppd-map { position: absolute; }
-        .ppd-breakdowns { grid-template-columns: 1fr 1fr; }
     }
     @@media (max-width: 540px) {
         .ppd-strip { gap: 10px 16px; }
         .ppd-total-num { font-size: 1.9rem; }
-        .ppd-breakdowns { grid-template-columns: 1fr; }
     }
 </style>
 @endsection
@@ -228,22 +209,6 @@
         'prosecution' => ['Prosecution', '#a371f7'],
         'other'       => ['Other',       '#9aa0a6'],
     ];
-
-    // breakdown panels
-    $byState = $prisoners->filter(fn ($p) => filled($p->state))->groupBy('state')->map->count()->sortDesc()->take(8);
-    $byEra   = $prisoners->filter(fn ($p) => filled($p->era))->groupBy('era')->map->count()->sortDesc()->take(8);
-    $movementCounts = [];
-    foreach ($prisoners as $p) {
-        $tags = array_merge((array) ($p->ideologies ?? []), (array) ($p->affiliation ?? []));
-        foreach (array_unique(array_filter(array_map('trim', $tags))) as $tag) {
-            $movementCounts[$tag] = ($movementCounts[$tag] ?? 0) + 1;
-        }
-    }
-    arsort($movementCounts);
-    $byMovement = array_slice($movementCounts, 0, 8, true);
-    $maxState    = $byState->max() ?: 1;
-    $maxEra      = $byEra->max() ?: 1;
-    $maxMovement = $byMovement ? max($byMovement) : 1;
 
     // The tracker only covers events from this date onward (the timeline start);
     // anything published earlier — old site articles especially — is out of range.
