@@ -109,6 +109,26 @@ class AddStateCapitolDashboardCases extends Command {
                 'lat'            => 44.9382,
                 'lng'            => -123.0301,
             ],
+            [
+                'title'          => 'About 13 arrested at an anti-ICE protest at the Texas Capitol in Austin after troopers used tear gas; charges ranged from obstruction and graffiti to assault',
+                'url'            => 'https://www.kut.org/crime-justice/2025-06-10/austin-tx-immigration-ice-trump-mass-deportation-protest-texas-capitol',
+                'source'         => 'KUT',
+                'category'       => 'arrest',
+                'published_at'   => '2025-06-09',
+                'location_label' => 'Austin, TX',
+                'lat'            => 30.2747,
+                'lng'            => -97.7404,
+            ],
+            [
+                'title'          => 'Seventeen arrested as a 1,000-strong "ICE Out" rally at the Colorado Capitol in Denver was dispersed with smoke; charges ranged from obstruction and graffiti to assault',
+                'url'            => 'https://www.coloradopolitics.com/colorado-in-dc/denver-protest-arrests-state-capitol/article_727b84fd-a17f-5c68-b716-ea952541141e.html',
+                'source'         => 'Colorado Politics',
+                'category'       => 'arrest',
+                'published_at'   => '2025-06-10',
+                'location_label' => 'Denver, CO',
+                'lat'            => 39.7397,
+                'lng'            => -104.9847,
+            ],
         ];
 
         $created = 0;
