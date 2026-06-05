@@ -34,6 +34,10 @@ abstract class ViewSupport {
                 $children[] = new MenuItemDTO(title: 'Archive', href: '/archive');
             }
 
+            if ($page->slug === 'about') {
+                $children[] = new MenuItemDTO(title: 'Dashboard', href: '/dashboard');
+            }
+
             $response[] = new MenuItemDTO(title: $page->title, href: $page->url, children: empty($children) ? null : $children);
         }
 
