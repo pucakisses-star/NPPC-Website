@@ -478,49 +478,8 @@
         </div>
     </div>
 
-    {{-- ==================== BOTTOM BREAKDOWNS ==================== --}}
-    <div class="ppd-breakdowns">
-        <div class="ppd-bd">
-            <h3 class="ppd-bd-h">Top movements</h3>
-            @forelse ($byMovement as $name => $count)
-                <div class="ppd-row">
-                    <div class="ppd-row-top"><span class="ppd-row-lab" title="{{ $name }}">{{ $name }}</span><span class="ppd-row-val">{{ number_format($count) }}</span></div>
-                    <span class="ppd-track"><span class="ppd-fill" style="width: {{ round($count / $maxMovement * 100) }}%"></span></span>
-                </div>
-            @empty
-                <p class="ppd-empty">No movement data yet.</p>
-            @endforelse
-        </div>
-        <div class="ppd-bd">
-            <h3 class="ppd-bd-h">By era</h3>
-            @forelse ($byEra as $name => $count)
-                <div class="ppd-row">
-                    <div class="ppd-row-top"><span class="ppd-row-lab" title="{{ $name }}">{{ $name }}</span><span class="ppd-row-val">{{ number_format($count) }}</span></div>
-                    <span class="ppd-track"><span class="ppd-fill" style="width: {{ round($count / $maxEra * 100) }}%"></span></span>
-                </div>
-            @empty
-                <p class="ppd-empty">No era data yet.</p>
-            @endforelse
-        </div>
-        <div class="ppd-bd">
-            <h3 class="ppd-bd-h">Top states</h3>
-            @forelse ($byState as $name => $count)
-                <div class="ppd-row">
-                    <div class="ppd-row-top"><span class="ppd-row-lab" title="{{ $name }}">{{ $name }}</span><span class="ppd-row-val">{{ number_format($count) }}</span></div>
-                    <span class="ppd-track"><span class="ppd-fill" style="width: {{ round($count / $maxState * 100) }}%"></span></span>
-                </div>
-            @empty
-                <p class="ppd-empty">No state data yet.</p>
-            @endforelse
-        </div>
-    </div>
-
-    <div class="ppd-foot">
-        <a class="ppd-foot-link" href="/map">Open the full interactive map →</a>
-        <a class="ppd-foot-link" href="/feature-political-prisoner-cost">See the cost-of-incarceration tracker →</a>
-    </div>
-
 </div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
