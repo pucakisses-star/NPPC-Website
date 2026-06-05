@@ -221,14 +221,6 @@
         overflow: hidden;
         border: 6px solid rgba(255,255,255,0.1);
     }
-    .pp-cta-image-placeholder {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #111 0%, #1a1040 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     .pp-cta-text { flex: 1; }
     .pp-cta-title {
         font-size: 2.5rem;

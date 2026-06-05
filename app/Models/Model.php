@@ -17,10 +17,4 @@ abstract class Model extends \Illuminate\Database\Eloquent\Model {
         });
     }
 
-    public function saveAndReturn(): static {
-        $this->save();
-        $this->refresh();
-
-        return $this;
-    }
 }

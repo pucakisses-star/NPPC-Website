@@ -74,10 +74,6 @@ final class Article extends Model {
         return Storage::url($img);
     }
 
-    public function getIntroAttribute(): string {
-        return substr($this->body, 0, 160);
-    }
-
     public function category(): BelongsTo {
         return $this->belongsTo(Category::class);
     }

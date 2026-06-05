@@ -10,12 +10,6 @@
     .staff-hero-image { flex: 0 0 450px; border-radius: 12px; overflow: hidden; }
     .staff-hero-image img { width: 100%; height: auto; }
     .staff-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 48px; }
-    .staff-filter { margin-bottom: 40px; }
-    .staff-filter-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
-    .staff-filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-    .staff-filter-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); padding: 8px 20px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 4px; transition: all 0.2s; text-decoration: none; }
-    .staff-filter-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .staff-filter-btn.active { background: #5660fe; border-color: #5660fe; color: #fff; }
     .staff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding-bottom: 80px; }
     .staff-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; overflow: hidden; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
     .staff-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }

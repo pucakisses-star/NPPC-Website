@@ -122,7 +122,6 @@ app/
   Domains/              # Business logic (Stripe)
   Filament/Resources/   # Admin panel CRUD
   Http/Controllers/     # SiteController, DonateController, FormSubmissionController
-  Jobs/                 # RunClaudeCode
   Livewire/             # Donation, ArticlesGrid
   Models/               # Eloquent models (25+)
   Services/             # ClaudeSessionService

@@ -41,7 +41,6 @@
     .tpx-sub-link { display: block; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.82); padding: 8px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link:hover { color: #fff; }
     .tpx-sub-link.active { color: #5660fe; }
-    .tpx-sub-empty { font-size: 13px; color: rgba(255,255,255,0.6); font-style: italic; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
 
     /* Right column — white detail panel with a large image */
     .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }

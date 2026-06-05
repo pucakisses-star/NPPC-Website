@@ -25,7 +25,6 @@
     .pet-body a { color: #5660fe; }
     .pet-section-title { font-size: 20px; font-weight: 900; color: #fff; margin: 32px 0 12px; display: flex; align-items: center; gap: 8px; }
     .pet-recipients { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
-    .pet-message-preview { border: 1px solid rgba(255,255,255,0.1); padding: 16px; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; max-height: 200px; overflow-y: auto; margin-bottom: 16px; border-radius: 4px; }
     /* Form */
     .pet-form-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
     .pet-form-desc { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 20px; line-height: 1.5; }

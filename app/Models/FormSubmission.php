@@ -43,16 +43,4 @@ class FormSubmission extends BaseModel {
     public function getEmailAttribute(): ?string {
         return $this->data['email'] ?? null;
     }
-
-    public function isNew(): bool {
-        return $this->status === 'new';
-    }
-
-    public function isRead(): bool {
-        return $this->status === 'read';
-    }
-
-    public function isArchived(): bool {
-        return $this->status === 'archived';
-    }
 }

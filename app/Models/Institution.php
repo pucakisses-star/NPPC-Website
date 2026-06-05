@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\HasMany;
-
 /**
  * @property string      $name
  * @property string|null $city
@@ -15,7 +13,4 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property float|null  $lng
  */
 final class Institution extends Model {
-    public function cases(): HasMany {
-        return $this->hasMany(PrisonerCase::class);
-    }
 }
