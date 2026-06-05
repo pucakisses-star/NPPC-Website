@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class PetitionSignature extends BaseModel {
@@ -19,9 +18,5 @@ class PetitionSignature extends BaseModel {
         static::creating(function ($model) {
             $model->id = (string) Str::uuid();
         });
-    }
-
-    public function petition(): BelongsTo {
-        return $this->belongsTo(Petition::class);
     }
 }

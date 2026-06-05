@@ -77,7 +77,6 @@
     .svr-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #aab0ff; margin-bottom: 14px; }
     .svr-eyebrow::before { content: ""; width: 26px; height: 2px; background: #5660fe; }
     .svr-h2 { font-size: 2.1rem; line-height: 1.12; font-weight: 800; color: #fff; margin: 0 0 18px; letter-spacing: -.015em; }
-    .svr-h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin: 30px 0 12px; }
     .svr-p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,.76); margin: 0 0 1.2em; }
     .svr-p:last-child { margin-bottom: 0; }
     .svr-p strong { color: #fff; font-weight: 700; }
@@ -101,8 +100,6 @@
     /* ---- buttons ---- */
     .svr-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none; padding: 13px 26px; border-radius: 999px; transition: transform .15s, background .15s, color .15s, border-color .15s; white-space: nowrap; }
     .svr-btn svg { width: 17px; height: 17px; }
-    .svr-btn-red { background: #5660fe; color: #fff; }
-    .svr-btn-red:hover { background: #4850e6; color: #fff; transform: translateY(-1px); }
     .svr-btn-light { background: #fff; color: #111; }
     .svr-btn-light:hover { background: #e9e9ef; color: #000; transform: translateY(-1px); }
     .svr-btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.32); }
@@ -121,9 +118,6 @@
     .svr-map-select:focus { border-color: #5660fe; }
     .svr-map-select option { color: #111; }
     .svr-map-canvas { position: relative; width: 100%; height: clamp(420px, 62vh, 640px); margin: 0 0 22px; background: #000; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; overflow: hidden; }
-    .svr-pop-name { font-weight: 800; font-size: 14px; color: #fff; margin: 0 0 2px; }
-    .svr-pop-meta { font-size: 12px; color: rgba(255,255,255,.6); }
-    .svr-pop-meta b { color: #aab0ff; }
     /* ---- native institutions table ---- */
     .svr-tbl-total { font-size: 1.35rem; font-weight: 800; color: #fff; margin: 6px 0 10px; }
     .svr-tbl-total span { font-weight: 600; font-size: 1rem; color: rgba(255,255,255,.55); }

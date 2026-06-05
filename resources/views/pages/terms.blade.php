@@ -11,7 +11,6 @@
     .legal-body li { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 0.5em; }
     .legal-body a { color: #5660fe; text-decoration: underline; }
     .legal-body strong { color: #fff; }
-    .legal-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 40px 0; }
 </style>
 @endsection
 

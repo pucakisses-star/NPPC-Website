@@ -5,7 +5,6 @@
     /* Container & Layout */
     .ci-page { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .ci-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 64px 0; }
-    .ci-accent { color: #5660fe; }
 
     /* Hero */
     .ci-hero { padding: 80px 0 0; }
