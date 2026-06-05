@@ -12,14 +12,14 @@ use Illuminate\Support\Carbon;
  * newswire items. Sourced from public reporting; matched on URL so the command
  * is idempotent and safe to re-run.
  *
- * Note: the dashboard timeline starts May 7, 2025, so the December 2024 arrest
- * falls before the window — on the map it clamps to the timeline start and it is
+ * Note: the dashboard timeline starts May 7, 2025, so the December 2024 arrests
+ * fall before the window — on the map they clamp to the timeline start and are
  * hidden from the newswire. The two 2025/2026 court updates sit inside the window
  * and display on their real dates.
  */
 class AddMangioneDashboardCases extends Command {
     protected $signature = 'dashboard:add-mangione-cases';
-    protected $description = 'Add Luigi Mangione case arrest/court-update markers to the dashboard';
+    protected $description = 'Add Luigi Mangione case and related arrest/court-update markers to the dashboard';
 
     public function handle(): int {
         $cases = [
@@ -52,6 +52,17 @@ class AddMangioneDashboardCases extends Command {
                 'location_label' => 'Manhattan, NY',
                 'lat'            => 40.7141,
                 'lng'            => -74.0028,
+            ],
+            // Related fallout from the UnitedHealthcare CEO killing (not Mangione's own case).
+            [
+                'title'          => 'Briana Boston charged with a terrorism threat over a "delay, deny, depose" call to her health insurer; charge later dropped',
+                'url'            => 'https://www.wfla.com/news/polk-county/lakeland-woman-who-said-delay-deny-depose-in-call-to-insurance-company-has-charge-dropped/',
+                'source'         => 'WFLA',
+                'category'       => 'arrest',
+                'published_at'   => '2024-12-11',
+                'location_label' => 'Lakeland, FL',
+                'lat'            => 28.0395,
+                'lng'            => -81.9498,
             ],
         ];
 
