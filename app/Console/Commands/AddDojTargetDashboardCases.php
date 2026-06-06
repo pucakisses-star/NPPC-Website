@@ -395,6 +395,16 @@ class AddDojTargetDashboardCases extends Command {
                 'lat'            => 38.8915,
                 'lng'            => -77.0310,
             ],
+            [
+                'title'          => 'The Trump administration set the DC National Guard deployment to roughly double to about 5,000 troops in a summer surge ahead of the America 250 events; a June study found it had done little to reduce violent crime',
+                'url'            => 'https://www.npr.org/2026/05/25/g-s1-124213/number-of-national-guard-troops-deployed-to-washington-d-c-set-to-double',
+                'source'         => 'NPR',
+                'category'       => 'other',
+                'published_at'   => '2026-05-25',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.9020,
+                'lng'            => -77.0360,
+            ],
         ];
 
         $created = 0;

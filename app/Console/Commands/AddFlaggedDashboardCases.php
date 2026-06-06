@@ -996,6 +996,60 @@ class AddFlaggedDashboardCases extends Command {
                 'lat'            => 44.9486,
                 'lng'            => -93.2666,
             ],
+            // ---- Data-center protest threats ----
+            [
+                'title'          => 'Trenton, Illinois man Anthony Hinojosa was charged with three felonies, including making terroristic threats, over Facebook posts threatening Troy officials and contractors tied to a proposed data center',
+                'url'            => 'https://www.timestribunenews.com/2026/02/11/trenton-man-charged-with-three-felonies-for-harassing-troy-official-over-possible-data-center/',
+                'source'         => 'Times Tribune',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-02-04',
+                'location_label' => 'Troy, IL',
+                'lat'            => 38.7290,
+                'lng'            => -89.8843,
+            ],
+            // ---- Trans-rights counter-protest (Seattle) ----
+            [
+                'title'          => 'About 23 people were arrested as LGBTQ counter-protesters confronted an anti-trans "Mayday USA" rally at Cal Anderson Park in Seattle; a later oversight review found police escalated and most charges were dropped',
+                'url'            => 'https://www.kuow.org/stories/seattle-police-escalated-conflicts-during-anti-trans-rally-in-2025-report-says',
+                'source'         => 'KUOW',
+                'category'       => 'arrest',
+                'published_at'   => '2025-05-24',
+                'location_label' => 'Seattle, WA',
+                'lat'            => 47.6175,
+                'lng'            => -122.3194,
+            ],
+            // ---- Portland ICE nightly protests (December) ----
+            [
+                'title'          => 'Two people were arrested at the nightly anti-ICE protests outside the Portland ICE facility in December 2025; Shean Broughton was charged with felony assault of an officer and Stephen Squire with harassment',
+                'url'            => 'https://www.portland.gov/police/news/2025/12/20/two-arrested-ice-facility-protest-1-charged-felony-assault-police-officer',
+                'source'         => 'City of Portland',
+                'category'       => 'arrest',
+                'published_at'   => '2025-12-19',
+                'location_label' => 'Portland, OR',
+                'lat'            => 45.4978,
+                'lng'            => -122.6708,
+            ],
+            // ---- Tucson "Taco Giro" raid protest (D. Arizona) ----
+            [
+                'title'          => 'Tucson protester Sheryl Anna Rowe was charged with felony assault on a federal officer at a protest that erupted outside the Taco Giro restaurant after an ICE raid',
+                'url'            => 'https://tucson.com/news/local/border/article_05044aab-690d-4dba-b60a-80b733f430c4.html',
+                'source'         => 'Arizona Daily Star',
+                'category'       => 'prosecution',
+                'published_at'   => '2025-12-05',
+                'location_label' => 'Tucson, AZ',
+                'lat'            => 32.2300,
+                'lng'            => -110.9760,
+            ],
+            [
+                'title'          => 'Tucson protester Ryan Michael Seal was charged with damaging a federal vehicle during the protest outside the Taco Giro restaurant after an ICE raid',
+                'url'            => 'https://www.kold.com/2025/12/10/man-arrested-during-taco-giro-protest-appears-court/',
+                'source'         => 'KOLD',
+                'category'       => 'prosecution',
+                'published_at'   => '2025-12-05',
+                'location_label' => 'Tucson, AZ',
+                'lat'            => 32.2305,
+                'lng'            => -110.9755,
+            ],
         ];
 
         $created = 0;
