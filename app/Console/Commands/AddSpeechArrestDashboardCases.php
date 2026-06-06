@@ -598,6 +598,16 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 45.1608,
                 'lng'            => -93.2349,
             ],
+            [
+                'title'          => 'California doctor Remy Coeytaux was criminally indicted in Louisiana for mailing abortion pills across state lines; Governor Newsom refused to extradite him in the first test of California shield law',
+                'url'            => 'https://www.wafb.com/2026/01/13/louisiana-indicts-california-doctor-abortion-pill-trafficking-case/',
+                'source'         => 'WAFB',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-01-13',
+                'location_label' => 'Covington, LA',
+                'lat'            => 30.4755,
+                'lng'            => -90.1009,
+            ],
         ];
 
         $created = 0;
