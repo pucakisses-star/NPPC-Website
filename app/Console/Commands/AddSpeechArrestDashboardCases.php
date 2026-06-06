@@ -538,6 +538,16 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 38.8905,
                 'lng'            => -77.0091,
             ],
+            [
+                'title'          => 'The Justice Department indicted the Southern Poverty Law Center on 11 federal fraud and money-laundering counts; the civil-rights group pleaded not guilty and called it a vindictive, politically motivated prosecution',
+                'url'            => 'https://www.npr.org/2026/04/22/nx-s1-5794620/doj-indicts-southern-poverty-law-center-on-federal-fraud-charges',
+                'source'         => 'NPR',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-04-21',
+                'location_label' => 'Montgomery, AL',
+                'lat'            => 32.3770,
+                'lng'            => -86.3010,
+            ],
         ];
 
         $created = 0;
