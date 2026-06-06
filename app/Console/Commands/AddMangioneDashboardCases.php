@@ -41,7 +41,7 @@ class AddMangioneDashboardCases extends Command {
                 'lng'            => -74.0021,
             ],
             [
-                'title'          => 'Federal judge tosses death-penalty counts against Luigi Mangione; trial set for fall 2026',
+                'title'          => 'Federal judge tosses death-penalty counts against Luigi Mangione; his federal trial was later pushed to January 2027',
                 'url'            => 'https://www.cnn.com/2026/01/30/us/luigi-mangione-case-rulings-trial',
                 'source'         => 'CNN',
                 'category'       => 'prosecution',

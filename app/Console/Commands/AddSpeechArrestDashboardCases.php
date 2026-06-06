@@ -239,11 +239,11 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lng'            => -87.8500,
             ],
             [
-                'title'          => 'Former FBI Director James Comey indicted on federal threat charges over an "86 47" seashell Instagram post',
-                'url'            => 'https://www.cnbc.com/2026/04/28/james-comey-indicted-trump-seashell-8647.html',
-                'source'         => 'CNBC',
+                'title'          => 'Former FBI Director James Comey was indicted on charges of making a false statement to Congress and obstructing a congressional proceeding; a judge dismissed the case in November 2025, ruling the Trump-installed prosecutor unlawfully appointed, and the Justice Department appealed',
+                'url'            => 'https://en.wikipedia.org/wiki/Prosecution_of_James_Comey',
+                'source'         => 'Wikipedia',
                 'category'       => 'prosecution',
-                'published_at'   => '2026-04-28',
+                'published_at'   => '2025-11-24',
                 'location_label' => 'Alexandria, VA',
                 'lat'            => 38.8048,
                 'lng'            => -77.0469,
@@ -539,7 +539,7 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lng'            => -77.0091,
             ],
             [
-                'title'          => 'The Justice Department indicted the Southern Poverty Law Center on 11 federal fraud and money-laundering counts; the civil-rights group pleaded not guilty and called it a vindictive, politically motivated prosecution',
+                'title'          => 'The Justice Department indicted the Southern Poverty Law Center on 11 federal fraud and money-laundering counts; the civil-rights group pleaded not guilty, called it a vindictive, politically motivated prosecution, and moved to dismiss the case',
                 'url'            => 'https://www.npr.org/2026/04/22/nx-s1-5794620/doj-indicts-southern-poverty-law-center-on-federal-fraud-charges',
                 'source'         => 'NPR',
                 'category'       => 'prosecution',
@@ -549,7 +549,7 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lng'            => -86.3010,
             ],
             [
-                'title'          => 'Former National Security Adviser John Bolton was indicted on 18 counts of mishandling classified information; the longtime Trump critic called himself the latest target of a weaponized Justice Department',
+                'title'          => 'Former National Security Adviser John Bolton was indicted on 18 counts of mishandling classified information; the longtime Trump critic agreed in June 2026 to plead guilty to a single felony count of illegally retaining national-defense information as prosecutors dropped the rest',
                 'url'            => 'https://www.nbcnews.com/politics/justice-department/john-bolton-indicted-trump-rcna236983',
                 'source'         => 'NBC News',
                 'category'       => 'prosecution',
@@ -559,7 +559,7 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lng'            => -76.8897,
             ],
             [
-                'title'          => 'New York Attorney General Letitia James was indicted on bank-fraud charges by a Trump-installed prosecutor; a judge dismissed the case weeks later, ruling the prosecutor had been unlawfully appointed',
+                'title'          => 'New York Attorney General Letitia James was indicted on bank-fraud charges by a Trump-installed prosecutor; a judge dismissed the case weeks later for the unlawful appointment, two grand juries then declined to reindict her, and the Justice Department appealed',
                 'url'            => 'https://www.nbcnews.com/politics/justice-department/judge-dismisses-cases-james-comey-letitia-james-finding-prosecutor-was-rcna244775',
                 'source'         => 'NBC News',
                 'category'       => 'prosecution',
