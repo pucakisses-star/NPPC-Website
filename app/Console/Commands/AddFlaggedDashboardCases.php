@@ -254,7 +254,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -74.2100,
             ],
             [
-                'title'          => 'Two men, Frank Waszut and Anthony Noto, were indicted for transmitting online threats to injure an ICE deportation officer and his wife',
+                'title'          => 'Two men, Frank Waszut and Anthony Noto, were indicted for transmitting online threats to injure an ICE deportation officer and his wife; Noto pleaded guilty in January 2026',
                 'url'            => 'https://www.justice.gov/usao-ndga/pr/social-media-provocateurs-charged-threatening-harm-federal-agent-and-his-wife',
                 'source'         => 'U.S. Attorney (N.D. Ga.)',
                 'category'       => 'prosecution',
@@ -467,7 +467,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -118.1598,
             ],
             [
-                'title'          => 'Paramount man Emiliano Garduno Galvez was charged with possessing an unregistered destructive device, accused of throwing a Molotov cocktail toward deputies during the June 2025 immigration protests',
+                'title'          => 'Paramount man Emiliano Garduno Galvez pleaded guilty to possessing an unregistered destructive device for throwing a Molotov cocktail toward deputies during the June 2025 immigration protests, and was sentenced to four years in federal prison',
                 'url'            => 'https://www.justice.gov/usao-cdca/pr/federal-complaints-charge-socal-residents-assault-throwing-molotov-cocktails-officers',
                 'source'         => 'U.S. Attorney (C.D. Cal.)',
                 'category'       => 'prosecution',
@@ -477,7 +477,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -118.1605,
             ],
             [
-                'title'          => 'Long Beach man Wrackkie Quiogue was charged with possessing an unregistered destructive device, accused of carrying a Molotov cocktail during the June 2025 downtown Los Angeles immigration protests',
+                'title'          => 'Long Beach man Wrackkie Quiogue pleaded guilty to possessing an unregistered destructive device tied to the June 2025 downtown Los Angeles immigration protests, and was sentenced to 30 months in federal prison',
                 'url'            => 'https://www.justice.gov/usao-cdca/pr/federal-complaints-charge-socal-residents-assault-throwing-molotov-cocktails-officers',
                 'source'         => 'U.S. Attorney (C.D. Cal.)',
                 'category'       => 'prosecution',
@@ -618,7 +618,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -87.8547,
             ],
             [
-                'title'          => 'Dana Briggs, a 70-year-old Air Force veteran, was charged with felony assault of a federal officer at the Broadview ICE facility',
+                'title'          => 'Dana Briggs, a 70-year-old Air Force veteran charged with felony assault of a federal officer at the Broadview ICE facility, saw prosecutors move to dismiss the case',
                 'url'            => 'https://www.justice.gov/usao-ndil/pr/five-individuals-charged-federal-court-chicago-assaulting-or-resisting-federal-agents',
                 'source'         => 'U.S. Attorney (N.D. Ill.)',
                 'category'       => 'prosecution',
