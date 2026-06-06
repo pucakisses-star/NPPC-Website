@@ -375,6 +375,26 @@ class AddDojTargetDashboardCases extends Command {
                 'lat'            => 38.8930,
                 'lng'            => -77.0120,
             ],
+            [
+                'title'          => 'Former DHS chief of staff Miles Taylor was targeted by an executive order directing the DOJ to investigate him and revoking his security clearance over his anonymous criticism of Trump (the order issued April 9, 2025, just before the tracker window)',
+                'url'            => 'https://www.whitehouse.gov/presidential-actions/2025/04/addressing-risks-associated-with-an-egregious-leaker-and-disseminator-of-falsehoods/',
+                'source'         => 'The White House',
+                'category'       => 'other',
+                'published_at'   => '2025-05-07',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.8910,
+                'lng'            => -77.0300,
+            ],
+            [
+                'title'          => 'Former CISA director Chris Krebs was targeted by an executive order directing the DOJ to investigate him and revoking his security clearance over his rejection of Trump 2020 election-fraud claims (the order issued April 9, 2025, just before the tracker window)',
+                'url'            => 'https://www.whitehouse.gov/presidential-actions/2025/04/addressing-risks-from-chris-krebs-and-government-censorship/',
+                'source'         => 'The White House',
+                'category'       => 'other',
+                'published_at'   => '2025-05-07',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.8915,
+                'lng'            => -77.0310,
+            ],
         ];
 
         $created = 0;
