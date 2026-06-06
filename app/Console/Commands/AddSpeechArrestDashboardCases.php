@@ -613,7 +613,7 @@ class AddSpeechArrestDashboardCases extends Command {
                 'url'            => 'https://wjla.com/news/local/dc-woman-arrested-teach-tenants-rights-channel-square-apartments-geraldine-cunningham-tenants-right-eviction-rent',
                 'source'         => 'WJLA',
                 'category'       => 'arrest',
-                'published_at'   => '2026-02-15',
+                'published_at'   => '2026-04-02',
                 'location_label' => 'Washington, DC',
                 'lat'            => 38.8755,
                 'lng'            => -77.0155,
