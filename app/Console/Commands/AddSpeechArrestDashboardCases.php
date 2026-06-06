@@ -608,6 +608,16 @@ class AddSpeechArrestDashboardCases extends Command {
                 'lat'            => 30.4755,
                 'lng'            => -90.1009,
             ],
+            [
+                'title'          => 'Washington, DC tenant organizer Geraldine Cunningham was arrested on an unlawful-entry charge — never filed — for holding a meeting to teach residents their rights at her own Channel Square apartment building; tenants called it retaliation for reporting code violations',
+                'url'            => 'https://wjla.com/news/local/dc-woman-arrested-teach-tenants-rights-channel-square-apartments-geraldine-cunningham-tenants-right-eviction-rent',
+                'source'         => 'WJLA',
+                'category'       => 'arrest',
+                'published_at'   => '2026-02-15',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.8755,
+                'lng'            => -77.0155,
+            ],
         ];
 
         $created = 0;
