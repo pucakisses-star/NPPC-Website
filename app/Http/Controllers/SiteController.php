@@ -829,6 +829,7 @@ final class SiteController extends Controller {
         'the-price-of-political-prosecution' => '/feature-political-prisoner-cost',
         'under-cover-of-war' => '/iran-war-political-prisoners',
         'detained-for-dissent' => '/student-visa-revocations-and-ice-arrests',
+        'the-data-center-revolt' => '/data-center-cases',
     ];
 
     public function article(string $slug) {
