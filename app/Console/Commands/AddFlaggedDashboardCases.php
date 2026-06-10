@@ -1082,6 +1082,36 @@ class AddFlaggedDashboardCases extends Command {
                 'lat'            => 41.8597,
                 'lng'            => -87.8539,
             ],
+            [
+                'title'          => 'DOJ Official Planned to Apply to Trump’s Anti-Weaponization Slush Fund',
+                'url'            => 'https://newrepublic.com/post/211612/department-justice-staffer-apply-donald-trump-slush-fund',
+                'source'         => 'The New Republic',
+                'category'       => 'other',
+                'published_at'   => '2026-06-10',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.8937,
+                'lng'            => -77.0247,
+            ],
+            [
+                'title'          => 'Expelled Pitt student in limbo ahead of Gaza encampment trial',
+                'url'            => 'https://www.publicsource.org/pitt-student-gaza-encampment-trial-limbo/',
+                'source'         => 'PublicSource',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-06-10',
+                'location_label' => 'Pittsburgh, PA',
+                'lat'            => 40.4444,
+                'lng'            => -79.9533,
+            ],
+            [
+                'title'          => 'Uranium Mining Permit Hearing in Black Hills Halted',
+                'url'            => 'https://unicornriot.ninja/2026/uranium-mining-permit-hearing-in-black-hills-halted/',
+                'source'         => 'Unicorn Riot',
+                'category'       => 'other',
+                'published_at'   => '2026-06-08',
+                'location_label' => 'Edgemont, SD',
+                'lat'            => 43.2936,
+                'lng'            => -103.8302,
+            ],
         ];
 
         $created = 0;
