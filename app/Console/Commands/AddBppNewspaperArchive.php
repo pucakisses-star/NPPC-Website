@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 /**
  * Add Black Panther Party newspaper records to the NPPC archive.
  *
- * Three records:
+ * Four records:
  *  1. The founding April 25, 1967 issue (Vol 1 No 1), mirrored
  *     locally at /pdfs/bpp-newspaper/. The single most important
  *     historical issue of the BPP newspaper — the launch number,
@@ -23,6 +23,13 @@ use Illuminate\Console\Command;
  *     (jadelin.mcleod uploader, 66 issues), registered as an
  *     external IA reference covering nearly the full national
  *     publication run from launch through the 1970 zenith.
+ *
+ *  4. The 1971–1980 run on the Marxists Internet Archive (~349
+ *     issues, Vol. 5 through the paper's final 1980 volumes),
+ *     registered as an external reference — fills the post-1970 gap:
+ *     the Newton/Cleaver split, the survival programs, the Oakland
+ *     electoral turn under Elaine Brown, and the decline to the
+ *     1980 close. A local mirror would run ~24 GB.
  *
  * Mirroring the full back-issue run locally would be ~425 MB for
  * 1967–1968 alone, so the external references are the scalable path
@@ -78,6 +85,20 @@ final class AddBppNewspaperArchive extends Command {
                 'year' => 1969,
                 'date' => '1969-01-01',
                 'subjects' => ['Black Panther Party', 'BPP', 'The Black Panther', 'Fred Hampton', 'Mark Clark', 'Panther 21', 'Bobby Seale', 'COINTELPRO', 'Black Liberation', 'Newspaper Archive'],
+            ],
+            [
+                'slug' => 'the-black-panther-newspaper-1971-1980-mia-run',
+                'title' => 'The Black Panther Newspaper, 1971–1980 (Marxists Internet Archive — ~349 issues, the post-1970 run)',
+                'description' => "Marxists Internet Archive's digitization of The Black Panther: Black Community News Service / Intercommunal News Service across 1971–1980 — roughly 349 issues spanning Volume 5 through the paper's final volumes, the entire run after the 1967–1970 collection that anchors this archive. These issues document the Party's second decade: the 1971 split between Huey Newton's Oakland faction and Eldridge Cleaver's international section, the renaming to the Intercommunal News Service, the great expansion of the survival programs (free breakfast, the People's Free Medical Clinics, the Oakland Community School), Bobby Seale's 1973 Oakland mayoral campaign, Elaine Brown's chairship (1974–1977, the first woman to lead the BPP) and the Party's turn to Oakland electoral and institutional power, and the long decline through the late 1970s to the paper's close in 1980. Registered for the NPPC archive as an external reference; a local mirror of this run would be roughly 24 GB, so the issues are linked rather than hosted. Individual issues are downloadable directly from marxists.org.",
+                'record_type' => 'collection',
+                'source_format' => 'newspaper run',
+                'file' => 'https://www.marxists.org/history/usa/pubs/black-panther/',
+                'collection' => 'The Black Panther Newspaper',
+                'authors' => 'Black Panther Party',
+                'publisher' => 'Black Panther Party / Marxists Internet Archive',
+                'year' => 1971,
+                'date' => '1971-01-02',
+                'subjects' => ['Black Panther Party', 'BPP', 'The Black Panther', 'Intercommunal News Service', 'Huey P. Newton', 'Elaine Brown', 'Bobby Seale', 'Survival Programs', 'Oakland', 'Black Liberation', 'Newspaper Archive'],
             ],
         ];
 
