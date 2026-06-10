@@ -1112,6 +1112,16 @@ class AddFlaggedDashboardCases extends Command {
                 'lat'            => 43.2936,
                 'lng'            => -103.8302,
             ],
+            [
+                'title'          => 'Bearing Witness to ICE Abuses at Delaney Hall',
+                'url'            => 'https://www.commondreams.org/opinion/witness-ice-delaney-hall',
+                'source'         => 'Common Dreams',
+                'category'       => 'other',
+                'published_at'   => '2026-06-10',
+                'location_label' => 'Newark, NJ',
+                'lat'            => 40.7184,
+                'lng'            => -74.1291,
+            ],
         ];
 
         $created = 0;
