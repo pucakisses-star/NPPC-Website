@@ -1,6 +1,8 @@
 @php
     /** @var \App\Models\ArchiveRecord $record */
     $isPdf = $record->file && str_ends_with(strtolower($record->file), '.pdf');
+    $isExternal = $record->file && (str_starts_with(strtolower($record->file), 'http://') || str_starts_with(strtolower($record->file), 'https://'));
+    $extHost = $isExternal ? preg_replace('/^www\./', '', (string) parse_url($record->file_url, PHP_URL_HOST)) : null;
 @endphp
 @extends('app')
 
@@ -56,15 +58,19 @@
         @if ($record->collection) &middot; <span>{{ $record->collection }}</span>@endif
     </div>
 
-    @if ($isPdf)
+    @if ($isPdf && ! $isExternal)
         <div class="av-viewer">
             <iframe src="{{ $record->file_url }}#view=FitH" title="{{ $record->title }}" loading="lazy"></iframe>
         </div>
     @else
         <div class="av-viewer">
             <div class="av-fallback">
-                <p>This file isn't a PDF.</p>
-                <a class="av-btn av-btn-primary" href="{{ $record->file_url }}" target="_blank" rel="noopener">Open file in new tab</a>
+                @if ($isExternal)
+                    <p>This item is hosted on <strong>{{ $extHost }}</strong> and can't be embedded here.<br>Open it in a new tab to read or download the full file.</p>
+                @else
+                    <p>This file isn't a PDF.</p>
+                @endif
+                <a class="av-btn av-btn-primary" href="{{ $record->file_url }}" target="_blank" rel="noopener">Open in new tab</a>
             </div>
         </div>
     @endif
