@@ -22,7 +22,7 @@ class AddSanctionsDashboardCases extends Command {
         $cases = [
             // ---- Iran ----
             [
-                'title'          => 'Jamshid Ghomi, CEO of the Tehran tech firm Faraz Pardaz Rayaneh, was arrested on a federal charge of conspiring to violate U.S. sanctions by smuggling more than 250 metric tons of U.S.-origin networking equipment to Iranian nuclear and military programs',
+                'title'          => 'CEO of Iran Tech Company Arrested on Federal Charge of Supplying U.S. Equipment to Iran’s Nuclear and Military Establishment',
                 'url'            => 'https://www.justice.gov/opa/pr/ceo-iran-tech-company-arrested-federal-charge-supplying-us-equipment-irans-nuclear-and',
                 'source'         => 'U.S. Department of Justice',
                 'category'       => 'prosecution',

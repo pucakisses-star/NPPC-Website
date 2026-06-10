@@ -762,7 +762,7 @@ class AddFlaggedDashboardCases extends Command {
             ],
             // ---- Long-tail: Newark / Delaney Hall (state charges + detainee escapes) ----
             [
-                'title'          => 'Thomas Clemens was charged by New Jersey with aggravated assault on an officer, rioting, and obstruction during the Delaney Hall ICE-facility protests in Newark',
+                'title'          => 'Arrests Continue At Delaney Hall After ICE Drawdown – But They’re Slowing Down, NJ Mayor Says',
                 'url'            => 'https://patch.com/new-jersey/newarknj/arrests-continue-delaney-hall-after-ice-drawdown-they-re-slowing-down-nj-mayor',
                 'source'         => 'Patch',
                 'category'       => 'prosecution',
@@ -770,26 +770,6 @@ class AddFlaggedDashboardCases extends Command {
                 'location_label' => 'Newark, NJ',
                 'lat'            => 40.7283,
                 'lng'            => -74.2102,
-            ],
-            [
-                'title'          => 'Aida Riddle was charged by New Jersey with aggravated assault on an officer, rioting, and obstruction during the Delaney Hall ICE-facility protests in Newark',
-                'url'            => 'https://patch.com/new-jersey/newarknj/arrests-continue-delaney-hall-after-ice-drawdown-they-re-slowing-down-nj-mayor',
-                'source'         => 'Patch',
-                'category'       => 'prosecution',
-                'published_at'   => '2026-06-03',
-                'location_label' => 'Newark, NJ',
-                'lat'            => 40.7286,
-                'lng'            => -74.2104,
-            ],
-            [
-                'title'          => 'Samuel Becker was charged by New Jersey with rioting, disorderly conduct, and criminal mischief over a dumpster fire during the Delaney Hall ICE-facility protests in Newark',
-                'url'            => 'https://patch.com/new-jersey/newarknj/arrests-continue-delaney-hall-after-ice-drawdown-they-re-slowing-down-nj-mayor',
-                'source'         => 'Patch',
-                'category'       => 'prosecution',
-                'published_at'   => '2026-06-03',
-                'location_label' => 'Newark, NJ',
-                'lat'            => 40.7290,
-                'lng'            => -74.2106,
             ],
             [
                 'title'          => 'Four ICE detainees — Franklin Bautista Reyes, Joan Castaneda Lozada, Andres Pineda Mogollon, and Joel Sandoval-Lopez — were charged with escaping from the Delaney Hall facility in Newark during a June 2025 uprising over detention conditions',
@@ -1053,7 +1033,7 @@ class AddFlaggedDashboardCases extends Command {
 
             // ---- Reader-flagged items (June 2026) ----
             [
-                'title'          => 'On Sonny Rollins 95th birthday, the Secretary of the Navy overturned the wrongful 1946 court-martial of his father, Chief Steward Walter William Rollins, who had been convicted by an all-white court at the Naval Academy in Jim Crow Maryland',
+                'title'          => 'Sonny Rollins Lived to See Justice for His Wrongly Convicted Father',
                 'url'            => 'https://www.thenation.com/article/society/sonny-rollins-exonerated-court-martial-racism/',
                 'source'         => 'The Nation',
                 'category'       => 'other',
@@ -1063,7 +1043,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -76.4847,
             ],
             [
-                'title'          => 'A year after federal immigration agents swept Los Angeles, the fear remains: ICE arrested more than 14,000 people across the region in 2025, most with no criminal record, and raided workers are still in legal limbo',
+                'title'          => 'A year after Trump’s gestapo invaded LA, the fear remains',
                 'url'            => 'https://www.dailykos.com/stories/2026/6/8/800052211/stateandlocal/los-angeles-deportation-ice-one-year-later/',
                 'source'         => 'Daily Kos',
                 'category'       => 'other',
@@ -1073,7 +1053,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -118.2468,
             ],
             [
-                'title'          => 'Queens Amazon delivery driver Esly Paredes was fired after posting pro-union TikTok videos backing a City Council bill Amazon opposed; she filed an NLRB complaint with the Teamsters',
+                'title'          => 'NYC Amazon Driver Fired Over Pro-Union Social Media Posts',
                 'url'            => 'https://www.thecityreporter.nyc/2026/06/10/amazon-driver-teamsters-fired-tiktok/',
                 'source'         => 'THE CITY',
                 'category'       => 'other',
@@ -1093,7 +1073,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -86.7816,
             ],
             [
-                'title'          => 'The now-cleared "Broadview Six" anti-ICE protesters took another step toward sanctions against the federal government, seeking discovery into White House pressure to indict them after their conspiracy case collapsed over grand-jury misconduct',
+                'title'          => 'Now-cleared ‘Broadview 6’ immigration protesters seek evidence of White House pressure to indict',
                 'url'            => 'https://capitolnewsillinois.com/news/now-cleared-broadview-6-immigration-protesters-seek-evidence-of-white-house-pressure-to-indict/',
                 'source'         => 'Capitol News Illinois',
                 'category'       => 'prosecution',
