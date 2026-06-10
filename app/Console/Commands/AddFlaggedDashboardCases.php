@@ -1063,7 +1063,7 @@ class AddFlaggedDashboardCases extends Command {
                 'lng'            => -73.9060,
             ],
             [
-                'title'          => 'Nashville comedian Ben Palmer, a U.S. citizen, was named in a DHS "Be on the Lookout" alert circulated to police nationwide after his satirical videos of people unknowingly calling a fake ICE tip line went viral',
+                'title'          => 'DHS issued ‘be on the lookout’ alert for comedian Ben Palmer',
                 'url'            => 'https://www.injusticewatch.org/civil-courts/immigration/2026/dhs-alert-comedian-ben-palmer/',
                 'source'         => 'Injustice Watch',
                 'category'       => 'other',
@@ -1141,6 +1141,26 @@ class AddFlaggedDashboardCases extends Command {
                 'location_label' => 'Socorro, NM',
                 'lat'            => 34.0584,
                 'lng'            => -106.8914,
+            ],
+            [
+                'title'          => 'The NYU Strike Showed How to Reverse the Downward Spiral in Higher Ed',
+                'url'            => 'https://inthesetimes.com/article/new-york-university-strike-non-tenured-union',
+                'source'         => 'In These Times',
+                'category'       => 'protest',
+                'published_at'   => '2026-06-09',
+                'location_label' => 'New York, NY',
+                'lat'            => 40.7295,
+                'lng'            => -73.9965,
+            ],
+            [
+                'title'          => 'Is DOJ hiding press protections to raid reporters? We sue to find out',
+                'url'            => 'https://freedom.press/issues/is-doj-hiding-press-protections-to-raid-reporters-we-sue-to-find-out/',
+                'source'         => 'Freedom of the Press Foundation',
+                'category'       => 'other',
+                'published_at'   => '2026-06-08',
+                'location_label' => 'Washington, DC',
+                'lat'            => 38.9072,
+                'lng'            => -77.0369,
             ],
         ];
 

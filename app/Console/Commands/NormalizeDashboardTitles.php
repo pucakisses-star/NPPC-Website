@@ -34,6 +34,8 @@ class NormalizeDashboardTitles extends Command {
                 => 'Nurses at Research Medical Center to hold rally demanding immediate action on unsafe patient care conditions',
             'https://www.justice.gov/opa/pr/ceo-iran-tech-company-arrested-federal-charge-supplying-us-equipment-irans-nuclear-and'
                 => 'CEO of Iran Tech Company Arrested on Federal Charge of Supplying U.S. Equipment to Iran’s Nuclear and Military Establishment',
+            'https://www.injusticewatch.org/civil-courts/immigration/2026/dhs-alert-comedian-ben-palmer/'
+                => 'DHS issued ‘be on the lookout’ alert for comedian Ben Palmer',
         ];
         foreach ($byUrl as $url => $title) {
             $n = DashboardLink::where('url', $url)->update(['title' => $title]);
