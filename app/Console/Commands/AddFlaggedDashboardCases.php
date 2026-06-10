@@ -1082,6 +1082,26 @@ class AddFlaggedDashboardCases extends Command {
                 'lat'            => 40.7223,
                 'lng'            => -73.9060,
             ],
+            [
+                'title'          => 'Nashville comedian Ben Palmer, a U.S. citizen, was named in a DHS "Be on the Lookout" alert circulated to police nationwide after his satirical videos of people unknowingly calling a fake ICE tip line went viral',
+                'url'            => 'https://www.injusticewatch.org/civil-courts/immigration/2026/dhs-alert-comedian-ben-palmer/',
+                'source'         => 'Injustice Watch',
+                'category'       => 'other',
+                'published_at'   => '2026-05-21',
+                'location_label' => 'Nashville, TN',
+                'lat'            => 36.1627,
+                'lng'            => -86.7816,
+            ],
+            [
+                'title'          => 'The now-cleared "Broadview Six" anti-ICE protesters took another step toward sanctions against the federal government, seeking discovery into White House pressure to indict them after their conspiracy case collapsed over grand-jury misconduct',
+                'url'            => 'https://capitolnewsillinois.com/news/now-cleared-broadview-6-immigration-protesters-seek-evidence-of-white-house-pressure-to-indict/',
+                'source'         => 'Capitol News Illinois',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-06-08',
+                'location_label' => 'Broadview, IL',
+                'lat'            => 41.8597,
+                'lng'            => -87.8539,
+            ],
         ];
 
         $created = 0;
