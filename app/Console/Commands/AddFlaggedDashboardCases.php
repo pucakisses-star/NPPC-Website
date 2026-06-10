@@ -1122,6 +1122,26 @@ class AddFlaggedDashboardCases extends Command {
                 'lat'            => 40.7184,
                 'lng'            => -74.1291,
             ],
+            [
+                'title'          => 'Broadview 6 grand jury transcripts released, showing alleged prosecutorial misconduct',
+                'url'            => 'https://www.chicagotribune.com/2026/06/09/broadview-six-grand-jury-transcripts/',
+                'source'         => 'Chicago Tribune',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-06-09',
+                'location_label' => 'Chicago, IL',
+                'lat'            => 41.8786,
+                'lng'            => -87.6251,
+            ],
+            [
+                'title'          => 'The Battle of Socorro, New Mexico and the Uprising Against AI Data Centers',
+                'url'            => 'https://www.counterpunch.org/2026/06/10/the-battle-of-socorro-new-mexico-and-the-uprising-against-ai-data-centers/',
+                'source'         => 'CounterPunch',
+                'category'       => 'protest',
+                'published_at'   => '2026-06-10',
+                'location_label' => 'Socorro, NM',
+                'lat'            => 34.0584,
+                'lng'            => -106.8914,
+            ],
         ];
 
         $created = 0;
