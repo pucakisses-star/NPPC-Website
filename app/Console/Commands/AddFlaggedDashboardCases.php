@@ -1050,6 +1050,38 @@ class AddFlaggedDashboardCases extends Command {
                 'lat'            => 32.2305,
                 'lng'            => -110.9755,
             ],
+
+            // ---- Reader-flagged items (June 2026) ----
+            [
+                'title'          => 'On Sonny Rollins 95th birthday, the Secretary of the Navy overturned the wrongful 1946 court-martial of his father, Chief Steward Walter William Rollins, who had been convicted by an all-white court at the Naval Academy in Jim Crow Maryland',
+                'url'            => 'https://www.thenation.com/article/society/sonny-rollins-exonerated-court-martial-racism/',
+                'source'         => 'The Nation',
+                'category'       => 'other',
+                'published_at'   => '2026-06-10',
+                'location_label' => 'Annapolis, MD',
+                'lat'            => 38.9847,
+                'lng'            => -76.4847,
+            ],
+            [
+                'title'          => 'A year after federal immigration agents swept Los Angeles, the fear remains: ICE arrested more than 14,000 people across the region in 2025, most with no criminal record, and raided workers are still in legal limbo',
+                'url'            => 'https://www.dailykos.com/stories/2026/6/8/800052211/stateandlocal/los-angeles-deportation-ice-one-year-later/',
+                'source'         => 'Daily Kos',
+                'category'       => 'other',
+                'published_at'   => '2026-06-08',
+                'location_label' => 'Los Angeles, CA',
+                'lat'            => 34.0407,
+                'lng'            => -118.2468,
+            ],
+            [
+                'title'          => 'Queens Amazon delivery driver Esly Paredes was fired after posting pro-union TikTok videos backing a City Council bill Amazon opposed; she filed an NLRB complaint with the Teamsters',
+                'url'            => 'https://www.thecityreporter.nyc/2026/06/10/amazon-driver-teamsters-fired-tiktok/',
+                'source'         => 'THE CITY',
+                'category'       => 'other',
+                'published_at'   => '2026-06-10',
+                'location_label' => 'Queens, NY',
+                'lat'            => 40.7223,
+                'lng'            => -73.9060,
+            ],
         ];
 
         $created = 0;
