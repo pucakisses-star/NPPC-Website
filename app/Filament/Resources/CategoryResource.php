@@ -23,6 +23,7 @@ class CategoryResource extends Resource {
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
+                    ->helperText('Leave blank to auto-generate from the title.')
                     ->maxLength(255),
             ]);
     }
