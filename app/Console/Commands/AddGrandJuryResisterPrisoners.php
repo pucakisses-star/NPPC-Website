@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Artisan;
  * Puerto Rican FALN cluster (Cueto, Nemikin, the Rosados, Romero, Archuleta,
  * López, Caldero, Guerra), the 2012 Pacific Northwest cohort, the WikiLeaks
  * resisters, the SF8, Jonathan Paul, Ashqar, Jeff Hogg, and Jesse Shackelford
- * were all already present. These eight are the genuine gaps, all confirmed
- * resisters who never cooperated:
+ * were all already present. The genuine gaps it adds:
  *
  *  - Rik Scarce — 1993 Spokane; 159 days civil contempt on scholar's-privilege
  *    grounds (the landmark Scarce v. United States case).
@@ -25,9 +24,10 @@ use Illuminate\Support\Facades\Artisan;
  *    Matthias Reilly, Thomas Laffey) — Irish-American republicans jailed ~3
  *    months in 1972 for refusing a Texas grand jury probing IRA gun-running.
  *
- * NOTE: the other five Lexington Six members (Cohee, Junkin, Hands, Link,
- * Seymour) were jailed but ultimately testified, so they are deliberately NOT
- * added here pending an editorial decision.
+ * The other five Lexington Six members (Cohee, Junkin, Hands, Link, Seymour)
+ * are also included: each was jailed in 1975 for refusing the grand jury, but
+ * unlike Raymond most were released after agreeing to testify, which their
+ * profiles note explicitly.
  *
  * Idempotent: prisoner:add refuses duplicate names, so re-running skips anyone
  * already present.
@@ -107,6 +107,118 @@ final class AddGrandJuryResisterPrisoners extends Command {
                     'convicted' => 'Civil contempt (no underlying criminal conviction)',
                     'sentence' => 'Jailed approximately fourteen months for civil contempt',
                     'imprisoned_for_days' => 422,
+                ]],
+            ],
+            [
+                'name' => 'Gail Cohee',
+                'first_name' => 'Gail',
+                'last_name' => 'Cohee',
+                'description' => 'Gail Cohee was a member of the Lexington, Kentucky lesbian-feminist and gay-liberation collective subpoenaed in 1975 by a federal grand jury that was ostensibly hunting the antiwar fugitives Susan Saxe and Katherine Power, but which activists said was being used to map the local radical and gay community. Cohee, then about 21 and openly lesbian, refused to cooperate and was jailed for civil contempt in March 1975 as one of the six subpoenaed activists who became known as the Lexington Six. After roughly two months in jail she agreed to testify and was released; of the six, only Jill Raymond held out for the full grand jury term of about fourteen months.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'state' => 'Kentucky',
+                'ideologies' => ['Lesbian feminism', 'Gay liberation', 'Anti-war'],
+                'affiliation' => ['Lexington Six'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Kentucky',
+                    'charges' => 'Civil contempt of court for refusing to testify before a federal grand jury',
+                    'incarceration_date' => '1975-03-08',
+                    'convicted' => 'Civil contempt; released after agreeing to testify',
+                    'sentence' => 'Jailed approximately two months for civil contempt before agreeing to testify',
+                    'imprisoned_for_days' => 60,
+                ]],
+            ],
+            [
+                'name' => 'Carey Junkin',
+                'first_name' => 'Carey',
+                'last_name' => 'Junkin',
+                'description' => 'Carey Junkin was a member of the Lexington, Kentucky gay-liberation and lesbian-feminist collective subpoenaed in 1975 by a federal grand jury that was ostensibly hunting the antiwar fugitives Susan Saxe and Katherine Power, but which activists said was being used to map the local radical and gay community. Junkin refused to cooperate and was jailed for civil contempt in March 1975 as one of the six subpoenaed activists who became known as the Lexington Six. He was released on March 31, 1975; of the six, only Jill Raymond held out for the full grand jury term of about fourteen months.',
+                'race' => 'White',
+                'gender' => 'Male',
+                'state' => 'Kentucky',
+                'ideologies' => ['Gay liberation', 'Anti-war'],
+                'affiliation' => ['Lexington Six'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Kentucky',
+                    'charges' => 'Civil contempt of court for refusing to testify before a federal grand jury',
+                    'incarceration_date' => '1975-03-08',
+                    'release_date' => '1975-03-31',
+                    'convicted' => 'Civil contempt (no underlying criminal charge)',
+                    'sentence' => 'Jailed approximately three weeks for civil contempt in 1975',
+                    'imprisoned_for_days' => 23,
+                ]],
+            ],
+            [
+                'name' => 'Debbie Hands',
+                'first_name' => 'Debbie',
+                'last_name' => 'Hands',
+                'description' => 'Debbie Hands was a member of the Lexington, Kentucky lesbian-feminist and gay-liberation collective subpoenaed in 1975 by a federal grand jury that was ostensibly hunting the antiwar fugitives Susan Saxe and Katherine Power, but which activists said was being used to map the local radical and gay community. Hands refused to cooperate and was jailed for civil contempt on March 8, 1975 as one of the six subpoenaed activists who became known as the Lexington Six. She was released six days later, on March 14, 1975, after agreeing to testify; of the six, only Jill Raymond held out for the full grand jury term of about fourteen months.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'state' => 'Kentucky',
+                'ideologies' => ['Lesbian feminism', 'Gay liberation', 'Anti-war'],
+                'affiliation' => ['Lexington Six'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Kentucky',
+                    'charges' => 'Civil contempt of court for refusing to testify before a federal grand jury',
+                    'incarceration_date' => '1975-03-08',
+                    'release_date' => '1975-03-14',
+                    'convicted' => 'Civil contempt; testified after six days',
+                    'sentence' => 'Jailed six days for civil contempt before testifying',
+                    'imprisoned_for_days' => 6,
+                ]],
+            ],
+            [
+                'name' => 'Linda Link',
+                'first_name' => 'Linda',
+                'last_name' => 'Link',
+                'description' => 'Linda Link was a member of the Lexington, Kentucky lesbian-feminist and gay-liberation collective subpoenaed in 1975 by a federal grand jury that was ostensibly hunting the antiwar fugitives Susan Saxe and Katherine Power, but which activists said was being used to map the local radical and gay community. Link refused to cooperate and was jailed for civil contempt in March 1975 as one of the six subpoenaed activists who became known as the Lexington Six. She was released later that spring after agreeing to testify; of the six, only Jill Raymond held out for the full grand jury term of about fourteen months.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'state' => 'Kentucky',
+                'ideologies' => ['Lesbian feminism', 'Gay liberation', 'Anti-war'],
+                'affiliation' => ['Lexington Six'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Kentucky',
+                    'charges' => 'Civil contempt of court for refusing to testify before a federal grand jury',
+                    'incarceration_date' => '1975-03-08',
+                    'convicted' => 'Civil contempt; released after agreeing to testify',
+                    'sentence' => 'Jailed for civil contempt in 1975 before agreeing to testify',
+                    'imprisoned_for_days' => 60,
+                ]],
+            ],
+            [
+                'name' => 'Marla Seymour',
+                'first_name' => 'Marla',
+                'last_name' => 'Seymour',
+                'description' => 'Marla Seymour was a member of the Lexington, Kentucky lesbian-feminist and gay-liberation collective subpoenaed in 1975 by a federal grand jury that was ostensibly hunting the antiwar fugitives Susan Saxe and Katherine Power, but which activists said was being used to map the local radical and gay community. Seymour, then about 22 and openly lesbian, refused to cooperate and was jailed for civil contempt in March 1975 as one of the six subpoenaed activists who became known as the Lexington Six. She spent roughly two months in jail before agreeing to testify and being released; of the six, only Jill Raymond held out for the full grand jury term of about fourteen months.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'state' => 'Kentucky',
+                'ideologies' => ['Lesbian feminism', 'Gay liberation', 'Anti-war'],
+                'affiliation' => ['Lexington Six'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Kentucky',
+                    'charges' => 'Civil contempt of court for refusing to testify before a federal grand jury',
+                    'incarceration_date' => '1975-03-08',
+                    'convicted' => 'Civil contempt; released after agreeing to testify',
+                    'sentence' => 'Jailed approximately two months for civil contempt before agreeing to testify',
+                    'imprisoned_for_days' => 60,
                 ]],
             ],
             [
