@@ -23,6 +23,16 @@ use Illuminate\Support\Facades\Artisan;
  *  - The Fort Worth Five (Kenneth Tierney, Paschal Morahan, Daniel Crawford,
  *    Matthias Reilly, Thomas Laffey) — Irish-American republicans jailed ~3
  *    months in 1972 for refusing a Texas grand jury probing IRA gun-running.
+ *  - Early-1970s antiwar grand jury resisters: Anthony Russo (Pentagon Papers,
+ *    47 days, 1971), Leslie Bacon (1971 Capitol-bombing material witness), and
+ *    Sister Jogues Egan and Anne Walsh (the 1971 Harrisburg Catholic-left grand
+ *    jury, whose wiretap challenge became Gelbard v. United States).
+ *
+ * Genuine pre-1970 grand jury resisters proved to be essentially an empty set:
+ * coercive civil-contempt jailing only became a systematic repression tool
+ * after the 1970 use-immunity statute, and earlier testimony-refusal cases
+ * (HUAC, Smith Act) ran through congressional/trial contempt — a different
+ * mechanism — and are already in the database (Braden, Wilkinson, Trumbo, etc.).
  *
  * The other five Lexington Six members (Cohee, Junkin, Hands, Link, Seymour)
  * are also included: each was jailed in 1975 for refusing the grand jury, but
@@ -247,6 +257,87 @@ final class AddGrandJuryResisterPrisoners extends Command {
             $fortWorth('Daniel Crawford', 'Daniel', 'Crawford'),
             $fortWorth('Matthias Reilly', 'Matthias', 'Reilly'),
             $fortWorth('Thomas Laffey', 'Thomas', 'Laffey'),
+            [
+                'name' => 'Anthony Russo',
+                'first_name' => 'Anthony',
+                'last_name' => 'Russo',
+                'aka' => 'Tony Russo; Anthony Joseph Russo Jr.',
+                'description' => 'Anthony Russo was a former RAND Corporation analyst who helped Daniel Ellsberg photocopy the Pentagon Papers, the secret government history of U.S. decision-making in the Vietnam War. In 1971, after the papers were published, Russo was subpoenaed before a federal grand jury in Los Angeles investigating the leak. Granted immunity and ordered to testify against Ellsberg, he refused, and was jailed for 47 days for civil contempt. He was then indicted alongside Ellsberg in December 1971 on charges including espionage and conspiracy, facing decades in prison; the case was dismissed in 1973 after the court found gross government misconduct, including illegal wiretapping and a break-in by White House operatives targeting Ellsberg. Russo remained an antiwar and civil-liberties activist for the rest of his life.',
+                'race' => 'White',
+                'gender' => 'Male',
+                'death_date' => '2008-08-06',
+                'state' => 'California',
+                'ideologies' => ['Anti-war', 'Whistleblower', 'Civil liberties'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'California',
+                    'charges' => 'Civil contempt for refusing to testify before a federal grand jury investigating the Pentagon Papers leak',
+                    'convicted' => 'Civil contempt (no underlying conviction; later indicted with Ellsberg, case dismissed 1973 for government misconduct)',
+                    'sentence' => 'Jailed 47 days for civil contempt in 1971',
+                    'imprisoned_for_days' => 47,
+                ]],
+            ],
+            [
+                'name' => 'Leslie Bacon',
+                'first_name' => 'Leslie',
+                'last_name' => 'Bacon',
+                'description' => 'Leslie Bacon was a 19-year-old antiwar activist who became one of the most notorious examples of grand jury and material-witness abuse during the Nixon era. In April 1971 she was arrested in Washington, D.C. as a material witness, secretly flown across the country to Seattle, and held largely incommunicado in connection with a federal grand jury investigating the March 1, 1971 bombing of the U.S. Capitol and an alleged plot to bomb a New York bank. When she refused to cooperate with the grand jury, she was jailed for roughly four weeks before being released on bond. Bacon was never charged with any crime. Her treatment — arrest as a material witness, secret cross-country transport, and jailing for refusing a grand jury fishing expedition into the antiwar movement — became a widely cited symbol of the Nixon-era use of grand juries to harass dissenters.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'ideologies' => ['Anti-war'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Washington',
+                    'charges' => 'Held as a material witness and jailed for civil contempt for refusing to cooperate with a federal grand jury investigating the 1971 U.S. Capitol bombing',
+                    'convicted' => 'Never charged with any crime',
+                    'sentence' => 'Jailed roughly four weeks as a recalcitrant material witness (1971)',
+                    'imprisoned_for_days' => 28,
+                ]],
+            ],
+            [
+                'name' => 'Jogues Egan',
+                'first_name' => 'Jogues',
+                'last_name' => 'Egan',
+                'aka' => 'Sister Jogues Egan',
+                'description' => 'Sister Jogues Egan was a Roman Catholic nun and educator jailed for civil contempt in 1971 for refusing to testify before the federal grand jury in Harrisburg, Pennsylvania that investigated the Catholic antiwar left — the so-called East Coast Conspiracy to Save Lives, the alleged plot associated with Daniel and Philip Berrigan to raid draft boards and symbolically kidnap national security adviser Henry Kissinger. Egan refused to answer the grand jury questions on the ground that they were derived from illegal government wiretapping and electronic surveillance. Held in contempt by the U.S. District Court for the Middle District of Pennsylvania and ordered jailed until she testified or the grand jury expired, she carried her challenge to the Supreme Court, which in Gelbard v. United States (1972) upheld the right of grand jury witnesses to refuse to answer questions based on unlawful surveillance. Her resistance, alongside fellow Catholic activist Anne Walsh, made her a prominent figure of Catholic antiwar grand jury resistance.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'state' => 'Pennsylvania',
+                'ideologies' => ['Anti-war', 'Catholic left', 'Civil liberties'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Pennsylvania',
+                    'charges' => 'Civil contempt for refusing to testify before the Harrisburg federal grand jury investigating the Catholic antiwar movement',
+                    'convicted' => 'Civil contempt (no underlying criminal charge)',
+                    'sentence' => 'Jailed for civil contempt in 1971',
+                ]],
+            ],
+            [
+                'name' => 'Anne Walsh',
+                'first_name' => 'Anne',
+                'last_name' => 'Walsh',
+                'aka' => 'Anne Elizabeth Walsh',
+                'description' => 'Anne Elizabeth Walsh was a Catholic antiwar activist jailed for civil contempt in 1971, alongside Sister Jogues Egan, for refusing to testify before the federal grand jury in Harrisburg, Pennsylvania investigating the Catholic left and the alleged East Coast Conspiracy to Save Lives associated with the Berrigan brothers. Like Egan, Walsh refused to answer questions she argued were the product of illegal government wiretapping. The two women were held in contempt by the U.S. District Court for the Middle District of Pennsylvania, and their challenge was decided together with companion cases by the Supreme Court in Gelbard v. United States (1972), which affirmed that grand jury witnesses may refuse to answer questions derived from unlawful electronic surveillance.',
+                'race' => 'White',
+                'gender' => 'Female',
+                'state' => 'Pennsylvania',
+                'ideologies' => ['Anti-war', 'Catholic left', 'Civil liberties'],
+                'era' => '1970s',
+                'in_custody' => false,
+                'released' => true,
+                'cases' => [[
+                    'institution_state' => 'Pennsylvania',
+                    'charges' => 'Civil contempt for refusing to testify before the Harrisburg federal grand jury investigating the Catholic antiwar movement',
+                    'convicted' => 'Civil contempt (no underlying criminal charge)',
+                    'sentence' => 'Jailed for civil contempt in 1971',
+                ]],
+            ],
         ];
 
         $added = 0;
