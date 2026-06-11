@@ -19,6 +19,7 @@ use App\Models\Staff;
 use App\Models\Timeline;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 final class SiteController extends Controller {
     public function page(string $slug) {
@@ -427,13 +428,32 @@ final class SiteController extends Controller {
     }
 
     public function tracker() {
+        // The tracker aggregates the full prisoners + cases tables through a
+        // heavy, year- and state-aware cost model. That data changes only when
+        // an admin edits, so the computed payload is cached — keyed on the
+        // current year so the rolling 50-year window still refreshes annually.
+        // Run `php artisan cache:clear` to force an immediate refresh.
+        $payload = Cache::remember(
+            'tracker:payload:v1:'.date('Y'),
+            now()->addHours(6),
+            fn () => $this->computeTrackerPayload(),
+        );
+
+        return view('pages.tracker', $payload);
+    }
+
+    /**
+     * Builds the tracker's aggregate cost dataset (the full set of view
+     * variables). Extracted from tracker() so the heavy result can be cached.
+     */
+    private function computeTrackerPayload(): array {
         // Modern-era cutoff. The pre-WWII archive material is largely
         // labor and anarchist cases whose incarceration day counts and
         // dollar-cost figures are too speculative to mix into a real-time
         // dollar tracker; constrain to 1950→ so the running total tracks
         // the contemporary political-prosecution period the page is
         // actually about.
-        // Rolling 50-year window — recomputed on every request so the
+        // Rolling 50-year window — recomputed when the cache misses so the
         // page always reflects "the past 50 years" of political prosecution
         // rather than a fixed start date that ages out.
         $windowYears = 50;
@@ -798,7 +818,7 @@ final class SiteController extends Controller {
         // Display-only sample rates surfaced in the methodology copy.
         $methodFedRateRange  = ['min' => 36, 'max' => (int) round(IncarcerationCostRates::federalDaily((int) date('Y'))), 'minYear' => 1985, 'maxYear' => (int) date('Y')];
 
-        return view('pages.tracker', compact(
+        return compact(
             'totalDaysImprisoned', 'totalDaysInExile',
             'inCustody', 'inExile', 'released', 'awaitingTrial',
             'costByIdeology', 'activeCases', 'totalPrisoners', 'totalCases', 'firstYear',
@@ -813,7 +833,7 @@ final class SiteController extends Controller {
             'chargeStats', 'maxChargeCount',
             'affiliationSeries', 'affYears',
             'federalDays', 'stateDays', 'localDays',
-        ));
+        );
     }
 
     public function faq() {
@@ -896,7 +916,7 @@ final class SiteController extends Controller {
             $results[] = [
                 'type'  => 'Prisoner',
                 'title' => $prisoner->name,
-                'url'   => '/database',
+                'url'   => '/prisoner/'.($prisoner->slug ?: $prisoner->id),
                 'excerpt' => substr($prisoner->description ?? '', 0, 200),
             ];
         }
