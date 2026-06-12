@@ -304,19 +304,90 @@
         ->mapWithKeys(fn ($k) => [$k => $eventPoints->where('status', $k)->count()])
         ->filter(fn ($n) => $n > 0);
 
-    // Per-source badge colour so the newswire chips aren't all the same amber —
-    // each outlet (and category) gets its own colour, derived deterministically
-    // from its name and consistent across renders. The palette is medium-bright
-    // so it reads both as a chip background (dark chip text) and as ticker text
-    // (dark page background).
-    $sourceColor = function (?string $label): string {
-        $palette = ['#e0a82e', '#5aa9e6', '#63d2a0', '#f07167', '#c08ae8', '#48c9b0', '#f49ac1', '#f0913e', '#bcd44a', '#5fcdd6', '#e8849b', '#9aa6ef', '#d8a35f', '#7ed957'];
+    // Brand-coloured source badges: each outlet maps to its brand colour so the
+    // newswire chips reflect the source's identity rather than a random hue.
+    // Resolution order: exact brand map → family rules (government, TV-network
+    // affiliates) → a deterministic palette for the long tail of small local
+    // outlets without a well-known colour. Chip/ticker text colour is derived
+    // from the background's luminance so dark brands (navy, red) stay legible.
+    $brandColors = [
+        'cnn' => '#cc0000',
+        'pbs newshour' => '#2638c4', 'pbs frontline' => '#2638c4',
+        'npr' => '#3a6ea5',
+        'nbc news' => '#1565c0',
+        'cbs news' => '#0f4c8c',
+        'abc news' => '#1b1b1b',
+        'al jazeera' => '#e9a21b', 'al jazeera english' => '#e9a21b',
+        'the guardian' => '#052962',
+        'time' => '#ed1b24',
+        'the hill' => '#00833d',
+        'the nation' => '#b22025',
+        'the new republic' => '#c8102e',
+        'common dreams' => '#c8102e',
+        'jacobin' => '#e3120b',
+        'in these times' => '#d81e05',
+        'reason' => '#e81f26',
+        'daily kos' => '#d7282f',
+        'counterpunch' => '#c8102e',
+        'the intercept' => '#101010',
+        'the washington post' => '#1a1a1a', 'washington post' => '#1a1a1a',
+        'new york daily news' => '#e4002b',
+        'chicago tribune' => '#002f6c',
+        'chicago sun-times' => '#c8102e',
+        'boston globe' => '#1a1a1a', 'the boston globe' => '#1a1a1a',
+        'the philadelphia inquirer' => '#103a5e', 'philadelphia inquirer' => '#103a5e',
+        'the texas tribune' => '#ff4d1c',
+        'gothamist' => '#ffd400',
+        'mlive' => '#f47b20',
+        'axios atlanta' => '#1858e6',
+        'wikipedia' => '#3366cc',
+        'the white house' => '#1a3a6b',
+        'u.s. department of justice' => '#1a3a6b',
+        'ice' => '#1a3a6b',
+    ];
+    $badgePalette = ['#e0a82e', '#5aa9e6', '#63d2a0', '#f07167', '#c08ae8', '#48c9b0', '#f49ac1', '#f0913e', '#bcd44a', '#5fcdd6', '#e8849b', '#9aa6ef', '#d8a35f', '#7ed957'];
+    $brandColor = function (?string $label) use ($brandColors, $badgePalette): string {
         $key = mb_strtolower(trim((string) $label));
         if ($key === '') {
-            return $palette[0];
+            return $badgePalette[0];
+        }
+        if (isset($brandColors[$key])) {
+            return $brandColors[$key];
+        }
+        // Government sources (U.S. Attorney offices, DOJ, FBI) — government navy.
+        if (str_contains($key, 'u.s. attorney') || str_contains($key, 'department of justice') || str_contains($key, 'fbi')) {
+            return '#1a3a6b';
+        }
+        // Local TV affiliates by network prefix.
+        if (str_starts_with($key, 'cnn')) { return '#cc0000'; }
+        if (str_starts_with($key, 'fox')) { return '#1e3a8a'; }
+        if (str_starts_with($key, 'cbs')) { return '#0f4c8c'; }
+        if (str_starts_with($key, 'nbc')) { return '#1565c0'; }
+        if (str_starts_with($key, 'abc')) { return '#1b1b1b'; }
+        // Deterministic fallback — stable and distinct for the long tail.
+        return $badgePalette[hexdec(substr(md5($key), 0, 6)) % count($badgePalette)];
+    };
+    $badgeLum = function (string $hex): float {
+        $hex = ltrim($hex, '#');
+        return (0.2126 * hexdec(substr($hex, 0, 2)) + 0.7152 * hexdec(substr($hex, 2, 2)) + 0.0722 * hexdec(substr($hex, 4, 2))) / 255;
+    };
+    // Chip = coloured background: dark text on light brands, white text on dark ones.
+    $chipStyle = function (?string $label) use ($brandColor, $badgeLum): string {
+        $bg = $brandColor($label);
+        $text = $badgeLum($bg) > 0.6 ? '#0a0a0b' : '#ffffff';
+
+        return 'background: '.$bg.'; color: '.$text;
+    };
+    // Ticker = coloured text on the dark bar: lighten very dark brands so they stay legible.
+    $tickStyle = function (?string $label) use ($brandColor, $badgeLum): string {
+        $bg = $brandColor($label);
+        if ($badgeLum($bg) < 0.42) {
+            $h = ltrim($bg, '#');
+            $mix = fn ($c) => (int) round($c + (255 - $c) * 0.55);
+            $bg = sprintf('#%02x%02x%02x', $mix(hexdec(substr($h, 0, 2))), $mix(hexdec(substr($h, 2, 2))), $mix(hexdec(substr($h, 4, 2))));
         }
 
-        return $palette[hexdec(substr(md5($key), 0, 6)) % count($palette)];
+        return 'color: '.$bg;
     };
 @endphp
 <div class="ppd">
@@ -356,10 +427,10 @@
             {{-- Duplicated twice so the marquee loops seamlessly (see ppdmarquee: -50%). --}}
             <div class="ppd-ticker-track">
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat" style="color: {{ $sourceColor($a->label) }}">{{ $a->label }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat" style="{{ $tickStyle($a->label) }}">{{ $a->label }}</span>@endif</a>
                 @endforeach
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat" style="color: {{ $sourceColor($a->label) }}">{{ $a->label }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat" style="{{ $tickStyle($a->label) }}">{{ $a->label }}</span>@endif</a>
                 @endforeach
             </div>
         </div>
@@ -403,7 +474,7 @@
                     <span class="ppd-feed-name">{{ $a->title }}</span>
                     <span class="ppd-feed-sub">
                         @if ($a->label)
-                            <span class="ppd-tagchip" style="background: {{ $sourceColor($a->label) }}">{{ $a->label }}</span>
+                            <span class="ppd-tagchip" style="{{ $chipStyle($a->label) }}">{{ $a->label }}</span>
                         @endif
                         <span class="ppd-feed-date">{{ optional($a->date)->format('M j, Y') }}</span>
                     </span>
