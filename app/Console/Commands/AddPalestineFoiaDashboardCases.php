@@ -24,7 +24,7 @@ class AddPalestineFoiaDashboardCases extends Command {
     public function handle(): int {
         $cases = [
             [
-                'title'          => 'Defending Rights & Dissent sued the State Department, FBI, DOJ, and ICE under the Freedom of Information Act to force the release of records on federal surveillance of Palestine solidarity activism — including communications between those agencies and private blacklisting groups such as the ADL, Betar, and Canary Mission that compile dossiers on pro-Palestinian protesters for use in selective immigration enforcement, detention, and deportation',
+                'title'          => 'Defending Rights & Dissent Sues State Dept, FBI, DOJ, & ICE For Records on Surveillance of Palestine Solidarity Activism',
                 'url'            => 'https://www.rightsanddissent.org/news/defending-rights-dissent-sues-state-dept-fbi-doj-ice-for-records-on-surveillance-of-palestine-solidarity-activism/',
                 'source'         => 'Defending Rights & Dissent',
                 'category'       => 'other',
@@ -36,8 +36,9 @@ class AddPalestineFoiaDashboardCases extends Command {
         ];
 
         $created = 0;
+        $updated = 0;
         foreach ($cases as $case) {
-            $link = DashboardLink::firstOrCreate(
+            $link = DashboardLink::updateOrCreate(
                 ['url' => $case['url']],
                 array_merge($case, ['published_at' => Carbon::parse($case['published_at'])]),
             );
@@ -46,11 +47,12 @@ class AddPalestineFoiaDashboardCases extends Command {
                 $created++;
                 $this->info("Added: {$case['title']}");
             } else {
-                $this->line("Skipped (already present): {$case['title']}");
+                $updated++;
+                $this->line("Updated: {$case['title']}");
             }
         }
 
-        $this->info("Done. {$created} new case(s) added; ".(count($cases) - $created).' already present.');
+        $this->info("Done. {$created} added, {$updated} updated.");
 
         return self::SUCCESS;
     }
