@@ -24,7 +24,7 @@ class AddUmichRaidDashboardCases extends Command {
     public function handle(): int {
         $cases = [
             [
-                'title'          => 'Eight pro-Palestinian activists tied to the University of Michigan divestment campaign were indicted in federal court and seven were arrested in FBI raids in Washtenaw County, charged with conspiracy to transmit threats, witness intimidation, and destruction of property; the defendants are Paige Feyock, Amatullah Hakim, Zainab Hakim, Ahmet Korkaya, Miriam Odeh, Alexander Sepulveda, Colin Weger, and Jonathan Zou',
+                'title'          => '8 arrested in FBI raids related to pro-Palestine advocacy at University of Michigan',
                 'url'            => 'https://www.mlive.com/news/ann-arbor/2026/06/8-arrested-in-fbi-raids-related-to-pro-palestine-advocacy-at-university-of-michigan.html',
                 'source'         => 'MLive',
                 'category'       => 'arrest',
@@ -36,8 +36,9 @@ class AddUmichRaidDashboardCases extends Command {
         ];
 
         $created = 0;
+        $updated = 0;
         foreach ($cases as $case) {
-            $link = DashboardLink::firstOrCreate(
+            $link = DashboardLink::updateOrCreate(
                 ['url' => $case['url']],
                 array_merge($case, ['published_at' => Carbon::parse($case['published_at'])]),
             );
@@ -46,11 +47,12 @@ class AddUmichRaidDashboardCases extends Command {
                 $created++;
                 $this->info("Added: {$case['title']}");
             } else {
-                $this->line("Skipped (already present): {$case['title']}");
+                $updated++;
+                $this->line("Updated: {$case['title']}");
             }
         }
 
-        $this->info("Done. {$created} new case(s) added; ".(count($cases) - $created).' already present.');
+        $this->info("Done. {$created} added, {$updated} updated.");
 
         return self::SUCCESS;
     }

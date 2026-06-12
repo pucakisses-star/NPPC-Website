@@ -23,7 +23,7 @@ class AddRikersLawyerDashboardCases extends Command {
     public function handle(): int {
         $cases = [
             [
-                'title'          => 'Bernardo Caceres, a Queens Defenders public defender, was wrongfully arrested at Rikers Island in June 2025 after an unreliable drug field test falsely flagged legal papers he carried for a client as THC-positive; paraded past jeering correction officers and charged with promoting contraband, he is suing the Rikers correction officers union and its president Benny Boscio for defamation after they publicly branded him a "drug peddling attorney"',
+                'title'          => 'NYC lawyer wrongfully arrested for contraband drugs, defamed by Rikers Island union, lawsuit says',
                 'url'            => 'https://www.nydailynews.com/2026/06/11/nyc-lawyer-wrongfully-arrested-for-contraband-drugs-defamed-by-rikers-island-union-lawsuit/',
                 'source'         => 'New York Daily News',
                 'category'       => 'arrest',
@@ -35,8 +35,9 @@ class AddRikersLawyerDashboardCases extends Command {
         ];
 
         $created = 0;
+        $updated = 0;
         foreach ($cases as $case) {
-            $link = DashboardLink::firstOrCreate(
+            $link = DashboardLink::updateOrCreate(
                 ['url' => $case['url']],
                 array_merge($case, ['published_at' => Carbon::parse($case['published_at'])]),
             );
@@ -45,11 +46,12 @@ class AddRikersLawyerDashboardCases extends Command {
                 $created++;
                 $this->info("Added: {$case['title']}");
             } else {
-                $this->line("Skipped (already present): {$case['title']}");
+                $updated++;
+                $this->line("Updated: {$case['title']}");
             }
         }
 
-        $this->info("Done. {$created} new case(s) added; ".(count($cases) - $created).' already present.');
+        $this->info("Done. {$created} added, {$updated} updated.");
 
         return self::SUCCESS;
     }
