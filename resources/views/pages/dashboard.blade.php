@@ -303,6 +303,21 @@
     $eventCategories = collect($statusMeta)->keys()
         ->mapWithKeys(fn ($k) => [$k => $eventPoints->where('status', $k)->count()])
         ->filter(fn ($n) => $n > 0);
+
+    // Per-source badge colour so the newswire chips aren't all the same amber —
+    // each outlet (and category) gets its own colour, derived deterministically
+    // from its name and consistent across renders. The palette is medium-bright
+    // so it reads both as a chip background (dark chip text) and as ticker text
+    // (dark page background).
+    $sourceColor = function (?string $label): string {
+        $palette = ['#e0a82e', '#5aa9e6', '#63d2a0', '#f07167', '#c08ae8', '#48c9b0', '#f49ac1', '#f0913e', '#bcd44a', '#5fcdd6', '#e8849b', '#9aa6ef', '#d8a35f', '#7ed957'];
+        $key = mb_strtolower(trim((string) $label));
+        if ($key === '') {
+            return $palette[0];
+        }
+
+        return $palette[hexdec(substr(md5($key), 0, 6)) % count($palette)];
+    };
 @endphp
 <div class="ppd">
 
@@ -341,10 +356,10 @@
             {{-- Duplicated twice so the marquee loops seamlessly (see ppdmarquee: -50%). --}}
             <div class="ppd-ticker-track">
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat">{{ $a->label }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat" style="color: {{ $sourceColor($a->label) }}">{{ $a->label }}</span>@endif</a>
                 @endforeach
                 @foreach ($ticker as $a)
-                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat">{{ $a->label }}</span>@endif</a>
+                    <a class="ppd-tk" href="{{ $a->url }}"@if ($a->external) target="_blank" rel="noopener"@endif aria-hidden="true" tabindex="-1"><b>{{ $a->title }}</b>@if ($a->label) <span class="ppd-tk-cat" style="color: {{ $sourceColor($a->label) }}">{{ $a->label }}</span>@endif</a>
                 @endforeach
             </div>
         </div>
@@ -388,7 +403,7 @@
                     <span class="ppd-feed-name">{{ $a->title }}</span>
                     <span class="ppd-feed-sub">
                         @if ($a->label)
-                            <span class="ppd-tagchip" style="background: #e0a82e">{{ $a->label }}</span>
+                            <span class="ppd-tagchip" style="background: {{ $sourceColor($a->label) }}">{{ $a->label }}</span>
                         @endif
                         <span class="ppd-feed-date">{{ optional($a->date)->format('M j, Y') }}</span>
                     </span>
