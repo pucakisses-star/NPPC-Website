@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Storage;
  * him in custody, and rounds out the sentence with the supervised-release term
  * and the concurrent Alabama state sentence. It also downloads his booking
  * photo onto the public disk and assigns it. Idempotent — re-running re-sets
- * the same values and re-fetches the photo.
+ * the same values and re-fetches the photo. Also shortens his display name
+ * to "Kyle Calvert" (the form news outlets use) while keeping the original
+ * slug so the /prisoner/kyle-benjamin-douglas-calvert URL stays stable.
  */
 final class UpdateCalvertCase extends Command {
     protected $signature = 'prisoners:update-calvert-case';
@@ -68,7 +70,16 @@ final class UpdateCalvertCase extends Command {
 
         $prisoner->save();
 
-        $this->info("Updated {$prisoner->name}: arrested 2024-04-10, pleaded 2024-08-23, sentenced 2024-11-21 (108 months + concurrent 10-yr state).");
+        // Shorten the display name to "Kyle Calvert". Done via a query-builder
+        // update so the model's "updating" hook doesn't regenerate the slug
+        // from the new name — the existing /prisoner/kyle-benjamin-douglas-
+        // calvert URL must stay stable.
+        Prisoner::withoutGlobalScopes()
+            ->where('id', $prisoner->id)
+            ->update(['name' => 'Kyle Calvert']);
+
+        $this->info("Updated Kyle Calvert: arrested 2024-04-10, pleaded 2024-08-23, sentenced 2024-11-21 (108 months + concurrent 10-yr state).");
+        $this->info("Display name shortened to 'Kyle Calvert'; slug kept as {$prisoner->slug}.");
         $this->info("View: /prisoner/{$prisoner->slug}");
 
         return self::SUCCESS;
