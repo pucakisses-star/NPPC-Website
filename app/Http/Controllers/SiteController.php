@@ -363,6 +363,19 @@ final class SiteController extends Controller {
         return view('pages.store', compact('products', 'categories', 'featured', 'category'));
     }
 
+    public function storeProduct(string $slug) {
+        $product = Product::published()->where('slug', $slug)->firstOrFail();
+
+        $related = Product::published()
+            ->where('category', $product->category)
+            ->where('id', '!=', $product->id)
+            ->orderBy('sort_order')
+            ->take(4)
+            ->get();
+
+        return view('pages.store-product', compact('product', 'related'));
+    }
+
     public function events(Request $request) {
         $tab = $request->input('tab', 'upcoming');
         $upcoming = Event::published()->upcoming()->get();

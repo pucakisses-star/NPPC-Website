@@ -30,6 +30,7 @@ Route::controller(SiteController::class)
         Route::get('staff', 'staff');
         Route::get('podcast', 'podcast');
         Route::get('store', 'store');
+        Route::get('store/{slug}', 'storeProduct');
         Route::get('events', 'events');
         Route::get('volunteer', 'volunteer');
         Route::get('prisoner-outreach', 'prisonerOutreach');
