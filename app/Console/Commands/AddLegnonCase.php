@@ -31,7 +31,7 @@ class AddLegnonCase extends Command {
                 'title'          => 'Member of Anti-Capitalist and Anti-Government Group Arrested and Charged with Threatening ICE Officers',
                 'source'         => 'U.S. Department of Justice',
                 'category'       => 'arrest',
-                'published_at'   => Carbon::parse('2025-12-18'),
+                'published_at'   => Carbon::parse('2025-12-19'),
                 'location_label' => 'New Iberia, LA',
                 'lat'            => 30.0035,
                 'lng'            => -91.8187,
