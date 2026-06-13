@@ -60,4 +60,25 @@ final class Stripe {
             'cancel_url'  => url('/donate'),
         ]);
     }
+
+    /**
+     * Create a hosted Checkout session for a store order. Line items are built
+     * from the cart (see CartController), each with explicit price_data so we
+     * never depend on pre-created Stripe prices.
+     *
+     * @param  array<int, array<string, mixed>>  $lineItems
+     *
+     * @throws ApiErrorException
+     */
+    public function createProductCheckoutSession(array $lineItems, string $orderId) {
+        return $this->client->checkout->sessions->create([
+            'mode'                        => 'payment',
+            'line_items'                  => $lineItems,
+            'shipping_address_collection' => ['allowed_countries' => ['US', 'CA']],
+            'client_reference_id'         => $orderId,
+            'metadata'                    => ['order_id' => $orderId],
+            'success_url'                 => url('/checkout/success').'?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url'                  => url('/cart'),
+        ]);
+    }
 }

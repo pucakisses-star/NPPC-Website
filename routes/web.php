@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\FormSubmissionController;
 use App\Http\Controllers\SiteController;
@@ -8,6 +9,16 @@ use Illuminate\Support\Facades\Route;
 Route::controller(DonateController::class)
     ->group(function () {
         Route::get('/donate-callback', 'callback');
+    });
+
+Route::controller(CartController::class)
+    ->group(function () {
+        Route::get('cart', 'index')->name('cart');
+        Route::post('cart/add', 'add');
+        Route::post('cart/update', 'update');
+        Route::post('cart/remove', 'remove');
+        Route::post('cart/checkout', 'checkout');
+        Route::get('checkout/success', 'success');
     });
 
 Route::controller(SiteController::class)
