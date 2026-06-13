@@ -118,7 +118,7 @@
                    data-email="{{ $orderEmail }}"
                    data-name="{{ e($product->name) }}"
                    data-price="{{ $product->price }}"
-                   href="{{ $mailto }}">Order This Item</a>
+                   href="{{ $mailto }}">Add To Cart</a>
                 <a class="pd-btn secondary" href="/contact">Questions?</a>
             @endif
 
