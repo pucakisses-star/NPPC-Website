@@ -4,10 +4,11 @@
 <style>
     .pd-page { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
 
-    .pd-crumb { font-size: 13px; color: rgba(255,255,255,0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
+    .pd-crumb { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: rgba(255,255,255,0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
     .pd-crumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
     .pd-crumb a:hover { color: #fff; }
-    .pd-crumb span { color: #fff; }
+    .pd-crumb .pd-trail span { color: #fff; }
+    .pd-cart-link { color: #8b93ff !important; font-weight: 700; white-space: nowrap; }
 
     .pd-main { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 
@@ -26,9 +27,10 @@
     .pd-field label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
     .pd-field select { width: 100%; max-width: 220px; padding: 12px 14px; background: #16181f; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-size: 15px; }
 
+    .pd-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
     .pd-btn { display: inline-block; background: #5660fe; color: #fff; padding: 16px 40px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s; }
     .pd-btn:hover { background: #4049d6; }
-    .pd-btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; margin-left: 12px; }
+    .pd-btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; }
     .pd-btn.secondary:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
 
     .pd-note { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-top: 22px; max-width: 460px; }
@@ -50,7 +52,6 @@
     }
     @media (max-width: 480px) {
         .pd-related-grid { grid-template-columns: 1fr; }
-        .pd-btn.secondary { margin-left: 0; margin-top: 12px; }
     }
 </style>
 @endsection
@@ -59,17 +60,17 @@
 @php
     $isGarment = $product->category === 'Apparel'
         && preg_match('/t-?shirt|tee|hoodie|sweatshirt|crewneck/i', $product->name);
-    $orderEmail = 'info@nationalpoliticalprisonercoalition.org';
-    $subject = rawurlencode('Store order: '.$product->name);
-    $bodyBase = rawurlencode("Hello,\n\nI'd like to order the following from the NPPC store:\n\n• Item: {$product->name}\n• Price: \${$product->price}\n• Quantity: 1\n\nPlease let me know how to complete payment and shipping. Thank you for the work you do.");
-    $mailto = "mailto:{$orderEmail}?subject={$subject}&body={$bodyBase}";
+    $cartCount = app(\App\Services\CartService::class)->count();
 @endphp
 
 <div class="pd-page">
     <nav class="pd-crumb">
-        <a href="/store">Store</a>
-        @if($product->category) / <a href="/store?category={{ urlencode($product->category) }}">{{ $product->category }}</a> @endif
-        / <span>{{ $product->name }}</span>
+        <span class="pd-trail">
+            <a href="/store">Store</a>
+            @if($product->category) / <a href="/store?category={{ urlencode($product->category) }}">{{ $product->category }}</a> @endif
+            / <span>{{ $product->name }}</span>
+        </span>
+        <a href="/cart" class="pd-cart-link">Cart ({{ $cartCount }})</a>
     </nav>
 
     <div class="pd-main">
@@ -94,35 +95,38 @@
                 <div class="pd-desc">{!! nl2br(e($product->description)) !!}</div>
             @endif
 
-            @if($isGarment)
-                <div class="pd-field">
-                    <label for="pd-size">Size</label>
-                    <select id="pd-size">
-                        <option>S</option><option>M</option><option selected>L</option>
-                        <option>XL</option><option>2XL</option><option>3XL</option>
-                    </select>
-                </div>
-            @endif
-
-            <div class="pd-field">
-                <label for="pd-qty">Quantity</label>
-                <select id="pd-qty">
-                    @for($i = 1; $i <= 10; $i++)<option>{{ $i }}</option>@endfor
-                </select>
-            </div>
-
             @if($product->purchase_url)
                 <a class="pd-btn" href="{{ $product->purchase_url }}" target="_blank" rel="noopener">Buy Now</a>
             @else
-                <a class="pd-btn" id="pd-order"
-                   data-email="{{ $orderEmail }}"
-                   data-name="{{ e($product->name) }}"
-                   data-price="{{ $product->price }}"
-                   href="{{ $mailto }}">Add To Cart</a>
-                <a class="pd-btn secondary" href="/contact">Questions?</a>
+                <form action="/cart/add" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                    @if($isGarment)
+                        <div class="pd-field">
+                            <label for="pd-size">Size</label>
+                            <select id="pd-size" name="size">
+                                <option>S</option><option>M</option><option selected>L</option>
+                                <option>XL</option><option>2XL</option><option>3XL</option>
+                            </select>
+                        </div>
+                    @endif
+
+                    <div class="pd-field">
+                        <label for="pd-qty">Quantity</label>
+                        <select id="pd-qty" name="quantity">
+                            @for($i = 1; $i <= 10; $i++)<option>{{ $i }}</option>@endfor
+                        </select>
+                    </div>
+
+                    <div class="pd-actions">
+                        <button type="submit" class="pd-btn">Add To Cart</button>
+                        <a class="pd-btn secondary" href="/cart">View Cart</a>
+                    </div>
+                </form>
             @endif
 
-            <p class="pd-note">All proceeds directly support the National Political Prisoner Coalition's advocacy, legal aid, and family-support work. Orders are fulfilled by email — we'll confirm size, shipping, and payment.</p>
+            <p class="pd-note">Secure checkout powered by Stripe. All proceeds directly support the National Political Prisoner Coalition's advocacy, legal aid, and family-support work.</p>
         </div>
     </div>
 
@@ -145,38 +149,4 @@
         </div>
     @endif
 </div>
-
-<script>
-(function () {
-    // Progressive enhancement: fold the chosen size + quantity into the
-    // prefilled order email so the "Order This Item" mailto carries them.
-    var btn = document.getElementById('pd-order');
-    if (!btn) return;
-    var sizeEl = document.getElementById('pd-size');
-    var qtyEl = document.getElementById('pd-qty');
-
-    function rebuild() {
-        var name = btn.getAttribute('data-name');
-        var price = btn.getAttribute('data-price');
-        var email = btn.getAttribute('data-email');
-        var qty = qtyEl ? qtyEl.value : '1';
-        var lines = [
-            'Hello,', '',
-            "I'd like to order the following from the NPPC store:", '',
-            '• Item: ' + name,
-            '• Price: $' + price
-        ];
-        if (sizeEl) lines.push('• Size: ' + sizeEl.value);
-        lines.push('• Quantity: ' + qty, '',
-            'Please let me know how to complete payment and shipping. Thank you for the work you do.');
-        var href = 'mailto:' + email +
-            '?subject=' + encodeURIComponent('Store order: ' + name) +
-            '&body=' + encodeURIComponent(lines.join('\n'));
-        btn.setAttribute('href', href);
-    }
-    if (sizeEl) sizeEl.addEventListener('change', rebuild);
-    if (qtyEl) qtyEl.addEventListener('change', rebuild);
-    rebuild();
-})();
-</script>
 @endsection

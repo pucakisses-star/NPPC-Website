@@ -33,6 +33,10 @@
 
     /* Products */
     .store-products-title { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 24px; }
+    .store-products-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .store-products-head .store-products-title { margin-bottom: 0; }
+    .store-cart-link { color: #8b93ff; text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid rgba(139,147,255,0.4); padding: 8px 16px; border-radius: 4px; white-space: nowrap; }
+    .store-cart-link:hover { background: rgba(139,147,255,0.12); }
     .store-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 80px; }
     .store-product { text-decoration: none; display: block; }
     .store-product-image { aspect-ratio: 1; background: #1a1a2e; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
@@ -122,7 +126,10 @@
 
     {{-- Products --}}
     <div id="products">
-        <h2 class="store-products-title" data-store-title>{{ $category ? $category : 'All Products' }}</h2>
+        <div class="store-products-head">
+            <h2 class="store-products-title" data-store-title>{{ $category ? $category : 'All Products' }}</h2>
+            <a href="/cart" class="store-cart-link">Cart ({{ app(\App\Services\CartService::class)->count() }})</a>
+        </div>
 
         @if($categories->isNotEmpty())
             <div class="store-filter">
