@@ -140,7 +140,7 @@
         @else
             <div class="store-products-grid" data-store-grid>
                 @foreach($products as $product)
-                    <a href="{{ $product->purchase_url ?: '#' }}" data-product-category="{{ $product->category }}" class="store-product" {{ $product->purchase_url ? 'target=_blank' : '' }}>
+                    <a href="/store/{{ $product->slug }}" data-product-category="{{ $product->category }}" class="store-product">
                         <div class="store-product-image">
                             @if($product->image)
                                 <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
