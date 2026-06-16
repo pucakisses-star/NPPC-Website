@@ -240,46 +240,46 @@
     "sentence": "Convicted in connection with the harboring case"
   },
   {
-    "name": "Joseph Dinan",
+    "name": "Joseph Dimow",
     "first_name": "Joseph",
-    "last_name": "Dinan",
+    "last_name": "Dimow",
     "gender": "Male",
     "state": "Connecticut",
     "ideologies": ["Communism"],
     "affiliation": ["Communist Party USA"],
     "released": true,
-    "bio": "Joseph Dinan was a Connecticut Communist indicted under the Smith Act in 1954 during the McCarthy era. He was charged with conspiring to advocate the overthrow of the U.S. government.",
+    "bio": "Joseph Dimow was a Connecticut Communist who held local party offices in the late 1940s and served on the party's state committee in 1953–54. He was one of the New Haven Smith Act defendants indicted and tried in 1954 during the McCarthy era for conspiring to advocate the overthrow of the U.S. government; the convictions were reversed by the Second Circuit in United States v. Silverman (1957).",
     "charges": "Smith Act — conspiring to advocate the overthrow of the U.S. government",
-    "convicted": "Indicted 1954",
-    "sentence": "Indicted under the Smith Act"
+    "convicted": "Indicted and tried 1954; conviction reversed on appeal (1957)",
+    "sentence": "Convicted under the Smith Act; reversed in United States v. Silverman"
   },
   {
-    "name": "Jacob Golding",
+    "name": "Jacob Goldring",
     "first_name": "Jacob",
-    "last_name": "Golding",
+    "last_name": "Goldring",
     "gender": "Male",
     "state": "Connecticut",
     "ideologies": ["Communism"],
     "affiliation": ["Communist Party USA"],
     "released": true,
-    "bio": "Jacob Golding was a Connecticut Communist indicted under the Smith Act in 1954 during the McCarthy era. He was charged with conspiring to advocate the overthrow of the U.S. government.",
+    "bio": "Jacob Goldring was a Connecticut Communist and member of the party's state committee through the late 1940s and early 1950s. He was one of the New Haven Smith Act defendants indicted and tried in 1954 during the McCarthy era for conspiring to advocate the overthrow of the U.S. government; the convictions were reversed by the Second Circuit in United States v. Silverman (1957).",
     "charges": "Smith Act — conspiring to advocate the overthrow of the U.S. government",
-    "convicted": "Indicted 1954",
-    "sentence": "Indicted under the Smith Act"
+    "convicted": "Indicted and tried 1954; conviction reversed on appeal (1957)",
+    "sentence": "Convicted under the Smith Act; reversed in United States v. Silverman"
   },
   {
-    "name": "Sidney Resnek",
-    "first_name": "Sidney",
-    "last_name": "Resnek",
+    "name": "Robert Champion Ekins",
+    "first_name": "Robert",
+    "last_name": "Ekins",
     "gender": "Male",
     "state": "Connecticut",
     "ideologies": ["Communism"],
     "affiliation": ["Communist Party USA"],
     "released": true,
-    "bio": "Sidney Resnek was a Connecticut Communist involved in youth organizing who was indicted under the Smith Act in 1954 during the McCarthy era. He was charged with conspiring to advocate the overthrow of the U.S. government.",
+    "bio": "Robert Champion Ekins was the Communist Party's Connecticut state secretary in the early 1950s. He was one of the New Haven Smith Act defendants indicted and tried in 1954 during the McCarthy era for conspiring to advocate the overthrow of the U.S. government; the convictions were reversed by the Second Circuit in United States v. Silverman (1957).",
     "charges": "Smith Act — conspiring to advocate the overthrow of the U.S. government",
-    "convicted": "Indicted 1954",
-    "sentence": "Indicted under the Smith Act"
+    "convicted": "Indicted and tried 1954; conviction reversed on appeal (1957)",
+    "sentence": "Convicted under the Smith Act; reversed in United States v. Silverman"
   },
   {
     "name": "Simon Silverman",
@@ -290,10 +290,10 @@
     "ideologies": ["Communism"],
     "affiliation": ["Communist Party USA"],
     "released": true,
-    "bio": "Simon Silverman was a Connecticut Communist indicted under the Smith Act in 1954 during the McCarthy era. He was charged with conspiring to advocate the overthrow of the U.S. government.",
+    "bio": "Simon Silverman (also known as Sid Taylor) was a Connecticut Communist Party organizer and the lead defendant in the New Haven Smith Act case. Indicted and tried in 1954 during the McCarthy era for conspiring to advocate the overthrow of the U.S. government, his conviction was reversed by the Second Circuit in United States v. Silverman (248 F.2d 671, 1957).",
     "charges": "Smith Act — conspiring to advocate the overthrow of the U.S. government",
-    "convicted": "Indicted 1954",
-    "sentence": "Indicted under the Smith Act"
+    "convicted": "Indicted and tried 1954; conviction reversed on appeal (1957)",
+    "sentence": "Convicted under the Smith Act; reversed in United States v. Silverman"
   },
   {
     "name": "Frank Collier",
