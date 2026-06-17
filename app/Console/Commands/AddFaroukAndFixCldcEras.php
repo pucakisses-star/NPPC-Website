@@ -25,7 +25,7 @@ final class AddFaroukAndFixCldcEras extends Command {
             'last_name' => 'Abdel-Muhti',
             'description' => 'Palestinian human-rights activist and longtime WBAI radio programmer in New York City, born in Ramallah in 1947 and active in the U.S. from the late 1970s. Arrested April 26, 2002 by NYPD and INS officers at his Queens apartment without a warrant under the Department of Justice\'s post-9/11 "Absconder Apprehension Initiative" targeting Middle Eastern immigrants with outstanding deportation orders. He was never charged with any crime; the government held him on a 1995 deportation order. Over the next two years he was moved between detention centers in New Jersey, Pennsylvania, and Georgia, spending approximately eight months in solitary confinement. Released April 12, 2004 after sustained organizing by supporters and his attorneys. Two months later, on July 21, 2004, he collapsed and died at age 57 minutes after finishing a speech at the Ethical Culture Society in Philadelphia. His case is the subject of the documentary "Enemy Alien" (Third World Newsreel).',
             'state' => 'New York',
-            'race' => 'Arab',
+            'race' => 'Middle Eastern',
             'gender' => 'Male',
             'birthdate' => '1947-01-01',
             'death_date' => '2004-07-21',

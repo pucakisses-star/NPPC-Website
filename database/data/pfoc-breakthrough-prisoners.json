@@ -359,7 +359,7 @@
     "last_name": "Hill",
     "description": "Mohawk and Black activist, also known as Dacajeweiah ('Splitting the Sky'), convicted in connection with a guard's death during the 1971 Attica Prison uprising and sentenced to 20 years to life at Sing Sing. The Attica Brothers defense was a major focus of PFOC Breakthrough magazine. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Indigenous",
+    "race": "Native American",
     "gender": "Male",
     "death_date": "2013-03-13",
     "ideologies": [
@@ -729,7 +729,7 @@
     "first_name": "Nilsa",
     "last_name": "Cobeo",
     "description": "Defendant in the Brink's/Nyack RICO indictment in the early 1980s, held in federal pretrial detention and listed as a North American political prisoner in PFOC Breakthrough magazine. Documented in PFOC Breakthrough magazine.",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Anti-imperialism",
@@ -2481,7 +2481,7 @@
     "last_name": "Vasquez",
     "description": "Chicano activist associated with the Crusade for Justice in Denver, arrested following the 1973 confrontation in Denver between police and the Crusade for Justice that left activist Luis Martínez dead. Convicted and sentenced to three concurrent 15-year terms. Documented in PFOC Breakthrough magazine.",
     "state": "Colorado",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Chicano liberation",
@@ -2510,7 +2510,7 @@
     "last_name": "Rodríguez",
     "description": "Chicano political prisoner held in California's Pelican Bay State Prison, identified in PFOC Breakthrough magazine as part of the network of Chicano/Mexicano political prisoners supported by anti-imperialist organizing. Documented in PFOC Breakthrough magazine.",
     "state": "California",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Chicano liberation",
@@ -2538,7 +2538,7 @@
     "last_name": "Gelabert",
     "description": "Cuban-born political prisoner held in Texas state custody at the Mountain View / Gatesville women's unit. Identified in PFOC Breakthrough magazine as part of the network of Latina/Cuban political prisoners supported by anti-imperialist solidarity organizing in the 1990s. Documented in PFOC Breakthrough magazine.",
     "state": "Texas",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Anti-imperialism"
@@ -4905,7 +4905,7 @@
     "last_name": "Cueto",
     "description": "Chicana activist and former executive director of the Episcopal Church's National Commission on Hispanic Affairs, jailed in 1977 for refusing to cooperate with a federal grand jury investigating the FALN (Fuerzas Armadas de Liberación Nacional). She served roughly a year on civil contempt charges and was later re-subpoenaed and jailed again. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Puerto Rican independence",
@@ -4932,7 +4932,7 @@
     "last_name": "Nemikin",
     "description": "Staff member of the Episcopal Church's National Commission on Hispanic Affairs jailed in 1977 alongside Maria Cueto for refusing to testify before a federal grand jury investigating the FALN. Her imprisonment became a major civil-liberties cause within the Episcopal Church and the Puerto Rican independence movement. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Puerto Rican independence",
@@ -4960,7 +4960,7 @@
     "last_name": "López",
     "description": "Chicago-based leader of the Movimiento de Liberación Nacional Puertorriqueño (MLN) and longtime director of the Puerto Rican Cultural Center in Humboldt Park; brother of Oscar López Rivera. Jailed for civil contempt for refusing to cooperate with federal grand juries investigating the FALN in the late 1970s and 1980s. Documented in PFOC Breakthrough magazine.",
     "state": "Illinois",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -4988,7 +4988,7 @@
     "last_name": "Caldero",
     "description": "Chicago Puerto Rican community organizer and MLN activist jailed for civil contempt after refusing to testify before a federal grand jury investigating the FALN. His resistance was part of a broad campaign of non-collaboration by independentistas in the early 1980s. Documented in PFOC Breakthrough magazine.",
     "state": "Illinois",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5014,7 +5014,7 @@
     "last_name": "Romero",
     "description": "Chicano/Mexicano organizer with the MLN (Movimiento de Liberación Nacional Mexicano) jailed for civil contempt for refusing to testify before a federal grand jury investigating the FALN and Puerto Rican independence movement. His imprisonment helped link the Chicano-Mexicano and Puerto Rican liberation movements in the early 1980s. Documented in PFOC Breakthrough magazine.",
     "state": "Colorado",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Mexicano national liberation",
@@ -5041,7 +5041,7 @@
     "last_name": "Archuleta",
     "description": "New Mexico-based Chicano/Mexicano activist jailed for civil contempt after refusing to testify before a federal grand jury investigating the FALN and Puerto Rican independence movement. He was held alongside Ricardo Romero as part of the 1984-85 grand jury resistance wave. Documented in PFOC Breakthrough magazine.",
     "state": "New Mexico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Mexicano national liberation",
@@ -5068,7 +5068,7 @@
     "last_name": "Rosado",
     "description": "New York-based MLN activist and one of three Rosado brothers jailed for civil contempt for refusing to testify before federal grand juries investigating the FALN. He was held at FCI Ashland and FCI Raybrook during the mid-1980s grand jury resistance campaign. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5094,7 +5094,7 @@
     "last_name": "Rosado",
     "description": "New York-based MLN activist and brother of Julio and Luis Rosado, jailed for civil contempt after refusing to cooperate with a federal grand jury investigating the FALN. He was held at FCI Texarkana and FCI Allenwood in the mid-1980s. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5120,7 +5120,7 @@
     "last_name": "Rosado",
     "description": "New York-based MLN activist and brother of Julio and Andrés Rosado, jailed for civil contempt for refusing to testify before a federal grand jury investigating the FALN. The Rosado brothers' joint resistance became emblematic of the Puerto Rican independence movement's non-collaboration stance. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5147,7 +5147,7 @@
     "last_name": "Cintrón-Fiallo",
     "description": "Puerto Rican independentista jailed on civil contempt charges for refusing to testify before a federal grand jury investigating the clandestine independence movement. His resistance was widely supported by the Puerto Rican left and human rights organizations. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5173,7 +5173,7 @@
     "last_name": "Noya-Muratti",
     "description": "Member of the Liga Socialista Puertorriqueña (LSP) jailed for 17 months on civil contempt charges for refusing to cooperate with a federal grand jury investigating the Puerto Rican independence movement. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5200,7 +5200,7 @@
     "last_name": "Rosario Pantojas",
     "description": "Puerto Rican independentista jailed on civil contempt charges for refusing to testify before a federal grand jury investigating the clandestine independence movement in the 1980s. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5225,7 +5225,7 @@
     "last_name": "Montes García",
     "description": "Member of the Liga Socialista Puertorriqueña (LSP) jailed for civil contempt after refusing to testify before a federal grand jury in New York investigating Puerto Rican independence organizations. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5251,7 +5251,7 @@
     "last_name": "Ramirez",
     "description": "Puerto Rican independentista jailed on civil contempt charges for refusing to testify before a federal grand jury investigating the independence movement in the 1980s. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5277,7 +5277,7 @@
     "last_name": "Morales",
     "description": "FALN member severely injured in a 1978 premature bomb explosion at a Queens, NY safehouse that took both of his hands and most of his face. Convicted on federal weapons and explosives charges, he made a dramatic escape from Bellevue Hospital prison ward in 1979, was recaptured in Mexico in 1983, and was eventually released to Cuba where he remains in exile. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5306,7 +5306,7 @@
     "last_name": "Rodríguez Cristóbal",
     "description": "Member of the Liga Socialista Puertorriqueña and one of the Vieques 4, arrested for protesting US Navy bombing on the island of Vieques. He was found hanged in his cell at FCI Tallahassee on November 11, 1979 under circumstances his comrades and family always maintained were a political killing rather than suicide. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "death_date": "1979-11-11",
     "ideologies": [
@@ -5337,7 +5337,7 @@
     "last_name": "Guadalupe",
     "description": "Vieques community leader and one of the Vieques 4, sentenced in 1979 for trespassing on the US Navy bombing range in protest of the Navy's occupation of the island. He spent decades organizing against the Navy presence on Vieques. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5366,7 +5366,7 @@
     "last_name": "Alicea Flores",
     "description": "One of the Vieques 4, sentenced in 1979 to federal prison for protesting US Navy bombing on Vieques. He served his sentence alongside Angel Rodríguez Cristóbal, whose death in custody became a major rallying point for the independence movement. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5394,7 +5394,7 @@
     "last_name": "Ledée",
     "description": "One of the Vieques 4, sentenced in 1979 to federal prison for protesting US Navy bombing on the island of Vieques. The four were prosecuted to discourage further civil disobedience against the Navy's occupation. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5424,7 +5424,7 @@
     "last_name": "Cuevas",
     "description": "Puerto Rican independentista who, with Pablo Marcano García, occupied the Chilean Consulate in San Juan in July 1978 to protest the imprisonment of the Nationalist prisoners and to highlight US imperialism in Latin America. She was convicted and imprisoned for the action. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Puerto Rican independence",
@@ -5451,7 +5451,7 @@
     "last_name": "Marcano García",
     "description": "Puerto Rican independentista and artist who, with Nydia Cuevas, occupied the Chilean Consulate in San Juan on July 25, 1978 to protest the continued imprisonment of the Puerto Rican Nationalist prisoners and US-backed dictatorships in Latin America. He was convicted and served federal time. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5478,7 +5478,7 @@
     "last_name": "Guerra",
     "description": "Puerto Rican independence supporter jailed for civil contempt for refusing to testify before a federal grand jury investigating the FALN. He was held at FCI Raybrook and FCI La Tuna during the 1980s grand jury resistance campaigns. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5504,7 +5504,7 @@
     "last_name": "Veras",
     "description": "Puerto Rican political prisoner held at FCI Lewisburg and FCI Petersburg in the 1980s on charges connected to the independence movement. Documented in PFOC Breakthrough magazine.",
     "state": "New York",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5529,7 +5529,7 @@
     "last_name": "Rosa",
     "description": "Puerto Rican political prisoner held at Graham and Logan Correctional Centers in Illinois in connection with the independence movement and the FALN clandestine activity in Chicago. Documented in PFOC Breakthrough magazine.",
     "state": "Illinois",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5556,7 +5556,7 @@
     "last_name": "Segarra-Palmer",
     "description": "Macheteros (Ejército Popular Boricua) leader convicted in the 1983 Wells Fargo Hartford expropriation, in which $7.2 million was taken from a Wells Fargo depot in West Hartford, Connecticut. He received a 65-year sentence and was the last of the Hartford defendants to be released, freed under President Clinton's 1999 commutation. Documented in PFOC Breakthrough magazine. BOP #15357-077.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5587,7 +5587,7 @@
     "last_name": "Berríos Berríos",
     "description": "Macheteros member arrested in the 1985 federal sweep connected to the Wells Fargo Hartford expropriation. She was held at FCI Lexington, including in the controversial high-security control unit for women. Documented in PFOC Breakthrough magazine. BOP #24582-004.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Puerto Rican independence",
@@ -5615,7 +5615,7 @@
     "last_name": "Meléndez Carrión",
     "description": "Macheteros member arrested in the August 1985 federal sweep targeting the Ejército Popular Boricua in connection with the 1983 Wells Fargo Hartford expropriation. She was among the Hartford defendants prosecuted in Connecticut federal court. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Puerto Rican independence",
@@ -5643,7 +5643,7 @@
     "last_name": "Castro",
     "description": "Macheteros member arrested in the August 1985 federal sweep connected to the 1983 Wells Fargo Hartford expropriation. He was one of the Hartford defendants prosecuted in US federal court for activities of the Ejército Popular Boricua. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5670,7 +5670,7 @@
     "last_name": "Fernández Diamante",
     "description": "Macheteros member arrested in the August 1985 federal sweep targeting the Ejército Popular Boricua in connection with the 1983 Wells Fargo Hartford expropriation. He was held at FCI Englewood. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5697,7 +5697,7 @@
     "last_name": "González-Claudio",
     "description": "Macheteros member arrested in the August 1985 federal sweep connected to the 1983 Wells Fargo Hartford expropriation. He was held at FCI Sheridan. Documented in PFOC Breakthrough magazine. BOP #03173-069.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5726,7 +5726,7 @@
     "last_name": "Camacho Negrón",
     "description": "Macheteros member arrested in 1985 in connection with the 1983 Wells Fargo Hartford expropriation. After serving his initial federal sentence, he refused to comply with supervised release conditions as a matter of principle and was re-imprisoned in the 1990s. Documented in PFOC Breakthrough magazine. BOP #03587-069.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5755,7 +5755,7 @@
     "last_name": "Colón Osorio",
     "description": "Macheteros member who went underground after the 1985 federal sweep targeting the Ejército Popular Boricua and was captured in 1992. He was prosecuted on federal charges connected to the 1983 Wells Fargo Hartford expropriation. Documented in PFOC Breakthrough magazine. BOP #03172-069.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5783,7 +5783,7 @@
     "last_name": "Díaz Ruiz",
     "description": "Macheteros member arrested in the August 1985 federal sweep connected to the 1983 Wells Fargo Hartford expropriation. He was among the Hartford defendants prosecuted on conspiracy charges. Documented in PFOC Breakthrough magazine.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5811,7 +5811,7 @@
     "last_name": "Maldonado",
     "description": "Macheteros member arrested in the August 1985 federal sweep connected to the 1983 Wells Fargo Hartford expropriation. He was held at FMC Fort Worth. Documented in PFOC Breakthrough magazine. BOP #03588-069.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5839,7 +5839,7 @@
     "last_name": "Ramírez Talavera",
     "description": "Macheteros member arrested in the August 1985 federal sweep connected to the 1983 Wells Fargo Hartford expropriation. He was among the Hartford defendants prosecuted in Connecticut federal court. Documented in PFOC Breakthrough magazine. BOP #03171-069.",
     "state": "Puerto Rico",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Male",
     "ideologies": [
       "Puerto Rican independence",
@@ -5867,7 +5867,7 @@
     "last_name": "García-López",
     "description": "Chicago Puerto Rican community member prosecuted in the 1986 federal 'escape conspiracy' trial that alleged a plan to free imprisoned FALN members. The case was viewed by independence supporters as targeting the broader independence community in Chicago. Documented in PFOC Breakthrough magazine.",
     "state": "Illinois",
-    "race": "Latino",
+    "race": "Hispanic/Latino",
     "gender": "Female",
     "ideologies": [
       "Puerto Rican independence",

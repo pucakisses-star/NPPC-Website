@@ -37,7 +37,7 @@ TXT;
                 'last_name'      => 'Yoshimura',
                 'description'    => self::BIO,
                 'gender'         => 'Female',
-                'race'           => 'Japanese American',
+                'race'           => 'Asian',
                 'birthdate'      => '1943-01-17',
                 'state'          => 'California',
                 'era'            => '1970s',

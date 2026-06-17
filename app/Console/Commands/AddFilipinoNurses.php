@@ -46,7 +46,7 @@ TXT;
                     'last_name'      => $d['last'],
                     'description'    => $bio,
                     'gender'         => 'Female',
-                    'race'           => 'Filipino',
+                    'race'           => 'Asian',
                     'state'          => 'Michigan',
                     'era'            => '1970s',
                     'ideologies'     => [],

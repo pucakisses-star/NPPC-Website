@@ -47,7 +47,7 @@ final class AddAurelioPerezLugones extends Command {
                 'middle_name'  => 'Luis',
                 'last_name'    => 'Perez-Lugones',
                 'gender'       => 'Male',
-                'race'         => 'Latino',
+                'race'         => 'Hispanic/Latino',
                 'state'        => 'Maryland',
                 'era'          => '2020s',
                 'ideologies'   => ['Press Freedom', 'Whistleblower'],

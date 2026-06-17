@@ -44,7 +44,7 @@ TXT;
                 'last_name'      => 'Hsiung',
                 'description'    => self::BIO,
                 'gender'         => 'Male',
-                'race'           => 'Asian American',
+                'race'           => 'Asian',
                 'birthdate'      => '1981-06-18',
                 'state'          => 'California',
                 'era'            => '2020s',

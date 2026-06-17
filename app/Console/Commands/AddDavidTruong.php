@@ -40,7 +40,7 @@ TXT;
                 'last_name'      => 'Truong',
                 'description'    => self::BIO,
                 'gender'         => 'Male',
-                'race'           => 'Vietnamese',
+                'race'           => 'Asian',
                 'birthdate'      => '1945-09-02',
                 'death_date'     => '2014-06-26',
                 'state'          => 'Virginia',

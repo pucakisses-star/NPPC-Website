@@ -237,7 +237,7 @@ final class AddGrandJuryResisterPrisoners extends Command {
                 'last_name' => 'Cintrón Fiallo',
                 'aka' => 'Norberto A. Cintrón Fiallo',
                 'description' => 'Norberto Cintrón Fiallo was a Puerto Rican independence militant and a leader of the Armed Forces of Popular Resistance (Fuerzas Armadas de Resistencia Popular, FARP). In the early 1980s he was subpoenaed by federal grand juries in New York investigating the Puerto Rican independence movement and was ordered to provide hair samples and testimony. Refusing to recognize the authority of the grand jury, he declined to cooperate. A first grand jury impaneled in 1980 was dissolved without holding him in contempt; a second then jailed him for civil contempt. He served roughly eighteen months in prison, from 1984 to 1985, before a judge ordered his release. A longtime organizer for Puerto Rican independence and a board member of the anti-repression committee CUCRE, Cintrón Fiallo remained active in the movement until his death in 2024.',
-                'race' => 'Latino',
+                'race' => 'Hispanic/Latino',
                 'gender' => 'Male',
                 'state' => 'Puerto Rico',
                 'ideologies' => ['Puerto Rican independence', 'Anti-imperialism', 'Revolutionary nationalism'],
