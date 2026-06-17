@@ -47,7 +47,7 @@ final class AddByCityUnrestPps extends Command {
             'last_name' => 'Forcia',
             'description' => 'Anishinaabe (Bad River Band of Lake Superior Ojibwe) American Indian Movement organizer in Minnesota. Led the public toppling of the Christopher Columbus statue on the Minnesota State Capitol grounds in St. Paul on June 10, 2020 during the George Floyd uprising. Charged in state court with felony destruction of public property; pled guilty and was sentenced in October 2021 to 100 hours of community service to be performed at MN AIM and the Lower Phalen Creek Project.',
             'state' => 'Minnesota',
-            'race' => 'Indigenous',
+            'race' => 'Native American',
             'gender' => 'Male',
             'ideologies' => ['Indigenous resistance', 'AIM', 'Anti-colonial'],
             'affiliation' => ['American Indian Movement'],

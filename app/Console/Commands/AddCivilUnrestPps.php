@@ -49,7 +49,7 @@ final class AddCivilUnrestPps extends Command {
                 'last_name' => 'Pernasilice',
                 'description' => 'Catawba prisoner at Attica Correctional Facility at the time of the September 1971 uprising. Indicted with John Hill (Dacajeweiah) for the death of officer William Quinn during the prisoner takeover. Convicted of attempted second-degree assault in the 1975 Attica murder trial. Sentenced to up to 2 years on top of his prior sentence. Both his and Hill\'s convictions remain among the only Attica-uprising prosecutions to result in jail time, despite the state\'s killing of 39 people during its retaking of the prison.',
                 'state' => 'New York',
-                'race' => 'Indigenous',
+                'race' => 'Native American',
                 'gender' => 'Male',
                 'ideologies' => ['Prison rebellion', 'Indigenous resistance'],
                 'affiliation' => ['Attica Uprising'],

@@ -341,7 +341,7 @@ final class AddUsProtestsListPps extends Command {
             'first_name' => 'Cesar',
             'last_name' => 'Cauce',
             'description' => $greensboroDesc.' Cauce was a Cuban-born Duke University graduate, ACTWU/CWP organizer at Duke Medical Center, and the first of the five killed at Morningside Homes.',
-            'race' => 'Latinx',
+            'race' => 'Hispanic/Latino',
             'gender' => 'Male',
             'birthdate' => '1953-04-01',
             'death_date' => '1979-11-03',
