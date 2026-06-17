@@ -27,6 +27,12 @@ class AddHeartMountainResisters extends Command {
     private const FPC_CONVICTED = 'Yes — convicted by a federal jury in Cheyenne in October 1944 and sentenced to four years at Leavenworth; the Tenth Circuit overturned the conspiracy convictions in 1945.';
     private const FPC_SENTENCE = 'Four years at the U.S. Penitentiary, Leavenworth; the convictions were reversed on appeal in 1945.';
 
+    private const RANKFILE = "%s was one of the 63 young men at the Heart Mountain concentration camp in Wyoming who, following the lead of the Fair Play Committee, refused to report for induction in 1944, insisting they could not be drafted while imprisoned without due process as U.S. citizens. In what was then the largest mass trial in Wyoming history, they were convicted of draft evasion in June 1944 and sentenced to three years, most serving at the McNeil Island federal penitentiary; President Truman pardoned the wartime camp draft resisters in December 1947.";
+
+    private const RANKFILE_CHARGES = "Draft evasion — refusing to report for induction from the Heart Mountain concentration camp, as part of the Fair Play Committee's organized protest against drafting incarcerated Nisei.";
+    private const RANKFILE_CONVICTED = 'Yes — convicted of draft evasion in the June 1944 mass trial in Cheyenne; pardoned by President Truman in December 1947.';
+    private const RANKFILE_SENTENCE = "Three years' imprisonment, mostly at the U.S. Penitentiary, McNeil Island; pardoned by President Truman in 1947.";
+
     public function handle(): int {
         $leavenworth = ['name' => 'United States Penitentiary, Leavenworth', 'city' => 'Leavenworth', 'state' => 'Kansas'];
 
@@ -139,6 +145,87 @@ class AddHeartMountainResisters extends Command {
                 ]);
 
                 $this->info("Added: {$omura->name} (slug: {$omura->slug})");
+            }
+
+            // Rank-and-file Heart Mountain resisters — convicted in the mass trial of the 63
+            $mcneil = Institution::firstOrCreate(
+                ['name' => 'United States Penitentiary, McNeil Island'],
+                ['city' => 'Steilacoom', 'state' => 'Washington']
+            );
+
+            $resisters = [
+                ['name' => 'Tak Hoshizaki', 'first' => 'Tak', 'last' => 'Hoshizaki',
+                 'lead' => 'Takashi "Tak" Hoshizaki, who would later serve in the U.S. Army during the Korean War,'],
+                ['name' => 'Mits Koshiyama', 'first' => 'Mits', 'last' => 'Koshiyama',
+                 'lead' => 'Mitsuru "Mits" Koshiyama, who had graduated from high school inside the camp and decades later became one of the foremost public voices of the resisters,'],
+                ['name' => 'Yosh Kuromiya', 'first' => 'Yosh', 'last' => 'Kuromiya',
+                 'lead' => 'Yoshito "Yosh" Kuromiya, an art student,'],
+                ['name' => 'Dave Kawamoto', 'first' => 'Dave', 'last' => 'Kawamoto',
+                 'lead' => 'Dave Kawamoto, an NCAA wrestling champion,'],
+            ];
+
+            foreach ($resisters as $c) {
+                if (Prisoner::where('name', $c['name'])->exists()) {
+                    $this->warn("Skipped (already exists): {$c['name']}");
+                    continue;
+                }
+
+                $prisoner = Prisoner::create([
+                    'name'           => $c['name'],
+                    'first_name'     => $c['first'],
+                    'last_name'      => $c['last'],
+                    'description'    => sprintf(self::RANKFILE, $c['lead']),
+                    'gender'         => 'Male',
+                    'race'           => 'Japanese American',
+                    'state'          => 'Wyoming',
+                    'era'            => '1940s',
+                    'ideologies'     => ['Civil rights', 'Draft resistance'],
+                    'affiliation'    => ['Heart Mountain Fair Play Committee'],
+                    'in_custody'     => false,
+                    'released'       => true,
+                    'awaiting_trial' => false,
+                ]);
+
+                PrisonerCase::create([
+                    'prisoner_id'    => $prisoner->id,
+                    'institution_id' => $mcneil->id,
+                    'charges'        => self::RANKFILE_CHARGES,
+                    'convicted'      => self::RANKFILE_CONVICTED,
+                    'sentence'       => self::RANKFILE_SENTENCE,
+                ]);
+
+                $this->info("Added: {$prisoner->name} (slug: {$prisoner->slug})");
+            }
+
+            // Jim Akutsu — draft resister at the Minidoka camp (not Heart Mountain / FPC)
+            if (Prisoner::where('name', 'Jim Akutsu')->exists()) {
+                $this->warn('Skipped (already exists): Jim Akutsu');
+            } else {
+                $akutsu = Prisoner::create([
+                    'name'           => 'Jim Akutsu',
+                    'first_name'     => 'Jim',
+                    'last_name'      => 'Akutsu',
+                    'description'    => 'Hajime "Jim" Akutsu was a Seattle-born Nisei imprisoned with his family at the Minidoka concentration camp in Idaho during World War II. He refused induction into the U.S. Army, arguing he could not be drafted while held behind barbed wire and stripped of his rights as a citizen. Convicted of draft evasion, he was imprisoned at McNeil Island; he is widely cited as a model for Ichiro, the protagonist of John Okada\'s novel "No-No Boy."',
+                    'gender'         => 'Male',
+                    'race'           => 'Japanese American',
+                    'state'          => 'Idaho',
+                    'era'            => '1940s',
+                    'ideologies'     => ['Civil rights', 'Draft resistance'],
+                    'affiliation'    => [],
+                    'in_custody'     => false,
+                    'released'       => true,
+                    'awaiting_trial' => false,
+                ]);
+
+                PrisonerCase::create([
+                    'prisoner_id'    => $akutsu->id,
+                    'institution_id' => $mcneil->id,
+                    'charges'        => 'Draft evasion — refusing induction while imprisoned in the Minidoka concentration camp.',
+                    'convicted'      => 'Yes — convicted of draft evasion and imprisoned at McNeil Island.',
+                    'sentence'       => 'Imprisoned at McNeil Island; the wartime camp draft resisters were pardoned by President Truman in 1947.',
+                ]);
+
+                $this->info("Added: {$akutsu->name} (slug: {$akutsu->slug})");
             }
         });
 
