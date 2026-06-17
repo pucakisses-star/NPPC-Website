@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
@@ -50,15 +51,37 @@ final class UpdateMoanaCole extends Command
         $prisoner->in_custody = false;
         $prisoner->save();
 
-        $case = $prisoner->cases()->first() ?? new PrisonerCase(['prisoner_id' => $prisoner->id]);
-        $case->prisoner_id = $prisoner->id;
-        $case->charges = 'Conspiracy and destruction of U.S. government property (federal sabotage / depredation) — the ANZUS Plowshares disarmament action at Griffiss Air Force Base, Rome, New York';
-        $case->arrest_date = '1991-01-01';
-        $case->incarceration_date = '1991-01-01';
-        $case->release_date = '1992-06-15';
-        $case->convicted = 'Yes — convicted by a jury in Syracuse, May 1991';
-        $case->sentence = 'Twelve months in prison and $1,800 restitution (sentenced August 20, 1991); out of federal (BOP) custody June 15, 1992 after about ten months, then freed on bail pending a deportation hearing and voluntarily deported to New Zealand in October 1992';
-        $case->save();
+        // Rebuild her custody as two distinct incarceration periods so she is
+        // not counted (or shown) as imprisoned during the months she was free
+        // on bail between pre-trial release and serving her sentence. Each
+        // case's imprisoned_for_days is auto-summed across cases by the model,
+        // so the two windows (~2 months + ~10 months) total her real time
+        // served without spanning the free gap (Mar 6 – Aug 1991).
+        $prisoner->cases()->delete();
+
+        $bop = Institution::firstOrCreate(['name' => 'Federal Bureau of Prisons']);
+
+        // 1) Pre-trial detention: arrested Jan 1, 1991; released on bail Mar 6, 1991.
+        PrisonerCase::create([
+            'prisoner_id' => $prisoner->id,
+            'charges' => 'Detained pending trial — the ANZUS Plowshares disarmament action at Griffiss Air Force Base, Rome, New York',
+            'arrest_date' => '1991-01-01',
+            'incarceration_date' => '1991-01-01',
+            'release_date' => '1991-03-06',
+            'sentence' => 'Held about two months after the action, then released pre-trial on bail on March 6, 1991',
+        ]);
+
+        // 2) Conviction & sentence: began serving ~Aug 20, 1991; out of BOP custody June 15, 1992.
+        PrisonerCase::create([
+            'prisoner_id' => $prisoner->id,
+            'institution_id' => $bop->id,
+            'charges' => 'Conspiracy and destruction of U.S. government property (federal sabotage / depredation) — the ANZUS Plowshares disarmament action at Griffiss Air Force Base, Rome, New York',
+            'sentenced_date' => '1991-08-20',
+            'incarceration_date' => '1991-08-20',
+            'release_date' => '1992-06-15',
+            'convicted' => 'Yes — convicted by a jury in Syracuse, May 1991',
+            'sentence' => 'Twelve months in prison and $1,800 restitution; served about ten months and released from federal (BOP) custody on June 15, 1992, then freed on bail pending a deportation hearing and voluntarily deported to New Zealand in October 1992',
+        ]);
 
         $disk = Storage::disk('public');
         if (! $disk->exists(self::PHOTO_PATH)) {
