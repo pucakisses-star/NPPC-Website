@@ -22,7 +22,9 @@ use Illuminate\Support\Str;
  */
 final class FetchArchivePhotos extends Command
 {
-    protected $signature = 'prisoners:fetch-archive-photos {--force : Overwrite photos that are already set}';
+    protected $signature = 'prisoners:fetch-archive-photos
+        {--force : Overwrite photos that are already set}
+        {--delay=2 : Seconds to wait between each download (avoids rate limiting)}';
 
     protected $description = 'Fetch freely-licensed Wikimedia photos for archive figures (from archive-photos.json)';
 
@@ -45,6 +47,7 @@ final class FetchArchivePhotos extends Command
         }
 
         $disk = Storage::disk('public');
+        $delay = max(0, (int) $this->option('delay'));
         $added = 0;
         $skipped = 0;
         $missing = 0;
@@ -79,8 +82,11 @@ final class FetchArchivePhotos extends Command
             $path = 'prisoners/'.Str::slug($name).'.'.$ext;
 
             if (! $disk->exists($path)) {
-                // Throttle to stay under Wikimedia's anonymous rate limit.
-                sleep(1);
+                // Throttle between downloads to stay under Wikimedia's
+                // anonymous rate limit (configurable via --delay).
+                if ($delay > 0) {
+                    sleep($delay);
+                }
                 // Manifest URLs are already width-bounded Commons thumbnails.
                 $body = $this->fetch($url, $name);
                 if ($body === null) {
