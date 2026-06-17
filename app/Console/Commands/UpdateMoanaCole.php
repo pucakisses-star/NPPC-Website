@@ -26,7 +26,7 @@ final class UpdateMoanaCole extends Command
 
     private const PHOTO_PATH = 'prisoners/moana-cole.jpg';
 
-    private const BIO = "Moana Cole is a New Zealand peace activist and one of the four Catholic Worker members of the ANZUS (Australia, New Zealand, U.S.) Peace Force Plowshares who entered Griffiss Air Force Base in Rome, New York, on January 1, 1991 to protest preparations for the Gulf War. While Susan Frankel and Bill Streit hammered and poured blood on a KC-135 refueling plane and a cruise-missile-armed B-52 bomber, Cole and Ciaron O'Reilly entered from the opposite end of the runway, marked it with a cross of blood, spray-painted messages including \"Love Your Enemies — Jesus Christ\" and \"Isaiah Strikes Again,\" and hammered on the runway for about an hour before being detained. The four were indicted on January 9, 1991 on federal charges of conspiracy and destruction of government property, facing up to 15 years. Held for two months and then released pre-trial, they were convicted by a jury in Syracuse in May 1991 and on August 20, 1991 sentenced to twelve months in prison and \$1,800 in restitution. Released in late June 1992, Cole returned to New Zealand under a court-ordered voluntary deportation in October 1992. She later completed a master's degree in law and works as a barrister providing legal aid in Christchurch.";
+    private const BIO = "Moana Cole is a New Zealand peace activist and one of the four Catholic Worker members of the ANZUS (Australia, New Zealand, U.S.) Peace Force Plowshares who entered Griffiss Air Force Base in Rome, New York, on January 1, 1991 to protest preparations for the Gulf War. While Susan Frankel and Bill Streit hammered and poured blood on a KC-135 refueling plane and a cruise-missile-armed B-52 bomber, Cole and Ciaron O'Reilly entered from the opposite end of the runway, marked it with a cross of blood, spray-painted messages including \"Love Your Enemies — Jesus Christ\" and \"Isaiah Strikes Again,\" and hammered on the runway for about an hour before being detained. The four were indicted on January 9, 1991 on federal charges of conspiracy and destruction of government property, facing up to 15 years. Held for two months and then released pre-trial, they were convicted by a jury in Syracuse in May 1991 and on August 20, 1991 sentenced to twelve months in prison and \$1,800 in restitution. Released from federal prison on June 15, 1992 after serving about ten months, she was then held for immigration proceedings and freed on bail pending a deportation hearing, returning to New Zealand under a court-ordered voluntary deportation in October 1992. She later completed a master's degree in law and works as a barrister providing legal aid in Christchurch.";
 
     public function handle(): int
     {
@@ -45,6 +45,7 @@ final class UpdateMoanaCole extends Command
         $prisoner->description = self::BIO;
         $prisoner->era = '1990s';
         $prisoner->gender = 'Female';
+        $prisoner->inmate_number = '03807-052'; // Federal Bureau of Prisons register number
         $prisoner->released = true;
         $prisoner->in_custody = false;
         $prisoner->save();
@@ -54,9 +55,9 @@ final class UpdateMoanaCole extends Command
         $case->charges = 'Conspiracy and destruction of U.S. government property (federal sabotage / depredation) — the ANZUS Plowshares disarmament action at Griffiss Air Force Base, Rome, New York';
         $case->arrest_date = '1991-01-01';
         $case->incarceration_date = '1991-01-01';
-        $case->release_date = '1992-06-30';
+        $case->release_date = '1992-06-15';
         $case->convicted = 'Yes — convicted by a jury in Syracuse, May 1991';
-        $case->sentence = 'Twelve months in prison and $1,800 restitution (sentenced August 20, 1991); released late June 1992, then voluntarily deported to New Zealand in October 1992';
+        $case->sentence = 'Twelve months in prison and $1,800 restitution (sentenced August 20, 1991); out of federal (BOP) custody June 15, 1992 after about ten months, then freed on bail pending a deportation hearing and voluntarily deported to New Zealand in October 1992';
         $case->save();
 
         $disk = Storage::disk('public');
