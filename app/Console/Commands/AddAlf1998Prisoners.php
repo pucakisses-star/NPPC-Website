@@ -88,6 +88,11 @@ class AddAlf1998Prisoners extends Command
                 $this->attachPhoto($prisoner, $r['photo_url']);
             }
 
+            // Or copy a committed local photo file (used when no stable URL exists).
+            if (! empty($r['photo_file']) && empty($prisoner->photo)) {
+                $this->attachLocalPhoto($prisoner, $r['photo_file']);
+            }
+
             // Facility + mailing address.
             $inst = null;
             if (! empty($r['institution']['name'])) {
@@ -180,5 +185,21 @@ class AddAlf1998Prisoners extends Command
         $prisoner->photo = $path;
         $prisoner->save();
         $this->info("  Photo set: {$path}");
+    }
+
+    private function attachLocalPhoto(Prisoner $prisoner, string $relative): void
+    {
+        $src = database_path('data/'.$relative);
+        if (! is_file($src)) {
+            $this->warn("  Local photo not found: {$relative}");
+
+            return;
+        }
+        $ext = strtolower(pathinfo($src, PATHINFO_EXTENSION) ?: 'jpg');
+        $path = 'prisoners/'.Str::slug($prisoner->name).'.'.$ext;
+        Storage::disk('public')->put($path, (string) file_get_contents($src));
+        $prisoner->photo = $path;
+        $prisoner->save();
+        $this->info("  Photo set from file: {$path}");
     }
 }
