@@ -37,8 +37,12 @@ class CleanPrisonerStates extends Command
     /** Accepted alternate spellings (normalized) for the above. */
     private const ALIASES = [
         'washington, d.c.', 'washington d.c.', 'washington dc', 'd.c.', 'dc',
-        'virgin islands', 'us virgin islands', 'u.s. virgin islands',
+        // U.S. Virgin Islands (all common spellings)
+        'virgin islands', 'us virgin islands', 'u.s. virgin islands', 'u.s.v.i.', 'usvi',
+        'united states virgin islands', 'virgin islands (u.s.)', 'virgin islands, u.s.',
+        // Other territories / variants
         'commonwealth of puerto rico', 'guam (u.s. territory)',
+        'cnmi', 'commonwealth of the northern mariana islands', 'mariana islands', 'saipan',
     ];
 
     public function handle(): int
