@@ -1,0 +1,91 @@
+[
+  {
+    "name": "Jacob Kenison",
+    "first_name": "Jacob",
+    "last_name": "Kenison",
+    "gender": "Male",
+    "race": "White",
+    "era": "1990s",
+    "ideologies": ["Animal liberation"],
+    "affiliation": ["Animal Liberation Front"],
+    "in_custody": false,
+    "released": true,
+    "bio": "Jacob Kenison was an animal-liberation activist imprisoned for an Animal Liberation Front arson that caused roughly $300,000 in damage to a Tandy Leather store. A March 6, 1998 prisoner-support listing recorded him held at the Yuma Unit in Arizona under federal register no. 06329-081.",
+    "charges": "Arson (Animal Liberation Front action against a Tandy Leather store, ~$300,000 damage)",
+    "sentence": "Imprisoned for the arson; held at the Yuma Unit, Arizona (per a March 1998 listing)",
+    "inmate_number": "06329-081, Yuma Unit",
+    "institution": {"name": "Yuma Unit (Arizona)", "city": "Phoenix", "state": "Arizona", "mailing_address": "37900 N. 45th Ave, Dept. 1700, Phoenix, AZ 85027-7004"}
+  },
+  {
+    "name": "Clinton Colby Ellerman",
+    "first_name": "Clinton",
+    "last_name": "Ellerman",
+    "gender": "Male",
+    "race": "White",
+    "state": "Utah",
+    "era": "1990s",
+    "ideologies": ["Animal liberation"],
+    "affiliation": ["Animal Liberation Front"],
+    "in_custody": false,
+    "released": true,
+    "bio": "Clinton Colby Ellerman was a Utah animal-liberation activist imprisoned for releasing mink from the Holt Mink Ranch in an Animal Liberation Front action. A March 6, 1998 prisoner-support listing recorded him held at the Salt Lake County Jail.",
+    "charges": "Releasing mink from the Holt Mink Ranch (Animal Liberation Front action)",
+    "sentence": "Imprisoned for the mink release; held at the Salt Lake County Jail (per a March 1998 listing)",
+    "institution": {"name": "Salt Lake County Jail", "city": "Salt Lake City", "state": "Utah", "mailing_address": "450 S. 300 E., Salt Lake City, UT 84111-3207"}
+  },
+  {
+    "name": "Steve Hindi",
+    "first_name": "Steve",
+    "last_name": "Hindi",
+    "gender": "Male",
+    "race": "White",
+    "state": "Illinois",
+    "era": "1990s",
+    "ideologies": ["Animal rights"],
+    "affiliation": ["SHARK (Showing Animals Respect and Kindness)"],
+    "in_custody": false,
+    "released": true,
+    "bio": "Steve Hindi is an anti-hunting and animal-rights activist (founder of SHARK, Showing Animals Respect and Kindness) who served a six-month sentence for his protest activities against a hunt in Illinois. A March 6, 1998 prisoner-support listing recorded him held at the McHenry County Jail in Woodstock, Illinois.",
+    "charges": "Protest activities against a hunt in Illinois",
+    "sentence": "Six-month sentence; held at the McHenry County Jail (per a March 1998 listing)",
+    "institution": {"name": "McHenry County Jail", "city": "Woodstock", "state": "Illinois", "mailing_address": "2200 N. Seminary Ave, Woodstock, IL 60098"}
+  },
+  {
+    "name": "Trev Poulson",
+    "first_name": "Trev",
+    "last_name": "Poulson",
+    "gender": "Male",
+    "race": "White",
+    "state": "Utah",
+    "era": "1990s",
+    "ideologies": ["Animal liberation"],
+    "affiliation": ["Animal Liberation Front"],
+    "in_custody": false,
+    "released": true,
+    "bio": "Trev Poulson was a Utah animal-liberation activist serving a two-year sentence for an alleged fur-farm mink liberation. A March 6, 1998 prisoner-support listing recorded him held at the Utah State Prison in Draper (Wasatch A West).",
+    "charges": "Alleged fur-farm mink liberation",
+    "sentence": "Two-year sentence; held at the Utah State Prison, Draper (per a March 1998 listing)",
+    "inmate_number": "9375, Wasatch A West/215",
+    "institution": {"name": "Utah State Prison", "city": "Draper", "state": "Utah", "mailing_address": "PO Box 250, Draper, UT 84020"}
+  },
+  {
+    "name": "Ryan Durfee",
+    "inmate_number": "BA03",
+    "institution": {"name": "Oxbow Jail", "city": "Salt Lake City", "state": "Utah", "mailing_address": "3148 South 1100 West, Salt Lake City, UT 84119"}
+  },
+  {
+    "name": "Mark Klein",
+    "inmate_number": "AA45",
+    "institution": {"name": "Oxbow Jail", "city": "Salt Lake City", "state": "Utah", "mailing_address": "3148 South 1100 West, Salt Lake City, UT 84119"}
+  },
+  {
+    "name": "Jason Troff",
+    "inmate_number": "Section 9040",
+    "institution": {"name": "Salt Lake County Jail", "city": "Salt Lake City", "state": "Utah", "mailing_address": "450 S. 300 E., Salt Lake City, UT 84111-3207"}
+  },
+  {
+    "name": "Rod Coronado",
+    "inmate_number": "03895-000, Unit SW",
+    "institution": {"name": "Federal Correctional Institution, Tucson", "city": "Tucson", "state": "Arizona", "mailing_address": "8901 South Wilmot Rd, Tucson, AZ 85706"}
+  }
+]
