@@ -13,7 +13,8 @@
     "bio": "Jacob Kenison was an animal-liberation activist imprisoned for an Animal Liberation Front arson that caused roughly $300,000 in damage to a Tandy Leather store. A March 6, 1998 prisoner-support listing recorded him held at the Yuma Unit in Arizona under federal register no. 06329-081.",
     "charges": "Arson (Animal Liberation Front action against a Tandy Leather store, ~$300,000 damage)",
     "sentence": "Imprisoned for the arson; held at the Yuma Unit, Arizona (per a March 1998 listing)",
-    "inmate_number": "06329-081, Yuma Unit",
+    "inmate_number": "06329-081",
+    "release_date": "2003-12-23",
     "institution": {"name": "Yuma Unit (Arizona)", "city": "Phoenix", "state": "Arizona", "mailing_address": "37900 N. 45th Ave, Dept. 1700, Phoenix, AZ 85027-7004"}
   },
   {
