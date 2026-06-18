@@ -71,8 +71,8 @@ class AddAlf1998Prisoners extends Command
                 $enriched++;
             }
 
-            // Fill in a missing inmate number.
-            if (! empty($r['inmate_number']) && empty($prisoner->inmate_number)) {
+            // Set the inmate number from the list (authoritative for these records).
+            if (! empty($r['inmate_number']) && $prisoner->inmate_number !== $r['inmate_number']) {
                 $prisoner->inmate_number = $r['inmate_number'];
                 $prisoner->save();
             }
@@ -116,6 +116,12 @@ class AddAlf1998Prisoners extends Command
             }
             if ($inst && empty($case->institution_id)) {
                 $case->institution_id = $inst->id;
+                $case->save();
+            }
+
+            // Fill in a missing release date.
+            if (! empty($r['release_date']) && empty($case->release_date)) {
+                $case->release_date = $r['release_date'];
                 $case->save();
             }
         }
