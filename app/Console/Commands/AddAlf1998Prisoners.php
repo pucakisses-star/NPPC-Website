@@ -6,6 +6,9 @@ use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /**
  * Adds (and enriches) animal-liberation prisoners from a March 6, 1998
@@ -52,6 +55,7 @@ class AddAlf1998Prisoners extends Command
                     'description' => $r['bio'] ?? null,
                     'gender' => $r['gender'] ?? null,
                     'race' => $r['race'] ?? null,
+                    'birthdate' => $r['birthdate'] ?? null,
                     'state' => $r['state'] ?? null,
                     'era' => $r['era'] ?? '1990s',
                     'ideologies' => $r['ideologies'] ?? [],
@@ -71,6 +75,17 @@ class AddAlf1998Prisoners extends Command
             if (! empty($r['inmate_number']) && empty($prisoner->inmate_number)) {
                 $prisoner->inmate_number = $r['inmate_number'];
                 $prisoner->save();
+            }
+
+            // Fill in a missing birthdate.
+            if (! empty($r['birthdate']) && empty($prisoner->birthdate)) {
+                $prisoner->birthdate = $r['birthdate'];
+                $prisoner->save();
+            }
+
+            // Download and attach a photo when one is configured and not set.
+            if (! empty($r['photo_url']) && empty($prisoner->photo)) {
+                $this->attachPhoto($prisoner, $r['photo_url']);
             }
 
             // Facility + mailing address.
@@ -108,5 +123,35 @@ class AddAlf1998Prisoners extends Command
         $this->info("\nDone. Added={$added} Enriched={$enriched}");
 
         return self::SUCCESS;
+    }
+
+    private function attachPhoto(Prisoner $prisoner, string $url): void
+    {
+        $ext = strtolower(pathinfo(parse_url($url, PHP_URL_PATH), PATHINFO_EXTENSION) ?: 'jpg');
+        if (! in_array($ext, ['jpg', 'jpeg', 'png', 'gif', 'webp'], true)) {
+            $ext = 'jpg';
+        }
+        $path = 'prisoners/'.Str::slug($prisoner->name).'.'.$ext;
+
+        if (! Storage::disk('public')->exists($path)) {
+            try {
+                $resp = Http::withHeaders(['User-Agent' => 'NPPC-Archive/1.0 (advocacy nonprofit)'])
+                    ->timeout(60)->get($url);
+                if (! $resp->successful() || strlen($resp->body()) < 1500) {
+                    $this->warn("  Photo download failed (HTTP {$resp->status()}): {$prisoner->name}");
+
+                    return;
+                }
+                Storage::disk('public')->put($path, $resp->body());
+            } catch (\Throwable $e) {
+                $this->warn('  Photo fetch error for '.$prisoner->name.': '.$e->getMessage());
+
+                return;
+            }
+        }
+
+        $prisoner->photo = $path;
+        $prisoner->save();
+        $this->info("  Photo set: {$path}");
     }
 }
