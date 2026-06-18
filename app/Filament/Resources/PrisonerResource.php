@@ -285,6 +285,7 @@ class PrisonerResource extends Resource {
                     ->options(fn (): array => Prisoner::query()
                         ->whereNotNull('era')
                         ->distinct()
+                        ->orderByDesc('era')
                         ->pluck('era', 'era')
                         ->toArray()),
                 Tables\Filters\SelectFilter::make('state')
