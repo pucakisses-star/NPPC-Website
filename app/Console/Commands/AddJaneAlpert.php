@@ -7,12 +7,15 @@ use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /**
  * Adds Jane Alpert — the New York radical (and later radical-feminist writer)
  * who took part in the 1969 NYC bombing campaign with Sam Melville, jumped
  * bail in 1970, lived underground for ~4.5 years, surrendered in 1974, and
- * served a federal sentence. Idempotent (skips if she already exists).
+ * served a federal sentence. Idempotent: if she already exists it skips
+ * record creation but still (re-)attaches her committed photo.
  *
  * Note: she was bailed after the Nov 1969 arrest and only imprisoned after
  * her Nov 1974 surrender, so the incarceration/release dates reflect the
@@ -26,13 +29,16 @@ final class AddJaneAlpert extends Command
 
     public function handle(): int
     {
-        if (Prisoner::withUnderReview()->where('name', 'Jane Alpert')->exists()) {
-            $this->warn('Jane Alpert already exists — skipping.');
+        $existing = Prisoner::withUnderReview()->where('name', 'Jane Alpert')->first();
+
+        if ($existing) {
+            $this->warn('Jane Alpert already exists — skipping record creation.');
+            $this->attachLocalPhoto($existing, 'photos/jane-alpert.jpg');
 
             return self::SUCCESS;
         }
 
-        DB::transaction(function () {
+        $prisoner = DB::transaction(function () {
             $prisoner = Prisoner::create([
                 'name' => 'Jane Alpert',
                 'first_name' => 'Jane',
@@ -62,10 +68,36 @@ final class AddJaneAlpert extends Command
                 'convicted' => 'Pleaded guilty to conspiracy (1970); jumped bail before sentencing; surrendered November 1974',
                 'sentence' => '27 months for the conspiracy, plus 4 months for contempt of court (1977) for refusing to testify against a co-defendant; imprisoned in the mid-1970s after her 1974 surrender',
             ]);
+
+            return $prisoner;
         });
 
         $this->info('Added Jane Alpert.');
+        $this->attachLocalPhoto($prisoner, 'photos/jane-alpert.jpg');
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Copy a committed local photo onto the public disk and set it as the
+     * prisoner's photo. Re-synced on every run so an updated crop replaces
+     * the stored image. The source is a crop of Jane Alpert's front-facing
+     * 1969 photograph from her FBI "Wanted" poster (a U.S. government work).
+     */
+    private function attachLocalPhoto(Prisoner $prisoner, string $relative): void
+    {
+        $src = database_path('data/'.$relative);
+        if (! is_file($src)) {
+            $this->warn("  Local photo not found: {$relative}");
+
+            return;
+        }
+
+        $ext = strtolower(pathinfo($src, PATHINFO_EXTENSION) ?: 'jpg');
+        $path = 'prisoners/'.Str::slug($prisoner->name).'.'.$ext;
+        Storage::disk('public')->put($path, (string) file_get_contents($src));
+        $prisoner->photo = $path;
+        $prisoner->save();
+        $this->info("  Photo set from file: {$path}");
     }
 }
