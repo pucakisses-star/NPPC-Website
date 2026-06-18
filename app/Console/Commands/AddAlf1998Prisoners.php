@@ -111,6 +111,7 @@ class AddAlf1998Prisoners extends Command
                 $case = PrisonerCase::create([
                     'prisoner_id' => $prisoner->id,
                     'charges' => $r['charges'] ?? null,
+                    'convicted' => $r['convicted'] ?? null,
                     'sentence' => $r['sentence'] ?? null,
                 ]);
             }
@@ -123,6 +124,26 @@ class AddAlf1998Prisoners extends Command
             if (! empty($r['release_date']) && empty($case->release_date)) {
                 $case->release_date = $r['release_date'];
                 $case->save();
+            }
+
+            // For fully-managed records (those carrying a bio), keep the
+            // narrative fields in sync with the file so research updates apply.
+            // Enrich-only entries (no bio) are left untouched.
+            if (! empty($r['bio'])) {
+                if ($prisoner->description !== $r['bio']) {
+                    $prisoner->description = $r['bio'];
+                    $prisoner->save();
+                }
+                $dirty = false;
+                foreach (['charges', 'convicted', 'sentence'] as $f) {
+                    if (! empty($r[$f]) && $case->{$f} !== $r[$f]) {
+                        $case->{$f} = $r[$f];
+                        $dirty = true;
+                    }
+                }
+                if ($dirty) {
+                    $case->save();
+                }
             }
         }
 

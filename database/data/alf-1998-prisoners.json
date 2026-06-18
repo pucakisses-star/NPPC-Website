@@ -10,9 +10,10 @@
     "affiliation": ["Animal Liberation Front"],
     "in_custody": false,
     "released": true,
-    "bio": "Jacob Kenison was an animal-liberation activist imprisoned for an Animal Liberation Front arson that caused roughly $300,000 in damage to a Tandy Leather store. A March 6, 1998 prisoner-support listing recorded him held at the Yuma Unit in Arizona under federal register no. 06329-081.",
-    "charges": "Arson (Animal Liberation Front action against a Tandy Leather store, ~$300,000 damage)",
-    "sentence": "Imprisoned for the arson; held at the Yuma Unit, Arizona (per a March 1998 listing)",
+    "bio": "Jacob Lymon Kenison was a Utah 'straight edge' animal-rights activist imprisoned for his part in the June 15, 1995 Animal Liberation Front firebombing of a Tandy Leather store in Murray, Utah, which caused about $300,000 in damage. By his account he threw a brick through the store window and acted as lookout, denying that he threw the Molotov cocktail that started the fire. He was arrested in February 1997 as investigators broke up a cell of Utah 'straight edge' animal-rights firebombers (also linked to arsons of a McDonald's and the Utah Fur Breeders cooperative). In 1997 he pleaded guilty to state attempted arson — one year in jail and $30,188 restitution — and to a federal charge of buying a rifle for fellow activist Josh Ellerman on a falsified form, for which he received 16 months. Held in federal custody on the arson and moved from Salt Lake City to Oklahoma and then to the Yuma Unit in Arizona (federal register no. 06329-081), he was released on December 23, 2003.",
+    "charges": "Arson — the June 15, 1995 Animal Liberation Front firebombing of a Tandy Leather store in Murray, Utah (~$300,000 damage); plus a federal charge of acquiring a firearm by false statement (buying a rifle for co-defendant Josh Ellerman)",
+    "convicted": "Yes — federal firearm plea (Aug 1997) and state attempted-arson plea (Nov 1997); convicted December 1997",
+    "sentence": "State: one year in jail and $30,188 restitution (attempted arson, reduced from first-degree aggravated arson). Federal: 16 months on the firearm count. Arrested February 1997; held in federal custody (Salt Lake City to Oklahoma to the Yuma Unit, Arizona) on the arson and released December 23, 2003",
     "inmate_number": "06329-081",
     "release_date": "2003-12-23",
     "institution": {"name": "Yuma Unit (Arizona)", "city": "Phoenix", "state": "Arizona", "mailing_address": "37900 N. 45th Ave, Dept. 1700, Phoenix, AZ 85027-7004"}
