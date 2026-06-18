@@ -88,8 +88,9 @@ class AddAlf1998Prisoners extends Command
                 $this->attachPhoto($prisoner, $r['photo_url']);
             }
 
-            // Or copy a committed local photo file (used when no stable URL exists).
-            if (! empty($r['photo_file']) && empty($prisoner->photo)) {
+            // Copy a committed local photo file (authoritative; re-synced each
+            // run so an updated crop replaces the stored image).
+            if (! empty($r['photo_file'])) {
                 $this->attachLocalPhoto($prisoner, $r['photo_file']);
             }
 
@@ -122,6 +123,12 @@ class AddAlf1998Prisoners extends Command
             }
             if ($inst && empty($case->institution_id)) {
                 $case->institution_id = $inst->id;
+                $case->save();
+            }
+
+            // Fill in a missing arrest date.
+            if (! empty($r['arrest_date']) && empty($case->arrest_date)) {
+                $case->arrest_date = $r['arrest_date'];
                 $case->save();
             }
 
