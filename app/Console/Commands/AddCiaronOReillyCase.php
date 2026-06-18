@@ -15,8 +15,10 @@ use Illuminate\Console\Command;
  * the sentence) so the months he was free on bail are not counted or shown
  * as imprisonment, matching how his co-defendant Moana Cole is recorded.
  *
- * Leaves his existing biography untouched (it also covers the later 2003
- * Pitstop Ploughshares action in Ireland, which is not a U.S. case).
+ * Also corrects his state to New York (where the U.S. case was tried and
+ * served) and clears a previously stored, incorrect inmate number. Leaves
+ * his existing biography untouched (it also covers the later 2003 Pitstop
+ * Ploughshares action in Ireland, which is not a U.S. case).
  * Idempotent: rebuilds the two cases on each run.
  */
 final class AddCiaronOReillyCase extends Command
@@ -40,6 +42,8 @@ final class AddCiaronOReillyCase extends Command
         }
 
         $prisoner->gender = 'Male';
+        $prisoner->state = 'New York'; // his U.S. case was tried and served in New York (was wrongly "Queensland")
+        $prisoner->inmate_number = null; // the previously stored number (#26548-050) was incorrect
         $prisoner->released = true;
         $prisoner->in_custody = false;
         $prisoner->save();
