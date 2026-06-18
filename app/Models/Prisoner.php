@@ -173,7 +173,13 @@ final class Prisoner extends Model {
                 continue;
             }
 
-            $end = $case->release_date ?? $case->death_in_custody_date ?? \Carbon\Carbon::now();
+            // End of this incarceration: an explicit release or death in
+            // custody, else the prisoner's death date (they cannot be counted
+            // as incarcerated past their death), else today (still in custody).
+            $end = $case->release_date
+                ?? $case->death_in_custody_date
+                ?? ($this->death_date ? \Carbon\Carbon::parse($this->death_date) : null)
+                ?? \Carbon\Carbon::now();
 
             $startYear = (int) $start->format('Y');
             $endYear   = (int) $end->format('Y');
