@@ -42,6 +42,13 @@ final class PrisonerCase extends Model {
         parent::booted();
 
         static::saving(function (self $case) {
+            // A death in custody ends the incarceration on that date, so the
+            // release date is set to the same day (this also makes
+            // imprisoned_for_days, computed below, stop at death).
+            if ($case->death_in_custody_date) {
+                $case->release_date = $case->death_in_custody_date;
+            }
+
             // Auto-derive in_exile_since from release_date when the prisoner
             // is flagged as exiled but the case row has no in_exile_since
             // explicitly set. The common path: a defendant is held in
