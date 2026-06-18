@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Gene Sharp",
+    "first_name": "Gene",
+    "last_name": "Sharp",
+    "gender": "Male",
+    "race": "White",
+    "birthdate": "1928-01-21",
+    "death_date": "2018-01-28",
+    "era": "1950s",
+    "ideologies": [
+      "Pacifism",
+      "Nonviolence",
+      "Anti-war"
+    ],
+    "affiliation": [],
+    "released": true,
+    "bio": "Gene Sharp was an American political scientist and the foremost scholar of nonviolent struggle, founder of the Albert Einstein Institution, whose writings influenced anti-authoritarian resistance movements around the world. As a young pacifist he refused conscription during the Korean War: convicted of draft refusal, he was sentenced to two years and served nine months in federal prison in 1953-54, corresponding from prison with Albert Einstein (who wrote the foreword to his first book) about his decision to go to prison for his beliefs.",
+    "charges": "Refusing conscription (draft refusal) during the Korean War",
+    "convicted": "Yes — convicted of refusing conscription (1953)",
+    "sentence": "Two-year sentence; served nine months in federal prison (1953-54)"
+  },
+  {
+    "name": "Eve Tetaz",
+    "first_name": "Eve",
+    "last_name": "Tetaz",
+    "gender": "Female",
+    "race": "White",
+    "birthdate": "1931-09-06",
+    "death_date": "2023-06-07",
+    "state": "District of Columbia",
+    "era": "2000s",
+    "ideologies": [
+      "Pacifism",
+      "Anti-war",
+      "Peace movement"
+    ],
+    "affiliation": [
+      "Code Pink",
+      "Witness Against Torture",
+      "National Campaign for Nonviolent Resistance"
+    ],
+    "released": true,
+    "bio": "Eve Tetaz was a retired Washington, D.C. public school teacher who became a prominent peace-and-justice activist, repeatedly committing nonviolent civil resistance against the Iraq War, torture, and the Guantanamo detentions. Arrested some eleven times in 2007 alone and roughly a dozen more times in 2008-2010, she refused to pay fines and served a series of jail sentences — including 7 days (2007), 5 days (2008), 25 days (2010), and 60 days in the D.C. Jail after a 2012 banner protest at the U.S. Supreme Court. She was active with Code Pink, the National Campaign for Nonviolent Resistance, and Witness Against Torture.",
+    "charges": "Nonviolent civil resistance — anti-war, anti-torture, and Guantanamo protests (unlawful assembly / disorderly conduct / failure to obey)",
+    "convicted": "Yes — convicted multiple times (2007-2012)",
+    "sentence": "Served repeated jail terms (e.g. 7, 5, 25, and 60 days) for refusing fines and probation",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Eve_Graveyard.JPG/960px-Eve_Graveyard.JPG",
+    "photo_license": "Free Art License"
+  },
+  {
+    "name": "Ron Kovic",
+    "first_name": "Ron",
+    "last_name": "Kovic",
+    "gender": "Male",
+    "race": "White",
+    "birthdate": "1946-07-04",
+    "state": "California",
+    "era": "1970s",
+    "ideologies": [
+      "Anti-war",
+      "Peace movement"
+    ],
+    "affiliation": [
+      "Vietnam Veterans Against the War"
+    ],
+    "released": true,
+    "bio": "Ron Kovic is a U.S. Marine Corps sergeant who was paralyzed from the chest down in the Vietnam War and became one of the country's most visible anti-war activists, author of the 1976 memoir Born on the Fourth of July. A leader in Vietnam Veterans Against the War, he was arrested roughly a dozen times in nonviolent anti-war protests beginning in 1971 — including occupying a California draft-board office — and served jail time for the demonstrations.",
+    "charges": "Nonviolent anti-war civil disobedience (trespass / refusing to disperse) — draft-board and other protests",
+    "convicted": "Arrested about a dozen times (from 1971); jailed for the protests",
+    "sentence": "Served jail time for repeated anti-war demonstrations",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ron_Kovic_2.JPG/960px-Ron_Kovic_2.JPG",
+    "photo_license": "CC BY 2.0"
+  },
+  {
+    "name": "Stew Albert",
+    "first_name": "Stew",
+    "last_name": "Albert",
+    "gender": "Male",
+    "race": "White",
+    "birthdate": "1939-12-04",
+    "death_date": "2006-01-30",
+    "state": "California",
+    "era": "1960s",
+    "ideologies": [
+      "Anti-war",
+      "New Left"
+    ],
+    "affiliation": [
+      "Youth International Party (Yippies)",
+      "Vietnam Day Committee"
+    ],
+    "released": true,
+    "bio": "Stew Albert was an early member of the Yippies (Youth International Party) and a key figure in the 1960s New Left and anti-Vietnam War movement. He was incarcerated, under the supervision of the Alameda County sheriff, during the Vietnam Day Committee's anti-draft protests in downtown Oakland, California; he was later arrested at the 1968 Democratic National Convention and named an unindicted co-conspirator in the Chicago Seven case.",
+    "charges": "Anti-draft / anti-war protest — the Vietnam Day Committee demonstrations, Oakland, California",
+    "convicted": "Jailed during the Vietnam Day Committee anti-draft protests (1965-66)",
+    "sentence": "Incarceration during the Oakland anti-draft protests",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Stew_Albert.jpg",
+    "photo_license": "CC BY-SA 3.0"
+  }
+]
