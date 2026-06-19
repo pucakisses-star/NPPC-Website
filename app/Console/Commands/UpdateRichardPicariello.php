@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Fills in Richard Picariello's details (Fred Hampton Unit of the People's
  * Forces): middle name Joseph, DOB Oct 12 1948, and the Oct 21 1976 arrest /
- * incarceration with a July 27 1995 release. The PrisonerCase saving hook
+ * incarceration with a September 1995 release. The PrisonerCase saving hook
  * recomputes imprisoned_for_days from the incarceration and release dates.
  * Idempotent.
  */
@@ -46,11 +46,11 @@ final class UpdateRichardPicariello extends Command
             $case->prisoner_id = $p->id;
             $case->arrest_date = '1976-10-21';
             $case->incarceration_date = '1976-10-21';
-            $case->release_date = '1995-07-27';
+            $case->release_date = '1995-09-01'; // released September 1995 (day not specified)
             $case->save();
         });
 
-        $this->info('Updated Richard Picariello: middle name Joseph, DOB 1948-10-12, arrest/incarceration 1976-10-21, release 1995-07-27.');
+        $this->info('Updated Richard Picariello: middle name Joseph, DOB 1948-10-12, arrest/incarceration 1976-10-21, release September 1995.');
 
         return self::SUCCESS;
     }
