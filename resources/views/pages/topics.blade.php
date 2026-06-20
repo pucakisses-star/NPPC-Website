@@ -177,7 +177,7 @@
                 </a>
             @endforeach
             <a href="/topics/index" data-no-fade class="tpx-nav-item {{ $showIndex ? 'active' : '' }}">Index</a>
-            <a href="/topics/contributions" data-fullload class="tpx-nav-item {{ $showContribute ? 'active' : '' }}">Contributions</a>
+            <a href="/topics/contributions" data-no-fade class="tpx-nav-item {{ $showContribute ? 'active' : '' }}">Contributions</a>
             <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
         </div>
 
@@ -239,7 +239,7 @@
                 @forelse($indexGroups as $letter => $topics)
                     <div class="tpx-index-letter">{{ $letter }}</div>
                     @foreach($topics as $t)
-                        <a class="tpx-index-link" href="/topics/{{ $t->slug }}">{{ $t->title }}</a>
+                        <a class="tpx-index-link" data-no-fade href="/topics/{{ $t->slug }}">{{ $t->title }}</a>
                     @endforeach
                 @empty
                     <div class="tpx-detail-empty">No topics to index yet.</div>
@@ -363,6 +363,19 @@ function tpxShare() {
             if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
             else { current.innerHTML = fresh.innerHTML; }
 
+            // A soft-injected reCAPTCHA (the Contributions form) won't auto-render,
+            // so render it explicitly. The api.js library is loaded site-wide. If
+            // it isn't available, fall back to a full load so the form never breaks.
+            var captcha = current.querySelector('.g-recaptcha');
+            if (captcha && !captcha.firstChild) {
+                if (window.grecaptcha && grecaptcha.render) {
+                    try { grecaptcha.render(captcha, { sitekey: captcha.getAttribute('data-sitekey') }); }
+                    catch (err) { window.location.href = href; return; }
+                } else {
+                    window.location.href = href; return;
+                }
+            }
+
             // Fade the freshly-swapped detail panel in from transparent.
             var newDetail = current.querySelector('.tpx-detail');
             if (newDetail) {
@@ -392,7 +405,6 @@ function tpxShare() {
     });
 
     window.addEventListener('popstate', function () {
-        if (window.location.pathname === '/topics/contributions') { window.location.reload(); return; }
         if (window.location.pathname.indexOf('/topics') === 0) {
             swapTopic(window.location.href, false);
         } else {
