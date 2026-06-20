@@ -52,3 +52,13 @@ as their licenses require. Each links to the Commons File: page.
 | whistleblowers | whistleblowers.jpg | CC BY-SA 4.0 | Manolo Luna | [File](https://commons.wikimedia.org/wiki/File:Chelsea_Manning_at_protest_in_front_of_%22A_Night_For_Freedom%22.jpg) |
 | world-war-ii-japanese-incarceration-the-first-smith-act-trials-1941-1945 | world-war-ii-japanese-incarceration-the-first-smith-act-trials-1941-1945.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Woodland%2C_California._Evacuees_of_Japanese_ancestry_are_boarding_a_special_train_for_Merced_Assembl_._._._-_NARA_-_537818_%28cropped2%29.jpg) |
 | young-lords | young-lords.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:South_Bronx_residents_at_Lincoln_Hospital_during_Young_Lords_Takeover.jpg) |
+
+## Section backgrounds (public/images)
+
+| Section | File | License | Author | Source |
+|---|---|---|---|---|
+| movements | topics-movements.jpg | CC BY-SA 4.0 | Amandalynn Jones | [File](https://commons.wikimedia.org/wiki/File:Womens-March-MadisonWI-Jan212017-13.jpg) |
+| eras | topics-eras.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:A_Young_Woman_Holds_a_Banner_at_the_Civil_Rights_March_on_Washington%2C_D.C.%2C_on_August_28%2C_1963.jpg) |
+| organizations | topics-organizations.jpg | CC BY 2.0 | Fibonacci Blue from Minnesota, USA | [File](https://commons.wikimedia.org/wiki/File:Panorama_from_a_2011_%22Rally_to_Save_the_American_Dream%22_%288492315563%29.jpg) |
+| index | topics-index.jpg | CC BY 2.0 | Tony Webster | [File](https://commons.wikimedia.org/wiki/File:Rolls_of_razor_barbed_wire_fence_at_a_prison_correctional_facility.jpg) |
+| contributions | topics-contributions.jpg | CC0 | — | [File](https://commons.wikimedia.org/wiki/File:Woman_writing_on_a_notebook_with_a_pen.jpg) |
