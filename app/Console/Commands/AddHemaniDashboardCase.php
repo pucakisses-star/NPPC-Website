@@ -25,7 +25,7 @@ final class AddHemaniDashboardCase extends Command
     public function handle(): int
     {
         $case = [
-            'title' => 'Supreme Court rules 9-0 (US v. Hemani) that prosecuting Ali Danial Hemani under the federal drug-user gun ban — a charge that followed a terrorism investigation of his family and rested solely on his admitted marijuana use — violated the Second Amendment',
+            'title' => 'Supreme Court Limits the Federal Gun Ban on Drug Users',
             'url' => 'https://www.thetrace.org/2026/06/hemani-supreme-court-gun-ban-drug-users/',
             'source' => 'The Trace',
             'category' => 'prosecution',
@@ -35,16 +35,12 @@ final class AddHemaniDashboardCase extends Command
             'lng' => -96.6989,
         ];
 
-        $link = DashboardLink::firstOrCreate(
+        $link = DashboardLink::updateOrCreate(
             ['url' => $case['url']],
             array_merge($case, ['published_at' => Carbon::parse($case['published_at'])]),
         );
 
-        if ($link->wasRecentlyCreated) {
-            $this->info("Added: {$case['title']}");
-        } else {
-            $this->line("Skipped (already present): {$case['title']}");
-        }
+        $this->info(($link->wasRecentlyCreated ? 'Added: ' : 'Updated: ').$case['title']);
 
         return self::SUCCESS;
     }
