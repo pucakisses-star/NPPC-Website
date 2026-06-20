@@ -99,9 +99,9 @@
     $topicDefaults = [
         // Sections (drive the full-bleed background)
         'introduction'          => '/images/freedom.jpg',
-        'movements'             => '/images/volunteer.jpg',
-        'eras'                  => '/images/candles.jpg',
-        'organizations'         => '/images/stop-jailing-truth-tellers.webp',
+        'movements'             => '/images/topics-movements.jpg',
+        'eras'                  => '/images/topics-eras.jpg',
+        'organizations'         => '/images/topics-organizations.jpg',
         // Movement leaves (drive the detail-panel hero)
         'black-lives-matter'    => '/images/section_1.jpg',
         'environmental-justice' => '/images/volunteer.jpg',
@@ -130,13 +130,15 @@
     // detail-panel hero). Falls back to the section's image, then a bundled
     // default.
     $bgImage = $showIndex
-        ? '/images/fence.jpg'
-        : ($activeOverride
-            ?: ($displayTopic && $displayTopic->image
-                ? Storage::url($displayTopic->image)
-                : ($activeTopic && $activeTopic->image
-                    ? Storage::url($activeTopic->image)
-                    : $defaultFor($displayTopic ?: $activeTopic))));
+        ? '/images/topics-index.jpg'
+        : ($showContribute
+            ? '/images/topics-contributions.jpg'
+            : ($activeOverride
+                ?: ($displayTopic && $displayTopic->image
+                    ? Storage::url($displayTopic->image)
+                    : ($activeTopic && $activeTopic->image
+                        ? Storage::url($activeTopic->image)
+                        : $defaultFor($displayTopic ?: $activeTopic)))));
     $heroImage = $activeOverride
         ?: ($displayTopic && $displayTopic->image
             ? Storage::url($displayTopic->image)
