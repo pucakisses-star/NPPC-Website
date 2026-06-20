@@ -33,6 +33,9 @@ as their licenses require. Each links to the Commons File: page.
 | prison-abolition | prison-abolition.jpg | CC BY-SA 4.0 | Brunnaiz | [File](https://commons.wikimedia.org/wiki/File:La_pres%C3%B3_%C3%A9s_tortura.jpg) |
 | puerto-rican-independence | puerto-rican-independence.png | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Flag_of_Puerto_Rico_%281895-1952%2C_light_blue%29.svg) |
 | standing-rock-the-nodapl-water-protectors-2016-2017 | standing-rock-the-nodapl-water-protectors-2016-2017.png | CC BY 3.0 | Desiree Kane | [File](https://commons.wikimedia.org/wiki/File:%22Happi%22_American_Horse_direct_action_against_DAPL%2C_August_2016_%28cropped%29.png) |
+| student-nonviolent-coordinating-committee | student-nonviolent-coordinating-committee.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Civil_rights_leaders_talk_with_reporters_after_meeting_with_President_John_F._Kennedy_after_the_March_on_Washington%2C_D.C._%28LOC%29_%2815336661546%29.jpg) |
+| students-for-a-democratic-society | students-for-a-democratic-society.jpg | CC BY-SA 3.0 | Ben Schumin | [File](https://commons.wikimedia.org/wiki/File:Funk_the_War_7.jpg) |
+| symbionese-liberation-army | symbionese-liberation-army.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Hearst-hibernia-yell.jpg) |
 | the-american-indian-movement-wounded-knee-1973-1977 | the-american-indian-movement-wounded-knee-1973-1977.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:AIM_member_in_bunker_outside_Wounded_Knee_church.jpg) |
 | the-anti-globalization-movement-1999-2001 | the-anti-globalization-movement-1999-2001.jpg | CC BY-SA 2.0 | Steve Kaiser from Seattle, US | [File](https://commons.wikimedia.org/wiki/File:WTO_protests_in_Seattle_November_30_1999.jpg) |
 | the-first-red-scare-1917-1920 | the-first-red-scare-1917-1920.png | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Step_by_step_greene.png) |
@@ -45,3 +48,4 @@ as their licenses require. Each links to the Commons File: page.
 | weather-underground | weather-underground.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Anti-Vietnam_War_Protest%2C_University_of_Illinois.jpg) |
 | whistleblowers | whistleblowers.jpg | CC BY-SA 4.0 | Manolo Luna | [File](https://commons.wikimedia.org/wiki/File:Chelsea_Manning_at_protest_in_front_of_%22A_Night_For_Freedom%22.jpg) |
 | world-war-ii-japanese-incarceration-the-first-smith-act-trials-1941-1945 | world-war-ii-japanese-incarceration-the-first-smith-act-trials-1941-1945.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Woodland%2C_California._Evacuees_of_Japanese_ancestry_are_boarding_a_special_train_for_Merced_Assembl_._._._-_NARA_-_537818_%28cropped2%29.jpg) |
+| young-lords | young-lords.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:South_Bronx_residents_at_Lincoln_Hospital_during_Young_Lords_Takeover.jpg) |
