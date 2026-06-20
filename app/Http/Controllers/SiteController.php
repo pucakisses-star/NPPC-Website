@@ -440,6 +440,10 @@ final class SiteController extends Controller {
         return view('pages.map');
     }
 
+    public function civicProfile() {
+        return view('pages.civic-profile');
+    }
+
     public function tracker() {
         // The tracker aggregates the full prisoners + cases tables through a
         // heavy, year- and state-aware cost model. That data changes only when
