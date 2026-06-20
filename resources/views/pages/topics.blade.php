@@ -379,7 +379,7 @@ function tpxShare() {
     }
 
     document.addEventListener('click', function (e) {
-        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link');
+        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link, a.tpx-index-link');
         if (!a) return;
         if (a.hasAttribute('data-fullload')) return;   // let this link do a full page load (form + reCAPTCHA)
         // Respect new-tab / modified clicks.
