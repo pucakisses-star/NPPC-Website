@@ -16,6 +16,17 @@ use Illuminate\Support\Facades\DB;
  * merged because the differing middle initials and states indicate
  * two distinct people sharing a birthdate.
  *
+ * The AIM Pine Ridge co-defendant pairs (Robert "Bob" Robideau and
+ * Darrelle "Dino" Butler) were added after confirming each is one
+ * person split across a formal-name and a nickname record; the
+ * canonical keeps the fuller legal-name slug (matching the existing
+ * anna-mae-pictou-aquash choice). For those three AIM pairs the
+ * duplicate's cases are redundant, less-complete copies of the same
+ * 1975-76 RESMURS acquittal already on the canonical, so they are
+ * dropped rather than reassigned (see $dropDupCasesFor).
+ *
+ * Pass --only=slug1,slug2 to restrict a run to specific canonicals.
+ *
  * For each group, the canonical slug is kept and the duplicates
  * are folded in:
  *
@@ -32,8 +43,10 @@ use Illuminate\Support\Facades\DB;
  * Dry-run by default; --apply writes. Idempotent: if the duplicate
  * has already been merged the group is skipped silently.
  */
-final class MergeDuplicatePrisoners extends Command {
-    protected $signature = 'prisoners:merge-duplicates {--apply : Actually perform the merges}';
+final class MergeDuplicatePrisoners extends Command
+{
+    protected $signature = 'prisoners:merge-duplicates {--apply : Actually perform the merges} {--only= : Comma-separated canonical slugs to restrict the run to}';
+
     protected $description = 'Merge confirmed duplicate prisoner records into a single canonical slug.';
 
     /**
@@ -57,6 +70,8 @@ final class MergeDuplicatePrisoners extends Command {
         ['bill-ayers',                   ['william-charles-ayers']],
         ['william-taylor-harris',        ['bill-harris']],
         ['anna-mae-pictou-aquash',       ['anna-mae-aquash']],
+        ['robert-robideau',              ['bob-robideau']],
+        ['darrelle-dean-butler',         ['dino-butler']],
         ['thomas-william-manning',       ['tom-manning']],
         ['dylcia-pagan',                 ['dylcia-pagan-2']],
         ['mark-rudd',                    ['mark-william-rudd']],
@@ -72,16 +87,36 @@ final class MergeDuplicatePrisoners extends Command {
         ['douglas-l-wright',             ['douglas-wright']],
     ];
 
-    public function handle(): int {
+    /**
+     * Canonicals whose duplicate records carry only redundant, less-complete
+     * copies of a case already held (in fuller form) by the canonical. For
+     * these the duplicate's cases are deleted rather than reassigned, so the
+     * merged record does not end up with two near-identical rows for the same
+     * event. Verified individually against production for each listed pair.
+     */
+    private array $dropDupCasesFor = [
+        'anna-mae-pictou-aquash',
+        'robert-robideau',
+        'darrelle-dean-butler',
+    ];
+
+    public function handle(): int
+    {
         $apply = (bool) $this->option('apply');
+        $only = array_values(array_filter(array_map('trim', explode(',', (string) $this->option('only')))));
         $merged = 0;
         $skipped = 0;
 
         foreach ($this->groups as [$canonicalSlug, $dupSlugs]) {
+            if ($only && ! in_array($canonicalSlug, $only, true)) {
+                continue;
+            }
+
             $canonical = Prisoner::where('slug', $canonicalSlug)->first();
             if (! $canonical) {
                 $this->warn("MISS canonical /prisoner/{$canonicalSlug} — skipping group.");
                 $skipped++;
+
                 continue;
             }
 
@@ -89,14 +124,15 @@ final class MergeDuplicatePrisoners extends Command {
                 $dup = Prisoner::where('slug', $dupSlug)->first();
                 if (! $dup) {
                     $this->line("  -- already merged or missing: /prisoner/{$dupSlug}");
+
                     continue;
                 }
                 if ($dup->id === $canonical->id) {
                     continue;
                 }
 
-                $caseCount     = PrisonerCase::where('prisoner_id', $dup->id)->count();
-                $podcastCount  = PodcastEpisode::where('prisoner_id', $dup->id)->count();
+                $caseCount = PrisonerCase::where('prisoner_id', $dup->id)->count();
+                $podcastCount = PodcastEpisode::where('prisoner_id', $dup->id)->count();
                 $calendarCount = CalendarEntry::where('prisoner_id', $dup->id)->count();
 
                 $this->info("MERGE  /prisoner/{$dupSlug}  →  /prisoner/{$canonicalSlug}");
@@ -106,8 +142,15 @@ final class MergeDuplicatePrisoners extends Command {
                     continue;
                 }
 
-                DB::transaction(function () use ($canonical, $dup) {
-                    PrisonerCase::where('prisoner_id', $dup->id)->update(['prisoner_id' => $canonical->id]);
+                DB::transaction(function () use ($canonical, $dup, $canonicalSlug) {
+                    if (in_array($canonicalSlug, $this->dropDupCasesFor, true)
+                        && PrisonerCase::where('prisoner_id', $canonical->id)->exists()) {
+                        // Canonical already holds the authoritative, more complete
+                        // case(s); the duplicate's are redundant copies — drop them.
+                        PrisonerCase::where('prisoner_id', $dup->id)->delete();
+                    } else {
+                        PrisonerCase::where('prisoner_id', $dup->id)->update(['prisoner_id' => $canonical->id]);
+                    }
                     PodcastEpisode::where('prisoner_id', $dup->id)->update(['prisoner_id' => $canonical->id]);
                     CalendarEntry::where('prisoner_id', $dup->id)->update(['prisoner_id' => $canonical->id]);
 
