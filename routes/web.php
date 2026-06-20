@@ -52,6 +52,7 @@ Route::controller(SiteController::class)
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
         Route::get('about', 'about');
+        Route::get('civic-profile', 'civicProfile');
         Route::post('/sign-up', 'signUp');
         Route::get('/{slug}', 'page');
     });
