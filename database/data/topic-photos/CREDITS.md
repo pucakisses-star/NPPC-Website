@@ -19,11 +19,13 @@ as their licenses require. Each links to the Commons File: page.
 | civil-disobedience-plowshares | civil-disobedience-plowshares.jpg | CC BY 2.5 | Nevarren at English Wikipedia | [File](https://commons.wikimedia.org/wiki/File:Dan_Berrigan_1.jpg) |
 | civil-rights-black-power | civil-rights-black-power.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_marching_from_the_Washington_Monument_to_the_Lincoln_Memorial%29_-_NARA_-_542010.jpg) |
 | cointelpro-1956-1971 | cointelpro-1956-1971.jpg | CC BY-SA 4.0 | Sdkb | [File](https://commons.wikimedia.org/wiki/File:FBI_headquarters_at_dusk.jpg) |
+| communist-party-usa | communist-party-usa.jpg | CC BY 2.0 | Becker1999 from Grove City, OH | [File](https://commons.wikimedia.org/wiki/File:Communist_Party_USA_at_the_Democracy_Awakening_rally_at_U.S._Capitol_%2831553460000%29.jpg) |
 | environmental-animal-liberation | environmental-animal-liberation.jpg | CC BY 3.0 | Brian Stansberry (photographer) | [File](https://commons.wikimedia.org/wiki/File:Peta-anti-ringling-circus-protesters-tn1.jpg) |
 | environmental-justice | environmental-justice.jpg | CC BY-SA 2.0 | Lorie Shaull from Washington, United States | [File](https://commons.wikimedia.org/wiki/File:Kids_Want_Climate_Justice_%2834168280266%29.jpg) |
 | ferguson-the-movement-for-black-lives-2014-2016 | ferguson-the-movement-for-black-lives-2014-2016.png | CC BY-SA 4.0 | Loavesofbread | [File](https://commons.wikimedia.org/wiki/File:Ferguson_Day_6%2C_Picture_44.png) |
 | hunger-strikers | hunger-strikers.jpg | CC BY-SA 2.0 | Platforma Obywatelska RP | [File](https://commons.wikimedia.org/wiki/File:Dobrze%C5%84_Wielki_%E2%80%93_protest_g%C5%82odowy_i_Grzegorz_Schetyna.JPG) |
 | indigenous-sovereignty | indigenous-sovereignty.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:American_Indian_Movement_Poster.jpg) |
+| industrial-workers-of-the-world | industrial-workers-of-the-world.png | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:The_Lawrence_textile_strike_begins_1912.png) |
 | j20-the-inauguration-day-prosecutions-2017 | j20-the-inauguration-day-prosecutions-2017.jpg | CC BY-SA 2.0 | Elvert Barnes | [File](https://commons.wikimedia.org/wiki/File:01a.DisruptJ20.Sticker.WDC.5January2016_%2832096716916%29.jpg) |
 | labor-industrial-unionism | labor-industrial-unionism.png | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Iwwlogo.svg) |
 | lgbtq-liberation | lgbtq-liberation.jpg | CC BY-SA 3.0 | CEphoto, Uwe Aranas | [File](https://commons.wikimedia.org/wiki/File:Cologne_Germany_Cologne-Gay-Pride-2014_Parade-09.jpg) |
@@ -32,6 +34,7 @@ as their licenses require. Each links to the Commons File: page.
 | palestine-solidarity | palestine-solidarity.jpg | CC BY-SA 4.0 | Philafrenzy | [File](https://commons.wikimedia.org/wiki/File:SOAS_BDS_demonstration_27_April_2017_12.jpg) |
 | prison-abolition | prison-abolition.jpg | CC BY-SA 4.0 | Brunnaiz | [File](https://commons.wikimedia.org/wiki/File:La_pres%C3%B3_%C3%A9s_tortura.jpg) |
 | puerto-rican-independence | puerto-rican-independence.png | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Flag_of_Puerto_Rico_%281895-1952%2C_light_blue%29.svg) |
+| puerto-rican-nationalist-party | puerto-rican-nationalist-party.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Relatives_of_Nationalists_killed_in_the_Ponce_massacre.png) |
 | standing-rock-the-nodapl-water-protectors-2016-2017 | standing-rock-the-nodapl-water-protectors-2016-2017.png | CC BY 3.0 | Desiree Kane | [File](https://commons.wikimedia.org/wiki/File:%22Happi%22_American_Horse_direct_action_against_DAPL%2C_August_2016_%28cropped%29.png) |
 | student-nonviolent-coordinating-committee | student-nonviolent-coordinating-committee.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Civil_rights_leaders_talk_with_reporters_after_meeting_with_President_John_F._Kennedy_after_the_March_on_Washington%2C_D.C._%28LOC%29_%2815336661546%29.jpg) |
 | students-for-a-democratic-society | students-for-a-democratic-society.jpg | CC BY-SA 3.0 | Ben Schumin | [File](https://commons.wikimedia.org/wiki/File:Funk_the_War_7.jpg) |

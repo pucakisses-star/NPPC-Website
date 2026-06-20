@@ -101,6 +101,21 @@ final class AddOrganizationTopics extends Command
                 'slug' => 'student-nonviolent-coordinating-committee',
                 'body' => '<p>The Student Nonviolent Coordinating Committee (SNCC) was a leading civil-rights organization formed in 1960 out of the lunch-counter sit-in movement. Its young organizers led the Freedom Rides, Deep South voter-registration drives, and the 1964 Freedom Summer, enduring mass arrests, beatings, and jailings. Under later chairmen Stokely Carmichael and H. Rap Brown it embraced Black Power, and several veterans were prosecuted as the state cracked down.</p>',
             ],
+            [
+                'title' => 'Industrial Workers of the World',
+                'slug' => 'industrial-workers-of-the-world',
+                'body' => '<p>The Industrial Workers of the World (IWW), whose members are known as "Wobblies," is a revolutionary industrial union founded in Chicago in 1905 to organize all workers into "One Big Union." Its militant free-speech fights and strikes drew ferocious repression: songwriter Joe Hill was executed in 1915, organizer Frank Little was lynched in 1917, and during World War I the federal government prosecuted more than a hundred IWW leaders — among them Big Bill Haywood — under the Espionage Act in one of the largest mass political trials in U.S. history. Many served long sentences at Leavenworth, and the union remains a touchstone of American labor radicalism.</p>',
+            ],
+            [
+                'title' => 'Communist Party USA',
+                'slug' => 'communist-party-usa',
+                'body' => '<p>The Communist Party USA (CPUSA), founded in 1919, was for decades the largest organization of the American radical left, active in labor organizing, civil rights, and anti-fascist work. During the early Cold War its leaders were prosecuted under the Smith Act for "conspiring to advocate" the overthrow of the government: the 1949 Foster–Dennis trial sent Eugene Dennis, Benjamin J. Davis Jr., Henry Winston, Gus Hall, and others to federal prison, followed by a second wave of "second-string" prosecutions across the country. The convictions, upheld in Dennis v. United States (1951), made the party\'s leadership the central political prisoners of the McCarthy era.</p>',
+            ],
+            [
+                'title' => 'Puerto Rican Nationalist Party',
+                'slug' => 'puerto-rican-nationalist-party',
+                'body' => '<p>The Puerto Rican Nationalist Party (Partido Nacionalista de Puerto Rico), led from 1930 by Pedro Albizu Campos, was the principal force for the island\'s independence and the wellspring of the modern Puerto Rican political-prisoner tradition. Its members were prosecuted again and again: the 1936 seditious-conspiracy trial that sent Albizu and his co-defendants to Atlanta; the 1950 uprisings at Jayuya and elsewhere and the attack on Blair House; and the 1954 armed protest in the U.S. House of Representatives. Figures such as Albizu Campos, Lolita Lebrón, Blanca Canales, and Oscar Collazo became enduring symbols of the independence struggle.</p>',
+            ],
         ];
     }
 }
