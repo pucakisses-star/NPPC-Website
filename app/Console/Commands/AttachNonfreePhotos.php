@@ -29,6 +29,7 @@ final class AttachNonfreePhotos extends Command
     private array $map = [
         [['Juan Antonio Corretjer', 'Corretjer'], 'corretjer-juan-antonio.jpg'],
         [['Donald Cox', 'Don Cox'], 'cox-donald.jpg'],
+        [['Pete O\'Neal'], 'oneal-pete.jpg'],
     ];
 
     public function handle(): int
