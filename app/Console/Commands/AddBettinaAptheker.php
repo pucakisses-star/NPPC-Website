@@ -7,6 +7,8 @@ use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /**
  * Adds Bettina Aptheker (b. 1944) — Free Speech Movement Steering Committee
@@ -76,22 +78,44 @@ final class AddBettinaAptheker extends Command
                 PrisonerCase::create($case);
             });
             $this->info('Added Bettina Aptheker.');
-
-            return self::SUCCESS;
+        } else {
+            DB::transaction(function () use ($existing, $fields, $case) {
+                $existing->fill($fields)->save();
+                $row = $existing->cases()->first();
+                if ($row) {
+                    $row->fill($case)->save();
+                } else {
+                    $case['prisoner_id'] = $existing->id;
+                    PrisonerCase::create($case);
+                }
+            });
+            $this->info('Updated Bettina Aptheker.');
         }
 
-        DB::transaction(function () use ($existing, $fields, $case) {
-            $existing->fill($fields)->save();
-            $row = $existing->cases()->first();
-            if ($row) {
-                $row->fill($case)->save();
-            } else {
-                $case['prisoner_id'] = $existing->id;
-                PrisonerCase::create($case);
-            }
-        });
-        $this->info('Updated Bettina Aptheker.');
+        $prisoner = Prisoner::withUnderReview()->where('name', 'Bettina Aptheker')->first();
+        $this->attachLocalPhoto($prisoner, 'photos/bettina-aptheker.jpg');
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Copy the committed public-domain photo (her 1975 portrait from Wikimedia
+     * Commons) onto the public disk and set it as her photo. Re-synced each run.
+     */
+    private function attachLocalPhoto(Prisoner $prisoner, string $relative): void
+    {
+        $src = database_path('data/'.$relative);
+        if (! is_file($src)) {
+            $this->warn("  Local photo not found: {$relative}");
+
+            return;
+        }
+
+        $ext = strtolower(pathinfo($src, PATHINFO_EXTENSION) ?: 'jpg');
+        $path = 'prisoners/'.Str::slug($prisoner->name).'.'.$ext;
+        Storage::disk('public')->put($path, (string) file_get_contents($src));
+        $prisoner->photo = $path;
+        $prisoner->save();
+        $this->info("  Photo set: {$path}");
     }
 }
