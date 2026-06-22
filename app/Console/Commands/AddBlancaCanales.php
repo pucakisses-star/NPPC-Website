@@ -40,7 +40,7 @@ final class AddBlancaCanales extends Command
             'last_name' => 'Canales',
             'aka' => 'Blanca Canales Torresola',
             'gender' => 'Female',
-            'race' => 'Latino',
+            'race' => 'Hispanic',
             'state' => 'Puerto Rico',
             'era' => '1950s',
             'birthdate' => '1906-02-17',

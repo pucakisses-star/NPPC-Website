@@ -50,7 +50,7 @@ final class AddCldcPrisoners extends Command {
                 'last_name' => 'Paez Terán',
                 'description' => 'Environmental activist and forest defender known as "Tortuguita" ("Little Turtle"). A nonbinary Venezuelan-American organizer, Tortuguita was killed by Georgia State Patrol officers during a multi-agency raid on the Weelaunee Forest encampment opposing the construction of the Atlanta Public Safety Training Center ("Cop City"). An autopsy found at least 57 gunshot wounds and no gunpowder residue on their hands; the official narrative claimed they fired first, a claim contradicted by body-camera footage and the autopsy. No officers were charged. Tortuguita\'s killing galvanized the Stop Cop City movement.',
                 'state' => 'Georgia',
-                'race' => 'Hispanic/Latino',
+                'race' => 'Hispanic',
                 'gender' => 'Nonbinary',
                 'death_date' => '2023-01-18',
                 'ideologies' => ['Anarchist', 'Anti-fascist', 'Environmentalist'],
