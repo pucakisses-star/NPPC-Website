@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
- * Attach prisoner portraits from the National Jericho Movement's "Ancestors"
- * pages (committed in database/data/photos/jericho/) to matching prisoner
- * entries that currently HAVE NO PHOTO. Existing photos are never overwritten.
+ * Attach prisoner portraits from the National Jericho Movement's prisoner pages
+ * — "Ancestors", "Freed Political Prisoners" and the current prisoners list
+ * (committed in database/data/photos/jericho/) — to matching prisoner entries
+ * that currently HAVE NO PHOTO. Existing photos are never overwritten.
  *
  * Matching is variant-aware: each entry lists several name fragments and the
  * first prisoner matched (case-insensitively) gets the photo. Prisoners not
@@ -85,6 +86,28 @@ final class AttachJerichoPhotos extends Command
         [['Tarek Mehanna', 'Mehanna'], 'mehanna-tarek.png'],
         [['Leonard Peltier'], 'peltier-leonard.png'],
         [['Rebecca Rubin'], 'rubin-rebecca.jpg'],
+
+        // ---- Jericho current political-prisoners list ----
+        [['Abdul Olugbala', 'Olugbala Shakur'], 'abdul-olugbala-shakur.jpg'],
+        [['Shaka Shakur'], 'shaka-shakur.jpg'],
+        [['Mumia Abu-Jamal', 'Mumia'], 'mumia-abu-jamal.png'],
+        [['Abdul Azeez'], 'abdul-azeez.jpg'],
+        [['Malik Smith', 'Meral Smith'], 'malik-bey.jpg'],
+        [['Hanif Shabazz Bey'], 'hanif-shabazz-bey.jpg'],
+        [['Joseph Bowen', 'Joe Joe Bowen'], 'joseph-bowen.jpg'],
+        [['Kojo Bomani Sababu', 'Grailing Brown'], 'kojo-bomani-sababu.jpg'],
+        [['Fred Burton', 'Muhammad Burton'], 'fred-burton.jpg'],
+        [['Oso Blanco', 'Byron Chubbuck', 'Byron Shane Chubbuck'], 'oso-blanco.png'],
+        [['Alexander Contompasis', 'Alex Stokes'], 'alexander-contompasis.jpg'],
+        [['Bill Dunne', 'William Dunne'], 'bill-dunne.jpg'],
+        [['Casey Goonan'], 'casey-goonan.jpg'],
+        [['Alvaro Luna Hernandez', 'Alvaro Luna Hernández', 'Xinachtli'], 'alvaro-luna-hernandez.png'],
+        [['Kamau Sadiki', 'Freddie Hilton'], 'kamau-sadiki.png'],
+        [['Larry Hoover'], 'larry-hoover.jpg'],
+        [['Jeff Fort', 'Abdullah Malik'], 'jeff-fort.jpg'],
+        [['Marius Mason', 'Marie Mason'], 'marius-mason.jpg'],
+        [['Joy Powell'], 'joy-powell.png'],
+        [['Jessica Reznicek', 'Reznicek'], 'jessica-reznicek.jpg'],
     ];
 
     public function handle(): int
