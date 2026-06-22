@@ -148,7 +148,7 @@ final class AddPolViolenceDeep extends Command {
                 'last_name' => 'Villarreal',
                 'description' => 'Mexican revolutionary and Partido Liberal Mexicano (PLM) organizer who, with Ricardo Flores Magón and Librado Rivera, was arrested in Los Angeles in 1907 on U.S. neutrality-law charges for organizing armed expeditions across the border against the Porfirio Díaz dictatorship. Imprisoned in Yuma Territorial Prison and later Florence (Arizona). Released in 1910; later served as Minister of Agriculture under Mexican President Álvaro Obregón.',
                 'state' => 'California',
-                'race' => 'Hispanic/Latino',
+                'race' => 'Hispanic',
                 'gender' => 'Male',
                 'birthdate' => '1879-07-17',
                 'death_date' => '1944-12-16',

@@ -27,7 +27,7 @@ class AddChicanoMovementPrisoners extends Command {
         $cases = [
             [
                 'name' => 'Ramsey Muniz', 'first' => 'Ramsey', 'last' => 'Muniz',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'birthdate' => '1942-12-13', 'death' => '2022-10-02',
+                'gender' => 'Male', 'race' => 'Hispanic', 'birthdate' => '1942-12-13', 'death' => '2022-10-02',
                 'state' => 'Texas', 'ideologies' => ['Chicano movement', 'Raza Unida'], 'affiliation' => ['Raza Unida Party'],
                 'bio' => 'Ramiro "Ramsey" Muñiz (December 13, 1942 – October 2, 2022) was a Mexican-American attorney and the gubernatorial candidate of the Raza Unida Party — the independent Chicano political party — in Texas in 1972 and 1974, the first Latino to appear on a Texas general-election ballot (he drew some 214,000 votes in 1972). In July and November 1976, federal authorities charged him with conspiracy to smuggle marijuana; he pleaded guilty to one count and served five years in federal prison, a prosecution his supporters saw as political retaliation that effectively destroyed the Raza Unida Party. In 1994 Muñiz was convicted on another drug charge and sentenced to life without parole — a case his many supporters across the Chicano movement also denounced as a frame-up. After a long "Free Ramsey Muñiz" campaign, he was released from federal prison on December 10, 2018, and died in 2022.',
                 'charges' => 'Federal drug charges — the Raza Unida Party\'s gubernatorial candidate was charged in 1976 with conspiracy to smuggle marijuana (guilty plea, five years); he was again convicted on a drug charge in 1994 (life), a prosecution supporters likewise considered political targeting.',
@@ -36,7 +36,7 @@ class AddChicanoMovementPrisoners extends Command {
             ],
             [
                 'name' => 'Mario Cantu', 'first' => 'Mario', 'last' => 'Cantu',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'birthdate' => '1937-04-02', 'death' => '2000-11-09',
+                'gender' => 'Male', 'race' => 'Hispanic', 'birthdate' => '1937-04-02', 'death' => '2000-11-09',
                 'state' => 'Texas', 'ideologies' => ['Chicano movement'], 'affiliation' => ['Tu Casa', 'Mario Cantú Defense Committee'],
                 'bio' => 'Mario Cantú (April 2, 1937 – November 9, 2000) was a San Antonio restaurateur and Chicano-movement activist who became, by his account, the first U.S. citizen convicted of harboring undocumented immigrants. Radicalized during a 1962 drug imprisonment, he turned his family\'s West Side restaurant into a hub of Chicano organizing and founded "Tu Casa," a group that helped Mexican immigrants obtain legal status, along with a committee against police brutality. His immigrant-aid work brought a federal prosecution for harboring undocumented workers; despite a Mario Cantú Defense Committee that drew prominent Chicano, political, and religious support, he was convicted and sentenced to five years\' probation. In 1978, summoned to explain trips to Mexico the government deemed probation violations, Cantú chose self-exile instead — traveling to Paris for a year-long campaign denouncing U.S. human-rights abuses against Chicanos and Mexicans.',
                 'charges' => 'Conviction for harboring undocumented workers — reportedly the first U.S. citizen convicted of the charge — for his immigrant-aid work through the group "Tu Casa."',
@@ -45,7 +45,7 @@ class AddChicanoMovementPrisoners extends Command {
             ],
             [
                 'name' => 'Moises Morales', 'first' => 'Moises', 'last' => 'Morales',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'birthdate' => null, 'death' => null,
+                'gender' => 'Male', 'race' => 'Hispanic', 'birthdate' => null, 'death' => null,
                 'state' => 'New Mexico', 'ideologies' => ['Chicano movement', 'Raza Unida'], 'affiliation' => ['La Raza Unida Party'],
                 'bio' => 'Moisés Morales was a La Raza Unida Party activist in Rio Arriba County, New Mexico, who challenged the county\'s longtime Democratic political boss and sheriff, Emilio Naranjo. In 1975, Naranjo\'s men planted marijuana in Morales\'s truck — and in that of fellow activist Antonio "Ike" DeVargas — in what Morales\'s lawyer called one of the most obvious cases of planted evidence and political retaliation he had ever seen. At a December 6, 1976 trial, a jury heard testimony that the sheriff had framed him and acquitted Morales. Naranjo was afterward convicted of perjury in connection with the planted evidence, though the New Mexico Supreme Court overturned that conviction in 1980. Morales later won civil settlements over the frame-up.',
                 'charges' => 'Marijuana-possession charges that a jury found had been planted in his truck by the machine of Rio Arriba County boss and sheriff Emilio Naranjo — political retaliation against a La Raza Unida activist who ran against Naranjo for sheriff.',
@@ -54,7 +54,7 @@ class AddChicanoMovementPrisoners extends Command {
             ],
             [
                 'name' => 'Travis Morales', 'first' => 'Travis', 'last' => 'Morales',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'birthdate' => null, 'death' => null,
+                'gender' => 'Male', 'race' => 'Hispanic', 'birthdate' => null, 'death' => null,
                 'state' => 'Texas', 'ideologies' => ['Chicano movement', 'Anti-police brutality'], 'affiliation' => ['People United to Fight Police Brutality', 'Revolutionary Communist Party'],
                 'bio' => sprintf(self::MOODY, 'Travis Morales'),
                 'charges' => self::MOODY_CHARGES, 'convicted' => self::MOODY_CONVICTED, 'sentence' => null,

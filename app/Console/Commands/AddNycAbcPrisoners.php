@@ -181,7 +181,7 @@ final class AddNycAbcPrisoners extends Command {
                 'last_name' => 'Hernandez',
                 'description' => 'Longtime Chicano human rights organizer from Texas who led the Ricardo Aldape Guerra Defense Committee and founded the Barrio Defense Committees. He was convicted in 1997 in Odessa, Texas for disarming a sheriff who had drawn a pistol on him, and sentenced to 50 years. He continues to organize from prison.',
                 'state' => 'Texas',
-                'race' => 'Hispanic/Latino',
+                'race' => 'Hispanic',
                 'gender' => 'Male',
                 'ideologies' => ['Chicano Liberation', 'Indigenous Liberation'],
                 'era' => '1990s',

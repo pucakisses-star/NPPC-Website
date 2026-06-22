@@ -50,7 +50,7 @@ final class AddRosaCollazoCosu extends Command {
                 'aka' => 'Rosa Mercedes Cortez',
                 'description' => 'Puerto Rican independence activist and wife of Oscar Collazo, one of the two Puerto Rican Nationalist Party members who attempted to assassinate President Harry S. Truman at Blair House on November 1, 1950. Rosa was arrested by the FBI on the day of the attack on suspicion of conspiracy and held in federal custody for approximately eight months without formal trial; she was eventually released without conviction. She remained an outspoken independentista organizer in New York and Puerto Rico for the rest of her life, advocating for her husband\'s release until his sentence was commuted by President Carter in 1979.',
                 'state' => 'New York',
-                'race' => 'Hispanic/Latino',
+                'race' => 'Hispanic',
                 'gender' => 'Female',
                 'ideologies' => ['Puerto Rican Independence', 'Nationalist'],
                 'affiliation' => ['Puerto Rican Nationalist Party'],

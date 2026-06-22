@@ -50,7 +50,7 @@ final class AddVillegasMolina extends Command {
                 'middle_name'  => 'Antonio',
                 'last_name'    => 'Villegas Molina',
                 'gender'       => 'Male',
-                'race'         => 'Hispanic/Latino',
+                'race'         => 'Hispanic',
                 'state'        => 'California',
                 'era'          => '2020s',
                 'ideologies'   => ['Immigrant Rights', 'Civil Rights'],

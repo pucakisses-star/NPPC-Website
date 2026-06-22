@@ -458,7 +458,7 @@ class AddNuclearResisterPrisoners extends Command
                 'inmate_number' => '93613-020',
                 'aka' => 'Father Luis Barrios',
                 'birthdate' => '1952-01-01', 'death_date' => null,
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'New York', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'New York', 'era' => '2000s',
                 'ideologies' => ['Anti-war', 'Liberation theology'],
                 'affiliation' => ['Episcopal Church', 'SOA Watch', 'IFCO/Pastors for Peace'],
                 'in_custody' => false, 'released' => true,
@@ -652,7 +652,7 @@ class AddNuclearResisterPrisoners extends Command
             'data' => [
                 'name' => 'José Vélez Acosta', 'first_name' => 'José', 'last_name' => 'Vélez Acosta',
                 'inmate_number' => '23883-069',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican Independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
                 'description' => "José Vélez Acosta was one of dozens of Puerto Rican residents and solidarity activists who served substantial federal prison time for civil disobedience halting U.S. Navy bombing exercises on the inhabited island of Vieques. He was sentenced to 33 months in federal prison and held at the United States Penitentiary at Coleman, Florida.\n\n{$viequesContext}",
@@ -669,7 +669,7 @@ class AddNuclearResisterPrisoners extends Command
             'data' => [
                 'name' => 'José Pérez González', 'first_name' => 'José', 'last_name' => 'Pérez González',
                 'inmate_number' => '21519-069',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican Independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
                 'description' => "José Pérez González received the longest federal sentence among the Vieques resisters: five years in federal prison for conspiracy, damage to federal property, and probation violation in connection with civil disobedience halting U.S. Navy bombing of the inhabited Puerto Rican island. He served at FCI Edgefield in South Carolina and later at FCI Yazoo City Medium in Mississippi.\n\n{$viequesContext}",
@@ -686,7 +686,7 @@ class AddNuclearResisterPrisoners extends Command
             'data' => [
                 'name' => 'Jorge Cruz Hernandez', 'first_name' => 'Jorge', 'last_name' => 'Cruz Hernandez',
                 'inmate_number' => '26318-069',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican Independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
                 'description' => "Jorge Cruz Hernandez served 18 months in federal prison at FCI Edgefield, South Carolina for civil disobedience halting U.S. Navy bombing on Vieques.\n\n{$viequesContext}",
@@ -703,7 +703,7 @@ class AddNuclearResisterPrisoners extends Command
             'data' => [
                 'name' => 'José Montañez Sanes', 'first_name' => 'José', 'last_name' => 'Montañez Sanes',
                 'inmate_number' => '26317-069',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican Independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
                 'description' => "José Montañez Sanes served 18 months in federal custody at MDC Guaynabo in Puerto Rico for civil disobedience halting U.S. Navy bombing on Vieques.\n\n{$viequesContext}",
@@ -1451,7 +1451,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Ismael Guadalupe Torres', 'first_name' => 'Ismael', 'last_name' => 'Guadalupe Torres',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Puerto Rican Independence'],
                 'affiliation' => ['Vieques Committee for the Rescue and Development', 'Comité Pro Rescate y Desarrollo de Vieques'],
                 'in_custody' => false, 'released' => true,
@@ -1468,7 +1468,7 @@ class AddNuclearResisterPrisoners extends Command
         $defendants[] = [
             'data' => [
                 'name' => 'Israel Medina Colón', 'first_name' => 'Israel', 'last_name' => 'Medina Colón',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Puerto Rican Independence'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
                 'description' => "Israel Medina Colón served 120–140 days in federal custody for occupying the U.S. Navy bombing range on Vieques Island in January 2003 — the final wave of civil disobedience that helped force the Navy's withdrawal in May 2003.\n\n{$viequesContext}",
@@ -1485,7 +1485,7 @@ class AddNuclearResisterPrisoners extends Command
             'data' => [
                 'name' => 'Alberto De Jesús Mercado', 'first_name' => 'Alberto', 'last_name' => 'De Jesús Mercado',
                 'aka' => 'Tito Kayak',
-                'gender' => 'Male', 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                'gender' => 'Male', 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                 'ideologies' => ['Anti-colonial', 'Puerto Rican Independence', 'Environmental'],
                 'affiliation' => null, 'in_custody' => false, 'released' => true,
                 'description' => "Alberto 'Tito Kayak' De Jesús Mercado is a Puerto Rican environmental and independence activist famous for spectacular climbing actions, including a 2000 climb of the Statue of Liberty in support of Vieques. He was sentenced to one year in federal custody for repeat trespass on Vieques between 1999 and 2001.\n\n{$viequesContext}",
@@ -1845,7 +1845,7 @@ class AddNuclearResisterPrisoners extends Command
             $defendants[] = [
                 'data' => array_filter([
                     'name' => $name, 'first_name' => $first, 'last_name' => $last,
-                    'gender' => $gender, 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                    'gender' => $gender, 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                     'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican Independence'],
                     'affiliation' => ['Vieques resistance'], 'in_custody' => false, 'released' => true,
                     'description' => "{$name} was arrested for trespass on the U.S. Navy bombing range at Vieques, Puerto Rico, as part of the sustained 1999–2003 civil-disobedience campaign that ultimately forced the Navy to withdraw from the inhabited island in May 2003. Sentenced to {$sentence}.\n\n{$viequesContext}",
@@ -2013,7 +2013,7 @@ class AddNuclearResisterPrisoners extends Command
             $defendants[] = [
                 'data' => array_filter([
                     'name' => $name, 'first_name' => $first, 'last_name' => $last,
-                    'gender' => $gender, 'race' => 'Hispanic/Latino', 'state' => 'Puerto Rico', 'era' => '2000s',
+                    'gender' => $gender, 'race' => 'Hispanic', 'state' => 'Puerto Rico', 'era' => '2000s',
                     'ideologies' => ['Anti-colonial', 'Anti-war', 'Puerto Rican Independence'],
                     'affiliation' => ['Vieques resistance'], 'in_custody' => false, 'released' => true,
                     'inmate_number' => $bopId,

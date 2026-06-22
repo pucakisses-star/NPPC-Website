@@ -103,7 +103,7 @@ final class AddManningGerena extends Command {
                 'last_name' => 'Gerena',
                 'description' => 'Puerto Rican independentista and member of Los Macheteros (Ejército Popular Boricua) who, while working as a security guard at the Wells Fargo armored car depot in West Hartford, Connecticut, on September 12, 1983, helped engineer a $7 million heist — at the time the largest cash robbery in U.S. history. He immediately disappeared. Indicted in 1985 but never located. Gerena was on the FBI Ten Most Wanted Fugitives list from May 14, 1984 until December 14, 2016 — a 32-year stretch that is the longest run in the program\'s history. Federal authorities long believed he was living in Cuba; his current status is unknown.',
                 'state' => 'Connecticut',
-                'race' => 'Hispanic/Latino',
+                'race' => 'Hispanic',
                 'gender' => 'Male',
                 'birthdate' => '1958-06-24',
                 'ideologies' => ['Puerto Rican Independence', 'Anti-imperialist'],

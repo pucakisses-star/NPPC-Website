@@ -11,9 +11,8 @@ use Illuminate\Console\Command;
  * (e.g. Japanese American, Vietnamese, Filipino) collapse into the broad
  * category (Asian), and mixed/variant spellings are unified. Idempotent.
  *
- * Canonical categories: White, Black, Asian, Hispanic/Latino,
- * Native American, Middle Eastern. Records with no race (null) are left
- * untouched.
+ * Canonical categories: White, Black, Asian, Hispanic, Native American,
+ * Middle Eastern. Records with no race (null) are left untouched.
  */
 class NormalizeRaces extends Command
 {
@@ -25,15 +24,18 @@ class NormalizeRaces extends Command
      * Non-canonical value => canonical major category.
      */
     private const MAP = [
-        // Hispanic / Latino
-        'Hispanic' => 'Hispanic/Latino',
-        'Latino' => 'Hispanic/Latino',
-        'Latina' => 'Hispanic/Latino',
-        'Latinx' => 'Hispanic/Latino',
-        'Hispanic/Latina' => 'Hispanic/Latino',
-        'Chicano' => 'Hispanic/Latino',
-        'Cuban' => 'Hispanic/Latino',
-        'Puerto Rican' => 'Hispanic/Latino',
+        // Hispanic (base level for the Latino / Hispanic cluster)
+        'Hispanic/Latino' => 'Hispanic',
+        'Hispanic/Latina' => 'Hispanic',
+        'Latino' => 'Hispanic',
+        'Latina' => 'Hispanic',
+        'Latinx' => 'Hispanic',
+        'Chicano' => 'Hispanic',
+        'Chicana' => 'Hispanic',
+        'Cuban' => 'Hispanic',
+        'Cuban American' => 'Hispanic',
+        'Mexican American' => 'Hispanic',
+        'Puerto Rican' => 'Hispanic',
 
         // Asian (collapse national/ethnic sub-labels)
         'Japanese American' => 'Asian',
@@ -80,7 +82,7 @@ class NormalizeRaces extends Command
         $this->info("\n".($dry ? 'Would update' : 'Updated')." {$total} record(s).");
 
         // Report any race values still outside the canonical set.
-        $canonical = ['White', 'Black', 'Asian', 'Hispanic/Latino', 'Native American', 'Middle Eastern'];
+        $canonical = ['White', 'Black', 'Asian', 'Hispanic', 'Native American', 'Middle Eastern'];
         $stray = Prisoner::withUnderReview()
             ->whereNotNull('race')
             ->whereNotIn('race', $canonical)

@@ -41,7 +41,7 @@ final class AddGabrielaSaldana extends Command {
                 'first_name'     => 'Gabriela',
                 'last_name'      => 'Saldana',
                 'gender'         => 'Female',
-                'race'           => 'Hispanic/Latino',
+                'race'           => 'Hispanic',
                 'state'          => 'Florida',
                 'era'            => '2020s',
                 'ideologies'     => ['Free Speech', 'Palestine Solidarity'],

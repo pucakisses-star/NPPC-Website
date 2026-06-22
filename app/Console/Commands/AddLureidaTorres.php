@@ -37,7 +37,7 @@ TXT;
                 'last_name'      => 'Torres',
                 'description'    => self::BIO,
                 'gender'         => 'Female',
-                'race'           => 'Hispanic/Latino',
+                'race'           => 'Hispanic',
                 'state'          => 'New York',
                 'era'            => '1970s',
                 'ideologies'     => ['Puerto Rican Independence', 'Socialism'],

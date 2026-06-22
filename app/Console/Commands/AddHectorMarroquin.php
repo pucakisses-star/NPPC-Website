@@ -38,7 +38,7 @@ TXT;
                 'last_name'      => 'Marroquin',
                 'description'    => self::BIO,
                 'gender'         => 'Male',
-                'race'           => 'Hispanic/Latino',
+                'race'           => 'Hispanic',
                 'state'          => 'New York',
                 'era'            => '1970s',
                 'ideologies'     => ['Socialism', 'Immigrant rights'],

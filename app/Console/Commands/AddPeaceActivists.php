@@ -59,7 +59,7 @@ class AddPeaceActivists extends Command
                 'data' => [
                     'name' => 'Cesar Chavez', 'first_name' => 'Cesar', 'middle_name' => 'Estrada', 'last_name' => 'Chavez',
                     'birthdate' => '1927-03-31', 'death_date' => '1993-04-23',
-                    'gender' => 'Male', 'race' => 'Hispanic/Latino',
+                    'gender' => 'Male', 'race' => 'Hispanic',
                     'state' => 'California', 'era' => '1970s',
                     'ideologies' => ['Labor', 'Civil rights', 'Nonviolence', 'Catholic Worker'],
                     'affiliation' => ['United Farm Workers', 'Community Service Organization'],
