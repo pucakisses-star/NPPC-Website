@@ -10,10 +10,11 @@ use Illuminate\Support\Str;
 /**
  * Attaches the freely-licensed Wikimedia Commons portraits imported for the
  * recent batches of activists (database/data/photos/*). Only public-domain and
- * Creative Commons images are included — non-free / fair-use Wikipedia portraits
- * (e.g. Blanca Canales, Juan Antonio Corretjer, whose only Wikipedia images are
- * copyrighted en.wikipedia uploads) are deliberately excluded. Attribution for
- * the CC images is recorded in database/data/photos/CREDITS-wikipedia.md.
+ * Creative Commons images are included here. Copyrighted en.wikipedia uploads are
+ * not free: Blanca Canales's only Wikipedia image remains excluded, while Juan
+ * Antonio Corretjer's is attached separately, at the site owner's direction,
+ * by prisoners:attach-nonfree-photos. Attribution for the CC images is recorded
+ * in database/data/photos/CREDITS-wikipedia.md.
  *
  * The photo is copied onto the public disk and set on the prisoner each run, so
  * this is idempotent / re-syncable. Prisoners not present (e.g. on a stale local
