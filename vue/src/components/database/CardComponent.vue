@@ -37,16 +37,21 @@ const parseValueForOutput = (value: any, fieldKey: string = ''): any => {
   }
 
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-    const date = new Date(value);
-    const day = date.getDate();
+    // Parse the Y-M-D parts directly. Passing the bare date string to `new Date()`
+    // treats it as UTC midnight, and reading it back with getDate()/toLocaleString()
+    // uses the browser's local timezone — which shifts the date a day for viewers
+    // behind UTC (e.g. Jan 1 displays as Dec 31). Splitting the string keeps the
+    // calendar date exactly as stored, timezone-independent.
+    const [year, monthNum, day] = value.split('-').map(Number);
     const suffix = (day >= 11 && day <= 13) ? 'th' : ['th','st','nd','rd'][day % 10] || 'th';
-    const month = date.toLocaleString('default', { month: 'short' });
+    // Construct with local-time parts (not a parsed string) so the month label isn't shifted.
+    const month = new Date(year, monthNum - 1, day).toLocaleString('default', { month: 'short' });
     // On the prisoner card, hide the year for the Birthday field —
     // the full DOB still shows on the dedicated /prisoner page.
     if (fieldKey === 'Birthdate') {
       return `${month} ${day}${suffix}`;
     }
-    return `${month} ${day}${suffix} ${date.getFullYear()}`;
+    return `${month} ${day}${suffix} ${year}`;
   }
 
 
