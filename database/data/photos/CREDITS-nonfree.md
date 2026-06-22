@@ -13,3 +13,4 @@ have no photo and never overwrites an existing image.
 | File | Person | Source / rights |
 |------|--------|-----------------|
 | `corretjer-juan-antonio.jpg` | Juan Antonio Corretjer | `en.wikipedia.org/wiki/File:Corretjer.jpg` (Instituto de Cultura Puertorriqueña / Gobierno.pr). **© Government of Puerto Rico**, which claims "proprietary rights over all content appearing on this portal." Carried on Wikipedia under a non-free / fair-use rationale; **not public domain** (the U.S. federal public-domain rule, 17 U.S.C. § 105, does not extend to the Commonwealth of Puerto Rico). |
+| `cox-donald.jpg` | Donald "DC" Cox (Black Panther Party Field Marshal) | `heydaybooks.com` — Heyday Books, publisher of Cox's memoir *Just Another Nigger: My Life in the Black Panther Party*. A historical portrait; copyright holder not stated. Used at low resolution under a non-commercial fair-use / political-prisoner memorial rationale. |
