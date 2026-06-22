@@ -1,0 +1,390 @@
+[
+  {
+    "name": "Ben Fletcher",
+    "first_name": "Ben",
+    "last_name": "Fletcher",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Pennsylvania",
+    "era": "1910s",
+    "birthdate": "1890-04-13",
+    "death_date": "1949-07-10",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Benjamin Harrison Fletcher (1890–1949) was the most prominent African American organizer in the Industrial Workers of the World and a leader of Marine Transport Workers Local 8, the interracial union that controlled the Philadelphia waterfront. One of more than 100 Wobblies convicted in the 1918 Chicago mass trial under the Espionage Act for opposing World War I, he was imprisoned at Leavenworth; his sentence was commuted in 1922 and he received a full pardon from President Franklin D. Roosevelt in 1933.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Conspiracy under the Espionage Act — opposing World War I (1918 Chicago IWW mass trial)",
+        "convicted": "Yes — convicted August 1918",
+        "sentence": "Ten years at Leavenworth; sentence commuted in 1922 and pardoned by President Franklin D. Roosevelt in 1933"
+      }
+    ]
+  },
+  {
+    "name": "Ralph Chaplin",
+    "first_name": "Ralph",
+    "last_name": "Chaplin",
+    "gender": "Male",
+    "race": "White",
+    "state": "Illinois",
+    "era": "1910s",
+    "birthdate": "1887-08-30",
+    "death_date": "1961-03-23",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Ralph Chaplin (1887–1961) was an IWW writer, editor, and artist who wrote the labor anthem \"Solidarity Forever\" (1915) and drew the union's black-cat sabotage emblem. He was among the Wobblies convicted in the 1918 Chicago Espionage Act mass trial for opposing World War I and was imprisoned at Leavenworth until 1923.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Conspiracy under the Espionage Act — opposing World War I (1918 Chicago IWW mass trial)",
+        "convicted": "Yes — convicted August 1918",
+        "sentence": "Twenty years at Leavenworth; released in 1923"
+      }
+    ]
+  },
+  {
+    "name": "George Andreytchine",
+    "first_name": "George",
+    "last_name": "Andreytchine",
+    "gender": "Male",
+    "race": "White",
+    "state": "Illinois",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism", "Communism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "George Andreytchine (1894–1950) was a Bulgarian-born IWW organizer and editor active in the Minnesota Mesabi Range iron strikes. Convicted in the 1918 Chicago Espionage Act mass trial, he drew one of the maximum sentences; free on bail, he jumped bail alongside Bill Haywood in 1921 and fled to Soviet Russia, where he was later caught up in Stalin's purges and executed in 1950.",
+    "cases": [
+      {
+        "charges": "Conspiracy under the Espionage Act — opposing World War I (1918 Chicago IWW mass trial)",
+        "convicted": "Yes — convicted August 1918",
+        "sentence": "Twenty-year maximum plus a $30,000 fine; jumped bail in 1921 and fled to Soviet Russia rather than serve"
+      }
+    ]
+  },
+  {
+    "name": "Manuel Rey",
+    "first_name": "Manuel",
+    "last_name": "Rey",
+    "aka": "Louis G. Raymond",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Pennsylvania",
+    "era": "1910s",
+    "ideologies": ["Anarchism", "Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Manuel Rey (also known as Louis G. Raymond) was a Galician anarchist and organizer for the IWW's Marine Transport Workers on the Philadelphia docks. Arrested in September 1917 and convicted in the wartime federal IWW prosecutions, he served at Leavenworth until December 22, 1922, when he was released on condition of deportation to Spain; he re-entered the United States and was deported again in 1925.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Conspiracy under the Espionage Act / Selective Service Act (wartime IWW prosecution)",
+        "arrest_date": "1917-09-01",
+        "convicted": "Yes — convicted 1918",
+        "release_date": "1922-12-22",
+        "sentence": "Twenty years plus a $20,000 fine; released December 22, 1922 on condition of deportation to Spain"
+      }
+    ]
+  },
+  {
+    "name": "Richard Ford",
+    "first_name": "Richard",
+    "last_name": "Ford",
+    "aka": "Blackie Ford",
+    "gender": "Male",
+    "race": "White",
+    "state": "California",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Richard \"Blackie\" Ford was an IWW organizer of migratory farm workers who, with Herman Suhr, led the protest of hop pickers at the Durst Ranch in Wheatland, California, on August 3, 1913. When a sheriff's posse fired on the meeting, a riot left four dead. Ford and Suhr — though neither was shown to have killed anyone — were convicted of second-degree murder and sentenced to life imprisonment, becoming a cause célèbre of the labor defense movement.",
+    "cases": [
+      {
+        "institution_name": "Folsom State Prison",
+        "institution_city": "Folsom",
+        "institution_state": "California",
+        "charges": "Second-degree murder — the August 3, 1913 Wheatland hop-pickers' riot",
+        "arrest_date": "1913-08-01",
+        "convicted": "Yes — convicted January 1914",
+        "sentence": "Life imprisonment; paroled in 1925"
+      }
+    ]
+  },
+  {
+    "name": "Herman Suhr",
+    "first_name": "Herman",
+    "last_name": "Suhr",
+    "gender": "Male",
+    "race": "White",
+    "state": "California",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Herman Suhr was an IWW organizer who, with Richard \"Blackie\" Ford, led the August 1913 hop-pickers' protest at the Durst Ranch in Wheatland, California. After a sheriff's posse opened fire and a deadly riot ensued, Suhr and Ford were convicted of second-degree murder and sentenced to life imprisonment despite no evidence that either had killed anyone; their case became a national labor-defense rallying point.",
+    "cases": [
+      {
+        "institution_name": "Folsom State Prison",
+        "institution_city": "Folsom",
+        "institution_state": "California",
+        "charges": "Second-degree murder — the August 3, 1913 Wheatland hop-pickers' riot",
+        "arrest_date": "1913-08-01",
+        "convicted": "Yes — convicted January 1914",
+        "sentence": "Life imprisonment; paroled in 1926"
+      }
+    ]
+  },
+  {
+    "name": "Ricardo Flores Magón",
+    "first_name": "Ricardo",
+    "last_name": "Flores Magón",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "California",
+    "era": "1910s",
+    "birthdate": "1873-09-16",
+    "death_date": "1922-11-21",
+    "ideologies": ["Anarchism", "Anti-militarism"],
+    "affiliation": ["Partido Liberal Mexicano (PLM)"],
+    "in_custody": false,
+    "released": false,
+    "description": "Ricardo Flores Magón (1873–1922) was the leading theorist of the Mexican Liberal Party (PLM) and editor of Regeneración, an anarchist whose ideas helped ignite the Mexican Revolution and who worked closely with the IWW in the American Southwest. Repeatedly imprisoned in the United States for his cross-border agitation, he was convicted in 1918 under the Espionage Act for an anti-militarist manifesto and sentenced to twenty years; he died — likely from medical neglect — in Leavenworth penitentiary on November 21, 1922.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Violating the Espionage Act — publishing an anti-militarist manifesto in Regeneración",
+        "convicted": "Yes — convicted 1918",
+        "sentence": "Twenty years; died in Leavenworth on November 21, 1922, before completing the sentence"
+      }
+    ]
+  },
+  {
+    "name": "Enrique Flores Magón",
+    "first_name": "Enrique",
+    "last_name": "Flores Magón",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "California",
+    "era": "1910s",
+    "birthdate": "1877-04-13",
+    "death_date": "1954-10-28",
+    "ideologies": ["Anarchism", "Anti-militarism"],
+    "affiliation": ["Partido Liberal Mexicano (PLM)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Enrique Flores Magón (1877–1954) was a Mexican anarchist and, with his brother Ricardo, a leader of the Mexican Liberal Party (PLM) and Regeneración. Repeatedly prosecuted in the United States for his revolutionary agitation, he was imprisoned alongside his brother in the wartime federal cases and held at Leavenworth before being deported to Mexico in 1923.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Anti-militarist agitation / violations of U.S. neutrality and espionage statutes (PLM, Regeneración)",
+        "convicted": "Yes",
+        "sentence": "Imprisoned at Leavenworth; deported to Mexico in 1923"
+      }
+    ]
+  },
+  {
+    "name": "Librado Rivera",
+    "first_name": "Librado",
+    "last_name": "Rivera",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "California",
+    "era": "1910s",
+    "birthdate": "1864-08-17",
+    "death_date": "1932-03-01",
+    "ideologies": ["Anarchism", "Anti-militarism"],
+    "affiliation": ["Partido Liberal Mexicano (PLM)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Librado Rivera (1864–1932) was a Mexican anarchist, longtime collaborator of the Flores Magón brothers on Regeneración, and a leader of the Mexican Liberal Party (PLM). He was convicted with Ricardo Flores Magón in the 1918 Espionage Act case for an anti-militarist manifesto and imprisoned at Leavenworth before later deportation to Mexico.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Violating the Espionage Act — the 1918 anti-militarist manifesto in Regeneración",
+        "convicted": "Yes — convicted 1918",
+        "sentence": "Fifteen years at Leavenworth; later released and deported to Mexico"
+      }
+    ]
+  },
+  {
+    "name": "Frank Prego",
+    "first_name": "Frank",
+    "last_name": "Prego",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Louisiana",
+    "era": "1910s",
+    "ideologies": ["Anarchism", "Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Frank Prego was a Spanish-born ship's stoker and organizer for the IWW's Marine Transport Workers. Arrested during a 1913 United Fruit Company strike in New Orleans, he was convicted of illegal possession of weapons and sentenced to twelve years; he was released and deported to Spain in 1918.",
+    "cases": [
+      {
+        "institution_name": "Louisiana State Penitentiary",
+        "institution_city": "Angola",
+        "institution_state": "Louisiana",
+        "charges": "Illegal possession of weapons — 1913 United Fruit Company strike, New Orleans",
+        "arrest_date": "1913-01-01",
+        "convicted": "Yes",
+        "release_date": "1918-01-01",
+        "sentence": "Twelve years; released and deported to Spain in 1918"
+      }
+    ]
+  },
+  {
+    "name": "Luigi Parenti",
+    "first_name": "Luigi",
+    "last_name": "Parenti",
+    "gender": "Male",
+    "race": "White",
+    "state": "California",
+    "era": "1910s",
+    "ideologies": ["Anarchism", "Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Luigi Parenti was an Italian-born organizer of the IWW's Latin Branch (Local 173) in San Francisco. He was convicted in the wartime federal IWW prosecution and subsequently deported.",
+    "cases": [
+      {
+        "charges": "Conspiracy / Espionage Act (wartime federal IWW prosecution, San Francisco)",
+        "convicted": "Yes — convicted 1918",
+        "sentence": "Imprisoned and subsequently deported"
+      }
+    ]
+  },
+  {
+    "name": "Carl Paivio",
+    "first_name": "Carl",
+    "last_name": "Paivio",
+    "gender": "Male",
+    "race": "White",
+    "state": "New York",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Carl Paivio was a Finnish-American editor of the IWW paper Luokkataistelu in the Bronx. He was prosecuted under New York State's criminal-anarchy statute and imprisoned, winning release in 1923.",
+    "cases": [
+      {
+        "charges": "Criminal anarchy (New York State statute) — for IWW editing/agitation",
+        "convicted": "Yes — convicted 1919",
+        "release_date": "1923-01-01",
+        "sentence": "Imprisoned under New York's criminal-anarchy law; released in 1923"
+      }
+    ]
+  },
+  {
+    "name": "Gus Alonen",
+    "first_name": "Gus",
+    "last_name": "Alonen",
+    "gender": "Male",
+    "race": "White",
+    "state": "New York",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Gust \"Gus\" Alonen was a Finnish-American IWW editor in New York who, with Carl Paivio, was prosecuted under New York State's criminal-anarchy statute and imprisoned, winning release in 1923.",
+    "cases": [
+      {
+        "charges": "Criminal anarchy (New York State statute) — for IWW editing/agitation",
+        "convicted": "Yes — convicted 1919",
+        "release_date": "1923-01-01",
+        "sentence": "Imprisoned under New York's criminal-anarchy law; released in 1923"
+      }
+    ]
+  },
+  {
+    "name": "Edith Frenette",
+    "first_name": "Edith",
+    "last_name": "Frenette",
+    "gender": "Female",
+    "race": "White",
+    "state": "Washington",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Edith Frenette was a transnational IWW \"rebel girl\" and free-speech fighter active across the Pacific Northwest and British Columbia. She was repeatedly arrested for street-speaking and agitation — at Spokane in 1909 (where she drew a 30-day sentence and a $100 fine) and at Everett, Washington, in 1916, where she was jailed for about three weeks on charges including first-degree assault before they were dropped.",
+    "cases": [
+      {
+        "charges": "Street-speaking / disorderly conduct / inciting to riot / first-degree assault — IWW free-speech fights (Spokane 1909; Everett 1916)",
+        "convicted": "Partly — convicted at Spokane (1909); Everett charges dropped",
+        "sentence": "30 days plus a $100 fine at Spokane (1909); about three weeks held at Everett (1916) before charges were dropped"
+      }
+    ]
+  },
+  {
+    "name": "James Rowan",
+    "first_name": "James",
+    "last_name": "Rowan",
+    "gender": "Male",
+    "race": "White",
+    "state": "Washington",
+    "era": "1910s",
+    "ideologies": ["Industrial unionism"],
+    "affiliation": ["Industrial Workers of the World (IWW)"],
+    "in_custody": false,
+    "released": true,
+    "description": "James Rowan was a leader of the IWW's Lumber Workers Industrial Union in the Pacific Northwest. Arrested in the 1916 Everett free-speech fight, he was abducted from jail and severely beaten by vigilantes; he was later prosecuted in the wartime federal sedition cases against the IWW.",
+    "cases": [
+      {
+        "charges": "IWW free-speech / sedition prosecutions — Everett (1916) and the wartime federal cases",
+        "convicted": "Yes — convicted in the wartime federal IWW prosecutions",
+        "sentence": "Imprisoned; details vary by case"
+      }
+    ]
+  },
+  {
+    "name": "Taraknath Das",
+    "first_name": "Taraknath",
+    "last_name": "Das",
+    "gender": "Male",
+    "race": "Asian",
+    "state": "California",
+    "era": "1910s",
+    "birthdate": "1884-06-15",
+    "death_date": "1958-12-22",
+    "ideologies": ["Anti-colonialism", "Indian independence"],
+    "affiliation": ["Ghadar Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Taraknath Das (1884–1958) was an Indian revolutionary and Ghadar Party organizer in the United States, connected to IWW and radical circles on the West Coast. He was convicted in the 1917–18 Hindu–German Conspiracy trial in San Francisco under the Espionage Act and imprisoned at Leavenworth before going on to a long academic career.",
+    "cases": [
+      {
+        "institution_name": "United States Penitentiary, Leavenworth",
+        "institution_city": "Leavenworth",
+        "institution_state": "Kansas",
+        "charges": "Conspiracy / Espionage Act — the 1917–18 Hindu–German Conspiracy trial, San Francisco",
+        "convicted": "Yes — convicted 1918",
+        "sentence": "Imprisoned at Leavenworth (about 22 months)"
+      }
+    ]
+  }
+]
