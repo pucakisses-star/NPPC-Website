@@ -7,6 +7,7 @@ require. Each links to the Commons File: page (full author/license details).
 | Person | File | License | Author | Commons source |
 |---|---|---|---|---|
 | Bernie Whitebear | bernie-whitebear.jpg | CC BY 2.0 | Seattle Municipal Archives from Seattle, WA | [File](https://commons.wikimedia.org/wiki/File:Bernie_Whitebear%2C_1971.jpg) |
+| Bettina Aptheker | bettina-aptheker.jpg | Public domain (PD-US-no notice) | Pete Tobia / Daily World (May 7, 1975) | [File](https://commons.wikimedia.org/wiki/File:Bettina_Aptheker_1975.jpg) |
 | Clemente Soto Vélez | clemente-soto-velez.jpg | CC BY-SA 4.0 | AnthonyAccampora | [File](https://commons.wikimedia.org/wiki/File:Clemente_Soto_Velez.jpg) |
 | Clinton Rickard | clinton-rickard.jpg | CC BY-SA 4.0 | Anon198240 | [File](https://commons.wikimedia.org/wiki/File:Clintonrickard.jpg) |
 | Clyde Bellecourt | clyde-bellecourt.jpg | CC BY 2.0 | Monica D. Spencer | [File](https://commons.wikimedia.org/wiki/File:C_Bellecourt_by_M_Spencer.jpg) |
