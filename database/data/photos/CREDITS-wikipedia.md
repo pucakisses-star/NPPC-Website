@@ -16,6 +16,7 @@ require. Each links to the Commons File: page (full author/license details).
 | Greg Grey Cloud | greg-grey-cloud.jpg | CC BY-SA 4.0 | Shane Balkowitsch | [File](https://commons.wikimedia.org/wiki/File:Greg_Grey_Cloud_%22Charging_Lance%22_Crow_Creek_Sioux.jpg) |
 | Laura Cornelius Kellogg | laura-cornelius-kellogg.png | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Laura_Cornelius_Kellogg.1.png) |
 | Lyda Conley | lyda-conley.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Lydaconley.gif) |
+| Patrick Quinlan | patrick-quinlan.jpg | Public domain (PD-1923) | The New Age (Buffalo, NY), Sept 29, 1921; digitized by Tim Davenport | [File](https://commons.wikimedia.org/wiki/File:Quinlan-Patrick-Sept1921.jpg) |
 | Pun Plamondon | pun-plamondon.jpg | CC BY-SA 3.0 | Badagnani (talk) | [File](https://commons.wikimedia.org/wiki/File:Lawrence_Plamondon_speaking_at_Kent_State%2C_May_4_2009.jpg) |
 | Ramona Bennett | ramona-bennett.jpg | CC BY 3.0 | Elliot Stoller | [File](https://commons.wikimedia.org/wiki/File:Ramona_Bennett_at_Rally_for_Leonard_Peltier_%26_Mother_Earth.jpg) |
 | Richard Ray Whitman | richard-ray-whitman.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Richard_ray_whitman.jpg) |
