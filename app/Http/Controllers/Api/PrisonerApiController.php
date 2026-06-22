@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
+use App\Support\ImprisonmentDuration;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
-class PrisonerApiController extends Controller {
+class PrisonerApiController extends Controller
+{
     private const CACHE_KEY = 'api.prisoners.index.v1';
+
     private const CACHE_TTL = 600; // 10 minutes
 
     /**
@@ -24,7 +27,8 @@ class PrisonerApiController extends Controller {
      * Prisoner / PrisonerCase / Institution save/delete so admin edits show
      * up immediately.
      */
-    public function index(Request $request): JsonResponse {
+    public function index(Request $request): JsonResponse
+    {
         if ($request->boolean('bust')) {
             Cache::forget(self::CACHE_KEY);
         }
@@ -45,7 +49,8 @@ class PrisonerApiController extends Controller {
         );
     }
 
-    private function buildPayload(): array {
+    private function buildPayload(): array
+    {
         $data = [];
 
         // lazy() streams rows in chunks of 1000 so the full Eloquent
@@ -63,81 +68,93 @@ class PrisonerApiController extends Controller {
                     $daysInExile += $case->in_exile_for_days ?? 0;
 
                     return [
-                        'Indicted'             => $case->indicted,
-                        'Convicted'            => $case->convicted,
-                        'Sentenced Date'       => $case->sentenced_date?->format('Y-m-d'),
-                        'Release Date'         => $case->release_date?->format('Y-m-d'),
-                        'Charges'              => $case->charges ? array_map('trim', explode("\n", $case->charges)) : [],
-                        'Prosecutor'           => $case->prosecutor,
-                        'Judge'                => $case->judge,
-                        'Plead'                => $case->plead,
-                        'Sentence'             => $case->sentence,
-                        'Institution name'     => $case->institution ? [$case->institution->name] : [],
-                        'Institution city'     => $case->institution ? [$case->institution->city] : [],
-                        'Institution state'    => $case->institution?->state,
+                        'Indicted' => $case->indicted,
+                        'Convicted' => $case->convicted,
+                        'Sentenced Date' => $case->sentenced_date?->format('Y-m-d'),
+                        'Release Date' => $case->release_date?->format('Y-m-d'),
+                        'Charges' => $case->charges ? array_map('trim', explode("\n", $case->charges)) : [],
+                        'Prosecutor' => $case->prosecutor,
+                        'Judge' => $case->judge,
+                        'Plead' => $case->plead,
+                        'Sentence' => $case->sentence,
+                        'Institution name' => $case->institution ? [$case->institution->name] : [],
+                        'Institution city' => $case->institution ? [$case->institution->city] : [],
+                        'Institution state' => $case->institution?->state,
                         'Institution security' => $case->institution ? [$case->institution->security] : [],
-                        'Arrest Date'          => $case->arrest_date?->format('Y-m-d'),
-                        'Incarceration Date'   => $case->incarceration_date?->format('Y-m-d'),
-                        'Mailing address'      => $case->institution?->mailing_address,
-                        'Physical address'     => $case->institution?->physical_address,
+                        'Arrest Date' => $case->arrest_date?->format('Y-m-d'),
+                        'Incarceration Date' => $case->incarceration_date?->format('Y-m-d'),
+                        'Mailing address' => $case->institution?->mailing_address,
+                        'Physical address' => $case->institution?->physical_address,
                     ];
                 })->toArray();
 
+                // Anchor the duration breakdown to the real start date so the
+                // calendar diff (below, in calculatePunishment) is accurate.
+                $imprisonStart = $prisoner->cases
+                    ->map(fn ($c) => $c->incarceration_date ?: $c->arrest_date)
+                    ->filter()
+                    ->sort()
+                    ->first();
+                $exileStart = $prisoner->cases
+                    ->map(fn ($c) => $c->in_exile_since)
+                    ->filter()
+                    ->sort()
+                    ->first();
+
                 $data[] = [
-                    'id'                    => $prisoner->id,
-                    'slug'                  => $prisoner->slug,
-                    'name'                  => $prisoner->name,
-                    'Photo'                 => $prisoner->photo ? asset('storage/'.$prisoner->photo) : null,
-                    'Description'           => $prisoner->description,
-                    'Age'                   => $prisoner->age,
-                    'Birthdate'             => $prisoner->birthdate?->format('Y-m-d'),
-                    'Death date'            => $prisoner->death_date?->format('Y-m-d'),
-                    'Gender'                => $prisoner->gender,
-                    'Race'                  => $prisoner->race,
-                    'AKA'                   => $prisoner->aka,
-                    'inmateNumber'          => $prisoner->inmate_number,
-                    'State'                 => $prisoner->state,
-                    'Address'               => $prisoner->address,
-                    'latitude'              => $prisoner->lat ? (float) $prisoner->lat : null,
-                    'longitude'             => $prisoner->lng ? (float) $prisoner->lng : null,
-                    'Era'                   => $prisoner->era,
-                    'Ideologies'            => $prisoner->ideologies ?? [],
-                    'Affiliation'           => ! empty($prisoner->affiliation) ? $prisoner->affiliation : null,
-                    'In Custody'            => $prisoner->in_custody,
-                    'Released'              => $prisoner->released,
-                    'In Exile'              => $prisoner->currently_in_exile,
-                    'Currently in Exile'    => $prisoner->currently_in_exile,
-                    'Imprisoned or Exiled'  => $prisoner->imprisoned_or_exiled ? 'T' : null,
-                    'Awaiting Trial'        => $prisoner->awaiting_trial,
-                    'Website'               => $prisoner->website,
-                    'Twitter'               => $prisoner->twitter,
-                    'Facebook'              => $prisoner->facebook,
-                    'Instagram'             => $prisoner->instagram,
+                    'id' => $prisoner->id,
+                    'slug' => $prisoner->slug,
+                    'name' => $prisoner->name,
+                    'Photo' => $prisoner->photo ? asset('storage/'.$prisoner->photo) : null,
+                    'Description' => $prisoner->description,
+                    'Age' => $prisoner->age,
+                    'Birthdate' => $prisoner->birthdate?->format('Y-m-d'),
+                    'Death date' => $prisoner->death_date?->format('Y-m-d'),
+                    'Gender' => $prisoner->gender,
+                    'Race' => $prisoner->race,
+                    'AKA' => $prisoner->aka,
+                    'inmateNumber' => $prisoner->inmate_number,
+                    'State' => $prisoner->state,
+                    'Address' => $prisoner->address,
+                    'latitude' => $prisoner->lat ? (float) $prisoner->lat : null,
+                    'longitude' => $prisoner->lng ? (float) $prisoner->lng : null,
+                    'Era' => $prisoner->era,
+                    'Ideologies' => $prisoner->ideologies ?? [],
+                    'Affiliation' => ! empty($prisoner->affiliation) ? $prisoner->affiliation : null,
+                    'In Custody' => $prisoner->in_custody,
+                    'Released' => $prisoner->released,
+                    'In Exile' => $prisoner->currently_in_exile,
+                    'Currently in Exile' => $prisoner->currently_in_exile,
+                    'Imprisoned or Exiled' => $prisoner->imprisoned_or_exiled ? 'T' : null,
+                    'Awaiting Trial' => $prisoner->awaiting_trial,
+                    'Website' => $prisoner->website,
+                    'Twitter' => $prisoner->twitter,
+                    'Facebook' => $prisoner->facebook,
+                    'Instagram' => $prisoner->instagram,
                     'Years Spent In Prison' => array_map('strval', $prisoner->getIncarcerationYearsArray()),
-                    'SortOrder'             => $prisoner->sort_order,
-                    'cases'                 => $cases,
-                    'imprisonedFor'         => $daysImprisoned,
-                    'inExileFor'            => $daysInExile,
-                    'calculatedPunishment'  => $this->calculatePunishment($daysImprisoned, $daysInExile),
+                    'SortOrder' => $prisoner->sort_order,
+                    'cases' => $cases,
+                    'imprisonedFor' => $daysImprisoned,
+                    'inExileFor' => $daysInExile,
+                    'calculatedPunishment' => $this->calculatePunishment($daysImprisoned, $daysInExile, $imprisonStart, $exileStart),
                     // Convenience boolean aliases used by Vue filter system
-                    'inCustody'             => $prisoner->in_custody,
-                    'released'              => $prisoner->released,
-                    'inExile'               => $prisoner->currently_in_exile,
-                    'awaitingTrial'         => $prisoner->awaiting_trial,
-                    'imprisonedOrExiled'    => $prisoner->imprisoned_or_exiled,
+                    'inCustody' => $prisoner->in_custody,
+                    'released' => $prisoner->released,
+                    'inExile' => $prisoner->currently_in_exile,
+                    'awaitingTrial' => $prisoner->awaiting_trial,
+                    'imprisonedOrExiled' => $prisoner->imprisoned_or_exiled,
                 ];
             });
 
         return $data;
     }
 
-    private function calculatePunishment(int $daysImprisoned, int $daysInExile): string {
+    private function calculatePunishment(int $daysImprisoned, int $daysInExile, $imprisonStart = null, $exileStart = null): string
+    {
         $result = '';
 
         if ($daysImprisoned > 0) {
-            $years = intdiv($daysImprisoned, 365);
-            $months = intdiv($daysImprisoned % 365, 30);
-            $days = $daysImprisoned % 30;
+            ['years' => $years, 'months' => $months, 'days' => $days] = ImprisonmentDuration::breakdown($imprisonStart, $daysImprisoned);
             $result .= "Imprisoned For {$years} years {$months} months {$days} days";
         }
 
@@ -145,9 +162,7 @@ class PrisonerApiController extends Controller {
             if ($result) {
                 $result .= '<br/>';
             }
-            $years = intdiv($daysInExile, 365);
-            $months = intdiv($daysInExile % 365, 30);
-            $days = $daysInExile % 30;
+            ['years' => $years, 'months' => $months, 'days' => $days] = ImprisonmentDuration::breakdown($exileStart, $daysInExile);
             $result .= "In Exile For {$years} years {$months} months {$days} days";
         }
 
@@ -157,7 +172,8 @@ class PrisonerApiController extends Controller {
     /**
      * Cache key exposed so model observers can invalidate it.
      */
-    public static function cacheKey(): string {
+    public static function cacheKey(): string
+    {
         return self::CACHE_KEY;
     }
 }
