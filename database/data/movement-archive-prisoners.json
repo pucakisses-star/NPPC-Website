@@ -1,0 +1,210 @@
+[
+  {
+    "name": "William Morales",
+    "first_name": "William",
+    "last_name": "Morales",
+    "aka": "Guillermo Morales",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Puerto Rican independence"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": false,
+    "in_exile": true,
+    "currently_in_exile": true,
+    "description": "William \"Guillermo\" Morales (b. 1950) was a leading bomb-maker for the FALN, the clandestine Puerto Rican independence group. On July 12, 1978 a device exploded in his Queens, New York apartment, blowing off both of his hands and disfiguring his face. Convicted on weapons and explosives charges, he made a dramatic escape from the Bellevue Hospital prison ward in May 1979, fled to Mexico (where he was imprisoned after a 1983 shootout), and was eventually granted political asylum in Cuba, where he still lives in exile.",
+    "cases": [
+      {
+        "institution_name": "Bellevue Hospital Prison Ward",
+        "institution_city": "New York",
+        "institution_state": "New York",
+        "charges": "Possession of weapons and explosives (FALN bomb factory, Queens, July 12, 1978)",
+        "arrest_date": "1978-07-12",
+        "incarceration_date": "1978-07-12",
+        "release_date": "1979-05-21",
+        "in_exile_since": "1979-05-21",
+        "convicted": "Yes — convicted 1979 (New York)",
+        "sentence": "Roughly ten years; escaped from the Bellevue Hospital prison ward on May 21, 1979, later imprisoned in Mexico (1983–1988), then granted political asylum in Cuba"
+      }
+    ]
+  },
+  {
+    "name": "Carlos Feliciano",
+    "first_name": "Carlos",
+    "last_name": "Feliciano",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Puerto Rican independence"],
+    "affiliation": ["Movimiento Independentista Revolucionario Armado (MIRA)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Carlos Feliciano was a veteran Puerto Rican independence militant arrested in New York in May 1970 and accused of a campaign of bombings. Defended by attorney William Kunstler, his supporters denounced the case as a frame-up; after a 1971 trial ended in a hung jury he was retried, convicted only on a lesser possession charge, and freed in 1973.",
+    "cases": [
+      {
+        "charges": "Possession of explosives / alleged bombing campaign (denounced by his defense as a frame-up)",
+        "arrest_date": "1970-05-21",
+        "convicted": "Convicted on a possession charge after a 1971 mistrial",
+        "sentence": "Held roughly three years; released in 1973"
+      }
+    ]
+  },
+  {
+    "name": "Eduardo Cruz",
+    "first_name": "Eduardo",
+    "last_name": "Cruz",
+    "aka": "Pancho Cruz",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Puerto Rican independence"],
+    "in_custody": false,
+    "released": true,
+    "description": "Eduardo \"Pancho\" Cruz was a young Puerto Rican independence activist who became the subject of a 1972 defense campaign — the Eduardo Cruz Defense Committee and the pamphlet \"Repression and Colonization: The Case of Eduardo 'Pancho' Cruz\" — which described him as framed and convicted and called for his freedom. Specifics of the charge and sentence are not well documented.",
+    "cases": [
+      {
+        "charges": "Framed and convicted (per the Eduardo Cruz Defense Committee, 1972); specific charge not documented",
+        "convicted": "Yes — per the 1972 defense materials",
+        "sentence": "Not documented"
+      }
+    ]
+  },
+  {
+    "name": "Juan Otero",
+    "first_name": "Juan",
+    "last_name": "Otero",
+    "gender": "Male",
+    "race": "Hispanic",
+    "era": "1970s",
+    "in_custody": false,
+    "released": true,
+    "description": "Juan Otero was the subject of a 1973 Puerto Rican movement defense campaign — \"Free Juan Otero. Framed, Convicted, He Must be Freed\" — which held that he had been framed and wrongly convicted. Biographical and case details are not documented beyond the defense campaign.",
+    "cases": [
+      {
+        "charges": "Framed and convicted (per the 1973 \"Free Juan Otero\" defense campaign); specifics not documented",
+        "convicted": "Yes — per the 1973 defense flyer",
+        "sentence": "Not documented"
+      }
+    ]
+  },
+  {
+    "name": "José \"Cha Cha\" Jiménez",
+    "first_name": "José",
+    "last_name": "Jiménez",
+    "aka": "Cha Cha Jiménez",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1960s",
+    "ideologies": ["Puerto Rican independence", "Socialism"],
+    "affiliation": ["Young Lords"],
+    "in_custody": false,
+    "released": true,
+    "description": "José \"Cha Cha\" Jiménez founded the Young Lords in Chicago, transforming a Puerto Rican street gang into a revolutionary political organization and a member of Fred Hampton's original Rainbow Coalition. He was arrested and jailed repeatedly as an organizer, and the group's political awakening began during his incarceration.",
+    "cases": [
+      {
+        "institution_name": "Cook County Jail",
+        "institution_city": "Chicago",
+        "institution_state": "Illinois",
+        "charges": "Repeated arrests as a Young Lords organizer in Chicago (late 1960s–1970s)",
+        "convicted": "Multiple convictions; served jail time",
+        "sentence": "A series of short terms"
+      }
+    ]
+  },
+  {
+    "name": "Tom Dostou",
+    "first_name": "Tom",
+    "last_name": "Dostou",
+    "gender": "Male",
+    "race": "White",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Anti-racism", "Socialism"],
+    "affiliation": ["Patriot Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Tom Dostou was a field marshal of the Patriot Party, the organization of anti-racist working-class white people that was part of Fred Hampton's original Rainbow Coalition alongside the Black Panther Party and the Young Lords. He was arrested in February 1970 when police raided the party's offices and detained its leadership.",
+    "cases": [
+      {
+        "charges": "Arrested in a February 1970 police raid on the Patriot Party offices",
+        "arrest_date": "1970-02-13",
+        "convicted": "Not documented",
+        "sentence": "Not documented"
+      }
+    ]
+  },
+  {
+    "name": "Chuck Armsbury",
+    "first_name": "Chuck",
+    "last_name": "Armsbury",
+    "aka": "Charles Armsbury",
+    "gender": "Male",
+    "race": "White",
+    "state": "Washington",
+    "era": "1970s",
+    "ideologies": ["Anti-racism", "Socialism"],
+    "affiliation": ["Patriot Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Chuck Armsbury chaired the Eugene, Oregon chapter of the Patriot Party, the white working-class wing of the Rainbow Coalition that organized alongside the Black Panther Party. He spent years in federal prison on charges his supporters called trumped-up, and while imprisoned at McNeil Island Federal Penitentiary co-filed a 1970 prisoners' \"Genocide Complaint\" against the federal government.",
+    "cases": [
+      {
+        "institution_name": "McNeil Island Federal Penitentiary",
+        "institution_city": "McNeil Island",
+        "institution_state": "Washington",
+        "charges": "Federal charges (denounced by supporters as trumped-up political prosecution)",
+        "convicted": "Yes",
+        "sentence": "Several years in federal prison"
+      }
+    ]
+  },
+  {
+    "name": "Bobby Rush",
+    "first_name": "Bobby",
+    "last_name": "Rush",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Illinois",
+    "era": "1960s",
+    "birthdate": "1946-11-23",
+    "ideologies": ["Black Power"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Bobby Rush co-founded the Illinois chapter of the Black Panther Party with Fred Hampton in 1968 and survived the COINTELPRO campaign that killed Hampton. He served six months in 1972 on a weapons charge and later became a Chicago alderman and, for three decades, a U.S. Congressman.",
+    "cases": [
+      {
+        "charges": "Unlawful use of a weapon",
+        "convicted": "Yes — 1972",
+        "sentence": "Six months (1972)"
+      }
+    ]
+  },
+  {
+    "name": "Pablo \"Yoruba\" Guzmán",
+    "first_name": "Pablo",
+    "last_name": "Guzmán",
+    "aka": "Yoruba Guzmán",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Puerto Rican independence", "Socialism"],
+    "affiliation": ["Young Lords"],
+    "in_custody": false,
+    "released": true,
+    "description": "Pablo \"Yoruba\" Guzmán was Minister of Information of the New York Young Lords and was arrested in the group's 1969–70 direct actions, including the occupation of the First Spanish Methodist Church in East Harlem and the takeover of Lincoln Hospital. He later became an Emmy-winning New York broadcast journalist.",
+    "cases": [
+      {
+        "charges": "Arrests in Young Lords direct actions (New York City, 1969–70)",
+        "convicted": "Various; served short jail time",
+        "sentence": "Short terms"
+      }
+    ]
+  }
+]
