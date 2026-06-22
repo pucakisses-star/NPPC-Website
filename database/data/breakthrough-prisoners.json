@@ -1,0 +1,868 @@
+[
+  {
+    "name": "Raymond Luc Levasseur",
+    "first_name": "Raymond",
+    "last_name": "Levasseur",
+    "aka": "Ray Luc Levasseur",
+    "gender": "Male",
+    "race": "White",
+    "state": "Maine",
+    "era": "1980s",
+    "birthdate": "1946-10-10",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Revolutionary socialism"],
+    "affiliation": ["United Freedom Front", "Sam Melville/Jonathan Jackson Unit"],
+    "in_custody": false,
+    "released": true,
+    "description": "Raymond Luc Levasseur, a Vietnam War veteran turned revolutionary, co-founded the Sam Melville/Jonathan Jackson Unit in 1975, the clandestine cell that became the United Freedom Front. From the late 1970s through 1984 the group carried out bombings of military and corporate targets and bank robberies to protest U.S. intervention in Central America, racism, and South African apartheid. Captured in Deerfield, Ohio in November 1984, he became the most prominent of the 'Ohio 7'; after a 1986 conspiracy conviction and a 1989 seditious-conspiracy trial that ended in acquittals and a hung jury, he served roughly half of a 45-year sentence before being paroled in 2004.",
+    "cases": [
+      {
+        "charges": "Federal conspiracy, seditious conspiracy, and RICO violations tied to the United Freedom Front bombings and bank robberies",
+        "convicted": "Convicted of conspiracy (1986); acquitted on most sedition counts with a hung jury on the rest at the 1989 Ohio 7 trial",
+        "arrest_date": "1984-11-04",
+        "sentence": "45 years; paroled in November 2004 after serving roughly half"
+      }
+    ]
+  },
+  {
+    "name": "Thomas Manning",
+    "first_name": "Thomas",
+    "last_name": "Manning",
+    "aka": "Tom Manning",
+    "gender": "Male",
+    "race": "White",
+    "state": "Massachusetts",
+    "era": "1980s",
+    "birthdate": "1946-06-28",
+    "death_date": "2019-07-29",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Revolutionary socialism"],
+    "affiliation": ["United Freedom Front", "Sam Melville/Jonathan Jackson Unit"],
+    "in_custody": false,
+    "released": false,
+    "description": "Thomas William Manning, a Boston-born former Marine, co-founded the United Freedom Front with Raymond Luc Levasseur. Alongside the group's bombings and bank robberies, he was convicted of killing New Jersey State Police trooper Philip Lamonaco in a 1981 traffic-stop shootout. He evaded capture until April 1985, was convicted in the federal conspiracy and bombing cases and sentenced to life for the trooper's death in 1987, became a noted prison artist, and died in custody in West Virginia in 2019, about a year before a scheduled release.",
+    "cases": [
+      {
+        "charges": "Murder of NJ State Trooper Philip Lamonaco (1981); federal conspiracy, seditious conspiracy, and RICO charges related to United Freedom Front bombings and bank robberies",
+        "convicted": "Convicted of murder (1987); also convicted in the federal UFF conspiracy/bombing cases",
+        "arrest_date": "1985-04-24",
+        "death_in_custody_date": "2019-07-29",
+        "sentence": "Life imprisonment (sentenced 1987); died in custody on July 29, 2019"
+      }
+    ]
+  },
+  {
+    "name": "Carol Manning",
+    "first_name": "Carol",
+    "last_name": "Manning",
+    "aka": "Carole Ann Manning",
+    "gender": "Female",
+    "race": "White",
+    "state": "Massachusetts",
+    "era": "1980s",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Revolutionary socialism"],
+    "affiliation": ["United Freedom Front", "Sam Melville/Jonathan Jackson Unit"],
+    "in_custody": false,
+    "released": true,
+    "description": "Carol Ann Manning was an early member of the United Freedom Front and the wife of co-founder Tom Manning, living underground with the group through its years of bombings and bank robberies aimed at U.S. militarism and apartheid. Apprehended in Norfolk, Virginia in 1985 (she evaded the November 1984 Ohio arrests), she was convicted in the federal conspiracy case and received a 15-year sentence, later accepting a plea in the seditious-conspiracy prosecution. She was released during the 1990s.",
+    "cases": [
+      {
+        "charges": "Federal conspiracy and seditious-conspiracy/racketeering charges connected to United Freedom Front activity",
+        "convicted": "Convicted of conspiracy (1986); resolved the sedition case by plea",
+        "sentence": "15 years; released during the 1990s"
+      }
+    ]
+  },
+  {
+    "name": "Jaan Laaman",
+    "first_name": "Jaan",
+    "last_name": "Laaman",
+    "aka": "Jaan Karl Laaman",
+    "gender": "Male",
+    "race": "White",
+    "state": "Massachusetts",
+    "era": "1980s",
+    "birthdate": "1948-03-21",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Revolutionary socialism"],
+    "affiliation": ["United Freedom Front", "Sam Melville/Jonathan Jackson Unit"],
+    "in_custody": false,
+    "released": true,
+    "description": "Jaan Karl Laaman, born in a postwar refugee camp to an Estonian family and raised in Roxbury and Buffalo, was radicalized through 1960s anti-war and anti-racist organizing. After an earlier imprisonment for 1970s New Hampshire bombings, he joined the United Freedom Front's bombing campaign against military and corporate targets. Captured with other members in Ohio in November 1984 and tried as one of the 'Ohio 7,' he was acquitted of seditious conspiracy but convicted of multiple bombings and conspiracy and sentenced to 53 years. The last of the Ohio 7 still imprisoned, he was released on May 15, 2021 after 37 years.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy (acquitted); convicted of five bombings, one attempted bombing, and criminal conspiracy (United Freedom Front)",
+        "convicted": "1989 — acquitted of sedition; convicted on the bombing and conspiracy counts",
+        "arrest_date": "1984-11-04",
+        "release_date": "2021-05-15",
+        "sentence": "53 years; released May 15, 2021 after serving 37 years"
+      }
+    ]
+  },
+  {
+    "name": "Alicia Rodríguez",
+    "first_name": "Alicia",
+    "last_name": "Rodríguez",
+    "gender": "Female",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Alicia Rodríguez, born in Chicago in 1953, was a member of the FALN arrested on April 4, 1980 in Evanston, Illinois with ten others. Convicted of seditious conspiracy and related charges, she was sentenced in 1981 to 55 years in federal prison; none of the group's bombings had caused deaths or injuries, and the lengthy term drew human-rights criticism. After roughly 19 years she was released on September 10, 1999 under President Clinton's clemency. She is the sister of fellow FALN prisoner Ida Luz Rodríguez.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "55 years; served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Dylcia Pagán",
+    "first_name": "Dylcia",
+    "last_name": "Pagán",
+    "aka": "Dylcia Noemí Pagán",
+    "gender": "Female",
+    "race": "Hispanic",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1946-10-15",
+    "death_date": "2024-06-30",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Dylcia Noemí Pagán, born in New York City in 1946, was a journalist and FALN member arrested on April 4, 1980 in Evanston, Illinois. Convicted of seditious conspiracy and related charges, she was sentenced in 1981 to a lengthy federal term and served nearly two decades before her release on September 10, 1999 under President Clinton's clemency. She later lived in Puerto Rico, where she died on June 30, 2024.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "55 years; served nearly 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Ida Luz Rodríguez",
+    "first_name": "Ida Luz",
+    "last_name": "Rodríguez",
+    "aka": "Lucy Rodríguez; Luz María Berríos-Rodríguez",
+    "gender": "Female",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1950-07-07",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Ida Luz Rodríguez (known to supporters as Lucy), born in Las Marías, Puerto Rico in 1950, was a FALN member arrested on April 4, 1980 in Evanston, Illinois alongside ten others. Convicted of seditious conspiracy and related charges, she was sentenced in 1981 to 75 years in federal prison; none of the group's bombings had caused deaths or injuries. She served roughly 19 years before her release on September 10, 1999 under President Clinton's clemency. She is the sister of fellow FALN prisoner Alicia Rodríguez.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "75 years; served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Edwin Cortés",
+    "first_name": "Edwin",
+    "last_name": "Cortés",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Edwin Cortés was a Chicago-based FALN member arrested on June 29, 1983 together with Alberto Rodríguez and Alejandrina Torres. Convicted of seditious conspiracy along with weapons and explosives charges, he was sentenced in 1985 to 35 years in federal prison. President Clinton granted him clemency in 1999 and he was released on September 10, 1999, after roughly 16 years.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy, weapons and explosives violations, and related charges (FALN)",
+        "convicted": "Convicted 1985",
+        "arrest_date": "1983-06-29",
+        "release_date": "1999-09-10",
+        "sentence": "35 years; served about 16 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Juan Segarra Palmer",
+    "first_name": "Juan",
+    "last_name": "Segarra Palmer",
+    "aka": "Juan Enrique Segarra-Palmer",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Connecticut",
+    "era": "1980s",
+    "birthdate": "1950-03-06",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Los Macheteros / Ejército Popular Boricua"],
+    "in_custody": false,
+    "released": true,
+    "description": "Juan Enrique Segarra-Palmer, born in Santurce, Puerto Rico in 1950 and educated at Phillips Academy and Harvard, was a founder of Los Macheteros who organized the September 12, 1983 Wells Fargo depot robbery in West Hartford, Connecticut, which netted more than $7 million. Arrested in 1985, he was convicted in 1989 of seditious conspiracy and offenses tied to the robbery and sentenced to 55 years. He accepted President Clinton's conditional clemency in 1999 and was released around 2004.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy, robbery, and related offenses (the 1983 Los Macheteros Wells Fargo robbery, West Hartford)",
+        "convicted": "Convicted 1989",
+        "sentence": "55 years; released around 2004 following the 1999 clemency commutation"
+      }
+    ]
+  },
+  {
+    "name": "Alberto Rodríguez",
+    "first_name": "Alberto",
+    "last_name": "Rodríguez",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Alberto Rodríguez, born in the Bronx in 1953 and raised in Chicago, was a FALN member arrested in the Chicago area on June 29, 1983. Convicted of seditious conspiracy and related charges — though not of any bombing — he was sentenced in 1985 to 35 years in federal prison and initially held about ten months in solitary confinement. President Clinton granted him clemency in 1999 and he was released on September 10, 1999, after roughly 16 years.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1985",
+        "arrest_date": "1983-06-29",
+        "release_date": "1999-09-10",
+        "sentence": "35 years; served about 16 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Oscar López Rivera",
+    "first_name": "Oscar",
+    "last_name": "López Rivera",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1943-01-06",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Oscar López Rivera was a Chicago community organizer who became an alleged leader of the FALN. Arrested near Chicago on May 29, 1981, he was convicted of seditious conspiracy and related firearms and explosives offenses and sentenced to 55 years; a 1988 escape-conspiracy conviction added 15 more years. He refused President Clinton's 1999 conditional clemency because it excluded some fellow prisoners; President Obama commuted his sentence in January 2017, and he walked free on May 17, 2017 after roughly 36 years — the longest-imprisoned member of the group.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy; use of force to commit robbery; interstate transportation of firearms; conspiracy to transport explosives (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1981-05-29",
+        "release_date": "2017-05-17",
+        "sentence": "55 years (1981) plus 15 years added in 1988; commuted by President Obama and released after about 36 years"
+      }
+    ]
+  },
+  {
+    "name": "Alejandrina Torres",
+    "first_name": "Alejandrina",
+    "last_name": "Torres",
+    "gender": "Female",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1939-06-18",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Alejandrina Torres, raised in New York City after emigrating from Puerto Rico, was a Chicago-based independence activist and FALN member. Arrested on June 29, 1983 with two co-defendants, she was convicted in 1985 of seditious conspiracy along with bomb, weapons, and stolen-vehicle charges and given a 35-year federal sentence. After roughly 16 years she was released on September 10, 1999 under President Clinton's clemency.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy; conspiracy to make destructive devices; weapons and explosives violations (FALN)",
+        "convicted": "Convicted 1985",
+        "arrest_date": "1983-06-29",
+        "release_date": "1999-09-10",
+        "sentence": "35 years; served about 16 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Elizam Escobar",
+    "first_name": "Elizam",
+    "last_name": "Escobar",
+    "aka": "El Maestro",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1948-05-24",
+    "death_date": "2021-01-15",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Elizam Escobar was a Puerto Rican painter, poet, and art theorist as well as an independence activist. Among eleven FALN members arrested by the FBI on April 4, 1980 in Evanston, Illinois, he was convicted in 1981 of seditious conspiracy and related charges and given a 68-year sentence, producing a large body of artwork during his imprisonment. He accepted President Clinton's 1999 clemency, was released around September 1999, and returned to Puerto Rico to teach. He died of cancer on January 15, 2021.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "68 years; served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Carmen Valentín",
+    "first_name": "Carmen",
+    "last_name": "Valentín",
+    "aka": "Carmen Valentín Pérez",
+    "gender": "Female",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1946-03-02",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Carmen Valentín Pérez was a Chicago teacher and counselor and a doctoral student at Loyola University when she was arrested as a member of the FALN, among the eleven taken into custody on April 4, 1980 in Evanston, Illinois. Convicted of seditious conspiracy and related charges, she was sentenced on February 18, 1981 to 90 years in prison. After roughly 19 years she was released on September 10, 1999 under President Clinton's clemency.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "90 years (sentenced February 18, 1981); served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Carlos Alberto Torres",
+    "first_name": "Carlos",
+    "last_name": "Torres",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1952-09-19",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Carlos Alberto Torres, born in Ponce, Puerto Rico, was identified by authorities as a leader of the Chicago-based FALN and placed on the FBI's Most Wanted list in 1977. Arrested on April 4, 1980 in Evanston, Illinois, he was convicted in 1981 of seditious conspiracy and related offenses (but not of personally carrying out any bombing) and received a 70-year federal sentence. President Clinton excluded him from the 1999 FALN clemency, citing his identified leadership role; he was paroled and released on July 26, 2010 after roughly 30 years.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "2010-07-26",
+        "sentence": "70 years (78 with state charges); paroled after about 30 years"
+      }
+    ]
+  },
+  {
+    "name": "Ricardo Jiménez",
+    "first_name": "Ricardo",
+    "last_name": "Jiménez",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "birthdate": "1956-04-03",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Ricardo Jiménez, born in San Sebastián, Puerto Rico, was one of the youngest FALN members at age 23 when arrested on April 4, 1980 in Evanston, Illinois with ten others. Convicted of seditious conspiracy and related charges, he was sentenced on February 18, 1981 to 90 years. After roughly 19 years he was released on September 10, 1999, from the federal penitentiary in Terre Haute, under President Clinton's clemency.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "90 years (sentenced February 18, 1981); served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Luis Rosa",
+    "first_name": "Luis",
+    "last_name": "Rosa",
+    "aka": "Luis Rosa Pérez",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Illinois",
+    "era": "1980s",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Luis Rosa, born in Chicago in 1960, was the youngest of the FALN group — 19 and a University of Illinois student when arrested on April 4, 1980 in Evanston, Illinois. Convicted of seditious conspiracy and related charges, he was held at Leavenworth and, after roughly 19 years, released on September 10, 1999 under President Clinton's clemency.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "Reported as 75+ years (sources vary, some over 100); served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Adolfo Matos",
+    "first_name": "Adolfo",
+    "last_name": "Matos",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1950-09-18",
+    "ideologies": ["Puerto Rican independence", "Anti-imperialism"],
+    "affiliation": ["Fuerzas Armadas de Liberación Nacional (FALN)"],
+    "in_custody": false,
+    "released": true,
+    "description": "Adolfo Matos, born in Lajas, Puerto Rico and raised in New York City, was arrested on April 4, 1980 in Evanston, Illinois with the other FALN members. Convicted of seditious conspiracy and related charges, he was sentenced on February 18, 1981 to 70 years and became an accomplished copper-etching artist in prison. After roughly 19 years he was released on September 10, 1999 under President Clinton's clemency.",
+    "cases": [
+      {
+        "charges": "Seditious conspiracy and related charges (FALN)",
+        "convicted": "Convicted 1981",
+        "arrest_date": "1980-04-04",
+        "release_date": "1999-09-10",
+        "sentence": "70 years (sentenced February 18, 1981); served about 19 years before the 1999 clemency"
+      }
+    ]
+  },
+  {
+    "name": "Herman Bell",
+    "first_name": "Herman",
+    "last_name": "Bell",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Black liberation", "Anti-imperialism"],
+    "affiliation": ["Black Liberation Army", "Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Herman Bell was a Black Panther Party and Black Liberation Army member who, with Jalil Muntaqim and Albert \"Nuh\" Washington, became one of the \"New York Three.\" He was convicted in the May 1971 shooting deaths of NYPD officers Waverly Jones and Joseph Piagentini and incarcerated for roughly 45 years. Denied parole seven times, he was granted release by the New York parole board in 2018 amid significant political backlash. Supporters long regarded him as a political prisoner of the campaign against the Black liberation movement.",
+    "cases": [
+      {
+        "charges": "Murder of NYPD officers Waverly Jones and Joseph Piagentini (May 1971)",
+        "convicted": "Convicted of first-degree murder (1970s)",
+        "sentence": "25 years to life; served roughly 45 years before parole in April 2018"
+      }
+    ]
+  },
+  {
+    "name": "Albert Nuh Washington",
+    "first_name": "Albert",
+    "last_name": "Washington",
+    "aka": "Nuh Washington",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1970s",
+    "death_date": "2000-04-28",
+    "ideologies": ["Black liberation", "Anti-imperialism"],
+    "affiliation": ["Black Liberation Army", "Black Panther Party"],
+    "in_custody": false,
+    "released": false,
+    "description": "Albert \"Nuh\" Washington was a Black Panther Party member who joined the Black Liberation Army and became one of the \"New York Three\" with Herman Bell and Jalil Muntaqim. Arrested in 1971 in connection with the killings of NYPD officers Waverly Jones and Joseph Piagentini, he was convicted and spent the rest of his life imprisoned. He died of liver cancer in April 2000 at New York's Coxsackie Correctional Facility, never having been released.",
+    "cases": [
+      {
+        "charges": "Murder of NYPD officers Waverly Jones and Joseph Piagentini (May 1971)",
+        "convicted": "Convicted of murder (1970s)",
+        "death_in_custody_date": "2000-04-28",
+        "sentence": "25 years to life; died in prison in 2000 after roughly 29 years"
+      }
+    ]
+  },
+  {
+    "name": "Mutulu Shakur",
+    "first_name": "Mutulu",
+    "last_name": "Shakur",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1950-08-08",
+    "death_date": "2023-07-06",
+    "ideologies": ["Black liberation", "Anti-imperialism", "New Afrikan independence"],
+    "affiliation": ["Black Liberation Army", "Republic of New Afrika"],
+    "in_custody": false,
+    "released": true,
+    "description": "Mutulu Shakur was a Black Liberation Army activist and acupuncturist (and stepfather of Tupac Shakur) convicted on federal RICO charges tied to the 1981 Brink's armored-truck robbery in Nyack, New York — in which a guard and two police officers were killed — and to engineering the 1979 prison escape of Assata Shakur. Sentenced to 60 years, he served nearly 37 years before being granted compassionate parole in December 2022 due to terminal cancer, and died about eight months later in July 2023.",
+    "cases": [
+      {
+        "charges": "RICO conspiracy; the 1981 Brink's robbery (felony murder of a guard and two officers); aiding the 1979 escape of Assata Shakur",
+        "convicted": "Convicted 1988",
+        "release_date": "2022-12-12",
+        "sentence": "60 years; served about 37 years before compassionate parole in December 2022"
+      }
+    ]
+  },
+  {
+    "name": "Mark Cook",
+    "first_name": "Mark",
+    "last_name": "Cook",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Washington",
+    "era": "1970s",
+    "ideologies": ["Black liberation", "Anti-imperialism", "Prison abolition"],
+    "affiliation": ["George Jackson Brigade", "Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Mark Cook co-founded the Tacoma branch of the Black Panther Party and was the only African American member of Seattle's George Jackson Brigade, a militant group active in the mid-1970s. In March 1976 he helped free imprisoned brigade member John Sherman from custody, wounding a guard, and was captured days later. He served roughly 25 years and was released in 2000, often described as Washington State's last political prisoner.",
+    "cases": [
+      {
+        "charges": "Aiding a prisoner's escape; assault (shooting a guard in the March 1976 jailbreak); bank robbery (George Jackson Brigade)",
+        "convicted": "Convicted (1970s)",
+        "sentence": "Lengthy term; served about 25 years before release in 2000"
+      }
+    ]
+  },
+  {
+    "name": "Haki Malik Abdullah",
+    "first_name": "Haki Malik",
+    "last_name": "Abdullah",
+    "aka": "Michael Green",
+    "gender": "Male",
+    "race": "Black",
+    "state": "California",
+    "era": "1980s",
+    "ideologies": ["Black liberation", "Anti-imperialism"],
+    "affiliation": ["New Afrikan independence movement"],
+    "in_custody": true,
+    "released": false,
+    "description": "Haki Malik Abdullah, born Michael Green, is a New Afrikan political prisoner held in the California prison system since around the early 1980s. A convert to Islam, he has spent decades educating fellow prisoners and resisting repressive conditions, and is recognized as a political prisoner by amnesty organizations including the Jericho Movement. Precise details of his original charges are not reliably documented in accessible sources.",
+    "cases": [
+      {
+        "charges": "Not reliably documented in accessible sources",
+        "convicted": "Held in the California prison system since the early 1980s",
+        "sentence": "Long-term imprisonment in California (recognized as a political prisoner)"
+      }
+    ]
+  },
+  {
+    "name": "Standing Deer",
+    "first_name": "Standing",
+    "last_name": "Deer",
+    "aka": "Robert Hugh Wilson",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Texas",
+    "era": "1970s",
+    "death_date": "2003-01-20",
+    "ideologies": ["Indigenous sovereignty", "Native American rights"],
+    "affiliation": ["American Indian Movement", "Leonard Peltier Defense Committee"],
+    "in_custody": false,
+    "released": true,
+    "description": "Standing Deer, born Robert Hugh Wilson (Choctaw-Oneida), became politically prominent during his imprisonment at the federal penitentiary in Marion, Illinois. After a 15-year federal sentence in 1976 for bank robbery, he met Leonard Peltier in 1978 and later swore an affidavit that authorities had recruited him to \"neutralize\" Peltier in exchange for medical care — a plot he refused, becoming a lifelong advocate for Peltier and Indigenous prisoners' rights. Paroled in 2001, he was stabbed to death in his Houston apartment in January 2003.",
+    "cases": [
+      {
+        "charges": "Bank robbery; interstate transportation of stolen property",
+        "convicted": "Convicted 1976",
+        "sentence": "15-year federal sentence; paroled in 2001 (murdered in 2003, after release)"
+      }
+    ]
+  },
+  {
+    "name": "Rita Silk-Nauni",
+    "first_name": "Rita",
+    "last_name": "Silk-Nauni",
+    "gender": "Female",
+    "race": "Native American",
+    "state": "Oklahoma",
+    "era": "1970s",
+    "ideologies": ["Indigenous sovereignty", "Native American rights", "Red Power"],
+    "affiliation": ["American Indian Movement"],
+    "in_custody": false,
+    "released": true,
+    "description": "Rita Silk-Nauni became a cause célèbre of the Red Power and Native rights movements after a September 1979 confrontation with Oklahoma City airport security, during which an officer was killed in what supporters described as self-defense after harassment of her and her young son. Tried before an all-white jury, she was convicted of manslaughter and sentenced to 150 years. Her defense committee argued she was a political prisoner subjected to abusive conditions; after a sustained campaign her sentence was reduced and she was eventually released.",
+    "cases": [
+      {
+        "charges": "Manslaughter (the shooting of an Oklahoma City airport security officer, September 1979)",
+        "convicted": "Convicted of manslaughter (1980)",
+        "arrest_date": "1979-09-17",
+        "sentence": "150 years (later reduced); released after a sustained defense campaign"
+      }
+    ]
+  },
+  {
+    "name": "Richard Mafundi Lake",
+    "first_name": "Richard",
+    "last_name": "Lake",
+    "aka": "Mafundi",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Alabama",
+    "era": "1980s",
+    "death_date": "2018-01-21",
+    "ideologies": ["Black liberation", "Anti-police brutality", "Prison abolition"],
+    "affiliation": ["Inmates for Action"],
+    "in_custody": false,
+    "released": false,
+    "description": "Richard \"Mafundi\" Lake was a Birmingham-based Black liberation organizer who became a prison organizer, founding education programs and the group Inmates for Action. In May 1983, just over a week after organizing a National African Liberation Day march in Birmingham, he was arrested on a rape charge his supporters describe as fabricated retaliation and sentenced to life. He spent 31 years imprisoned, becoming one of the longest-held political prisoners in the United States, and died in his Alabama prison cell in January 2018.",
+    "cases": [
+      {
+        "charges": "Rape (described by his supporters as a fabricated, retaliatory charge)",
+        "convicted": "Convicted 1983 and sentenced to life",
+        "death_in_custody_date": "2018-01-21",
+        "sentence": "Life imprisonment; died in custody in January 2018 after roughly 31 years"
+      }
+    ]
+  },
+  {
+    "name": "Pedro Archuleta",
+    "first_name": "Pedro",
+    "last_name": "Archuleta",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "New Mexico",
+    "era": "1970s",
+    "ideologies": ["Chicano nationalism", "Land grant rights", "Anti-imperialism"],
+    "affiliation": ["Chicano movement", "Tierra Amarilla land grant movement"],
+    "in_custody": false,
+    "released": true,
+    "description": "Pedro Archuleta was a Chicano movement activist from Tierra Amarilla, New Mexico, associated with the land-grant struggles led by Reies López Tijerina. In the mid-1970s he was subpoenaed before a federal grand jury in Chicago investigating the Puerto Rican independence movement and refused to testify or provide handwriting, fingerprint, or photo exemplars, arguing the grand jury's purpose was political suppression. He was jailed for civil contempt and released when the contempt confinement expired.",
+    "cases": [
+      {
+        "charges": "Civil contempt of court (refusal to testify before a federal grand jury)",
+        "convicted": "Held in civil contempt (1977)",
+        "sentence": "Coercive civil-contempt confinement for the grand jury's term; released afterward"
+      }
+    ]
+  },
+  {
+    "name": "Ricardo Romero",
+    "first_name": "Ricardo",
+    "last_name": "Romero",
+    "gender": "Male",
+    "race": "Hispanic",
+    "state": "Colorado",
+    "era": "1980s",
+    "ideologies": ["Chicano nationalism", "Mexicano national liberation", "Anti-imperialism"],
+    "affiliation": ["Crusade for Justice", "Movimiento de Liberación Nacional Mexicano"],
+    "in_custody": false,
+    "released": true,
+    "description": "Ricardo Romero was a Chicano/Mexicano movement organizer who co-founded Denver's Crusade for Justice in 1966 and founded the Mexican National Liberation Movement in 1977. A committed grand jury resister, he was first jailed in 1977 for refusing to testify before a federal grand jury investigating the Puerto Rican independence movement; after again refusing before a New York grand jury he was indicted for criminal contempt in 1980, convicted in 1984, and sentenced to three years in federal prison.",
+    "cases": [
+      {
+        "charges": "Criminal contempt of court (refusal to testify before a federal grand jury); earlier civil contempt for grand jury resistance",
+        "convicted": "Convicted of criminal contempt (1984)",
+        "sentence": "3 years in federal prison"
+      }
+    ]
+  },
+  {
+    "name": "David Gilbert",
+    "first_name": "David",
+    "last_name": "Gilbert",
+    "gender": "Male",
+    "race": "White",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1944-10-06",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["Weather Underground", "May 19th Communist Organization", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "David Gilbert, a founding member of Columbia University's SDS chapter, went underground with the Weather Underground and later allied with Black Liberation Army members in the Revolutionary Armed Task Force. On October 20, 1981 he was a getaway driver in the Brink's armored-car robbery near Nyack, New York, in which a Brink's guard and two police officers were killed. Convicted of felony murder and robbery in 1983 and sentenced to 75 years to life, he had his sentence commuted by Governor Andrew Cuomo in 2021 and was paroled that year after roughly four decades in prison.",
+    "cases": [
+      {
+        "charges": "Felony murder and first-degree robbery (the 1981 Brink's robbery near Nyack, New York)",
+        "convicted": "Convicted on all counts in 1983",
+        "arrest_date": "1981-10-20",
+        "release_date": "2021-11-04",
+        "sentence": "75 years to life; commuted by Gov. Cuomo in 2021; served roughly 40 years"
+      }
+    ]
+  },
+  {
+    "name": "Alan Berkman",
+    "first_name": "Alan",
+    "last_name": "Berkman",
+    "gender": "Male",
+    "race": "White",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1945-09-04",
+    "death_date": "2009-06-05",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Resistance Conspiracy"],
+    "in_custody": false,
+    "released": true,
+    "description": "Alan Berkman was a Columbia-trained physician who provided medical care to radical-left activists and was charged in the federal Resistance Conspiracy case over a series of 1980s bombings claimed by the May 19th Communist Organization. Convicted on weapons and explosives-related felonies and for bail-jumping, he served roughly eight years of a ten-year sentence, much of it in harsh conditions. After his release he became a prominent AIDS treatment-access activist (co-founding Health GAP) and a Columbia public-health professor, and died of cancer in 2009.",
+    "cases": [
+      {
+        "charges": "Conspiracy and weapons/explosives charges in the Resistance Conspiracy case; bail-jumping; a related Connecticut robbery conviction",
+        "convicted": "Convicted on felony charges (1980s)",
+        "sentence": "About 10 years; served roughly 8 years, much of it in solitary confinement"
+      }
+    ]
+  },
+  {
+    "name": "Susan Rosenberg",
+    "first_name": "Susan",
+    "last_name": "Rosenberg",
+    "gender": "Female",
+    "race": "White",
+    "state": "New Jersey",
+    "era": "1980s",
+    "birthdate": "1955-10-05",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Resistance Conspiracy"],
+    "in_custody": false,
+    "released": true,
+    "description": "Susan Rosenberg, a radical activist associated with the May 19th Communist Organization, was arrested in November 1984 in Cherry Hill, New Jersey while moving a large cache of explosives and weapons into a storage facility. Convicted on weapons and explosives charges, she was sentenced to 58 years; she was also named in the federal Resistance Conspiracy indictment, though those charges were dropped. President Clinton commuted her sentence on his last day in office in 2001 after she had served about 16 years, and she became a writer and prisoner-rights advocate.",
+    "cases": [
+      {
+        "charges": "Possession of unregistered firearms, explosives, and false identification; conspiracy",
+        "convicted": "Convicted on weapons and explosives charges in 1985",
+        "release_date": "2001-01-20",
+        "sentence": "58 years; commuted by President Clinton on January 20, 2001; served about 16 years"
+      }
+    ]
+  },
+  {
+    "name": "Judith Clark",
+    "first_name": "Judith",
+    "last_name": "Clark",
+    "aka": "Judy Clark",
+    "gender": "Female",
+    "race": "White",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1949-11-09",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Judith \"Judy\" Clark was a longtime radical leftist who drove a getaway vehicle in the October 20, 1981 Brink's robbery near Nyack, New York in which three men were killed. She declined to mount a defense and in 1983 received three consecutive terms of 25 years to life. Over decades in prison she expressed deep remorse and mentored other incarcerated women; Governor Cuomo commuted her sentence in 2016, and she was paroled in 2019 after nearly 40 years.",
+    "cases": [
+      {
+        "charges": "Felony murder and robbery (the 1981 Brink's robbery near Nyack, New York)",
+        "convicted": "Found guilty in 1983",
+        "arrest_date": "1981-10-20",
+        "release_date": "2019-04-17",
+        "sentence": "75 years to life (three consecutive 25-to-life terms); commuted in 2016; served nearly 40 years"
+      }
+    ]
+  },
+  {
+    "name": "Laura Whitehorn",
+    "first_name": "Laura",
+    "last_name": "Whitehorn",
+    "gender": "Female",
+    "race": "White",
+    "state": "District of Columbia",
+    "era": "1980s",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Resistance Conspiracy", "Weather Underground"],
+    "in_custody": false,
+    "released": true,
+    "description": "Laura Whitehorn, a radical activist with roots in SDS and the Weather Underground, was a defendant in the federal Resistance Conspiracy case over a series of 1980s bombings — including the 1983 U.S. Capitol bombing — that caused property damage but no injuries. In 1990 she pleaded guilty to conspiracy and destruction of government property and was sentenced to 20 years, serving about 14 before her 1999 parole. She later became a prominent LGBTQ and prisoner-rights activist and editor.",
+    "cases": [
+      {
+        "charges": "Conspiracy and destruction of government property (the Resistance Conspiracy bombings); false identification",
+        "convicted": "Pleaded guilty in 1990",
+        "release_date": "1999-08-06",
+        "sentence": "20 years; paroled in 1999 after serving about 14 years"
+      }
+    ]
+  },
+  {
+    "name": "Linda Evans",
+    "first_name": "Linda",
+    "last_name": "Evans",
+    "gender": "Female",
+    "race": "White",
+    "state": "District of Columbia",
+    "era": "1980s",
+    "birthdate": "1947-05-11",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Resistance Conspiracy", "Weather Underground"],
+    "in_custody": false,
+    "released": true,
+    "description": "Linda Evans was a radical activist in SDS, the Weather Underground, and the May 19th Communist Organization. In 1987 she was convicted of using false identification to buy firearms and of harboring a fugitive connected to the 1981 Brink's robbery, drawing a 40-year sentence; in 1990 she pleaded guilty in the Resistance Conspiracy bombing case, adding five years. President Clinton commuted her sentence on his last day in office in 2001 after about 16 years, and she became a prison-reform organizer.",
+    "cases": [
+      {
+        "charges": "Illegal firearms purchase using false identification; harboring a fugitive; conspiracy and destruction of government property (Resistance Conspiracy)",
+        "convicted": "Convicted 1987 (firearms/harboring); pleaded guilty 1990 (Resistance Conspiracy)",
+        "release_date": "2001-01-20",
+        "sentence": "40 years (1987) plus 5 years (1990); commuted by President Clinton on January 20, 2001; served about 16 years"
+      }
+    ]
+  },
+  {
+    "name": "Timothy Blunk",
+    "first_name": "Timothy",
+    "last_name": "Blunk",
+    "gender": "Male",
+    "race": "White",
+    "state": "New Jersey",
+    "era": "1980s",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Resistance Conspiracy"],
+    "in_custody": false,
+    "released": true,
+    "description": "Timothy Blunk, a radical activist linked to the May 19th Communist Organization, was arrested in November 1984 alongside Susan Rosenberg in Cherry Hill, New Jersey while transferring a large stockpile of explosives, weapons, and false documents into a storage unit. Convicted on weapons and explosives charges, he was sentenced to 58 years and was also named in the federal Resistance Conspiracy bombing indictment. He served many years before his release.",
+    "cases": [
+      {
+        "charges": "Possession of unregistered firearms, explosives, and false identification; conspiracy",
+        "convicted": "Convicted on weapons and explosives charges in 1985",
+        "sentence": "58 years; served many years before release"
+      }
+    ]
+  },
+  {
+    "name": "Kathy Boudin",
+    "first_name": "Kathy",
+    "last_name": "Boudin",
+    "gender": "Female",
+    "race": "White",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1943-05-19",
+    "death_date": "2022-05-01",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["Weather Underground", "May 19th Communist Organization"],
+    "in_custody": false,
+    "released": true,
+    "description": "Kathy Boudin, a founding member of the Weather Underground, took part in the October 20, 1981 Brink's robbery near Nyack, New York, riding in a switch vehicle while accomplices killed a Brink's guard and two police officers. In 1984 she pleaded guilty to felony murder and robbery for 20 years to life and was paroled in 2003 after about 22 years. After release she earned a doctorate and became a Columbia University educator who co-founded its Center for Justice; she died of cancer in 2022.",
+    "cases": [
+      {
+        "charges": "Felony murder and first-degree robbery (the 1981 Brink's robbery near Nyack, New York)",
+        "convicted": "Pleaded guilty in 1984",
+        "arrest_date": "1981-10-20",
+        "release_date": "2003-09-18",
+        "sentence": "20 years to life; paroled in 2003 after about 22 years"
+      }
+    ]
+  },
+  {
+    "name": "Silvia Baraldini",
+    "first_name": "Silvia",
+    "last_name": "Baraldini",
+    "gender": "Female",
+    "race": "White",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1947-12-12",
+    "ideologies": ["Anti-imperialism", "Anti-racism", "Communism"],
+    "affiliation": ["May 19th Communist Organization", "Black Liberation Army", "Prairie Fire Organizing Committee"],
+    "in_custody": false,
+    "released": true,
+    "description": "Silvia Baraldini was an Italian-born activist, raised partly in the United States, who became deeply involved in Black liberation and Puerto Rican independence solidarity. She supported the Black Liberation Army — including aiding the 1979 prison escape of Assata Shakur — and was connected to the network behind the 1981 Brink's robbery. Convicted under the RICO Act in 1983 (with an added contempt term for refusing to testify), she served roughly 17 years in U.S. custody, including the controversial Lexington High Security Unit, before being repatriated to Italy in 1999 and later released and pardoned there.",
+    "cases": [
+      {
+        "charges": "RICO racketeering conspiracy (including the 1979 Assata Shakur prison escape); criminal contempt for refusing to testify before a grand jury",
+        "convicted": "Convicted under RICO in 1983",
+        "sentence": "40 years (RICO) plus 3 years (contempt); served about 17 years in U.S. custody before 1999 repatriation to Italy"
+      }
+    ]
+  }
+]
