@@ -15,6 +15,13 @@ use Illuminate\Console\Command;
  * disagreed (Delbert Africa, Charles Sims Africa) or that gave no year were left
  * out rather than guessed.
  *
+ * A second batch covers the current/freed prisoners on the same Jericho
+ * birthdays page whose profiles supplied a verifiable year that matched the
+ * list's month-day: Abdul Azeez (Virgin Islands 5), Marius Mason, Joy Powell,
+ * Alvaro Luna Hernandez, Kojo Bomani Sababu and Fred Burton. (Abdul Azeez's
+ * profile birthday — Jan. 9, 1947 — is used here, not the August 13, 1973
+ * Fountain Valley conviction date.)
+ *
  * Sets birthdate ONLY where a matching prisoner currently has none (never
  * overwrites), is variant-aware on the name, and skips prisoners not present.
  */
@@ -26,18 +33,23 @@ final class SetJerichoBirthdays extends Command
 
     /** @var array<array{0:string[],1:string}> [name-match fragments, YYYY-MM-DD] */
     private array $map = [
+        [['Abdul Azeez', 'Abdul Aziz'], '1947-01-09'],
         [['Sundiata Acoli', 'Acoli'], '1937-01-14'],
         [['Joseph Bowen'], '1948-01-15'],
+        [['Marius Mason', 'Marie Mason'], '1962-01-26'],
         [['Veronza'], '1946-02-04'],
         [['Albert Woodfox', 'Woodfox'], '1947-02-19'],
         [['Kamau Sadiki', 'Freddie Hilton'], '1953-02-19'],
         [['Jeff Fort', 'Abdullah Malik'], '1947-02-20'],
         [['Oso Blanco', 'Byron Chubbuck', 'Chubbuck'], '1967-02-26'],
         [['Aafia Siddiqui', 'Siddiqui'], '1972-03-02'],
+        [['Joy Powell'], '1962-03-05'],
         [['Ruchell Magee'], '1939-03-17'],
         [['Romaine Fitzgerald', 'Romaine'], '1949-04-11'],
         [['Janet Holloway'], '1951-04-13'],
         [['Mumia', 'Abu-Jamal'], '1954-04-24'],
+        [['Alvaro Luna Hernandez', 'Alvaro Luna Hernández', 'Xinachtli'], '1952-05-12'],
+        [['Kojo Bomani Sababu', 'Grailing Brown'], '1953-05-27'],
         [['Thomas Manning'], '1946-06-28'],
         [['Bill Dunne', 'William Dunne'], '1954-08-03'],
         [['Mutulu Shakur', 'Mutulu'], '1950-08-08'],
@@ -49,6 +61,7 @@ final class SetJerichoBirthdays extends Command
         [['Edward Goodman'], '1949-10-21'],
         [['Poindexter'], '1944-11-01'],
         [['Larry Hoover'], '1950-11-30'],
+        [['Fred Burton', 'Muhammad Burton'], '1946-12-15'],
     ];
 
     public function handle(): int
