@@ -8,28 +8,30 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 
 /**
- * Records LeRoi Jones (Amiri Baraka)'s full 1967 Newark prosecution.
+ * Records LeRoi Jones (Amiri Baraka)'s full 1967 Newark prosecution. He was in
+ * custody in two separate stretches plus a contempt matter, so — because each
+ * case row holds only one incarceration→release pair — it is modeled as three
+ * cases:
  *
- *   - Weapons case: arrested July 14, 1967 during the rebellion (beaten, held
- *     at the Essex County Jail) and released on bail July 22, 1967 — an 8-day
- *     initial detention. Convicted November 6, 1967; sentenced January 4, 1968
- *     to 2½–3 years plus a $1,000 fine and released on $25,000 bail January 9,
- *     1968 pending appeal; conviction reversed April 21, 1969 — the prison
- *     sentence was never served. Recorded custody is the July 14–22, 1967
- *     detention (8 days); the later events are noted in the sentence text.
+ *   1. Weapons, arrest & pretrial detention: arrested July 14, 1967 during the
+ *      rebellion (beaten, Essex County Jail) and released on bail July 22, 1967
+ *      — 8 days.
+ *   2. Weapons, post-conviction incarceration: convicted November 6, 1967;
+ *      sentenced January 4, 1968 to 2½–3 years + a $1,000 fine and held until
+ *      released on $25,000 bail January 9, 1968 pending appeal — 5 days. The
+ *      conviction was reversed April 21, 1969, so the full sentence was never
+ *      served.
+ *   3. Criminal contempt: 30 days at the Essex County Jail imposed November 6,
+ *      1967 by Judge Leon W. Kapp; reversed on appeal (State v. Jones, 1969).
+ *      No served-time dates (at liberty pending appeal).
  *
- *   - Criminal contempt: a separate 30-day Essex County Jail sentence imposed
- *     November 6, 1967 by Judge Leon W. Kapp immediately after the verdict;
- *     reversed on appeal (State v. Jones, 1969). No served-time dates are
- *     recorded (he was at liberty pending appeal).
- *
- * Replaces the earlier prisoners:set-baraka-release-date command. Idempotent.
+ * Idempotent — each case is upserted by a charge keyword.
  */
 final class FixBarakaNewarkCases extends Command
 {
     protected $signature = 'prisoners:fix-baraka-newark-cases';
 
-    protected $description = "Record Baraka's 1967 Newark weapons case (July 1967 detention) and the 30-day contempt sentence";
+    protected $description = "Record Baraka's 1967 Newark cases: arrest detention, post-conviction custody, and the 30-day contempt";
 
     public function handle(): int
     {
@@ -46,44 +48,73 @@ final class FixBarakaNewarkCases extends Command
             ['city' => 'Newark', 'state' => 'New Jersey'],
         );
 
-        // Weapons case — the existing non-contempt case.
-        $weapons = $prisoner->cases->first(fn ($c) => str_contains(strtolower((string) $c->charges), 'revolver'))
-            ?? $prisoner->cases->first(fn ($c) => ! str_contains(strtolower((string) $c->charges), 'contempt'));
+        // 1. Weapons — arrest & pretrial detention (the existing revolver case
+        // that is not the post-conviction one).
+        $this->upsert(
+            $prisoner,
+            fn ($c) => str_contains(strtolower((string) $c->charges), 'revolver') && ! str_contains(strtolower((string) $c->charges), 'post-conviction'),
+            [
+                'charges' => 'Unlawful possession of two revolvers; resisting arrest (Newark rebellion, July 1967)',
+                'arrest_date' => '1967-07-14',
+                'incarceration_date' => '1967-07-14',
+                'release_date' => '1967-07-22',
+                'convicted' => 'Yes — convicted November 6, 1967; conviction reversed on appeal April 21, 1969',
+                'sentence' => 'Arrest detention: held 8 days after the July 14, 1967 arrest, then released on bail July 22, 1967 (pre-trial).',
+                'institution_id' => $essex->id,
+                'judge' => 'Leon W. Kapp',
+            ],
+            'weapons arrest/pretrial detention',
+        );
 
-        if ($weapons) {
-            $weapons->arrest_date = '1967-07-14';
-            $weapons->incarceration_date = '1967-07-14';
-            $weapons->release_date = '1967-07-22';
-            $weapons->institution_id = $essex->id;
-            $weapons->sentence = 'Held 8 days after his July 14, 1967 arrest, then released on bail July 22, 1967. Convicted November 6, 1967 and sentenced January 4, 1968 to 2½–3 years plus a $1,000 fine; released on $25,000 bail January 9, 1968 pending appeal. Conviction reversed April 21, 1969 — the prison sentence was never served.';
-            $weapons->save();
-            $weapons->refresh();
-            $this->info("Updated weapons case: July 14–22, 1967 ({$weapons->imprisoned_for_days} days initial detention).");
-        } else {
-            $this->warn('No weapons case found to update.');
-        }
+        // 2. Weapons — post-conviction incarceration.
+        $this->upsert(
+            $prisoner,
+            fn ($c) => str_contains(strtolower((string) $c->charges), 'post-conviction'),
+            [
+                'charges' => 'Unlawful possession of two revolvers — post-conviction incarceration (sentence vacated on appeal)',
+                'incarceration_date' => '1968-01-04',
+                'release_date' => '1968-01-09',
+                'sentenced_date' => '1968-01-04',
+                'convicted' => 'Convicted November 6, 1967; reversed on appeal April 21, 1969',
+                'sentence' => '2½ to 3 years plus a $1,000 fine; jailed at sentencing on January 4, 1968 and released on $25,000 bail January 9, 1968 pending appeal. Conviction reversed April 21, 1969 — the full sentence was never served.',
+                'institution_id' => $essex->id,
+                'judge' => 'Leon W. Kapp',
+            ],
+            'weapons post-conviction incarceration',
+        );
 
-        // Criminal contempt — a separate case.
-        $contemptData = [
-            'charges' => 'Criminal contempt of court (summary contempt during the 1967 Newark weapons trial)',
-            'convicted' => 'Adjudged guilty of criminal contempt November 6, 1967; reversed on appeal (State v. Jones, 1969)',
-            'sentence' => '30 days in the Essex County Jail, imposed November 6, 1967 by Judge Leon W. Kapp immediately after the verdict; reversed on appeal',
-            'sentenced_date' => '1967-11-06',
-            'judge' => 'Leon W. Kapp',
-            'institution_id' => $essex->id,
-        ];
-
-        $contempt = $prisoner->cases->first(fn ($c) => str_contains(strtolower((string) $c->charges), 'contempt'));
-
-        if ($contempt) {
-            $contempt->fill($contemptData)->save();
-            $this->info('Updated contempt case.');
-        } else {
-            $contemptData['prisoner_id'] = $prisoner->id;
-            PrisonerCase::create($contemptData);
-            $this->info('Added 30-day criminal contempt case (November 6, 1967).');
-        }
+        // 3. Criminal contempt.
+        $this->upsert(
+            $prisoner,
+            fn ($c) => str_contains(strtolower((string) $c->charges), 'contempt'),
+            [
+                'charges' => 'Criminal contempt of court (summary contempt during the 1967 Newark weapons trial)',
+                'convicted' => 'Adjudged guilty of criminal contempt November 6, 1967; reversed on appeal (State v. Jones, 1969)',
+                'sentence' => '30 days in the Essex County Jail, imposed November 6, 1967 by Judge Leon W. Kapp immediately after the verdict; reversed on appeal',
+                'sentenced_date' => '1967-11-06',
+                'judge' => 'Leon W. Kapp',
+                'institution_id' => $essex->id,
+            ],
+            'criminal contempt',
+        );
 
         return self::SUCCESS;
+    }
+
+    private function upsert(Prisoner $prisoner, callable $match, array $data, string $label): void
+    {
+        $case = $prisoner->cases()->get()->first($match);
+
+        if ($case) {
+            $case->fill($data)->save();
+            $verb = 'Updated';
+        } else {
+            $data['prisoner_id'] = $prisoner->id;
+            $case = PrisonerCase::create($data);
+            $verb = 'Added';
+        }
+
+        $days = $case->fresh()->imprisoned_for_days;
+        $this->info("{$verb} {$label}".($days ? " ({$days} days)" : '').'.');
     }
 }
