@@ -50,6 +50,7 @@ final class AddBettinaAptheker extends Command
             'race' => 'White',
             'state' => 'California',
             'era' => '1960s',
+            'birthdate' => '1944-09-13',
             'ideologies' => ['Communism', 'Feminism'],
             'affiliation' => ['Free Speech Movement', 'Communist Party USA'],
             'in_custody' => false,
