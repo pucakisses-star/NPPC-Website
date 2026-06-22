@@ -106,7 +106,7 @@ final class AddManningGerena extends Command {
                 'race' => 'Hispanic/Latino',
                 'gender' => 'Male',
                 'birthdate' => '1958-06-24',
-                'ideologies' => ['Puerto Rican independence', 'Anti-imperialist'],
+                'ideologies' => ['Puerto Rican Independence', 'Anti-imperialist'],
                 'affiliation' => ['Los Macheteros (Ejército Popular Boricua)'],
                 'era' => '1980s',
                 'in_custody' => false,
