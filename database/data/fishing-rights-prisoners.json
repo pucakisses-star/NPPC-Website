@@ -1,0 +1,225 @@
+[
+  {
+    "name": "Hank Adams",
+    "first_name": "Hank",
+    "last_name": "Adams",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "birthdate": "1943-05-16",
+    "death_date": "2020-12-21",
+    "ideologies": ["Indigenous rights", "Treaty rights", "Red Power"],
+    "affiliation": ["Survival of American Indians Association", "National Indian Youth Council"],
+    "in_custody": false,
+    "released": true,
+    "description": "Hank Adams (1943–2020), Assiniboine-Sioux, was the chief strategist of the Pacific Northwest treaty fishing-rights \"fish-in\" movement through the Survival of American Indians Association. He was repeatedly arrested at fish-ins on the Nisqually and Puyallup rivers in the 1960s for asserting treaty-guaranteed fishing rights, and in January 1971 he was shot in the stomach while guarding nets on the Nisqually. He later drafted the Trail of Broken Treaties' Twenty-Point Position Paper and helped negotiate an end to the 1973 Wounded Knee occupation.",
+    "cases": [
+      {
+        "charges": "Repeatedly arrested for treaty fishing-rights civil disobedience (\"fish-ins\") on the Nisqually and Puyallup rivers, Washington, in the 1960s.",
+        "convicted": "Multiple arrests and convictions for fishing \"violations\" while asserting treaty rights.",
+        "sentence": "A series of short jail terms and fines for fish-in protests."
+      }
+    ]
+  },
+  {
+    "name": "Billy Frank Jr.",
+    "first_name": "Billy",
+    "last_name": "Frank",
+    "aka": "Billy Frank Junior",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "birthdate": "1931-03-09",
+    "death_date": "2014-05-05",
+    "ideologies": ["Indigenous rights", "Treaty rights"],
+    "affiliation": ["Survival of American Indians Association"],
+    "in_custody": false,
+    "released": true,
+    "description": "Billy Frank Jr. (1931–2014), a Nisqually fisherman from Frank's Landing on the Nisqually River, was the most-arrested figure of the treaty fishing-rights struggle — taken into custody more than fifty times beginning with his first arrest at age fourteen in 1945. His decades of civil disobedience helped produce the 1974 Boldt Decision affirming tribal treaty fishing rights. He later chaired the Northwest Indian Fisheries Commission and was posthumously awarded the Presidential Medal of Freedom.",
+    "cases": [
+      {
+        "charges": "Arrested more than fifty times for treaty fishing-rights civil disobedience on the Nisqually River, Washington, from 1945 onward (first arrest at age 14).",
+        "convicted": "Numerous convictions for state fishing \"violations\" while exercising treaty rights.",
+        "sentence": "Repeated short jail terms and fines over three decades of fish-in protests."
+      }
+    ]
+  },
+  {
+    "name": "Janet McCloud",
+    "first_name": "Janet",
+    "last_name": "McCloud",
+    "aka": "Yet Si Blue",
+    "gender": "Female",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "birthdate": "1934-03-30",
+    "ideologies": ["Indigenous rights", "Treaty rights"],
+    "affiliation": ["Survival of American Indians Association"],
+    "in_custody": false,
+    "released": true,
+    "description": "Janet McCloud (1934–2003), Tulalip/Nisqually, known as Yet Si Blue, was a leader of the Pacific Northwest fishing-rights movement credited with coining the term \"fish-ins.\" She co-founded the Survival of American Indians Association and was repeatedly arrested at treaty fishing protests on the Nisqually River. She later co-founded Women of All Red Nations and the Indigenous Women's Network.",
+    "cases": [
+      {
+        "charges": "Arrested at treaty fishing-rights \"fish-in\" protests on the Nisqually River, Washington, in the 1960s.",
+        "convicted": "Arrests and convictions for fishing \"violations\" while asserting treaty rights.",
+        "sentence": "Short jail terms and fines for fish-in protests."
+      }
+    ]
+  },
+  {
+    "name": "Al Bridges",
+    "first_name": "Al",
+    "last_name": "Bridges",
+    "aka": "Alvin Bridges",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "ideologies": ["Indigenous rights", "Treaty rights"],
+    "affiliation": ["Survival of American Indians Association"],
+    "in_custody": false,
+    "released": true,
+    "description": "Al (Alvin) Bridges was a Nisqually fisherman and a central figure of the Frank's Landing fishing-rights struggle on the Nisqually River. With his wife Maiselle and their daughters, he was repeatedly arrested through the 1960s for asserting treaty fishing rights against Washington State game officials who cut nets and confiscated boats.",
+    "cases": [
+      {
+        "charges": "Repeatedly arrested for treaty fishing-rights civil disobedience at Frank's Landing on the Nisqually River, Washington, in the 1960s.",
+        "convicted": "Multiple arrests and convictions for fishing \"violations\" while exercising treaty rights.",
+        "sentence": "Short jail terms and fines for fish-in protests."
+      }
+    ]
+  },
+  {
+    "name": "Sid Mills",
+    "first_name": "Sid",
+    "last_name": "Mills",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "ideologies": ["Indigenous rights", "Treaty rights", "Anti-war"],
+    "affiliation": ["Survival of American Indians Association"],
+    "in_custody": false,
+    "released": true,
+    "description": "Sid Mills, Yakama and Cherokee, was a wounded Vietnam veteran who in October 1968 publicly refused further U.S. military service, declaring that his first duty was to defend his own people's treaty rights. He joined the Frank's Landing fishing-rights struggle on the Nisqually River and was repeatedly arrested at fish-ins. He married fellow activist Suzette Bridges.",
+    "cases": [
+      {
+        "charges": "Arrested for treaty fishing-rights civil disobedience at Frank's Landing on the Nisqually River, Washington, from 1968.",
+        "convicted": "Arrests and convictions for fishing \"violations\" while asserting treaty rights.",
+        "sentence": "Short jail terms for fish-in protests."
+      }
+    ]
+  },
+  {
+    "name": "Suzette Bridges",
+    "first_name": "Suzette",
+    "last_name": "Bridges",
+    "aka": "Suzette Mills",
+    "gender": "Female",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "ideologies": ["Indigenous rights", "Treaty rights"],
+    "affiliation": ["Survival of American Indians Association"],
+    "in_custody": false,
+    "released": true,
+    "description": "Suzette Bridges (later Suzette Mills) was a Nisqually activist of the Frank's Landing family at the heart of the treaty fishing-rights struggle on the Nisqually River. A daughter of Al and Maiselle Bridges, she was repeatedly arrested at fish-in protests in the 1960s and married fellow activist Sid Mills.",
+    "cases": [
+      {
+        "charges": "Arrested at treaty fishing-rights \"fish-in\" protests on the Nisqually River, Washington, in the 1960s.",
+        "convicted": "Arrests for fishing \"violations\" while asserting treaty rights.",
+        "sentence": "Short jail terms for fish-in protests."
+      }
+    ]
+  },
+  {
+    "name": "Valerie Bridges",
+    "first_name": "Valerie",
+    "last_name": "Bridges",
+    "gender": "Female",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1960s",
+    "ideologies": ["Indigenous rights", "Treaty rights"],
+    "affiliation": ["Survival of American Indians Association"],
+    "in_custody": false,
+    "released": true,
+    "description": "Valerie Bridges was a young Nisqually activist of the Frank's Landing family central to the treaty fishing-rights struggle on the Nisqually River. A daughter of Al and Maiselle Bridges, she was arrested at fish-in protests in the 1960s and at the 1970 Fort Lawton takeover in Seattle.",
+    "cases": [
+      {
+        "charges": "Arrested at treaty fishing-rights \"fish-in\" protests on the Nisqually River and at the 1970 Fort Lawton takeover, Washington.",
+        "convicted": "Arrests for fishing \"violations\" and trespass while asserting treaty rights.",
+        "sentence": "Short detentions for fish-in and occupation protests."
+      }
+    ]
+  },
+  {
+    "name": "Chief Leschi",
+    "first_name": "Leschi",
+    "last_name": "Leschi",
+    "aka": "Leschi of the Nisqually",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1850s",
+    "death_date": "1858-02-19",
+    "ideologies": ["Indigenous sovereignty", "Treaty rights"],
+    "in_custody": false,
+    "released": false,
+    "description": "Chief Leschi (c. 1808–1858) was a Nisqually leader who resisted Governor Isaac Stevens's coercive 1854 Treaty of Medicine Creek and led Native resistance in the Puget Sound War of 1855–56. Captured in late 1856, he was tried for the wartime killing of a militiaman; after a first trial ended in a hung jury, a second convicted him, and he was hanged on February 19, 1858 — a prosecution widely condemned as an act of war wrongly tried as murder. A historical court symbolically exonerated him in 2004. The treaty he resisted is the same one later invoked by the Nisqually fishing-rights fighters.",
+    "cases": [
+      {
+        "charges": "Charged with murder for a killing during the Puget Sound War (1855–56) — widely held to be an act of war improperly prosecuted as a crime.",
+        "convicted": "Convicted at a second trial after the first ended in a hung jury.",
+        "death_in_custody_date": "1858-02-19",
+        "sentence": "Death by hanging, carried out February 19, 1858, after about a year in jail and two trials."
+      }
+    ]
+  },
+  {
+    "name": "Billy Frank Sr.",
+    "first_name": "Billy",
+    "last_name": "Frank",
+    "aka": "Billy Frank Senior",
+    "gender": "Male",
+    "race": "Native American",
+    "state": "Washington",
+    "era": "1910s",
+    "ideologies": ["Indigenous rights", "Treaty rights"],
+    "in_custody": false,
+    "released": true,
+    "description": "Billy Frank Sr. (1879–1983), a Nisqually elder and the father of Billy Frank Jr., was an early figure of the fishing-rights struggle on the Nisqually River. His 1916 arrest for out-of-season salmon harvesting is among the earliest documented arrests of the long Northwest treaty fishing-rights fight that his son would carry forward.",
+    "cases": [
+      {
+        "charges": "Arrested in 1916 for \"unlawful\" (out-of-season) salmon harvesting while exercising Nisqually treaty fishing rights.",
+        "convicted": "Taken into custody for asserting treaty fishing rights.",
+        "sentence": "An early instance of state suppression of treaty fishing."
+      }
+    ]
+  },
+  {
+    "name": "Dick Gregory",
+    "first_name": "Dick",
+    "last_name": "Gregory",
+    "aka": "Richard Claxton Gregory",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Washington",
+    "era": "1960s",
+    "birthdate": "1932-10-12",
+    "death_date": "2017-08-19",
+    "ideologies": ["Civil rights", "Indigenous rights"],
+    "in_custody": false,
+    "released": true,
+    "description": "Dick Gregory (1932–2017), the comedian and civil-rights activist, joined the Pacific Northwest treaty fishing-rights struggle in solidarity. Arrested at fish-in protests on the Nisqually River in 1966, he was convicted and jailed, staging a hunger strike behind bars to draw national attention to Native treaty rights — one of many jailings across his decades of civil-rights and anti-war activism.",
+    "cases": [
+      {
+        "charges": "Arrested at a treaty fishing-rights \"fish-in\" on the Nisqually River, Washington (1966), in solidarity with Native fishers.",
+        "convicted": "Convicted of a fishing \"violation\" for the 1966 protest.",
+        "sentence": "Jailed for the fishing-rights protest; staged a hunger strike in jail."
+      }
+    ]
+  }
+]
