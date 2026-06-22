@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\DB;
  * records for Paul Skyhorse (Paul Durant) and Richard Mohawk (Richard Billings),
  * the two American Indian Movement activists charged with the October 10, 1974
  * murder of cab driver George Aird at the Box Canyon AIM camp in Ventura County,
- * California. Arrested in Phoenix about ten days after the killing, they were
- * held without bail in the Ventura County Jail for roughly three and a half
- * years until a jury acquitted them on May 24, 1978 — the close of one of the
- * longest criminal trials in California history, widely seen as an FBI-era
+ * California. Arrested in Phoenix on October 17, 1974 — a week after the killing
+ * — they were held without bail in the Ventura County Jail for roughly three and
+ * a half years until a jury acquitted them on May 24, 1978, the close of one of
+ * the longest criminal trials in California history, widely seen as an FBI-era
  * frame-up to discredit the movement.
  *
- * Both share the same timeline. Fills only blank fields (idempotent) so it never
- * clobbers existing data; imprisoned_for_days is recomputed by the model on save.
+ * Both share the same timeline. The arrest/incarceration date is set
+ * authoritatively (so a re-run corrects any earlier value); the release date and
+ * institution are filled only when blank so they are never clobbered.
+ * imprisoned_for_days is recomputed by the model on save.
  */
 final class SetSkyhorseMohawkDates extends Command
 {
@@ -30,15 +32,16 @@ final class SetSkyhorseMohawkDates extends Command
 
     public function handle(): int
     {
-        // Arrested in Phoenix ~10 days after the Oct 10, 1974 murder; held
-        // without bail in Ventura; acquitted and freed May 24, 1978.
-        $dates = [
-            'arrest_date' => '1974-10-20',
-            'incarceration_date' => '1974-10-20',
+        // Arrested in Phoenix on October 17, 1974 (a week after the Oct 10
+        // murder); held without bail in Ventura; acquitted and freed May 24, 1978.
+        $arrestDate = '1974-10-17';
+
+        // Filled only when blank, so existing values are never clobbered.
+        $fillIfBlank = [
             'release_date' => '1978-05-24',
         ];
 
-        DB::transaction(function () use ($dates) {
+        DB::transaction(function () use ($arrestDate, $fillIfBlank) {
             $institution = Institution::firstOrCreate(
                 ['name' => 'Ventura County Jail'],
                 ['city' => 'Ventura', 'state' => 'California']
@@ -54,24 +57,21 @@ final class SetSkyhorseMohawkDates extends Command
 
                 $case = $prisoner->cases()->first() ?? new PrisonerCase(['prisoner_id' => $prisoner->id]);
 
-                $fill = [];
-                foreach ($dates as $key => $value) {
+                // Authoritative: corrects any earlier arrest/incarceration date.
+                $case->arrest_date = $arrestDate;
+                $case->incarceration_date = $arrestDate;
+
+                foreach ($fillIfBlank as $key => $value) {
                     if ($case->getAttribute($key) === null) {
-                        $fill[$key] = $value;
+                        $case->setAttribute($key, $value);
                     }
                 }
                 if (! $case->institution_id) {
-                    $fill['institution_id'] = $institution->id;
+                    $case->institution_id = $institution->id;
                 }
 
-                if ($fill === []) {
-                    $this->line("  Already set, no change: {$name}");
-
-                    continue;
-                }
-
-                $case->fill($fill)->save();
-                $this->info("  {$name}: set ".implode(', ', array_keys($fill)));
+                $case->save();
+                $this->info("  {$name}: arrest/incarceration = {$arrestDate}");
             }
         });
 
