@@ -67,6 +67,24 @@ final class AttachJerichoPhotos extends Command
         [['Mark Clark'], 'mark-clark-1947-1969.jpeg'],
         [['Ehehosi'], 'masai-ehehosi.jpeg'],
         [['Thomas Manning'], 'thomas-manning-1946-2019.png'],
+
+        // ---- Jericho "Freed Political Prisoners" list ----
+        [['Rattler', 'Michael Markus'], 'markus-michael-rattler.jpg'],
+        [['Sundiata Acoli', 'Acoli'], 'acoli-sundiata-clark-squire.png'],
+        [['Janine Phillips'], 'africa-janine-phillips-0.jpg'],
+        [['Herman Bell'], 'bell-herman.png'],
+        [['Anthony Bottom', 'Jalil'], 'bottom-anthony-jalil.png'],
+        [['Veronza'], 'bowers-veronza.png'],
+        [['Patrice Lumumba', 'Lumumba Ford'], 'ford-patrice-lumumba.png'],
+        [['David Gilbert'], 'gilbert-david.png'],
+        [['Jeremy Hammond'], 'hammond-jeremy.png'],
+        [['Kazi Toure'], 'kazi-toure.jpg'],
+        [['Maumin Khabir', 'Melvin Mayes', 'Khabir'], 'khabir-maumin-melvin-mayes.png'],
+        [['Eric King'], 'king-eric.jpg'],
+        [['Ruchell Magee'], 'magee-ruchell-cinque.png'],
+        [['Tarek Mehanna', 'Mehanna'], 'mehanna-tarek.png'],
+        [['Leonard Peltier'], 'peltier-leonard.png'],
+        [['Rebecca Rubin'], 'rubin-rebecca.jpg'],
     ];
 
     public function handle(): int
