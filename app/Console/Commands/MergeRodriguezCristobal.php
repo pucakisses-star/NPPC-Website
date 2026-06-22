@@ -52,7 +52,18 @@ final class MergeRodriguezCristobal extends Command
 
         $dups = $matches->reject(fn (Prisoner $p) => $p->id === $keeper->id)->values();
 
-        DB::transaction(function () use ($keeper, $dups) {
+        $bio = 'Ángel Rodríguez Cristóbal was a farmer, Puerto Rican independence and socialist activist '
+            .'who served as a leader of the civil-disobedience campaign against the U.S. Navy\'s use of the '
+            .'island of Vieques as a bombing range. Arrested on May 19, 1979 along with some twenty others '
+            .'for occupying the Navy\'s restricted zone in Vieques, he was convicted of trespassing, '
+            .'sentenced to six months in federal prison, and transferred to the Federal Correctional '
+            .'Institution in Tallahassee, Florida. On November 11, 1979 he was found dead in his cell. '
+            .'Prison authorities called it a suicide by hanging, but his body bore a deep wound above the '
+            .'left eyebrow and other injuries, and his family, the independence movement, and much of '
+            .'Puerto Rico believed he had been beaten to death. His death made him a martyr of the Vieques '
+            .'and Puerto Rican independence struggles and set off protests across the island.';
+
+        DB::transaction(function () use ($keeper, $dups, $bio) {
             $ideologies = collect($keeper->ideologies ?? []);
             $affiliation = collect($keeper->affiliation ?? []);
 
@@ -67,6 +78,7 @@ final class MergeRodriguezCristobal extends Command
             }
 
             $keeper->name = 'Ángel Rodríguez Cristóbal';
+            $keeper->description = $bio;
             $keeper->ideologies = $ideologies->unique()->values()->all();
             $keeper->affiliation = $affiliation->unique()->values()->all();
             $keeper->birthdate = '1946-04-02';
