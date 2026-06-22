@@ -28,6 +28,7 @@ final class AttachNonfreePhotos extends Command
     /** @var array<array{0:string[],1:string}> [name-match fragments, photo file in photos/nonfree/] */
     private array $map = [
         [['Juan Antonio Corretjer', 'Corretjer'], 'corretjer-juan-antonio.jpg'],
+        [['Donald Cox', 'Don Cox'], 'cox-donald.jpg'],
     ];
 
     public function handle(): int
