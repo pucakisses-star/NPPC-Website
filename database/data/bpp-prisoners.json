@@ -1,0 +1,611 @@
+[
+  {
+    "name": "George Jackson",
+    "first_name": "George",
+    "last_name": "Jackson",
+    "aka": "George Lester Jackson; Soledad Brother",
+    "gender": "Male",
+    "race": "Black",
+    "state": "California",
+    "era": "1970s",
+    "birthdate": "1941-09-23",
+    "death_date": "1971-08-21",
+    "ideologies": ["Black Power", "Marxism", "Maoism", "Revolutionary socialism"],
+    "affiliation": ["Black Panther Party", "Black Guerrilla Family", "Soledad Brothers"],
+    "in_custody": false,
+    "released": false,
+    "description": "George Jackson was arrested in 1960 at age 18 for his part in an armed robbery of a Los Angeles gas station and in early 1961 received an indeterminate sentence of one year to life. He spent the rest of his life behind bars, mostly at San Quentin and Soledad, where he became a self-educated Marxist revolutionary, joined the Black Panther Party, and co-founded the Black Guerrilla Family. In 1970 he and two other inmates were charged with killing a Soledad guard, becoming the 'Soledad Brothers' — a case widely seen as retaliation for his organizing — and his prison letters were published as the bestselling 'Soledad Brother.' He was shot dead by guards at San Quentin on August 21, 1971 during an alleged escape attempt, after roughly a decade of incarceration.",
+    "cases": [
+      {
+        "charges": "Second-degree robbery (1960); later charged with the murder of Soledad correctional officer John Mills (1970, as one of the 'Soledad Brothers')",
+        "convicted": "Pled guilty to robbery in 1960; killed in 1971 before the Soledad Brothers murder trial concluded",
+        "death_in_custody_date": "1971-08-21",
+        "sentence": "Indeterminate one-year-to-life sentence imposed in 1961; served roughly a decade until shot dead by San Quentin guards on August 21, 1971"
+      }
+    ]
+  },
+  {
+    "name": "Geronimo Pratt",
+    "first_name": "Geronimo",
+    "last_name": "Pratt",
+    "aka": "Geronimo ji-Jaga; Elmer Gerard Pratt",
+    "gender": "Male",
+    "race": "Black",
+    "state": "California",
+    "era": "1970s",
+    "birthdate": "1947-09-13",
+    "death_date": "2011-06-02",
+    "ideologies": ["Black Power", "Black nationalism", "Black liberation"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Geronimo Pratt, also known as Geronimo ji-Jaga, was a Vietnam combat veteran who became Deputy Minister of Defense of the Southern California chapter of the Black Panther Party. Targeted under the FBI's COINTELPRO program, he was arrested in 1970 and convicted in 1972 of the 1968 murder of Caroline Olsen, despite evidence placing him hundreds of miles away at a Panther meeting. He served 27 years in prison, roughly eight of them in solitary confinement, while supporters and attorney Johnnie Cochran fought to clear him. In 1997 his conviction was vacated because prosecutors had concealed that a key witness was a paid informant, and he later won a multimillion-dollar civil settlement.",
+    "cases": [
+      {
+        "charges": "Murder and kidnapping (the 1968 killing of Caroline Olsen in Santa Monica) — a prosecution tainted by COINTELPRO",
+        "convicted": "Convicted 1972; conviction vacated June 10, 1997",
+        "release_date": "1997-06-10",
+        "sentence": "Life; served 27 years (about eight in solitary) before the conviction was overturned for concealed evidence"
+      }
+    ]
+  },
+  {
+    "name": "Assata Shakur",
+    "first_name": "Assata",
+    "last_name": "Shakur",
+    "aka": "JoAnne Chesimard; Assata Olugbala Shakur",
+    "gender": "Female",
+    "race": "Black",
+    "state": "New Jersey",
+    "era": "1970s",
+    "birthdate": "1947-07-16",
+    "death_date": "2025-09-25",
+    "ideologies": ["Black liberation", "Black nationalism", "Communism", "Anti-imperialism"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": false,
+    "in_exile": true,
+    "currently_in_exile": false,
+    "description": "Assata Shakur, born JoAnne Chesimard, was a member of the Black Panther Party and the Black Liberation Army who became one of the most prominent figures targeted by COINTELPRO. After a 1973 shootout on the New Jersey Turnpike that killed State Trooper Werner Foerster and BLA member Zayd Shakur, she was convicted of murder in 1977, though she maintained she could not have fired the fatal shots given her wounds. In 1979 she escaped from prison with help from BLA comrades and lived underground before surfacing in Cuba, which granted her political asylum in 1984. She remained an exile and global symbol of Black resistance, never returning to the United States, until her death in Havana in 2025.",
+    "cases": [
+      {
+        "charges": "First-degree murder of New Jersey State Trooper Werner Foerster, assault, and weapons offenses (1973 New Jersey Turnpike shootout)",
+        "convicted": "Convicted in 1977",
+        "arrest_date": "1973-05-02",
+        "incarceration_date": "1973-05-02",
+        "release_date": "1979-11-02",
+        "in_exile_since": "1979-11-02",
+        "end_of_exile": "2025-09-25",
+        "sentence": "Life plus 26 to 33 years; escaped from prison on November 2, 1979 and fled into exile in Cuba (granted asylum 1984), where she lived until her death in 2025"
+      }
+    ]
+  },
+  {
+    "name": "Jalil Muntaqim",
+    "first_name": "Jalil",
+    "last_name": "Muntaqim",
+    "aka": "Anthony Bottom; Anthony Jalil Bottom",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1970s",
+    "birthdate": "1951-10-18",
+    "ideologies": ["Black Power", "Black nationalism", "Black liberation", "Revolutionary socialism"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Jalil Muntaqim, born Anthony Bottom in Oakland in 1951, was a Black Panther Party and Black Liberation Army member arrested in California in 1971 and convicted in 1975 of the May 1971 killings of NYPD officers Waverly Jones and Joseph Piagentini in Harlem. With co-defendants Herman Bell and Albert 'Nuh' Washington he became known as one of the 'New York Three,' and decades later he was among the 'San Francisco 8' charged in 2007 over a 1971 police death, a case he resolved by plea. Held in New York's prison system, he became one of the longest-held and most prominent claimed political prisoners in the United States. After 11 parole denials and roughly 49 years incarcerated, he was released on parole in October 2020.",
+    "cases": [
+      {
+        "charges": "Two counts of first-degree murder (the May 21, 1971 killings of NYPD officers Waverly Jones and Joseph Piagentini)",
+        "convicted": "Convicted in 1975",
+        "release_date": "2020-10-07",
+        "sentence": "Life with parole eligibility after 22 years; served roughly 49 years before being paroled in October 2020"
+      }
+    ]
+  },
+  {
+    "name": "Sekou Odinga",
+    "first_name": "Sekou",
+    "last_name": "Odinga",
+    "aka": "Nathaniel Burns",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1944-06-17",
+    "death_date": "2024-01-12",
+    "ideologies": ["Black liberation", "New Afrikan independence", "Black nationalism", "Revolutionary socialism"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army", "Organization of Afro-American Unity"],
+    "in_custody": false,
+    "released": true,
+    "description": "Sekou Odinga, born Nathaniel Burns, was a founding member of the Bronx chapter of the Black Panther Party who went underground with the Black Liberation Army in the early 1970s. After more than a decade as a fugitive he was captured in 1981 and severely beaten during interrogation. In 1984 he was convicted on federal RICO charges and counts of attempted murder connected to the 1979 prison escape of Assata Shakur and the 1981 Brink's robbery. Sentenced to lengthy consecutive state and federal terms, he served roughly 33 years before his release in November 2014, and remained a movement elder until his death in 2024.",
+    "cases": [
+      {
+        "charges": "Federal RICO predicate acts and six counts of attempted murder, tied to Assata Shakur's 1979 escape and the 1981 Brink's robbery",
+        "convicted": "Convicted in 1984",
+        "release_date": "2014-11-25",
+        "sentence": "25 years to life (state) plus a 40-year federal term, served consecutively; released after about 33 years in November 2014"
+      }
+    ]
+  },
+  {
+    "name": "Russell Maroon Shoatz",
+    "first_name": "Russell",
+    "last_name": "Shoatz",
+    "aka": "Maroon; Russell Shoatz",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Pennsylvania",
+    "era": "1970s",
+    "birthdate": "1943-08-23",
+    "death_date": "2021-12-17",
+    "ideologies": ["Black liberation", "Black nationalism", "Prison abolition", "Revolutionary socialism"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army", "Black Unity Council"],
+    "in_custody": false,
+    "released": true,
+    "description": "Russell Maroon Shoatz was a founding member of the Black Unity Council and a soldier in the Black Liberation Army active in Philadelphia's Black liberation movement. Arrested in 1972 and convicted in 1973 in connection with a 1970 attack on a police station that killed Sergeant Frank Von Colln, he received a life sentence without parole. Over nearly five decades behind bars he became a noted writer and prison-abolition organizer, but was held in solitary confinement for more than 22 consecutive years. After a legal fight over his conditions, he was granted compassionate release in October 2021 while dying of cancer and passed away that December.",
+    "cases": [
+      {
+        "charges": "First-degree murder, robbery, and conspiracy in the 1970 death of Philadelphia Police Sergeant Frank Von Colln",
+        "convicted": "Convicted in 1973",
+        "release_date": "2021-10-26",
+        "sentence": "Life without parole; served 49 years (more than 22 in solitary confinement) before compassionate release in October 2021"
+      }
+    ]
+  },
+  {
+    "name": "Kuwasi Balagoon",
+    "first_name": "Kuwasi",
+    "last_name": "Balagoon",
+    "aka": "Donald Weems",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1946-12-22",
+    "death_date": "1986-12-13",
+    "ideologies": ["Black anarchism", "Black nationalism", "Black Power"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army", "Republic of New Afrika"],
+    "in_custody": false,
+    "released": false,
+    "description": "Kuwasi Balagoon, born Donald Weems, was a New York Black Panther, a Black Liberation Army soldier, and a New Afrikan anarchist. He was a defendant in the Panther 21 case (acquitted 1971), convicted in New Jersey in 1971, and escaped custody twice before going underground. Captured after the 1981 Brink's armored-car robbery in West Nyack, New York, in which two police officers and a guard were killed, he represented himself, declared himself a prisoner of war, and was convicted in 1983. He died in prison of an AIDS-related illness in December 1986 at age 39.",
+    "cases": [
+      {
+        "charges": "Armed robbery and three counts of murder (the 1981 Brink's robbery, West Nyack, NY); earlier a Panther 21 defendant and a 1971 New Jersey conviction",
+        "convicted": "Convicted 1983 (Brink's); the Panther 21 case ended in acquittal in 1971",
+        "death_in_custody_date": "1986-12-13",
+        "sentence": "Three consecutive 25-years-to-life terms; died in prison of an AIDS-related illness in December 1986"
+      }
+    ]
+  },
+  {
+    "name": "Robert Hillary King",
+    "first_name": "Robert",
+    "last_name": "King",
+    "aka": "Robert King Wilkerson",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Louisiana",
+    "era": "1970s",
+    "birthdate": "1942-05-30",
+    "ideologies": ["Black Power", "Black nationalism", "Prison abolition"],
+    "affiliation": ["Black Panther Party", "Angola 3"],
+    "in_custody": false,
+    "released": true,
+    "description": "Robert Hillary King was a member of the 'Angola 3,' Black Panther organizers held in extreme long-term solitary confinement at the Louisiana State Penitentiary (Angola). While imprisoned he helped found the prison's Black Panther Party chapter and organized against brutal conditions; in 1973 he was charged with the murder of a fellow inmate and convicted at a trial where he was bound and gagged. He spent roughly 29 of his 32 years at Angola in solitary confinement. His conviction was overturned in 2001, and after pleading to a reduced charge for time served he was released that year, becoming an internationally known anti-solitary advocate and the last surviving member of the Angola 3.",
+    "cases": [
+      {
+        "charges": "Murder of a fellow prisoner (1973) — a conviction tied to his Angola Black Panther organizing",
+        "convicted": "Convicted in 1973; conviction overturned in 2001, then pleaded to a lesser charge",
+        "release_date": "2001-02-08",
+        "sentence": "Life; served about 32 years at Angola, roughly 29 of them in solitary confinement, before release in 2001"
+      }
+    ]
+  },
+  {
+    "name": "David Hilliard",
+    "first_name": "David",
+    "last_name": "Hilliard",
+    "gender": "Male",
+    "race": "Black",
+    "state": "California",
+    "era": "1970s",
+    "birthdate": "1942-05-15",
+    "ideologies": ["Black Power", "Black nationalism", "Socialism"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "David Hilliard was a founding member and Chief of Staff of the Black Panther Party, running its day-to-day operations from Oakland in the late 1960s while leaders like Huey Newton and Eldridge Cleaver were jailed or in exile. He was arrested after the April 6, 1968 shootout between Panthers and Oakland police that killed teenage member Bobby Hutton, and was separately charged in 1969 after publicly threatening President Nixon at an anti-war rally. Convicted of assault with a deadly weapon in 1971, he served roughly 1971 to 1974 in the California prison system, including time at Vacaville, before later helping preserve the party's legacy through the Huey P. Newton Foundation.",
+    "cases": [
+      {
+        "charges": "Assault with a deadly weapon stemming from the April 6, 1968 shootout with Oakland police; separately, threatening the life of President Nixon (1969)",
+        "convicted": "Convicted of assault with a deadly weapon in 1971",
+        "sentence": "One-to-ten years; served approximately 1971 to 1974 (about three years), including at Vacaville, before release"
+      }
+    ]
+  },
+  {
+    "name": "Lorenzo Kom'boa Ervin",
+    "first_name": "Lorenzo",
+    "last_name": "Ervin",
+    "aka": "Lorenzo Komboa Ervin; Lorenzo Edward Ervin Jr.",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Tennessee",
+    "era": "1960s",
+    "birthdate": "1947-03-30",
+    "ideologies": ["Black anarchism", "Black Power", "Socialism"],
+    "affiliation": ["Black Panther Party", "Student Nonviolent Coordinating Committee", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Lorenzo Kom'boa Ervin, a former SNCC and Black Panther Party member, became one of the most prominent Black anarchist theorists in the United States. In early 1969 he hijacked a Delta Air Lines flight to Havana to escape Tennessee charges he described as a frame-up; disillusioned with state socialism in Cuba and Czechoslovakia, he was returned to U.S. custody later that year and convicted of aircraft piracy in 1970, receiving a life sentence reported as the first life sentence for hijacking under U.S. law. He served roughly fifteen years, including time at the Marion federal penitentiary, where he wrote 'Anarchism and the Black Revolution,' and was released in 1983 after legal challenges and an international support campaign.",
+    "cases": [
+      {
+        "charges": "Two counts of aircraft piracy under the Federal Aviation Act (hijacking a Delta flight to Cuba, 1969)",
+        "convicted": "Convicted on both counts in 1970; the jury declined the death penalty",
+        "sentence": "Life imprisonment (reported first life sentence for hijacking under U.S. law); served approximately 15 years, 1969 to 1983"
+      }
+    ]
+  },
+  {
+    "name": "Bashir Hameed",
+    "first_name": "Bashir",
+    "last_name": "Hameed",
+    "aka": "James Dixon York; Basheer Hameed",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1980s",
+    "birthdate": "1940-12-01",
+    "death_date": "2008-08-30",
+    "ideologies": ["Black liberation", "Black nationalism", "Revolutionary socialism"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": false,
+    "description": "Born James Dixon York, Bashir Hameed was a Black Panther Party leader in Jersey City, a Black Liberation Army member, and a COINTELPRO target in the 1970s. He and comrade Abdul Majid, known as the 'Queens Two,' were prosecuted for the May 1981 shooting of two NYPD officers in St. Albans, Queens, which killed Officer John Scarangella. After two trials produced hung juries on the murder count, both men were convicted at a third trial in 1986, and supporters and the Jericho Movement classified him as a political prisoner. He died in custody at Great Meadow Correctional Facility in 2008 after roughly 27 years of imprisonment.",
+    "cases": [
+      {
+        "charges": "Second-degree murder (the killing of NYPD Officer John Scarangella) and attempted murder, from the May 1981 St. Albans, Queens shooting",
+        "convicted": "Convicted of second-degree murder in 1986 at a third trial (the first two hung on the murder count)",
+        "death_in_custody_date": "2008-08-30",
+        "sentence": "Indeterminate life sentence; never released, died in prison at Great Meadow in 2008 after about 27 years"
+      }
+    ]
+  },
+  {
+    "name": "Kathleen Cleaver",
+    "first_name": "Kathleen",
+    "last_name": "Cleaver",
+    "aka": "Kathleen Neal Cleaver",
+    "gender": "Female",
+    "race": "Black",
+    "state": "California",
+    "era": "1970s",
+    "birthdate": "1945-05-13",
+    "ideologies": ["Black Power", "Black nationalism", "Socialism"],
+    "affiliation": ["Black Panther Party", "Student Nonviolent Coordinating Committee"],
+    "in_custody": false,
+    "released": true,
+    "in_exile": true,
+    "currently_in_exile": false,
+    "description": "Kathleen Neal Cleaver joined the Black Panther Party in late 1967 and became its Communications Secretary, the first woman on the party's central decision-making body. After her husband Eldridge Cleaver was charged following a 1968 Oakland police shootout and jumped bail, she joined him abroad in 1969 in Algeria, where the couple ran the BPP's International Section, living in political exile for several years before relocating to France and returning to the United States in the mid-1970s. She was never criminally imprisoned herself; her qualification rests on her years as a political exile. She later earned degrees from Yale and became a law professor at Emory University.",
+    "cases": [
+      {
+        "charges": "No personal criminal charges — went into exile after her husband Eldridge Cleaver fled 1968 attempted-murder charges",
+        "convicted": "Not convicted",
+        "sentence": "Political exile in Algeria and France, approximately 1969 to the mid-1970s"
+      }
+    ]
+  },
+  {
+    "name": "Connie Matthews",
+    "first_name": "Connie",
+    "last_name": "Matthews",
+    "aka": "Connie Matthews Tabor",
+    "gender": "Female",
+    "race": "Black",
+    "state": "New York",
+    "era": "1970s",
+    "ideologies": ["Black Power", "Black nationalism", "Socialism", "Pan-Africanism"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": false,
+    "in_exile": true,
+    "currently_in_exile": false,
+    "description": "Connie Matthews was a Danish-Jamaican activist who served as the Black Panther Party's International Coordinator from 1969, organizing support and fundraising across Europe. She married Panther 21 defendant Michael 'Cetewayo' Tabor, and in February 1971, when Tabor and co-defendant Richard Moore failed to appear for the Panther 21 trial, Matthews fled the United States with them. The three resurfaced in Algeria, joining the BPP's exiled International Section, and in 1972 she and Tabor relocated to Zambia, where they continued their activism. She later returned to Jamaica, where she died around 1993.",
+    "cases": [
+      {
+        "charges": "No personal criminal charges — fled the U.S. as a political fugitive in connection with the Panther 21 case (1971), alongside her husband Michael Tabor",
+        "convicted": "Never convicted",
+        "sentence": "Lived in political exile in Algeria and Zambia before returning to Jamaica"
+      }
+    ]
+  },
+  {
+    "name": "Aaron Dixon",
+    "first_name": "Aaron",
+    "last_name": "Dixon",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Washington",
+    "era": "1960s",
+    "birthdate": "1949-01-02",
+    "ideologies": ["Black Power", "Black nationalism", "Socialism"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Aaron Dixon was a University of Washington Black Student Union leader who, after the March 1968 sit-in at Seattle's Franklin High School demanding Black teachers and curriculum, was arrested and convicted of unlawful assembly. He was sentenced to six months and briefly jailed in 1968, and shortly afterward became the founding captain of the Black Panther Party's Seattle chapter. The unlawful-assembly conviction was later challenged and prosecutors declined to retry it, so he never served the full term. He remains a living activist and author.",
+    "cases": [
+      {
+        "charges": "Unlawful assembly arising from the Franklin High School sit-in (Seattle)",
+        "convicted": "Convicted 1968; conviction later overturned and not retried",
+        "arrest_date": "1968-03-29",
+        "sentence": "Six months in jail (sentenced July 1968); only briefly incarcerated, as the conviction was overturned"
+      }
+    ]
+  },
+  {
+    "name": "Larry Gossett",
+    "first_name": "Larry",
+    "last_name": "Gossett",
+    "aka": "Lawrence Edward Gossett",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Washington",
+    "era": "1960s",
+    "birthdate": "1945-02-21",
+    "ideologies": ["Black Power", "Black nationalism", "Civil rights"],
+    "affiliation": ["Black Panther Party", "Student Nonviolent Coordinating Committee"],
+    "in_custody": false,
+    "released": true,
+    "description": "Larry Gossett was a Seattle Black Power and civil-rights activist who co-founded the University of Washington's Black Student Union after being radicalized as a VISTA volunteer in Harlem. On March 29, 1968 he co-led a sit-in at Seattle's Franklin High School (with Aaron Dixon and Carl Miller) protesting the treatment of Black students, and was arrested, convicted of unlawful assembly, and sentenced to six months in jail. The Washington Supreme Court later ordered a retrial and prosecutors declined to re-try the case, so the conviction was vacated. He went on to serve on the King County Council from 1994 to 2020.",
+    "cases": [
+      {
+        "charges": "Unlawful assembly arising from the Franklin High School sit-in (Seattle)",
+        "convicted": "Convicted 1968; conviction later vacated after the state declined to retry",
+        "arrest_date": "1968-03-29",
+        "sentence": "Six months in jail (sentenced July 1968, with Dixon and Miller); the conviction was later vacated"
+      }
+    ]
+  },
+  {
+    "name": "Kent Ford",
+    "first_name": "Kent",
+    "last_name": "Ford",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Oregon",
+    "era": "1960s",
+    "ideologies": ["Black Power", "Black nationalism", "Socialism"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Kent Ford co-founded the Portland, Oregon chapter of the Black Panther Party in 1969. In June 1969 he intervened during a police arrest, was beaten, and was jailed for roughly two weeks at Rocky Butte Jail on a charge of inciting a riot, with bail set at $80,000 and paid by supporters. His rioting trial in early 1970 lasted nine days and ended in acquittal; he later won a settlement and successfully sued the Portland police in federal court over his treatment. He remains a living activist and Panther historian in Portland.",
+    "cases": [
+      {
+        "charges": "Inciting a riot (Portland, 1969), arising from his Black Panther organizing",
+        "convicted": "No — acquitted in 1970",
+        "sentence": "Held roughly two weeks pretrial on $80,000 bail before a nine-day trial ended in acquittal"
+      }
+    ]
+  },
+  {
+    "name": "Akua Njeri",
+    "first_name": "Akua",
+    "last_name": "Njeri",
+    "aka": "Deborah Johnson",
+    "gender": "Female",
+    "race": "Black",
+    "state": "Illinois",
+    "era": "1960s",
+    "ideologies": ["Black Power", "Black nationalism", "Black liberation"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Akua Njeri, then known as Deborah Johnson, was a member of the Illinois Black Panther Party and the fiancee of chairman Fred Hampton. She was present and about eight months pregnant during the December 1969 Chicago police raid in which Hampton and Mark Clark were killed, an operation later tied to the FBI's COINTELPRO program. In the aftermath she was arrested and charged with attempted murder and aggravated assault and held on bail; forensic and ballistics evidence discredited the state's case, and the charges against the surviving Panthers were dropped in 1970. She later took the name Akua Njeri and became a longtime activist preserving Hampton's legacy.",
+    "cases": [
+      {
+        "charges": "Attempted murder and aggravated assault, brought after the December 1969 COINTELPRO raid that killed Fred Hampton",
+        "convicted": "No — charges dropped in 1970 after forensic evidence discredited the state's case",
+        "sentence": "None served; held briefly on bail after arrest, then released"
+      }
+    ]
+  },
+  {
+    "name": "Mumia Abu-Jamal",
+    "first_name": "Mumia",
+    "last_name": "Abu-Jamal",
+    "aka": "Wesley Cook",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Pennsylvania",
+    "era": "1980s",
+    "birthdate": "1954-04-24",
+    "ideologies": ["Black Power", "Black liberation"],
+    "affiliation": ["Black Panther Party", "MOVE"],
+    "in_custody": true,
+    "released": false,
+    "description": "Mumia Abu-Jamal, born Wesley Cook, was a teenage Lieutenant of Information for the Philadelphia Black Panther Party who became a radio journalist known as 'the voice of the voiceless' and a supporter of the MOVE organization. He was arrested on December 9, 1981 after the fatal shooting of Philadelphia police officer Daniel Faulkner near his brother's traffic stop, and was convicted of first-degree murder in 1982 and sentenced to death amid serious questions about the trial's fairness. His case became an international cause for opponents of the death penalty and supporters who consider him a political prisoner. In 2011, after decades on death row, prosecutors dropped the death penalty and he was resentenced to life without parole; he remains imprisoned and continues to write and broadcast from prison.",
+    "cases": [
+      {
+        "charges": "First-degree murder of Philadelphia police officer Daniel Faulkner (December 9, 1981)",
+        "convicted": "Convicted July 1982; sentenced to death in 1983; resentenced to life without parole in December 2011",
+        "arrest_date": "1981-12-09",
+        "incarceration_date": "1981-12-09",
+        "sentence": "Death (1982), commuted to life without parole in 2011; remains imprisoned after more than four decades"
+      }
+    ]
+  },
+  {
+    "name": "Sundiata Acoli",
+    "first_name": "Sundiata",
+    "last_name": "Acoli",
+    "aka": "Clark Edward Squire",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New Jersey",
+    "era": "1970s",
+    "birthdate": "1937-01-14",
+    "ideologies": ["Black Power", "Black nationalism", "Black liberation"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Sundiata Acoli, born Clark Edward Squire, was a mathematician and former NASA computer analyst who joined the Harlem Black Panther Party, was a Panther 21 defendant, and went on to the Black Liberation Army. He was captured after the May 2, 1973 shootout on the New Jersey Turnpike that killed State Trooper Werner Foerster and BLA member Zayd Shakur — the same incident for which Assata Shakur was convicted. Sentenced to life in 1974, he was repeatedly denied parole over nearly five decades despite a strong prison record. The New Jersey Supreme Court ordered his release in May 2022, freeing him at age 85 after roughly 49 years in prison.",
+    "cases": [
+      {
+        "charges": "First-degree murder of New Jersey State Trooper Werner Foerster (May 2, 1973 Turnpike shootout)",
+        "convicted": "Convicted in 1974",
+        "arrest_date": "1973-05-02",
+        "incarceration_date": "1973-05-02",
+        "release_date": "2022-05-16",
+        "sentence": "Life; served roughly 49 years before being paroled by order of the New Jersey Supreme Court in May 2022"
+      }
+    ]
+  },
+  {
+    "name": "Dhoruba bin Wahad",
+    "first_name": "Dhoruba",
+    "last_name": "bin Wahad",
+    "aka": "Richard Earl Moore; Dhoruba al-Mujahid bin Wahad",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New York",
+    "era": "1970s",
+    "birthdate": "1944-06-30",
+    "ideologies": ["Black Power", "Black nationalism", "Black liberation"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Dhoruba bin Wahad, born Richard Earl Moore, was a field secretary of the New York Black Panther Party and one of the Panther 21 defendants acquitted in 1971. Soon after, he was arrested and, in 1973, convicted of the attempted murder of two New York City police officers and sentenced to 25 years. His prosecution was later shown to have been shaped by the FBI's COINTELPRO program, which suppressed exculpatory evidence. In 1990 his conviction was reversed and he was freed after 19 years in prison, becoming a prominent organizer and later winning a civil settlement from the city.",
+    "cases": [
+      {
+        "charges": "Attempted murder of two NYPD officers (1971); earlier a Panther 21 defendant (acquitted 1971)",
+        "convicted": "Convicted in 1973; conviction reversed on March 15, 1990 over suppressed (COINTELPRO) evidence",
+        "release_date": "1990-03-15",
+        "sentence": "25 years; served 19 years before the conviction was vacated and he was freed in 1990"
+      }
+    ]
+  },
+  {
+    "name": "Veronza Bowers Jr.",
+    "first_name": "Veronza",
+    "last_name": "Bowers",
+    "aka": "Veronza Leon Curtis Bowers Jr.",
+    "gender": "Male",
+    "race": "Black",
+    "state": "California",
+    "era": "1970s",
+    "birthdate": "1946-02-04",
+    "ideologies": ["Black Power", "Black nationalism"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": true,
+    "description": "Veronza Bowers Jr. was a Black Panther Party member and musician convicted of the 1973 murder of U.S. Park Ranger Kenneth Patrick at Point Reyes National Seashore, largely on the testimony of informants whose accounts he has always disputed. Sentenced to life in 1974, he became one of the longest-held Panther prisoners in the United States; although he reached his parole date, his release was repeatedly blocked by federal officials. After roughly half a century behind bars, he was finally released in May 2024.",
+    "cases": [
+      {
+        "charges": "First-degree murder of U.S. Park Ranger Kenneth Patrick (1973, Point Reyes) — based largely on disputed informant testimony",
+        "convicted": "Convicted in 1974",
+        "release_date": "2024-05-07",
+        "sentence": "Life; served about 50 years — long past parole eligibility, with release repeatedly blocked — before being freed in May 2024"
+      }
+    ]
+  },
+  {
+    "name": "William Lee Brent",
+    "first_name": "William",
+    "last_name": "Brent",
+    "aka": "Bill Brent",
+    "gender": "Male",
+    "race": "Black",
+    "state": "California",
+    "era": "1960s",
+    "death_date": "2006-11-04",
+    "ideologies": ["Black Power", "Black nationalism"],
+    "affiliation": ["Black Panther Party"],
+    "in_custody": false,
+    "released": false,
+    "in_exile": true,
+    "currently_in_exile": false,
+    "description": "William Lee 'Bill' Brent (born c. 1930 in Franklin, Louisiana) was a member of the Oakland Black Panther Party who, facing charges after a 1969 San Francisco shootout with police, hijacked a TWA passenger jet on June 17, 1969 and diverted it to Cuba. He spent 22 months in a Cuban immigration jail on arrival, then lived the rest of his life in exile in Havana, earning a Spanish-literature degree and teaching English. He never returned to the United States and died in Havana in 2006, having spent 37 years in exile.",
+    "cases": [
+      {
+        "charges": "Aircraft piracy — hijacked TWA Flight 154 to Cuba on June 17, 1969 after a San Francisco police shootout",
+        "convicted": "Never tried in the U.S.; lived in exile in Cuba",
+        "in_exile_since": "1969-06-17",
+        "end_of_exile": "2006-11-04",
+        "sentence": "Held 22 months in a Cuban immigration jail on arrival, then lived in exile in Cuba until his death in Havana in 2006"
+      }
+    ]
+  },
+  {
+    "name": "Safiya Bukhari",
+    "first_name": "Safiya",
+    "last_name": "Bukhari",
+    "aka": "Safiya Asya Bukhari",
+    "gender": "Female",
+    "race": "Black",
+    "state": "New York",
+    "era": "1970s",
+    "birthdate": "1950-04-02",
+    "death_date": "2003-08-24",
+    "ideologies": ["Black Power", "Black nationalism", "Black liberation"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Safiya Bukhari joined the New York Black Panther Party after witnessing police harassment while doing community work, then went underground with the Black Liberation Army. Captured after a January 1975 shooting in Norfolk, Virginia, she was convicted and sentenced to 40 years; she escaped at one point before being recaptured and was released on parole in 1983 after roughly nine years. After her release she devoted herself to political-prisoner advocacy, co-founding the Jericho Movement and the Free Mumia campaign, until her death in 2003.",
+    "cases": [
+      {
+        "charges": "Felony murder, attempted robbery, and weapons charges, after a 1975 shooting in Norfolk, Virginia",
+        "convicted": "Convicted in 1975",
+        "arrest_date": "1975-01-25",
+        "sentence": "Forty years; served about nine years (escaping once before recapture) before release on parole in 1983"
+      }
+    ]
+  },
+  {
+    "name": "Ashanti Alston",
+    "first_name": "Ashanti",
+    "last_name": "Alston",
+    "aka": "Ashanti Omowali Alston",
+    "gender": "Male",
+    "race": "Black",
+    "state": "New Jersey",
+    "era": "1970s",
+    "ideologies": ["Black anarchism", "Black Power", "Black liberation"],
+    "affiliation": ["Black Panther Party", "Black Liberation Army"],
+    "in_custody": false,
+    "released": true,
+    "description": "Ashanti Omowali Alston (born 1954) helped found a Black Panther Party chapter in Plainfield, New Jersey while still in high school, and in 1971 — amid the Panther 21 trial — joined the Black Liberation Army's armed underground. Arrested in 1974, he was imprisoned for about eleven years for a bank robbery carried out to fund the BLA. During his imprisonment he became a Black anarchist, breaking with the party's Marxism-Leninism, and after his 1985 release became a prominent writer and a steering-committee member of the Jericho Movement to free U.S. political prisoners.",
+    "cases": [
+      {
+        "charges": "Bank robbery carried out to fund the Black Liberation Army (1974)",
+        "convicted": "Convicted; imprisoned from 1974 to 1985",
+        "sentence": "About eleven years in prison (1974–1985), during which he became a Black anarchist organizer"
+      }
+    ]
+  },
+  {
+    "name": "Jamil Abdullah Al-Amin",
+    "first_name": "Jamil",
+    "last_name": "Al-Amin",
+    "aka": "H. Rap Brown; Hubert Gerold Brown",
+    "gender": "Male",
+    "race": "Black",
+    "state": "Georgia",
+    "era": "1960s",
+    "birthdate": "1943-10-04",
+    "ideologies": ["Black Power", "Black nationalism", "Islam"],
+    "affiliation": ["Student Nonviolent Coordinating Committee", "Black Panther Party"],
+    "in_custody": true,
+    "released": false,
+    "description": "Jamil Abdullah Al-Amin, born Hubert Gerold 'H. Rap' Brown, was a fiery 1960s Black Power leader who succeeded Stokely Carmichael as chairman of the Student Nonviolent Coordinating Committee in 1967 and briefly served as the Black Panther Party's Minister of Justice. After an earlier robbery conviction and time in Attica, he converted to Islam and became a respected imam in Atlanta's West End. In 2000 he was charged with killing Fulton County sheriff's deputy Ricky Kinchen and wounding another; convicted in 2002 and sentenced to life without parole, he maintains his innocence and is regarded by supporters as a political prisoner held in harsh federal custody.",
+    "cases": [
+      {
+        "charges": "Murder of Fulton County sheriff's deputy Ricky Kinchen and aggravated assault on another deputy (March 2000, Atlanta)",
+        "convicted": "Convicted in 2002",
+        "sentence": "Life without parole; held in federal custody (including the ADX Florence supermax); maintains his innocence"
+      }
+    ]
+  }
+]
