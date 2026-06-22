@@ -141,14 +141,20 @@
 
             {{-- Imprisonment + exile counters (rendered separately when both apply) --}}
             @php
+                use App\Support\ImprisonmentDuration;
+
                 $totalDays = $prisoner->cases->sum('imprisoned_for_days');
                 $totalExileDays = $prisoner->cases->sum('in_exile_for_days');
 
-                $renderCounter = function (int $totalDays, string $label) {
+                // Anchor each counter to the real start date so the calendar
+                // diff is accurate (e.g. May 13 → Dec 13 reads as a clean 7
+                // months, not "7 months 4 days").
+                $imprisonStart = $prisoner->cases->map(fn ($c) => $c->incarceration_date ?: $c->arrest_date)->filter()->sort()->first();
+                $exileStart = $prisoner->cases->map(fn ($c) => $c->in_exile_since)->filter()->sort()->first();
+
+                $renderCounter = function ($start, int $totalDays, string $label) {
                     if ($totalDays <= 0) return '';
-                    $years = intdiv($totalDays, 365);
-                    $months = intdiv($totalDays % 365, 30);
-                    $days = $totalDays % 30;
+                    ['years' => $years, 'months' => $months, 'days' => $days] = ImprisonmentDuration::breakdown($start, $totalDays);
                     $nums = '';
                     if ($years > 0) $nums .= $years . ' ' . ($years === 1 ? 'Year' : 'Years') . ' ';
                     if ($months > 0) $nums .= $months . ' ' . ($months === 1 ? 'Month' : 'Months') . ' ';
@@ -158,10 +164,10 @@
                 };
             @endphp
             @if($totalDays > 0)
-                {!! $renderCounter($totalDays, 'Time Imprisoned') !!}
+                {!! $renderCounter($imprisonStart, $totalDays, 'Time Imprisoned') !!}
             @endif
             @if($totalExileDays > 0)
-                {!! $renderCounter($totalExileDays, 'Time in Exile') !!}
+                {!! $renderCounter($exileStart, $totalExileDays, 'Time in Exile') !!}
             @endif
 
             {{-- Social links --}}
