@@ -40,7 +40,7 @@ TXT;
                 'race'           => 'Hispanic/Latino',
                 'state'          => 'New York',
                 'era'            => '1970s',
-                'ideologies'     => ['Puerto Rican independence', 'Socialism'],
+                'ideologies'     => ['Puerto Rican Independence', 'Socialism'],
                 'affiliation'    => ['Puerto Rican Socialist Party (PSP)', 'Claridad'],
                 'in_custody'     => false,
                 'released'       => true,

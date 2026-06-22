@@ -240,7 +240,7 @@ final class AddGrandJuryResisterPrisoners extends Command {
                 'race' => 'Hispanic/Latino',
                 'gender' => 'Male',
                 'state' => 'Puerto Rico',
-                'ideologies' => ['Puerto Rican independence', 'Anti-imperialism', 'Revolutionary nationalism'],
+                'ideologies' => ['Puerto Rican Independence', 'Anti-imperialism', 'Revolutionary nationalism'],
                 'affiliation' => ['Armed Forces of Popular Resistance (FARP)'],
                 'era' => '1980s',
                 'in_custody' => false,

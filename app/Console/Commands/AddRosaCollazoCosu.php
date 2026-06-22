@@ -52,7 +52,7 @@ final class AddRosaCollazoCosu extends Command {
                 'state' => 'New York',
                 'race' => 'Hispanic/Latino',
                 'gender' => 'Female',
-                'ideologies' => ['Puerto Rican independence', 'Nationalist'],
+                'ideologies' => ['Puerto Rican Independence', 'Nationalist'],
                 'affiliation' => ['Puerto Rican Nationalist Party'],
                 'era' => '1950s',
                 'in_custody' => false,
