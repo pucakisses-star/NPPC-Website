@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 /**
  * Fills the arrest/sentencing/incarceration/death dates on Ángel Rodríguez
  * Cristóbal's existing case. The Liga Socialista Puertorriqueña militant was
- * arrested on May 21, 1979 in the mass civil-disobedience landing on the U.S.
+ * arrested on May 19, 1979 in the mass civil-disobedience landing on the U.S.
  * Navy's Vieques bombing range, convicted of trespassing, and sentenced to six
  * months on September 26, 1979 by federal judge Juan R. Torruella. He entered
  * the Federal Correctional Institution at Tallahassee, Florida on September 28,
@@ -43,14 +43,19 @@ final class SetRodriguezCristobalCase extends Command
         }
 
         $prisoner->birthdate = '1946-04-02';
+        // The arrest was May 19, 1979 (federal court record in U.S. v. Parrilla
+        // Bonilla and the Puerto Rican chronologies agree); correct the earlier
+        // "May 21" that had propagated into the prose.
+        $prisoner->description = str_replace('May 21, 1979', 'May 19, 1979', (string) $prisoner->description);
         $prisoner->save();
 
         $case = $prisoner->cases()->first() ?? new PrisonerCase(['prisoner_id' => $prisoner->id]);
 
-        $case->arrest_date = '1979-05-21';
+        $case->arrest_date = '1979-05-19';
         $case->sentenced_date = '1979-09-26';
         $case->incarceration_date = '1979-09-28';
         $case->death_in_custody_date = '1979-11-11';
+        $case->charges = str_replace('May 21, 1979', 'May 19, 1979', (string) $case->charges);
         $case->save();
 
         $this->info("Set Ángel Rodríguez Cristóbal case dates (imprisoned_for_days={$case->imprisoned_for_days}).");
