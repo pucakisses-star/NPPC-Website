@@ -21,7 +21,7 @@ use Illuminate\Support\Str;
  */
 final class AttachNonfreePhotos extends Command
 {
-    protected $signature = 'prisoners:attach-nonfree-photos {--overwrite : Replace existing photos too}';
+    protected $signature = 'prisoners:attach-nonfree-photos {--overwrite : Replace existing photos too} {--only= : Only process map entries whose name fragments contain this string}';
 
     protected $description = 'Attach non-free (fair-use) prisoner portraits to prisoners missing a photo';
 
@@ -38,11 +38,27 @@ final class AttachNonfreePhotos extends Command
     public function handle(): int
     {
         $overwrite = (bool) $this->option('overwrite');
+        $only = $this->option('only');
         $set = 0;
         $hadPhoto = 0;
         $missing = 0;
 
         foreach ($this->map as [$fragments, $file]) {
+            // --only restricts the run to entries whose name fragments contain
+            // the given string (case-insensitive), e.g. --only=Robideau.
+            if ($only !== null && $only !== '') {
+                $matchesFilter = false;
+                foreach ($fragments as $frag) {
+                    if (stripos($frag, $only) !== false) {
+                        $matchesFilter = true;
+                        break;
+                    }
+                }
+                if (! $matchesFilter) {
+                    continue;
+                }
+            }
+
             $prisoner = null;
             foreach ($fragments as $frag) {
                 $prisoner = Prisoner::withUnderReview()->where('name', 'like', '%'.$frag.'%')->first();
