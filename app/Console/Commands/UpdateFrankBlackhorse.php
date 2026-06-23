@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\DB;
  * Kuzma's sworn 2012 FOIA complaint) and the Leonard Peltier Defense Committee
  * record:
  *
- *   - Exile #1: fled toward Canada after the June 26, 1975 Pine Ridge shootout
- *     (he was already a fugitive, having failed to appear for his Wounded Knee
- *     trial on May 19, 1975) until his capture.
+ *   - Exile #1: fled into Canada around November 1975 (a fugitive since failing
+ *     to appear for his Wounded Knee trial on May 19, 1975, and sought after the
+ *     June 26, 1975 Pine Ridge shootout) until his February 6, 1976 capture there
+ *     — i.e. his time in Canada from the border crossing to the arrest.
  *   - Incarceration: arrested with Leonard Peltier near Hinton, Alberta on
  *     February 6, 1976 and held at the Oakalla Prison Farm. Unlike Peltier (who
  *     was extradited Dec 18, 1976), Blackhorse was held only briefly — reportedly
@@ -55,7 +56,8 @@ final class UpdateFrankBlackhorse extends Command
             .'bond. After a federal grand jury in Sioux Falls indicted him (August 29, 1974) and he failed to appear '
             .'for trial (May 19, 1975), he became a fugitive; in the wake of the June 26, 1975 shootout at the Jumping '
             .'Bull compound on the Pine Ridge Reservation — in which FBI agents Jack Coler and Ronald Williams and AIM '
-            .'member Joe Stuntz were killed — he fled with Leonard Peltier and other AIM fugitives into Canada. The '
+            .'member Joe Stuntz were killed — he went underground and, around November 1975, crossed into Canada with '
+            .'Leonard Peltier and other AIM fugitives. The '
             .'RCMP captured Blackhorse and Peltier near Hinton, Alberta on February 6, 1976 and held them at the '
             .'Oakalla Prison Farm in British Columbia. Unlike Peltier — who was extradited to the United States on '
             .'December 18, 1976 — Blackhorse was held only briefly (reportedly booked on a minor charge and released '
@@ -94,7 +96,7 @@ final class UpdateFrankBlackhorse extends Command
                     .'his exact release date is undocumented, here approximated as February 9, 1976) and, unlike '
                     .'Peltier, was never extradited.',
                 'arrest_date' => '1976-02-06',
-                'in_exile_since' => '1975-06-26',
+                'in_exile_since' => '1975-11-01',
                 'end_of_exile' => '1976-02-06',
                 'incarceration_date' => '1976-02-06',
                 'release_date' => '1976-02-09',
