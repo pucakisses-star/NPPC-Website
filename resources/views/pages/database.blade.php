@@ -7,20 +7,67 @@
         .db-about-section h2 { font-size: 1.6rem !important; margin-bottom: 20px !important; }
         .db-about-section .db-about-inner { font-size: 16px !important; }
     }
+
+    /* Loading state shown until the Vue database app renders its content */
+    #db-loading {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; padding: 120px 24px; min-height: 50vh; color: rgba(255,255,255,0.6);
+    }
+    #db-loading .db-spinner {
+        width: 52px; height: 52px; border-radius: 50%;
+        border: 4px solid rgba(255,255,255,0.15); border-top-color: #5660fe;
+        animation: db-spin 0.9s linear infinite; margin-bottom: 24px;
+    }
+    @keyframes db-spin { to { transform: rotate(360deg); } }
+    #db-loading .db-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    #db-loading .db-help { font-size: 16px; line-height: 1.6; max-width: 500px; margin: 0 auto; }
+    @media (prefers-reduced-motion: reduce) { #db-loading .db-spinner { animation-duration: 2.4s; } }
 </style>
 @endsection
 
 @section('body')
     <section id="prisoners-page">
         <main id="maincontent">
-            <div id="app">
-                <div style="text-align:center; padding:120px 24px; color:rgba(255,255,255,0.6);">
-                    <div style="font-size:2rem; font-weight:700; color:#fff; margin-bottom:16px;">Loading Prisoner Database...</div>
-                    <p style="font-size:16px; line-height:1.6; max-width:500px; margin:0 auto;">If this page doesn't load, please try refreshing. If the problem persists, <a href="/contact" style="color:#5660fe; text-decoration:underline;">contact us</a>.</p>
-                </div>
+            {{-- Loading indicator: lives OUTSIDE #app so Vue's mount doesn't wipe it.
+                 Hidden by the script below once the Vue app renders its content (which
+                 covers both the app.js download and the async data fetch). If the app
+                 never loads, this stays visible with the refresh/contact guidance. --}}
+            <div id="db-loading" role="status" aria-live="polite">
+                <div class="db-spinner" aria-hidden="true"></div>
+                <div class="db-title">Loading Prisoner Database...</div>
+                <p class="db-help">If this page doesn't load, please try refreshing. If the problem persists, <a href="/contact" style="color:#5660fe; text-decoration:underline;">contact us</a>.</p>
             </div>
+            <div id="app"></div>
         </main>
     </section>
+
+    <script>
+        (function () {
+            var overlay = document.getElementById('db-loading');
+            var app = document.getElementById('app');
+            if (!overlay || !app) return;
+
+            // The Vue app renders <section id="vueApp"> with the database UI inside it.
+            // While <Suspense> waits on the data fetch, #vueApp has no element children,
+            // so we keep the loader up until real content appears.
+            function isLoaded() {
+                var v = app.querySelector('#vueApp');
+                return !!(v && v.childElementCount > 0);
+            }
+            function hideLoader() {
+                if (observer) observer.disconnect();
+                overlay.style.display = 'none';
+            }
+
+            var observer = new MutationObserver(function () {
+                if (isLoaded()) hideLoader();
+            });
+            observer.observe(app, { childList: true, subtree: true });
+
+            // In case the app rendered before this script ran.
+            if (isLoaded()) hideLoader();
+        })();
+    </script>
 
     {{-- About this database --}}
     <section class="db-about-section" style="background:#000; color:rgba(255,255,255,0.85); padding:96px 24px; border-top:1px solid rgba(255,255,255,0.08);">
