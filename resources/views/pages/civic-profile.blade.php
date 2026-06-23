@@ -149,11 +149,116 @@
             .cp-action-grid { grid-template-columns: 1fr; }
             .cp-stage { padding: 26px 20px; }
         }
+
+        /* ---------- Scrolling gallery hero (matches civicprofile.org front page) ---------- */
+        html { scroll-behavior: smooth; }
+        .cpg {
+            position: relative; height: 100vh; min-height: 560px; overflow: hidden;
+            background: #0f1024;
+        }
+        .cpg-rows {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            gap: 18px; padding: 18px 0; justify-content: center;
+        }
+        .cpg-row { flex: 1 1 0; min-height: 0; overflow: hidden; display: flex; align-items: center; }
+        .cpg-track {
+            display: flex; gap: 18px; width: max-content; padding-left: 18px;
+            will-change: transform; animation: cpg-marquee 60s linear infinite;
+        }
+        .cpg-track--rev { animation-direction: reverse; animation-duration: 74s; }
+        .cpg-row:hover .cpg-track { animation-play-state: paused; }
+        .cpg-card {
+            flex: 0 0 auto; height: 100%; aspect-ratio: 3 / 4; border-radius: 16px;
+            overflow: hidden; background: #1b1d39; box-shadow: 0 14px 34px rgba(0,0,0,.40);
+        }
+        .cpg-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        @keyframes cpg-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* vignette so the overlay text stays legible over the photos */
+        .cpg::after {
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: radial-gradient(125% 95% at 50% 50%,
+                rgba(15,16,36,.34) 0%, rgba(15,16,36,.78) 68%, rgba(15,16,36,.93) 100%);
+        }
+        .cpg-overlay {
+            position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center; padding: 24px; color: #fff;
+        }
+        .cpg-eyebrow {
+            text-transform: uppercase; letter-spacing: .18em; font-size: 13px; font-weight: 800;
+            color: #aeb4ff; margin: 0 0 14px;
+        }
+        .cpg-title {
+            font-size: clamp(40px, 8vw, 84px); line-height: .98; font-weight: 900;
+            letter-spacing: -0.02em; margin: 0 0 16px; text-shadow: 0 4px 30px rgba(0,0,0,.45);
+        }
+        .cpg-lede {
+            font-size: clamp(16px, 2.4vw, 20px); max-width: 540px; margin: 0 auto 30px;
+            color: rgba(255,255,255,.86); line-height: 1.5;
+        }
+        .cpg-cta {
+            display: inline-flex; align-items: center; gap: 10px; background: var(--cp-accent);
+            color: #fff; font-weight: 800; font-size: 17px; text-decoration: none;
+            padding: 15px 34px; border-radius: 999px; box-shadow: 0 12px 30px rgba(86,96,254,.45);
+            transition: transform .12s, background .12s;
+        }
+        .cpg-cta:hover { background: var(--cp-accent-dark); transform: translateY(-1px); }
+        .cpg-arrow {
+            position: absolute; bottom: 22px; left: 50%; z-index: 2; color: rgba(255,255,255,.82);
+            display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+            animation: cpg-bounce .95s ease-in-out infinite;
+        }
+        .cpg-arrow svg { width: 30px; height: 30px; }
+        @keyframes cpg-bounce {
+            0%,20%,50%,80%,100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -7px); }
+            60% { transform: translate(-50%, -4px); }
+        }
+        .cp { scroll-margin-top: 84px; }
+        @media (max-width: 640px) { .cpg-rows { gap: 12px; } .cpg-track { gap: 12px; } }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .cpg-track, .cpg-arrow { animation: none; }
+        }
     </style>
     @endverbatim
 @endsection
 
 @section('body')
+    @php
+        // Two rows of portrait cards scrolling in opposite directions; each set is
+        // rendered twice so the CSS marquee (translateX -50%) loops seamlessly.
+        $cpgRow1 = ['cp-01', 'cp-02', 'cp-03', 'cp-04', 'cp-05', 'cp-06'];
+        $cpgRow2 = ['cp-07', 'cp-08', 'cp-09', 'cp-10', 'cp-11', 'cp-12'];
+    @endphp
+    <section class="cpg">
+        <div class="cpg-rows" aria-hidden="true">
+            <div class="cpg-row">
+                <div class="cpg-track">
+                    @foreach (array_merge($cpgRow1, $cpgRow1) as $img)
+                        <div class="cpg-card"><img src="/images/civic-profile/{{ $img }}.jpg" alt=""></div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="cpg-row">
+                <div class="cpg-track cpg-track--rev">
+                    @foreach (array_merge($cpgRow2, $cpgRow2) as $img)
+                        <div class="cpg-card"><img src="/images/civic-profile/{{ $img }}.jpg" alt=""></div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="cpg-overlay">
+            <p class="cpg-eyebrow">National Political Prisoner Coalition</p>
+            <h1 class="cpg-title">Civic Profile</h1>
+            <p class="cpg-lede">A short, interactive quiz measuring your civic values, your engagement, and your knowledge of the rights and freedoms the NPPC defends.</p>
+            <a href="#cp-app" class="cpg-cta">Take the quiz &rarr;</a>
+        </div>
+        <a href="#cp-app" class="cpg-arrow" aria-label="Scroll to the quiz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+    </section>
+
     <div id="cp-app" class="cp" aria-live="polite"></div>
 
     @verbatim
