@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\AnnualReportResource\Pages;
 
+use App\Filament\Concerns\AutosavesOnBlur;
 use App\Filament\Resources\AnnualReportResource;
 use Filament\Actions;
 use Filament\Notifications\Notification;
@@ -9,6 +10,8 @@ use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Storage;
 
 class EditAnnualReport extends EditRecord {
+    use AutosavesOnBlur;
+
     protected static string $resource = AnnualReportResource::class;
 
     protected function getHeaderActions(): array {
