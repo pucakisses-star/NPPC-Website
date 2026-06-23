@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Prisoner;
 use Illuminate\Console\Command;
 
 /**
@@ -31,6 +32,9 @@ final class AddPamFadem extends Command
             'race' => 'White',
             'state' => 'Texas',
             'era' => '1980s',
+            // Only the birth year (1952) is known; stored as Jan 1 per the
+            // codebase convention for year-only dates of birth.
+            'birthdate' => '1952-01-01',
             'ideologies' => ['Anti-imperialism', 'Puerto Rican independence', 'Anti-racism'],
             'affiliation' => ['John Brown Anti-Klan Committee'],
             'in_custody' => false,
@@ -52,6 +56,18 @@ final class AddPamFadem extends Command
             ]],
         ];
 
-        return $this->call('prisoner:add', ['json' => json_encode($payload)]);
+        $result = $this->call('prisoner:add', ['json' => json_encode($payload)]);
+
+        // prisoner:add refuses to update an existing record, so if she was
+        // already created before her birth year was known, backfill the DOB
+        // here (only when it's blank, so nothing is overwritten).
+        $prisoner = Prisoner::withUnderReview()->where('slug', 'pam-fadem')->first();
+        if ($prisoner && empty($prisoner->birthdate)) {
+            $prisoner->birthdate = '1952-01-01';
+            $prisoner->save();
+            $this->info('Backfilled Pam Fadem birthdate → 1952-01-01');
+        }
+
+        return $result;
     }
 }
