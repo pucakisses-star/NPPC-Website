@@ -160,15 +160,16 @@ final class Prisoner extends Model {
      * portion of incarcerated, derived from each case's start and end
      * dates. Used by the Vue stats chart and by the admin display.
      *
-     * Falls back through start = incarceration_date → arrest_date →
-     * sentenced_date and end = release_date → death_in_custody_date →
-     * today (if still in custody).
+     * Start is strictly the case's incarceration_date — cases without one are
+     * skipped (no fall back to arrest_date or sentenced_date). End =
+     * release_date → death_in_custody_date → the prisoner's death_date → today
+     * (if still in custody).
      */
     public function getIncarcerationYearsArray(): array {
         $years = [];
 
         foreach ($this->cases as $case) {
-            $start = $case->incarceration_date ?? $case->arrest_date ?? $case->sentenced_date;
+            $start = $case->incarceration_date;
             if (! $start) {
                 continue;
             }
