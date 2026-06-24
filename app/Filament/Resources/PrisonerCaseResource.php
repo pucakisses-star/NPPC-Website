@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Forms\PartialDate;
 use App\Filament\Resources\PrisonerCaseResource\Pages;
 use App\Models\PrisonerCase;
 use Filament\Forms;
@@ -10,14 +11,20 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class PrisonerCaseResource extends Resource {
+class PrisonerCaseResource extends Resource
+{
     protected static ?string $model = PrisonerCase::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+
     protected static ?string $navigationGroup = 'Prisoner Database';
+
     protected static ?string $modelLabel = 'Case';
+
     protected static ?string $pluralModelLabel = 'Cases';
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
             ->schema([
                 Forms\Components\Section::make('Associations')
@@ -54,16 +61,16 @@ class PrisonerCaseResource extends Resource {
                     ->columns(2),
 
                 Forms\Components\Section::make('Key Dates')
+                    ->description('Enter as much as is known — a year alone, a month and year, or a full date. Blank parts show blank publicly; internally they default to the 1st.')
                     ->schema([
-                        Forms\Components\DatePicker::make('arrest_date'),
-                        Forms\Components\DatePicker::make('sentenced_date'),
-                        Forms\Components\DatePicker::make('incarceration_date'),
-                        Forms\Components\DatePicker::make('release_date'),
-                        Forms\Components\DatePicker::make('death_in_custody_date'),
-                        Forms\Components\DatePicker::make('in_exile_since'),
-                        Forms\Components\DatePicker::make('end_of_exile'),
-                    ])
-                    ->columns(3),
+                        PartialDate::make('arrest_date', 'Arrest date'),
+                        PartialDate::make('sentenced_date', 'Sentenced date'),
+                        PartialDate::make('incarceration_date', 'Incarceration date'),
+                        PartialDate::make('release_date', 'Release date'),
+                        PartialDate::make('death_in_custody_date', 'Death in custody date'),
+                        PartialDate::make('in_exile_since', 'In exile since'),
+                        PartialDate::make('end_of_exile', 'End of exile'),
+                    ]),
 
                 Forms\Components\Section::make('Duration')
                     ->schema([
@@ -78,7 +85,8 @@ class PrisonerCaseResource extends Resource {
             ]);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('prisoner.name')
@@ -90,10 +98,10 @@ class PrisonerCaseResource extends Resource {
                 Tables\Columns\TextColumn::make('charges')
                     ->limit(40),
                 Tables\Columns\TextColumn::make('arrest_date')
-                    ->date()
+                    ->formatStateUsing(fn ($state, PrisonerCase $record) => $record->formatPartialDate('arrest_date'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('release_date')
-                    ->date()
+                    ->formatStateUsing(fn ($state, PrisonerCase $record) => $record->formatPartialDate('release_date'))
                     ->sortable(),
             ])
             ->filters([])
@@ -108,11 +116,12 @@ class PrisonerCaseResource extends Resource {
             ]);
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
-            'index'  => Pages\ListPrisonerCases::route('/'),
+            'index' => Pages\ListPrisonerCases::route('/'),
             'create' => Pages\CreatePrisonerCase::route('/create'),
-            'edit'   => Pages\EditPrisonerCase::route('/{record}/edit'),
+            'edit' => Pages\EditPrisonerCase::route('/{record}/edit'),
         ];
     }
 }

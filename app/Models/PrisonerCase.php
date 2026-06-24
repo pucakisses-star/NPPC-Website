@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasPartialDates;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @property string      $prisoner_id
+ * @property string $prisoner_id
  * @property string|null $institution_id
  * @property string|null $charges
  * @property string|null $arrest_date
@@ -22,31 +23,45 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null $prosecutor
  * @property string|null $judge
  * @property string|null $sentence
- * @property int|null    $imprisoned_for_days
- * @property int|null    $in_exile_for_days
+ * @property int|null $imprisoned_for_days
+ * @property int|null $in_exile_for_days
  */
-final class PrisonerCase extends Model {
+final class PrisonerCase extends Model
+{
+    use HasPartialDates;
+
     protected $table = 'prisoner_cases';
 
     protected $casts = [
-        'arrest_date'           => 'date',
-        'sentenced_date'        => 'date',
-        'incarceration_date'    => 'date',
-        'release_date'          => 'date',
+        'arrest_date' => 'date',
+        'sentenced_date' => 'date',
+        'incarceration_date' => 'date',
+        'release_date' => 'date',
         'death_in_custody_date' => 'date',
-        'in_exile_since'        => 'date',
-        'end_of_exile'          => 'date',
+        'in_exile_since' => 'date',
+        'end_of_exile' => 'date',
+        'date_precision' => 'array',
     ];
 
-    public static function booted(): void {
+    public function partialDateFields(): array
+    {
+        return [
+            'arrest_date', 'sentenced_date', 'incarceration_date', 'release_date',
+            'death_in_custody_date', 'in_exile_since', 'end_of_exile',
+        ];
+    }
+
+    public static function booted(): void
+    {
         parent::booted();
 
-        static::saving(function (self $case) {
+        self::saving(function (self $case) {
             // A death in custody ends the incarceration on that date, so the
             // release date is set to the same day (this also makes
             // imprisoned_for_days, computed below, stop at death).
             if ($case->death_in_custody_date) {
                 $case->release_date = $case->death_in_custody_date;
+                $case->mirrorDatePrecision('death_in_custody_date', 'release_date');
             }
 
             // Auto-derive in_exile_since from release_date when the prisoner
@@ -62,6 +77,7 @@ final class PrisonerCase extends Model {
                 $prisoner = $case->prisoner;
                 if ($prisoner && ($prisoner->in_exile || $prisoner->currently_in_exile)) {
                     $case->in_exile_since = $case->release_date;
+                    $case->mirrorDatePrecision('release_date', 'in_exile_since');
                 }
             }
 
@@ -87,11 +103,13 @@ final class PrisonerCase extends Model {
         });
     }
 
-    public function prisoner(): BelongsTo {
+    public function prisoner(): BelongsTo
+    {
         return $this->belongsTo(Prisoner::class);
     }
 
-    public function institution(): BelongsTo {
+    public function institution(): BelongsTo
+    {
         return $this->belongsTo(Institution::class);
     }
 }

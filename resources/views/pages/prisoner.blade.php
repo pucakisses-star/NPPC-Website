@@ -114,7 +114,7 @@
             {{-- Meta info --}}
             <div class="prisoner-meta">
                 @if($prisoner->birthdate)
-                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Date of birth:</span><span class="prisoner-meta-value">{{ $prisoner->birthdate->format('d. m. Y') }}</span></div>
+                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Date of birth:</span><span class="prisoner-meta-value">{{ $prisoner->formatPartialDate('birthdate', 'd. m. Y') }}</span></div>
                 @endif
                 @if($prisoner->age)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}{{ $prisoner->death_date ? ' (Deceased)' : '' }}</span></div>
@@ -258,10 +258,10 @@
                     @endif
                     <div class="prisoner-case-meta">
                         @if($case->charges)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Charges: </span><span class="prisoner-case-field-value">{{ $case->charges }}</span></div>@endif
-                        @if($case->arrest_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Arrested: </span><span class="prisoner-case-field-value">{{ $case->arrest_date->format('M j, Y') }}</span></div>@endif
-                        @if($case->sentenced_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Sentenced: </span><span class="prisoner-case-field-value">{{ $case->sentenced_date->format('M j, Y') }}</span></div>@endif
-                        @if($case->incarceration_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Incarcerated: </span><span class="prisoner-case-field-value">{{ $case->incarceration_date->format('M j, Y') }}</span></div>@endif
-                        @if($case->release_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Released: </span><span class="prisoner-case-field-value">{{ $case->release_date->format('M j, Y') }}</span></div>@endif
+                        @if($case->arrest_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Arrested: </span><span class="prisoner-case-field-value">{{ $case->formatPartialDate('arrest_date') }}</span></div>@endif
+                        @if($case->sentenced_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Sentenced: </span><span class="prisoner-case-field-value">{{ $case->formatPartialDate('sentenced_date') }}</span></div>@endif
+                        @if($case->incarceration_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Incarcerated: </span><span class="prisoner-case-field-value">{{ $case->formatPartialDate('incarceration_date') }}</span></div>@endif
+                        @if($case->release_date)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Released: </span><span class="prisoner-case-field-value">{{ $case->formatPartialDate('release_date') }}</span></div>@endif
                         @if($case->sentence)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Sentence: </span><span class="prisoner-case-field-value">{{ $case->sentence }}</span></div>@endif
                         @if($case->prosecutor)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Prosecutor: </span><span class="prisoner-case-field-value">{{ $case->prosecutor }}</span></div>@endif
                         @if($case->judge)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Judge: </span><span class="prisoner-case-field-value">{{ $case->judge }}</span></div>@endif

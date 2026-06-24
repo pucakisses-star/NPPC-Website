@@ -2,17 +2,30 @@
 
 namespace App\Filament\Resources\PrisonerResource\RelationManagers;
 
+use App\Filament\Concerns\HandlesPartialDateForm;
+use App\Filament\Forms\PartialDate;
+use App\Models\PrisonerCase;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class CasesRelationManager extends RelationManager {
+class CasesRelationManager extends RelationManager
+{
+    use HandlesPartialDateForm;
+
     protected static string $relationship = 'cases';
+
     protected static ?string $recordTitleAttribute = 'charges';
 
-    public function form(Form $form): Form {
+    protected function partialDateFields(): array
+    {
+        return (new PrisonerCase)->partialDateFields();
+    }
+
+    public function form(Form $form): Form
+    {
         return $form
             ->schema([
                 Forms\Components\Select::make('institution_id')
@@ -22,19 +35,19 @@ class CasesRelationManager extends RelationManager {
                     ->preload(),
                 Forms\Components\Textarea::make('charges')
                     ->columnSpanFull(),
-                Forms\Components\DatePicker::make('arrest_date'),
+                PartialDate::make('arrest_date', 'Arrest date'),
                 Forms\Components\TextInput::make('indicted')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('convicted')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('plead')
                     ->maxLength(255),
-                Forms\Components\DatePicker::make('sentenced_date'),
-                Forms\Components\DatePicker::make('incarceration_date'),
-                Forms\Components\DatePicker::make('release_date'),
-                Forms\Components\DatePicker::make('death_in_custody_date'),
-                Forms\Components\DatePicker::make('in_exile_since'),
-                Forms\Components\DatePicker::make('end_of_exile'),
+                PartialDate::make('sentenced_date', 'Sentenced date'),
+                PartialDate::make('incarceration_date', 'Incarceration date'),
+                PartialDate::make('release_date', 'Release date'),
+                PartialDate::make('death_in_custody_date', 'Death in custody date'),
+                PartialDate::make('in_exile_since', 'In exile since'),
+                PartialDate::make('end_of_exile', 'End of exile'),
                 Forms\Components\TextInput::make('prosecutor')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('judge')
@@ -49,25 +62,29 @@ class CasesRelationManager extends RelationManager {
             ]);
     }
 
-    public function table(Table $table): Table {
+    public function table(Table $table): Table
+    {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('institution.name'),
                 Tables\Columns\TextColumn::make('charges')
                     ->limit(40),
                 Tables\Columns\TextColumn::make('arrest_date')
-                    ->date(),
+                    ->formatStateUsing(fn ($state, PrisonerCase $record) => $record->formatPartialDate('arrest_date')),
                 Tables\Columns\TextColumn::make('release_date')
-                    ->date(),
+                    ->formatStateUsing(fn ($state, PrisonerCase $record) => $record->formatPartialDate('release_date')),
                 Tables\Columns\TextColumn::make('sentence')
                     ->limit(30),
             ])
             ->filters([])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                    ->mutateFormDataUsing(fn (array $data): array => $this->combinePartialDates($data)),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->mutateRecordDataUsing(fn (array $data): array => $this->splitPartialDates($data))
+                    ->mutateFormDataUsing(fn (array $data): array => $this->combinePartialDates($data)),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
