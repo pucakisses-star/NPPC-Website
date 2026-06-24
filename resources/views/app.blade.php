@@ -10,6 +10,13 @@ $isHome = request()->segment(1) == ''
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <title>@yield('title')</title>
+
+    {{-- Favicons (NPPC monogram on brand indigo), generated from logo.png --}}
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v={{ @filemtime(public_path('favicon-32x32.png')) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v={{ @filemtime(public_path('favicon-16x16.png')) }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v={{ @filemtime(public_path('apple-touch-icon.png')) }}">
+
     <link href="/app.css?v={{ @filemtime(public_path('app.css')) }}" rel="stylesheet"/>
     <link href="/styles.css?v={{ @filemtime(public_path('styles.css')) }}" rel="stylesheet"/>
     <link href="/fontawesome/css/all.min.css" rel="stylesheet"/>
