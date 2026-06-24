@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Forms\PartialDate;
 use App\Filament\Resources\PrisonerResource\Pages;
 use App\Filament\Resources\PrisonerResource\RelationManagers;
 use App\Models\Prisoner;
+use App\Models\Scopes\NotUnderReviewScope;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists;
@@ -12,15 +14,21 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 
-class PrisonerResource extends Resource {
+class PrisonerResource extends Resource
+{
     protected static ?string $model = Prisoner::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
+
     protected static ?string $navigationGroup = 'Prisoner Database';
+
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Form $form): Form {
+    public static function form(Form $form): Form
+    {
         return $form
             ->schema([
                 Forms\Components\Section::make('Identity')
@@ -39,14 +47,14 @@ class PrisonerResource extends Resource {
                             ->maxLength(255),
                         Forms\Components\Select::make('gender')
                             ->options([
-                                'Male'   => 'Male',
+                                'Male' => 'Male',
                                 'Female' => 'Female',
-                                'Other'  => 'Other',
+                                'Other' => 'Other',
                             ]),
                         Forms\Components\TextInput::make('race')
                             ->maxLength(255),
-                        Forms\Components\DatePicker::make('birthdate'),
-                        Forms\Components\DatePicker::make('death_date'),
+                        PartialDate::make('birthdate', 'Date of birth'),
+                        PartialDate::make('death_date', 'Date of death'),
                         Forms\Components\TextInput::make('age')
                             ->numeric()
                             ->disabled()
@@ -71,7 +79,7 @@ class PrisonerResource extends Resource {
                 Forms\Components\Section::make('Page Content')
                     ->description('Rich text content displayed on the prisoner\'s public page. Use this for detailed case information, embedded PDFs, images, and other media.')
                     ->schema([
-                        \FilamentTiptapEditor\TiptapEditor::make('body')
+                        TiptapEditor::make('body')
                             ->label('')
                             ->profile('default')
                             ->disk('public')
@@ -149,7 +157,8 @@ class PrisonerResource extends Resource {
             ]);
     }
 
-    public static function table(Table $table): Table {
+    public static function table(Table $table): Table
+    {
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('photo')
@@ -179,9 +188,9 @@ class PrisonerResource extends Resource {
                 Tables\Columns\TextColumn::make('gender')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'Male'   => 'info',
+                        'Male' => 'info',
                         'Female' => 'success',
-                        default  => 'gray',
+                        default => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('race')
                     ->badge()
@@ -212,10 +221,10 @@ class PrisonerResource extends Resource {
                     ->badge()
                     ->color(fn (string $state): string => match (true) {
                         str_contains($state, 'Custody') => 'danger',
-                        str_contains($state, 'Exile')   => 'warning',
+                        str_contains($state, 'Exile') => 'warning',
                         str_contains($state, 'Released') => 'success',
                         str_contains($state, 'Awaiting') => 'info',
-                        default                          => 'gray',
+                        default => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('years_in_prison')
                     ->label('Years in Prison')
@@ -223,17 +232,26 @@ class PrisonerResource extends Resource {
                     ->wrap()
                     ->getStateUsing(function ($record) {
                         $years = $record->years_in_prison;
-                        if (! $years) return '—';
-                        if (count($years) === 1) return (string) $years[0];
+                        if (! $years) {
+                            return '—';
+                        }
+                        if (count($years) === 1) {
+                            return (string) $years[0];
+                        }
                         // Compress consecutive runs into ranges (2002–2008)
                         $ranges = [];
                         $start = $prev = $years[0];
                         foreach (array_slice($years, 1) as $y) {
-                            if ($y === $prev + 1) { $prev = $y; continue; }
+                            if ($y === $prev + 1) {
+                                $prev = $y;
+
+                                continue;
+                            }
                             $ranges[] = $start === $prev ? (string) $start : "{$start}–{$prev}";
                             $start = $prev = $y;
                         }
                         $ranges[] = $start === $prev ? (string) $start : "{$start}–{$prev}";
+
                         return implode(', ', $ranges);
                     }),
             ])
@@ -329,7 +347,8 @@ class PrisonerResource extends Resource {
             ]);
     }
 
-    public static function infolist(Infolist $infolist): Infolist {
+    public static function infolist(Infolist $infolist): Infolist
+    {
         return $infolist
             ->schema([
                 Infolists\Components\Section::make()
@@ -434,23 +453,26 @@ class PrisonerResource extends Resource {
             ]);
     }
 
-    public static function getRelations(): array {
+    public static function getRelations(): array
+    {
         return [
             RelationManagers\CasesRelationManager::class,
         ];
     }
 
-    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder {
+    public static function getEloquentQuery(): Builder
+    {
         // Admin sees ALL prisoners — including those marked under_review.
         return parent::getEloquentQuery()
-            ->withoutGlobalScope(\App\Models\Scopes\NotUnderReviewScope::class);
+            ->withoutGlobalScope(NotUnderReviewScope::class);
     }
 
-    public static function getPages(): array {
+    public static function getPages(): array
+    {
         return [
-            'index'  => Pages\ListPrisoners::route('/'),
+            'index' => Pages\ListPrisoners::route('/'),
             'create' => Pages\CreatePrisoner::route('/create'),
-            'edit'   => Pages\EditPrisoner::route('/{record}/edit'),
+            'edit' => Pages\EditPrisoner::route('/{record}/edit'),
         ];
     }
 }
