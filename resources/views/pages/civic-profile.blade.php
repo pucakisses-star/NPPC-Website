@@ -176,6 +176,18 @@
         /* When GSAP drives the hero (scroll-linked), disable the CSS auto-scroll so the two don't fight. */
         .cpg.is-js .cpg-track { animation: none !important; }
 
+        /* Intro reveal on load -- pure CSS so it ALWAYS plays, even if GSAP is blocked,
+           not yet deployed, or motion is reduced. GSAP only adds the scroll-linked motion. */
+        @keyframes cpg-fade-up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+        @keyframes cpg-zoom-in { from { opacity: 0; transform: scale(1.06); }     to { opacity: 1; transform: none; } }
+        .cpg-row { animation: cpg-zoom-in 1.1s cubic-bezier(.16,1,.3,1) both; }
+        .cpg-row:nth-child(1) { animation-delay: .05s; }
+        .cpg-row:nth-child(2) { animation-delay: .18s; }
+        .cpg-eyebrow { animation: cpg-fade-up .7s ease-out .35s both; }
+        .cpg-title   { animation: cpg-fade-up .8s ease-out .50s both; }
+        .cpg-lede    { animation: cpg-fade-up .8s ease-out .68s both; }
+        .cpg-cta     { animation: cpg-fade-up .8s ease-out .86s both; }
+
         /* vignette so the overlay text stays legible over the photos */
         .cpg::after {
             content: ""; position: absolute; inset: 0; pointer-events: none;
@@ -219,7 +231,8 @@
         .cp { scroll-margin-top: 84px; }
         @media (max-width: 640px) { .cpg-rows { gap: 12px; } .cpg-track { gap: 12px; } }
         @media (prefers-reduced-motion: reduce) {
-            .cpg-track, .cpg-arrow { animation: none; }
+            .cpg-track, .cpg-arrow,
+            .cpg-row, .cpg-eyebrow, .cpg-title, .cpg-lede, .cpg-cta { animation: none; }
         }
     </style>
     @endverbatim
@@ -675,15 +688,7 @@
         var tracks = hero.querySelectorAll('.cpg-track');
         var t1 = tracks[0], t2 = tracks[1];
 
-        // Intro reveal on load.
-        gsap.from(hero.querySelectorAll('.cpg-card'), {
-            opacity: 0, scale: 0.92, yPercent: 10, duration: 0.9, ease: 'power2.out',
-            stagger: { each: 0.04, from: 'random' }
-        });
-        gsap.from(hero.querySelectorAll('.cpg-overlay > *'), {
-            opacity: 0, y: 24, duration: 0.8, ease: 'power2.out', stagger: 0.12, delay: 0.35
-        });
-
+        // (The intro reveal is done in CSS so it plays even without GSAP.)
         // Scroll-driven: pin the hero and scrub the two rows in opposite directions.
         if (t2) gsap.set(t2, { xPercent: -22 });
         var tl = gsap.timeline({
