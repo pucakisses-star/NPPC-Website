@@ -179,8 +179,18 @@
         .a1r-count { font-size: 13px; opacity: 0.7; padding: 8px 4px 16px; }
 
         .a1r-list { display: flex; flex-direction: column; gap: 16px; }
-        .a1r-card { display: flex; gap: 18px; padding: 18px; border: 1px solid var(--a1-line); border-radius: 6px; background: rgba(255,255,255,0.02); color: inherit; text-decoration: none; transition: border-color 0.15s ease, background 0.15s ease; }
+        .a1r-card { position: relative; display: flex; gap: 18px; padding: 18px; border: 1px solid var(--a1-line); border-radius: 6px; background: rgba(255,255,255,0.02); color: inherit; text-decoration: none; transition: border-color 0.15s ease, background 0.15s ease; }
         .a1r-card:hover { border-color: var(--a1-accent); background: rgba(86, 96, 254, 0.04); }
+        /* The record title is the card's main link; its ::after overlays the whole card
+           so the entire card stays clickable, while the inline "Open full PDF" button
+           (raised above the overlay) opens the raw PDF full-page on PDF records. */
+        .a1r-card-link { color: inherit; text-decoration: none; }
+        .a1r-card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: 6px; }
+        .a1r-card:hover .a1r-card-link { color: #fff; }
+        .a1r-card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .a1r-card-btn { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border: 1px solid var(--a1-accent); border-radius: 999px; background: rgba(86, 96, 254, 0.08); color: var(--a1-accent); font-size: 12.5px; font-weight: 700; text-decoration: none; transition: background 0.15s ease, color 0.15s ease; }
+        .a1r-card-btn:hover { background: var(--a1-accent); color: #fff; }
+        .a1r-card-btn svg { width: 14px; height: 14px; }
         .a1r-thumb { flex: 0 0 80px; width: 80px; height: 100px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; }
         .a1r-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .a1r-thumb-doc { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5); border: 1px solid var(--a1-line); }
@@ -346,7 +356,7 @@
                                     : '#';
                                 $cardNewTab = $r->file_url && ! $isPdf;
                             @endphp
-                            <a class="a1r-card" href="{{ $cardHref }}" @if ($cardNewTab) target="_blank" rel="noopener" @endif>
+                            <div class="a1r-card">
                                 <div class="a1r-thumb a1r-thumb-{{ $r->record_type }}">
                                     @if ($r->thumbnail_url)
                                         <img src="{{ $r->thumbnail_url }}" alt="" loading="lazy" decoding="async">
@@ -359,7 +369,7 @@
                                     @endif
                                 </div>
                                 <div class="a1r-body">
-                                    <h3>{{ $r->title }}</h3>
+                                    <h3><a class="a1r-card-link" href="{{ $cardHref }}" @if ($cardNewTab) target="_blank" rel="noopener" @endif>{{ $r->title }}</a></h3>
                                     @if (count($tags))
                                         <div class="a1r-tags">
                                             @foreach ($tags as $t)
@@ -370,8 +380,16 @@
                                     @if ($r->description)
                                         <p>{{ \Illuminate\Support\Str::limit($r->description, 360) }}</p>
                                     @endif
+                                    @if ($isPdf && $r->file_url)
+                                        <div class="a1r-card-actions">
+                                            <a class="a1r-card-btn" href="{{ $r->file_url }}" target="_blank" rel="noopener" title="View the full PDF in a new tab">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                                Open full PDF
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
-                            </a>
+                            </div>
                         @endforeach
                     </div>
 
