@@ -151,7 +151,6 @@
         }
 
         /* ---------- Scrolling gallery hero (matches civicprofile.org front page) ---------- */
-        html { scroll-behavior: smooth; }
         .cpg {
             position: relative; height: 100vh; min-height: 560px; overflow: hidden;
             background: #0f1024;
@@ -173,6 +172,9 @@
         }
         .cpg-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
         @keyframes cpg-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .cpg-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        /* When GSAP drives the hero (scroll-linked), disable the CSS auto-scroll so the two don't fight. */
+        .cpg.is-js .cpg-track { animation: none !important; }
 
         /* vignette so the overlay text stays legible over the photos */
         .cpg::after {
@@ -217,7 +219,6 @@
         .cp { scroll-margin-top: 84px; }
         @media (max-width: 640px) { .cpg-rows { gap: 12px; } .cpg-track { gap: 12px; } }
         @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
             .cpg-track, .cpg-arrow { animation: none; }
         }
     </style>
@@ -226,24 +227,43 @@
 
 @section('body')
     @php
-        // Two rows of portrait cards scrolling in opposite directions; each set is
-        // rendered twice so the CSS marquee (translateX -50%) loops seamlessly.
-        $cpgRow1 = ['cp-01', 'cp-02', 'cp-03', 'cp-04', 'cp-05', 'cp-06'];
-        $cpgRow2 = ['cp-07', 'cp-08', 'cp-09', 'cp-10', 'cp-11', 'cp-12'];
+        // Hero gallery: two rows of portrait cards (a few are short videos, like
+        // civicprofile.org's hero). Each set is rendered twice so the fallback CSS
+        // marquee loops seamlessly; when GSAP loads (below) it disables that and
+        // drives the rows from scroll instead. Videos are streamed from the same
+        // CDN civicprofile.org uses, with the matching still as a poster fallback.
+        $cpgVideos = [
+            'cp-01' => 'https://civic-profile.b-cdn.net/6624496-uhd_2160_3840_24fps_1.mp4',
+            'cp-03' => 'https://civic-profile.b-cdn.net/8488847-hd_1080_1920_25fps_1.mp4',
+        ];
+        $cpgRow1 = ['cp-01', 'cp-05', 'cp-07', 'cp-10', 'cp-08', 'cp-11'];
+        $cpgRow2 = ['cp-03', 'cp-09', 'cp-02', 'cp-12', 'cp-06', 'cp-04'];
     @endphp
     <section class="cpg">
         <div class="cpg-rows" aria-hidden="true">
             <div class="cpg-row">
                 <div class="cpg-track">
                     @foreach (array_merge($cpgRow1, $cpgRow1) as $img)
-                        <div class="cpg-card"><img src="/images/civic-profile/{{ $img }}.jpg" alt=""></div>
+                        <div class="cpg-card">
+                            @isset($cpgVideos[$img])
+                                <video poster="/images/civic-profile/{{ $img }}.jpg" autoplay muted loop playsinline preload="metadata"><source src="{{ $cpgVideos[$img] }}" type="video/mp4"></video>
+                            @else
+                                <img src="/images/civic-profile/{{ $img }}.jpg" alt="" loading="eager">
+                            @endisset
+                        </div>
                     @endforeach
                 </div>
             </div>
             <div class="cpg-row">
                 <div class="cpg-track cpg-track--rev">
                     @foreach (array_merge($cpgRow2, $cpgRow2) as $img)
-                        <div class="cpg-card"><img src="/images/civic-profile/{{ $img }}.jpg" alt=""></div>
+                        <div class="cpg-card">
+                            @isset($cpgVideos[$img])
+                                <video poster="/images/civic-profile/{{ $img }}.jpg" autoplay muted loop playsinline preload="metadata"><source src="{{ $cpgVideos[$img] }}" type="video/mp4"></video>
+                            @else
+                                <img src="/images/civic-profile/{{ $img }}.jpg" alt="" loading="eager">
+                            @endisset
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -621,6 +641,58 @@
         }
 
         render();
+    })();
+    </script>
+    @endverbatim
+
+    {{-- Scroll-driven hero behaviour (intro reveal + pinned scroll scrub), matching
+         civicprofile.org. Loaded after the quiz; if the CDN is blocked or motion is
+         reduced, the hero simply falls back to the CSS auto-scroll marquee. --}}
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
+    @verbatim
+    <script>
+    (function () {
+        var hero = document.querySelector('.cpg');
+        if (!hero) return;
+
+        // Smooth-scroll the "Take the quiz" / arrow links down to the quiz.
+        hero.querySelectorAll('a[href="#cp-app"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                var el = document.getElementById('cp-app');
+                if (!el) return;
+                e.preventDefault();
+                el.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        if (!window.gsap || !window.ScrollTrigger) return;                  // keep CSS marquee fallback
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+        hero.classList.add('is-js');                                        // hand the rows over to GSAP
+
+        var tracks = hero.querySelectorAll('.cpg-track');
+        var t1 = tracks[0], t2 = tracks[1];
+
+        // Intro reveal on load.
+        gsap.from(hero.querySelectorAll('.cpg-card'), {
+            opacity: 0, scale: 0.92, yPercent: 10, duration: 0.9, ease: 'power2.out',
+            stagger: { each: 0.04, from: 'random' }
+        });
+        gsap.from(hero.querySelectorAll('.cpg-overlay > *'), {
+            opacity: 0, y: 24, duration: 0.8, ease: 'power2.out', stagger: 0.12, delay: 0.35
+        });
+
+        // Scroll-driven: pin the hero and scrub the two rows in opposite directions.
+        if (t2) gsap.set(t2, { xPercent: -22 });
+        var tl = gsap.timeline({
+            scrollTrigger: { trigger: hero, start: 'top top', end: '+=140%', pin: true, scrub: 0.6, anticipatePin: 1 }
+        });
+        if (t1) tl.to(t1, { xPercent: -22, ease: 'none' }, 0);
+        if (t2) tl.to(t2, { xPercent: 0, ease: 'none' }, 0);
+        tl.to(hero.querySelector('.cpg-overlay'), { opacity: 0, y: -30, ease: 'none' }, 0.2);
+        tl.to(hero.querySelector('.cpg-arrow'), { opacity: 0, ease: 'none' }, 0.05);
     })();
     </script>
     @endverbatim
