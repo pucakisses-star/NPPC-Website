@@ -35,9 +35,13 @@ final class SetCliverAlcalaPhoto extends Command
         Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
         $this->info('Copied photo to public disk: '.self::PHOTO);
 
+        // Match robustly: the live record's surname is spelled "Cordero" (slug
+        // cliver-antonio-alcala-cordero), so key on the distinctive
+        // "Clíver … Alcalá" combination plus both known slugs.
         $prisoner = Prisoner::withoutGlobalScopes()
-            ->where('slug', 'cliver-alcala-cordones')
-            ->orWhere('name', 'like', '%Alcal%Cordones%')
+            ->where('slug', 'cliver-antonio-alcala-cordero')
+            ->orWhere('slug', 'cliver-alcala-cordones')
+            ->orWhere('name', 'like', '%Cl_ver%Alcal%')
             ->first();
 
         if (! $prisoner) {
