@@ -6,17 +6,18 @@ use App\Filament\Forms\PartialDate;
 use Carbon\Carbon;
 
 /**
- * Bridges the single MM/DD/YYYY field built by {@see PartialDate} with the stored
- * full date + `date_precision` JSON. Mix into a Create/Edit page (or relation
- * manager) and list the date columns via partialDateFields().
+ * Bridges the calendar picker + "Show as" precision selector built by
+ * {@see PartialDate} with the stored full date + `date_precision` JSON. Mix into
+ * a Create/Edit page (or relation manager) and list the date columns via
+ * partialDateFields().
  *
- *   - splitPartialDates()   — record attributes -> `{field}__partial` string (form fill)
- *   - combinePartialDates() — `{field}__partial` string -> date column + precision (save)
+ *   - splitPartialDates()   — record attributes -> `{field}__date` + `{field}__precision` (form fill)
+ *   - combinePartialDates() — those two fields    -> date column + precision (save)
  *
- * The user may type just a year ("1971"), a month and year ("03/1971") or a full
- * date ("03/14/1971"). Missing month/day default to 1; a blank year clears the
- * date. The day is clamped to the month length so an impossible date (Feb 31)
- * can't be saved.
+ * The picked date is normalised to the 1st of the month/year for the coarser
+ * precisions ("month", "year") so it matches the chosen precision and keeps all
+ * date logic working; a blank picker clears the date. "day" precision is the
+ * default and is not stored (absent precision renders as a full date).
  */
 trait HandlesPartialDateForm
 {
@@ -34,10 +35,9 @@ trait HandlesPartialDateForm
         }
 
         foreach ($this->partialDateFields() as $field) {
-            $data["{$field}__partial"] = $this->formatPartialInput(
-                $data[$field] ?? null,
-                $precision[$field] ?? 'day',
-            );
+            $value = $data[$field] ?? null;
+            $data["{$field}__date"] = $value ? Carbon::parse($value)->format('Y-m-d') : null;
+            $data["{$field}__precision"] = $precision[$field] ?? 'day';
         }
 
         return $data;
@@ -48,59 +48,33 @@ trait HandlesPartialDateForm
         $precision = is_array($data['date_precision'] ?? null) ? $data['date_precision'] : [];
 
         foreach ($this->partialDateFields() as $field) {
-            $raw = $data["{$field}__partial"] ?? null;
-            unset($data["{$field}__partial"]);
+            $date = $data["{$field}__date"] ?? null;
+            $prec = $data["{$field}__precision"] ?? 'day';
+            unset($data["{$field}__date"], $data["{$field}__precision"]);
 
-            [$y, $m, $d] = $this->parsePartialInput((string) $raw);
-
-            if (! $y) {
+            if (! $date) {
                 $data[$field] = null;
                 unset($precision[$field]);
 
                 continue;
             }
 
-            $month = (int) ($m ?: 1);
-            $maxDay = (int) Carbon::create((int) $y, $month, 1)->daysInMonth;
-            $day = $d ? min((int) $d, $maxDay) : 1;
+            $prec = in_array($prec, ['year', 'month', 'day'], true) ? $prec : 'day';
+            $c = Carbon::parse($date);
+            $month = $prec === 'year' ? 1 : (int) $c->month;
+            $day = $prec === 'day' ? (int) $c->day : 1;
 
-            $data[$field] = sprintf('%04d-%02d-%02d', (int) $y, $month, $day);
-            $precision[$field] = $d ? 'day' : ($m ? 'month' : 'year');
+            $data[$field] = sprintf('%04d-%02d-%02d', (int) $c->year, $month, $day);
+
+            if ($prec === 'day') {
+                unset($precision[$field]);
+            } else {
+                $precision[$field] = $prec;
+            }
         }
 
         $data['date_precision'] = $precision ?: null;
 
         return $data;
-    }
-
-    /** Parse a typed MM/DD/YYYY (or partial) string into [year, month, day]. */
-    private function parsePartialInput(string $input): array
-    {
-        $parts = preg_split('/[^0-9]+/', trim($input)) ?: [];
-        $parts = array_values(array_filter($parts, fn ($p) => $p !== ''));
-        $n = count($parts);
-
-        return match (true) {
-            $n === 0 => [null, null, null],
-            $n === 1 => [(int) $parts[0], null, null],            // YYYY
-            $n === 2 => [(int) $parts[1], (int) $parts[0], null],  // MM / YYYY
-            default => [(int) $parts[2], (int) $parts[0], (int) $parts[1]], // MM / DD / YYYY
-        };
-    }
-
-    /** Format a stored date + precision back into the MM/DD/YYYY field string. */
-    private function formatPartialInput($value, string $precision): ?string
-    {
-        if (! $value) {
-            return null;
-        }
-
-        $c = $value instanceof Carbon ? $value : Carbon::parse($value);
-
-        return match ($precision) {
-            'year' => $c->format('Y'),
-            'month' => $c->format('m/Y'),
-            default => $c->format('m/d/Y'),
-        };
     }
 }
