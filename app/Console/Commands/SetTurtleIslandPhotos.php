@@ -7,22 +7,23 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Sets profile photos for the four Turtle Island Liberation Front defendants
- * charged in the alleged New Year's Eve bombing plot. The booking/DMV photos
- * were taken from the KMPH news report, cropped to clean 3:4 portraits (the
- * source assets carry a blurred-fill border that has been trimmed off), and
- * committed under public/images/prisoners/. This command copies each onto the
- * public disk (where prisoner photos are served from) and points the record at
- * it. Identities were verified individually against labeled portraits before
- * mapping each photo to a defendant. Idempotent; only updates prisoners that
- * exist. Micah Legnon — arrested separately in Louisiana — is not pictured in
- * that report and is intentionally omitted.
+ * Sets profile photos for the five Turtle Island Liberation Front defendants
+ * charged in the alleged New Year's Eve bombing plot. The four California
+ * defendants' booking/DMV photos come from the KMPH news report (the source
+ * assets carry a blurred-fill border that has been trimmed off); Micah Legnon,
+ * arrested separately in Louisiana, comes from a WWLTV booking-photo graphic
+ * (the "suspect in custody" panel cropped away). All were cropped to clean 3:4
+ * portraits and committed under public/images/prisoners/. This command copies
+ * each onto the public disk (where prisoner photos are served from) and points
+ * the record at it. Identities were verified individually against labeled
+ * portraits before mapping each photo to a defendant. Idempotent; only updates
+ * prisoners that exist.
  */
 final class SetTurtleIslandPhotos extends Command
 {
     protected $signature = 'prisoners:set-turtle-island-photos';
 
-    protected $description = 'Set profile photos for the four Turtle Island Liberation Front defendants from committed cropped images';
+    protected $description = 'Set profile photos for the five Turtle Island Liberation Front defendants from committed cropped images';
 
     /** slug => committed source image under public/ */
     private const PHOTOS = [
@@ -30,6 +31,7 @@ final class SetTurtleIslandPhotos extends Command
         'audrey-carroll' => 'images/prisoners/audrey-carroll.jpg',
         'tina-lai' => 'images/prisoners/tina-lai.jpg',
         'dante-gaffield' => 'images/prisoners/dante-gaffield.jpg',
+        'micah-legnon' => 'images/prisoners/micah-legnon.jpg',
     ];
 
     public function handle(): int
