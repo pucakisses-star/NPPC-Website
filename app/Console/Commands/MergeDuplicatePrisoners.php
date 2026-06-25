@@ -85,6 +85,11 @@ final class MergeDuplicatePrisoners extends Command
         ['fernando-gonzalez-llort',      ['fernando-gonzalez']],
         ['christina-reid',               ['christina-l-reid']],
         ['douglas-l-wright',             ['douglas-wright']],
+        // Prairieland defendants entered twice — once under their legal name,
+        // once under the name they go by. Canonical keeps the legal-name slug
+        // (which holds the sentenced case); the duplicate's stub case is dropped.
+        ['cameron-arnold',               ['autumn-hill']],
+        ['daniel-sanchez-estrada',       ['daniel-rolando-sanchez-estrada']],
     ];
 
     /**
@@ -98,6 +103,10 @@ final class MergeDuplicatePrisoners extends Command
         'anna-mae-pictou-aquash',
         'robert-robideau',
         'darrelle-dean-butler',
+        // Prairieland: the duplicate's case is a less-complete stub of the
+        // sentenced case already held by the canonical, so drop it.
+        'cameron-arnold',
+        'daniel-sanchez-estrada',
     ];
 
     public function handle(): int
