@@ -47,7 +47,7 @@ final class AddJenniferRose extends Command
             'state' => 'California',
             'birthdate' => '1969-10-06',
             'inmate_number' => 'E-23852',
-            'website' => 'https://bloomingtonabc.noblogs.org/war-fund/jennifer-gann/',
+            'website' => 'https://babygirlgann.noblogs.org',
             'ideologies' => ['Anarchist', 'Prison abolitionist', 'Trans liberation'],
             'affiliation' => ['Black & Pink', 'MIM (Prisons)'],
             'era' => '1990s',
