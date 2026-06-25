@@ -51,6 +51,19 @@
         @include('partials.articles.cite')
     </article>
 
+    @if(!empty($article->author) && !empty($article->author['about']))
+        <div style="display:flex; gap:16px; align-items:flex-start; margin-top:48px; padding:24px; border:1px solid rgba(255,255,255,0.12); border-radius:8px; background:rgba(255,255,255,0.02);">
+            @if($article->author['avatar_url'])
+                <img src="{{ $article->author['avatar_url'] }}" alt="{{ $article->author['name'] }}" style="width:64px; height:64px; border-radius:9999px; object-fit:cover; flex-shrink:0;">
+            @endif
+            <div>
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:4px;">About the author</div>
+                <div style="font-weight:700; color:#fff; font-size:18px; margin-bottom:6px;">{{ $article->author['name'] }}</div>
+                <div style="color:rgba(255,255,255,0.7); line-height:1.6; font-size:15px;">{{ $article->author['about'] }}</div>
+            </div>
+        </div>
+    @endif
+
     @include('sections.newsletter-signup', ['variant' => 'compact'])
 
     <style>
