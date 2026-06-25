@@ -6,18 +6,18 @@ use App\Filament\Forms\PartialDate;
 use Carbon\Carbon;
 
 /**
- * Bridges the calendar picker + "Show as" precision selector built by
- * {@see PartialDate} with the stored full date + `date_precision` JSON. Mix into
- * a Create/Edit page (or relation manager) and list the date columns via
- * partialDateFields().
+ * Bridges the precision-driven date field built by {@see PartialDate} with the
+ * stored full date + `date_precision` JSON. Mix into a Create/Edit page (or
+ * relation manager) and list the date columns via partialDateFields().
  *
- *   - splitPartialDates()   — record attributes -> `{field}__date` + `{field}__precision` (form fill)
- *   - combinePartialDates() — those two fields    -> date column + precision (save)
+ *   - splitPartialDates()   — record attributes -> the `{field}__date|month|year`
+ *                             field matching the stored precision (form fill)
+ *   - combinePartialDates() — the field matching `{field}__precision` -> date
+ *                             column + precision (save)
  *
- * The picked date is normalised to the 1st of the month/year for the coarser
- * precisions ("month", "year") so it matches the chosen precision and keeps all
- * date logic working; a blank picker clears the date. "day" precision is the
- * default and is not stored (absent precision renders as a full date).
+ * The stored date is always a full Y-M-D (month/day default to 01 for the coarser
+ * precisions) so all date logic keeps working. "day" precision is the default and
+ * is not stored (absent precision renders as a full date).
  */
 trait HandlesPartialDateForm
 {
@@ -35,9 +35,22 @@ trait HandlesPartialDateForm
         }
 
         foreach ($this->partialDateFields() as $field) {
-            $value = $data[$field] ?? null;
-            $data["{$field}__date"] = $value ? Carbon::parse($value)->format('Y-m-d') : null;
-            $data["{$field}__precision"] = $precision[$field] ?? 'day';
+            $prec = $precision[$field] ?? 'day';
+            $data["{$field}__precision"] = $prec;
+            $data["{$field}__date"] = null;
+            $data["{$field}__month"] = null;
+            $data["{$field}__year"] = null;
+
+            if (empty($data[$field])) {
+                continue;
+            }
+
+            $c = Carbon::parse($data[$field]);
+            match ($prec) {
+                'year' => $data["{$field}__year"] = (int) $c->year,
+                'month' => $data["{$field}__month"] = $c->format('Y-m'),
+                default => $data["{$field}__date"] = $c->format('Y-m-d'),
+            };
         }
 
         return $data;
@@ -48,23 +61,31 @@ trait HandlesPartialDateForm
         $precision = is_array($data['date_precision'] ?? null) ? $data['date_precision'] : [];
 
         foreach ($this->partialDateFields() as $field) {
-            $date = $data["{$field}__date"] ?? null;
             $prec = $data["{$field}__precision"] ?? 'day';
-            unset($data["{$field}__date"], $data["{$field}__precision"]);
+            $prec = in_array($prec, ['year', 'month', 'day'], true) ? $prec : 'day';
+            $date = $data["{$field}__date"] ?? null;
+            $month = $data["{$field}__month"] ?? null;
+            $year = $data["{$field}__year"] ?? null;
+            unset(
+                $data["{$field}__date"], $data["{$field}__month"],
+                $data["{$field}__year"], $data["{$field}__precision"],
+            );
 
-            if (! $date) {
+            $stored = match (true) {
+                $prec === 'year' && $year => sprintf('%04d-01-01', (int) $year),
+                $prec === 'month' && $month => Carbon::parse($month.'-01')->format('Y-m-d'),
+                $prec === 'day' && $date => Carbon::parse($date)->format('Y-m-d'),
+                default => null,
+            };
+
+            if (! $stored) {
                 $data[$field] = null;
                 unset($precision[$field]);
 
                 continue;
             }
 
-            $prec = in_array($prec, ['year', 'month', 'day'], true) ? $prec : 'day';
-            $c = Carbon::parse($date);
-            $month = $prec === 'year' ? 1 : (int) $c->month;
-            $day = $prec === 'day' ? (int) $c->day : 1;
-
-            $data[$field] = sprintf('%04d-%02d-%02d', (int) $c->year, $month, $day);
+            $data[$field] = $stored;
 
             if ($prec === 'day') {
                 unset($precision[$field]);
