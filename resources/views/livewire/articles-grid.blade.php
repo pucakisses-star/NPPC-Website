@@ -31,7 +31,7 @@ function renderArticle(Article $article, bool $large = false, bool $eager = fals
     {$imageMarkup}
     <div class="line"></div>
     <h5 style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.02em;">{$meta}</h5>
-    <a style="font-size: 18px; color: #fff; display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
+    <a class="article-title" style="font-size: 18px; color: #fff; display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
 </div>
 EOB;
 
@@ -103,6 +103,28 @@ EOB;
         @endif
 
         <style>
+            /* Animated underline on article titles: grows in from the left
+               when the card is highlighted (hovered or keyboard-focused),
+               mirroring the SPLC-style highlight effect. */
+            .article-item .article-title {
+                text-decoration: none;
+                width: fit-content;
+                max-width: 100%;
+                background-image: linear-gradient(currentColor, currentColor);
+                background-position: 0 100%;
+                background-repeat: no-repeat;
+                background-size: 0% 1.5px;
+                padding-bottom: 2px;
+                transition: background-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .article-item:hover .article-title,
+            .article-item:focus-within .article-title {
+                background-size: 100% 1.5px;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .article-item .article-title { transition: none; }
+            }
+
             .news-hero-row {
                 display: grid;
                 grid-template-columns: 1fr;
