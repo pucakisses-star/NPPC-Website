@@ -34,10 +34,11 @@ final class SetLuigiPhoto extends Command
         Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
         $this->info('Copied photo to public disk: '.self::PHOTO);
 
-        $prisoner = Prisoner::withoutGlobalScopes()
-            ->where('slug', 'luigi-mangione')
-            ->orWhere('name', 'like', '%Mangione%')
-            ->first();
+        // Match the displayed record (slug) first, then fall back to name, so a
+        // duplicate "Mangione" row can't cause the photo to land on the wrong
+        // record (orWhere + first() has no deterministic ordering).
+        $prisoner = Prisoner::withoutGlobalScopes()->where('slug', 'luigi-mangione')->first()
+            ?? Prisoner::withoutGlobalScopes()->where('name', 'like', '%Mangione%')->first();
 
         if (! $prisoner) {
             $prisoner = Prisoner::create([
