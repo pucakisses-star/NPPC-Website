@@ -127,6 +127,12 @@ export default function useAirtable() {
             records.value.push(prisonerRecord)
         })
 
+        // Era options read newest-first (2020s at the top, 1700s at the
+        // bottom) rather than the default ascending order. Decade labels
+        // ("1700s".."2020s") sort chronologically as strings, so a descending
+        // sort gives reverse-chronological order.
+        filterFieldsObj.era = [...filterFieldsObj.era].sort().reverse()
+
         sortAggregateCounts()
     }
 
