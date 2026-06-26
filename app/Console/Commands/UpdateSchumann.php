@@ -7,20 +7,23 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Corrects Wilhelm Schumann (Leavenworth inmate #14689) and replaces his photo.
+ * Sets Wilhelm Schumann's (Leavenworth inmate #14689) photo and incarceration
+ * date.
  *
- * His Leavenworth inmate record and the court documents show he arrived at
- * Leavenworth in November 1919 (not July 11, 1918, as previously recorded) and
- * was released December 25, 1921 in the Christmas 1921 commutation. This fixes
- * the incarceration date on his case and in his bio text, and swaps his photo
- * for his Leavenworth mugshot (front view, cropped from the #14689 record).
+ * His incarceration date is July 11, 1918 — the precise, cited Leavenworth
+ * admission date (footnote 379 in his bio, from the National Archives prison
+ * register via Kohn's "American Political Prisoners"). An earlier pass briefly
+ * set it to "November 1919" from a secondary source; this restores the cited
+ * July 11, 1918 date on both his case and his bio text. Release date is
+ * December 25, 1921 (the Christmas 1921 commutation). Also swaps his photo for
+ * his Leavenworth mugshot (front view, cropped from the #14689 record).
  * Idempotent; matches by slug then name.
  */
 final class UpdateSchumann extends Command
 {
     protected $signature = 'prisoners:update-schumann';
 
-    protected $description = 'Fix Wilhelm Schumann incarceration date (Nov 1919) and replace his photo with his Leavenworth mugshot';
+    protected $description = 'Set Wilhelm Schumann incarceration date (Jul 11, 1918) and replace his photo with his Leavenworth mugshot';
 
     private const SOURCE = 'images/prisoners/wilhelm-schumann.jpg';
 
@@ -50,19 +53,20 @@ final class UpdateSchumann extends Command
         }
 
         $p->photo = self::PHOTO;
-        // Keep the bio consistent with the corrected date.
-        if ($p->description && str_contains($p->description, 'July 11, 1918')) {
-            $p->description = str_replace('July 11, 1918', 'November 1919', $p->description);
-            $this->line('Updated the July 11, 1918 reference in his bio to November 1919.');
+        // Restore the cited July 11, 1918 date in the bio if an earlier pass
+        // changed it to November 1919.
+        if ($p->description && str_contains($p->description, 'November 1919')) {
+            $p->description = str_replace('November 1919', 'July 11, 1918', $p->description);
+            $this->line('Restored the July 11, 1918 reference in his bio.');
         }
         $p->save();
 
         $case = $p->cases()->first();
         if ($case) {
-            $case->setPartialDate('incarceration_date', 1919, 11); // arrived at Leavenworth Nov 1919
-            $case->setPartialDate('release_date', 1921, 12, 25);   // Christmas 1921 commutation
+            $case->setPartialDate('incarceration_date', 1918, 7, 11); // cited Leavenworth admission date (#14689)
+            $case->setPartialDate('release_date', 1921, 12, 25);      // Christmas 1921 commutation
             $case->save();
-            $this->info('Set case: incarcerated November 1919, released December 25, 1921.');
+            $this->info('Set case: incarcerated July 11, 1918, released December 25, 1921.');
         } else {
             $this->warn('No case found to set dates on.');
         }
