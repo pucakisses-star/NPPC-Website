@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Institution;
 use App\Models\Prisoner;
 use Illuminate\Console\Command;
 
@@ -49,6 +50,9 @@ final class FixCustodyStatuses extends Command
                 'set' => ['in_custody' => false, 'released' => true],
                 'incarceration_date' => [1970, null, null],
                 'release_date' => [1991, null, null],
+                'caseInstitution' => ['Holman Correctional Facility', 'Atmore', 'Alabama'],
+                'caseCharges' => 'Robbery and rape (1970) — five consecutive life sentences; later charged with the killing of a guard in the 1974 Atmore prison uprising and sentenced to death (conviction/sentence later overturned).',
+                'caseConvicted' => 'Death sentence overturned; paroled 1991',
                 'descReplace' => [
                     '/[Hh]e remains serving life[^.]*\./',
                     'he was released on parole in 1991 after more than two decades in prison; he has since died.',
@@ -83,8 +87,31 @@ final class FixCustodyStatuses extends Command
 
             $p->save();
 
+            $hasDates = isset($f['incarceration_date']) || isset($f['release_date']);
             $case = $p->cases->first();
-            if ($case) {
+
+            // No case to hold the dates? Create one (with institution/charges
+            // when provided) so the Time Imprisoned counter can render.
+            if (! $case && $hasDates) {
+                $make = [];
+                if (isset($f['caseInstitution'])) {
+                    $inst = Institution::firstOrCreate(
+                        ['name' => $f['caseInstitution'][0]],
+                        ['city' => $f['caseInstitution'][1] ?? null, 'state' => $f['caseInstitution'][2] ?? null],
+                    );
+                    $make['institution_id'] = $inst->id;
+                }
+                if (isset($f['caseCharges'])) {
+                    $make['charges'] = $f['caseCharges'];
+                }
+                if (isset($f['caseConvicted'])) {
+                    $make['convicted'] = $f['caseConvicted'];
+                }
+                $case = $p->cases()->make($make);
+                $this->line("  (created a case for {$p->name})");
+            }
+
+            if ($case && $hasDates) {
                 if (isset($f['incarceration_date'])) {
                     $case->setPartialDate('incarceration_date', ...$f['incarceration_date']);
                 }
@@ -94,7 +121,7 @@ final class FixCustodyStatuses extends Command
                 $case->save();
                 $this->info("{$p->name}: status fixed; case dates set ({$case->imprisoned_for_days} days).");
             } else {
-                $this->warn("{$p->name}: status fixed, but no case to attach dates to.");
+                $this->info("{$p->name}: status fixed.");
             }
         }
 
