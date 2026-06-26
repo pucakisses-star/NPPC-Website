@@ -95,7 +95,8 @@ final class Prisoner extends Model
                     ? $model->birthdate
                     : Carbon::parse($model->birthdate);
                 $endC = $end instanceof Carbon ? $end : Carbon::parse($end);
-                $model->attributes['age'] = (int) $birth->diffInYears($endC);
+                $age = (int) $birth->diffInYears($endC);
+                $model->attributes['age'] = $age > 120 ? null : $age;
             }
 
             // Keep imprisoned_or_exiled in sync with the active-state
@@ -170,8 +171,11 @@ final class Prisoner extends Model
         }
 
         $end = $this->death_date ?? Carbon::now();
+        $age = (int) $this->birthdate->diffInYears($end);
 
-        return (int) $this->birthdate->diffInYears($end);
+        // A birthdate stored with an unknown/placeholder year (e.g. 1900)
+        // produces an impossible age; suppress rather than display it.
+        return $age > 120 ? null : $age;
     }
 
     /**
