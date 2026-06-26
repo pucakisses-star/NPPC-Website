@@ -880,7 +880,27 @@ final class SiteController extends Controller {
             abort(404);
         }
 
-        return view('article', compact('article'));
+        // Related articles: prefer the same category, then top up with the
+        // latest others, always excluding the current article. Capped at 3.
+        $limit = 3;
+        $base  = fn () => Article::with('category')
+            ->whereNotNull('published_at')
+            ->where('id', '!=', $article->id)
+            ->orderByDesc('published_at');
+
+        $related = $article->category_id
+            ? $base()->where('category_id', $article->category_id)->limit($limit)->get()
+            : collect();
+
+        if ($related->count() < $limit) {
+            $related = $related->concat(
+                $base()->whereNotIn('id', $related->pluck('id')->all())
+                    ->limit($limit - $related->count())
+                    ->get()
+            );
+        }
+
+        return view('article', compact('article', 'related'));
     }
 
     public function search(Request $request) {

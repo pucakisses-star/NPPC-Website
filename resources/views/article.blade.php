@@ -64,9 +64,51 @@
         </div>
     @endif
 
+    {{-- Related / similar articles --}}
+    @if(!empty($related) && $related->isNotEmpty())
+        <section aria-labelledby="related-heading" style="margin-top:64px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1);">
+            <h2 id="related-heading" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.5); margin:0 0 28px 0;">Related articles</h2>
+            <div class="related-grid">
+                @foreach($related as $rel)
+                    <div class="article-item">
+                        <a href="{{ $rel->url }}" style="display:block; height:224px; overflow:hidden; background:#1a1a1a;">
+                            @if($rel->image_url)
+                                <img src="{{ $rel->image_url }}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+                            @endif
+                        </a>
+                        @if($rel->category)
+                            <h5 style="margin-top:16px; font-size:13px; color:rgba(255,255,255,0.5); letter-spacing:0.02em; text-transform:uppercase;">{{ $rel->category->title }}</h5>
+                        @endif
+                        <a class="article-title" style="font-size:18px; color:#fff; display:block; margin-top:4px; line-height:1.4;" href="{{ $rel->url }}">{{ $rel->title }}</a>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+    @endif
+
     @include('sections.newsletter-signup', ['variant' => 'compact'])
 
     <style>
+        /* Related-articles grid: 3 across on desktop, 1 on mobile. */
+        .related-grid { display:grid; grid-template-columns:1fr; gap:32px; }
+        @@media (min-width:768px) { .related-grid { grid-template-columns:1fr 1fr 1fr; } }
+
+        /* Animated underline on related-article titles, matching the news grid:
+           grows in from the left when the card is highlighted. */
+        .article-item .article-title {
+            text-decoration:none;
+            width:fit-content;
+            max-width:100%;
+            background-image:linear-gradient(currentColor, currentColor);
+            background-position:0 100%;
+            background-repeat:no-repeat;
+            background-size:0% 1.5px;
+            padding-bottom:2px;
+            transition:background-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .article-item:hover .article-title,
+        .article-item:focus-within .article-title { background-size:100% 1.5px; }
+        @@media (prefers-reduced-motion: reduce) { .article-item .article-title { transition:none; } }
         article.page-content p { margin: 0 0 1.25em 0 !important; line-height: 1.75 !important; min-height: 1.2em; }
         article.page-content p:empty { min-height: 1.75em !important; }
         article.page-content br { display: block; margin-bottom: 0.75em; }
