@@ -7,52 +7,53 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Sets Romaine "Chip" Fitzgerald's profile photo to a version cropped on the
- * left/right (trimming the wide landscape down to a centered portrait) from the
- * committed image at public/images/prisoners/romaine-fitzgerald.jpg. There are
- * currently two records for him on the live site ("Romaine Fitzgerald" and
- * 'Romaine "Chip" Fitzgerald'); this sets the photo on both so whichever page is
- * viewed is fixed. Scoped to Romaine/Chip so the unrelated "Edward J. Fitzgerald"
- * is untouched. Idempotent.
+ * Sets Romaine "Chip" Fitzgerald's profile photo to a version cropped only on
+ * the left/right sides (15% off each side, full height preserved) of his
+ * original photo. There are currently two records for him on the live site;
+ * each gets its own original trimmed accordingly. Scoped by slug so the
+ * unrelated "Edward J. Fitzgerald" is untouched. Idempotent.
  */
 final class SetFitzgeraldPhoto extends Command
 {
     protected $signature = 'prisoners:set-fitzgerald-photo';
 
-    protected $description = 'Set Romaine "Chip" Fitzgerald\'s photo (cropped sides) on his record(s)';
+    protected $description = 'Set Romaine "Chip" Fitzgerald\'s photo (sides trimmed 15%, full height) on his record(s)';
 
-    private const SOURCE = 'images/prisoners/romaine-fitzgerald.jpg';
-
-    private const PHOTO = 'prisoners/romaine-fitzgerald.jpg';
+    /** slug => committed source image under public/ */
+    private const PHOTOS = [
+        'romaine-fitzgerald' => 'images/prisoners/romaine-fitzgerald.jpg',
+        'romaine-chip-fitzgerald' => 'images/prisoners/romaine-chip-fitzgerald.jpg',
+    ];
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
-        if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+        $set = 0;
 
-            return self::FAILURE;
-        }
+        foreach (self::PHOTOS as $slug => $source) {
+            $sourcePath = public_path($source);
+            if (! is_file($sourcePath)) {
+                $this->error('Source image not found: public/'.$source);
 
-        Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
-        $this->info('Copied photo to public disk: '.self::PHOTO);
+                continue;
+            }
 
-        $prisoners = Prisoner::withoutGlobalScopes()
-            ->whereIn('slug', ['romaine-fitzgerald', 'romaine-chip-fitzgerald'])
-            ->orWhere('name', 'like', '%Romaine%Fitzgerald%')
-            ->get();
+            $dest = 'prisoners/'.basename($source);
+            Storage::disk('public')->put($dest, file_get_contents($sourcePath));
 
-        if ($prisoners->isEmpty()) {
-            $this->warn('No Romaine "Chip" Fitzgerald record found — photo copied but not attached.');
+            $prisoner = Prisoner::withoutGlobalScopes()->where('slug', $slug)->first();
+            if (! $prisoner) {
+                $this->warn("No prisoner with slug '{$slug}' — photo copied to {$dest} but not attached.");
 
-            return self::SUCCESS;
-        }
+                continue;
+            }
 
-        foreach ($prisoners as $prisoner) {
-            $prisoner->photo = self::PHOTO;
+            $prisoner->photo = $dest;
             $prisoner->save();
+            $set++;
             $this->info("Set photo on {$prisoner->name} (/prisoner/{$prisoner->slug}).");
         }
+
+        $this->info("\nDone. {$set} record(s) updated.");
 
         return self::SUCCESS;
     }
