@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Adds (or updates) Trenten Edward Barker with his BOP locator details and a
  * case at FCI Lompoc II (incarcerated April 30, 2026), and sets his profile
- * photo (cropped 15% on the right) from the committed image. Idempotent;
- * matches an existing record by slug/name so it won't duplicate.
+ * photo (cropped to center on him) from the committed image. The incarceration
+ * date is set on his existing case if he already has one. Idempotent; matches
+ * an existing record by slug/name so it won't duplicate.
  */
 final class AddTrentenBarker extends Command
 {
@@ -63,20 +64,21 @@ final class AddTrentenBarker extends Command
             $this->warn('Source image not found: public/'.self::SOURCE);
         }
 
-        // Case at FCI Lompoc II, incarcerated April 30, 2026 — only if none yet.
-        if ($prisoner->cases()->count() === 0) {
-            $institution = Institution::firstOrCreate(
-                ['name' => 'FCI Lompoc II'],
-                ['city' => 'Lompoc', 'state' => 'California'],
-            );
-
-            $case = $prisoner->cases()->make(['institution_id' => $institution->id]);
-            $case->setPartialDate('incarceration_date', 2026, 4, 30);
-            $case->save();
-            $this->info("Added case at {$institution->name} (incarcerated 2026-04-30).");
-        } else {
-            $this->line('Case(s) already present — left unchanged.');
+        // Ensure his case at FCI Lompoc II carries the incarceration date
+        // (April 30, 2026). Set it on the existing case if he already has one
+        // (so the date isn't skipped when a case was created elsewhere); else
+        // create the case.
+        $institution = Institution::firstOrCreate(
+            ['name' => 'FCI Lompoc II'],
+            ['city' => 'Lompoc', 'state' => 'California'],
+        );
+        $case = $prisoner->cases()->first() ?? $prisoner->cases()->make([]);
+        if (! $case->institution_id) {
+            $case->institution_id = $institution->id;
         }
+        $case->setPartialDate('incarceration_date', 2026, 4, 30);
+        $case->save();
+        $this->info('Set case incarceration date: 2026-04-30 (FCI Lompoc II).');
 
         $this->info("View: /prisoner/{$prisoner->slug}");
 
