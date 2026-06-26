@@ -200,11 +200,19 @@ final class Prisoner extends Model
 
             // End of this incarceration: an explicit release or death in
             // custody, else the prisoner's death date (they cannot be counted
-            // as incarcerated past their death), else today (still in custody).
+            // as incarcerated past their death). If none of those is recorded,
+            // only treat the incarceration as ongoing through today when the
+            // prisoner is actually still detained (in custody or awaiting
+            // trial). A released or exiled prisoner whose release date was
+            // never recorded has an unknown end — counting them through the
+            // present would wrongly inflate the recent years of the stats
+            // chart (the "still in custody today" tail), so cap the range at
+            // the documented incarceration year instead.
+            $stillDetained = $this->in_custody || $this->awaiting_trial;
             $end = $case->release_date
                 ?? $case->death_in_custody_date
                 ?? ($this->death_date ? Carbon::parse($this->death_date) : null)
-                ?? Carbon::now();
+                ?? ($stillDetained ? Carbon::now() : $start);
 
             $startYear = (int) $start->format('Y');
             $endYear = (int) $end->format('Y');
