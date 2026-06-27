@@ -23,12 +23,10 @@ final class AddKimKellyAuthor extends Command
 
     public function handle(): int
     {
-        $about = 'Kim Kelly is an independent journalist and author who covers labor, class, and social '
-            .'movements. She is the author of Fight Like Hell: The Untold History of American Labor (2022), '
-            .'a longtime labor columnist for Teen Vogue, and a labor reporter for In These Times. Her writing '
-            .'has appeared in The New York Times, The Washington Post, The Nation, Rolling Stone, Esquire, and '
-            .'The Baffler, among many others. A third-generation union member who began her career covering '
-            .'heavy metal, she is a labor organizer based in Philadelphia.';
+        $about = 'Kim Kelly is a freelance journalist and author based in Philadelphia. Her writing can be '
+            .'found in The Nation, In These Times, Teen Vogue, The Baffler, Playboy, Rolling Stone, and many '
+            .'others. Her first book, FIGHT LIKE HELL: The Untold History of American Labor, was published in '
+            .'2022, followed by a young readers edition in 2025. Find out more at kim-kelly.com.';
 
         // Copy the committed avatar onto the public disk where avatars are served.
         $source = public_path(self::SOURCE);
