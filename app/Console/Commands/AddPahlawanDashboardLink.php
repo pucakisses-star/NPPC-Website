@@ -9,7 +9,10 @@ use Illuminate\Console\Command;
  * Adds the BBC News report on Muhammad Pahlawan's 40-year sentence (the Iran →
  * Houthi ballistic-missile smuggling case) to the /dashboard newswire as a
  * curated external link (a DashboardLink). Dated to the article's publication
- * (Oct 17, 2025), so it sits at that point on the tracker's timeline.
+ * (Oct 17, 2025), so it sits at that point on the tracker's timeline, and
+ * pinned to the federal court that handled the case — the U.S. District Court
+ * for the Eastern District of Virginia in Richmond (Judge David J. Novak), so
+ * it also plots as a "prosecution" event on the dashboard map.
  *
  * Idempotent: matches the link by URL.
  */
@@ -28,6 +31,9 @@ final class AddPahlawanDashboardLink extends Command
             'source' => 'BBC News',
             'category' => 'prosecution',
             'published_at' => '2025-10-17 23:10:31',
+            'lat' => 37.5407,
+            'lng' => -77.4360,
+            'location_label' => 'U.S. District Court, Richmond, VA (E.D. Va.)',
         ];
 
         $link = DashboardLink::where('url', self::URL)->first();
