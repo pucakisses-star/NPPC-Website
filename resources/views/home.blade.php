@@ -24,7 +24,7 @@
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
         <div class="absolute inset-0 flex items-end hero-text-wrap" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
-                <span class="block hero-headline hero-reveal" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
+                <span class="hero-headline" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
                 <span class="flood-std block hero-subheadline hero-reveal hero-reveal--sub" style="--hero-sub-size: {{ $heroSubheadlineSize }}rem; font-size: var(--hero-sub-size); line-height: 1.2;">{{ $heroSubheadline }}</span>
             </div>
         </div>
@@ -36,8 +36,25 @@
             .hero-subheadline { font-size: clamp(1.5rem, 9vw, calc(var(--hero-sub-size) * 0.55)) !important; }
         }
 
-        /* Hero reveal: each line fades in, rises up, and sharpens from a blur,
-           staggered line by line (inspired by the civicprofile.us headline). */
+        /* "Justice" sits in place from the start; a bar sweeps in beneath it,
+           left to right. The subheadline still fades in and rises up, just
+           after. (Bar accent inspired by the civicprofile.us headline.) */
+        .hero-headline { position: relative; display: inline-block; }
+        .hero-headline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0.04em;
+            width: 100%;
+            height: 0.08em;
+            background: #ff5851;
+            transform: scaleX(0);
+            transform-origin: left center;
+            animation: heroBarSweep 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+            will-change: transform;
+        }
+        @keyframes heroBarSweep { to { transform: scaleX(1); } }
+
         .hero-reveal {
             opacity: 0;
             animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -52,6 +69,7 @@
         }
         @media (prefers-reduced-motion: reduce) {
             .hero-reveal { animation: none; opacity: 1; transform: none; filter: none; }
+            .hero-headline::after { animation: none; transform: scaleX(1); }
         }
     </style>
 
