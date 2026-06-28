@@ -34,6 +34,24 @@
         .donate-intervals .donate-interval { font-size: 13px; padding: 12px 4px; }
         .donate-amount { font-size: 14px; padding: 14px 4px; min-height: 44px; }
     }
+
+    /* Crypto donation section */
+    .crypto-donate { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 8px; padding: 40px 0 8px; }
+    .crypto-donate h2 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0 0 8px; }
+    .crypto-donate-intro { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0 0 24px; max-width: 720px; }
+    .crypto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .crypto-card { border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; padding: 20px; text-align: center; background: rgba(255,255,255,0.02); }
+    .crypto-card-head { font-size: 16px; font-weight: 800; color: #fff; }
+    .crypto-card-head span { color: #5660fe; }
+    .crypto-net { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.4); margin: 2px 0 14px; }
+    .crypto-qr { width: 160px; height: 160px; border-radius: 6px; background: #fff; padding: 8px; margin: 0 auto 14px; display: block; box-sizing: border-box; }
+    .crypto-addr { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: rgba(255,255,255,0.85); word-break: break-all; line-height: 1.5; margin-bottom: 12px; }
+    .crypto-copy { width: 100%; background: transparent; border: 1px solid #5660fe; color: #fff; padding: 9px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.15s; }
+    .crypto-copy:hover { background: #5660fe; }
+    .crypto-copy.copied { background: #2e7d32; border-color: #2e7d32; }
+    @@media (max-width: 768px) {
+        .crypto-grid { grid-template-columns: 1fr; }
+    }
 </style>
 @endsection
 
@@ -55,6 +73,52 @@
             </div>
         </div>
     </div>
+
+    @php
+        $cryptoWallets = array_filter([
+            ['name' => 'Bitcoin',  'symbol' => 'BTC',  'network' => 'Bitcoin network',   'address' => \App\Models\SiteSetting::get('donate_btc_address')],
+            ['name' => 'Ethereum', 'symbol' => 'ETH',  'network' => 'Ethereum (ERC-20)', 'address' => \App\Models\SiteSetting::get('donate_eth_address')],
+            ['name' => 'USD Coin', 'symbol' => 'USDC', 'network' => 'Ethereum (ERC-20)', 'address' => \App\Models\SiteSetting::get('donate_usdc_address')],
+        ], fn ($w) => filled($w['address']));
+    @endphp
+
+    @if (! empty($cryptoWallets))
+    <div class="crypto-donate">
+        <h2>Donate with cryptocurrency</h2>
+        <p class="crypto-donate-intro">Prefer to give in crypto? Send any amount directly to the wallets below. Crypto gifts aren't receipted automatically — email <a href="mailto:donations@nppc.org" style="color:#8b93ff;">donations@nppc.org</a> with your transaction so we can send a tax receipt.</p>
+        <div class="crypto-grid">
+            @foreach ($cryptoWallets as $w)
+            <div class="crypto-card">
+                <div class="crypto-card-head">{{ $w['name'] }} <span>{{ $w['symbol'] }}</span></div>
+                <div class="crypto-net">{{ $w['network'] }}</div>
+                <img class="crypto-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;margin=0&amp;data={{ urlencode($w['address']) }}" alt="{{ $w['name'] }} donation address QR code" width="160" height="160" loading="lazy">
+                <div class="crypto-addr">{{ $w['address'] }}</div>
+                <button type="button" class="crypto-copy" data-address="{{ $w['address'] }}">Copy address</button>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.crypto-copy').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var addr = btn.getAttribute('data-address');
+                var done = function () {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(function () { btn.textContent = 'Copy address'; btn.classList.remove('copied'); }, 1800);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(addr).then(done).catch(done);
+                } else {
+                    var t = document.createElement('textarea');
+                    t.value = addr; document.body.appendChild(t); t.select();
+                    try { document.execCommand('copy'); } catch (e) {}
+                    document.body.removeChild(t); done();
+                }
+            });
+        });
+    </script>
+    @endif
 
     @include('sections.faq', ['type'=>'donation'])
 </div>
