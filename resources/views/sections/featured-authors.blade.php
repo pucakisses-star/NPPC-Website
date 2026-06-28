@@ -14,17 +14,24 @@
         'Unknown',
     ];
 
-    // Real authors only: must have an avatar AND at least one published article
-    // AND not be one of the org-attribution placeholders.
-    $featuredAuthors = Author::query()
+    // Eligible pool of real authors: must have an avatar AND at least one
+    // published article AND not be one of the org-attribution placeholders.
+    // Ordered by most-recent article.
+    $authorPool = Author::query()
         ->whereHas('articles', fn ($q) => $q->whereNotNull('published_at'))
         ->whereNotNull('avatar')
         ->where('avatar', '!=', '')
         ->whereNotIn('name', $excludedNames)
         ->withMax('articles as latest_pub', 'published_at')
         ->orderByDesc('latest_pub')
-        ->limit(8)
         ->get();
+
+    // Feature up to 4 — a fresh random selection on every page load — but keep
+    // them in the stable most-recent-first order (only WHICH four are picked is
+    // random, not the order they appear in).
+    $featuredAuthors = $authorPool->count() > 4
+        ? $authorPool->random(4)->sortByDesc('latest_pub')->values()
+        : $authorPool;
 
     // Each author's most recent article for the snippet under the card.
     $latestByAuthor = Article::query()
