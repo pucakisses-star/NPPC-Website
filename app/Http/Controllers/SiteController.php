@@ -880,24 +880,67 @@ final class SiteController extends Controller {
             abort(404);
         }
 
-        // Related articles: prefer the same category, then top up with the
-        // latest others, always excluding the current article. Capped at 3.
+        // Related articles: rank other published pieces by how related they
+        // actually are to this one — shared tags first, then overlapping title
+        // keywords — and only fall back to the latest articles to fill any
+        // empty slots. (The site uses a single category, so category can't
+        // drive relatedness; the old category-then-latest logic collapsed to
+        // "the most recent articles".) Capped at 3.
         $limit = 3;
         $base  = fn () => Article::with('category')
             ->whereNotNull('published_at')
             ->where('id', '!=', $article->id)
             ->orderByDesc('published_at');
 
-        $related = $article->category_id
-            ? $base()->where('category_id', $article->category_id)->limit($limit)->get()
-            : collect();
+        // 1) Articles that share tags with this one, most shared tags first.
+        $related  = collect();
+        $tagNames = $article->tags->pluck('name');
+        if ($tagNames->isNotEmpty()) {
+            $related = Article::withAnyTags($tagNames->all())
+                ->whereNotNull('published_at')
+                ->where('id', '!=', $article->id)
+                ->with(['category', 'tags'])
+                ->get()
+                ->sortByDesc(fn ($a) => $a->tags->pluck('name')->intersect($tagNames)->count())
+                ->take($limit)
+                ->values();
+        }
 
+        // 2) Top up with articles whose titles share significant keywords.
+        if ($related->count() < $limit) {
+            $stop = ['from', 'with', 'this', 'that', 'have', 'been', 'will', 'about', 'their', 'there',
+                'which', 'would', 'could', 'after', 'into', 'they', 'them', 'when', 'what', 'over', 'than',
+                'then', 'your', 'were', 'where', 'while', 'these', 'those', 'being', 'because', 'against',
+                'through', 'during', 'before', 'between', 'under', 'more', 'most', 'some', 'such', 'only',
+                'also', 'just', 'much', 'many', 'other', 'another', 'said', 'says', 'told', 'according'];
+            $keywords = collect(preg_split('/[^\p{L}\p{N}]+/u', mb_strtolower($article->title), -1, PREG_SPLIT_NO_EMPTY))
+                ->filter(fn ($w) => mb_strlen($w) >= 4 && ! in_array($w, $stop, true))
+                ->unique()
+                ->values();
+
+            if ($keywords->isNotEmpty()) {
+                $pool = $base()
+                    ->whereNotIn('id', $related->pluck('id')->all())
+                    ->where(function ($w) use ($keywords) {
+                        foreach ($keywords as $kw) {
+                            $w->orWhere('title', 'like', '%'.$kw.'%');
+                        }
+                    })
+                    ->limit(40)
+                    ->get()
+                    ->sortByDesc(fn ($a) => $keywords->filter(fn ($kw) => str_contains(mb_strtolower($a->title), $kw))->count());
+
+                $related = $related->concat($pool->take($limit - $related->count()))->values();
+            }
+        }
+
+        // 3) Final fallback: the latest other articles, to fill any remaining slots.
         if ($related->count() < $limit) {
             $related = $related->concat(
                 $base()->whereNotIn('id', $related->pluck('id')->all())
                     ->limit($limit - $related->count())
                     ->get()
-            );
+            )->values();
         }
 
         return view('article', compact('article', 'related'));
