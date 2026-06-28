@@ -16,7 +16,7 @@
 
     {{-- Hero Section --}}
     <div class="relative hero-wrap" style="height: {{ $heroHeight }}vh;">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+        <video autoplay loop muted playsinline class="hero-video absolute inset-0 w-full h-full object-cover">
             <source src="{{ $heroVideoMp4 ? asset('storage/' . $heroVideoMp4) : '/videos/home/video.mp4' }}" type="video/mp4">
             <source src="{{ $heroVideoWebm ? asset('storage/' . $heroVideoWebm) : '/videos/home/video.webm' }}" type="video/webm">
         </video>
@@ -71,7 +71,36 @@
             .hero-reveal { animation: none; opacity: 1; transform: none; filter: none; }
             .hero-headline::after { animation: none; transform: scaleX(1); }
         }
+
+        /* Hero background video fades in once it actually has a frame to show
+           (triggered from JS on ready), over a black backdrop so there is no
+           flash before it appears. */
+        .hero-wrap { background: #000; }
+        .hero-video { opacity: 0; transition: opacity 1.2s ease; will-change: opacity; }
+        .hero-video.is-loaded { opacity: 1; }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-video { opacity: 1; transition: none; }
+        }
     </style>
+
+    <script>
+        // Fade the hero video in only once it can render a frame, with a safety
+        // timeout so it always becomes visible (cached video, blocked autoplay,
+        // or events that never fire).
+        (function () {
+            var v = document.querySelector('.hero-video');
+            if (! v) return;
+            var show = function () { v.classList.add('is-loaded'); };
+            if (v.readyState >= 2) {
+                show();
+            } else {
+                ['loadeddata', 'canplay', 'playing'].forEach(function (e) {
+                    v.addEventListener(e, show, { once: true });
+                });
+            }
+            setTimeout(show, 2500);
+        })();
+    </script>
 
     <div class="container">
         {{-- Articles --}}
