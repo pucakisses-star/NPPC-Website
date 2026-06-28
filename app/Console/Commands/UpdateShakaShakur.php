@@ -51,14 +51,18 @@ final class UpdateShakaShakur extends Command
             .'prisoners by the Jericho Movement.';
 
         $prisoner->website = self::WEBSITE;
+        $prisoner->twitter = 'https://x.com/indylibcenter';
+        $prisoner->facebook = 'https://www.facebook.com/IndyLiberationCenter';
+        $prisoner->instagram = 'https://www.instagram.com/newafrikanfreedomcampaign';
         $prisoner->description = $bio;
+        $prisoner->birthdate = '1966-08-19'; // turned 59 on Aug 19, 2025
         $prisoner->in_custody = true;
         $prisoner->released = false;
         if (empty($prisoner->inmate_number)) {
             $prisoner->inmate_number = '1996207';
         }
         $prisoner->save();
-        $this->info("Set website + bio on {$prisoner->name}.");
+        $this->info("Set website, campaign socials, bio, and DOB (1966-08-19) on {$prisoner->name}.");
 
         // He is currently held in Virginia via interstate compact; his support
         // site lists the Lunenburg Correctional Center as his current facility.
