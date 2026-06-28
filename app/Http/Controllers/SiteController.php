@@ -870,7 +870,7 @@ final class SiteController extends Controller {
         'transnational-repression-report' => '/transnational-repression',
     ];
 
-    public function article(string $slug) {
+    public function article(string $type, string $slug) {
         if ($target = self::FEATURE_REDIRECTS[$slug] ?? null) {
             return redirect($target);
         }
@@ -879,6 +879,13 @@ final class SiteController extends Controller {
 
         if (! $article) {
             abort(404);
+        }
+
+        // The canonical URL is /{category}/{slug}. Redirect a mismatched prefix
+        // — e.g. a legacy /news/... link for an article now in another category —
+        // to the canonical URL.
+        if (ltrim($article->url, '/') !== $type.'/'.$slug) {
+            return redirect($article->url, 301);
         }
 
         // Related articles: rank other published pieces by how related they

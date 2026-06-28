@@ -25,7 +25,6 @@ Route::controller(SiteController::class)
     ->group(function () {
         Route::get('/', 'home')->name('home');
         Route::get('/search', 'search');
-        Route::get('/news/{slug}', 'article');
         Route::get('history', 'history');
         Route::get('archive', 'archiveRecords');
         Route::get('archive/view/{record}', 'archiveView');
@@ -54,6 +53,10 @@ Route::controller(SiteController::class)
         Route::get('about', 'about');
         Route::get('civic-profile', 'civicProfile');
         Route::post('/sign-up', 'signUp');
+        // Category-prefixed article URLs: /{category}/{slug} (e.g. /report/...,
+        // /policy-brief/...). Kept after the specific two-segment routes above
+        // and before the single-segment page catch-all.
+        Route::get('/{type}/{slug}', 'article');
         Route::get('/{slug}', 'page');
     });
 

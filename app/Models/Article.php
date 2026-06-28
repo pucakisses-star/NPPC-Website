@@ -79,6 +79,10 @@ final class Article extends Model {
     }
 
     public function getUrlAttribute(): string {
-        return '/news/'.$this->slug;
+        // URL prefix follows the article's category slug (e.g. /report/...,
+        // /policy-brief/..., /press-release/...), defaulting to /news/...
+        $prefix = $this->category?->slug ?: 'news';
+
+        return '/'.$prefix.'/'.$this->slug;
     }
 }

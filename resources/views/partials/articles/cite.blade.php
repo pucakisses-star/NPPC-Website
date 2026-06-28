@@ -2,7 +2,7 @@
     $authorName = $article->author?->name ?? 'National Political Prisoner Coalition';
     $pubDate = $article->published_at;
     $title = $article->title;
-    $url = url('/news/' . $article->slug);
+    $url = url($article->url);
     $siteName = 'National Political Prisoner Coalition';
     $today = now();
 
