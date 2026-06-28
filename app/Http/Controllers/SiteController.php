@@ -867,6 +867,7 @@ final class SiteController extends Controller {
         'under-cover-of-war' => '/iran-war-political-prisoners',
         'detained-for-dissent' => '/student-visa-revocations-and-ice-arrests',
         'the-data-center-revolt' => '/data-center-cases',
+        'transnational-repression-report' => '/transnational-repression',
     ];
 
     public function article(string $slug) {
