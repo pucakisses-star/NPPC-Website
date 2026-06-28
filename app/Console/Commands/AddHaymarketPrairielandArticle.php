@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Author;
 use App\Models\Category;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Publishes Kim Kelly's article "From Haymarket to Prairieland: How dissent has
@@ -50,8 +51,9 @@ final class AddHaymarketPrairielandArticle extends Command
 <p>The activists had been hunted down and arrested after a rally of striking workers turned to chaos. Someone had thrown a bomb into the crowd, and the police started shooting. A number of workers were injured or killed in the resulting melee, as well as several policemen. Most of the accused had not been present when it happened, but were hauled to jail just the same; later, it was generally acknowledged that none of them had thrown the bomb, either.</p>
 <p>Their friends and comrades tried desperately to win them their freedom by appeal, by pardon, by sheer force of will. Lucy Parsons, the iconic Black anarchist activist whose husband Albert was among the accused, criss-crossed the country drumming up support. But even her fierce dedication could not swing the odds in their favor.</p>
 <p>Merely being associated with anarchism was enough to make a man seem guilty then, and ultimately, four of the eight men hung for it. Albert Parsons, August Spies, Adolph Fisher, and George Engel were executed on November 11, 1887. As the darkness closed in, Spies spoke the promise of his final words: “The day will come when our silence will be more powerful than the voices you strangle today!” Another, Louis Lingg, took his own life before the state got the chance. Three other defendants—Samuel Fielden, Oscar Neebe, and Michael Schwab—eventually had their sentences commuted after years of torment.</p>
+<figure><img src="/storage/articles/haymarket-hanging-clipping.jpg" alt="Newspaper account of the hanging of the Chicago anarchists, with an engraving of August Spies in his cell" /><figcaption>“The Hanging of the Chicago Anarchists” — August Spies, the Chicago anarchist, as he appeared in his cell.</figcaption></figure>
 <p>I thought about Spies and the other Haymarket martyrs as I read Benjamin “Champagne” Song’s closing statement from Prairieland. It, too, was a warning: “Whatever is taken from me is taken from you,” they said. “It may be these 22 strangers now, but it will be you tomorrow.” One can imagine the Haymarket martyrs stirring in their graves at the ugly familiarity of it all. Once again, the voices of dissent are being strangled. Once again, the silence of a living tomb—an endless prison sentence—threatens a movement. Another eight lives hang in terrible limbo, their families terrified of a rapidly darkening future.</p>
-<p style="text-align:center;"><em>Marching from Lowell, AZ, Deportation of Industrial Workers of the World, July 12, 1917</em></p>
+<figure><img src="/storage/articles/iww-deportation-1917.jpg" alt="Marching from Lowell, Arizona — deportation of Industrial Workers of the World, July 12, 1917" /><figcaption>Marching from Lowell, AZ, Deportation of Industrial Workers of the World, July 12, 1917</figcaption></figure>
 <p>We unfortunately have a wealth of other historical parallels to choose from in our remembrances. We can look back to 1917, when the FBI raided the Industrial Workers of the World offices and hundreds of labor activists (including Eugene V. Debs and prominent Black organizer Ben Fletcher) were carted off to prison on bogus charges of treason; or the Bisbee Deportations, when 1,300 striking Mexican American coal miners were kidnapped and dumped in the New Mexico desert. We can also look to the First Red Scare, that nasty period between 1919 and 1920 when government suppression of left-wing organizations, trade unions, and anti-war activists hit a fever pitch and hundreds of socialists, anarchists, and communists (including the iconic Emma Goldman) were rounded up and deported.</p>
 <p>Then there’s always the sad, infuriating tale of Nicola Sacco and Bartolomeo Vanzetti, Italian anarchists who were wrongfully arrested for murder, publicly castigated for their politics, then railroaded by a xenophobic jury who sent them to the gallows in 1927. Fifty years later, Massachusetts governor Michael Dukakis stuck a more penitent tone, noting the injustice of the trial and asking people "to reflect upon these tragic events, and draw from their historic lessons the resolve to prevent the forces of intolerance, fear, and hatred from ever again uniting to overcome the rationality, wisdom, and fairness to which our legal system aspires."</p>
 <p>Recent history, too, has been filled with dissenters who’ve been knocked sideways by the long arm of the law for their trouble—particularly during the Trump era. In January 2017, following a mass protest during Trump’s first inauguration, 214 antifascist activists were arrested under the DC Riot Act and threatened with decades in prison; they were dragged through torturous and costly legal proceedings, only to see their charges dropped for lack of evidence. In 2020, during the nationwide Black Lives Matter protests, over 13,000 people were arrested, while multiple states enacted harsher laws aimed at suppressing protests and demonstrations. The ICE agents who gunned down Renee Good and Alex Pretti in Minneapolis earlier this year are still walking free and have faced no consequences for committing cold-blooded murder.</p>
@@ -61,6 +63,22 @@ final class AddHaymarketPrairielandArticle extends Command
 <p>“I don’t fear for myself; I fear for all of you,” Song said in their statement this week. “What will you do in this time of great failures and great injustices? What will you do? How will you help each other? How will you help yourselves?”</p>
 HTML;
 
+        // Copy the article images (cover + the two historical photos embedded in
+        // the body) onto the public disk where they are served from.
+        $images = [
+            'images/articles/from-haymarket-to-prairieland-cover.jpg' => 'articles/from-haymarket-to-prairieland-cover.jpg',
+            'images/articles/haymarket-hanging-clipping.jpg' => 'articles/haymarket-hanging-clipping.jpg',
+            'images/articles/iww-deportation-1917.jpg' => 'articles/iww-deportation-1917.jpg',
+        ];
+        foreach ($images as $src => $dest) {
+            $path = public_path($src);
+            if (is_file($path)) {
+                Storage::disk('public')->put($dest, file_get_contents($path));
+            } else {
+                $this->warn('Missing image: public/'.$src);
+            }
+        }
+
         $category = Category::where('slug', 'news')->first();
 
         $attributes = [
@@ -68,6 +86,7 @@ HTML;
             'slug' => self::SLUG,
             'intro' => $intro,
             'body' => $body,
+            'image' => 'articles/from-haymarket-to-prairieland-cover.jpg',
             'author_id' => $author->id,
             'published_at' => '2026-06-27 09:00:00',
         ];
