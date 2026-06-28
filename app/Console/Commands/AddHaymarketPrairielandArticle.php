@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Publishes Kim Kelly's article "From Haymarket to Prairieland: How dissent has
- * unleashed the long arm of the law", credited to her author profile, in the
- * news category. Ensures the Kim Kelly author exists (so the byline resolves
+ * unleashed the long arm of the law", credited to her author profile, filed
+ * under the "Publication" category (URL /publication/{slug}). Ensures the Kim
+ * Kelly author exists (so the byline resolves
  * even if authors:add-kim-kelly hasn't been run yet). Idempotent: matches the
  * article by slug/title.
  */
@@ -79,7 +80,10 @@ HTML;
             }
         }
 
-        $category = Category::where('slug', 'news')->first();
+        // Filed as a "Publication" (not a news article): URL /publication/{slug}
+        // and the card is labelled PUBLICATION. firstOrCreate also creates the
+        // category on first run (slug auto-generated as "publication").
+        $category = Category::firstOrCreate(['title' => 'Publication']);
 
         $attributes = [
             'title' => $title,
