@@ -97,8 +97,8 @@
     .feat-more { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.7); text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; }
     .feat-more:hover { color: #5660fe; }
 
-    /* Equal-height cards via grid-auto-rows: 1fr + flex column with the
-       article block bottom-pinned. */
+    /* Equal-height cards via grid-auto-rows: 1fr + flex column. The article
+       block flows directly under the author bio (top-aligned, not bottom-pinned). */
     .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 0; }
     .feat-card { display: flex; flex-direction: column; gap: 16px; padding: 16px 18px; border-right: 1px solid rgba(255,255,255,0.08); min-height: 280px; }
     .feat-card:nth-child(4n) { border-right: 0; }
@@ -109,7 +109,7 @@
     .feat-name { font-size: 14px; font-weight: 800; color: #5660fe; line-height: 1.2; }
     .feat-role { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4; margin-top: 6px; }
 
-    .feat-bottom { margin-top: auto; }
+    .feat-bottom { margin-top: 0; }
     .feat-divider { height: 2px; width: 36px; background: #ff5851; margin-bottom: 10px; }
     .feat-article { font-size: 15px; font-weight: 800; color: #fff; line-height: 1.3; text-decoration: none; display: block; }
     .feat-article:hover { color: #5660fe; }
