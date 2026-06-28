@@ -24,7 +24,7 @@
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
         <div class="absolute inset-0 flex items-end hero-text-wrap" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
-                <span class="flood-std hero-headline hero-reveal" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
+                <span class="hero-headline hero-reveal" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
                 <span class="flood-std block hero-subheadline hero-reveal hero-reveal--sub" style="--hero-sub-size: {{ $heroSubheadlineSize }}rem; font-size: var(--hero-sub-size); line-height: 1.2;">{{ $heroSubheadline }}</span>
             </div>
         </div>
@@ -39,7 +39,7 @@
         /* Both lines fade in, rise up, and sharpen from a blur (staggered);
            then an accent bar sweeps in beneath "Justice", left to right, once
            the headline has settled. (Inspired by the civicprofile.us headline.) */
-        .hero-headline { position: relative; display: inline-block; }
+        .hero-headline { position: relative; display: inline-block; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
         .hero-headline::after {
             content: "";
             position: absolute;
