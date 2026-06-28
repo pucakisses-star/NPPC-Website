@@ -9,11 +9,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Adds the "Transnational Repression" report as a clickable article in the news
- * section. Like the other feature pages, the article's /news/{slug} URL is
- * redirected to the standalone report (/transnational-repression) by the
- * FEATURE_REDIRECTS map in SiteController, so clicking the card opens the
- * report. Copies the card cover to the public disk. Idempotent (matches by slug).
+ * Adds the "Transnational Repression" report as a clickable article filed under
+ * the "Report" category (URL /report/{slug}, dated 2025). Like the other
+ * feature pages, the article's URL is redirected to the standalone report
+ * (/transnational-repression) by the FEATURE_REDIRECTS map in SiteController
+ * (matched by slug, so any category prefix works), so clicking the card opens
+ * the report. Copies the card cover to the public disk. Idempotent (matches by slug).
  */
 final class AddTnrReportArticle extends Command
 {
@@ -38,7 +39,10 @@ final class AddTnrReportArticle extends Command
             $this->warn('Source image not found: public/'.self::SOURCE);
         }
 
-        $category = Category::where('slug', 'news')->first();
+        // Filed as a "Report" (not a news article), so its URL is /report/{slug}
+        // and the card is labelled REPORT. firstOrCreate also creates the
+        // category on first run (slug auto-generated as "report").
+        $category = Category::firstOrCreate(['title' => 'Report']);
         $author = Author::where('name', 'National Political Prisoner Coalition')->first();
 
         $intro = 'A new NPPC report on transnational repression — how governments reach across borders to '
@@ -54,7 +58,7 @@ final class AddTnrReportArticle extends Command
             'intro' => $intro,
             'body' => $body,
             'image' => self::IMAGE,
-            'published_at' => '2026-06-28 09:00:00',
+            'published_at' => '2025-06-28 09:00:00',
         ];
         if ($category) {
             $attributes['category_id'] = $category->id;
