@@ -24,7 +24,7 @@
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
         <div class="absolute inset-0 flex items-end hero-text-wrap" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
-                <span class="hero-headline" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
+                <span class="flood-std hero-headline hero-reveal" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
                 <span class="flood-std block hero-subheadline hero-reveal hero-reveal--sub" style="--hero-sub-size: {{ $heroSubheadlineSize }}rem; font-size: var(--hero-sub-size); line-height: 1.2;">{{ $heroSubheadline }}</span>
             </div>
         </div>
@@ -36,9 +36,9 @@
             .hero-subheadline { font-size: clamp(1.5rem, 9vw, calc(var(--hero-sub-size) * 0.55)) !important; }
         }
 
-        /* "Justice" sits in place from the start; a bar sweeps in beneath it,
-           left to right. The subheadline still fades in and rises up, just
-           after. (Bar accent inspired by the civicprofile.us headline.) */
+        /* Both lines fade in, rise up, and sharpen from a blur (staggered);
+           then an accent bar sweeps in beneath "Justice", left to right, once
+           the headline has settled. (Inspired by the civicprofile.us headline.) */
         .hero-headline { position: relative; display: inline-block; }
         .hero-headline::after {
             content: "";
@@ -50,7 +50,7 @@
             background: #ff5851;
             transform: scaleX(0);
             transform-origin: left center;
-            animation: heroBarSweep 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+            animation: heroBarSweep 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
             will-change: transform;
         }
         @keyframes heroBarSweep { to { transform: scaleX(1); } }
