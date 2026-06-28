@@ -49,7 +49,7 @@
         @foreach($menuItems as $item)
             <a href="{{$item->href}}" style="display:block; color:#222; font-size:20px; font-weight:700; padding:14px 0; border-bottom:1px solid #eee; text-decoration:none;">{{$item->title}}</a>
         @endforeach
-        <div style="border-top:2px solid #ddd; margin-top:16px; padding-top:16px;">
+        <div style="margin-top:16px; padding-top:16px;">
             <a href="/donate" style="display:block; color:#222; font-size:20px; font-weight:700; padding:14px 0; text-decoration:none;">Donate</a>
             <a href="/contact" style="display:block; color:#222; font-size:20px; font-weight:700; padding:14px 0; text-decoration:none;">Contact</a>
         </div>
