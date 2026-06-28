@@ -6,7 +6,13 @@
 <div class="hidden md:block" id="nav-spacing"></div>
 
 {{-- Search Overlay --}}
-<div id="search-overlay" style="display:none; position:fixed; top:0; left:0; right:0; z-index:100001; background:#fff; padding:24px 40px; box-shadow:0 4px 30px rgba(0,0,0,0.3);">
+<style>
+    /* Slide the search bar down from the top; toggled via the .is-open class. */
+    #search-overlay { transform: translateY(-100%); visibility: hidden; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.3s; will-change: transform; }
+    #search-overlay.is-open { transform: translateY(0); visibility: visible; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s; }
+    @@media (prefers-reduced-motion: reduce) { #search-overlay { transition: none; } }
+</style>
+<div id="search-overlay" style="position:fixed; top:0; left:0; right:0; z-index:100001; background:#fff; padding:24px 40px; box-shadow:0 4px 30px rgba(0,0,0,0.3);">
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:16px;">
         <form action="/search" method="GET" role="search" style="flex:1; display:flex; align-items:center; border:2px solid #ddd; border-radius:40px; padding:8px 20px;">
             <label for="site-search" class="sr-only">Search this site</label>
@@ -15,7 +21,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
             </button>
         </form>
-        <button onclick="document.getElementById('search-overlay').style.display='none'" aria-label="Close search" style="background:none; border:none; cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center;">
+        <button onclick="document.getElementById('search-overlay').classList.remove('is-open')" aria-label="Close search" style="background:none; border:none; cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center;">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#333" viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 0 0-1.42 0L12 10.59 7.12 5.71a1 1 0 0 0-1.42 1.42L10.59 12l-4.89 4.88a1 1 0 1 0 1.42 1.42L12 13.41l4.88 4.89a1 1 0 0 0 1.42-1.42L13.41 12l4.89-4.88a1 1 0 0 0 0-1.41z"/></svg>
         </button>
     </div>
@@ -98,7 +104,7 @@
                 <a href="/donate" style="background:#5660fe; color:#fff; text-decoration:none; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; padding:12px 28px; border-radius:4px; display:flex; align-items:center; gap:8px; transition:background 0.2s;" onmouseenter="this.style.background='#4850e6'" onmouseleave="this.style.background='#5660fe'">
                     DONATE <span style="font-size:18px;">&rarr;</span>
                 </a>
-                <button onclick="document.getElementById('search-overlay').style.display='block'; document.getElementById('search-overlay').querySelector('input').focus();" aria-label="Search" style="background:#222; border:none; width:42px; height:42px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+                <button onclick="document.getElementById('search-overlay').classList.add('is-open'); document.getElementById('search-overlay').querySelector('input').focus();" aria-label="Search" style="background:#222; border:none; width:42px; height:42px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
                 </button>
                 <button onclick="document.getElementById('hamburger-panel').classList.add('is-open'); document.getElementById('hamburger-backdrop').classList.add('is-open');" aria-label="Open menu" style="background:#222; border:none; width:42px; height:42px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;">
