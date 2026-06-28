@@ -75,11 +75,31 @@
     </div>
 
     @php
-        $cryptoWallets = array_filter([
-            ['name' => 'Bitcoin',  'symbol' => 'BTC',  'network' => 'Bitcoin network',   'address' => \App\Models\SiteSetting::get('donate_btc_address')],
-            ['name' => 'Ethereum', 'symbol' => 'ETH',  'network' => 'Ethereum (ERC-20)', 'address' => \App\Models\SiteSetting::get('donate_eth_address')],
-            ['name' => 'USD Coin', 'symbol' => 'USDC', 'network' => 'Ethereum (ERC-20)', 'address' => \App\Models\SiteSetting::get('donate_usdc_address')],
-        ], fn ($w) => filled($w['address']));
+        // [display name, symbol, network label, settings key]. A coin renders
+        // only once its donate_<key>_address SiteSetting is filled.
+        $cryptoDefs = [
+            ['Bitcoin', 'BTC', 'Bitcoin network', 'btc'],
+            ['Ethereum', 'ETH', 'Ethereum (ERC-20)', 'eth'],
+            ['Solana', 'SOL', 'Solana network', 'sol'],
+            ['XRP', 'XRP', 'XRP Ledger', 'xrp'],
+            ['Bitcoin Cash', 'BCH', 'Bitcoin Cash network', 'bch'],
+            ['Litecoin', 'LTC', 'Litecoin network', 'ltc'],
+            ['Dogecoin', 'DOGE', 'Dogecoin network', 'doge'],
+            ['Cardano', 'ADA', 'Cardano network', 'ada'],
+            ['Avalanche', 'AVAX', 'Avalanche C-Chain', 'avax'],
+            ['Polkadot', 'DOT', 'Polkadot network', 'dot'],
+            ['USD Coin', 'USDC', 'Ethereum (ERC-20)', 'usdc'],
+            ['Tether', 'USDT', 'Ethereum (ERC-20)', 'usdt'],
+            ['Dai', 'DAI', 'Ethereum (ERC-20)', 'dai'],
+            ['Monero', 'XMR', 'Monero network', 'xmr'],
+        ];
+        $cryptoWallets = [];
+        foreach ($cryptoDefs as [$cName, $cSymbol, $cNetwork, $cKey]) {
+            $cAddress = \App\Models\SiteSetting::get('donate_'.$cKey.'_address');
+            if (filled($cAddress)) {
+                $cryptoWallets[] = ['name' => $cName, 'symbol' => $cSymbol, 'network' => $cNetwork, 'address' => $cAddress];
+            }
+        }
     @endphp
 
     @if (! empty($cryptoWallets))
