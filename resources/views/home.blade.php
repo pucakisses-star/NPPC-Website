@@ -24,8 +24,8 @@
         <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
         <div class="absolute inset-0 flex items-end hero-text-wrap" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
-                <span class="block hero-headline" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
-                <span class="flood-std block hero-subheadline" style="--hero-sub-size: {{ $heroSubheadlineSize }}rem; font-size: var(--hero-sub-size); line-height: 1.2;">{{ $heroSubheadline }}</span>
+                <span class="block hero-headline hero-reveal" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>
+                <span class="flood-std block hero-subheadline hero-reveal hero-reveal--sub" style="--hero-sub-size: {{ $heroSubheadlineSize }}rem; font-size: var(--hero-sub-size); line-height: 1.2;">{{ $heroSubheadline }}</span>
             </div>
         </div>
     </div>
@@ -34,6 +34,24 @@
             .hero-text-wrap { padding: 0 20px 24px !important; }
             .hero-headline { font-size: clamp(2.5rem, 14vw, calc(var(--hero-headline-size) * 0.55)) !important; }
             .hero-subheadline { font-size: clamp(1.5rem, 9vw, calc(var(--hero-sub-size) * 0.55)) !important; }
+        }
+
+        /* Hero reveal: each line fades in, rises up, and sharpens from a blur,
+           staggered line by line (inspired by the civicprofile.us headline). */
+        .hero-reveal {
+            opacity: 0;
+            animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.15s;
+            will-change: transform, filter, opacity;
+        }
+        .hero-reveal--sub { animation-delay: 0.45s; }
+        @keyframes heroReveal {
+            0%   { opacity: 0; transform: translateY(22px); filter: blur(8px); }
+            55%  { filter: blur(0); }
+            100% { opacity: 1; transform: translateY(0);    filter: blur(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-reveal { animation: none; opacity: 1; transform: none; filter: none; }
         }
     </style>
 
