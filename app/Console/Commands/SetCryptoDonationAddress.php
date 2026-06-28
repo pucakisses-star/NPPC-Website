@@ -19,11 +19,11 @@ use Illuminate\Console\Command;
  */
 final class SetCryptoDonationAddress extends Command
 {
-    protected $signature = 'donate:set-crypto-address {coin : btc|eth|usdc} {address? : the receiving wallet address} {--clear : remove the stored address}';
+    protected $signature = 'donate:set-crypto-address {coin : btc|eth|sol|xrp|bch|ltc|doge|ada|avax|dot|usdc|usdt|dai|xmr} {address? : the receiving wallet address} {--clear : remove the stored address}';
 
     protected $description = 'Set or clear a crypto donation wallet address shown on the donate page';
 
-    private const COINS = ['btc', 'eth', 'usdc'];
+    private const COINS = ['btc', 'eth', 'sol', 'xrp', 'bch', 'ltc', 'doge', 'ada', 'avax', 'dot', 'usdc', 'usdt', 'dai', 'xmr'];
 
     public function handle(): int
     {
