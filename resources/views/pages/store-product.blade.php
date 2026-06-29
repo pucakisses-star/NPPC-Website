@@ -23,7 +23,7 @@
     .pd-main { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 
     .pd-media { border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; background: #11131a; }
-    .pd-media img { width: 100%; height: 100%; object-fit: contain; display: block; aspect-ratio: 4 / 5; }
+    .pd-media img { width: 100%; height: auto; display: block; }
     /* Hover-to-magnify: scale the image and let the cursor pan it (transform-
        origin is set per-cursor in JS). Contained by .pd-media's overflow:hidden. */
     .pd-media.pd-zoomable { cursor: zoom-in; }
