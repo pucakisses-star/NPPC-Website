@@ -2,7 +2,9 @@
 
 @section('head')
 <style>
-    .pd-page { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+    /* Width matches the header container (1280px) so the sidebar's left edge
+       lines up directly under the logo. */
+    .pd-page { max-width: 1280px; margin: 0 auto; padding: 0 24px 80px; }
 
     .pd-crumb { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: rgba(255,255,255,0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
     .pd-crumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
