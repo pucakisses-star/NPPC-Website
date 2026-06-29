@@ -14,6 +14,7 @@ final class Product extends Model {
         'price'     => 'decimal:2',
         'featured'  => 'boolean',
         'published' => 'boolean',
+        'gallery'   => 'array',
     ];
 
     public function getImageUrlAttribute(): ?string {

@@ -35,9 +35,18 @@ class ProductResource extends Resource {
                     ->placeholder('https://...')
                     ->helperText('External link where the product can be purchased'),
                 Forms\Components\FileUpload::make('image')
+                    ->label('Primary image')
                     ->image()
                     ->disk('public')
                     ->directory('products'),
+                Forms\Components\FileUpload::make('gallery')
+                    ->label('Additional images')
+                    ->image()
+                    ->multiple()
+                    ->reorderable()
+                    ->disk('public')
+                    ->directory('products')
+                    ->helperText('Extra photos shown as thumbnails on the product page (drag to reorder).'),
                 Forms\Components\Textarea::make('description')
                     ->rows(3),
                 Forms\Components\Toggle::make('featured')

@@ -18,6 +18,13 @@
     .pd-media img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4 / 5; }
     .pd-media-placeholder { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); }
 
+    .pd-gallery { display: flex; flex-direction: column; gap: 12px; }
+    .pd-thumbs { display: flex; gap: 10px; flex-wrap: wrap; }
+    .pd-thumb { width: 64px; height: 80px; padding: 0; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; background: #11131a; cursor: pointer; transition: border-color 0.15s; }
+    .pd-thumb:hover { border-color: rgba(255,255,255,0.4); }
+    .pd-thumb.active { border-color: #5660fe; }
+    .pd-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
     .pd-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8b93ff; margin-bottom: 14px; }
     .pd-eyebrow a { color: inherit; text-decoration: none; }
     .pd-eyebrow a:hover { text-decoration: underline; }
@@ -120,12 +127,26 @@
     </nav>
 
     <div class="pd-main">
-        <div class="pd-media">
-            @if($product->image)
-                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
-            @else
-                <div class="pd-media-placeholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="rgba(255,255,255,0.12)" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+        @php
+            $pdImages = collect([$product->image])->merge($product->gallery ?? [])->filter()->unique()->map(fn ($p) => Storage::url($p))->values();
+        @endphp
+        <div class="pd-gallery">
+            <div class="pd-media">
+                @if($pdImages->isNotEmpty())
+                    <img id="pd-main-img" src="{{ $pdImages->first() }}" alt="{{ $product->name }}">
+                @else
+                    <div class="pd-media-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="rgba(255,255,255,0.12)" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+                    </div>
+                @endif
+            </div>
+            @if($pdImages->count() > 1)
+                <div class="pd-thumbs">
+                    @foreach($pdImages as $i => $u)
+                        <button type="button" class="pd-thumb {{ $i === 0 ? 'active' : '' }}" onclick="pdSetMainImage(this, '{{ $u }}')" aria-label="View image {{ $i + 1 }}">
+                            <img src="{{ $u }}" alt="{{ $product->name }} — image {{ $i + 1 }}" loading="lazy">
+                        </button>
+                    @endforeach
                 </div>
             @endif
         </div>
@@ -197,4 +218,13 @@
     </div>{{-- .pd-content --}}
     </div>{{-- .pd-layout --}}
 </div>
+
+<script>
+    function pdSetMainImage(btn, url) {
+        var main = document.getElementById('pd-main-img');
+        if (main) { main.src = url; }
+        document.querySelectorAll('.pd-thumb').forEach(function (t) { t.classList.remove('active'); });
+        btn.classList.add('active');
+    }
+</script>
 @endsection
