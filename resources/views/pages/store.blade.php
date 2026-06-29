@@ -33,8 +33,9 @@
 
     /* Products */
     .store-products-title { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 24px; }
-    .store-products-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
-    .store-products-head .store-products-title { margin-bottom: 0; }
+    .store-products-head { display: grid; grid-template-columns: 1fr auto 1fr; grid-template-areas: "title search cart"; align-items: center; gap: 24px; margin-bottom: 24px; }
+    .store-products-head .store-products-title { grid-area: title; justify-self: start; margin-bottom: 0; }
+    .store-products-head .store-cart-link { grid-area: cart; justify-self: end; }
     .store-cart-link { color: #8b93ff; text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid rgba(139,147,255,0.4); padding: 8px 16px; border-radius: 4px; white-space: nowrap; }
     .store-cart-link:hover { background: rgba(139,147,255,0.12); }
     .store-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 32px; }
@@ -59,7 +60,7 @@
     .store-filter-btn { padding: 8px 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); background: transparent; cursor: pointer; border-radius: 4px; text-decoration: none; transition: all 0.15s; }
     .store-filter-btn:hover { border-color: #5660fe; color: #fff; }
     .store-filter-btn.active { background: #5660fe; border-color: #5660fe; color: #fff; }
-    .store-search { flex: 0 1 300px; }
+    .store-search { grid-area: search; justify-self: center; width: 360px; max-width: 100%; }
     .store-search input { width: 100%; padding: 7px 4px 7px 26px; font-size: 14px; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat left center; background-size: 15px 15px; color: #fff; border: none; border-bottom: 1px solid rgba(255,255,255,0.25); border-radius: 0; outline: none; transition: border-color 0.15s; }
     .store-search input:focus { border-bottom-color: #5660fe; }
     .store-search input::placeholder { color: rgba(255,255,255,0.4); }
@@ -71,6 +72,8 @@
         .store-categories { grid-template-columns: repeat(2, 1fr); }
         .store-feature { flex-direction: column; }
         .store-products-grid { grid-template-columns: repeat(2, 1fr); }
+        .store-products-head { grid-template-columns: 1fr auto; grid-template-areas: "title cart" "search search"; gap: 14px 24px; }
+        .store-products-head .store-search { width: 100%; justify-self: stretch; }
     }
     @media (max-width: 420px) {
         .store-hero-title { font-size: 1.5rem; }
@@ -144,7 +147,7 @@
     <div class="store-feature">
         <div class="store-feature-text">
             <h2 class="store-feature-title">Goods That Do Good</h2>
-            <p class="store-feature-desc">Show your support for political prisoners with a product from our store. All purchases directly support our work to advocate for justice, provide legal aid, and assist families in need.</p>
+            <p class="store-feature-desc">Show your support for political prisoners with a product from our store. All purchases directly support our work to advocate for justice, provide legal aid, and assist those in need.</p>
         </div>
         <div class="store-feature-image">
             @php
