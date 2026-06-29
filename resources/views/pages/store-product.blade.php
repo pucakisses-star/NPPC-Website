@@ -79,8 +79,8 @@
     .pd-sidebar { flex: 0 0 200px; position: sticky; top: 24px; transform: translateX(calc(max((100vw - 1280px) / 2, 0px) - max((100vw - 1080px) / 2, 0px) - 16px)); }
     .pd-sidebar-title { font-size: 22px; font-weight: 900; color: #fff; margin: 32px 0 18px; }
     .pd-cats { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.12); }
-    .pd-cat { display: block; padding: 13px 2px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.72); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.12); transition: color 0.15s; }
-    .pd-cat:hover { color: #fff; }
+    .pd-cat { display: block; padding: 13px 2px; font-size: 15px; font-weight: 600; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.12); transition: color 0.15s; }
+    .pd-cat:hover { color: rgba(255,255,255,0.72); }
     .pd-cat.active { color: #8b93ff; }
     .pd-social { display: flex; gap: 18px; margin-top: 22px; }
     .pd-social a { color: #fff; transition: color 0.15s; }
