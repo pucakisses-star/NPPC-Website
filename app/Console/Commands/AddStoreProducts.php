@@ -128,34 +128,34 @@ class AddStoreProducts extends Command
             [
                 'name' => 'NPPC Sticker Pack (10)',
                 'description' => 'Pack of ten 3-inch vinyl stickers with NPPC logo and slogans ("Free Them All", "Letter Writing Saves Lives", "Abolition", and others). Weatherproof for laptops, water bottles, and bumpers.',
-                'price' => 10.00, 'category' => 'Accessories', 'sort_order' => 50,
+                'price' => 10.00, 'category' => 'Stickers', 'sort_order' => 50,
             ],
             [
                 'name' => 'Free Them All Sticker',
                 'description' => 'Single 3-inch vinyl sticker with the "FREE THEM ALL" slogan in bold type.',
-                'price' => 3.00, 'category' => 'Accessories', 'sort_order' => 51,
+                'price' => 3.00, 'category' => 'Stickers', 'sort_order' => 51,
             ],
             [
                 'name' => 'Black Liberation Slogan Sticker Set (5)',
                 'description' => 'Five 3-inch vinyl stickers featuring slogans from the Black liberation tradition: "Free Mumia", "Free Sundiata", "Free Leonard", "All Power to the People", and "Free Them All".',
-                'price' => 8.00, 'category' => 'Accessories', 'sort_order' => 52,
+                'price' => 8.00, 'category' => 'Stickers', 'sort_order' => 52,
             ],
 
             // ─── Pins ───
             [
                 'name' => 'NPPC Enamel Pin',
                 'description' => 'Hard enamel lapel pin with the NPPC logo. 1.25 inches.',
-                'price' => 10.00, 'category' => 'Accessories', 'sort_order' => 60,
+                'price' => 10.00, 'category' => 'Pins', 'sort_order' => 60,
             ],
             [
                 'name' => 'Free Mumia Enamel Pin',
                 'description' => 'Hard enamel pin with the "FREE MUMIA" slogan. 1 inch.',
-                'price' => 8.00, 'category' => 'Accessories', 'sort_order' => 61,
+                'price' => 8.00, 'category' => 'Pins', 'sort_order' => 61,
             ],
             [
                 'name' => 'Free Leonard Peltier Enamel Pin',
                 'description' => 'Hard enamel pin with the "FREE LEONARD" slogan. 1 inch.',
-                'price' => 8.00, 'category' => 'Accessories', 'sort_order' => 62,
+                'price' => 8.00, 'category' => 'Pins', 'sort_order' => 62,
             ],
 
             // ─── Letter-Writing Kits ───
