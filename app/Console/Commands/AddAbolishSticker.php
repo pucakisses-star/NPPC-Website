@@ -22,7 +22,7 @@ final class AddAbolishSticker extends Command
 
     protected $description = 'Add the Abolish Prisons, Invest in Communities sticker (with two photos)';
 
-    private string $name = 'Abolish Prisons, Invest in Communities Sticker';
+    private string $productName = 'Abolish Prisons, Invest in Communities Sticker';
 
     private string $slug = 'sticker-abolish-prisons-invest-in-communities';
 
@@ -51,17 +51,17 @@ final class AddAbolishSticker extends Command
         // political-prisoner stickers (ahead of Books/Zines).
         $sortOrder = 507;
 
-        $product = Product::where('name', $this->name)->first();
+        $product = Product::where('name', $this->productName)->first();
 
         if (! $product) {
-            $base = Str::slug($this->name);
+            $base = Str::slug($this->productName);
             $slug = $base;
             $i = 2;
             while (Product::where('slug', $slug)->exists()) {
                 $slug = $base.'-'.$i++;
             }
             Product::create([
-                'name' => $this->name,
+                'name' => $this->productName,
                 'description' => $this->desc,
                 'price' => $this->price,
                 'category' => 'Stickers',
@@ -73,7 +73,7 @@ final class AddAbolishSticker extends Command
                 'gallery' => $gallery ?: null,
                 'slug' => $slug,
             ]);
-            $this->info("Added: {$this->name}");
+            $this->info("Added: {$this->productName}");
 
             return self::SUCCESS;
         }
@@ -89,7 +89,7 @@ final class AddAbolishSticker extends Command
             $product->gallery = $gallery;
         }
         $product->save();
-        $this->line("Updated: {$this->name}");
+        $this->line("Updated: {$this->productName}");
 
         return self::SUCCESS;
     }
