@@ -53,9 +53,10 @@ final class AddNppcButton extends Command
             $this->info("Added {$name}  (\$3.00)  [Pins]");
         }
 
-        // Render/refresh the studio mock image — the name and "button" shape are
-        // registered in store:generate-mockups.
-        $this->call('store:generate-mockups');
+        // Render/refresh the studio mock image for this product only (its name
+        // and "button" shape are registered in the generator's map). Scoping by
+        // name keeps this from regenerating over any other product's image.
+        $this->call('store:generate-mockups', ['name' => $name]);
 
         return self::SUCCESS;
     }

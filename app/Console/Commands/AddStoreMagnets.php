@@ -80,9 +80,12 @@ final class AddStoreMagnets extends Command
             });
         }
 
-        // Render the studio mock images for the new products (and refresh the
-        // rest — idempotent). The three names are registered in the map there.
-        $this->call('store:generate-mockups');
+        // Render the studio mock image for each new product only (the names are
+        // registered in the generator's map). Scoping by name keeps this from
+        // touching — or regenerating over — any other product's image.
+        foreach ($products as $entry) {
+            $this->call('store:generate-mockups', ['name' => $entry['name']]);
+        }
 
         $this->info("\nDone. Created {$created}, skipped {$skipped}.");
 
