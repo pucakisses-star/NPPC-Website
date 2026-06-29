@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 
 /**
  * Refiles every article authored by the Civil Liberties Defense Center (the
- * republished CLDC press releases) under the "Press Release" category. Matches
+ * republished CLDC press releases) under the "Press Releases" category. Matches
  * any author whose name contains "Civil Liberties Defense Center" so both the
  * plain and "(republished)" variants are covered. Idempotent.
  */
@@ -31,7 +31,7 @@ final class CldcArticlesToPressReleases extends Command
             return self::SUCCESS;
         }
 
-        $category = Category::firstOrCreate(['title' => 'Press Release']);
+        $category = Category::firstOrCreate(['slug' => 'press-releases'], ['title' => 'Press Releases']);
 
         $count = Article::withoutGlobalScopes()
             ->whereIn('author_id', $authorIds)
