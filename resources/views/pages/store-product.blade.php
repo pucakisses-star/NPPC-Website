@@ -24,6 +24,10 @@
 
     .pd-media { border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; background: #11131a; }
     .pd-media img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4 / 5; }
+    /* Hover-to-magnify: scale the image and let the cursor pan it (transform-
+       origin is set per-cursor in JS). Contained by .pd-media's overflow:hidden. */
+    .pd-media.pd-zoomable { cursor: zoom-in; }
+    #pd-main-img { transition: transform 0.18s ease; will-change: transform; }
     .pd-media-placeholder { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); }
 
     .pd-gallery { display: flex; flex-direction: column; gap: 12px; }
@@ -246,5 +250,33 @@
         document.querySelectorAll('.pd-thumb').forEach(function (t) { t.classList.remove('active'); });
         btn.classList.add('active');
     }
+
+    // Hover-to-magnify on the main product image. Zoom in on enter, pan with the
+    // cursor (via transform-origin), reset on leave. Skipped on touch / no-hover
+    // devices. The same #pd-main-img element persists across thumbnail swaps, so
+    // these listeners keep working without rebinding.
+    (function () {
+        var media = document.querySelector('.pd-media');
+        var img = document.getElementById('pd-main-img');
+        if (!media || !img) return;
+        if (window.matchMedia && !window.matchMedia('(hover: hover)').matches) return;
+
+        var ZOOM = 2.3;
+        media.classList.add('pd-zoomable');
+
+        media.addEventListener('mouseenter', function () {
+            img.style.transform = 'scale(' + ZOOM + ')';
+        });
+        media.addEventListener('mousemove', function (e) {
+            var r = media.getBoundingClientRect();
+            var x = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100));
+            var y = Math.min(100, Math.max(0, ((e.clientY - r.top) / r.height) * 100));
+            img.style.transformOrigin = x + '% ' + y + '%';
+        });
+        media.addEventListener('mouseleave', function () {
+            img.style.transform = '';
+            img.style.transformOrigin = 'center center';
+        });
+    })();
 </script>
 @endsection
