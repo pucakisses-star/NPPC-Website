@@ -36,7 +36,7 @@ final class AddMerchItems extends Command
             [
                 'name' => 'NPPC Bumper Sticker',
                 'description' => 'Weatherproof 11.5" × 3" vinyl bumper sticker with the National Political Prisoner Coalition logo and name. UV- and water-resistant — made for a bumper, a laptop lid, or a water bottle.',
-                'price' => 4.00, 'category' => 'Stickers', 'sort_order' => 54,
+                'price' => 4.00, 'category' => 'Accessories', 'sort_order' => 54,
             ],
             [
                 'name' => 'NPPC Button Bundle (5)',
