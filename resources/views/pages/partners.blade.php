@@ -29,7 +29,7 @@
         z-index: 2;
         transition: color 0.2s;
     }
-    .pp-hero-back:hover { color: #fff; }
+    .pp-hero-back:hover { color: var(--on-dark); }
     .pp-hero-content {
         position: relative;
         z-index: 2;
@@ -39,7 +39,7 @@
     .pp-hero-title {
         font-size: 4rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--on-dark);
         line-height: 1.05;
         margin-bottom: 24px;
         text-transform: uppercase;
@@ -60,12 +60,12 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.06em;
-        background: #5660fe;
-        color: #fff;
+        background: var(--accent);
+        color: var(--on-accent);
         text-decoration: none;
         transition: background 0.2s;
     }
-    .pp-hero-btn:hover { background: #4850e6; }
+    .pp-hero-btn:hover { background: var(--accent-hover); }
 
     /* Intro section */
     .pp-intro {
@@ -80,7 +80,7 @@
     .pp-intro-label {
         font-size: 14px;
         font-weight: 700;
-        color: #5660fe;
+        color: var(--accent-2);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin-bottom: 16px;
@@ -88,14 +88,14 @@
     .pp-intro-title {
         font-size: 2.8rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         line-height: 1.1;
         text-transform: uppercase;
         margin-bottom: 24px;
     }
     .pp-intro-body {
         font-size: 16px;
-        color: rgba(255,255,255,0.65);
+        color: rgba(var(--fg-rgb),0.65);
         line-height: 1.8;
     }
     .pp-intro-body p { margin-bottom: 1.25em; }
@@ -104,7 +104,7 @@
         height: 420px;
         border-radius: 50%;
         overflow: hidden;
-        border: 6px solid #5660fe;
+        border: 6px solid var(--accent);
         box-shadow: 0 20px 60px rgba(86,96,254,0.2);
     }
     .pp-intro-image img {
@@ -130,19 +130,19 @@
     .pp-list-title {
         font-size: 2.5rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         text-transform: uppercase;
         margin-bottom: 48px;
     }
     .pp-category-title {
         font-size: 1.1rem;
         font-weight: 800;
-        color: rgba(255,255,255,0.4);
+        color: rgba(var(--fg-rgb),0.4);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin: 48px 0 24px;
         padding-bottom: 12px;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid rgba(var(--fg-rgb),0.08);
     }
     .pp-grid {
         display: grid;
@@ -150,7 +150,7 @@
         gap: 24px;
     }
     .pp-card {
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(var(--fg-rgb),0.08);
         border-radius: 8px;
         padding: 32px;
         transition: border-color 0.3s, background 0.3s;
@@ -160,7 +160,7 @@
     }
     .pp-card:hover {
         border-color: rgba(86,96,254,0.3);
-        background: rgba(255,255,255,0.02);
+        background: rgba(var(--fg-rgb),0.02);
     }
     .pp-card-logo {
         width: 64px;
@@ -178,18 +178,18 @@
         justify-content: center;
         font-size: 1.5rem;
         font-weight: 900;
-        color: #5660fe;
+        color: var(--accent-2);
         margin-bottom: 20px;
     }
     .pp-card-name {
         font-size: 1.15rem;
         font-weight: 800;
-        color: #fff;
+        color: var(--fg);
         margin-bottom: 8px;
     }
     .pp-card-desc {
         font-size: 14px;
-        color: rgba(255,255,255,0.5);
+        color: rgba(var(--fg-rgb),0.5);
         line-height: 1.6;
         flex: 1;
     }
@@ -200,10 +200,10 @@
         margin-top: 16px;
         font-size: 13px;
         font-weight: 700;
-        color: #5660fe;
+        color: var(--accent-2);
         text-decoration: none;
     }
-    .pp-card-link:hover { color: #7880ff; }
+    .pp-card-link:hover { color: var(--accent-hover); }
 
     /* Become a partner CTA */
     .pp-cta {
@@ -219,19 +219,19 @@
         height: 380px;
         border-radius: 50%;
         overflow: hidden;
-        border: 6px solid rgba(255,255,255,0.1);
+        border: 6px solid rgba(var(--fg-rgb),0.1);
     }
     .pp-cta-text { flex: 1; }
     .pp-cta-title {
         font-size: 2.5rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         text-transform: uppercase;
         margin-bottom: 20px;
     }
     .pp-cta-body {
         font-size: 16px;
-        color: rgba(255,255,255,0.6);
+        color: rgba(var(--fg-rgb),0.6);
         line-height: 1.7;
         margin-bottom: 32px;
     }
@@ -241,7 +241,7 @@
         max-width: 1200px;
         margin: 0 auto 80px;
         padding: 32px 48px;
-        background: #5660fe;
+        background: var(--accent);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -250,7 +250,7 @@
     .pp-contact-text {
         font-size: 16px;
         font-weight: 700;
-        color: #fff;
+        color: var(--on-accent);
     }
     .pp-contact-btn {
         display: inline-flex;
@@ -263,7 +263,7 @@
         letter-spacing: 0.06em;
         background: rgba(255,255,255,0.15);
         border: 1px solid rgba(255,255,255,0.3);
-        color: #fff;
+        color: var(--on-accent);
         text-decoration: none;
         transition: background 0.2s;
         flex-shrink: 0;

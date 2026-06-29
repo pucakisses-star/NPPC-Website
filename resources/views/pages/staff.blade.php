@@ -5,18 +5,18 @@
     .staff-page { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .staff-hero { display: flex; gap: 48px; align-items: flex-start; padding: 48px 0 64px; }
     .staff-hero-text { flex: 1; }
-    .staff-title { font-size: 4rem; font-weight: 900; color: #fff; margin-bottom: 24px; line-height: 1.05; }
-    .staff-intro { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .staff-title { font-size: 4rem; font-weight: 900; color: var(--fg); margin-bottom: 24px; line-height: 1.05; }
+    .staff-intro { font-size: 18px; color: rgba(var(--fg-rgb),0.7); line-height: 1.7; }
     .staff-hero-image { flex: 0 0 450px; border-radius: 12px; overflow: hidden; }
     .staff-hero-image img { width: 100%; height: auto; }
-    .staff-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 48px; }
+    .staff-divider { height: 1px; background: rgba(var(--fg-rgb),0.1); margin-bottom: 48px; }
     .staff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding-bottom: 80px; }
-    .staff-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; display: flex; overflow: hidden; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
-    .staff-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); }
+    .staff-card { background: rgba(var(--fg-rgb),0.03); border: 1px solid rgba(var(--fg-rgb),0.08); border-radius: 8px; display: flex; overflow: hidden; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+    .staff-card:hover { background: rgba(var(--fg-rgb),0.06); border-color: rgba(var(--fg-rgb),0.15); }
     .staff-card-info { flex: 1; padding: 24px; display: flex; flex-direction: column; justify-content: center; }
-    .staff-card-name { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .staff-card-position { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; line-height: 1.4; }
-    .staff-card-group { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #5660fe; }
+    .staff-card-name { font-size: 20px; font-weight: 800; color: var(--fg); margin-bottom: 4px; }
+    .staff-card-position { font-size: 14px; color: rgba(var(--fg-rgb),0.55); margin-bottom: 8px; line-height: 1.4; }
+    .staff-card-group { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
     .staff-card-image { flex: 0 0 180px; overflow: hidden; }
     .staff-card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter 0.3s; }
     .staff-card:hover .staff-card-image img { filter: grayscale(0); }
@@ -26,12 +26,12 @@
     /* Modal */
     .staff-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100000; display: none; align-items: center; justify-content: center; }
     .staff-modal-overlay.open { display: flex; }
-    .staff-modal { background: #1a1a2e; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; max-width: 640px; width: 90vw; padding: 32px; display: flex; gap: 24px; align-items: flex-start; position: relative; }
-    .staff-modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: rgba(255,255,255,0.5); font-size: 24px; cursor: pointer; }
+    .staff-modal { background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.15); border-radius: 12px; max-width: 640px; width: 90vw; padding: 32px; display: flex; gap: 24px; align-items: flex-start; position: relative; }
+    .staff-modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; color: rgba(var(--fg-rgb),0.5); font-size: 24px; cursor: pointer; }
     .staff-modal-image { width: 120px; height: 120px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
-    .staff-modal-name { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .staff-modal-position { font-size: 14px; color: #5660fe; margin-bottom: 12px; }
-    .staff-modal-about { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; white-space: pre-line; }
+    .staff-modal-name { font-size: 22px; font-weight: 800; color: var(--fg); margin-bottom: 4px; }
+    .staff-modal-position { font-size: 14px; color: var(--accent); margin-bottom: 12px; }
+    .staff-modal-about { font-size: 15px; color: rgba(var(--fg-rgb),0.7); line-height: 1.7; white-space: pre-line; }
 
     @@media (max-width: 768px) {
         .staff-hero { flex-direction: column; }

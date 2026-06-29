@@ -3,37 +3,37 @@
 @section('head')
 <style>
     .pet-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .pet-banner { background: #000; padding: 0 32px; margin: 64px -24px 8px; }
-    .pet-banner-title { font-size: 1.5rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.02em; }
+    .pet-banner { background: var(--surface); padding: 0 32px; margin: 64px -24px 8px; }
+    .pet-banner-title { font-size: 1.5rem; font-weight: 900; color: var(--fg); text-transform: uppercase; letter-spacing: 0.02em; }
     .pet-layout { display: flex; gap: 40px; padding: 12px 0 80px; align-items: flex-start; }
     .pet-left { flex: 1; }
-    .pet-right { flex: 0 0 380px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 28px; position: sticky; top: 120px; }
+    .pet-right { flex: 0 0 380px; background: rgba(var(--fg-rgb),0.03); border: 1px solid rgba(var(--fg-rgb),0.1); border-radius: 8px; padding: 28px; position: sticky; top: 120px; }
     .pet-image { width: 100%; border-radius: 4px; margin-bottom: 24px; }
     .pet-progress { margin-bottom: 24px; }
-    .pet-progress-bar { height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
-    .pet-progress-fill { height: 100%; background: #5660fe; border-radius: 4px; transition: width 0.5s; }
-    .pet-progress-text { display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); }
-    .pet-progress-text strong { color: #fff; }
-    .pet-signers-title { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 12px; }
-    .pet-signer { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 13px; }
-    .pet-signer-name { color: rgba(255,255,255,0.7); }
-    .pet-signer-state { color: rgba(255,255,255,0.4); }
-    .pet-signer-time { color: rgba(255,255,255,0.3); }
-    .pet-body { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 32px; }
+    .pet-progress-bar { height: 8px; background: rgba(var(--fg-rgb),0.1); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+    .pet-progress-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.5s; }
+    .pet-progress-text { display: flex; justify-content: space-between; font-size: 14px; color: rgba(var(--fg-rgb),0.6); }
+    .pet-progress-text strong { color: var(--fg); }
+    .pet-signers-title { font-size: 14px; font-weight: 800; color: var(--fg); margin-bottom: 12px; }
+    .pet-signer { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(var(--fg-rgb),0.06); font-size: 13px; }
+    .pet-signer-name { color: rgba(var(--fg-rgb),0.7); }
+    .pet-signer-state { color: rgba(var(--fg-rgb),0.4); }
+    .pet-signer-time { color: rgba(var(--fg-rgb),0.3); }
+    .pet-body { font-size: 16px; color: rgba(var(--fg-rgb),0.75); line-height: 1.8; margin-bottom: 32px; }
     .pet-body p { margin-bottom: 1.25em; }
-    .pet-body strong { color: #fff; font-weight: 700; }
-    .pet-body a { color: #5660fe; }
-    .pet-section-title { font-size: 20px; font-weight: 900; color: #fff; margin: 32px 0 12px; display: flex; align-items: center; gap: 8px; }
-    .pet-recipients { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .pet-body strong { color: var(--fg); font-weight: 700; }
+    .pet-body a { color: var(--accent-2); }
+    .pet-section-title { font-size: 20px; font-weight: 900; color: var(--fg); margin: 32px 0 12px; display: flex; align-items: center; gap: 8px; }
+    .pet-recipients { font-size: 15px; color: rgba(var(--fg-rgb),0.6); margin-bottom: 24px; }
     /* Form */
-    .pet-form-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .pet-form-desc { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 20px; line-height: 1.5; }
-    .pet-input { width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px 14px; font-size: 14px; margin-bottom: 12px; outline: none; border-radius: 4px; }
-    .pet-input:focus { border-color: #5660fe; }
-    .pet-input::placeholder { color: rgba(255,255,255,0.3); }
+    .pet-form-title { font-size: 18px; font-weight: 800; color: var(--fg); margin-bottom: 8px; }
+    .pet-form-desc { font-size: 13px; color: rgba(var(--fg-rgb),0.4); margin-bottom: 20px; line-height: 1.5; }
+    .pet-input { width: 100%; background: transparent; border: 1px solid rgba(var(--fg-rgb),0.2); color: var(--fg); padding: 12px 14px; font-size: 14px; margin-bottom: 12px; outline: none; border-radius: 4px; }
+    .pet-input:focus { border-color: var(--accent); }
+    .pet-input::placeholder { color: rgba(var(--fg-rgb),0.3); }
     .pet-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pet-submit { width: 100%; background: #5660fe; color: #fff; border: none; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 4px; margin-top: 8px; transition: background 0.2s; }
-    .pet-submit:hover { background: #4850e6; }
+    .pet-submit { width: 100%; background: var(--accent); color: var(--on-accent); border: none; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 4px; margin-top: 8px; transition: background 0.2s; }
+    .pet-submit:hover { background: var(--accent-hover); }
     .pet-success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 20px; margin-bottom: 20px; color: #22c55e; font-size: 15px; font-weight: 600; text-align: center; }
     @media (max-width: 768px) {
         .pet-page { padding: 0 16px; }
@@ -116,13 +116,13 @@
                     <textarea name="custom_message" class="pet-input pet-autosize" rows="4" placeholder="Your message (optional)" oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';">{{ $petition->suggested_message }}</textarea>
                 @endif
 
-                <label class="pet-display-publicly" style="display:flex; align-items:flex-start; gap:10px; margin:6px 0 10px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5; cursor:pointer;">
-                    <input type="checkbox" name="display_publicly" value="1" style="margin-top:3px; accent-color:#5660fe; cursor:pointer;">
+                <label class="pet-display-publicly" style="display:flex; align-items:flex-start; gap:10px; margin:6px 0 10px; font-size:13px; color:rgba(var(--fg-rgb),0.7); line-height:1.5; cursor:pointer;">
+                    <input type="checkbox" name="display_publicly" value="1" style="margin-top:3px; accent-color:var(--accent); cursor:pointer;">
                     <span>Show my first name, last initial, and state in the public list of recent signers.</span>
                 </label>
 
-                <label class="pet-email-optin" style="display:flex; align-items:flex-start; gap:10px; margin:0 0 14px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5; cursor:pointer;">
-                    <input type="checkbox" name="email_optin" value="1" checked style="margin-top:3px; accent-color:#5660fe; cursor:pointer;">
+                <label class="pet-email-optin" style="display:flex; align-items:flex-start; gap:10px; margin:0 0 14px; font-size:13px; color:rgba(var(--fg-rgb),0.7); line-height:1.5; cursor:pointer;">
+                    <input type="checkbox" name="email_optin" value="1" checked style="margin-top:3px; accent-color:var(--accent); cursor:pointer;">
                     <span>Sign me up for NPPC emails so I can stay informed about clemency campaigns, new prisoner profiles, and ways to support political prisoners.</span>
                 </label>
 

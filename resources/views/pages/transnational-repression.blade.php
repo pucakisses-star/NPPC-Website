@@ -12,13 +12,13 @@
        title, alternating with clean light content. Per-section
        accent tints. All classes scoped with the tnr- prefix.
        ============================================================ */
-    .tnr { background: #ffffff; color: #1b2333; font-feature-settings: "kern" 1; }
+    .tnr { background: var(--bg); color: var(--fg); font-feature-settings: "kern" 1; }
     .tnr * { box-sizing: border-box; }
-    .tnr a { color: #2f5c8f; }
-    .tnr a:hover { color: #16233f; }
+    .tnr a { color: var(--accent-2); }
+    .tnr a:hover { color: var(--fg); }
 
     /* ---- Full-bleed banners ---- */
-    .tnr-banner { position: relative; min-height: 460px; display: flex; align-items: flex-end; overflow: hidden; color: #fff; }
+    .tnr-banner { position: relative; min-height: 460px; display: flex; align-items: flex-end; overflow: hidden; color: var(--on-dark); }
     .tnr-banner--hero { min-height: 560px; }
     .tnr-banner-bg { position: absolute; inset: 0; z-index: 0; }
     /* faint dotted "global reach" texture over the gradient */
@@ -28,7 +28,7 @@
         mask-image: linear-gradient(180deg, transparent, #000 60%); }
     .tnr-banner-inner { position: relative; z-index: 1; width: 100%; max-width: 1080px; margin: 0 auto; padding: 64px 32px 56px; }
     .tnr-overline { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.78); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid rgba(255,255,255,0.5); }
-    .tnr-banner-title { font-size: 3.6rem; line-height: 1.02; font-weight: 800; letter-spacing: -0.015em; margin: 0; color: #fff; }
+    .tnr-banner-title { font-size: 3.6rem; line-height: 1.02; font-weight: 800; letter-spacing: -0.015em; margin: 0; color: var(--on-dark); }
     .tnr-banner--hero .tnr-banner-title { font-size: 5rem; }
     .tnr-banner-sub { font-size: 1.3rem; line-height: 1.45; color: rgba(255,255,255,0.85); max-width: 640px; margin: 22px 0 0; }
     /* accent gradients per section */
@@ -40,18 +40,18 @@
     /* ---- Content sections ---- */
     .tnr-wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
     .tnr-section { padding: 72px 0; }
-    .tnr-section--tint { background: #f6f8fa; }
-    .tnr-kicker { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #2f5c8f; margin-bottom: 14px; }
+    .tnr-section--tint { background: var(--surface); }
+    .tnr-kicker { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 14px; }
     .tnr-kicker--teal { color: #1f7d76; }
     .tnr-kicker--maroon { color: #8a2a16; }
-    .tnr-h2 { font-size: 2.4rem; line-height: 1.12; font-weight: 800; color: #14203a; margin: 0 0 22px; letter-spacing: -0.015em; }
-    .tnr-p { font-size: 18px; line-height: 1.78; color: #3a4658; margin: 0 0 1.3em; }
-    .tnr-p strong { color: #14203a; font-weight: 700; }
-    .tnr-lead .tnr-p { font-size: 1.4rem; line-height: 1.5; color: #1b2333; }
-    .tnr-lead .tnr-p:first-child::first-letter { float: left; font-size: 4em; line-height: 0.72; padding: 0.06em 0.1em 0 0; color: #2f5c8f; font-weight: 800; }
+    .tnr-h2 { font-size: 2.4rem; line-height: 1.12; font-weight: 800; color: var(--fg); margin: 0 0 22px; letter-spacing: -0.015em; }
+    .tnr-p { font-size: 18px; line-height: 1.78; color: rgba(var(--fg-rgb),0.82); margin: 0 0 1.3em; }
+    .tnr-p strong { color: var(--fg); font-weight: 700; }
+    .tnr-lead .tnr-p { font-size: 1.4rem; line-height: 1.5; color: var(--fg); }
+    .tnr-lead .tnr-p:first-child::first-letter { float: left; font-size: 4em; line-height: 0.72; padding: 0.06em 0.1em 0 0; color: var(--accent-2); font-weight: 800; }
 
     /* ---- Stats band ---- */
-    .tnr-stats-band { background: #14203a; color: #fff; }
+    .tnr-stats-band { background: #14203a; color: var(--on-dark); }
     .tnr-stats { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(4, 1fr); }
     .tnr-stat { padding: 52px 22px; border-left: 1px solid rgba(255,255,255,0.12); }
     .tnr-stat:first-child { border-left: 0; }
@@ -62,55 +62,55 @@
 
     /* ---- Tactic cards ---- */
     .tnr-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 30px; }
-    .tnr-card { background: #fff; border: 1px solid #e3e7ee; border-top: 4px solid #8a2a16; border-radius: 6px; padding: 26px; transition: box-shadow 0.2s, transform 0.2s; }
+    .tnr-card { background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.12); border-top: 4px solid #8a2a16; border-radius: 6px; padding: 26px; transition: box-shadow 0.2s, transform 0.2s; }
     .tnr-card:hover { box-shadow: 0 14px 36px rgba(20,32,58,0.10); transform: translateY(-3px); }
     .tnr-card-icon { color: #8a2a16; margin-bottom: 12px; }
     .tnr-card-icon svg { width: 28px; height: 28px; display: block; }
-    .tnr-card h3 { font-size: 1.15rem; font-weight: 800; color: #14203a; margin: 0 0 8px; }
-    .tnr-card p { font-size: 14px; line-height: 1.62; color: #51607a; margin: 0; }
+    .tnr-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--fg); margin: 0 0 8px; }
+    .tnr-card p { font-size: 14px; line-height: 1.62; color: rgba(var(--fg-rgb),0.7); margin: 0; }
 
     /* ---- Pull quote ---- */
-    .tnr-pull { border-left: 4px solid #2f5c8f; padding: 4px 0 4px 26px; margin: 8px 0 4px; }
-    .tnr-pull p { font-size: 1.75rem; line-height: 1.32; font-weight: 700; color: #14203a; margin: 0; }
+    .tnr-pull { border-left: 4px solid var(--accent-2); padding: 4px 0 4px 26px; margin: 8px 0 4px; }
+    .tnr-pull p { font-size: 1.75rem; line-height: 1.32; font-weight: 700; color: var(--fg); margin: 0; }
 
     /* ---- Recommendations ---- */
-    .tnr-rec { border-top: 1px solid #e3e7ee; padding: 22px 0; display: grid; grid-template-columns: 190px 1fr; gap: 24px; }
-    .tnr-rec:last-child { border-bottom: 1px solid #e3e7ee; }
-    .tnr-rec-who { font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #2f5c8f; }
-    .tnr-rec p { font-size: 15px; line-height: 1.65; color: #3a4658; margin: 0; }
+    .tnr-rec { border-top: 1px solid rgba(var(--fg-rgb),0.12); padding: 22px 0; display: grid; grid-template-columns: 190px 1fr; gap: 24px; }
+    .tnr-rec:last-child { border-bottom: 1px solid rgba(var(--fg-rgb),0.12); }
+    .tnr-rec-who { font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-2); }
+    .tnr-rec p { font-size: 15px; line-height: 1.65; color: rgba(var(--fg-rgb),0.82); margin: 0; }
 
     /* ---- NPPC Watch ---- */
     .tnr-live { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #1f9d57; margin-bottom: 18px; }
     .tnr-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #1f9d57; box-shadow: 0 0 0 0 rgba(31,157,87,0.5); animation: tnrpulse 2s infinite; }
     @@keyframes tnrpulse { 0% { box-shadow: 0 0 0 0 rgba(31,157,87,0.45); } 70% { box-shadow: 0 0 0 8px rgba(31,157,87,0); } 100% { box-shadow: 0 0 0 0 rgba(31,157,87,0); } }
     .tnr-watch { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 26px; }
-    .tnr-exile { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: start; background: #fff; border: 1px solid #e3e7ee; border-radius: 8px; padding: 16px; text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; }
+    .tnr-exile { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: start; background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.12); border-radius: 8px; padding: 16px; text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; }
     .tnr-exile:hover { box-shadow: 0 12px 30px rgba(20,32,58,0.10); transform: translateY(-2px); }
-    .tnr-exile-photo { width: 58px; height: 58px; border-radius: 6px; object-fit: cover; object-position: center top; background: #e8ecf2; }
-    .tnr-exile-ph { width: 58px; height: 58px; border-radius: 6px; background: #eaeff5; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: #2f5c8f; }
-    .tnr-exile-name { font-size: 1.02rem; font-weight: 800; color: #14203a; margin: 1px 0 6px; }
-    .tnr-exile-desc { font-size: 13px; line-height: 1.55; color: #51607a; margin: 0; }
-    .tnr-watch-empty { background: #f6f8fa; border: 1px solid #e3e7ee; border-radius: 8px; padding: 26px; color: #51607a; font-size: 15px; }
+    .tnr-exile-photo { width: 58px; height: 58px; border-radius: 6px; object-fit: cover; object-position: center top; background: var(--surface-2); }
+    .tnr-exile-ph { width: 58px; height: 58px; border-radius: 6px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: var(--accent-2); }
+    .tnr-exile-name { font-size: 1.02rem; font-weight: 800; color: var(--fg); margin: 1px 0 6px; }
+    .tnr-exile-desc { font-size: 13px; line-height: 1.55; color: rgba(var(--fg-rgb),0.7); margin: 0; }
+    .tnr-watch-empty { background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.12); border-radius: 8px; padding: 26px; color: rgba(var(--fg-rgb),0.7); font-size: 15px; }
 
     /* ---- Sources ---- */
     .tnr-sources { list-style: none; margin: 22px 0 0; padding: 0; }
-    .tnr-sources li { border-top: 1px solid #e3e7ee; padding: 16px 0; }
-    .tnr-sources li:last-child { border-bottom: 1px solid #e3e7ee; }
-    .tnr-sources a { font-weight: 700; color: #14203a; text-decoration: none; }
-    .tnr-sources a:hover { color: #2f5c8f; }
-    .tnr-sources span { display: block; font-size: 13px; color: #6b7689; margin-top: 4px; }
-    .tnr-disclaimer { margin-top: 26px; font-size: 13px; color: #8390a3; }
+    .tnr-sources li { border-top: 1px solid rgba(var(--fg-rgb),0.12); padding: 16px 0; }
+    .tnr-sources li:last-child { border-bottom: 1px solid rgba(var(--fg-rgb),0.12); }
+    .tnr-sources a { font-weight: 700; color: var(--fg); text-decoration: none; }
+    .tnr-sources a:hover { color: var(--accent-2); }
+    .tnr-sources span { display: block; font-size: 13px; color: rgba(var(--fg-rgb),0.6); margin-top: 4px; }
+    .tnr-disclaimer { margin-top: 26px; font-size: 13px; color: rgba(var(--fg-rgb),0.5); }
 
     /* ---- CTA ---- */
-    .tnr-cta { text-align: center; padding: 84px 32px; color: #fff; }
-    .tnr-cta h2 { font-size: 2.4rem; font-weight: 800; color: #fff; margin: 0 0 14px; letter-spacing: -0.01em; }
+    .tnr-cta { text-align: center; padding: 84px 32px; color: var(--on-dark); }
+    .tnr-cta h2 { font-size: 2.4rem; font-weight: 800; color: var(--on-dark); margin: 0 0 14px; letter-spacing: -0.01em; }
     .tnr-cta p { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 580px; margin: 0 auto 28px; }
     .tnr-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
     .tnr-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; text-decoration: none; padding: 15px 30px; border-radius: 4px; transition: transform 0.2s, background 0.2s; }
     .tnr-btn-primary { background: #fff; color: #14203a; }
     .tnr-btn-primary:hover { transform: translateY(-2px); color: #000; }
-    .tnr-btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.6); }
-    .tnr-btn-ghost:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); color: #fff; }
+    .tnr-btn-ghost { background: transparent; color: var(--on-dark); border: 1px solid rgba(255,255,255,0.6); }
+    .tnr-btn-ghost:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); color: var(--on-dark); }
 
     /* ---- Responsive ---- */
     @@media (max-width: 900px) {

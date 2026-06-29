@@ -4,9 +4,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
 .outreach-page {
-  --outreach-accent: #5660fe;
-  --outreach-gray: rgba(255,255,255,0.7);
-  --outreach-gray-dim: rgba(255,255,255,0.4);
+  --outreach-accent: var(--accent);
+  --outreach-gray: rgba(var(--fg-rgb),0.7);
+  --outreach-gray-dim: rgba(var(--fg-rgb),0.4);
   font-family: 'Source Sans 3', 'Verlag', Helvetica, Arial, sans-serif;
 }
 
@@ -35,7 +35,7 @@
   font-size: 28px;
   font-weight: 900;
   margin-bottom: 16px;
-  color: #fff;
+  color: var(--fg);
 }
 .outreach-guide > p {
   font-size: 16px;
@@ -52,7 +52,7 @@
   font-size: 16px;
   color: var(--outreach-gray);
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(var(--fg-rgb),0.06);
   padding-left: 20px;
   position: relative;
 }
@@ -184,7 +184,7 @@
   font-size: 28px;
   font-weight: 900;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--fg);
   margin-bottom: 12px;
   letter-spacing: 0.04em;
 }
@@ -198,16 +198,16 @@
   display: block;
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: var(--fg);
   margin: 24px 0 8px;
 }
 .letter-form select,
 .letter-form textarea {
   width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: var(--surface);
+  border: 1px solid rgba(var(--fg-rgb),0.15);
   border-radius: 4px;
-  color: #fff;
+  color: var(--fg);
   font-family: inherit;
   font-size: 15px;
   padding: 10px 12px;
@@ -239,8 +239,8 @@
 }
 .letter-form .letter-donate { max-width: 220px; }
 .letter-form button[type=submit] {
-  background: #fff;
-  color: #111;
+  background: var(--accent);
+  color: var(--on-accent);
   border: none;
   padding: 12px 28px;
   font-family: inherit;
@@ -252,11 +252,11 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.letter-form button[type=submit]:hover { background: #ddd; }
+.letter-form button[type=submit]:hover { background: var(--accent-hover); }
 .letter-form .letter-success {
   background: rgba(86,96,254,0.12);
   border: 1px solid rgba(86,96,254,0.4);
-  color: #fff;
+  color: var(--fg);
   padding: 16px 20px;
   border-radius: 4px;
   margin-bottom: 24px;
@@ -288,7 +288,7 @@
           <li>Ask about their interests, reading, and how they are doing</li>
           <li>Mail via USPS — many facilities do not accept other carriers</li>
         </ul>
-        <p style="margin-top: 20px;">Visit our <a href="/database" style="color: #5660fe; text-decoration: underline;">prisoner profiles</a> to find mailing addresses and facility-specific guidelines for each political prisoner.</p>
+        <p style="margin-top: 20px;">Visit our <a href="/database" style="color: var(--accent-2); text-decoration: underline;">prisoner profiles</a> to find mailing addresses and facility-specific guidelines for each political prisoner.</p>
       </div>
 
       <div class="postcard-wrapper">

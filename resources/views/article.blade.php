@@ -11,10 +11,10 @@
 
     {{-- Hero image first --}}
     @if($article->image_url)
-        <figure style="margin: 48px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:#0a0a0a;">
+        <figure style="margin: 48px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:var(--surface-2);">
             <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top;">
             @if($article->image_caption)
-                <figcaption style="font-size:13px; color:rgba(255,255,255,0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
+                <figcaption style="font-size:13px; color:rgba(var(--fg-rgb),0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
             @endif
         </figure>
     @endif
@@ -22,17 +22,17 @@
     {{-- Category label --}}
     @if($article->category)
         <div style="margin-top:{{ $article->image_url ? '24px' : '48px' }}; margin-bottom:16px;">
-            <span style="display:inline-block; padding:4px 12px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.8);">{{ $article->category->title }}</span>
+            <span style="display:inline-block; padding:4px 12px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; background:rgba(var(--fg-rgb),0.1); border:1px solid rgba(var(--fg-rgb),0.2); color:rgba(var(--fg-rgb),0.8);">{{ $article->category->title }}</span>
         </div>
     @endif
 
-    <h1 style="font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.15; font-weight: 800; color: #fff; margin: {{ $article->category || $article->image_url ? '0' : '48px 0 0 0' }} 0 24px 0;">{{$article->title}}</h1>
+    <h1 style="font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.15; font-weight: 800; color: var(--fg); margin: {{ $article->category || $article->image_url ? '0' : '48px 0 0 0' }} 0 24px 0;">{{$article->title}}</h1>
 
-    <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:16px 0; border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:16px 0; border-top:1px solid rgba(var(--fg-rgb),0.08); border-bottom:1px solid rgba(var(--fg-rgb),0.08);">
         @include('partials.articles.author')
         <div style="display:flex; align-items:center; gap:8px;">
             @include('partials.articles.share')
-            <button onclick="window.print()" style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; font-size:13px; font-weight:600; color:#fff; background:transparent; border:1px solid rgba(255,255,255,0.2); cursor:pointer; transition:background 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" class="print-hide" title="Print article">
+            <button onclick="window.print()" style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; font-size:13px; font-weight:600; color:var(--fg); background:transparent; border:1px solid rgba(var(--fg-rgb),0.2); cursor:pointer; transition:background 0.15s;" onmouseover="this.style.background='rgba(var(--fg-rgb),0.1)'" onmouseout="this.style.background='transparent'" class="print-hide" title="Print article">
                 <svg xmlns="http://www.w3.org/2000/svg" style="height:16px; width:16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                 </svg>
@@ -52,34 +52,34 @@
     </article>
 
     @if(!empty($article->author) && !empty($article->author['about']))
-        <div style="display:flex; gap:16px; align-items:flex-start; margin-top:48px; padding:24px; border:1px solid rgba(255,255,255,0.12); border-radius:8px; background:rgba(255,255,255,0.02);">
+        <div style="display:flex; gap:16px; align-items:flex-start; margin-top:48px; padding:24px; border:1px solid rgba(var(--fg-rgb),0.12); border-radius:8px; background:rgba(var(--fg-rgb),0.02);">
             @if($article->author['avatar_url'])
                 <img src="{{ $article->author['avatar_url'] }}" alt="{{ $article->author['name'] }}" style="width:64px; height:64px; border-radius:9999px; object-fit:cover; flex-shrink:0;">
             @endif
             <div>
-                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:4px;">About the author</div>
-                <div style="font-weight:700; color:#fff; font-size:18px; margin-bottom:6px;">{{ $article->author['name'] }}</div>
-                <div style="color:rgba(255,255,255,0.7); line-height:1.6; font-size:15px;">{{ $article->author['about'] }}</div>
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(var(--fg-rgb),0.5); margin-bottom:4px;">About the author</div>
+                <div style="font-weight:700; color:var(--fg); font-size:18px; margin-bottom:6px;">{{ $article->author['name'] }}</div>
+                <div style="color:rgba(var(--fg-rgb),0.7); line-height:1.6; font-size:15px;">{{ $article->author['about'] }}</div>
             </div>
         </div>
     @endif
 
     {{-- Related / similar articles --}}
     @if(!empty($related) && $related->isNotEmpty())
-        <section aria-labelledby="related-heading" style="margin-top:64px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1);">
-            <h2 id="related-heading" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.5); margin:0 0 28px 0;">Related articles</h2>
+        <section aria-labelledby="related-heading" style="margin-top:64px; padding-top:40px; border-top:1px solid rgba(var(--fg-rgb),0.1);">
+            <h2 id="related-heading" style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(var(--fg-rgb),0.5); margin:0 0 28px 0;">Related articles</h2>
             <div class="related-grid">
                 @foreach($related as $rel)
                     <div class="article-item">
-                        <a href="{{ $rel->url }}" style="display:block; height:224px; overflow:hidden; background:#1a1a1a;">
+                        <a href="{{ $rel->url }}" style="display:block; height:224px; overflow:hidden; background:var(--surface-2);">
                             @if($rel->image_url)
                                 <img src="{{ $rel->image_url }}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
                             @endif
                         </a>
                         @if($rel->category)
-                            <h5 style="margin-top:16px; font-size:13px; color:rgba(255,255,255,0.5); letter-spacing:0.02em; text-transform:uppercase;">{{ $rel->category->title }}</h5>
+                            <h5 style="margin-top:16px; font-size:13px; color:rgba(var(--fg-rgb),0.5); letter-spacing:0.02em; text-transform:uppercase;">{{ $rel->category->title }}</h5>
                         @endif
-                        <a class="article-title" style="font-size:18px; color:#fff; display:block; margin-top:4px; line-height:1.4;" href="{{ $rel->url }}">{{ $rel->title }}</a>
+                        <a class="article-title" style="font-size:18px; color:var(--fg); display:block; margin-top:4px; line-height:1.4;" href="{{ $rel->url }}">{{ $rel->title }}</a>
                     </div>
                 @endforeach
             </div>
@@ -118,8 +118,8 @@
         .page-content h4 { font-size: 1.25rem; font-weight: 600; margin: 1em 0 0.5em; }
         .page-content ul, .page-content ol { margin: 1em 0; padding-left: 1.5em; }
         .page-content li { margin-bottom: 0.5em; line-height: 1.75; }
-        .page-content blockquote { border-left: 3px solid rgba(255,255,255,0.3); padding-left: 1em; margin: 1.5em 0; color: rgba(255,255,255,0.7); }
-        .page-content a { color: #6366f1; text-decoration: underline; }
+        .page-content blockquote { border-left: 3px solid rgba(var(--fg-rgb),0.3); padding-left: 1em; margin: 1.5em 0; color: rgba(var(--fg-rgb),0.7); }
+        .page-content a { color: var(--accent-2); text-decoration: underline; }
         .page-content strong { font-weight: 700; }
         .page-content em { font-style: italic; }
         .page-content .lead { font-size: 1.25em; }
@@ -127,7 +127,7 @@
         .page-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5em 0; }
         .page-content iframe, .page-content embed, .page-content object, .page-content video { max-width: 100%; width: 100%; border-radius: 8px; margin: 1.5em 0; }
         .page-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; display: block; overflow-x: auto; }
-        .page-content th, .page-content td { border: 1px solid rgba(255,255,255,0.15); padding: 8px 12px; text-align: left; }
+        .page-content th, .page-content td { border: 1px solid rgba(var(--fg-rgb),0.15); padding: 8px 12px; text-align: left; }
 
         @media (max-width: 768px) {
             article.page-content { font-size: 17px; line-height: 1.7; }

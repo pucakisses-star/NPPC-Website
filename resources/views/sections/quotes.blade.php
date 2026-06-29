@@ -35,8 +35,8 @@
                                 <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
                             </svg>
                             <div>
-                                <p class="quote-text" style="font-weight:800; color:#fff; line-height:1.35; margin:0 0 24px;">{{ $quote->text }}</p>
-                                <cite style="font-size:15px; color:rgba(255,255,255,0.45); font-style:normal; font-weight:500;">- {{ $quote->author_name }}</cite>
+                                <p class="quote-text" style="font-weight:800; color:var(--fg); line-height:1.35; margin:0 0 24px;">{{ $quote->text }}</p>
+                                <cite style="font-size:15px; color:rgba(var(--fg-rgb),0.45); font-style:normal; font-weight:500;">- {{ $quote->author_name }}</cite>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@
     .dcc { background: #0a0b0d; color: rgba(255,255,255,.82); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
     .dcc *, .dcc *::before, .dcc *::after { box-sizing: border-box; }
     .dcc a { color: #5fd6e8; text-decoration: none; }
-    .dcc a:hover { color: #fff; }
+    .dcc a:hover { color: var(--on-dark); }
 
     /* ---- layout primitives ---- */
     .dcc-wrap { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 24px; }
@@ -42,7 +42,7 @@
     .dcc-hero > * { position: relative; z-index: 1; }
     .dcc-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #7fe3f1; margin-bottom: 20px; }
     .dcc-kicker::before { content: ""; width: 28px; height: 2px; background: #22d3ee; }
-    .dcc-h1 { font-size: 4.2rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 20px; color: #fff; }
+    .dcc-h1 { font-size: 4.2rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 20px; color: var(--on-dark); }
     .dcc-hero-sub { font-size: 1.4rem; line-height: 1.55; color: rgba(255,255,255,.78); max-width: 760px; margin: 0; }
     .dcc-hero-meta { margin-top: 24px; font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.5); }
     .dcc-hero-meta span + span::before { content: "•"; margin: 0 10px; color: #22d3ee; }
@@ -51,16 +51,16 @@
     .dcc-update { display: flex; gap: 16px; align-items: flex-start; background: #11151a; border: 1px solid rgba(255,255,255,.10); border-left: 4px solid #22d3ee; border-radius: 8px; padding: 20px 22px; }
     .dcc-update-ico { flex: 0 0 auto; color: #5fd6e8; margin-top: 2px; }
     .dcc-update-tag { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #7fe3f1; }
-    .dcc-update h3 { font-size: 1.12rem; font-weight: 800; color: #fff; margin: 5px 0 6px; }
+    .dcc-update h3 { font-size: 1.12rem; font-weight: 800; color: var(--on-dark); margin: 5px 0 6px; }
     .dcc-update p { margin: 0; color: rgba(255,255,255,.7); font-size: 15px; line-height: 1.6; }
 
     /* ---- eyebrow + headings + prose ---- */
     .dcc-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #7fe3f1; margin-bottom: 14px; }
     .dcc-eyebrow::before { content: ""; width: 26px; height: 2px; background: #22d3ee; }
-    .dcc-h2 { font-size: 2.1rem; line-height: 1.12; font-weight: 800; color: #fff; margin: 0 0 18px; letter-spacing: -.015em; }
+    .dcc-h2 { font-size: 2.1rem; line-height: 1.12; font-weight: 800; color: var(--on-dark); margin: 0 0 18px; letter-spacing: -.015em; }
     .dcc-p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,.76); margin: 0 0 1.2em; }
     .dcc-p:last-child { margin-bottom: 0; }
-    .dcc-p strong { color: #fff; font-weight: 700; }
+    .dcc-p strong { color: var(--on-dark); font-weight: 700; }
     .dcc-cite { font-size: 13px; color: rgba(255,255,255,.45); }
 
     /* ---- stats ---- */
@@ -73,21 +73,21 @@
 
     /* ---- pull quote ---- */
     .dcc-pull { border-left: 3px solid #22d3ee; padding: 4px 0 4px 26px; margin: 0; }
-    .dcc-pull p { font-size: 1.85rem; line-height: 1.3; font-weight: 700; color: #fff; margin: 0 0 12px; }
+    .dcc-pull p { font-size: 1.85rem; line-height: 1.3; font-weight: 700; color: var(--on-dark); margin: 0 0 12px; }
     .dcc-pull cite { font-style: normal; font-size: 14px; letter-spacing: .02em; color: rgba(255,255,255,.5); }
 
     /* ---- callout (surveillance) ---- */
     .dcc-callout { background: #15110f; border: 1px solid rgba(245,158,11,.30); border-left: 4px solid #f59e0b; border-radius: 10px; padding: 24px 26px; }
-    .dcc-callout h3 { font-size: 1.2rem; font-weight: 800; color: #fff; margin: 0 0 10px; }
+    .dcc-callout h3 { font-size: 1.2rem; font-weight: 800; color: var(--on-dark); margin: 0 0 10px; }
     .dcc-callout p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,.74); margin: 0 0 12px; }
     .dcc-callout p:last-child { margin: 0; }
-    .dcc-callout strong { color: #fff; }
+    .dcc-callout strong { color: var(--on-dark); }
 
     /* ---- cases ---- */
     .dcc-cases { display: flex; flex-direction: column; gap: 40px; }
     .dcc-case { display: grid; grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "photo name" "photo body"; column-gap: 24px; row-gap: 8px; align-items: start; }
     .dcc-avatar { grid-area: photo; width: 96px; height: 96px; border-radius: 10px; background: rgba(34,211,238,.12); color: #7fe3f1; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.7rem; border: 1px solid rgba(34,211,238,.4); letter-spacing: .02em; }
-    .dcc-case > h3 { grid-area: name; font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0; line-height: 1.1; }
+    .dcc-case > h3 { grid-area: name; font-size: 1.5rem; font-weight: 800; color: var(--on-dark); margin: 0; line-height: 1.1; }
     .dcc-case-body { grid-area: body; min-width: 0; }
     .dcc-case-role { font-size: 12.5px; letter-spacing: .03em; text-transform: uppercase; color: rgba(255,255,255,.5); margin: 4px 0 12px; font-weight: 700; }
     .dcc-case p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.72); margin: 0 0 12px; }
@@ -99,11 +99,11 @@
     /* ---- flashpoints table ---- */
     .dcc-tbl-wrap { max-height: clamp(420px, 60vh, 620px); overflow-y: auto; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; }
     .dcc-tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; }
-    .dcc-tbl thead th { position: sticky; top: 0; background: #15191e; color: #fff; text-align: left; font-weight: 800; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.14); z-index: 1; }
+    .dcc-tbl thead th { position: sticky; top: 0; background: #15191e; color: var(--on-dark); text-align: left; font-weight: 800; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.14); z-index: 1; }
     .dcc-tbl tbody td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.07); color: rgba(255,255,255,.82); vertical-align: top; }
     .dcc-tbl tbody tr:last-child td { border-bottom: 0; }
     .dcc-tbl tbody tr:hover td { background: rgba(255,255,255,.03); }
-    .dcc-tbl-place { font-weight: 700; color: #fff; white-space: nowrap; }
+    .dcc-tbl-place { font-weight: 700; color: var(--on-dark); white-space: nowrap; }
     .dcc-tbl-date { white-space: nowrap; color: rgba(255,255,255,.55); font-variant-numeric: tabular-nums; }
 
     /* ---- lists (trackers + news) ---- */
@@ -118,16 +118,16 @@
     .dcc-note { background: #11151a; border: 1px solid rgba(255,255,255,.10); border-radius: 10px; padding: 24px; }
     .dcc-note p { font-size: 14.5px; line-height: 1.7; color: rgba(255,255,255,.7); margin: 0 0 12px; }
     .dcc-note p:last-child { margin: 0; }
-    .dcc-note strong { color: #fff; }
+    .dcc-note strong { color: var(--on-dark); }
 
     /* ---- buttons + footer CTA ---- */
     .dcc-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; padding: 13px 26px; border-radius: 999px; transition: transform .15s, background .15s, color .15s, border-color .15s; }
     .dcc-btn-light { background: #fff; color: #0a0b0d; }
     .dcc-btn-light:hover { background: #e9f6f9; color: #000; transform: translateY(-1px); }
-    .dcc-btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.5); }
-    .dcc-btn-ghost:hover { background: rgba(255,255,255,.1); color: #fff; border-color: #fff; transform: translateY(-1px); }
+    .dcc-btn-ghost { background: transparent; color: var(--on-dark); border: 1px solid rgba(255,255,255,.5); }
+    .dcc-btn-ghost:hover { background: rgba(255,255,255,.1); color: var(--on-dark); border-color: var(--on-dark); transform: translateY(-1px); }
     .dcc-foot { background: linear-gradient(135deg, #0e7490, #155e75); text-align: center; padding: 60px 24px; }
-    .dcc-foot h2 { font-size: 2.1rem; font-weight: 800; margin: 0 0 14px; color: #fff; letter-spacing: -.01em; }
+    .dcc-foot h2 { font-size: 2.1rem; font-weight: 800; margin: 0 0 14px; color: var(--on-dark); letter-spacing: -.01em; }
     .dcc-foot p { font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.92); max-width: 600px; margin: 0 auto 26px; }
     .dcc-foot-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 

@@ -69,7 +69,7 @@
 
 <style>
     .partners-section { padding: 80px 0; overflow: hidden; }
-    .partners-title { font-size: 2.5rem; font-weight: 900; color: #fff; text-align: center; margin-bottom: 48px; }
+    .partners-title { font-size: 2.5rem; font-weight: 900; color: var(--fg); text-align: center; margin-bottom: 48px; }
     .partners-row { overflow: hidden; margin-bottom: 4px; }
     .partners-track { display: flex; gap: 4px; width: max-content; }
     .partners-track-left { animation: scrollLeft 40s linear infinite; }
@@ -79,11 +79,11 @@
     .partner-box {
         flex: 0 0 180px;
         height: 180px;
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(var(--fg-rgb),0.08);
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255,255,255,0.02);
+        background: rgba(var(--fg-rgb),0.02);
         transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
         position: relative;
         overflow: hidden;
@@ -100,7 +100,7 @@
     .partner-box .partner-initials {
         font-size: 1.5rem;
         font-weight: 800;
-        color: rgba(255,255,255,0.15);
+        color: rgba(var(--fg-rgb),0.15);
         transition: color 0.3s;
     }
     .partner-name {
@@ -113,7 +113,7 @@
         padding: 16px;
         font-size: 13px;
         font-weight: 700;
-        color: #fff;
+        color: var(--on-dark);
         text-transform: uppercase;
         letter-spacing: 0.06em;
         background: rgba(0,0,0,0.85);
@@ -122,12 +122,12 @@
     }
     .partner-box:hover .partner-name { opacity: 1; }
     .partner-box:hover {
-        background: rgba(255,255,255,0.06);
-        border-color: rgba(255,255,255,0.2);
+        background: rgba(var(--fg-rgb),0.06);
+        border-color: rgba(var(--fg-rgb),0.2);
         box-shadow: 0 0 20px rgba(86,96,254,0.15);
     }
     .partner-box:hover img { opacity: 1; }
-    .partner-box:hover .partner-initials { color: rgba(255,255,255,0.5); }
+    .partner-box:hover .partner-initials { color: rgba(var(--fg-rgb),0.5); }
 
     @@keyframes scrollLeft {
         0% { transform: translateX(0); }

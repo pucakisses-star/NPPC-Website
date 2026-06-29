@@ -23,24 +23,24 @@
     .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
     .tpx-actions { display: flex; gap: 20px; }
     .tpx-action { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.15s; }
-    .tpx-action:hover { color: #fff; }
+    .tpx-action:hover { color: var(--on-dark); }
     .tpx-action svg { width: 15px; height: 15px; }
 
     /* Left column — root topics + search, over the photo */
     .tpx-nav { grid-column: 1; padding: 26px clamp(20px, 3vw, 40px); }
     .tpx-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.78); padding: 9px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
-    .tpx-nav-item:hover { color: #fff; }
-    .tpx-nav-item.active { color: #5660fe; }
-    .tpx-search { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 9px 12px; font-size: 13px; width: 100%; margin-top: 24px; outline: none; }
+    .tpx-nav-item:hover { color: var(--on-dark); }
+    .tpx-nav-item.active { color: #8b93ff; }
+    .tpx-search { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.3); color: var(--on-dark); padding: 9px 12px; font-size: 13px; width: 100%; margin-top: 24px; outline: none; }
     .tpx-search::placeholder { color: rgba(255,255,255,0.5); }
     .tpx-search:focus { border-color: rgba(255,255,255,0.7); }
 
     /* Middle column — sub-topics, over the photo */
     .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
-    .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: #fff; margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+    .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: var(--on-dark); margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link { display: block; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.82); padding: 8px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
-    .tpx-sub-link:hover { color: #fff; }
-    .tpx-sub-link.active { color: #5660fe; }
+    .tpx-sub-link:hover { color: var(--on-dark); }
+    .tpx-sub-link.active { color: #8b93ff; }
 
     /* Right column — white detail panel with a large image */
     .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }
@@ -56,10 +56,10 @@
     .tpx-cf { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; }
     .tpx-cf input, .tpx-cf select, .tpx-cf textarea { font: inherit; font-weight: 400; letter-spacing: normal; text-transform: none; color: #1a1a1a; background: #fff; border: 1px solid #d6d3cd; border-radius: 7px; padding: 9px 11px; width: 100%; }
     .tpx-cf textarea { resize: vertical; }
-    .tpx-cf input:focus, .tpx-cf select:focus, .tpx-cf textarea:focus { outline: none; border-color: #5660fe; box-shadow: 0 0 0 3px rgba(86,96,254,0.15); }
+    .tpx-cf input:focus, .tpx-cf select:focus, .tpx-cf textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(86,96,254,0.15); }
     .tpx-cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .tpx-contribute-btn { align-self: flex-start; font: inherit; font-weight: 700; background: #5660fe; color: #fff; border: 0; border-radius: 8px; padding: 11px 22px; cursor: pointer; transition: background 0.15s ease; }
-    .tpx-contribute-btn:hover { background: #3f49e0; }
+    .tpx-contribute-btn { align-self: flex-start; font: inherit; font-weight: 700; background: var(--accent); color: var(--on-accent); border: 0; border-radius: 8px; padding: 11px 22px; cursor: pointer; transition: background 0.15s ease; }
+    .tpx-contribute-btn:hover { background: var(--accent-hover); }
     @@media (max-width: 560px) { .tpx-cf-row { grid-template-columns: 1fr; } }
 
     /* Index — alphabetical list of all sub-topics */

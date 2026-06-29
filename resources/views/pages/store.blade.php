@@ -85,7 +85,6 @@
 @endsection
 
 @section('body')
-@include('sections.store-theme')
 <div class="store-page">
     {{-- Hero --}}
     <div class="store-hero">

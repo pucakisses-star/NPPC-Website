@@ -10,22 +10,22 @@
 <style>
     .av-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px 64px; }
     .av-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 24px 0 12px; flex-wrap: wrap; }
-    .av-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 600; }
-    .av-back:hover { color: #5660fe; }
+    .av-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(var(--fg-rgb),0.6); text-decoration: none; font-size: 13px; font-weight: 600; }
+    .av-back:hover { color: var(--accent); }
     .av-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .av-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; transition: background 0.15s, border-color 0.15s; }
-    .av-btn:hover { border-color: #5660fe; background: rgba(86,96,254,0.1); color: #fff; }
-    .av-btn-primary { background: #5660fe; border-color: #5660fe; }
-    .av-btn-primary:hover { background: #4850e6; border-color: #4850e6; }
-    .av-title { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.2; margin: 0 0 8px; }
-    .av-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 18px; }
-    .av-meta strong { color: rgba(255,255,255,0.85); font-weight: 600; }
-    .av-viewer { width: 100%; height: 80vh; min-height: 600px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; background: #1a1a1a; }
+    .av-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid rgba(var(--fg-rgb),0.2); border-radius: 6px; color: var(--fg); text-decoration: none; font-size: 13px; font-weight: 700; transition: background 0.15s, border-color 0.15s; }
+    .av-btn:hover { border-color: var(--accent); background: rgba(86,96,254,0.1); color: var(--fg); }
+    .av-btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    .av-btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+    .av-title { font-size: 1.5rem; font-weight: 800; color: var(--fg); line-height: 1.2; margin: 0 0 8px; }
+    .av-meta { font-size: 13px; color: rgba(var(--fg-rgb),0.55); margin-bottom: 18px; }
+    .av-meta strong { color: rgba(var(--fg-rgb),0.85); font-weight: 600; }
+    .av-viewer { width: 100%; height: 80vh; min-height: 600px; border: 1px solid rgba(var(--fg-rgb),0.1); border-radius: 8px; overflow: hidden; background: var(--surface-2); }
     .av-viewer iframe { width: 100%; height: 100%; border: 0; }
-    .av-fallback { padding: 60px 24px; text-align: center; color: rgba(255,255,255,0.6); }
+    .av-fallback { padding: 60px 24px; text-align: center; color: rgba(var(--fg-rgb),0.6); }
     .av-fallback p { margin-bottom: 16px; }
-    .av-desc { margin-top: 32px; max-width: 800px; font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
-    .av-desc h2 { font-size: 1.1rem; font-weight: 800; color: #fff; margin: 0 0 12px; }
+    .av-desc { margin-top: 32px; max-width: 800px; font-size: 15px; color: rgba(var(--fg-rgb),0.7); line-height: 1.7; }
+    .av-desc h2 { font-size: 1.1rem; font-weight: 800; color: var(--fg); margin: 0 0 12px; }
     @media (max-width: 768px) {
         .av-wrap { padding: 0 16px 48px; }
         .av-viewer { height: 70vh; min-height: 480px; }

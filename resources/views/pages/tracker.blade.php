@@ -292,16 +292,16 @@
                 <p class="tk2-lede">This tracker's figures sit inside a much larger, well-documented public record. Here is what reporters and researchers have found it costs to confine people in the United States &mdash; the rates this accounting is built on, and the political-detention systems that keep putting them in the news.</p>
 
                 <style>
-                    .tk2-hl-feature { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 24px; margin: 12px 0 38px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+                    .tk2-hl-feature { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 24px; margin: 12px 0 38px; padding-bottom: 30px; border-bottom: 1px solid rgba(var(--fg-rgb),0.12); }
                     .tk2-hl-fnum { font-family: Georgia, serif; font-weight: 700; font-size: 4.6rem; line-height: 0.92; color: #4dd9d2; letter-spacing: -0.02em; }
-                    .tk2-hl-flabel { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.8); max-width: 540px; }
-                    .tk2-hl-fsrc { display: block; font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 8px; }
+                    .tk2-hl-flabel { font-size: 17px; line-height: 1.55; color: rgba(var(--fg-rgb),0.8); max-width: 540px; }
+                    .tk2-hl-fsrc { display: block; font-size: 13px; color: rgba(var(--fg-rgb),0.45); margin-top: 8px; }
                     .tk2-hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
-                    .tk2-hl-card { background: #111; border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #4dd9d2; border-radius: 6px; padding: 24px; }
-                    .tk2-hl-num { font-family: Georgia, serif; font-weight: 700; font-size: 2.3rem; line-height: 1; color: #fff; }
-                    .tk2-hl-unit { font-size: 0.42em; color: rgba(255,255,255,0.5); }
-                    .tk2-hl-desc { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.66); margin: 12px 0 14px; }
-                    .tk2-hl-src { font-size: 12px; letter-spacing: 0.02em; color: rgba(255,255,255,0.5); }
+                    .tk2-hl-card { background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.08); border-left: 3px solid #4dd9d2; border-radius: 6px; padding: 24px; }
+                    .tk2-hl-num { font-family: Georgia, serif; font-weight: 700; font-size: 2.3rem; line-height: 1; color: var(--fg); }
+                    .tk2-hl-unit { font-size: 0.42em; color: rgba(var(--fg-rgb),0.5); }
+                    .tk2-hl-desc { font-size: 14px; line-height: 1.6; color: rgba(var(--fg-rgb),0.66); margin: 12px 0 14px; }
+                    .tk2-hl-src { font-size: 12px; letter-spacing: 0.02em; color: rgba(var(--fg-rgb),0.5); }
                     .tk2-hl-src a { color: #4dd9d2; text-decoration: none; }
                     .tk2-hl-src a:hover { text-decoration: underline; }
                 </style>
@@ -343,12 +343,12 @@
                 <h2 class="tk2-shead">How we count.</h2>
                 <div class="tk2-method">
                     <style>
-                        .tk2-method-eyebrow { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 4px 0 16px; }
-                        .tk2-acc { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 36px; }
-                        .tk2-acc-item { border-bottom: 1px solid rgba(255,255,255,0.12); }
-                        .tk2-acc-head { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 20px 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.8); transition: color 0.15s; }
+                        .tk2-method-eyebrow { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(var(--fg-rgb),0.5); margin: 4px 0 16px; }
+                        .tk2-acc { border-top: 1px solid rgba(var(--fg-rgb),0.12); margin-top: 36px; }
+                        .tk2-acc-item { border-bottom: 1px solid rgba(var(--fg-rgb),0.12); }
+                        .tk2-acc-head { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 20px 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(var(--fg-rgb),0.8); transition: color 0.15s; }
                         .tk2-acc-head::-webkit-details-marker { display: none; }
-                        .tk2-acc-head:hover { color: #fff; }
+                        .tk2-acc-head:hover { color: var(--fg); }
                         .tk2-acc-tri { color: #4dd9d2; font-size: 10px; line-height: 1; transition: transform 0.2s; }
                         .tk2-acc-item[open] > .tk2-acc-head .tk2-acc-tri { transform: rotate(90deg); }
                         .tk2-acc-body { padding: 0 4px 26px; }
@@ -477,7 +477,7 @@
     </article>
 
     <style>
-        body.page-feature-political-prisoner-cost { background: #000 !important; color: #fff; overflow-x: hidden; }
+        body.page-feature-political-prisoner-cost { background: var(--bg) !important; color: var(--fg); overflow-x: hidden; }
         /* Full-bleed closing block: a large map backdrop with the ticker +
            share repeated over it (mirrors the hero). The map is sized
            independently of the coral ticker, which always spans the page. */
@@ -501,14 +501,14 @@
         }
         body.page-feature-political-prisoner-cost main.container, body.page-feature-political-prisoner-cost .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
-        .tk2 { background: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
+        .tk2 { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
 
         /* TOP NAV STRIP */
         /* Section nav — centered strip below the hero, sticky to the top
            of the viewport once you scroll past the banner. */
-        .tk2-anchors { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: center; padding: 20px 32px; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); position: sticky; top: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); z-index: 50; }
+        .tk2-anchors { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: center; padding: 20px 32px; border-top: 1px solid rgba(var(--fg-rgb),0.12); border-bottom: 1px solid rgba(var(--fg-rgb),0.12); position: sticky; top: 0; background: var(--bg); backdrop-filter: blur(8px); z-index: 50; }
         .tk2-anchors a { font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: #4dd9d2; text-decoration: none; display: inline-flex; align-items: center; gap: 16px; }
-        .tk2-anchors a:hover { color: #fff; }
+        .tk2-anchors a:hover { color: var(--fg); }
         .tk2-anchors a span { color: #4dd9d2; font-size: 16px; font-weight: 400; }
         .tk2-anchors a:last-child span { display: none; }
 
@@ -530,46 +530,46 @@
         .tk2-hero.spot-active .tk2-hero-spot-overlay { opacity: 0.55; -webkit-mask-image: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.35) 45%, #000 100%); mask-image: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), transparent 0%, rgba(0,0,0,0.35) 45%, #000 100%); }
         .tk2-hero-spot-highlight { position: absolute; inset: 0; opacity: 0; mix-blend-mode: overlay; transition: opacity 0.3s; pointer-events: none; z-index: 4; }
         .tk2-hero.spot-active .tk2-hero-spot-highlight { opacity: var(--spot-brightness); background: radial-gradient(circle var(--spot-radius) at var(--mx) var(--my), rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.3) 40%, transparent 70%); }
-        .tk2-hero-title { position: relative; z-index: 5; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
+        .tk2-hero-title { position: relative; z-index: 5; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--on-dark); text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
 
         /* CORAL BANNER WITH BIG NUMBER */
         .tk2-banner { background: #f25c54; padding: 36px 32px 28px; }
         .tk2-banner-inner { max-width: none; margin: 0; text-align: center; }
         .tk2-banner-num { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1; letter-spacing: -0.04em; color: #0a0a0a; font-variant-numeric: tabular-nums; display: inline-flex; align-items: baseline; }
         .tk2-banner-sign { font-size: 0.7em; margin-right: 0.05em; font-weight: 900; }
-        .tk2-banner-sub { text-align: center; font-size: 16px; line-height: 1.5; color: #fff; max-width: 720px; margin: 24px auto 16px; padding: 0 32px; font-weight: 700; }
+        .tk2-banner-sub { text-align: center; font-size: 16px; line-height: 1.5; color: var(--fg); max-width: 720px; margin: 24px auto 16px; padding: 0 32px; font-weight: 700; }
 
         /* SHARE BAR */
         .tk2-share-bar { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 32px 32px 56px; }
-        .tk2-share-bar a { color: #fff; transition: color 0.15s, transform 0.15s; }
+        .tk2-share-bar a { color: var(--fg); transition: color 0.15s, transform 0.15s; }
         .tk2-share-bar a:hover { color: #4dd9d2; transform: translateY(-2px); }
         .tk2-share-bar svg { width: 30px; height: 30px; fill: currentColor; display: block; }
         @media (max-width: 600px) { .tk2-share-bar { gap: 28px; } .tk2-share-bar svg { width: 26px; height: 26px; } }
 
         /* BODY SECTIONS */
         .tk2-body { max-width: 980px; margin: 0 auto; padding: 0 32px; }
-        .tk2-section { padding: 56px 0; border-top: 1px solid rgba(255,255,255,0.12); position: relative; }
-        .tk2-snum { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14rem; font-weight: 900; line-height: 0.8; color: rgba(255,255,255,0.05); letter-spacing: -0.04em; margin-bottom: -120px; pointer-events: none; }
-        .tk2-shead { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 24px; color: #fff; max-width: 820px; position: relative; }
-        .tk2-lede { font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.78); max-width: 720px; margin: 0 0 40px; }
+        .tk2-section { padding: 56px 0; border-top: 1px solid rgba(var(--fg-rgb),0.12); position: relative; }
+        .tk2-snum { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14rem; font-weight: 900; line-height: 0.8; color: rgba(var(--fg-rgb),0.05); letter-spacing: -0.04em; margin-bottom: -120px; pointer-events: none; }
+        .tk2-shead { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 24px; color: var(--fg); max-width: 820px; position: relative; }
+        .tk2-lede { font-size: 17px; line-height: 1.6; color: rgba(var(--fg-rgb),0.78); max-width: 720px; margin: 0 0 40px; }
 
         /* BIG NUMBER STAT GRID */
         .tk2-bignums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-bottom: 56px; }
-        .tk2-bignum { border-top: 2px solid #fff; padding-top: 16px; }
-        .tk2-bignum-value { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: #fff; font-variant-numeric: tabular-nums; margin-bottom: 10px; }
-        .tk2-bignum-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+        .tk2-bignum { border-top: 2px solid var(--fg); padding-top: 16px; }
+        .tk2-bignum-value { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: var(--fg); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+        .tk2-bignum-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(var(--fg-rgb),0.6); }
 
         /* PULL QUOTE */
-        .tk2-quote { margin: 0; padding: 32px 0; border-top: 2px solid #fff; border-bottom: 2px solid #fff; text-align: center; }
-        .tk2-quote blockquote { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; color: #fff; margin: 0 0 16px; max-width: 720px; margin-inline: auto; }
+        .tk2-quote { margin: 0; padding: 32px 0; border-top: 2px solid var(--fg); border-bottom: 2px solid var(--fg); text-align: center; }
+        .tk2-quote blockquote { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; color: var(--fg); margin: 0 0 16px; max-width: 720px; margin-inline: auto; }
         .tk2-quote blockquote::before { content: '\201C'; }
         .tk2-quote blockquote::after { content: '\201D'; }
-        .tk2-quote figcaption { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+        .tk2-quote figcaption { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(var(--fg-rgb),0.55); }
 
         /* COST BREAKDOWN BUBBLES — physics-driven, draggable */
         .tk2-bubbles { padding: 24px 0 8px; position: relative; }
         .tk2-bubbles-canvas { position: relative; width: 100%; height: 540px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
-        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--bs, 200px) * 0.055); color: #fff; cursor: grab; box-sizing: border-box; will-change: transform; }
+        .tk2-bubble { position: absolute; top: 0; left: 0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--bs, 200px) * 0.055); color: var(--on-accent); cursor: grab; box-sizing: border-box; will-change: transform; }
         .tk2-bubble:active { cursor: grabbing; }
         /* NPPC accent palette — variations of the site's #5660fe indigo,
            all dark enough that pure-white text reads at every size. */
@@ -595,12 +595,12 @@
         /* Font sizes scale with the bubble diameter so the label + value
            always fit, large or small. --bs is set inline in PHP from the
            computed size in px. */
-        .tk2-bubble-label { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.005em; font-size: clamp(9px, calc(var(--bs, 200px) * 0.07), 18px); line-height: 1.1; padding: 0 4px; margin-bottom: calc(var(--bs, 200px) * 0.025); max-width: 94%; color: #fff; pointer-events: none; }
+        .tk2-bubble-label { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.005em; font-size: clamp(9px, calc(var(--bs, 200px) * 0.07), 18px); line-height: 1.1; padding: 0 4px; margin-bottom: calc(var(--bs, 200px) * 0.025); max-width: 94%; color: var(--on-accent); pointer-events: none; }
         /* Value sits on a single line — long dollar strings like
            $408,882,383 wouldn't survive wrapping inside a circle, so
            we lock white-space and scale the font down enough to fit. */
-        .tk2-bubble-value { font-family: 'Inter', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.02em; font-size: clamp(11px, calc(var(--bs, 200px) * 0.095), 28px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; max-width: 94%; color: #fff; pointer-events: none; }
-        .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 16px 0 0; font-style: italic; }
+        .tk2-bubble-value { font-family: 'Inter', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.02em; font-size: clamp(11px, calc(var(--bs, 200px) * 0.095), 28px); line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; max-width: 94%; color: var(--on-accent); pointer-events: none; }
+        .tk2-bubbles-hint { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(var(--fg-rgb),0.45); margin: 16px 0 0; font-style: italic; }
         @media (max-width: 700px) {
             .tk2-bubbles-canvas { height: 420px; }
             .tk2-bubble { transform-origin: top left; }
@@ -611,8 +611,8 @@
         .tk2-charge { text-align: center; }
         .tk2-charge-dot-wrap { height: 124px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
         .tk2-charge-dot { display: block; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #6b73ff, #3a3fa3); }
-        .tk2-charge-count { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; font-weight: 900; line-height: 1; color: #fff; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
-        .tk2-charge-label { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.82); line-height: 1.3; max-width: 200px; margin: 0 auto 6px; }
+        .tk2-charge-count { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; font-weight: 900; line-height: 1; color: var(--fg); margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+        .tk2-charge-label { font-size: 13px; font-weight: 700; color: rgba(var(--fg-rgb),0.82); line-height: 1.3; max-width: 200px; margin: 0 auto 6px; }
         .tk2-charge-cost { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #4dd9d2; }
         @media (max-width: 900px) {
             .tk2-charges { grid-template-columns: repeat(3, 1fr); gap: 28px 16px; }
@@ -631,14 +631,14 @@
 
         /* BREAKDOWN BARS */
         .tk2-bars { display: flex; flex-direction: column; gap: 0; }
-        .tk2-bar { display: grid; grid-template-columns: 240px 1fr 160px; gap: 24px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.12); text-decoration: none; color: inherit; transition: background 0.15s; }
-        .tk2-bar:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
-        .tk2-bar:hover { background: rgba(255,255,255,0.03); }
-        .tk2-bar-label { font-size: 15px; font-weight: 700; color: #fff; }
-        .tk2-bar-track { height: 14px; background: rgba(255,255,255,0.08); position: relative; }
+        .tk2-bar { display: grid; grid-template-columns: 240px 1fr 160px; gap: 24px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(var(--fg-rgb),0.12); text-decoration: none; color: inherit; transition: background 0.15s; }
+        .tk2-bar:last-child { border-bottom: 1px solid rgba(var(--fg-rgb),0.12); }
+        .tk2-bar:hover { background: rgba(var(--fg-rgb),0.03); }
+        .tk2-bar-label { font-size: 15px; font-weight: 700; color: var(--fg); }
+        .tk2-bar-track { height: 14px; background: rgba(var(--fg-rgb),0.08); position: relative; }
         .tk2-bar-fill { height: 100%; background: #f25c54; }
-        .tk2-bar-value { font-family: 'Playfair Display', Georgia, serif; text-align: right; font-size: 22px; font-weight: 900; color: #fff; font-variant-numeric: tabular-nums; }
-        .tk2-bar-value span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55); margin-left: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+        .tk2-bar-value { font-family: 'Playfair Display', Georgia, serif; text-align: right; font-size: 22px; font-weight: 900; color: var(--fg); font-variant-numeric: tabular-nums; }
+        .tk2-bar-value span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: rgba(var(--fg-rgb),0.55); margin-left: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
 
         /* WHERE IT GOES — CAP-style alternating cost cards */
         .tk2-costcap-head { text-align: center; margin-bottom: 84px; }
@@ -651,22 +651,22 @@
         .tk2-costcap-figure { display: flex; justify-content: center; }
         .tk2-costcap-diamond { position: relative; width: 300px; height: 300px; max-width: 64vw; max-height: 64vw; transform: rotate(45deg); background: linear-gradient(135deg, #8d939c 0%, #565b63 55%, #3c4047 100%); border-radius: 4px; display: flex; align-items: center; justify-content: center; box-shadow: 0 26px 64px rgba(0,0,0,0.55); }
         .tk2-costcap-diamond::after { content: ''; position: absolute; left: -12px; bottom: -12px; width: 66px; height: 66px; background: #4dd9d2; z-index: -1; }
-        .tk2-costcap-emblem { transform: rotate(-45deg); width: 48%; color: #fff; opacity: 0.9; }
+        .tk2-costcap-emblem { transform: rotate(-45deg); width: 48%; color: var(--on-dark); opacity: 0.9; }
         .tk2-costcap-emblem svg { width: 100%; height: auto; display: block; }
         .tk2-costcap-amount { font-family: 'Inter', sans-serif; font-weight: 900; font-size: clamp(2.4rem, 5.5vw, 3.6rem); color: #4dd9d2; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
         .tk2-costcap-title { margin: 16px 0 18px; }
         .tk2-costcap-title span { display: inline; background: #fff; color: #0a0a0a; font-family: 'Inter', sans-serif; font-weight: 800; font-size: clamp(1rem, 2.4vw, 1.35rem); text-transform: uppercase; letter-spacing: 0.005em; padding: 4px 9px; line-height: 1.75; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-        .tk2-costcap-text { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.7; max-width: 44ch; margin: 0; }
+        .tk2-costcap-text { color: rgba(var(--fg-rgb),0.72); font-size: 15px; line-height: 1.7; max-width: 44ch; margin: 0; }
 
         /* METHODOLOGY */
-        .tk2-method p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.78); margin: 0 0 22px; max-width: 720px; }
-        .tk2-method p strong { color: #fff; font-weight: 800; }
+        .tk2-method p { font-size: 16px; line-height: 1.7; color: rgba(var(--fg-rgb),0.78); margin: 0 0 22px; max-width: 720px; }
+        .tk2-method p strong { color: var(--fg); font-weight: 800; }
         .tk2-method a { color: #4dd9d2; text-decoration: underline; }
-        .tk2-method code { font-family: ui-monospace, Menlo, monospace; font-size: 13px; background: rgba(255,255,255,0.08); padding: 1px 6px; border-radius: 3px; color: #fff; }
+        .tk2-method code { font-family: ui-monospace, Menlo, monospace; font-size: 13px; background: rgba(var(--fg-rgb),0.08); padding: 1px 6px; border-radius: 3px; color: var(--fg); }
         .tk2-method-list { list-style: none; padding: 0; margin: 0 0 22px; max-width: 760px; }
-        .tk2-method-list li { font-size: 15px; line-height: 1.55; color: rgba(255,255,255,0.78); padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1); }
-        .tk2-method-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .tk2-method-list li strong { color: #fff; font-weight: 800; }
+        .tk2-method-list li { font-size: 15px; line-height: 1.55; color: rgba(var(--fg-rgb),0.78); padding: 10px 0; border-top: 1px solid rgba(var(--fg-rgb),0.1); }
+        .tk2-method-list li:last-child { border-bottom: 1px solid rgba(var(--fg-rgb),0.1); }
+        .tk2-method-list li strong { color: var(--fg); font-weight: 800; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {

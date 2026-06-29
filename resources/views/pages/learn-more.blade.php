@@ -10,7 +10,7 @@
     .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(85%); }
     .lm-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 70%); pointer-events: none; }
     .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 96px 24px 64px; }
-    .lm-hero-title { font-size: 3rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 24px; }
+    .lm-hero-title { font-size: 3rem; font-weight: 700; color: var(--on-dark); line-height: 1.2; margin-bottom: 24px; }
     .lm-hero-title .lm-line { display: block; overflow: hidden; }
     .lm-hero-title .lm-line > span { display: inline-block; clip-path: inset(0 100% 0 0); animation: revealSweep 1.5s ease-out forwards; }
     .lm-hero-title .lm-line:nth-child(1) > span { animation-delay: 0.4s; }
@@ -33,8 +33,8 @@
 
     /* Editorial sections */
     .lm-section { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
-    .lm-section-title { font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 32px; text-align: center; }
-    .lm-section p { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.85; margin-bottom: 1.5em; }
+    .lm-section-title { font-size: 2.8rem; font-weight: 700; color: var(--fg); line-height: 1.2; margin-bottom: 32px; text-align: center; }
+    .lm-section p { font-size: 17px; color: rgba(var(--fg-rgb),0.75); line-height: 1.85; margin-bottom: 1.5em; }
     .lm-section p:last-child { margin-bottom: 0; }
 
     /* Full-width image */
@@ -42,32 +42,32 @@
 
     /* Stats bar */
     .lm-stats { max-width: 1000px; margin: 0 auto; padding: 64px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
-    .lm-stat-num { font-size: 3.5rem; font-weight: 900; color: #5660fe; line-height: 1; margin-bottom: 8px; }
-    .lm-stat-label { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-    .lm-divider { height: 1px; background: rgba(255,255,255,0.08); max-width: 1000px; margin: 0 auto; }
+    .lm-stat-num { font-size: 3.5rem; font-weight: 900; color: var(--accent-2); line-height: 1; margin-bottom: 8px; }
+    .lm-stat-label { font-size: 14px; color: rgba(var(--fg-rgb),0.5); line-height: 1.5; }
+    .lm-divider { height: 1px; background: rgba(var(--fg-rgb),0.08); max-width: 1000px; margin: 0 auto; }
 
     /* Featured prisoners */
-    .lm-cases-title { font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1.2; text-align: center; padding: 80px 24px 48px; }
+    .lm-cases-title { font-size: 2.8rem; font-weight: 700; color: var(--fg); line-height: 1.2; text-align: center; padding: 80px 24px 48px; }
     .lm-cases-grid { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .lm-case-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; text-decoration: none; transition: border-color 0.25s, transform 0.25s; display: flex; flex-direction: column; }
+    .lm-case-card { border: 1px solid rgba(var(--fg-rgb),0.08); border-radius: 8px; overflow: hidden; text-decoration: none; transition: border-color 0.25s, transform 0.25s; display: flex; flex-direction: column; }
     .lm-case-card:hover { border-color: rgba(86,96,254,0.35); transform: translateY(-2px); }
     .lm-case-photo { height: 280px; background-size: cover; background-position: center top; }
-    .lm-case-photo-placeholder { height: 280px; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; }
+    .lm-case-photo-placeholder { height: 280px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; }
     .lm-case-info { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .lm-case-name { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .lm-case-meta { font-size: 13px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .lm-case-name { font-size: 1.25rem; font-weight: 800; color: var(--fg); margin-bottom: 8px; }
+    .lm-case-meta { font-size: 13px; color: rgba(var(--fg-rgb),0.45); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
     .lm-case-status { display: inline-block; padding: 3px 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border-radius: 3px; margin-bottom: 12px; }
     .lm-case-status-custody { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
     .lm-case-status-released { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
     .lm-case-status-exile { background: rgba(234,179,8,0.15); color: #eab308; border: 1px solid rgba(234,179,8,0.3); }
-    .lm-case-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; flex: 1; }
+    .lm-case-desc { font-size: 14px; color: rgba(var(--fg-rgb),0.6); line-height: 1.7; flex: 1; }
 
     /* CTA */
     .lm-cta { text-align: center; padding: 80px 24px; max-width: 700px; margin: 0 auto; }
-    .lm-cta-title { font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
-    .lm-cta-text { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 36px; }
-    .lm-cta-btn { display: inline-block; background: #5660fe; color: #fff; padding: 16px 40px; font-size: 15px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s; }
-    .lm-cta-btn:hover { background: #4850e6; }
+    .lm-cta-title { font-size: 2.5rem; font-weight: 700; color: var(--fg); margin-bottom: 20px; }
+    .lm-cta-text { font-size: 17px; color: rgba(var(--fg-rgb),0.6); line-height: 1.75; margin-bottom: 36px; }
+    .lm-cta-btn { display: inline-block; background: var(--accent); color: var(--on-accent); padding: 16px 40px; font-size: 15px; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; transition: background 0.2s; }
+    .lm-cta-btn:hover { background: var(--accent-hover); }
 
     @@media (max-width: 1100px) {
         .lm-hero-photos { gap: 14px; }
@@ -92,15 +92,15 @@
     }
     /* state-by-state directory (state silhouettes adapted from svg-maps/usa, MIT) */
     .sbs { max-width: 1180px; margin: 0 auto; padding: 24px 24px 96px; }
-    .sbs-head { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; margin: 0 0 10px; }
-    .sbs-rule { position: relative; height: 1px; background: rgba(255,255,255,0.15); margin-bottom: 32px; }
-    .sbs-rule::before { content: ""; position: absolute; left: 0; top: -2px; height: 5px; width: 110px; background: #5660fe; }
-    .sbs-intro { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 760px; margin: 0 0 44px; }
+    .sbs-head { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); margin: 0 0 10px; }
+    .sbs-rule { position: relative; height: 1px; background: rgba(var(--fg-rgb),0.15); margin-bottom: 32px; }
+    .sbs-rule::before { content: ""; position: absolute; left: 0; top: -2px; height: 5px; width: 110px; background: var(--accent); }
+    .sbs-intro { font-size: 17px; color: rgba(var(--fg-rgb),0.7); line-height: 1.75; max-width: 760px; margin: 0 0 44px; }
     .sbs-grid { column-count: 4; column-gap: 36px; }
     .sbs-item { display: flex; align-items: center; gap: 14px; padding: 9px 0; text-decoration: none; break-inside: avoid; }
-    .sbs-ico { width: 28px; height: 22px; flex: 0 0 28px; color: rgba(255,255,255,0.82); display: block; transition: color 0.15s; }
-    .sbs-name { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.9); transition: color 0.15s; }
-    .sbs-item:hover .sbs-name, .sbs-item:hover .sbs-ico { color: #5660fe; }
+    .sbs-ico { width: 28px; height: 22px; flex: 0 0 28px; color: rgba(var(--fg-rgb),0.82); display: block; transition: color 0.15s; }
+    .sbs-name { font-size: 15px; font-weight: 700; color: rgba(var(--fg-rgb),0.9); transition: color 0.15s; }
+    .sbs-item:hover .sbs-name, .sbs-item:hover .sbs-ico { color: var(--accent); }
     @@media (max-width: 900px) { .sbs-grid { column-count: 2; } }
     @@media (max-width: 560px) { .sbs-grid { column-count: 1; } }
 </style>
