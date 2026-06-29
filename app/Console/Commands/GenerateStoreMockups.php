@@ -53,6 +53,7 @@ class GenerateStoreMockups extends Command {
         'NPPC Enamel Pin'                      => ['shape' => 'pin',       'design' => ['NPPC']],
         'Free Mumia Enamel Pin'                => ['shape' => 'pin',       'design' => ['FREE', 'MUMIA']],
         'Free Leonard Peltier Enamel Pin'      => ['shape' => 'pin',       'design' => ['FREE', 'LEONARD']],
+        'NPPC Button'                          => ['shape' => 'button',    'design' => ['NPPC']],
         // Bundle
         'NPPC Solidarity Bundle'               => ['shape' => 'bundle',    'design' => ['NPPC', 'SOLIDARITY']],
     ];
@@ -97,6 +98,7 @@ class GenerateStoreMockups extends Command {
             'carmagnet'  => $this->carmagnet($design),
             'fridgemagnet' => $this->fridgemagnet($design),
             'pin'        => $this->pin($design),
+            'button'     => $this->button($design),
             'bundle'     => $this->bundle($design),
             default      => $this->centeredText($design, 400, 500, 56, '#1f2a44'),
         };
@@ -254,6 +256,17 @@ class GenerateStoreMockups extends Command {
         $sheen = '<path d="M300 430 A160 160 0 0 1 500 400" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="18" stroke-linecap="round"/>';
 
         return $this->shadow(672, 150).$disc.$sheen.$this->centeredText($d, 400, 500, $this->fs($d, 230), '#f3e7c4');
+    }
+
+    private function button(array $d): string {
+        // Round pin-back button: a two-tone metal rim crimped around a printed
+        // face (distinct from the enamel pin's gold rim).
+        $rim = '<circle cx="400" cy="500" r="172" fill="#d4d8de"/>';
+        $bezel = '<circle cx="400" cy="500" r="162" fill="#aeb4bd"/>';
+        $face = '<circle cx="400" cy="500" r="150" fill="#1f2a44"/>';
+        $sheen = '<path d="M300 436 A156 156 0 0 1 512 404" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="16" stroke-linecap="round"/>';
+
+        return $this->shadow(672, 150).$rim.$bezel.$face.$sheen.$this->centeredText($d, 400, 500, $this->fs($d, 220), '#ffffff');
     }
 
     private function bundle(array $d): string {
