@@ -91,7 +91,7 @@
     </div>
 </section>
 <style>
-    .feat-section { padding: 64px 0 32px; }
+    .feat-section { padding: 32px 0 20px; }
     .feat-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; border-bottom: 2px solid var(--accent); padding-bottom: 12px; }
     .feat-title { font-size: 1.6rem; font-weight: 900; color: var(--fg); margin: 0; text-transform: uppercase; letter-spacing: 0.02em; }
     .feat-more { font-size: 13px; font-weight: 700; color: rgba(var(--fg-rgb),0.7); text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -121,7 +121,7 @@
         .feat-card { border-bottom: 1px solid rgba(var(--fg-rgb),0.08); }
     }
     @media (max-width: 640px) {
-        .feat-section { padding: 40px 0 24px; }
+        .feat-section { padding: 28px 0 16px; }
         .feat-grid { grid-template-columns: 1fr; }
         .feat-card { border-right: 0; min-height: 0; padding: 16px 0; }
         .feat-card:last-child { border-bottom: 0; }

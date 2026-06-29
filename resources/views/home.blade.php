@@ -141,4 +141,11 @@
         <div id="app-gallery"></div>
     @endif
 
+    <style>
+        /* Tighten the vertical gap between the Featured Authors block and the
+           newsletter CTA on the home page only (the .nls-wrap default spacing is
+           shared with other pages, so scope the reduction to home). */
+        body.home-page .nls-wrap { margin-top: 20px; padding-top: 36px; }
+    </style>
+
 @endsection
