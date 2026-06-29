@@ -2,8 +2,13 @@
 
 @section('head')
 <style>
-    /* Width matches the header container (1280px) so the sidebar's left edge
-       lines up directly under the logo. */
+    /* The page content sits in the site's 1080px .container. The category
+       sidebar alone is nudged left (see .pd-sidebar transform below) so its
+       left edge lines up under the logo, which sits on the wider 1280px header
+       grid. For that nudge to show, the .container must stop clipping horizontal
+       overflow on this page — the sidebar never crosses the viewport edge, so
+       this adds no horizontal scroll. */
+    #main-content.container { overflow-x: visible; }
     .pd-page { max-width: 1280px; margin: 0 auto; padding: 0 24px 80px; }
 
     .pd-crumb { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: rgba(255,255,255,0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
@@ -60,7 +65,11 @@
     /* Left category sidebar */
     .pd-layout { display: flex; gap: 48px; align-items: flex-start; }
     .pd-content { flex: 1; min-width: 0; }
-    .pd-sidebar { flex: 0 0 200px; position: sticky; top: 24px; }
+    /* Shift the sidebar left so its left edge aligns with the logo. The logo
+       sits at max((100vw - 1280px)/2, 0) + 24px (header grid); the sidebar
+       naturally sits at max((100vw - 1080px)/2, 0) + 40px (container + paddings).
+       The difference is the (negative) nudge. The content beside it stays put. */
+    .pd-sidebar { flex: 0 0 200px; position: sticky; top: 24px; transform: translateX(calc(max((100vw - 1280px) / 2, 0px) - max((100vw - 1080px) / 2, 0px) - 16px)); }
     .pd-sidebar-title { font-size: 22px; font-weight: 900; color: #fff; margin: 32px 0 18px; }
     .pd-cats { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.12); }
     .pd-cat { display: block; padding: 13px 2px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.72); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.12); transition: color 0.15s; }
@@ -76,7 +85,7 @@
         .pd-title { font-size: 2rem; }
         .pd-related-grid { grid-template-columns: repeat(2, 1fr); }
         .pd-layout { flex-direction: column; gap: 0; }
-        .pd-sidebar { position: static; flex: none; width: 100%; }
+        .pd-sidebar { position: static; flex: none; width: 100%; transform: none; }
         .pd-sidebar-title { font-size: 18px; margin: 24px 0 12px; }
         .pd-cats { flex-direction: row; flex-wrap: wrap; gap: 6px 18px; border-top: none; }
         .pd-cat { border-bottom: none; padding: 6px 0; font-size: 14px; }
