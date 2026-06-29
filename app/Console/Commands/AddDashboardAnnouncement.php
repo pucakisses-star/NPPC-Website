@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 
 /**
  * Publishes the "NPPC Launches Live Event Dashboard" press release (announcing
- * the /dashboard page), filed under a "Press Release" category and dated
+ * the /dashboard page), filed under a "Press Releases" category and dated
  * 2025-05-25. Idempotent: matches the article by its current or previous slug
  * (or title) and updates in place, so re-running never creates a duplicate.
  */
@@ -31,7 +31,7 @@ final class AddDashboardAnnouncement extends Command
             ['about' => 'The National Political Prisoner Coalition is an independent, donor-supported coalition dedicated to documenting, supporting, and advocating for U.S. political prisoners.']
         );
 
-        $category = Category::firstOrCreate(['title' => 'Press Release']);
+        $category = Category::firstOrCreate(['slug' => 'press-releases'], ['title' => 'Press Releases']);
 
         $title = 'NPPC Launches Live Event Dashboard';
 
