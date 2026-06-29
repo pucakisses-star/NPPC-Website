@@ -27,12 +27,26 @@ final class AddArrestedStudentsReport extends Command
 
     private const IMAGE = 'articles/documents-prove-trump-administration-arrested-students.jpg';
 
+    private const AUTHOR_IMAGE = 'images/authors/najib-aminy.jpg';
+
+    private const AUTHOR_AVATAR = 'authors/najib-aminy.jpg';
+
     public function handle(): int
     {
-        $author = Author::firstOrCreate(
-            ['name' => 'Mother Jones'],
-            ['about' => 'Mother Jones is a nonprofit news organization published by the Center for Investigative Reporting.']
-        );
+        // Byline author: Najib Aminy (Reveal / Center for Investigative Reporting).
+        $author = Author::firstOrCreate(['name' => 'Najib Aminy']);
+        $author->about = 'Najib Aminy is a Reporter and Producer at Reveal from the Center for Investigative Reporting, he serves as the Vice President of the Arab and Middle Eastern Journalists Association and has received numerous awards for his reporting including the George Polk Award, Gerald Loeb Award, Edward R. Murrow Award, IRE Gold Medal, and Alfred I. duPont Award.';
+
+        // Copy his committed headshot to the public disk and set it as the avatar.
+        $avatarSource = public_path(self::AUTHOR_IMAGE);
+        if (is_file($avatarSource)) {
+            Storage::disk('public')->put(self::AUTHOR_AVATAR, file_get_contents($avatarSource));
+            $author->avatar = self::AUTHOR_AVATAR;
+            $this->info('Copied author headshot to public disk: '.self::AUTHOR_AVATAR);
+        } else {
+            $this->warn('Author headshot not found: public/'.self::AUTHOR_IMAGE);
+        }
+        $author->save();
 
         $category = Category::firstOrCreate(['slug' => 'reports'], ['title' => 'Reports']);
 
@@ -53,6 +67,11 @@ final class AddArrestedStudentsReport extends Command
 <p>Documents unsealed by a federal judge this week <a href="https://www.courtlistener.com/docket/69784731/american-association-of-university-professors-v-rubio/" target="_blank" rel="noopener">confirm</a> the federal government&rsquo;s attempts to target, arrest, and deport students for pro-Palestine speech on college campuses last year. The court records also make clear the methods of investigation. The government looked to unverified accounts shared on social media and utilized <a href="https://www.motherjones.com/politics/2025/07/canary-mission-israel-palestine-blacklist-university-trump-deportation-ozturk-khalil/" target="_blank" rel="noopener">Canary Mission</a>&mdash;a shadowy online blacklist created by anonymous authors to smear pro-Palestine activists&mdash;to gather evidence against student protestors.</p>
 
 <p>The documents were unsealed only after sustained pressure from journalists and press-freedom groups. News organizations, including the Center for Investigative Reporting (the parent organization of Mother Jones and the <a href="https://revealnews.org/" target="_blank" rel="noopener">Reveal</a> radio show and podcast), challenged the government&rsquo;s efforts to keep large portions of the record secret, arguing that the public had a right to understand how speech was being scrutinized and punished. In unsealing the documents, US District Judge William G. Young sharply rebuked the Trump administration and called the government&rsquo;s actions against pro-Palestinian speech an unconstitutional attempt to twist laws to intimidate students.</p>
+
+<figure style="margin: 28px 0;">
+<iframe src="https://embed.documentcloud.org/documents/26503912-dhs-lawsuit-pro-palestine/?embed=1" title="Unsealed court records in American Association of University Professors v. Rubio" style="border: 1px solid #d8dee2; border-radius: 0.5rem; width: 100%; aspect-ratio: 612 / 792;" allow="fullscreen"></iframe>
+<figcaption style="font-size: 13px; color: #888; margin-top: 8px;">The unsealed court records in <em>American Association of University Professors v. Rubio</em>. Source: DocumentCloud.</figcaption>
+</figure>
 
 <p>The new materials <a href="https://www.motherjones.com/politics/2025/07/canary-mission-israel-palestine-blacklist-university-trump-deportation-ozturk-khalil/" target="_blank" rel="noopener">confirm previous accounts and reporting</a> about the Department of Homeland Security&rsquo;s targeting of students. In 2025, after <a href="https://www.motherjones.com/politics/2025/03/mahmoud-khalil-student-protester-palestine-trump-deportation-columbia-shai-davidai/" target="_blank" rel="noopener">Mahmoud Khalil</a> and <a href="https://revealnews.org/podcast/trump-deportations-venezuela-el-salvador-students-gaza-mahmoud-khalil-rumeysa-ozturk/" target="_blank" rel="noopener">R&uuml;meysa &Ouml;zt&uuml;rk</a> were taken into custody by Immigration and Customs Enforcement officials, speculation spread quickly among advocacy groups that government officials were collecting names by looking at pro-Israel monitoring websites like Canary Mission.</p>
 
