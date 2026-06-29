@@ -10,10 +10,8 @@ use Illuminate\Support\Str;
 /**
  * Adds three small-format merch items to the store: a bumper sticker (Stickers
  * category), plus a car magnet and a fridge magnet (a new Magnets category).
- * Dedupes by name and is safe to re-run. After inserting the rows it calls
- * store:generate-mockups so the new products get vector mock images in the same
- * studio style as the rest of the catalog — the three names are registered in
- * that command's map.
+ * Dedupes by name and is safe to re-run. Products are created without an image
+ * so an admin can upload a real photo through the panel.
  */
 final class AddStoreMagnets extends Command
 {
@@ -71,20 +69,12 @@ final class AddStoreMagnets extends Command
                     'sort_order' => $entry['sort_order'],
                     'published' => true,
                     'featured' => false,
-                    'image' => "products/{$slug}.svg",
                     'slug' => $slug,
                 ]);
 
                 $this->info("Added {$name}  (\${$entry['price']})  [{$entry['category']}]");
                 $created++;
             });
-        }
-
-        // Render the studio mock image for each new product only (the names are
-        // registered in the generator's map). Scoping by name keeps this from
-        // touching — or regenerating over — any other product's image.
-        foreach ($products as $entry) {
-            $this->call('store:generate-mockups', ['name' => $entry['name']]);
         }
 
         $this->info("\nDone. Created {$created}, skipped {$skipped}.");
