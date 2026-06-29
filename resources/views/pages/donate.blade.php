@@ -79,7 +79,7 @@
         // only once its donate_<key>_address SiteSetting is filled.
         $cryptoDefs = [
             ['Bitcoin', 'BTC', 'Bitcoin network', 'btc'],
-            ['Ethereum', 'ETH', 'Ethereum (ERC-20)', 'eth'],
+            ['Ethereum', 'ETH', 'Ethereum network', 'eth'],
             ['Solana', 'SOL', 'Solana network', 'sol'],
             ['XRP', 'XRP', 'XRP Ledger', 'xrp'],
             ['Bitcoin Cash', 'BCH', 'Bitcoin Cash network', 'bch'],
