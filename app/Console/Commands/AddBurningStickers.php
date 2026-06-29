@@ -71,7 +71,10 @@ final class AddBurningStickers extends Command
         $created = 0;
         $updated = 0;
 
-        foreach ($this->items as $it) {
+        // High sort_order so these PP stickers/patches fall to the back of the
+        // regular-merch tier — still ahead of Books and Zines (separate ranks).
+        foreach ($this->items as $index => $it) {
+            $sortOrder = 500 + $index;
             $imagePath = "products/{$it['slug']}.jpg";
             $source = public_path("images/products/{$it['slug']}.jpg");
             if (is_file($source)) {
@@ -93,6 +96,7 @@ final class AddBurningStickers extends Command
                     'price' => $it['price'],
                     'category' => $it['category'],
                     'categories' => $it['categories'],
+                    'sort_order' => $sortOrder,
                     'published' => true,
                     'featured' => false,
                     'image' => is_file($source) ? $imagePath : null,
@@ -106,6 +110,7 @@ final class AddBurningStickers extends Command
 
             $product->category = $it['category'];
             $product->categories = $it['categories'];
+            $product->sort_order = $sortOrder;
             $product->published = true;
             if (! $product->image && is_file($source)) {
                 $product->image = $imagePath;
