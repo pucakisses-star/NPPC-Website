@@ -124,8 +124,14 @@
             <p class="store-feature-desc">Show your support for political prisoners with a product from our store. All purchases directly support our work to advocate for justice, provide legal aid, and assist families in need.</p>
         </div>
         <div class="store-feature-image">
-            @if(file_exists(public_path('images/site/store-feature.jpg')))
-                <img src="/images/site/store-feature.jpg?v={{ @filemtime(public_path('images/site/store-feature.jpg')) }}" alt="Goods that do good">
+            @php
+                // Randomly show one of the available feature photos on each load.
+                $featureImgs = collect(['images/site/store-feature.jpg', 'images/site/store-feature-2.jpg'])
+                    ->filter(fn ($p) => file_exists(public_path($p)))->values();
+                $featureImg = $featureImgs->isNotEmpty() ? $featureImgs->random() : null;
+            @endphp
+            @if($featureImg)
+                <img src="/{{ $featureImg }}?v={{ @filemtime(public_path($featureImg)) }}" alt="Goods that do good">
             @else
                 <div class="store-feature-placeholder"></div>
             @endif
