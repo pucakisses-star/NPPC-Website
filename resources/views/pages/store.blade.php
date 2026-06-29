@@ -104,7 +104,7 @@
         // may have no products yet — their pill just filters to an empty grid).
         $cardCategories = collect(['Apparel', 'Accessories', 'Bundles', 'Books'])
             ->filter(fn ($c) => $categories->contains($c))->values();
-        $filterCategories = collect(['Apparel', 'Accessories', 'Pins', 'Stickers', 'Patches', 'Magnets', 'Bundles', 'Books', 'Zines']);
+        $filterCategories = collect(['Apparel', 'Accessories', 'Pins', 'Stickers', 'Magnets', 'Bundles', 'Books', 'Zines']);
     @endphp
 
     {{-- Categories (cards: departments only) --}}

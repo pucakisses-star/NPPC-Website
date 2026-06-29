@@ -8,73 +8,57 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
- * Adds political-prisoner stickers and patches to the store, each with its
- * cover image and a short description. Stickers go in Stickers (+ Accessories);
- * patches go in Accessories (Patches is no longer a unique category). Cover
- * images are committed under public/images/products/{sticker,patch}-*.jpg and copied to the
- * public disk here. Idempotent: a product already present (matched by name) is
- * ensured published with the right categories and given the cover if it has
- * none; description/price are left as-is so admin edits are preserved.
+ * Second batch of political-prisoner stickers/patches for the store. Patches are
+ * no longer a unique category, so everything here lives under Accessories (the
+ * sticker also carries the Stickers tag). Cover images are committed under
+ * public/images/products/{sticker,patch}-*.jpg and copied to the public disk
+ * here. This command also migrates any product still filed under the retired
+ * "Patches" category to "Accessories". Idempotent: a product already present
+ * (matched by name) is ensured published with the right categories and given the
+ * cover if it has none; description/price are left as-is so admin edits persist.
  */
-final class AddBurningStickers extends Command
+final class AddBurningStickers2 extends Command
 {
-    protected $signature = 'store:add-burning-stickers';
+    protected $signature = 'store:add-burning-stickers-2';
 
-    protected $description = 'Add curated political-prisoner stickers and patches with covers';
+    protected $description = 'Add more political-prisoner stickers/patches and retire the Patches category';
 
     /** @var array<int, array{name:string, slug:string, price:float, category:string, categories:array<int,string>, description:string}> */
     private array $items = [
         [
-            'name' => 'Free All Political Prisoners Sticker',
-            'slug' => 'sticker-free-all-political-prisoners',
-            'price' => 1.00,
-            'category' => 'Stickers',
-            'categories' => ['Accessories'],
-            'description' => "A 'Free All Political Prisoners' vinyl sticker, reproducing a design found in old support literature for the Ohio 7.",
-        ],
-        [
-            'name' => 'Free Leonard Peltier - AIM Logo Patch',
-            'slug' => 'patch-free-leonard-peltier-aim-logo',
+            'name' => 'In Solidarity With The Earth Liberation Front Patch',
+            'slug' => 'patch-in-solidarity-with-the-earth-liberation-front',
             'price' => 4.00,
             'category' => 'Accessories',
             'categories' => [],
-            'description' => 'An embroidered patch supporting Leonard Peltier — American Indian Movement activist imprisoned for nearly fifty years before his 2025 release to home confinement — with the AIM logo.',
+            'description' => 'A 3-inch embroidered iron-on patch in solidarity with the Earth Liberation Front, featuring imagery from its 1998 arson at the Vail ski resort.',
         ],
         [
-            'name' => 'Martin Sostre Sticker',
-            'slug' => 'sticker-martin-sostre',
-            'price' => 1.00,
-            'category' => 'Stickers',
-            'categories' => ['Accessories'],
-            'description' => 'A sticker honoring Martin Sostre — Black Puerto Rican anarchist, bookstore owner, jailhouse lawyer, and political prisoner.',
-        ],
-        [
-            'name' => 'Martin Sostre Propaganda of the Deed Sticker',
-            'slug' => 'sticker-martin-sostre-propaganda-of-the-deed',
-            'price' => 1.00,
-            'category' => 'Stickers',
-            'categories' => ['Accessories'],
-            'description' => 'A sticker featuring original art of Martin Sostre, the Black and Puerto Rican political prisoner and jailhouse lawyer.',
-        ],
-        [
-            'name' => 'Rehabilitation Not Incarceration Sticker',
-            'slug' => 'sticker-rehabilitation-not-incarceration',
+            'name' => 'Disability Rights Sticker',
+            'slug' => 'sticker-disability-rights',
             'price' => 4.00,
             'category' => 'Stickers',
             'categories' => ['Accessories'],
-            'description' => "A transparent vinyl sticker with the message 'Rehabilitation Not Incarceration.'",
+            'description' => 'A die-cut vinyl sticker in support of disability rights.',
         ],
     ];
 
     public function handle(): int
     {
+        // Retire the Patches category: anything still filed there moves to
+        // Accessories so it remains discoverable now that the Patches pill is gone.
+        $migrated = Product::where('category', 'Patches')->update(['category' => 'Accessories']);
+        if ($migrated > 0) {
+            $this->info("Migrated {$migrated} product(s) from Patches to Accessories.");
+        }
+
         $created = 0;
         $updated = 0;
 
         // High sort_order so these PP stickers/patches fall to the back of the
         // regular-merch tier — still ahead of Books and Zines (separate ranks).
         foreach ($this->items as $index => $it) {
-            $sortOrder = 500 + $index;
+            $sortOrder = 505 + $index;
             $imagePath = "products/{$it['slug']}.jpg";
             $source = public_path("images/products/{$it['slug']}.jpg");
             if (is_file($source)) {
