@@ -4,59 +4,59 @@
 <style>
     .about-page { overflow: hidden; }
     .about-hero { max-width: 1200px; margin: 0 auto; padding: 80px 24px 60px; display: flex; gap: 48px; align-items: flex-start; }
-    .about-title { font-size: 6rem; font-weight: 900; color: #fff; line-height: 1; flex: 0 0 auto; }
-    .about-hero-text { font-size: 1.75rem; font-weight: 700; color: rgba(255,255,255,0.85); line-height: 1.45; max-width: 700px; }
+    .about-title { font-size: 6rem; font-weight: 900; color: var(--fg); line-height: 1; flex: 0 0 auto; }
+    .about-hero-text { font-size: 1.75rem; font-weight: 700; color: rgba(var(--fg-rgb),0.85); line-height: 1.45; max-width: 700px; }
 
     /* Scroll carousel */
     .about-carousel-wrapper { position: sticky; top: 108px; overflow: hidden; padding: 40px 0; }
     .about-carousel { display: flex; gap: 20px; will-change: transform; }
-    .about-carousel-img { flex: 0 0 280px; height: 340px; border-radius: 8px; overflow: hidden; background: #1a1a2e; }
+    .about-carousel-img { flex: 0 0 280px; height: 340px; border-radius: 8px; overflow: hidden; background: var(--surface-2); }
     .about-carousel-img img { width: 100%; height: 100%; object-fit: cover; }
     .about-carousel-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #111 0%, #1a1a2e 50%, #2a1860 100%); }
 
     /* Sections */
     .about-section { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .about-divider { height: 1px; background: rgba(255,255,255,0.1); max-width: 1200px; margin: 64px auto; }
+    .about-divider { height: 1px; background: rgba(var(--fg-rgb),0.1); max-width: 1200px; margin: 64px auto; }
 
     /* Mission */
     .about-mission { display: flex; gap: 48px; align-items: flex-start; padding: 80px 0; }
-    .about-mission-label { flex: 0 0 200px; font-size: 16px; font-weight: 800; color: #fff; }
-    .about-mission-text { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1.15; }
-    .about-mission-fade { color: rgba(255,255,255,0.2); }
+    .about-mission-label { flex: 0 0 200px; font-size: 16px; font-weight: 800; color: var(--fg); }
+    .about-mission-text { font-size: 3rem; font-weight: 900; color: var(--fg); line-height: 1.15; }
+    .about-mission-fade { color: rgba(var(--fg-rgb),0.2); }
 
     /* History */
     .about-history { display: flex; gap: 48px; padding: 80px 0; align-items: flex-start; }
     .about-history-left { flex: 1; }
-    .about-history-title { font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 24px; line-height: 1.1; }
-    .about-history-text { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; font-weight: 600; }
+    .about-history-title { font-size: 3rem; font-weight: 900; color: var(--fg); margin-bottom: 24px; line-height: 1.1; }
+    .about-history-text { font-size: 18px; color: rgba(var(--fg-rgb),0.7); line-height: 1.7; font-weight: 600; }
     .about-history-image { flex: 0 0 50%; border-radius: 8px; overflow: hidden; }
     .about-history-image-placeholder { width: 100%; min-height: 500px; background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #2a1860 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px; }
 
     /* Impact */
     .about-impact { padding: 80px 0; }
-    .about-impact-title { font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 48px; }
+    .about-impact-title { font-size: 3rem; font-weight: 900; color: var(--fg); margin-bottom: 48px; }
     .about-impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
     .about-impact-stat { text-align: center; }
-    .about-impact-num { font-size: 4rem; font-weight: 900; color: #5660fe; line-height: 1; margin-bottom: 12px; }
-    .about-impact-desc { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .about-impact-num { font-size: 4rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 12px; }
+    .about-impact-desc { font-size: 16px; color: rgba(var(--fg-rgb),0.6); line-height: 1.5; }
 
     /* Team */
     .about-team { display: flex; gap: 48px; padding: 80px 0; align-items: flex-start; }
     .about-team-image { flex: 0 0 45%; min-height: 400px; border-radius: 8px; overflow: hidden; background: linear-gradient(135deg, #1a1040 0%, #5660fe 100%); display: flex; align-items: center; justify-content: center; }
     .about-team-right { flex: 1; }
-    .about-team-title { font-size: 3rem; font-weight: 900; color: #fff; margin-bottom: 20px; }
-    .about-team-text { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 32px; }
-    .about-btn { display: inline-block; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 14px 28px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-right: 12px; }
-    .about-btn:hover { border-color: #5660fe; color: #5660fe; }
+    .about-team-title { font-size: 3rem; font-weight: 900; color: var(--fg); margin-bottom: 20px; }
+    .about-team-text { font-size: 17px; color: rgba(var(--fg-rgb),0.65); line-height: 1.7; margin-bottom: 32px; }
+    .about-btn { display: inline-block; border: 1px solid rgba(var(--fg-rgb),0.3); color: var(--fg); padding: 14px 28px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-right: 12px; }
+    .about-btn:hover { border-color: var(--accent); color: var(--accent); }
     .about-btn-arrow { margin-left: 8px; }
 
     /* Values */
     .about-values { padding: 80px 0; }
-    .about-values-title { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 40px; }
+    .about-values-title { font-size: 2rem; font-weight: 900; color: var(--fg); margin-bottom: 40px; }
     .about-values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    .about-value-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 32px; }
-    .about-value-name { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 12px; }
-    .about-value-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .about-value-card { border: 1px solid rgba(var(--fg-rgb),0.08); border-radius: 8px; padding: 32px; }
+    .about-value-name { font-size: 20px; font-weight: 800; color: var(--fg); margin-bottom: 12px; }
+    .about-value-desc { font-size: 15px; color: rgba(var(--fg-rgb),0.6); line-height: 1.7; }
 
     /* Searchlight */
     .spotlight-section {
@@ -260,19 +260,19 @@
             <a href="/prisoner-outreach" style="position:relative; display:block; border-radius:8px; overflow:hidden; min-height:400px; text-decoration:none; {{ file_exists(public_path('images/site/about-write-letter.jpg')) ? 'background-image:url(/images/site/about-write-letter.jpg); background-size:cover; background-position:center;' : 'background:linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #5660fe 100%);' }}">
                 <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 50%);"></div>
                 <div style="position:absolute; bottom:0; left:0; padding:32px;">
-                    <div style="font-size:2.5rem; font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px;">Write a Letter</div>
+                    <div style="font-size:2.5rem; font-weight:900; color:var(--on-dark); line-height:1.1; margin-bottom:16px;">Write a Letter</div>
                     <div style="width:48px; height:48px; display:flex; align-items:center; justify-content:center;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
             </a>
-            <a href="/contact" style="position:relative; display:block; border-radius:8px; overflow:hidden; min-height:400px; text-decoration:none; background:#111;">
+            <a href="/contact" style="position:relative; display:block; border-radius:8px; overflow:hidden; min-height:400px; text-decoration:none; background:var(--surface);">
                 <div style="padding:32px;">
-                    <div style="font-size:2.5rem; font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px;">Get in Touch</div>
-                    <p style="font-size:15px; color:rgba(255,255,255,0.6); line-height:1.7; max-width:400px;">We strongly value everyone's feedback. If you have general, media-related, or partnership inquiries, please refer to the FAQ below or click here to contact us.</p>
+                    <div style="font-size:2.5rem; font-weight:900; color:var(--fg); line-height:1.1; margin-bottom:16px;">Get in Touch</div>
+                    <p style="font-size:15px; color:rgba(var(--fg-rgb),0.6); line-height:1.7; max-width:400px;">We strongly value everyone's feedback. If you have general, media-related, or partnership inquiries, please refer to the FAQ below or click here to contact us.</p>
                 </div>
                 <div style="position:absolute; bottom:0; left:0; padding:32px;">
-                    <div style="width:48px; height:48px; background:#5660fe; display:flex; align-items:center; justify-content:center;">
+                    <div style="width:48px; height:48px; background:var(--accent); display:flex; align-items:center; justify-content:center;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>

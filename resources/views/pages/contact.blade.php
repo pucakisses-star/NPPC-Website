@@ -2,7 +2,7 @@
 
 @section('head')
 <style>
-    .ct-page { color: rgba(255,255,255,0.85); }
+    .ct-page { color: rgba(var(--fg-rgb),0.85); }
 
     /* Hero */
     .ct-hero { max-width: 1100px; margin: 0 auto; padding: 80px 24px 48px; }
@@ -11,20 +11,20 @@
         font-weight: 800;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: #5660fe;
+        color: var(--accent);
         margin-bottom: 18px;
     }
     .ct-hero-title {
         font-size: 5rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         line-height: 1;
         letter-spacing: -0.02em;
         margin: 0 0 28px;
     }
     .ct-hero-lede {
         font-size: 22px;
-        color: rgba(255,255,255,0.78);
+        color: rgba(var(--fg-rgb),0.78);
         line-height: 1.55;
         max-width: 720px;
         margin: 0 0 16px;
@@ -37,20 +37,20 @@
         font-weight: 800;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #5660fe;
+        color: var(--accent);
         margin-bottom: 12px;
     }
     .ct-section-heading {
         font-size: 2.4rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         line-height: 1.1;
         margin: 0 0 16px;
         letter-spacing: -0.02em;
     }
     .ct-section-sub {
         font-size: 17px;
-        color: rgba(255,255,255,0.6);
+        color: rgba(var(--fg-rgb),0.6);
         line-height: 1.7;
         max-width: 720px;
         margin: 0 0 40px;
@@ -59,32 +59,32 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1px;
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(var(--fg-rgb),0.1);
+        border: 1px solid rgba(var(--fg-rgb),0.1);
     }
     .ct-card {
-        background: #0a0a14;
+        background: var(--surface);
         padding: 32px 28px;
         transition: background 0.15s;
     }
-    .ct-card:hover { background: #11111e; }
+    .ct-card:hover { background: var(--surface-2); }
     .ct-card-title {
         font-size: 1.15rem;
         font-weight: 800;
-        color: #fff;
+        color: var(--fg);
         margin: 0 0 8px;
         letter-spacing: -0.01em;
     }
     .ct-card-text {
         font-size: 14px;
-        color: rgba(255,255,255,0.6);
+        color: rgba(var(--fg-rgb),0.6);
         line-height: 1.6;
         margin: 0 0 14px;
     }
     .ct-card-link {
         font-size: 13px;
         font-weight: 700;
-        color: #5660fe;
+        color: var(--accent-2);
         letter-spacing: 0.04em;
         text-decoration: none;
         text-transform: uppercase;
@@ -102,14 +102,14 @@
     .ct-form-side h2 {
         font-size: 2.2rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         line-height: 1.1;
         margin: 0 0 16px;
         letter-spacing: -0.01em;
     }
     .ct-form-side p {
         font-size: 16px;
-        color: rgba(255,255,255,0.6);
+        color: rgba(var(--fg-rgb),0.6);
         line-height: 1.7;
         margin: 0 0 24px;
     }
@@ -119,35 +119,35 @@
         font-weight: 800;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.5);
+        color: rgba(var(--fg-rgb),0.5);
         margin-bottom: 6px;
     }
     .ct-meta-value {
         font-size: 15px;
-        color: #fff;
+        color: var(--fg);
         line-height: 1.6;
         margin: 0 0 18px;
     }
-    .ct-meta-value a { color: #5660fe; text-decoration: none; }
+    .ct-meta-value a { color: var(--accent-2); text-decoration: none; }
     .ct-meta-value a:hover { text-decoration: underline; }
 
     .ct-input {
         width: 100%;
         background: transparent;
-        border: 1px solid rgba(255,255,255,0.25);
-        color: #fff;
+        border: 1px solid rgba(var(--fg-rgb),0.25);
+        color: var(--fg);
         padding: 22px 20px;
         font-size: 16px;
         font-family: inherit;
         transition: border-color 0.15s, background 0.15s;
     }
-    .ct-input:focus { border-color: #5660fe; background: rgba(86,96,254,0.04); outline: none; }
-    .ct-input::placeholder { color: rgba(255,255,255,0.5); }
+    .ct-input:focus { border-color: var(--accent); background: rgba(86,96,254,0.04); outline: none; }
+    .ct-input::placeholder { color: rgba(var(--fg-rgb),0.5); }
     .ct-textarea {
         width: 100%;
         background: transparent;
-        border: 1px solid rgba(255,255,255,0.25);
-        color: #fff;
+        border: 1px solid rgba(var(--fg-rgb),0.25);
+        color: var(--fg);
         padding: 20px;
         font-size: 16px;
         font-family: inherit;
@@ -155,14 +155,14 @@
         min-height: 200px;
         transition: border-color 0.15s, background 0.15s;
     }
-    .ct-textarea:focus { border-color: #5660fe; background: rgba(86,96,254,0.04); outline: none; }
-    .ct-textarea::placeholder { color: rgba(255,255,255,0.5); }
+    .ct-textarea:focus { border-color: var(--accent); background: rgba(86,96,254,0.04); outline: none; }
+    .ct-textarea::placeholder { color: rgba(var(--fg-rgb),0.5); }
     .ct-row { margin-bottom: 20px; }
     .ct-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
     .ct-submit {
-        background: #5660fe;
-        color: #fff;
+        background: var(--accent);
+        color: var(--on-accent);
         border: none;
         padding: 20px 48px;
         font-size: 14px;
@@ -172,15 +172,15 @@
         cursor: pointer;
         transition: background 0.15s;
     }
-    .ct-submit:hover { background: #4450ee; }
+    .ct-submit:hover { background: var(--accent-hover); }
 
     .ct-success {
         background: rgba(86,96,254,0.08);
-        border-left: 4px solid #5660fe;
+        border-left: 4px solid var(--accent);
         padding: 24px 28px;
         margin: 0 auto 32px;
         max-width: 1100px;
-        color: #fff;
+        color: var(--fg);
         font-size: 17px;
         line-height: 1.6;
     }
@@ -189,7 +189,7 @@
         border-left: 4px solid #ef4444;
         padding: 20px 24px;
         margin: 0 auto 24px;
-        color: #fff;
+        color: var(--fg);
         font-size: 15px;
         line-height: 1.6;
     }
@@ -200,7 +200,7 @@
         font-weight: 800;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #5660fe;
+        color: var(--accent);
         margin: 0 0 18px;
     }
 

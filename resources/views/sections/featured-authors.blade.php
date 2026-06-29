@@ -92,33 +92,33 @@
 </section>
 <style>
     .feat-section { padding: 64px 0 32px; }
-    .feat-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; border-bottom: 2px solid #5660fe; padding-bottom: 12px; }
-    .feat-title { font-size: 1.6rem; font-weight: 900; color: #fff; margin: 0; text-transform: uppercase; letter-spacing: 0.02em; }
-    .feat-more { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.7); text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; }
-    .feat-more:hover { color: #5660fe; }
+    .feat-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; border-bottom: 2px solid var(--accent); padding-bottom: 12px; }
+    .feat-title { font-size: 1.6rem; font-weight: 900; color: var(--fg); margin: 0; text-transform: uppercase; letter-spacing: 0.02em; }
+    .feat-more { font-size: 13px; font-weight: 700; color: rgba(var(--fg-rgb),0.7); text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; }
+    .feat-more:hover { color: var(--accent); }
 
     /* Equal-height cards via grid-auto-rows: 1fr + flex column. The article
        block flows directly under the author bio (top-aligned, not bottom-pinned). */
     .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 0; }
-    .feat-card { display: flex; flex-direction: column; gap: 16px; padding: 16px 18px; border-right: 1px solid rgba(255,255,255,0.08); min-height: 280px; }
+    .feat-card { display: flex; flex-direction: column; gap: 16px; padding: 16px 18px; border-right: 1px solid rgba(var(--fg-rgb),0.08); min-height: 280px; }
     .feat-card:nth-child(4n) { border-right: 0; }
 
     .feat-card-top { display: flex; gap: 14px; align-items: flex-start; }
-    .feat-avatar { width: 84px; height: 84px; border-radius: 4px; object-fit: cover; flex-shrink: 0; background: #1a1a2e; }
+    .feat-avatar { width: 84px; height: 84px; border-radius: 4px; object-fit: cover; flex-shrink: 0; background: var(--surface-2); }
     .feat-meta { min-width: 0; padding-top: 4px; }
-    .feat-name { font-size: 14px; font-weight: 800; color: #5660fe; line-height: 1.2; }
-    .feat-role { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4; margin-top: 6px; }
+    .feat-name { font-size: 14px; font-weight: 800; color: var(--accent); line-height: 1.2; }
+    .feat-role { font-size: 12px; color: rgba(var(--fg-rgb),0.55); line-height: 1.4; margin-top: 6px; }
 
     .feat-bottom { margin-top: 0; }
     .feat-divider { height: 2px; width: 36px; background: #ff5851; margin-bottom: 10px; }
-    .feat-article { font-size: 15px; font-weight: 800; color: #fff; line-height: 1.3; text-decoration: none; display: block; }
-    .feat-article:hover { color: #5660fe; }
+    .feat-article { font-size: 15px; font-weight: 800; color: var(--fg); line-height: 1.3; text-decoration: none; display: block; }
+    .feat-article:hover { color: var(--accent); }
 
     @media (max-width: 1024px) {
         .feat-grid { grid-template-columns: repeat(2, 1fr); }
-        .feat-card:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.08); }
+        .feat-card:nth-child(4n) { border-right: 1px solid rgba(var(--fg-rgb),0.08); }
         .feat-card:nth-child(2n) { border-right: 0; }
-        .feat-card { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .feat-card { border-bottom: 1px solid rgba(var(--fg-rgb),0.08); }
     }
     @media (max-width: 640px) {
         .feat-section { padding: 40px 0 24px; }

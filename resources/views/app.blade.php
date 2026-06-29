@@ -83,13 +83,13 @@ $isHome = request()->segment(1) == ''
         }
         /* Visible focus ring for keyboard users (suppress for mouse via :focus-visible) */
         a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-            outline: 2px solid #5660fe;
+            outline: 2px solid var(--accent, #5660fe);
             outline-offset: 2px;
         }
         /* Skip-to-content link — visible only on keyboard focus */
         .skip-to-content {
             position: absolute; left: -9999px; top: 8px;
-            background: #5660fe; color: #fff; padding: 10px 16px;
+            background: var(--accent, #5660fe); color: var(--on-accent, #fff); padding: 10px 16px;
             border-radius: 4px; font-weight: 700; z-index: 999999;
             text-decoration: none;
         }
@@ -123,6 +123,73 @@ $isHome = request()->segment(1) == ''
             #page-transition { display: none !important; }
         }
     </style>
+
+    {{-- ===== Global light/dark theme (full-site rollout) =====
+         Dark values match the current look exactly; [data-theme="light"] flips
+         the palette. Muted whites use rgba(var(--fg-rgb), …) so one triplet
+         recolors them all. --on-dark / --feature-* stay constant so intentional
+         dark sections (heroes) keep light text in both themes. --}}
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #16181f;
+            --surface-2: #1a1a2e;
+            --fg: #ffffff;
+            --fg-rgb: 255,255,255;
+            --accent: #5660fe;
+            --accent-2: #8b93ff;
+            --accent-hover: #4049d6;
+            --on-accent: #ffffff;
+            --on-dark: #ffffff;
+            /* Store aliases (store CSS still references --store-*). */
+            --store-bg: transparent; --store-fg: var(--fg); --store-fg-rgb: var(--fg-rgb);
+            --store-surface: var(--surface); --store-surface-2: var(--surface-2);
+            --store-accent: var(--accent); --store-accent-2: var(--accent-2);
+            --store-accent-hover: var(--accent-hover); --store-on-accent: var(--on-accent);
+        }
+        html[data-theme="light"] {
+            --bg: #f4f5f7;
+            --surface: #ffffff;
+            --surface-2: #e6e8ed;
+            --fg: #15171c;
+            --fg-rgb: 21,23,28;
+            --accent: #5660fe;
+            --accent-2: #4049d6;
+            --accent-hover: #3a42b8;
+            --on-accent: #ffffff;
+            --on-dark: #ffffff;
+            --store-bg: #f4f5f7;
+        }
+        /* The compiled CSS sets a dark body background; override it in light mode. */
+        html[data-theme="light"] body { background: var(--bg); color: var(--fg); }
+
+        /* Global theme toggle (top-left, accent pill). */
+        .site-theme-toggle {
+            position: fixed; left: 20px; top: 20px; z-index: 2147483000;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 11px 16px; border-radius: 999px; border: none;
+            background: var(--accent); color: var(--on-accent);
+            font-size: 13px; font-weight: 700; cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35); transition: transform 0.15s, background 0.15s;
+        }
+        .site-theme-toggle:hover { transform: translateY(-2px); background: var(--accent-hover); }
+        .site-theme-toggle svg { width: 16px; height: 16px; display: block; }
+        .site-theme-toggle .site-theme-moon { display: none; }
+        html[data-theme="light"] .site-theme-toggle .site-theme-sun { display: none; }
+        html[data-theme="light"] .site-theme-toggle .site-theme-moon { display: block; }
+    </style>
+    <script>
+        /* Set the theme before first paint (no flash). */
+        (function () {
+            try {
+                var t = localStorage.getItem('nppc-theme');
+                if (t !== 'light' && t !== 'dark') {
+                    t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+                }
+                if (t === 'light') { document.documentElement.setAttribute('data-theme', 'light'); }
+            } catch (e) {}
+        })();
+    </script>
     @yield('head')
 </head>
 
@@ -136,6 +203,7 @@ $isHome = request()->segment(1) == ''
 
 @include('layout.nav_desktop')
 @include('layout.nav_mobile')
+@include('layout.theme_toggle')
 
 @if($isHome)
     <div id="main-content">

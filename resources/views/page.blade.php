@@ -30,14 +30,14 @@
         .page-content h4 { font-size: 1.25rem; font-weight: 600; margin: 1em 0 0.5em; }
         .page-content ul, .page-content ol { margin: 1em 0; padding-left: 1.5em; }
         .page-content li { margin-bottom: 0.5em; line-height: 1.75; }
-        .page-content blockquote { border-left: 3px solid rgba(255,255,255,0.3); padding-left: 1em; margin: 1.5em 0; color: rgba(255,255,255,0.7); }
-        .page-content a { color: #6366f1; text-decoration: underline; }
+        .page-content blockquote { border-left: 3px solid rgba(var(--fg-rgb),0.3); padding-left: 1em; margin: 1.5em 0; color: rgba(var(--fg-rgb),0.7); }
+        .page-content a { color: var(--accent-2); text-decoration: underline; }
         .page-content strong { font-weight: 700; }
         .page-content em { font-style: italic; }
         .page-content .lead { font-size: 1.25em; }
         .page-content small, .page-content .small { font-size: 0.875em; }
         .page-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5em 0; }
         .page-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; }
-        .page-content th, .page-content td { border: 1px solid rgba(255,255,255,0.15); padding: 8px 12px; text-align: left; }
+        .page-content th, .page-content td { border: 1px solid rgba(var(--fg-rgb),0.15); padding: 8px 12px; text-align: left; }
     </style>
 @endsection

@@ -104,7 +104,6 @@
 @endsection
 
 @section('body')
-@include('sections.store-theme')
 @php
     $isGarment = $product->category === 'Apparel'
         && preg_match('/t-?shirt|tee|hoodie|sweatshirt|crewneck/i', $product->name);

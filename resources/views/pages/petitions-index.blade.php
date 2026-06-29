@@ -4,26 +4,26 @@
 <style>
 .pix-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 96px; }
 .pix-hero { padding: 56px 0 24px; }
-.pix-hero h1 { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1.05; margin: 0 0 12px; }
-.pix-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 720px; line-height: 1.7; margin: 0 0 8px; }
-.pix-hero .pix-count { font-size: 14px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 16px; }
+.pix-hero h1 { font-size: 2.5rem; font-weight: 900; color: var(--fg); line-height: 1.05; margin: 0 0 12px; }
+.pix-hero p { font-size: 1.05rem; color: rgba(var(--fg-rgb),0.7); max-width: 720px; line-height: 1.7; margin: 0 0 8px; }
+.pix-hero .pix-count { font-size: 14px; color: rgba(var(--fg-rgb),0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 16px; }
 
 .pix-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
-.pix-card { display: flex; flex-direction: column; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; text-decoration: none; transition: border-color 0.15s, background 0.15s, transform 0.15s; }
-.pix-card:hover { border-color: #5660fe; background: rgba(86,96,254,0.04); transform: translateY(-2px); }
-.pix-img-box { position: relative; aspect-ratio: 16 / 9; background: #1a1a2e center/cover no-repeat; }
-.pix-img-empty { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.pix-card { display: flex; flex-direction: column; background: rgba(var(--fg-rgb),0.02); border: 1px solid rgba(var(--fg-rgb),0.08); border-radius: 12px; overflow: hidden; text-decoration: none; transition: border-color 0.15s, background 0.15s, transform 0.15s; }
+.pix-card:hover { border-color: var(--accent); background: rgba(86,96,254,0.04); transform: translateY(-2px); }
+.pix-img-box { position: relative; aspect-ratio: 16 / 9; background: var(--surface-2) center/cover no-repeat; }
+.pix-img-empty { display: flex; align-items: center; justify-content: center; color: rgba(var(--fg-rgb),0.2); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .pix-card-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.pix-card-title { font-size: 1.1rem; font-weight: 800; color: #fff; line-height: 1.3; }
-.pix-card-recipients { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.04em; }
+.pix-card-title { font-size: 1.1rem; font-weight: 800; color: var(--fg); line-height: 1.3; }
+.pix-card-recipients { font-size: 12px; color: rgba(var(--fg-rgb),0.5); text-transform: uppercase; letter-spacing: 0.04em; }
 .pix-card-progress { margin-top: auto; }
-.pix-card-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
-.pix-card-fill { height: 100%; background: #5660fe; border-radius: 3px; }
-.pix-card-progress-text { font-size: 12px; color: rgba(255,255,255,0.5); display: flex; justify-content: space-between; }
-.pix-card-progress-text strong { color: #fff; }
-.pix-card-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: #5660fe; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 8px; }
-.pix-card:hover .pix-card-cta { background: #4850e6; }
-.pix-empty { text-align: center; padding: 96px 24px; color: rgba(255,255,255,0.5); }
+.pix-card-bar { height: 6px; background: rgba(var(--fg-rgb),0.08); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+.pix-card-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+.pix-card-progress-text { font-size: 12px; color: rgba(var(--fg-rgb),0.5); display: flex; justify-content: space-between; }
+.pix-card-progress-text strong { color: var(--fg); }
+.pix-card-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--accent); color: var(--on-accent); padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 8px; }
+.pix-card:hover .pix-card-cta { background: var(--accent-hover); }
+.pix-empty { text-align: center; padding: 96px 24px; color: rgba(var(--fg-rgb),0.5); }
 
 @@media (max-width: 900px) { .pix-grid { grid-template-columns: repeat(2, 1fr); } }
 @@media (max-width: 640px) {

@@ -17,12 +17,12 @@
     .prisoner-photo { width: 100%; border-radius: 8px; overflow: hidden; }
     .prisoner-photo img { width: 100%; height: auto; display: block; }
     .prisoner-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px; }
-    .prisoner-name { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px; }
-    .prisoner-aka { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 24px; font-style: italic; }
+    .prisoner-name { font-size: 3rem; font-weight: 900; color: var(--fg); line-height: 1.1; margin-bottom: 8px; }
+    .prisoner-aka { font-size: 16px; color: rgba(var(--fg-rgb),0.5); margin-bottom: 24px; font-style: italic; }
     .prisoner-meta { margin-bottom: 32px; }
     .prisoner-meta-row { display: flex; margin-bottom: 6px; font-size: 15px; line-height: 1.5; }
-    .prisoner-meta-label { font-weight: 700; color: #fff; min-width: 160px; flex-shrink: 0; }
-    .prisoner-meta-value { color: rgba(255,255,255,0.7); }
+    .prisoner-meta-label { font-weight: 700; color: var(--fg); min-width: 160px; flex-shrink: 0; }
+    .prisoner-meta-value { color: rgba(var(--fg-rgb),0.7); }
     .prisoner-status-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
     .prisoner-badge { padding: 4px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px; }
     .prisoner-badge-custody { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
@@ -31,53 +31,53 @@
     .prisoner-badge-trial { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
 
     /* Counter */
-    .prisoner-counter-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
-    .prisoner-counter-nums { font-size: 1.25rem; font-weight: 900; color: #fff; margin-bottom: 24px; }
+    .prisoner-counter-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(var(--fg-rgb),0.5); margin-bottom: 8px; }
+    .prisoner-counter-nums { font-size: 1.25rem; font-weight: 900; color: var(--fg); margin-bottom: 24px; }
 
     /* Social */
     .prisoner-social { display: flex; gap: 12px; margin-bottom: 24px; }
-    .prisoner-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); transition: background 0.15s; }
-    .prisoner-social a:hover { background: rgba(255,255,255,0.12); }
-    .prisoner-social a svg { width: 16px; height: 16px; fill: #fff; }
+    .prisoner-social a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(var(--fg-rgb),0.06); border: 1px solid rgba(var(--fg-rgb),0.15); transition: background 0.15s; }
+    .prisoner-social a:hover { background: rgba(var(--fg-rgb),0.12); }
+    .prisoner-social a svg { width: 16px; height: 16px; fill: var(--fg); }
 
     /* Support button */
-    .prisoner-support-btn { display: inline-block; background: #5660fe; color: #fff; padding: 12px 32px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 24px; text-decoration: none; transition: background 0.2s; }
-    .prisoner-support-btn:hover { background: #4850e6; }
+    .prisoner-support-btn { display: inline-block; background: var(--accent); color: var(--on-accent); padding: 12px 32px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 24px; text-decoration: none; transition: background 0.2s; }
+    .prisoner-support-btn:hover { background: var(--accent-hover); }
 
     /* Divider */
-    .prisoner-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 48px 0; }
+    .prisoner-divider { height: 1px; background: rgba(var(--fg-rgb),0.1); margin: 48px 0; }
 
     /* Biography */
-    .prisoner-bio-title { font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 24px; }
-    .prisoner-bio-content { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; }
+    .prisoner-bio-title { font-size: 2.5rem; font-weight: 900; color: var(--fg); margin-bottom: 24px; }
+    .prisoner-bio-content { font-size: 16px; color: rgba(var(--fg-rgb),0.75); line-height: 1.8; }
     .prisoner-bio-content p { margin-bottom: 1.25em; }
 
     /* Cases */
-    .prisoner-cases-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 16px; }
-    .prisoner-case-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 24px; margin-bottom: 16px; }
-    .prisoner-case-inst { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .prisoner-cases-title { font-size: 1.5rem; font-weight: 800; color: var(--fg); margin-bottom: 16px; }
+    .prisoner-case-card { border: 1px solid rgba(var(--fg-rgb),0.1); border-radius: 8px; padding: 24px; margin-bottom: 16px; }
+    .prisoner-case-inst { font-size: 18px; font-weight: 700; color: var(--fg); margin-bottom: 8px; }
     .prisoner-case-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
     .prisoner-case-field { font-size: 14px; }
-    .prisoner-case-field-label { color: rgba(255,255,255,0.5); }
-    .prisoner-case-field-value { color: rgba(255,255,255,0.8); }
+    .prisoner-case-field-label { color: rgba(var(--fg-rgb),0.5); }
+    .prisoner-case-field-value { color: rgba(var(--fg-rgb),0.8); }
 
     /* Tags */
     .prisoner-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-    .prisoner-tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 4px 12px; font-size: 12px; color: rgba(255,255,255,0.6); border-radius: 4px; }
+    .prisoner-tag { background: rgba(var(--fg-rgb),0.06); border: 1px solid rgba(var(--fg-rgb),0.12); padding: 4px 12px; font-size: 12px; color: rgba(var(--fg-rgb),0.6); border-radius: 4px; }
 
     /* Rich content */
-    .prose-content { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; }
+    .prose-content { font-size: 16px; color: rgba(var(--fg-rgb),0.75); line-height: 1.8; }
     .prose-content p { margin-bottom: 1.25em; }
-    .prose-content a { color: #5660fe; text-decoration: underline; }
-    .prose-content a:hover { color: #7880ff; }
-    .prose-content h2 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 32px 0 12px; }
-    .prose-content h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 24px 0 8px; }
+    .prose-content a { color: var(--accent-2); text-decoration: underline; }
+    .prose-content a:hover { color: var(--accent); }
+    .prose-content h2 { font-size: 1.5rem; font-weight: 800; color: var(--fg); margin: 32px 0 12px; }
+    .prose-content h3 { font-size: 1.25rem; font-weight: 700; color: var(--fg); margin: 24px 0 8px; }
     .prose-content ul, .prose-content ol { margin: 0 0 1.25em 1.5em; }
     .prose-content li { margin-bottom: 0.4em; }
-    .prose-content blockquote { border-left: 3px solid #5660fe; padding: 12px 20px; margin: 1.5em 0; color: rgba(255,255,255,0.6); font-style: italic; }
+    .prose-content blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 1.5em 0; color: rgba(var(--fg-rgb),0.6); font-style: italic; }
     .prose-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 16px 0; }
     .prose-content iframe, .prose-content embed, .prose-content object { max-width: 100%; margin: 16px 0; border-radius: 8px; }
-    .prose-content strong { color: #fff; font-weight: 700; }
+    .prose-content strong { color: var(--fg); font-weight: 700; }
 
     @media (max-width: 768px) {
         .prisoner-page { padding: 0 16px; }

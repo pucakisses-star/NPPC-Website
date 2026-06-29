@@ -2,7 +2,7 @@
 
 @section('head')
 <style>
-    .vol2-page { color: rgba(255,255,255,0.85); }
+    .vol2-page { color: rgba(var(--fg-rgb),0.85); }
 
     /* ─── Hero ─── */
     .vol2-hero {
@@ -20,30 +20,30 @@
         font-weight: 800;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: #5660fe;
+        color: var(--accent);
         margin-bottom: 18px;
     }
-    .vol2-eyebrow a { color: rgba(255,255,255,0.55); text-decoration: none; }
-    .vol2-eyebrow a:hover { color: #fff; }
+    .vol2-eyebrow a { color: rgba(var(--fg-rgb),0.55); text-decoration: none; }
+    .vol2-eyebrow a:hover { color: var(--fg); }
     .vol2-hero-title {
         font-size: 5rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         line-height: 1.02;
         margin: 0 0 28px;
         letter-spacing: -0.02em;
     }
     .vol2-hero-lede {
         font-size: 22px;
-        color: rgba(255,255,255,0.78);
+        color: rgba(var(--fg-rgb),0.78);
         line-height: 1.55;
         margin: 0 0 32px;
         max-width: 540px;
     }
     .vol2-hero-cta {
         display: inline-block;
-        background: #5660fe;
-        color: #fff;
+        background: var(--accent);
+        color: var(--on-accent);
         padding: 18px 40px;
         font-size: 14px;
         font-weight: 800;
@@ -52,7 +52,7 @@
         text-decoration: none;
         transition: background 0.15s;
     }
-    .vol2-hero-cta:hover { background: #4450ee; }
+    .vol2-hero-cta:hover { background: var(--accent-hover); }
 
     .vol2-hero-image {
         position: relative;
@@ -80,15 +80,15 @@
         font-size: 28px;
         font-weight: 600;
         line-height: 1.45;
-        color: #fff;
+        color: var(--fg);
         letter-spacing: -0.01em;
         margin: 0 0 28px;
     }
-    .vol2-lead p:last-child { font-weight: 400; font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .vol2-lead p:last-child { font-weight: 400; font-size: 19px; color: rgba(var(--fg-rgb),0.7); line-height: 1.7; }
     .vol2-lead-rule {
         width: 60px;
         height: 4px;
-        background: #5660fe;
+        background: var(--accent);
         margin-bottom: 32px;
     }
 
@@ -99,20 +99,20 @@
         font-weight: 800;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #5660fe;
+        color: var(--accent);
         margin-bottom: 12px;
     }
     .vol2-section-heading {
         font-size: 2.6rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         line-height: 1.1;
         margin: 0 0 16px;
         letter-spacing: -0.02em;
     }
     .vol2-section-sub {
         font-size: 17px;
-        color: rgba(255,255,255,0.6);
+        color: rgba(var(--fg-rgb),0.6);
         line-height: 1.7;
         max-width: 720px;
         margin: 0 0 48px;
@@ -123,33 +123,33 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1px;
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(var(--fg-rgb),0.1);
+        border: 1px solid rgba(var(--fg-rgb),0.1);
     }
     .vol2-card {
-        background: #0a0a14;
+        background: var(--surface);
         padding: 36px 28px;
         position: relative;
         transition: background 0.15s;
     }
-    .vol2-card:hover { background: #11111e; }
+    .vol2-card:hover { background: var(--surface-2); }
     .vol2-card-num {
         font-size: 13px;
         font-weight: 800;
         letter-spacing: 0.12em;
-        color: #5660fe;
+        color: var(--accent);
         margin-bottom: 16px;
     }
     .vol2-card-title {
         font-size: 1.35rem;
         font-weight: 800;
-        color: #fff;
+        color: var(--fg);
         margin: 0 0 12px;
         letter-spacing: -0.01em;
     }
     .vol2-card-text {
         font-size: 15px;
-        color: rgba(255,255,255,0.6);
+        color: rgba(var(--fg-rgb),0.6);
         line-height: 1.7;
         margin: 0;
     }
@@ -163,13 +163,13 @@
     .vol2-form-heading {
         font-size: 2.2rem;
         font-weight: 900;
-        color: #fff;
+        color: var(--fg);
         margin: 0 0 12px;
         letter-spacing: -0.01em;
     }
     .vol2-form-sub {
         font-size: 16px;
-        color: rgba(255,255,255,0.55);
+        color: rgba(var(--fg-rgb),0.55);
         line-height: 1.7;
         margin: 0 0 48px;
         max-width: 640px;
@@ -184,28 +184,28 @@
         font-weight: 800;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #5660fe;
+        color: var(--accent);
         padding: 0;
         margin: 0 0 24px;
     }
     .vol2-input {
         width: 100%;
         background: transparent;
-        border: 1px solid rgba(255,255,255,0.25);
-        color: #fff;
+        border: 1px solid rgba(var(--fg-rgb),0.25);
+        color: var(--fg);
         padding: 22px 20px;
         font-size: 16px;
         font-family: inherit;
         transition: border-color 0.15s, background 0.15s;
     }
-    .vol2-input:focus { border-color: #5660fe; background: rgba(86,96,254,0.04); outline: none; }
-    .vol2-input::placeholder { color: rgba(255,255,255,0.5); }
+    .vol2-input:focus { border-color: var(--accent); background: rgba(86,96,254,0.04); outline: none; }
+    .vol2-input::placeholder { color: rgba(var(--fg-rgb),0.5); }
     .vol2-textarea {
         width: 100%;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(var(--fg-rgb),0.03);
+        border: 1px solid rgba(var(--fg-rgb),0.15);
         border-radius: 4px;
-        color: #fff;
+        color: var(--fg);
         padding: 18px 20px;
         font-size: 15px;
         font-family: inherit;
@@ -213,8 +213,8 @@
         min-height: 160px;
         transition: border-color 0.15s, background 0.15s;
     }
-    .vol2-textarea:focus { border-color: #5660fe; background: rgba(86,96,254,0.04); outline: none; }
-    .vol2-textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .vol2-textarea:focus { border-color: var(--accent); background: rgba(86,96,254,0.04); outline: none; }
+    .vol2-textarea::placeholder { color: rgba(var(--fg-rgb),0.35); }
     .vol2-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .vol2-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
     .vol2-row { margin-bottom: 24px; }
@@ -229,27 +229,27 @@
         align-items: center;
         gap: 14px;
         font-size: 15px;
-        color: rgba(255,255,255,0.85);
+        color: rgba(var(--fg-rgb),0.85);
         cursor: pointer;
         padding: 8px 0;
     }
     .vol2-checkbox input[type="checkbox"] {
         width: 20px;
         height: 20px;
-        accent-color: #5660fe;
+        accent-color: var(--accent);
         cursor: pointer;
         flex-shrink: 0;
     }
     .vol2-hint {
         font-size: 13px;
-        color: rgba(255,255,255,0.4);
+        color: rgba(var(--fg-rgb),0.4);
         margin-top: 16px;
         line-height: 1.5;
     }
 
     .vol2-submit {
-        background: #5660fe;
-        color: #fff;
+        background: var(--accent);
+        color: var(--on-accent);
         border: none;
         padding: 20px 48px;
         font-size: 14px;
@@ -259,15 +259,15 @@
         cursor: pointer;
         transition: background 0.15s;
     }
-    .vol2-submit:hover { background: #4450ee; }
+    .vol2-submit:hover { background: var(--accent-hover); }
 
     .vol2-success {
         background: rgba(86,96,254,0.08);
-        border-left: 4px solid #5660fe;
+        border-left: 4px solid var(--accent);
         padding: 24px 28px;
         margin: 0 auto 40px;
         max-width: 1100px;
-        color: #fff;
+        color: var(--fg);
         font-size: 17px;
         line-height: 1.6;
     }

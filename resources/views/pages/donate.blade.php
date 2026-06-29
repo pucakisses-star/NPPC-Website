@@ -7,22 +7,22 @@
     .donate-image { flex: 0 0 45%; border-radius: 8px; overflow: hidden; }
     .donate-image img { width: 100%; height: auto; display: block; }
     .donate-form-side { flex: 1; }
-    .donate-title { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 20px; }
-    .donate-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 32px; }
-    .donate-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+    .donate-title { font-size: 2.5rem; font-weight: 900; color: var(--fg); line-height: 1.1; margin-bottom: 20px; }
+    .donate-desc { font-size: 15px; color: rgba(var(--fg-rgb),0.65); line-height: 1.7; margin-bottom: 32px; }
+    .donate-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(var(--fg-rgb),0.7); margin-bottom: 12px; }
     .donate-intervals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-    .donate-interval { text-align: center; padding: 10px; border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; background: transparent; }
-    .donate-interval:hover { border-color: #5660fe; }
-    .donate-interval.active { background: #5660fe; border-color: #5660fe; }
+    .donate-interval { text-align: center; padding: 10px; border: 1px solid rgba(var(--fg-rgb),0.3); color: var(--fg); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; background: transparent; }
+    .donate-interval:hover { border-color: var(--accent); }
+    .donate-interval.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .donate-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
-    .donate-amount { text-align: center; padding: 10px; border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; background: transparent; }
-    .donate-amount:hover { border-color: #5660fe; }
-    .donate-amount.active { background: #5660fe; border-color: #5660fe; }
-    .donate-submit { width: 100%; background: #5660fe; color: #fff; border: none; padding: 14px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; }
-    .donate-submit:hover { background: #4850e6; }
-    .donate-custom-input { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 10px 14px; font-size: 18px; width: 100%; margin-bottom: 20px; outline: none; }
-    .donate-custom-input:focus { border-color: #5660fe; }
-    .donate-fine-print { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; margin-top: 16px; line-height: 1.5; }
+    .donate-amount { text-align: center; padding: 10px; border: 1px solid rgba(var(--fg-rgb),0.3); color: var(--fg); font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.15s; background: transparent; }
+    .donate-amount:hover { border-color: var(--accent); }
+    .donate-amount.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    .donate-submit { width: 100%; background: var(--accent); color: var(--on-accent); border: none; padding: 14px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; }
+    .donate-submit:hover { background: var(--accent-hover); }
+    .donate-custom-input { background: transparent; border: 1px solid rgba(var(--fg-rgb),0.3); color: var(--fg); padding: 10px 14px; font-size: 18px; width: 100%; margin-bottom: 20px; outline: none; }
+    .donate-custom-input:focus { border-color: var(--accent); }
+    .donate-fine-print { font-size: 11px; color: rgba(var(--fg-rgb),0.3); text-align: center; margin-top: 16px; line-height: 1.5; }
     @@media (max-width: 768px) {
         .donate-page { padding: 0 16px; }
         .donate-hero { flex-direction: column; gap: 24px; padding: 24px 0 24px; }
@@ -36,19 +36,19 @@
     }
 
     /* Crypto donation section */
-    .crypto-donate { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 8px; padding: 40px 0 8px; }
-    .crypto-donate h2 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0 0 8px; }
-    .crypto-donate-intro { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0 0 24px; max-width: 720px; }
+    .crypto-donate { border-top: 1px solid rgba(var(--fg-rgb),0.12); margin-top: 8px; padding: 40px 0 8px; }
+    .crypto-donate h2 { font-size: 1.5rem; font-weight: 800; color: var(--fg); margin: 0 0 8px; }
+    .crypto-donate-intro { font-size: 14px; color: rgba(var(--fg-rgb),0.6); line-height: 1.6; margin: 0 0 24px; max-width: 720px; }
     .crypto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .crypto-card { border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; padding: 20px; text-align: center; background: rgba(255,255,255,0.02); }
-    .crypto-card-head { font-size: 16px; font-weight: 800; color: #fff; }
-    .crypto-card-head span { color: #5660fe; }
-    .crypto-net { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.4); margin: 2px 0 14px; }
+    .crypto-card { border: 1px solid rgba(var(--fg-rgb),0.18); border-radius: 8px; padding: 20px; text-align: center; background: rgba(var(--fg-rgb),0.02); }
+    .crypto-card-head { font-size: 16px; font-weight: 800; color: var(--fg); }
+    .crypto-card-head span { color: var(--accent-2); }
+    .crypto-net { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(var(--fg-rgb),0.4); margin: 2px 0 14px; }
     .crypto-qr { width: 160px; height: 160px; border-radius: 6px; background: #fff; padding: 8px; margin: 0 auto 14px; display: block; box-sizing: border-box; }
-    .crypto-addr { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: rgba(255,255,255,0.85); word-break: break-all; line-height: 1.5; margin-bottom: 12px; }
-    .crypto-copy { width: 100%; background: transparent; border: 1px solid #5660fe; color: #fff; padding: 9px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.15s; }
-    .crypto-copy:hover { background: #5660fe; }
-    .crypto-copy.copied { background: #2e7d32; border-color: #2e7d32; }
+    .crypto-addr { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: rgba(var(--fg-rgb),0.85); word-break: break-all; line-height: 1.5; margin-bottom: 12px; }
+    .crypto-copy { width: 100%; background: transparent; border: 1px solid var(--accent); color: var(--accent-2); padding: 9px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.15s, color 0.15s; }
+    .crypto-copy:hover { background: var(--accent); color: var(--on-accent); }
+    .crypto-copy.copied { background: #2e7d32; border-color: #2e7d32; color: var(--on-accent); }
     @@media (max-width: 768px) {
         .crypto-grid { grid-template-columns: 1fr; }
     }
@@ -67,7 +67,7 @@
 
             <livewire:donation />
 
-            <div class="donate-fine-print" style="font-size:12px; color:rgba(255,255,255,0.55); line-height:1.55; margin-top:20px;">
+            <div class="donate-fine-print" style="font-size:12px; color:rgba(var(--fg-rgb),0.55); line-height:1.55; margin-top:20px;">
                 <p style="margin:0 0 10px;">The National Political Prisoner Coalition is a 501(c)(3) tax-exempt nonprofit. <strong>Your donation is tax-deductible</strong> in the United States to the fullest extent permitted by law. You will receive an email donation receipt at the time of your gift.</p>
                 <p style="margin:0;">&copy; {{ date('Y') }} National Political Prisoner Coalition &middot; <a href="/terms" style="color:inherit; text-decoration:underline;">Terms of Use</a> &middot; <a href="/privacy" style="color:inherit; text-decoration:underline;">Privacy</a> &middot; <a href="/contact" style="color:inherit; text-decoration:underline;">Contact Us</a></p>
             </div>
@@ -105,7 +105,7 @@
     @if (! empty($cryptoWallets))
     <div class="crypto-donate">
         <h2>Donate with cryptocurrency</h2>
-        <p class="crypto-donate-intro">Prefer to give in crypto? Send any amount directly to the wallets below. Crypto gifts aren't receipted automatically — email <a href="mailto:donations@nppc.org" style="color:#8b93ff;">donations@nppc.org</a> with your transaction so we can send a tax receipt.</p>
+        <p class="crypto-donate-intro">Prefer to give in crypto? Send any amount directly to the wallets below. Crypto gifts aren't receipted automatically — email <a href="mailto:donations@nppc.org" style="color:var(--accent-2);">donations@nppc.org</a> with your transaction so we can send a tax receipt.</p>
         <div class="crypto-grid">
             @foreach ($cryptoWallets as $w)
             <div class="crypto-card">

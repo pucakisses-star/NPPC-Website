@@ -36,7 +36,7 @@ $topicCoords = [
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <style>
 :root {
-  --h-accent: #5660fe;
+  --h-accent: var(--accent);
   --h-dim: rgba(255,255,255,0.5);
   --h-faint: rgba(255,255,255,0.08);
 }
@@ -79,9 +79,9 @@ $topicCoords = [
   transition: all 0.2s;
   white-space: nowrap;
 }
-.era-nav a:hover { color: #fff; }
+.era-nav a:hover { color: var(--on-dark); }
 .era-nav a.active {
-  color: #fff;
+  color: var(--on-dark);
   border-bottom-color: var(--h-accent);
 }
 
@@ -101,7 +101,7 @@ $topicCoords = [
   font-weight: 900;
   line-height: 1.06;
   margin-bottom: 1.5rem;
-  color: #fff;
+  color: var(--on-dark);
 }
 .history-hero p {
   font-size: 1.15rem;
@@ -169,7 +169,7 @@ $topicCoords = [
   font-weight: 900;
   line-height: 1;
   opacity: 0.3;
-  color: #fff;
+  color: var(--on-dark);
 }
 .visual-caption-label {
   font-size: 0.95rem;
@@ -209,7 +209,7 @@ $topicCoords = [
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--on-dark);
 }
 .step-era-desc {
   font-size: 1.05rem;
@@ -229,7 +229,7 @@ $topicCoords = [
   font-weight: 900;
   line-height: 1.15;
   margin-bottom: 0.9rem;
-  color: #fff;
+  color: var(--on-dark);
 }
 .step-topic-summary {
   font-size: 0.95rem;
@@ -254,7 +254,7 @@ $topicCoords = [
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--on-dark);
 }
 .history-cta p {
   font-size: 1rem;
@@ -265,7 +265,7 @@ $topicCoords = [
 .history-cta-btn {
   display: inline-block;
   background: var(--h-accent);
-  color: #fff;
+  color: var(--on-accent);
   padding: 14px 36px;
   font-size: 0.85rem;
   font-weight: 700;
@@ -273,7 +273,7 @@ $topicCoords = [
   letter-spacing: 0.06em;
   transition: background 0.2s;
 }
-.history-cta-btn:hover { background: #6e76ff; }
+.history-cta-btn:hover { background: var(--accent-hover); }
 
 /* Visual BG tints */
 .vbg-1700 { background: linear-gradient(160deg, #1a1810 0%, #2a2418 50%, #1a1508 100%); }
@@ -357,7 +357,7 @@ $topicCoords = [
   font-size: 4rem;
   font-weight: 900;
   line-height: 1;
-  color: #fff;
+  color: var(--on-dark);
   margin-bottom: 1.5rem;
 }
 .era-divider-desc {

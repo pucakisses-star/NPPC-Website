@@ -11,8 +11,8 @@ function renderArticle(Article $article, bool $large = false, bool $eager = fals
     $fetchPriority = $eager ? 'high' : 'auto';
 
     $imageMarkup = $imgUrl
-        ? "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; overflow: hidden; background:#0a0a0a;\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
-        : "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; background:#1a1a1a;\"></a>";
+        ? "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; overflow: hidden; background:var(--surface-2);\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
+        : "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; background:var(--surface-2);\"></a>";
 
     $category = $article->category?->title;
     $date = $article->published_at?->format('F j, Y');
@@ -30,28 +30,28 @@ function renderArticle(Article $article, bool $large = false, bool $eager = fals
 <div class="article-item" style="margin-bottom: 24px;">
     {$imageMarkup}
     <div class="line"></div>
-    <h5 style="margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.02em;">{$meta}</h5>
-    <a class="article-title" style="font-size: 18px; color: #fff; display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
+    <h5 style="margin-top: 16px; font-size: 13px; color: rgba(var(--fg-rgb),0.5); letter-spacing: 0.02em;">{$meta}</h5>
+    <a class="article-title" style="font-size: 18px; color: var(--fg); display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
 </div>
 EOB;
 
 }
 ?>
 <section >
-    <h1 style="font-size: 3.75rem; margin-top: 48px; margin-bottom: 48px; font-weight: 300; color: #fff;">News</h1>
+    <h1 style="font-size: 3.75rem; margin-top: 48px; margin-bottom: 48px; font-weight: 300; color: var(--fg);">News</h1>
     <div class = "line mt-8" ></div >
 
     <div class = "py-12" >
         <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 48px;">
             <button
                     wire:click = "selectCategory('Latest')"
-                    style="text-transform: uppercase; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 2px solid {{ $selectedCategory === 'Latest' ? '#6366f1' : 'transparent' }}; background: none; color: #fff; cursor: pointer;">
+                    style="text-transform: uppercase; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 2px solid {{ $selectedCategory === 'Latest' ? 'var(--accent)' : 'transparent' }}; background: none; color: var(--fg); cursor: pointer;">
                 Latest
             </button >
             @foreach ($categories as $category)
                 <button
                         wire:click="selectCategory('{{ $category->title }}')"
-                        style="text-transform: uppercase; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 2px solid {{ $selectedCategory === $category->title ? '#6366f1' : 'transparent' }}; background: none; color: #fff; cursor: pointer;">
+                        style="text-transform: uppercase; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 2px solid {{ $selectedCategory === $category->title ? 'var(--accent)' : 'transparent' }}; background: none; color: var(--fg); cursor: pointer;">
                     {{ $category->title }}
                 </button>
             @endforeach

@@ -11,15 +11,15 @@
     /* Loading state shown until the Vue database app renders its content */
     #db-loading {
         display: flex; flex-direction: column; align-items: center; justify-content: center;
-        text-align: center; padding: 120px 24px; min-height: 50vh; color: rgba(255,255,255,0.6);
+        text-align: center; padding: 120px 24px; min-height: 50vh; color: rgba(var(--fg-rgb),0.6);
     }
     #db-loading .db-spinner {
         width: 52px; height: 52px; border-radius: 50%;
-        border: 4px solid rgba(255,255,255,0.15); border-top-color: #5660fe;
+        border: 4px solid rgba(var(--fg-rgb),0.15); border-top-color: var(--accent);
         animation: db-spin 0.9s linear infinite; margin-bottom: 24px;
     }
     @keyframes db-spin { to { transform: rotate(360deg); } }
-    #db-loading .db-title { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    #db-loading .db-title { font-size: 2rem; font-weight: 700; color: var(--fg); margin-bottom: 16px; }
     #db-loading .db-help { font-size: 16px; line-height: 1.6; max-width: 500px; margin: 0 auto; }
     @media (prefers-reduced-motion: reduce) { #db-loading .db-spinner { animation-duration: 2.4s; } }
 </style>
@@ -35,7 +35,7 @@
             <div id="db-loading" role="status" aria-live="polite">
                 <div class="db-spinner" aria-hidden="true"></div>
                 <div class="db-title">Loading Prisoner Database...</div>
-                <p class="db-help">If this page doesn't load, please try refreshing. If the problem persists, <a href="/contact" style="color:#5660fe; text-decoration:underline;">contact us</a>.</p>
+                <p class="db-help">If this page doesn't load, please try refreshing. If the problem persists, <a href="/contact" style="color:var(--accent-2); text-decoration:underline;">contact us</a>.</p>
             </div>
             <div id="app"></div>
         </main>
@@ -70,9 +70,9 @@
     </script>
 
     {{-- About this database --}}
-    <section class="db-about-section" style="background:#000; color:rgba(255,255,255,0.85); padding:96px 24px; border-top:1px solid rgba(255,255,255,0.08);">
+    <section class="db-about-section" style="background:var(--surface); color:rgba(var(--fg-rgb),0.85); padding:96px 24px; border-top:1px solid rgba(var(--fg-rgb),0.08);">
         <div style="max-width:780px; margin:0 auto;">
-            <h2 style="font-size:2.5rem; font-weight:900; color:#fff; line-height:1.1; margin:0 0 32px;">About this database</h2>
+            <h2 style="font-size:2.5rem; font-weight:900; color:var(--fg); line-height:1.1; margin:0 0 32px;">About this database</h2>
 
             <div class="db-about-inner" style="font-size:17px; line-height:1.7;">
                 <p style="margin:0 0 20px;">
@@ -88,7 +88,7 @@
                 </p>
 
                 <p style="margin:0;">
-                    This database is shared under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="color:#5660fe; text-decoration:underline;">Creative Commons Attribution-NonCommercial 4.0 license</a> and may be reused for noncommercial purposes with appropriate attribution. If you republish this database in whole or in part, we request you credit the <strong>National Political Prisoner Coalition (NPPC)</strong>. To submit a correction, suggest a case, or request the data in CSV form, please <a href="/contact" style="color:#5660fe; text-decoration:underline;">contact us</a>.
+                    This database is shared under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" style="color:var(--accent-2); text-decoration:underline;">Creative Commons Attribution-NonCommercial 4.0 license</a> and may be reused for noncommercial purposes with appropriate attribution. If you republish this database in whole or in part, we request you credit the <strong>National Political Prisoner Coalition (NPPC)</strong>. To submit a correction, suggest a case, or request the data in CSV form, please <a href="/contact" style="color:var(--accent-2); text-decoration:underline;">contact us</a>.
                 </p>
             </div>
         </div>

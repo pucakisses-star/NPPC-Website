@@ -11,10 +11,10 @@
        human-rights organizations. All classes are scoped with the
        iwp- prefix so nothing leaks into the rest of the site.
        ============================================================ */
-    .iwp { background: #0a0a0c; color: #fff; }
+    .iwp { background: var(--bg); color: var(--fg); }
     .iwp-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
     .iwp a { color: #e8675b; }
-    .iwp a:hover { color: #fff; }
+    .iwp a:hover { color: var(--fg); }
 
     /* ---- Hero ---- */
     .iwp-hero { position: relative; overflow: hidden; background: #000; min-height: 620px; display: flex; align-items: flex-end; }
@@ -28,7 +28,7 @@
     .iwp-hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; width: 100%; padding: 120px 24px 56px; }
     .iwp-kicker { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #e8675b; margin-bottom: 22px; }
     .iwp-kicker::before { content: ""; width: 34px; height: 2px; background: #d8392b; display: inline-block; }
-    .iwp-hero-title { font-size: 4.6rem; line-height: 0.98; font-weight: 700; color: #fff; margin: 0 0 18px; letter-spacing: -0.02em; }
+    .iwp-hero-title { font-size: 4.6rem; line-height: 0.98; font-weight: 700; color: var(--on-dark); margin: 0 0 18px; letter-spacing: -0.02em; }
     .iwp-hero-sub { font-size: 1.4rem; line-height: 1.4; color: rgba(255,255,255,0.78); max-width: 720px; margin: 0 0 28px; }
     .iwp-hero-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
     .iwp-hero-meta span { display: inline-flex; align-items: center; }
@@ -36,77 +36,77 @@
 
     /* ---- Layout primitives ---- */
     .iwp-wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
-    .iwp-section { padding: 72px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+    .iwp-section { padding: 72px 0; border-top: 1px solid rgba(var(--fg-rgb),0.08); }
     .iwp-section:first-of-type { border-top: 0; }
     .iwp-eyebrow { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #e8675b; margin-bottom: 18px; }
-    .iwp-eyebrow .iwp-num { font-family: Georgia, serif; color: rgba(255,255,255,0.4); }
-    .iwp-h2 { font-size: 2.6rem; line-height: 1.1; font-weight: 700; color: #fff; margin: 0 0 24px; }
-    .iwp-h3 { font-size: 1.5rem; font-weight: 700; color: #fff; margin: 36px 0 14px; }
-    .iwp-p { font-size: 17px; line-height: 1.85; color: rgba(255,255,255,0.76); margin: 0 0 1.4em; }
-    .iwp-p strong { color: #fff; font-weight: 700; }
-    .iwp-cite { font-size: 13px; color: rgba(255,255,255,0.45); }
-    .iwp-cite a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+    .iwp-eyebrow .iwp-num { font-family: Georgia, serif; color: rgba(var(--fg-rgb),0.4); }
+    .iwp-h2 { font-size: 2.6rem; line-height: 1.1; font-weight: 700; color: var(--fg); margin: 0 0 24px; }
+    .iwp-h3 { font-size: 1.5rem; font-weight: 700; color: var(--fg); margin: 36px 0 14px; }
+    .iwp-p { font-size: 17px; line-height: 1.85; color: rgba(var(--fg-rgb),0.76); margin: 0 0 1.4em; }
+    .iwp-p strong { color: var(--fg); font-weight: 700; }
+    .iwp-cite { font-size: 13px; color: rgba(var(--fg-rgb),0.45); }
+    .iwp-cite a { color: rgba(var(--fg-rgb),0.55); text-decoration: underline; }
     .iwp-cite a:hover { color: #e8675b; }
 
     /* ---- Lead ---- */
-    .iwp-lead .iwp-p { font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; line-height: 1.5; color: #fff; }
+    .iwp-lead .iwp-p { font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; line-height: 1.5; color: var(--fg); }
     .iwp-lead .iwp-p:first-child::first-letter { float: left; font-size: 4.2em; line-height: 0.72; padding: 0.05em 0.12em 0 0; color: #d8392b; font-weight: 700; }
 
     /* ---- Stats ---- */
-    .iwp-stats-band { background: #000; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .iwp-stats-band { background: var(--surface); border-top: 1px solid rgba(var(--fg-rgb),0.08); border-bottom: 1px solid rgba(var(--fg-rgb),0.08); }
     .iwp-stats { max-width: 1080px; margin: 0 auto; padding: 8px 24px; display: grid; grid-template-columns: repeat(4, 1fr); }
-    .iwp-stat { padding: 48px 24px; border-left: 1px solid rgba(255,255,255,0.08); }
+    .iwp-stat { padding: 48px 24px; border-left: 1px solid rgba(var(--fg-rgb),0.08); }
     .iwp-stat:first-child { border-left: 0; }
     .iwp-stat-num { font-family: Georgia, serif; font-size: 3.4rem; line-height: 1; font-weight: 700; color: #e8675b; letter-spacing: -0.02em; }
-    .iwp-stat-num small { font-size: 0.45em; color: rgba(255,255,255,0.45); }
-    .iwp-stat-label { margin-top: 14px; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.72); }
-    .iwp-stat-src { margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.4); }
+    .iwp-stat-num small { font-size: 0.45em; color: rgba(var(--fg-rgb),0.45); }
+    .iwp-stat-label { margin-top: 14px; font-size: 15px; line-height: 1.5; color: rgba(var(--fg-rgb),0.72); }
+    .iwp-stat-src { margin-top: 10px; font-size: 12px; color: rgba(var(--fg-rgb),0.4); }
 
     /* ---- Pull quote ---- */
     .iwp-pull { border-left: 3px solid #d8392b; padding: 6px 0 6px 28px; margin: 8px 0; }
-    .iwp-pull p { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; line-height: 1.3; color: #fff; margin: 0 0 14px; }
-    .iwp-pull cite { font-style: normal; font-size: 14px; letter-spacing: 0.04em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+    .iwp-pull p { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; line-height: 1.3; color: var(--fg); margin: 0 0 14px; }
+    .iwp-pull cite { font-style: normal; font-size: 14px; letter-spacing: 0.04em; color: rgba(var(--fg-rgb),0.5); text-transform: uppercase; }
 
     /* ---- Testimony ---- */
-    .iwp-testimony { position: relative; background: #111; border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #8c1c12; border-radius: 6px; padding: 32px; margin-top: 32px; }
+    .iwp-testimony { position: relative; background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.08); border-left: 3px solid #8c1c12; border-radius: 6px; padding: 32px; margin-top: 32px; }
     .iwp-testimony::before { content: "\201C"; position: absolute; top: 14px; right: 22px; font-family: Georgia, serif; font-size: 4rem; line-height: 0.6; color: #8c1c12; opacity: 0.6; }
-    .iwp-testimony p { font-family: Georgia, serif; font-style: italic; font-size: 1.25rem; line-height: 1.5; color: #fff; margin: 0 0 14px; }
-    .iwp-testimony footer { font-size: 14px; color: rgba(255,255,255,0.5); }
+    .iwp-testimony p { font-family: Georgia, serif; font-style: italic; font-size: 1.25rem; line-height: 1.5; color: var(--fg); margin: 0 0 14px; }
+    .iwp-testimony footer { font-size: 14px; color: rgba(var(--fg-rgb),0.5); }
 
     /* ---- Abuse cards ---- */
     .iwp-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
-    .iwp-card { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 26px; transition: border-color 0.25s, transform 0.25s; }
+    .iwp-card { background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.08); border-radius: 6px; padding: 26px; transition: border-color 0.25s, transform 0.25s; }
     .iwp-card:hover { border-color: rgba(216,57,43,0.4); transform: translateY(-3px); }
     .iwp-card-icon { color: #d8392b; margin-bottom: 14px; }
-    .iwp-card h3 { font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0 0 8px; }
-    .iwp-card p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.62); margin: 0; }
+    .iwp-card h3 { font-size: 1.15rem; font-weight: 800; color: var(--fg); margin: 0 0 8px; }
+    .iwp-card p { font-size: 14px; line-height: 1.6; color: rgba(var(--fg-rgb),0.62); margin: 0; }
 
     /* ---- Named cases ---- */
-    .iwp-case { display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.08); }
-    .iwp-case:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .iwp-avatar { width: 56px; height: 56px; border-radius: 50%; background: #1a1a1f; border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-weight: 700; font-size: 1.25rem; color: #e8675b; }
-    .iwp-case h3 { font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 2px; }
-    .iwp-case-role { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin: 0 0 10px; }
-    .iwp-case p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.72); margin: 0; }
+    .iwp-case { display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; padding: 26px 0; border-top: 1px solid rgba(var(--fg-rgb),0.08); }
+    .iwp-case:last-child { border-bottom: 1px solid rgba(var(--fg-rgb),0.08); }
+    .iwp-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--surface-2); border: 1px solid rgba(var(--fg-rgb),0.18); display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-weight: 700; font-size: 1.25rem; color: #e8675b; }
+    .iwp-case h3 { font-size: 1.25rem; font-weight: 800; color: var(--fg); margin: 0 0 2px; }
+    .iwp-case-role { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(var(--fg-rgb),0.45); margin: 0 0 10px; }
+    .iwp-case p { font-size: 15px; line-height: 1.65; color: rgba(var(--fg-rgb),0.72); margin: 0; }
     .iwp-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; margin-top: 12px; }
     .iwp-tag-risk { background: rgba(216,57,43,0.15); color: #e8675b; border: 1px solid rgba(216,57,43,0.4); }
-    .iwp-tag-exec { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); }
+    .iwp-tag-exec { background: rgba(var(--fg-rgb),0.06); color: rgba(var(--fg-rgb),0.7); border: 1px solid rgba(var(--fg-rgb),0.2); }
 
     /* ---- Sources & note ---- */
-    .iwp-note { background: #111; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 28px; margin-bottom: 32px; }
-    .iwp-note p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.72); margin: 0 0 12px; }
+    .iwp-note { background: var(--surface); border: 1px solid rgba(var(--fg-rgb),0.08); border-radius: 6px; padding: 28px; margin-bottom: 32px; }
+    .iwp-note p { font-size: 15px; line-height: 1.7; color: rgba(var(--fg-rgb),0.72); margin: 0 0 12px; }
     .iwp-note p:last-child { margin: 0; }
-    .iwp-note strong { color: #fff; }
+    .iwp-note strong { color: var(--fg); }
     .iwp-sources { list-style: none; margin: 0; padding: 0; }
-    .iwp-sources li { border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0; }
-    .iwp-sources li:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .iwp-sources a { font-weight: 700; color: #fff; text-decoration: none; }
+    .iwp-sources li { border-top: 1px solid rgba(var(--fg-rgb),0.08); padding: 16px 0; }
+    .iwp-sources li:last-child { border-bottom: 1px solid rgba(var(--fg-rgb),0.08); }
+    .iwp-sources a { font-weight: 700; color: var(--fg); text-decoration: none; }
     .iwp-sources a:hover { color: #e8675b; }
-    .iwp-sources span { display: block; font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .iwp-sources span { display: block; font-size: 13px; color: rgba(var(--fg-rgb),0.4); margin-top: 4px; }
 
     /* ---- CTA ---- */
     .iwp-cta { background: linear-gradient(135deg, #8c1c12, #5a120b); text-align: center; padding: 80px 24px; }
-    .iwp-cta h2 { font-family: Georgia, serif; font-size: 2.6rem; font-weight: 700; color: #fff; margin: 0 0 16px; }
+    .iwp-cta h2 { font-family: Georgia, serif; font-size: 2.6rem; font-weight: 700; color: var(--on-dark); margin: 0 0 16px; }
     .iwp-cta p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.88); max-width: 600px; margin: 0 auto 30px; }
     .iwp-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
     .iwp-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; text-decoration: none; padding: 15px 30px; border-radius: 999px; transition: transform 0.2s, background 0.2s; }
@@ -122,7 +122,7 @@
         .iwp-hero-sub { font-size: 1.15rem; }
         .iwp-h2 { font-size: 2.1rem; }
         .iwp-stats { grid-template-columns: 1fr 1fr; }
-        .iwp-stat { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 16px; }
+        .iwp-stat { border-left: 0; border-top: 1px solid rgba(var(--fg-rgb),0.08); padding: 32px 16px; }
         .iwp-stat:first-child, .iwp-stat:nth-child(2) { border-top: 0; }
         .iwp-cards { grid-template-columns: 1fr 1fr; }
         .iwp-pull p { font-size: 1.6rem; }
@@ -133,7 +133,7 @@
         .iwp-h2 { font-size: 1.8rem; }
         .iwp-lead .iwp-p { font-size: 1.2rem; }
         .iwp-stats { grid-template-columns: 1fr; }
-        .iwp-stat, .iwp-stat:nth-child(2) { border-left: 0; border-top: 1px solid rgba(255,255,255,0.08); }
+        .iwp-stat, .iwp-stat:nth-child(2) { border-left: 0; border-top: 1px solid rgba(var(--fg-rgb),0.08); }
         .iwp-stat:first-child { border-top: 0; }
         .iwp-cards { grid-template-columns: 1fr; }
         .iwp-cta h2 { font-size: 2rem; }

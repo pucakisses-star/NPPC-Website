@@ -129,17 +129,17 @@
 </div>
 
 <style>
-    #app-footer-v2 { background: #000; color: #fff; }
+    #app-footer-v2 { background: var(--bg); color: var(--fg); }
     #app-footer-v2 .f2 { font-family: inherit; }
     #app-footer-v2 .f2-inner { max-width: 1500px; margin: 0 auto; padding: 80px 32px 40px; }
 
     #app-footer-v2 .f2-top { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-bottom: 64px; align-items: start; }
 
-    #app-footer-v2 .f2-title { font-size: 2.5rem; font-weight: 900; color: #fff; margin: 0 0 24px; line-height: 1.05; max-width: 520px; }
-    #app-footer-v2 .f2-desc { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0 0 32px; max-width: 540px; }
+    #app-footer-v2 .f2-title { font-size: 2.5rem; font-weight: 900; color: var(--fg); margin: 0 0 24px; line-height: 1.05; max-width: 520px; }
+    #app-footer-v2 .f2-desc { font-size: 16px; line-height: 1.6; color: rgba(var(--fg-rgb),0.8); margin: 0 0 32px; max-width: 540px; }
 
     #app-footer-v2 .f2-social { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
-    #app-footer-v2 .f2-soc { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; color: #fff; text-decoration: none; transition: opacity 0.15s; }
+    #app-footer-v2 .f2-soc { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; color: var(--fg); text-decoration: none; transition: opacity 0.15s; }
     #app-footer-v2 .f2-soc:hover { opacity: 0.7; }
     #app-footer-v2 .f2-soc svg { width: 24px; height: 24px; fill: currentColor; display: block; }
 
@@ -169,24 +169,26 @@
         pointer-events: none;
     }
     #app-footer-v2 .f2-signup-eyebrow { font-size: 1.625rem; font-weight: 900; color: rgba(180, 190, 230, 0.55); line-height: 1; margin-bottom: 6px; letter-spacing: -0.005em; }
-    #app-footer-v2 .f2-signup-headline { font-size: 2.125rem; font-weight: 900; color: #fff; line-height: 1.08; margin-bottom: 32px; letter-spacing: -0.015em; }
+    #app-footer-v2 .f2-signup-headline { font-size: 2.125rem; font-weight: 900; color: var(--fg); line-height: 1.08; margin-bottom: 32px; letter-spacing: -0.015em; }
     #app-footer-v2 .f2-signup-form { display: flex; height: 56px; }
-    #app-footer-v2 .f2-signup-form input { flex: 1; min-width: 0; height: 100%; background: transparent; border: 1px solid var(--f2-frame); border-right: none; color: #fff; padding: 0 18px; font-size: 16px; outline: none; border-radius: 0; }
+    #app-footer-v2 .f2-signup-form input { flex: 1; min-width: 0; height: 100%; background: transparent; border: 1px solid var(--f2-frame); border-right: none; color: var(--fg); padding: 0 18px; font-size: 16px; outline: none; border-radius: 0; }
     #app-footer-v2 .f2-signup-form input::placeholder { color: rgba(170, 180, 220, 0.7); }
-    #app-footer-v2 .f2-signup-form input:focus { border-color: #fff; }
-    #app-footer-v2 .f2-signup-form button { height: 100%; background: #f25c54; color: #fff; border: none; padding: 0 44px; font-size: 14px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; }
+    #app-footer-v2 .f2-signup-form input:focus { border-color: var(--fg); }
+    #app-footer-v2 .f2-signup-form button { height: 100%; background: #f25c54; color: var(--on-accent); border: none; padding: 0 44px; font-size: 14px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.15s; }
     #app-footer-v2 .f2-signup-form button:hover { background: #d44a42; }
 
     /* Bottom bar */
-    #app-footer-v2 .f2-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.1); align-items: start; font-size: 13px; color: rgba(255, 255, 255, 0.65); }
+    #app-footer-v2 .f2-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; padding-top: 28px; border-top: 1px solid rgba(var(--fg-rgb), 0.1); align-items: start; font-size: 13px; color: rgba(var(--fg-rgb), 0.65); }
     #app-footer-v2 .f2-bottom p { margin: 0; line-height: 1.5; font-size: 13px; letter-spacing: 0; }
     #app-footer-v2 .f2-bottom-left { display: flex; align-items: center; gap: 16px; }
     #app-footer-v2 .f2-bottom-logo { flex: 0 0 auto; height: 48px; width: auto; display: block; }
+    /* The logo is a white monogram; invert it to dark on the light footer. */
+    html[data-theme="light"] #app-footer-v2 .f2-bottom-logo { filter: invert(1); }
     #app-footer-v2 .f2-bottom-center { text-align: center; font-size: 13px; }
     #app-footer-v2 .f2-bottom-links { list-style: none; margin: 0; padding: 0; text-align: right; }
     #app-footer-v2 .f2-bottom-links li { margin-bottom: 6px; }
-    #app-footer-v2 .f2-bottom-links a { color: rgba(255, 255, 255, 0.65); text-decoration: none; transition: color 0.15s; }
-    #app-footer-v2 .f2-bottom-links a:hover { color: #fff; }
+    #app-footer-v2 .f2-bottom-links a { color: rgba(var(--fg-rgb), 0.65); text-decoration: none; transition: color 0.15s; }
+    #app-footer-v2 .f2-bottom-links a:hover { color: var(--fg); }
 
     @media (max-width: 900px) {
         #app-footer-v2 .f2-inner { padding: 48px 24px 28px; }
