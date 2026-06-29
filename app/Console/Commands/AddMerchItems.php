@@ -18,7 +18,7 @@ final class AddMerchItems extends Command
 {
     protected $signature = 'store:add-merch-items';
 
-    protected $description = 'Add requested store products (jacket, bottle, NPPC bumper sticker)';
+    protected $description = 'Add requested store products (jacket, bottle, NPPC bumper sticker, button bundle)';
 
     public function handle(): int
     {
@@ -37,6 +37,11 @@ final class AddMerchItems extends Command
                 'name' => 'NPPC Bumper Sticker',
                 'description' => 'Weatherproof 11.5" × 3" vinyl bumper sticker with the National Political Prisoner Coalition logo and name. UV- and water-resistant — made for a bumper, a laptop lid, or a water bottle.',
                 'price' => 4.00, 'category' => 'Stickers', 'sort_order' => 54,
+            ],
+            [
+                'name' => 'NPPC Button Bundle (5)',
+                'description' => 'Set of five 1.25-inch pin-back buttons, each a different design — the NPPC logo, "Free Them All", "Abolition", "Letter Writing Saves Lives", and "Free Mumia". Steel shells with safety-pin backs; save $3 versus buying singly.',
+                'price' => 12.00, 'category' => 'Bundles', 'sort_order' => 82,
             ],
         ];
 
