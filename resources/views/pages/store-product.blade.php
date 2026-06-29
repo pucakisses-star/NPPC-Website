@@ -43,6 +43,9 @@
     .pd-btn.secondary:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
 
     .pd-note { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-top: 22px; max-width: 460px; }
+    .pd-delivery { display: flex; align-items: center; gap: 9px; font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 20px; }
+    .pd-delivery svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.55); flex-shrink: 0; }
+    .pd-delivery strong { color: #fff; font-weight: 700; }
 
     .pd-related { margin-top: 96px; }
     .pd-related h2 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 28px; }
@@ -192,6 +195,11 @@
                     </div>
                 </form>
             @endif
+
+            <p class="pd-delivery">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                Estimated delivery: <strong>{{ now()->addDays(5)->format('M j') }} &ndash; {{ now()->addDays(10)->format('M j') }}</strong>
+            </p>
 
             <p class="pd-note">Secure checkout powered by Stripe. All proceeds directly support the National Political Prisoner Coalition's advocacy, legal aid, and family-support work.</p>
         </div>
