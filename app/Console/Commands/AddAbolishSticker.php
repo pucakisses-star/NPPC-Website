@@ -47,9 +47,9 @@ final class AddAbolishSticker extends Command
 
         $gallery = is_file($gallerySource) ? [$galleryPath] : [];
 
-        // High sort_order so it sits at the back of the merch tier with the other
-        // political-prisoner stickers (ahead of Books/Zines).
-        $sortOrder = 507;
+        // Place it right after the NPPC Button Bundle, which sits at sort_order 82
+        // (the end of the bundles); 83 is otherwise unused.
+        $sortOrder = 83;
 
         $product = Product::where('name', $this->productName)->first();
 
