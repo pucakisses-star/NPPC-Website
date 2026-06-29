@@ -33,7 +33,7 @@
 
     /* Products */
     .store-products-title { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 24px; }
-    .store-products-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .store-products-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
     .store-products-head .store-products-title { margin-bottom: 0; }
     .store-cart-link { color: #8b93ff; text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid rgba(139,147,255,0.4); padding: 8px 16px; border-radius: 4px; white-space: nowrap; }
     .store-cart-link:hover { background: rgba(139,147,255,0.12); }
@@ -59,9 +59,9 @@
     .store-filter-btn { padding: 8px 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); background: transparent; cursor: pointer; border-radius: 4px; text-decoration: none; transition: all 0.15s; }
     .store-filter-btn:hover { border-color: #5660fe; color: #fff; }
     .store-filter-btn.active { background: #5660fe; border-color: #5660fe; color: #fff; }
-    .store-search { margin-bottom: 20px; }
-    .store-search input { width: 100%; max-width: 320px; padding: 10px 14px 10px 38px; font-size: 14px; background: #16181f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat 12px center; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; outline: none; transition: border-color 0.15s; }
-    .store-search input:focus { border-color: #5660fe; }
+    .store-search { flex: 0 1 300px; }
+    .store-search input { width: 100%; padding: 7px 4px 7px 26px; font-size: 14px; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat left center; background-size: 15px 15px; color: #fff; border: none; border-bottom: 1px solid rgba(255,255,255,0.25); border-radius: 0; outline: none; transition: border-color 0.15s; }
+    .store-search input:focus { border-bottom-color: #5660fe; }
     .store-search input::placeholder { color: rgba(255,255,255,0.4); }
 
     @media (max-width: 768px) {
@@ -165,11 +165,10 @@
     <div id="products">
         <div class="store-products-head">
             <h2 class="store-products-title" data-store-title>{{ $category ? $category : 'All Products' }}</h2>
+            <div class="store-search">
+                <input type="search" data-store-search placeholder="Search products…" aria-label="Search products" autocomplete="off">
+            </div>
             <a href="/cart" class="store-cart-link">Cart ({{ app(\App\Services\CartService::class)->count() }})</a>
-        </div>
-
-        <div class="store-search">
-            <input type="search" data-store-search placeholder="Search products…" aria-label="Search products" autocomplete="off">
         </div>
 
         @if($filterCategories->isNotEmpty())
