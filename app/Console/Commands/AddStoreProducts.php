@@ -67,26 +67,6 @@ class AddStoreProducts extends Command
 
             // ─── Books ───
             [
-                'name' => 'Live From Death Row — Mumia Abu-Jamal',
-                'description' => "Mumia Abu-Jamal's collection of essays written from death row, where he was held from 1982 until his sentence was commuted to life in 2011. A foundational text of contemporary U.S. abolitionist writing.",
-                'price' => 20.00, 'category' => 'Books', 'sort_order' => 30,
-            ],
-            [
-                'name' => 'Prison Writings: My Life Is My Sun Dance — Leonard Peltier',
-                'description' => "Leonard Peltier's memoir, written from federal prison, weaving Indigenous spirituality with the political history of the American Indian Movement.",
-                'price' => 25.00, 'category' => 'Books', 'sort_order' => 31,
-            ],
-            [
-                'name' => 'Assata: An Autobiography — Assata Shakur',
-                'description' => "Assata Shakur's autobiography of her life in the Black Panther Party, the Black Liberation Army, the 1973 New Jersey Turnpike shootout, her conviction, escape from prison, and exile in Cuba.",
-                'price' => 20.00, 'category' => 'Books', 'sort_order' => 32,
-            ],
-            [
-                'name' => 'Prison Memoirs of an Anarchist — Alexander Berkman',
-                'description' => "Alexander Berkman's 1912 account of fourteen years in the Western Penitentiary of Pennsylvania after his attempted assassination of Henry Clay Frick during the Homestead Strike. One of the foundational texts of American prison literature.",
-                'price' => 20.00, 'category' => 'Books', 'sort_order' => 33,
-            ],
-            [
                 'name' => 'Soledad Brother — George Jackson',
                 'description' => "George Jackson's prison letters, written from 1964 to 1970, foundational to the Black liberation prison movement.",
                 'price' => 20.00, 'category' => 'Books', 'sort_order' => 34,

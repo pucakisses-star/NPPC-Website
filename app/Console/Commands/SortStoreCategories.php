@@ -63,10 +63,6 @@ final class SortStoreCategories extends Command
         'NPPC Solidarity Bundle' => ['Bundles', 'Apparel', 'Stickers', 'Pins'],
         'Prisoner Memoir Reading Bundle' => ['Bundles', 'Books'],
         // Books
-        'Live From Death Row — Mumia Abu-Jamal' => ['Books'],
-        'Prison Writings: My Life Is My Sun Dance — Leonard Peltier' => ['Books'],
-        'Assata: An Autobiography — Assata Shakur' => ['Books'],
-        'Prison Memoirs of an Anarchist — Alexander Berkman' => ['Books'],
         'Soledad Brother — George Jackson' => ['Books'],
     ];
 
