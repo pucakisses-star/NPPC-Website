@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
- * Adds a single product: the NPPC Button — a pin-back button in the Accessories
+ * Adds a single product: the NPPC Button — a pin-back button in the Pins
  * category. Dedupes by name and is safe to re-run. The product is created
  * without an image so an admin can upload a real photo through the panel.
  */
@@ -42,7 +42,7 @@ final class AddNppcButton extends Command
                 'name' => $name,
                 'description' => 'Classic 2.25" pin-back button with the National Political Prisoner Coalition logo. Sturdy steel shell and a safety-pin back — wear it on a jacket, a tote, or a backpack.',
                 'price' => 3.00,
-                'category' => 'Accessories',
+                'category' => 'Pins',
                 'sort_order' => 63,
                 'published' => true,
                 'featured' => false,

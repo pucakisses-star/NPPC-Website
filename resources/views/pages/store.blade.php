@@ -90,10 +90,19 @@
         </div>
     </div>
 
-    {{-- Categories --}}
-    @if($categories->isNotEmpty())
+    @php
+        // The category CARDS show only the top-level departments; the finer
+        // product types (pins, stickers, zines, magnets) appear only as the
+        // filter PILLS below.
+        $pillOnly = ['Pins', 'Stickers', 'Zines', 'Magnets'];
+        $cardCategories = $categories->reject(fn ($c) => in_array($c, $pillOnly, true))->values();
+        $filterCategories = $cardCategories->merge($pillOnly)->values();
+    @endphp
+
+    {{-- Categories (cards: departments only) --}}
+    @if($cardCategories->isNotEmpty())
         <div class="store-categories">
-            @foreach($categories as $cat)
+            @foreach($cardCategories as $cat)
                 <a href="#products" data-store-category="{{ $cat }}" class="store-cat-card">
                     <div class="store-cat-image">
                         @php
@@ -145,10 +154,10 @@
             <a href="/cart" class="store-cart-link">Cart ({{ app(\App\Services\CartService::class)->count() }})</a>
         </div>
 
-        @if($categories->isNotEmpty())
+        @if($filterCategories->isNotEmpty())
             <div class="store-filter">
                 <button type="button" data-store-filter="" class="store-filter-btn {{ !$category ? 'active' : '' }}">All</button>
-                @foreach($categories as $cat)
+                @foreach($filterCategories as $cat)
                     <button type="button" data-store-filter="{{ $cat }}" class="store-filter-btn {{ $category === $cat ? 'active' : '' }}">{{ $cat }}</button>
                 @endforeach
             </div>
