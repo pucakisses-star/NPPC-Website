@@ -14,60 +14,60 @@
     #main-content.container { overflow: visible; }
     .pd-page { max-width: 1280px; margin: 0 auto; padding: 0 24px 80px; }
 
-    .pd-crumb { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: rgba(255,255,255,0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
-    .pd-crumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
-    .pd-crumb a:hover { color: #fff; }
-    .pd-crumb .pd-trail span { color: #fff; }
-    .pd-cart-link { color: #8b93ff !important; font-weight: 700; white-space: nowrap; }
+    .pd-crumb { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: rgba(var(--store-fg-rgb),0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
+    .pd-crumb a { color: rgba(var(--store-fg-rgb),0.6); text-decoration: none; }
+    .pd-crumb a:hover { color: var(--store-fg); }
+    .pd-crumb .pd-trail span { color: var(--store-fg); }
+    .pd-cart-link { color: var(--store-accent-2) !important; font-weight: 700; white-space: nowrap; }
 
     .pd-main { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 
-    .pd-media { border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; background: #11131a; }
+    .pd-media { border: 1px solid rgba(var(--store-fg-rgb),0.12); border-radius: 6px; overflow: hidden; background: var(--store-surface); }
     .pd-media img { width: 100%; height: auto; display: block; }
     /* Hover-to-magnify: scale the image and let the cursor pan it (transform-
        origin is set per-cursor in JS). Contained by .pd-media's overflow:hidden. */
     .pd-media.pd-zoomable { cursor: zoom-in; }
     #pd-main-img { transition: transform 0.18s ease; will-change: transform; }
-    .pd-media-placeholder { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); }
+    .pd-media-placeholder { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #111 0%, var(--store-surface-2) 100%); }
 
     .pd-gallery { display: flex; flex-direction: column; gap: 12px; }
     .pd-thumbs { display: flex; gap: 10px; flex-wrap: wrap; }
-    .pd-thumb { width: 64px; height: 80px; padding: 0; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden; background: #11131a; cursor: pointer; transition: border-color 0.15s; }
-    .pd-thumb:hover { border-color: rgba(255,255,255,0.4); }
-    .pd-thumb.active { border-color: #5660fe; }
+    .pd-thumb { width: 64px; height: 80px; padding: 0; border: 1px solid rgba(var(--store-fg-rgb),0.15); border-radius: 4px; overflow: hidden; background: var(--store-surface); cursor: pointer; transition: border-color 0.15s; }
+    .pd-thumb:hover { border-color: rgba(var(--store-fg-rgb),0.4); }
+    .pd-thumb.active { border-color: var(--store-accent); }
     .pd-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .pd-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8b93ff; margin-bottom: 14px; }
+    .pd-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--store-accent-2); margin-bottom: 14px; }
     .pd-eyebrow a { color: inherit; text-decoration: none; }
     .pd-eyebrow a:hover { text-decoration: underline; }
-    .pd-title { font-size: 2.6rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px; }
-    .pd-price { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 28px; }
-    .pd-desc { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+    .pd-title { font-size: 2.6rem; font-weight: 900; color: var(--store-fg); line-height: 1.1; margin-bottom: 16px; }
+    .pd-price { font-size: 1.6rem; font-weight: 700; color: var(--store-fg); margin-bottom: 28px; }
+    .pd-desc { font-size: 16px; line-height: 1.8; color: rgba(var(--store-fg-rgb),0.7); margin-bottom: 32px; }
 
     .pd-field { margin-bottom: 22px; }
-    .pd-field label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
-    .pd-field select { width: 100%; max-width: 220px; padding: 12px 14px; background: #16181f; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-size: 15px; }
+    .pd-field label { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(var(--store-fg-rgb),0.55); margin-bottom: 8px; }
+    .pd-field select { width: 100%; max-width: 220px; padding: 12px 14px; background: var(--store-surface); color: var(--store-fg); border: 1px solid rgba(var(--store-fg-rgb),0.2); border-radius: 4px; font-size: 15px; }
 
     .pd-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .pd-btn { display: inline-block; background: #5660fe; color: #fff; padding: 16px 40px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s; }
-    .pd-btn:hover { background: #4049d6; }
-    .pd-btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; }
-    .pd-btn.secondary:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+    .pd-btn { display: inline-block; background: var(--store-accent); color: var(--store-on-accent); padding: 16px 40px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s; }
+    .pd-btn:hover { background: var(--store-accent-hover); }
+    .pd-btn.secondary { background: transparent; border: 1px solid rgba(var(--store-fg-rgb),0.25); color: var(--store-fg); }
+    .pd-btn.secondary:hover { border-color: var(--store-fg); background: rgba(var(--store-fg-rgb),0.05); }
 
-    .pd-note { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; margin-top: 22px; max-width: 460px; }
-    .pd-delivery { display: flex; align-items: center; gap: 9px; font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 20px; }
-    .pd-delivery svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.55); flex-shrink: 0; }
-    .pd-delivery strong { color: #fff; font-weight: 700; }
+    .pd-note { font-size: 13px; color: rgba(var(--store-fg-rgb),0.45); line-height: 1.6; margin-top: 22px; max-width: 460px; }
+    .pd-delivery { display: flex; align-items: center; gap: 9px; font-size: 14px; color: rgba(var(--store-fg-rgb),0.7); margin-top: 20px; }
+    .pd-delivery svg { width: 18px; height: 18px; fill: rgba(var(--store-fg-rgb),0.55); flex-shrink: 0; }
+    .pd-delivery strong { color: var(--store-fg); font-weight: 700; }
 
     .pd-related { margin-top: 96px; }
-    .pd-related h2 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 28px; }
+    .pd-related h2 { font-size: 22px; font-weight: 800; color: var(--store-fg); margin-bottom: 28px; }
     .pd-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .pd-rel { text-decoration: none; display: block; }
-    .pd-rel-img { aspect-ratio: 1; background: #1a1a2e; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+    .pd-rel-img { aspect-ratio: 1; background: var(--store-surface-2); border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
     .pd-rel-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
     .pd-rel:hover .pd-rel-img img { transform: scale(1.05); }
-    .pd-rel-name { font-size: 14px; font-weight: 600; color: #fff; text-align: center; }
-    .pd-rel-price { font-size: 13px; color: rgba(255,255,255,0.5); text-align: center; margin-top: 2px; }
+    .pd-rel-name { font-size: 14px; font-weight: 600; color: var(--store-fg); text-align: center; }
+    .pd-rel-price { font-size: 13px; color: rgba(var(--store-fg-rgb),0.5); text-align: center; margin-top: 2px; }
 
     /* Left category sidebar */
     .pd-layout { display: flex; gap: 48px; align-items: flex-start; }
@@ -77,14 +77,14 @@
        naturally sits at max((100vw - 1080px)/2, 0) + 40px (container + paddings).
        The difference is the (negative) nudge. The content beside it stays put. */
     .pd-sidebar { flex: 0 0 200px; position: sticky; top: 24px; transform: translateX(calc(max((100vw - 1280px) / 2, 0px) - max((100vw - 1080px) / 2, 0px) - 16px)); }
-    .pd-sidebar-title { font-size: 22px; font-weight: 900; color: #fff; margin: 32px 0 18px; }
-    .pd-cats { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.12); }
-    .pd-cat { display: block; padding: 13px 2px; font-size: 15px; font-weight: 600; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.12); transition: color 0.15s; }
-    .pd-cat:hover { color: rgba(255,255,255,0.72); }
-    .pd-cat.active { color: #8b93ff; }
+    .pd-sidebar-title { font-size: 22px; font-weight: 900; color: var(--store-fg); margin: 32px 0 18px; }
+    .pd-cats { display: flex; flex-direction: column; border-top: 1px solid rgba(var(--store-fg-rgb),0.12); }
+    .pd-cat { display: block; padding: 13px 2px; font-size: 15px; font-weight: 600; color: var(--store-fg); text-decoration: none; border-bottom: 1px solid rgba(var(--store-fg-rgb),0.12); transition: color 0.15s; }
+    .pd-cat:hover { color: rgba(var(--store-fg-rgb),0.72); }
+    .pd-cat.active { color: var(--store-accent-2); }
     .pd-social { display: flex; gap: 18px; margin-top: 22px; }
-    .pd-social a { color: #fff; transition: color 0.15s; }
-    .pd-social a:hover { color: rgba(255,255,255,0.5); }
+    .pd-social a { color: var(--store-fg); transition: color 0.15s; }
+    .pd-social a:hover { color: rgba(var(--store-fg-rgb),0.5); }
     .pd-social svg { width: 19px; height: 19px; fill: currentColor; display: block; }
 
     @media (max-width: 860px) {
@@ -104,6 +104,7 @@
 @endsection
 
 @section('body')
+@include('sections.store-theme')
 @php
     $isGarment = $product->category === 'Apparel'
         && preg_match('/t-?shirt|tee|hoodie|sweatshirt|crewneck/i', $product->name);
@@ -155,7 +156,7 @@
                     <img id="pd-main-img" src="{{ $pdImages->first() }}" alt="{{ $product->name }}">
                 @else
                     <div class="pd-media-placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="rgba(255,255,255,0.12)" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="rgba(140,140,150,0.4)" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
                     </div>
                 @endif
             </div>
