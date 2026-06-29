@@ -39,6 +39,7 @@ Route::controller(SiteController::class)
         Route::get('faq', 'faq');
         Route::get('staff', 'staff');
         Route::get('podcast', 'podcast');
+        Route::redirect('shop', '/store', 301);
         Route::get('store', 'store');
         Route::get('store/{slug}', 'storeProduct');
         Route::get('events', 'events');
