@@ -38,16 +38,17 @@
     html[data-store-theme="light"] body { background: var(--store-bg); }
     .store-page, .pd-page { background: var(--store-bg); }
 
+    /* Bottom-LEFT so it clears the site's scroll-to-top button (bottom-right),
+       and accent-colored so it stands out on both the dark and light page. */
     .store-theme-toggle {
-        position: fixed; right: 20px; bottom: 20px; z-index: 60;
+        position: fixed; left: 20px; bottom: 20px; z-index: 2147483000;
         display: inline-flex; align-items: center; gap: 8px;
-        padding: 10px 16px; border-radius: 999px;
-        border: 1px solid rgba(var(--store-fg-rgb), 0.25);
-        background: var(--store-surface); color: var(--store-fg);
-        font-size: 13px; font-weight: 700; cursor: pointer;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.28); transition: transform 0.15s, border-color 0.15s;
+        padding: 12px 18px; border-radius: 999px; border: none;
+        background: var(--store-accent); color: var(--store-on-accent);
+        font-size: 14px; font-weight: 700; cursor: pointer;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.35); transition: transform 0.15s, background 0.15s;
     }
-    .store-theme-toggle:hover { transform: translateY(-1px); border-color: var(--store-accent); }
+    .store-theme-toggle:hover { transform: translateY(-2px); background: var(--store-accent-hover); }
     .store-theme-toggle svg { width: 16px; height: 16px; display: block; }
     .store-theme-toggle .store-theme-moon { display: none; }
     html[data-store-theme="light"] .store-theme-toggle .store-theme-sun { display: none; }
