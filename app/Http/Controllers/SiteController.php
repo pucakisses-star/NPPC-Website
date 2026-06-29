@@ -356,10 +356,10 @@ final class SiteController extends Controller {
 
     public function store(Request $request) {
         $category = $request->input('category');
-        // Books always sort to the very back of the grid (after every other
-        // category), then by sort_order within each group.
+        // Books and Zines always sort to the very back of the grid (after every
+        // other category — books, then zines), then by sort_order within each group.
         $products = Product::published()
-            ->orderByRaw("CASE WHEN category = 'Books' THEN 1 ELSE 0 END")
+            ->orderByRaw("CASE WHEN category = 'Books' THEN 1 WHEN category = 'Zines' THEN 2 ELSE 0 END")
             ->orderBy('sort_order')
             ->get();
         $categories = Product::published()->whereNotNull('category')->where('category', '!=', '')->distinct()->pluck('category');

@@ -48,6 +48,9 @@
     .store-product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
     .store-product:hover .store-product-image img { transform: scale(1.05); }
     .store-product-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); }
+    /* Books & zines: show the full cover (portrait, never cropped) instead of a square crop. */
+    .store-product--cover .store-product-image { aspect-ratio: 2 / 3; background: transparent; }
+    .store-product--cover .store-product-image img { object-fit: contain; }
     .store-product-name { font-size: 15px; font-weight: 600; color: #fff; text-align: center; margin-bottom: 4px; }
     .store-product-price { font-size: 14px; color: rgba(255,255,255,0.5); text-align: center; }
 
@@ -177,7 +180,7 @@
         @else
             <div class="store-products-grid" data-store-grid>
                 @foreach($products as $product)
-                    <a href="/store/{{ $product->slug }}" data-product-categories="{{ implode(',', $product->all_categories) }}" class="store-product">
+                    <a href="/store/{{ $product->slug }}" data-product-categories="{{ implode(',', $product->all_categories) }}" class="store-product {{ in_array($product->category, ['Books', 'Zines'], true) ? 'store-product--cover' : '' }}">
                         <div class="store-product-image">
                             @if($product->image)
                                 <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
