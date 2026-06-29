@@ -38,10 +38,10 @@
     html[data-store-theme="light"] body { background: var(--store-bg); }
     .store-page, .pd-page { background: var(--store-bg); }
 
-    /* Bottom-LEFT so it clears the site's scroll-to-top button (bottom-right),
-       and accent-colored so it stands out on both the dark and light page. */
+    /* Top-LEFT, accent-colored so it stands out on both the dark and light page.
+       High z-index so it floats above the header. */
     .store-theme-toggle {
-        position: fixed; left: 20px; bottom: 20px; z-index: 2147483000;
+        position: fixed; left: 20px; top: 20px; z-index: 2147483000;
         display: inline-flex; align-items: center; gap: 8px;
         padding: 12px 18px; border-radius: 999px; border: none;
         background: var(--store-accent); color: var(--store-on-accent);
