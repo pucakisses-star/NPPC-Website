@@ -83,8 +83,8 @@
     .pd-cat:hover { color: #fff; }
     .pd-cat.active { color: #8b93ff; }
     .pd-social { display: flex; gap: 18px; margin-top: 22px; }
-    .pd-social a { color: rgba(255,255,255,0.5); transition: color 0.15s; }
-    .pd-social a:hover { color: #fff; }
+    .pd-social a { color: #fff; transition: color 0.15s; }
+    .pd-social a:hover { color: rgba(255,255,255,0.5); }
     .pd-social svg { width: 19px; height: 19px; fill: currentColor; display: block; }
 
     @media (max-width: 860px) {
