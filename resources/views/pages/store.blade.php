@@ -37,7 +37,12 @@
     .store-products-head .store-products-title { margin-bottom: 0; }
     .store-cart-link { color: #8b93ff; text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid rgba(139,147,255,0.4); padding: 8px 16px; border-radius: 4px; white-space: nowrap; }
     .store-cart-link:hover { background: rgba(139,147,255,0.12); }
-    .store-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 80px; }
+    .store-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 32px; }
+    .store-pager { display: flex; justify-content: center; align-items: center; gap: 16px; padding: 8px 0 80px; }
+    .store-page-btn { padding: 10px 22px; font-size: 14px; font-weight: 700; border: 1px solid rgba(255,255,255,0.25); color: #fff; background: transparent; cursor: pointer; border-radius: 4px; transition: all 0.15s; }
+    .store-page-btn:hover:not(:disabled) { background: #5660fe; border-color: #5660fe; }
+    .store-page-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .store-page-info { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 600; }
     .store-product { text-decoration: none; display: block; }
     .store-product-image { aspect-ratio: 1; background: #1a1a2e; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
     .store-product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
@@ -91,12 +96,12 @@
     </div>
 
     @php
-        // The category CARDS show only the top-level departments; the finer
-        // product types (pins, stickers, zines, magnets) appear only as the
-        // filter PILLS below.
-        $pillOnly = ['Pins', 'Stickers', 'Zines', 'Magnets'];
-        $cardCategories = $categories->reject(fn ($c) => in_array($c, $pillOnly, true))->values();
-        $filterCategories = $cardCategories->merge($pillOnly)->values();
+        // Fixed display order. CARDS show only departments that have products;
+        // PILLS are the full curated set in this exact order (some, like Zines,
+        // may have no products yet — their pill just filters to an empty grid).
+        $cardCategories = collect(['Apparel', 'Accessories', 'Bundles', 'Books'])
+            ->filter(fn ($c) => $categories->contains($c))->values();
+        $filterCategories = collect(['Apparel', 'Accessories', 'Pins', 'Stickers', 'Magnets', 'Bundles', 'Books', 'Zines']);
     @endphp
 
     {{-- Categories (cards: departments only) --}}
@@ -188,53 +193,109 @@
                     No products in this category.
                 </div>
             </div>
+            <div class="store-pager" data-store-pager style="display:none;"></div>
         @endif
     </div>
 </div>
 
 <script>
 (function () {
+    var PAGE_SIZE = 20; // 5 rows x 4 columns on desktop
     var filterBtns = document.querySelectorAll('[data-store-filter]');
     var catCards = document.querySelectorAll('[data-store-category]');
-    var products = document.querySelectorAll('[data-product-category]');
+    var products = Array.prototype.slice.call(document.querySelectorAll('[data-product-category]'));
     var title = document.querySelector('[data-store-title]');
     var empty = document.querySelector('[data-store-empty]');
+    var pager = document.querySelector('[data-store-pager]');
 
-    function applyFilter(category, opts) {
+    var currentCategory = @json($category) || '';
+    var currentPage = 1;
+
+    function render(opts) {
         opts = opts || {};
-        var visible = 0;
+        var matched = [];
         products.forEach(function (el) {
-            var match = !category || el.getAttribute('data-product-category') === category;
-            el.style.display = match ? '' : 'none';
-            if (match) visible++;
+            el.style.display = 'none';
+            if (!currentCategory || el.getAttribute('data-product-category') === currentCategory) {
+                matched.push(el);
+            }
         });
+
+        var totalPages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+        var start = (currentPage - 1) * PAGE_SIZE;
+        matched.slice(start, start + PAGE_SIZE).forEach(function (el) { el.style.display = ''; });
+
         filterBtns.forEach(function (btn) {
-            btn.classList.toggle('active', btn.getAttribute('data-store-filter') === (category || ''));
+            btn.classList.toggle('active', btn.getAttribute('data-store-filter') === currentCategory);
         });
-        if (title) title.textContent = category || 'All Products';
-        if (empty) empty.style.display = visible === 0 ? '' : 'none';
+        if (title) title.textContent = currentCategory || 'All Products';
+        if (empty) empty.style.display = matched.length === 0 ? '' : 'none';
+
+        renderPager(totalPages);
 
         var url = new URL(window.location.href);
-        if (category) url.searchParams.set('category', category);
+        if (currentCategory) url.searchParams.set('category', currentCategory);
         else url.searchParams.delete('category');
-        history.replaceState(null, '', url.toString() + (opts.scroll ? '#products' : window.location.hash));
+        history.replaceState(null, '', url.toString());
+
+        if (opts.scroll) {
+            var anchor = document.getElementById('products');
+            if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function renderPager(totalPages) {
+        if (!pager) return;
+        pager.innerHTML = '';
+        if (totalPages <= 1) { pager.style.display = 'none'; return; }
+        pager.style.display = '';
+
+        var prev = document.createElement('button');
+        prev.type = 'button';
+        prev.className = 'store-page-btn';
+        prev.textContent = '← Prev';
+        prev.disabled = currentPage <= 1;
+        prev.addEventListener('click', function () { if (currentPage > 1) { currentPage--; render({ scroll: true }); } });
+
+        var info = document.createElement('span');
+        info.className = 'store-page-info';
+        info.textContent = 'Page ' + currentPage + ' of ' + totalPages;
+
+        var next = document.createElement('button');
+        next.type = 'button';
+        next.className = 'store-page-btn';
+        next.textContent = 'Next →';
+        next.disabled = currentPage >= totalPages;
+        next.addEventListener('click', function () { if (currentPage < totalPages) { currentPage++; render({ scroll: true }); } });
+
+        pager.appendChild(prev);
+        pager.appendChild(info);
+        pager.appendChild(next);
+    }
+
+    function setCategory(category, scroll) {
+        currentCategory = category || '';
+        currentPage = 1;
+        render({ scroll: !!scroll });
     }
 
     filterBtns.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
-            applyFilter(btn.getAttribute('data-store-filter'));
+            setCategory(btn.getAttribute('data-store-filter'), false);
         });
     });
 
     catCards.forEach(function (card) {
         card.addEventListener('click', function (e) {
             e.preventDefault();
-            applyFilter(card.getAttribute('data-store-category'), { scroll: true });
-            var anchor = document.getElementById('products');
-            if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
+            setCategory(card.getAttribute('data-store-category'), true);
         });
     });
+
+    render();
 })();
 </script>
 @endsection
