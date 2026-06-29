@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Storage;
  * path is unchanged). Idempotent; safe to re-run.
  */
 class GenerateStoreMockups extends Command {
-    protected $signature = 'store:generate-mockups';
+    protected $signature = 'store:generate-mockups {name? : Only (re)generate the mockup for this exact product name}';
     protected $description = 'Regenerate store product images as vector product mockups (shirts, totes, mugs, pins, etc.)';
 
     /** @var array<string, array{shape:string, design:array<int,string>}> */
@@ -59,9 +59,14 @@ class GenerateStoreMockups extends Command {
     ];
 
     public function handle(): int {
+        $only = $this->argument('name');
         $count = 0;
         $missing = 0;
+        $skipped = 0;
         foreach ($this->map as $name => $cfg) {
+            if ($only !== null && $name !== $only) {
+                continue;
+            }
             $product = Product::where('name', $name)->first();
             if (! $product) {
                 $this->warn("Not found: {$name}");
@@ -69,14 +74,32 @@ class GenerateStoreMockups extends Command {
 
                 continue;
             }
+
+            // Generated mockups always live at this one canonical path. Only
+            // write when the product is still using that mockup (or has no
+            // image yet). NEVER touch a photo an admin uploaded through the
+            // panel — Filament stores those under a different filename, so any
+            // other path means a real upload we must leave alone.
+            $canonical = 'products/'.$product->slug.'.svg';
+            $current = (string) $product->image;
+            if ($current !== '' && $current !== $canonical) {
+                $this->line("Keeping uploaded image for {$name} ({$current}) — not regenerating.");
+                $skipped++;
+
+                continue;
+            }
+
             $inner = $this->shape($cfg['shape'], $cfg['design']);
             $svg = $this->wrap($product->category ?: 'NPPC', $inner);
-            $path = $product->image ?: ('products/'.$product->slug.'.svg');
-            Storage::disk('public')->put($path, $svg);
+            Storage::disk('public')->put($canonical, $svg);
+            if ($current !== $canonical) {
+                $product->image = $canonical;
+                $product->save();
+            }
             $this->info("Mockup: {$name}  [{$cfg['shape']}]");
             $count++;
         }
-        $this->info("\nDone. Regenerated {$count} mockups".($missing ? ", {$missing} not found." : '.'));
+        $this->info("\nDone. Regenerated {$count} mockup(s), skipped {$skipped}".($missing ? ", {$missing} not found." : '.'));
 
         return self::SUCCESS;
     }
