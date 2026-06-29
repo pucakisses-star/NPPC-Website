@@ -163,9 +163,9 @@ $isHome = request()->segment(1) == ''
         /* The compiled CSS sets a dark body background; override it in light mode. */
         html[data-theme="light"] body { background: var(--bg); color: var(--fg); }
 
-        /* Global theme toggle (top-left, accent pill). */
+        /* Global theme toggle (bottom-left, accent pill). */
         .site-theme-toggle {
-            position: fixed; left: 20px; top: 20px; z-index: 2147483000;
+            position: fixed; left: 20px; bottom: 20px; z-index: 2147483000;
             display: inline-flex; align-items: center; gap: 8px;
             padding: 11px 16px; border-radius: 999px; border: none;
             background: var(--accent); color: var(--on-accent);
@@ -177,6 +177,20 @@ $isHome = request()->segment(1) == ''
         .site-theme-toggle .site-theme-moon { display: none; }
         html[data-theme="light"] .site-theme-toggle .site-theme-sun { display: none; }
         html[data-theme="light"] .site-theme-toggle .site-theme-moon { display: block; }
+
+        /* Light-mode fixes for compiled/JS widgets that don't read the tokens.
+           Targeted by stable id hooks so no Vue/asset rebuild is needed. */
+        /* Home-page stats chart (Vue / Unovis) */
+        html[data-theme="light"] #app-stats,
+        html[data-theme="light"] #graph-component,
+        html[data-theme="light"] #graph-component nav { background: var(--bg); }
+        html[data-theme="light"] #graph-component .text-white:not(.app-color-bg) { color: var(--fg); }
+        html[data-theme="light"] #graph-component .border-white { border-color: rgba(var(--fg-rgb), 0.3); }
+        html[data-theme="light"] #graph-component svg text,
+        html[data-theme="light"] #graph-component tspan { fill: var(--fg); }
+        /* Mobile slide-down menu */
+        html[data-theme="light"] #mobile-menu { background: var(--bg); }
+        html[data-theme="light"] #mobile-menu a { color: var(--fg); }
     </style>
     <script>
         /* Set the theme before first paint (no flash). */
