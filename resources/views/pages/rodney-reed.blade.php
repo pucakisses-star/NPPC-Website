@@ -373,8 +373,8 @@
     segs.forEach(function (s, n) { s.addEventListener('click', function () { go(n); }); });
 
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') go(i + 1);
-        else if (e.key === 'ArrowLeft') go(i - 1);
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') go(i + 1);
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') go(i - 1);
     });
 
     // Touch swipe
@@ -386,6 +386,20 @@
         if (Math.abs(dx) > 50) go(dx < 0 ? i + 1 : i - 1);
         x0 = null;
     }, { passive: true });
+
+    // Scroll / trackpad wheel — one slide per gesture (scroll down = next slide,
+    // scroll up = previous). The lock stays engaged until the gesture (including
+    // trackpad momentum) settles, so a single scroll advances exactly one slide.
+    var wheelLock = false, wheelTimer = null;
+    deck.addEventListener('wheel', function (e) {
+        if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return; // ignore horizontal scroll
+        e.preventDefault();
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(function () { wheelLock = false; }, 600);
+        if (wheelLock || Math.abs(e.deltaY) < 8) return;
+        wheelLock = true;
+        go(i + (e.deltaY > 0 ? 1 : -1));
+    }, { passive: false });
 
     // "Share" in the top bar jumps to the final slide
     var jump = deck.querySelector('.rr-share-jump');
