@@ -5,7 +5,10 @@
     .lm-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
 
     /* Hero — slatted strip layout */
-    .lm-hero { position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; background: #000; }
+    .lm-hero { position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; background: #000; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+    /* Let the full-bleed hero escape the centered .container (this page only);
+       every other section stays within the container's max-width. */
+    .page-learn-more .container { overflow: visible; }
     .lm-hero-photos { position: absolute; inset: 40px 24px; display: flex; gap: 20px; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
     .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(85%); }
     .lm-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 70%); pointer-events: none; }
