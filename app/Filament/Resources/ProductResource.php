@@ -27,8 +27,13 @@ class ProductResource extends Resource {
                     ->numeric()
                     ->prefix('$'),
                 Forms\Components\TextInput::make('category')
+                    ->label('Primary category')
                     ->placeholder('e.g. Apparel, Accessories, Books')
                     ->maxLength(100),
+                Forms\Components\TagsInput::make('categories')
+                    ->label('Also appears under')
+                    ->suggestions(['Apparel', 'Accessories', 'Pins', 'Stickers', 'Magnets', 'Bundles', 'Books', 'Zines'])
+                    ->helperText('Extra categories this product is filtered under, beyond the primary one (e.g. a bumper sticker can be Stickers and Accessories).'),
                 Forms\Components\TextInput::make('purchase_url')
                     ->label('Purchase URL')
                     ->url()

@@ -115,7 +115,9 @@
                             // takes precedence; otherwise fall back to the first product's image.
                             $coverRel = 'images/site/category-'.\Illuminate\Support\Str::slug($cat).'.jpg';
                             $hasCover = file_exists(public_path($coverRel));
-                            $catProduct = $hasCover ? null : \App\Models\Product::published()->where('category', $cat)->whereNotNull('image')->first();
+                            $catProduct = $hasCover ? null : \App\Models\Product::published()->whereNotNull('image')->where(function ($q) use ($cat) {
+                                $q->where('category', $cat)->orWhereJsonContains('categories', $cat);
+                            })->first();
                         @endphp
                         @if($hasCover)
                             <img src="/{{ $coverRel }}?v={{ @filemtime(public_path($coverRel)) }}" alt="{{ $cat }}">
@@ -175,7 +177,7 @@
         @else
             <div class="store-products-grid" data-store-grid>
                 @foreach($products as $product)
-                    <a href="/store/{{ $product->slug }}" data-product-category="{{ $product->category }}" class="store-product">
+                    <a href="/store/{{ $product->slug }}" data-product-categories="{{ implode(',', $product->all_categories) }}" class="store-product">
                         <div class="store-product-image">
                             @if($product->image)
                                 <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
@@ -203,7 +205,7 @@
     var PAGE_SIZE = 20; // 5 rows x 4 columns on desktop
     var filterBtns = document.querySelectorAll('[data-store-filter]');
     var catCards = document.querySelectorAll('[data-store-category]');
-    var products = Array.prototype.slice.call(document.querySelectorAll('[data-product-category]'));
+    var products = Array.prototype.slice.call(document.querySelectorAll('[data-product-categories]'));
     var title = document.querySelector('[data-store-title]');
     var empty = document.querySelector('[data-store-empty]');
     var pager = document.querySelector('[data-store-pager]');
@@ -216,7 +218,8 @@
         var matched = [];
         products.forEach(function (el) {
             el.style.display = 'none';
-            if (!currentCategory || el.getAttribute('data-product-category') === currentCategory) {
+            var cats = (el.getAttribute('data-product-categories') || '').split(',');
+            if (!currentCategory || cats.indexOf(currentCategory) !== -1) {
                 matched.push(el);
             }
         });
