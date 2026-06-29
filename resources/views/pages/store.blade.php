@@ -117,7 +117,7 @@
         </div>
         <div class="store-feature-image">
             @if(file_exists(public_path('images/site/store-feature.jpg')))
-                <img src="/images/site/store-feature.jpg" alt="Goods that do good">
+                <img src="/images/site/store-feature.jpg?v={{ @filemtime(public_path('images/site/store-feature.jpg')) }}" alt="Goods that do good">
             @else
                 <div class="store-feature-placeholder"></div>
             @endif
