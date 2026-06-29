@@ -45,6 +45,10 @@ class GenerateStoreMockups extends Command {
         'NPPC Sticker Pack (10)'               => ['shape' => 'sticker',   'design' => ['NPPC']],
         'Free Them All Sticker'                => ['shape' => 'sticker',   'design' => ['FREE', 'THEM ALL']],
         'Black Liberation Slogan Sticker Set (5)' => ['shape' => 'sticker','design' => ['BLACK', 'LIBERATION']],
+        'Free Them All Bumper Sticker'         => ['shape' => 'bumpersticker', 'design' => ['FREE THEM ALL']],
+        // Magnets
+        'Free Them All Car Magnet'             => ['shape' => 'carmagnet',     'design' => ['FREE', 'THEM ALL']],
+        'NPPC Fridge Magnet'                   => ['shape' => 'fridgemagnet',  'design' => ['NPPC']],
         // Pins
         'NPPC Enamel Pin'                      => ['shape' => 'pin',       'design' => ['NPPC']],
         'Free Mumia Enamel Pin'                => ['shape' => 'pin',       'design' => ['FREE', 'MUMIA']],
@@ -89,6 +93,9 @@ class GenerateStoreMockups extends Command {
             'bottle'     => $this->bottle($design),
             'bandana'    => $this->bandana($design),
             'sticker'    => $this->sticker($design),
+            'bumpersticker' => $this->bumpersticker($design),
+            'carmagnet'  => $this->carmagnet($design),
+            'fridgemagnet' => $this->fridgemagnet($design),
             'pin'        => $this->pin($design),
             'bundle'     => $this->bundle($design),
             default      => $this->centeredText($design, 400, 500, 56, '#1f2a44'),
@@ -216,6 +223,30 @@ class GenerateStoreMockups extends Command {
         $inner = '<rect x="270" y="390" width="260" height="220" rx="18" fill="#1f2a44" transform="rotate(-5 400 500)"/>';
 
         return $this->shadow(648, 150).$cut.$inner.$this->centeredText($d, 400, 500, $this->fs($d, 220), '#ffffff');
+    }
+
+    private function bumpersticker(array $d): string {
+        // Wide rounded rectangle in bumper proportions, slight tilt like a sticker.
+        $cut = '<rect x="132" y="430" width="536" height="150" rx="16" fill="#ffffff" stroke="#ffffff" stroke-width="18" transform="rotate(-4 400 505)"/>';
+        $inner = '<rect x="150" y="448" width="500" height="114" rx="9" fill="#1f2a44" transform="rotate(-4 400 505)"/>';
+
+        return $this->shadow(648, 210).$cut.$inner.$this->centeredText($d, 400, 505, $this->fs($d, 440, 50), '#ffffff');
+    }
+
+    private function carmagnet(array $d): string {
+        // Classic oval ("euro-oval") car magnet: dark rim, light face.
+        $rim = '<ellipse cx="400" cy="500" rx="200" ry="128" fill="#1f2a44"/>';
+        $face = '<ellipse cx="400" cy="500" rx="178" ry="106" fill="#f5f2ec"/>';
+
+        return $this->shadow(648, 200).$rim.$face.$this->centeredText($d, 400, 500, $this->fs($d, 270, 52), '#1f2a44');
+    }
+
+    private function fridgemagnet(array $d): string {
+        // Small rounded-square magnet; offset backing edge suggests its depth.
+        $back = '<rect x="298" y="404" width="212" height="212" rx="20" fill="#c7cdd3"/>';
+        $face = '<rect x="290" y="392" width="212" height="212" rx="20" fill="#1f2a44"/>';
+
+        return $this->shadow(648, 150).$back.$face.$this->centeredText($d, 396, 498, $this->fs($d, 168, 50), '#ffffff');
     }
 
     private function pin(array $d): string {
