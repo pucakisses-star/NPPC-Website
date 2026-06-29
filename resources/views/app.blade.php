@@ -148,7 +148,7 @@ $isHome = request()->segment(1) == ''
             --store-accent-hover: var(--accent-hover); --store-on-accent: var(--on-accent);
         }
         html[data-theme="light"] {
-            --bg: #f4f5f7;
+            --bg: #ffffff;
             --surface: #ffffff;
             --surface-2: #e6e8ed;
             --fg: #15171c;
@@ -158,7 +158,7 @@ $isHome = request()->segment(1) == ''
             --accent-hover: #3a42b8;
             --on-accent: #ffffff;
             --on-dark: #ffffff;
-            --store-bg: #f4f5f7;
+            --store-bg: #ffffff;
         }
         /* The compiled CSS sets a dark body background; override it in light mode. */
         html[data-theme="light"] body { background: var(--bg); color: var(--fg); }
