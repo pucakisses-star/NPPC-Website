@@ -59,6 +59,10 @@
     .store-filter-btn { padding: 8px 20px; font-size: 13px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); background: transparent; cursor: pointer; border-radius: 4px; text-decoration: none; transition: all 0.15s; }
     .store-filter-btn:hover { border-color: #5660fe; color: #fff; }
     .store-filter-btn.active { background: #5660fe; border-color: #5660fe; color: #fff; }
+    .store-search { margin-bottom: 20px; }
+    .store-search input { width: 100%; max-width: 320px; padding: 10px 14px 10px 38px; font-size: 14px; background: #16181f url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") no-repeat 12px center; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; outline: none; transition: border-color 0.15s; }
+    .store-search input:focus { border-color: #5660fe; }
+    .store-search input::placeholder { color: rgba(255,255,255,0.4); }
 
     @media (max-width: 768px) {
         .store-hero { flex-direction: column; }
@@ -164,6 +168,10 @@
             <a href="/cart" class="store-cart-link">Cart ({{ app(\App\Services\CartService::class)->count() }})</a>
         </div>
 
+        <div class="store-search">
+            <input type="search" data-store-search placeholder="Search products…" aria-label="Search products" autocomplete="off">
+        </div>
+
         @if($filterCategories->isNotEmpty())
             <div class="store-filter">
                 <button type="button" data-store-filter="" class="store-filter-btn {{ !$category ? 'active' : '' }}">All</button>
@@ -180,7 +188,7 @@
         @else
             <div class="store-products-grid" data-store-grid>
                 @foreach($products as $product)
-                    <a href="/store/{{ $product->slug }}" data-product-categories="{{ implode(',', $product->all_categories) }}" class="store-product {{ in_array($product->category, ['Books', 'Zines'], true) ? 'store-product--cover' : '' }}">
+                    <a href="/store/{{ $product->slug }}" data-product-categories="{{ implode(',', $product->all_categories) }}" data-product-name="{{ \Illuminate\Support\Str::lower($product->name) }}" class="store-product {{ in_array($product->category, ['Books', 'Zines'], true) ? 'store-product--cover' : '' }}">
                         <div class="store-product-image">
                             @if($product->image)
                                 <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
@@ -212,8 +220,10 @@
     var title = document.querySelector('[data-store-title]');
     var empty = document.querySelector('[data-store-empty]');
     var pager = document.querySelector('[data-store-pager]');
+    var searchInput = document.querySelector('[data-store-search]');
 
     var currentCategory = @json($category) || '';
+    var currentSearch = '';
     var currentPage = 1;
 
     function render(opts) {
@@ -222,7 +232,10 @@
         products.forEach(function (el) {
             el.style.display = 'none';
             var cats = (el.getAttribute('data-product-categories') || '').split(',');
-            if (!currentCategory || cats.indexOf(currentCategory) !== -1) {
+            var name = el.getAttribute('data-product-name') || '';
+            var catOk = !currentCategory || cats.indexOf(currentCategory) !== -1;
+            var searchOk = !currentSearch || name.indexOf(currentSearch) !== -1;
+            if (catOk && searchOk) {
                 matched.push(el);
             }
         });
@@ -300,6 +313,14 @@
             setCategory(card.getAttribute('data-store-category'), true);
         });
     });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            currentSearch = this.value.trim().toLowerCase();
+            currentPage = 1;
+            render();
+        });
+    }
 
     render();
 })();
