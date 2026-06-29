@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Publishes the report "Documents Prove The Trump Administration Arrested
  * Students for Criticizing Israel" (republished from Mother Jones / the Center
- * for Investigative Reporting), filed under the "Reports" category and dated
+ * for Investigative Reporting), filed under the "Publications" category and dated
  * 2026-01-23. Copies the committed cover image to the public disk and sets it
  * on the article. Idempotent: matches by slug (or title) and updates in place.
  */
@@ -48,7 +48,7 @@ final class AddArrestedStudentsReport extends Command
         }
         $author->save();
 
-        $category = Category::firstOrCreate(['slug' => 'reports'], ['title' => 'Reports']);
+        $category = Category::firstOrCreate(['slug' => 'publications'], ['title' => 'Publications']);
 
         // Copy the committed cover image to the public disk.
         $source = public_path(self::SOURCE_IMAGE);
