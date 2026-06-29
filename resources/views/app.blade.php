@@ -24,7 +24,7 @@ $isHome = request()->segment(1) == ''
     <link href="/fonts/verlag/stylesheet.css" rel="stylesheet"/>
     <link href="/fonts/flood-std.css" rel="stylesheet"/>
     <link href="/style/nav.css" rel="stylesheet"/>
-    <link href="/style/basics.css" rel="stylesheet"/>
+    <link href="/style/basics.css?v={{ @filemtime(public_path('style/basics.css')) }}" rel="stylesheet"/>
     <link href="/style/scss/app.css?v={{ @filemtime(public_path('style/scss/app.css')) }}" rel="stylesheet"/>
 
     <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
