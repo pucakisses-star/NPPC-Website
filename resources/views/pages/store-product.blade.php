@@ -7,8 +7,11 @@
        left edge lines up under the logo, which sits on the wider 1280px header
        grid. For that nudge to show, the .container must stop clipping horizontal
        overflow on this page — the sidebar never crosses the viewport edge, so
-       this adds no horizontal scroll. */
-    #main-content.container { overflow-x: visible; }
+       this adds no horizontal scroll. Use the `overflow` shorthand (both axes),
+       NOT `overflow-x` alone: the layout sets `.container { overflow: hidden }`,
+       and a `visible` overflow-x next to a `hidden` overflow-y computes back to
+       `auto` (which clips). Matches the existing `.page-news .container` fix. */
+    #main-content.container { overflow: visible; }
     .pd-page { max-width: 1280px; margin: 0 auto; padding: 0 24px 80px; }
 
     .pd-crumb { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: rgba(255,255,255,0.45); margin: 32px 0 28px; letter-spacing: 0.02em; }
