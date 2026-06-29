@@ -226,7 +226,10 @@ $isHome = request()->segment(1) == ''
 
 @include('layout.scrolltop')
 
-@include('layout.footer')
+{{-- Footer variant: pages may opt into the legacy "STAY INFORMED" footer with
+     @section('footer-style', 'alt'); everything else gets the default footer. --}}
+@php $__footerView = trim($__env->yieldContent('footer-style')) === 'alt' ? 'layout.footer_alt' : 'layout.footer'; @endphp
+@include($__footerView)
 <script src="/js/timeline.js"></script>
 <script src="/js/nav.js"></script>
 @livewireScripts
