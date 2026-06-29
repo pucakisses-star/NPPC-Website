@@ -96,8 +96,16 @@
             @foreach($categories as $cat)
                 <a href="#products" data-store-category="{{ $cat }}" class="store-cat-card">
                     <div class="store-cat-image">
-                        @php $catProduct = \App\Models\Product::published()->where('category', $cat)->whereNotNull('image')->first(); @endphp
-                        @if($catProduct && $catProduct->image)
+                        @php
+                            // Explicit per-category cover image (public/images/site/category-{slug}.jpg)
+                            // takes precedence; otherwise fall back to the first product's image.
+                            $coverRel = 'images/site/category-'.\Illuminate\Support\Str::slug($cat).'.jpg';
+                            $hasCover = file_exists(public_path($coverRel));
+                            $catProduct = $hasCover ? null : \App\Models\Product::published()->where('category', $cat)->whereNotNull('image')->first();
+                        @endphp
+                        @if($hasCover)
+                            <img src="/{{ $coverRel }}?v={{ @filemtime(public_path($coverRel)) }}" alt="{{ $cat }}">
+                        @elseif($catProduct && $catProduct->image)
                             <img src="{{ Storage::url($catProduct->image) }}" alt="{{ $cat }}">
                         @else
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="rgba(255,255,255,0.1)" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>

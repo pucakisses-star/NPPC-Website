@@ -47,7 +47,7 @@ class AddStoreAccessories extends Command {
             [
                 'name' => 'NPPC Knit Beanie', 'lines' => ['NPPC Knit', 'Beanie'],
                 'description' => "Ribbed cuffed knit beanie with an embroidered NPPC label. One size, warm for winter rallies and visiting-room waiting rooms alike.",
-                'price' => 25.00, 'category' => 'Accessories', 'sort_order' => 27,
+                'price' => 25.00, 'category' => 'Apparel', 'sort_order' => 27,
             ],
             [
                 'name' => 'NPPC Insulated Water Bottle', 'lines' => ['NPPC Insulated', 'Water Bottle'],
@@ -57,7 +57,7 @@ class AddStoreAccessories extends Command {
             [
                 'name' => 'Free Them All Bandana', 'lines' => ['Free Them All', 'Bandana'],
                 'description' => "22×22 inch cotton bandana printed with \"FREE THEM ALL\" and a repeating solidarity motif. Wear it, mask up, or fly it.",
-                'price' => 15.00, 'category' => 'Accessories', 'sort_order' => 29,
+                'price' => 15.00, 'category' => 'Apparel', 'sort_order' => 29,
             ],
 
             // ─── Apparel variety ───
