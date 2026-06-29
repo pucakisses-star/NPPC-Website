@@ -373,7 +373,9 @@ final class SiteController extends Controller {
             ->take(4)
             ->get();
 
-        return view('pages.store-product', compact('product', 'related'));
+        $categories = Product::published()->whereNotNull('category')->where('category', '!=', '')->distinct()->orderBy('category')->pluck('category');
+
+        return view('pages.store-product', compact('product', 'related', 'categories'));
     }
 
     public function events(Request $request) {

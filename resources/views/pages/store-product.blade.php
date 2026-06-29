@@ -45,10 +45,29 @@
     .pd-rel-name { font-size: 14px; font-weight: 600; color: #fff; text-align: center; }
     .pd-rel-price { font-size: 13px; color: rgba(255,255,255,0.5); text-align: center; margin-top: 2px; }
 
+    /* Left category sidebar */
+    .pd-layout { display: flex; gap: 48px; align-items: flex-start; }
+    .pd-content { flex: 1; min-width: 0; }
+    .pd-sidebar { flex: 0 0 200px; position: sticky; top: 24px; }
+    .pd-sidebar-title { font-size: 22px; font-weight: 900; color: #fff; margin: 32px 0 18px; }
+    .pd-cats { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,0.12); }
+    .pd-cat { display: block; padding: 13px 2px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.72); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.12); transition: color 0.15s; }
+    .pd-cat:hover { color: #fff; }
+    .pd-cat.active { color: #8b93ff; }
+    .pd-social { display: flex; gap: 18px; margin-top: 22px; }
+    .pd-social a { color: rgba(255,255,255,0.5); transition: color 0.15s; }
+    .pd-social a:hover { color: #fff; }
+    .pd-social svg { width: 19px; height: 19px; fill: currentColor; display: block; }
+
     @media (max-width: 860px) {
         .pd-main { grid-template-columns: 1fr; gap: 32px; }
         .pd-title { font-size: 2rem; }
         .pd-related-grid { grid-template-columns: repeat(2, 1fr); }
+        .pd-layout { flex-direction: column; gap: 0; }
+        .pd-sidebar { position: static; flex: none; width: 100%; }
+        .pd-sidebar-title { font-size: 18px; margin: 24px 0 12px; }
+        .pd-cats { flex-direction: row; flex-wrap: wrap; gap: 6px 18px; border-top: none; }
+        .pd-cat { border-bottom: none; padding: 6px 0; font-size: 14px; }
     }
     @media (max-width: 480px) {
         .pd-related-grid { grid-template-columns: 1fr; }
@@ -64,6 +83,31 @@
 @endphp
 
 <div class="pd-page">
+    <div class="pd-layout">
+    <aside class="pd-sidebar">
+        <div class="pd-sidebar-title">Shop</div>
+        <nav class="pd-cats">
+            <a href="/store" class="pd-cat {{ request('category') ? '' : 'active' }}">All Products</a>
+            @foreach($categories as $cat)
+                <a href="/store?category={{ urlencode($cat) }}" class="pd-cat {{ $cat === $product->category ? 'active' : '' }}">{{ $cat }}</a>
+            @endforeach
+        </nav>
+        @php
+            $sf = \App\Models\SiteSetting::get('facebook_url');
+            $sx = \App\Models\SiteSetting::get('twitter_url');
+            $si = \App\Models\SiteSetting::get('instagram_url');
+            $sy = \App\Models\SiteSetting::get('youtube_url');
+        @endphp
+        @if($sf || $sx || $si || $sy)
+        <div class="pd-social">
+            @if($sf)<a href="{{ $sf }}" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>@endif
+            @if($sx)<a href="{{ $sx }}" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>@endif
+            @if($si)<a href="{{ $si }}" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.675a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>@endif
+            @if($sy)<a href="{{ $sy }}" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>@endif
+        </div>
+        @endif
+    </aside>
+    <div class="pd-content">
     <nav class="pd-crumb">
         <span class="pd-trail">
             <a href="/store">Store</a>
@@ -148,5 +192,7 @@
             </div>
         </div>
     @endif
+    </div>{{-- .pd-content --}}
+    </div>{{-- .pd-layout --}}
 </div>
 @endsection
