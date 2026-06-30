@@ -70,7 +70,7 @@
     </script>
 
     {{-- About this database --}}
-    <section class="db-about-section" style="background:var(--surface); color:rgba(var(--fg-rgb),0.85); padding:96px 24px; border-top:1px solid rgba(var(--fg-rgb),0.08);">
+    <section class="db-about-section" style="background:var(--bg); color:rgba(var(--fg-rgb),0.85); padding:96px 24px; border-top:1px solid rgba(var(--fg-rgb),0.08);">
         <div style="max-width:780px; margin:0 auto;">
             <h2 style="font-size:2.5rem; font-weight:900; color:var(--fg); line-height:1.1; margin:0 0 32px;">About this database</h2>
 
