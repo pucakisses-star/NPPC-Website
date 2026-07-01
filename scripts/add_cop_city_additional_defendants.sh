@@ -6,7 +6,7 @@
 # Part 2: December 14, 2022 forest encampment arrests (4 new defendants)
 # Part 3: April 28, 2023 flyer distribution arrests (3 defendants, ~2.5-3 months detention)
 # Part 4: May 31, 2023 Atlanta Solidarity Fund organizers (3 defendants, ~3 days)
-set -e
+set +e  # allow prisoner:add to fail (duplicate) without aborting the script
 
 # ---- PART 1: Remaining March 5, 2023 defendants ----
 

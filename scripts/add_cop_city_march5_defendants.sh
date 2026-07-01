@@ -7,7 +7,7 @@
 # Thomas Jurgens was the only one to receive bond that day. On March 23, 15 of the
 # remaining 22 were released; 8 were held longer. RICO charges against all 61 defendants
 # (Sept 2023 indictment) were dismissed December 30, 2025.
-set -e
+set +e  # allow prisoner:add to fail (duplicate) without aborting the script
 
 echo "Adding Thomas Jurgens..."
 php artisan prisoner:add '{
