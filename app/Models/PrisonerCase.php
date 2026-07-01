@@ -85,8 +85,17 @@ final class PrisonerCase extends Model
                 $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
                     ->diffInDays(Carbon::parse($case->release_date));
             } elseif ($case->incarceration_date && ! $case->release_date) {
-                $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
-                    ->diffInDays(Carbon::today());
+                // No release date recorded. Only count up to today when the
+                // prisoner is actually still detained (in custody or awaiting
+                // trial); a released prisoner whose release date was never
+                // recorded has an unknown end, so leave it null rather than
+                // inflating "time served" all the way to the present. Mirrors
+                // the stats-chart logic in Prisoner::activeYears().
+                $prisoner = $case->prisoner;
+                $stillDetained = $prisoner && ($prisoner->in_custody || $prisoner->awaiting_trial);
+                $case->imprisoned_for_days = $stillDetained
+                    ? (int) Carbon::parse($case->incarceration_date)->diffInDays(Carbon::today())
+                    : null;
             } else {
                 $case->imprisoned_for_days = null;
             }
