@@ -42,7 +42,7 @@ php artisan prisoner:add '{
   "name": "Priscilla Grim",
   "first_name": "Priscilla",
   "last_name": "Grim",
-  "description": "Priscilla Grim is a Brooklyn-based activist and former Occupy Wall Street organizer who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. She was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at her March 7, 2023 hearing. On March 23, a second bond hearing was held for the remaining defendants; of the 22 denied bond on March 7, 15 were released and 8 remained in custody — Grim was held for at least 18 days total. In August 2023 she was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. On December 30, 2025, Fulton County Superior Court Judge Kevin Farmer dismissed the RICO charges against all 61 defendants.",
+  "description": "Priscilla Grim, 49, is a Brooklyn-based activist and former Occupy Wall Street organizer who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. She was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied twice — at the March 7, 2023 hearing and again at the March 23 hearing — and she was held for 31 days in DeKalb County Jail. She documented conditions including temperatures below 60°F, broken toilets, no running water, meals delivered 12–14 hours apart, approximately 3 hours of sunlight over the entire 31 days, and witnessing a suicide attempt. She lost her job at Fordham University as a result of her incarceration and later reported developing PTSD. In August 2023 she was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. On December 30, 2025, Fulton County Superior Court Judge Kevin Farmer dismissed the RICO charges against all 61 defendants. Her underlying domestic terrorism charge in DeKalb County remained pending as of early 2026.",
   "state": "New York",
   "gender": "Female",
   "ideologies": ["Stop Cop City", "Environmental justice", "Anarchism", "Anti-police brutality"],
@@ -54,10 +54,11 @@ php artisan prisoner:add '{
       "institution_name": "DeKalb County Jail",
       "institution_city": "Decatur",
       "institution_state": "Georgia",
-      "charges": "Domestic terrorism; conspiracy; arrested March 5, 2023 at Cop City construction site protest; bond denied March 7; RICO charge added September 2023, dismissed December 2025",
+      "charges": "Domestic terrorism; conspiracy; arrested March 5, 2023 at Cop City construction site protest; bond denied twice; RICO charge added September 2023, dismissed December 2025; underlying domestic terrorism charge pending as of early 2026",
       "arrest_date": "2023-03-05",
       "incarceration_date": "2023-03-05",
-      "sentence": "No conviction; held at least 18 days pre-trial"
+      "imprisoned_for_days": 31,
+      "sentence": "No conviction; 31 days pre-trial detention"
     }
   ]
 }'
@@ -67,7 +68,7 @@ php artisan prisoner:add '{
   "name": "James Marsicano",
   "first_name": "James",
   "last_name": "Marsicano",
-  "description": "James Marsicano is an activist from Charlotte, North Carolina with multiple prior arrests at left-wing protests who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. He was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at his March 7, 2023 hearing. On March 23, a second bond hearing was held; of the 22 denied bond on March 7, 15 were released and 8 remained in custody — Marsicano was held for at least 18 days total. In August 2023 he was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. On December 30, 2025, Fulton County Superior Court Judge Kevin Farmer dismissed the RICO charges against all 61 defendants.",
+  "description": "James \"Jamie\" Marsicano is a law student at UNC Chapel Hill from Charlotte, North Carolina with multiple prior arrests at left-wing protests who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. He was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at his March 7 hearing; after approximately three weeks he was released on a $25,000 bond with an ankle monitor. He was also barred from the UNC campus after his release. He passed the North Carolina bar exam in 2025 but bar examiners would not consider his license eligibility while the domestic terrorism charge remained pending. In August 2023 he was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. On December 30, 2025, the RICO charges against all 61 defendants were dismissed. On August 14, 2025, a DeKalb County judge dismissed his domestic terrorism charge outright on due process and speedy trial grounds, finding the state had failed to indict him for 29 months.",
   "state": "North Carolina",
   "gender": "Male",
   "ideologies": ["Stop Cop City", "Environmental justice", "Anarchism", "Anti-police brutality"],
@@ -79,10 +80,12 @@ php artisan prisoner:add '{
       "institution_name": "DeKalb County Jail",
       "institution_city": "Decatur",
       "institution_state": "Georgia",
-      "charges": "Domestic terrorism; conspiracy; arrested March 5, 2023 at Cop City construction site protest; bond denied March 7; RICO charge added September 2023, dismissed December 2025",
+      "charges": "Domestic terrorism; conspiracy; arrested March 5, 2023 at Cop City construction site protest; domestic terrorism charge dismissed August 14, 2025 on speedy trial grounds after 29 months without indictment; RICO charge added September 2023, dismissed December 2025",
       "arrest_date": "2023-03-05",
       "incarceration_date": "2023-03-05",
-      "sentence": "No conviction; held at least 18 days pre-trial"
+      "imprisoned_for_days": 21,
+      "convicted": "No — all charges dismissed",
+      "sentence": "No conviction; approximately 3 weeks pre-trial detention; $25,000 bond with ankle monitor"
     }
   ]
 }'
@@ -92,7 +95,7 @@ php artisan prisoner:add '{
   "name": "Victor Puertas",
   "first_name": "Victor",
   "last_name": "Puertas",
-  "description": "Victor Puertas is an undocumented immigrant from Mexico living in Utah and an organizer with the Industrial Workers of the World (IWW) with prior protest arrests who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. He was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at his March 7, 2023 hearing. As an undocumented person facing domestic terrorism charges, he faced potential immigration consequences in addition to the criminal case. On March 23, a second bond hearing was held; of the 22 denied bond on March 7, 15 were released and 8 remained in custody — Puertas was held for at least 18 days total. In August 2023 he was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. On December 30, 2025, Fulton County Superior Court Judge Kevin Farmer dismissed the RICO charges against all 61 defendants.",
+  "description": "Victor Puertas is an undocumented immigrant from Peru living in Utah and an organizer with the Industrial Workers of the World (IWW) with prior protest arrests who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. He was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at his March 7 hearing and all subsequent hearings. He was held in DeKalb County Jail for the full 90-day statutory maximum permitted without a grand jury indictment under Georgia law — no indictment was ever filed against him. Within 48 hours of reaching that limit and being released from state custody in early June 2023, he was transferred directly to ICE immigration detention at Stewart Detention Center in Lumpkin, Georgia. He remained in ICE custody for approximately eight more months, facing deportation, while supporters organized at freevictor.org. He was released from immigration detention in approximately early 2024 — having spent roughly 10 to 11 months in combined state and federal custody, the longest confirmed pre-trial detention of any Cop City defendant, on charges for which no indictment was ever returned. In August 2023 he was included in a 61-person RICO indictment brought by Georgia AG Chris Carr; the RICO charges were dismissed December 30, 2025.",
   "state": "Utah",
   "gender": "Male",
   "ideologies": ["Stop Cop City", "Environmental justice", "Anarchism", "Labor rights", "Immigrant rights"],
@@ -104,10 +107,13 @@ php artisan prisoner:add '{
       "institution_name": "DeKalb County Jail",
       "institution_city": "Decatur",
       "institution_state": "Georgia",
-      "charges": "Domestic terrorism; conspiracy; arrested March 5, 2023 at Cop City construction site protest; bond denied March 7; RICO charge added September 2023, dismissed December 2025",
+      "charges": "Domestic terrorism; arrested March 5, 2023 at Cop City construction site protest; bond denied; held 90 days (statutory maximum) without indictment; no charges ever filed; RICO indictment added September 2023, dismissed December 2025",
       "arrest_date": "2023-03-05",
       "incarceration_date": "2023-03-05",
-      "sentence": "No conviction; held at least 18 days pre-trial"
+      "release_date": "2023-06-03",
+      "imprisoned_for_days": 90,
+      "convicted": "No — no indictment ever returned",
+      "sentence": "No conviction; 90 days pre-trial detention (state); approximately 8 additional months ICE immigration detention at Stewart Detention Center, Lumpkin, GA"
     }
   ]
 }'
@@ -217,7 +223,7 @@ php artisan prisoner:add '{
   "name": "Ayla King",
   "first_name": "Ayla",
   "last_name": "King",
-  "description": "Ayla King is an activist from Worcester, Massachusetts who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. She was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at her March 7, 2023 hearing. On March 23, a second bond hearing was held; of the 22 denied bond on March 7, 15 were released and 8 remained in custody — King was held for at least 18 days total. In August 2023 she was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. On December 30, 2025, Fulton County Superior Court Judge Kevin Farmer dismissed the RICO charges against all 61 defendants.",
+  "description": "Ayla King is an activist from Worcester, Massachusetts who was arrested on March 5, 2023 at the Atlanta Public Safety Training Center (\"Cop City\") construction site in Weelaunee Forest. She was one of 23 people charged with felony domestic terrorism after protesters threw bricks, Molotov cocktails, and fireworks at officers. Bond was denied at her March 7, 2023 hearing; she was held for several weeks before being released on a consent bond at the March 23–24 hearing. In August 2023 she was included in a 61-person RICO indictment brought by Georgia Attorney General Chris Carr. She requested a speedy trial in October 2023 and became the first and only Stop Cop City RICO defendant to go to trial. On July 7, 2025, the trial ended in a mistrial after the judge cited errors during jury selection including a closed-courtroom proceeding. The defense filed a double jeopardy motion and the Georgia Court of Appeals was reviewing the case as of mid-2026. On December 30, 2025, the RICO charges against all 61 defendants were dismissed.",
   "state": "Massachusetts",
   "gender": "Female",
   "ideologies": ["Stop Cop City", "Environmental justice", "Anarchism", "Anti-police brutality"],
@@ -229,10 +235,11 @@ php artisan prisoner:add '{
       "institution_name": "DeKalb County Jail",
       "institution_city": "Decatur",
       "institution_state": "Georgia",
-      "charges": "Domestic terrorism; conspiracy; arrested March 5, 2023 at Cop City construction site protest; bond denied March 7; RICO charge added September 2023, dismissed December 2025",
+      "charges": "Domestic terrorism; conspiracy; RICO; arrested March 5, 2023 at Cop City construction site protest; first Stop Cop City defendant to go to trial (July 2025); mistrial declared; RICO charges dismissed December 2025; double jeopardy appeal pending",
       "arrest_date": "2023-03-05",
       "incarceration_date": "2023-03-05",
-      "sentence": "No conviction; held at least 18 days pre-trial"
+      "convicted": "No — mistrial declared July 7, 2025; double jeopardy appeal pending",
+      "sentence": "No conviction; several weeks pre-trial detention"
     }
   ]
 }'
@@ -312,4 +319,4 @@ php artisan prisoner:add '{
   ]
 }'
 
-echo "All 12 named Cop City March 5, 2023 defendants added."
+echo "All 12 named Cop City March 5, 2023 defendants added (original batch)."
