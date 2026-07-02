@@ -6,11 +6,12 @@ use App\Models\Prisoner;
 use Illuminate\Console\Command;
 
 /**
- * Adds nine early imprisoned conscientious objectors — eight WWI-era
- * absolutists court-martialed and sent to Fort Leavenworth / Fort Douglas /
- * Alcatraz, plus Civil War Quaker draftee Cyrus Pringle. Complements the CO
- * records already in the database (the Hofer brothers, Jacob Wipf, Ben Salmon,
- * Philip Grosser, Ammon Hennacy, Roger Baldwin, Wally Nelson).
+ * Adds six early imprisoned conscientious objectors — five WWI-era absolutists
+ * court-martialed and sent to Fort Leavenworth / Fort Douglas / Alcatraz, plus
+ * Civil War Quaker draftee Cyrus Pringle. Complements the CO records already
+ * in the database (the Hofer brothers, Jacob Wipf, Ben Salmon, Philip Grosser,
+ * Ammon Hennacy, Roger Baldwin, Wally Nelson, Evan Welling Thomas, Howard
+ * Wilbur Moore, Harold Studley Gray).
  *
  * Dates are set with honest precision: exact where documented, year/month
  * precision otherwise, and omitted entirely where the record is unclear (the
@@ -24,48 +25,11 @@ final class AddEarlyConscientiousObjectors extends Command
 {
     protected $signature = 'prisoners:add-early-cos';
 
-    protected $description = 'Add nine early imprisoned conscientious objectors (WWI absolutists + Civil War Quaker Cyrus Pringle)';
+    protected $description = 'Add six early imprisoned conscientious objectors (WWI absolutists + Civil War Quaker Cyrus Pringle)';
 
     public function handle(): int
     {
         $people = [
-            [
-                'payload' => [
-                    'name' => 'Evan Thomas',
-                    'first_name' => 'Evan',
-                    'last_name' => 'Thomas',
-                    'description' => 'Evan Thomas — younger brother of Socialist Party leader Norman Thomas — was one of the best-known absolutist conscientious objectors of the First World War. A divinity student who refused all military service, he led hunger strikes at Fort Riley against the brutal treatment of fellow objectors, was court-martialed in 1918 and sentenced to life imprisonment (reduced to 25 years), and was held at Fort Leavenworth, where he was among the objectors manacled to their cell bars nine hours a day. The manacling scandal helped force the War Department to abolish the practice, and he was released in January 1919. He later became a physician and chaired the War Resisters League through the Second World War.',
-                    'state' => 'New York',
-                    'gender' => 'Male',
-                    'ideologies' => ['Pacifism', 'Christian pacifism'],
-                    'affiliation' => ['War Resisters League'],
-                    'era' => '1910s',
-                    'cases' => [[
-                        'charges' => 'Court-martialed in 1918 for refusing military orders as an absolutist conscientious objector; sentenced to life imprisonment, reduced to 25 years.',
-                        'convicted' => 'Convicted by court-martial, 1918',
-                        'sentence' => 'Life imprisonment, reduced to 25 years at Fort Leavenworth; released in January 1919 after the manacling scandal and postwar clemency.',
-                    ]],
-                ],
-                'dates' => ['incarceration_date' => [1918, null, null], 'release_date' => [1919, 1, null]],
-            ],
-            [
-                'payload' => [
-                    'name' => 'Howard W. Moore',
-                    'first_name' => 'Howard',
-                    'last_name' => 'Moore',
-                    'description' => 'Howard W. Moore, of Cherry Valley, New York, was an absolutist conscientious objector of the First World War who refused both combatant and noncombatant service. Court-martialed and sentenced to 25 years, he was held at Fort Leavenworth and Fort Douglas, Utah, enduring solitary confinement and manacling, and was among the very last World War I objectors freed, in November 1920 — two years after the Armistice. His memoir, Plowing My Own Furrow (1985), is one of the classic accounts of the WWI objectors. He lived to 103.',
-                    'state' => 'New York',
-                    'gender' => 'Male',
-                    'ideologies' => ['Pacifism'],
-                    'era' => '1910s',
-                    'cases' => [[
-                        'charges' => 'Court-martialed for refusing all military service as an absolutist conscientious objector.',
-                        'convicted' => 'Convicted by court-martial, 1918',
-                        'sentence' => '25 years; held at Fort Leavenworth and Fort Douglas, among the last WWI objectors released, November 1920.',
-                    ]],
-                ],
-                'dates' => ['incarceration_date' => [1918, null, null], 'release_date' => [1920, 11, null]],
-            ],
             [
                 'payload' => [
                     'name' => 'Carl Haessler',
@@ -83,24 +47,6 @@ final class AddEarlyConscientiousObjectors extends Command
                     ]],
                 ],
                 'dates' => ['incarceration_date' => [1918, null, null], 'release_date' => [1920, null, null]],
-            ],
-            [
-                'payload' => [
-                    'name' => 'Harold Studley Gray',
-                    'first_name' => 'Harold',
-                    'last_name' => 'Gray',
-                    'description' => "Harold Studley Gray, of Detroit, was serving with the YMCA in wartime England when he became convinced that all war was incompatible with Christianity. Returning home, he refused military service as an absolutist conscientious objector, was court-martialed at Camp Custer in 1918 and sentenced to 25 years, and was imprisoned at Fort Leavenworth, where he joined the objectors' work strike. Released in 1919, he told his story in Character \"Bad\": The Story of a Conscientious Objector (1934) and later founded the Saline Valley Farms cooperative in Michigan.",
-                    'state' => 'Michigan',
-                    'gender' => 'Male',
-                    'ideologies' => ['Christian pacifism'],
-                    'era' => '1910s',
-                    'cases' => [[
-                        'charges' => 'Court-martialed at Camp Custer in 1918 for refusing military service as an absolutist Christian objector.',
-                        'convicted' => 'Convicted by court-martial, 1918',
-                        'sentence' => '25 years; imprisoned at Fort Leavenworth; released in 1919.',
-                    ]],
-                ],
-                'dates' => ['incarceration_date' => [1918, null, null], 'release_date' => [1919, null, null]],
             ],
             [
                 'payload' => [
@@ -206,6 +152,19 @@ final class AddEarlyConscientiousObjectors extends Command
             $payload = $person['payload'];
             $payload['in_custody'] = false;
             $payload['released'] = true;
+
+            // Guard against variant-name duplicates (e.g. an existing "Evan
+            // Welling Thomas" when the payload says "Evan Thomas"): skip anyone
+            // whose first AND last name both already appear in a record.
+            $existing = Prisoner::withoutGlobalScopes()
+                ->where('name', 'like', '%'.$payload['first_name'].'%')
+                ->where('name', 'like', '%'.$payload['last_name'].'%')
+                ->first();
+            if ($existing) {
+                $this->line("  already in database as \"{$existing->name}\" — skipping {$payload['name']}.");
+
+                continue;
+            }
 
             $this->call('prisoner:add', ['json' => json_encode($payload)]);
 
