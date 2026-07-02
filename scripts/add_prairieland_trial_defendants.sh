@@ -64,7 +64,7 @@ addPrairieDefendant([
     'first_name' => 'Benjamin',
     'last_name'  => 'Song',
     'description' => <<<'DESC'
-Benjamin Hanil Song is a Korean American activist from Dallas, Texas. A former U.S. Marine Corps reservist (2011–2016) and member of the Elm Fork chapter of the John Brown Gun Club, Song participated in a July 4, 2025 solidarity demonstration at the Prairieland ICE Detention Center in Alvarado, Texas, protesting the Trump administration's mass deportation campaign. During the demonstration, an Alvarado police officer was shot in the neck and wounded; Song was accused of firing the shot. Convicted at trial and sentenced to 100 years in federal prison, Song's case drew international attention as the longest sentence ever imposed in connection with a U.S. political protest.
+Benjamin Hanil Song is a Korean American activist from Dallas, Texas. A former U.S. Marine Corps reservist (2011–2016) and member of the Elm Fork chapter of the John Brown Gun Club, Song participated in a July 4, 2025 solidarity demonstration at the Prairieland ICE Detention Center in Alvarado, Texas, protesting the Trump administration's mass deportation campaign. During the demonstration, an Alvarado police officer was shot in the neck and wounded; Song was accused of firing the shot. Song evaded capture for twelve days before being arrested on July 16, 2025. Convicted at trial and sentenced to 100 years in federal prison, Song's case drew international attention as the longest sentence ever imposed in connection with a U.S. political protest.
 DESC,
     'state'       => 'Texas',
     'race'        => 'Asian / Pacific Islander',
@@ -76,10 +76,10 @@ DESC,
     'released'    => false,
     'cases' => [[
         'inst_name'          => 'Federal Bureau of Prisons',
-        'charges'            => 'Attempted murder (18 U.S.C. § 1113); discharging a firearm during a crime of violence (18 U.S.C. § 924(c)); rioting (18 U.S.C. § 2101); providing material support to terrorists (18 U.S.C. § 2339A); conspiracy to use explosives (18 U.S.C. § 842) — July 4, 2025 solidarity demonstration at Prairieland ICE Detention Center, Alvarado, Texas',
-        'arrest_date'        => '2025-07-04',
-        'incarceration_date' => '2025-07-04',
-        'imprisoned_for_days' => 354,
+        'charges'            => 'Attempted murder of a federal officer (18 U.S.C. § 1114); discharging a firearm during a crime of violence (18 U.S.C. § 924(c)); rioting (18 U.S.C. § 2101); providing material support to terrorists (18 U.S.C. § 2339A); conspiracy to use explosives (18 U.S.C. § 842) — July 4, 2025 solidarity demonstration at Prairieland ICE Detention Center, Alvarado, Texas',
+        'arrest_date'        => '2025-07-16',
+        'incarceration_date' => '2025-07-16',
+        'imprisoned_for_days' => 351,
         'convicted'          => 'Yes — jury verdict',
         'sentence'           => '100 years federal prison',
     ]],
@@ -244,10 +244,10 @@ addPrairieDefendant([
     'first_name' => 'Ines',
     'last_name'  => 'Soto',
     'description' => <<<'DESC'
-Ines Soto is an activist from Texas who co-founded the Emma Goldman Book Club with her spouse Elizabeth Soto. She was previously arrested in 2016 while protesting white supremacist Richard Spencer's appearance at Texas A&M University. She participated in the July 4, 2025 solidarity demonstration at the Prairieland ICE Detention Center in Alvarado, Texas, protesting the Trump administration's mass deportation campaign. She was convicted at trial of providing material support to terrorism and sentenced to 50 years in federal prison.
+Ines Soto is an activist from Texas who co-founded the Emma Goldman Book Club with his spouse Elizabeth Soto. He was previously arrested in 2016 while protesting white supremacist Richard Spencer's appearance at Texas A&M University. He participated in the July 4, 2025 solidarity demonstration at the Prairieland ICE Detention Center in Alvarado, Texas, protesting the Trump administration's mass deportation campaign. He was convicted at trial of providing material support to terrorism and sentenced to 50 years in federal prison.
 DESC,
     'state'       => 'Texas',
-    'gender'      => 'Female',
+    'gender'      => 'Male',
     'ideologies'  => ['Anti-deportation', 'Immigration justice', 'Anarchism', 'Anti-fascism'],
     'affiliation' => ['Emma Goldman Book Club'],
     'era'         => '2020s',
@@ -282,9 +282,9 @@ DESC,
     'cases' => [[
         'inst_name'          => 'Federal Bureau of Prisons',
         'charges'            => 'Corrupting and concealing documents to impair criminal proceedings (18 U.S.C. § 1512); conspiracy to conceal documents; connection to July 4, 2025 Prairieland ICE Detention Center protest — not present at scene; convicted for moving box of antifascist zines and deleting protest communications',
-        'arrest_date'        => '2025-07-04',
-        'incarceration_date' => '2025-07-04',
-        'imprisoned_for_days' => 354,
+        'arrest_date'        => '2025-07-07',
+        'incarceration_date' => '2025-07-07',
+        'imprisoned_for_days' => 360,
         'convicted'          => 'Yes — jury verdict',
         'sentence'           => '30 years federal prison',
     ]],
