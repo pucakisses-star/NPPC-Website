@@ -104,8 +104,16 @@ final class PrisonerCase extends Model
                 $case->in_exile_for_days = (int) Carbon::parse($case->in_exile_since)
                     ->diffInDays(Carbon::parse($case->end_of_exile));
             } elseif ($case->in_exile_since && ! $case->end_of_exile) {
-                $case->in_exile_for_days = (int) Carbon::parse($case->in_exile_since)
-                    ->diffInDays(Carbon::today());
+                // No end-of-exile recorded. Only count up to today when the
+                // prisoner is actually still in exile; a historical exile with
+                // an unknown end (return or death abroad never documented)
+                // stays null rather than counting to the present. Mirrors the
+                // released-without-release-date guard above.
+                $prisoner = $case->prisoner;
+                $stillExiled = $prisoner && $prisoner->currently_in_exile;
+                $case->in_exile_for_days = $stillExiled
+                    ? (int) Carbon::parse($case->in_exile_since)->diffInDays(Carbon::today())
+                    : null;
             } else {
                 $case->in_exile_for_days = null;
             }
