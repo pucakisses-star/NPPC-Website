@@ -452,7 +452,7 @@
             let divContainer = document.createElement("div");
             divContainer.classList.add("title-section");
 
-            divContainer.innerHTML = `<h3>${state}</h3>`;
+            divContainer.innerHTML = `<h3>${esc(state)}</h3>`;
             docFrag.appendChild(divContainer);
 
             const prisonersGroup = prisoners.filter(prisoner =>
@@ -471,14 +471,14 @@
                 let punishment = prisoner.calculatedPunishment || prisoner.imprisonedFor;
 
                 listItem.innerHTML = `<div class="item">
-                <h5>${prisoner.name}</h5>
+                <h5>${esc(prisoner.name)}</h5>
                 <div>
-                    ${prisoner.inmateNumber ? `<div>#${prisoner.inmateNumber} </div>` : ""}
-                    ${address ? address['Mailing address'] ? `<div>P.O Box: ${address['Mailing address']} </div>` : "" : ""}
+                    ${prisoner.inmateNumber ? `<div>#${esc(prisoner.inmateNumber)} </div>` : ""}
+                    ${address ? address['Mailing address'] ? `<div>P.O Box: ${esc(address['Mailing address'])} </div>` : "" : ""}
                 </div>
                 <div class="">
-                    ${prisoner.Birthdate ? `<div>Birthday: ${prisoner.Birthdate}</div>` : ""}
-                    ${punishment ? `<div>Imprisoned for: ${punishment}</div>` : ""}
+                    ${prisoner.Birthdate ? `<div>Birthday: ${esc(prisoner.Birthdate)}</div>` : ""}
+                    ${punishment ? `<div>Imprisoned for: ${esc(punishment)}</div>` : ""}
                 </div>
             </div>`;
 

@@ -971,8 +971,11 @@ final class SiteController extends Controller {
         $results = [];
 
         // Search articles
-        $articles = Article::where('title', 'like', "%{$q}%")
-            ->orWhere('body', 'like', "%{$q}%")
+        $articles = Article::whereNotNull('published_at')
+            ->where(function ($query) use ($q) {
+                $query->where('title', 'like', "%{$q}%")
+                    ->orWhere('body', 'like', "%{$q}%");
+            })
             ->limit(20)
             ->get();
 

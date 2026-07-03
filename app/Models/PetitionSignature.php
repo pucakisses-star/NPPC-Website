@@ -12,6 +12,7 @@ class PetitionSignature extends BaseModel {
     protected $fillable = [
         'petition_id', 'first_name', 'last_name', 'email',
         'city', 'state', 'zip_code', 'phone', 'custom_message',
+        'display_publicly',
     ];
 
     protected static function booted(): void {
