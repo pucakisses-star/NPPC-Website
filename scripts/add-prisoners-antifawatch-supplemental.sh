@@ -58,13 +58,13 @@ php artisan prisoner:add '{"name": "Walter Stewart", "first_name": "Walter", "la
 # Zachary Karas (CA) -- 33 months federal prison
 php artisan prisoner:add '{"name": "Zachary Karas", "first_name": "Zachary", "last_name": "Karas", "description": "Possession of Molotov cocktails at the La Mesa police-HQ protest, May 30 2020. Sentence: 33 months federal prison. Verified via public court/press records: https://www.justice.gov/usao-sdca/pr/man-sentenced-33-months-prison-possessing-molotov-cocktails-la-mesa-protest", "state": "CA", "cases": [{"charges": "Possession of Molotov cocktails at the La Mesa police-HQ protest, May 30 2020", "sentence": "33 months federal prison"}]}'
 
-# ===== GROUP B -- confirmed jailed but HOMICIDE cases; commented out for NPPC review (2) =====
+# ===== GROUP B -- homicide cases, INCLUDED per NPPC decision (2) =====
 
 # James Marshall (CO) -- 11 years prison
-#   REASON FLAGGED: homicide / shooting of a driver
-# php artisan prisoner:add '{"name": "James Marshall", "first_name": "James", "last_name": "Marshall", "description": "Shot a driver (Danny Pruitt, who died) during a June 2020 Alamosa protest. Sentence: 11 years prison. Verified via public court/press records: https://www.alamosanews.com/stories/james-marshall-sentenced-to-11-years-for-shooting-pruitt,8671", "state": "CO", "cases": [{"charges": "Shot a driver (Danny Pruitt, who died) during a June 2020 Alamosa protest", "sentence": "11 years prison"}]}'
+#   NOTE: homicide / shooting of a driver
+php artisan prisoner:add '{"name": "James Marshall", "first_name": "James", "last_name": "Marshall", "description": "Shot a driver (Danny Pruitt, who died) during a June 2020 Alamosa protest. Sentence: 11 years prison. Verified via public court/press records: https://www.alamosanews.com/stories/james-marshall-sentenced-to-11-years-for-shooting-pruitt,8671", "state": "CO", "cases": [{"charges": "Shot a driver (Danny Pruitt, who died) during a June 2020 Alamosa protest", "sentence": "11 years prison"}]}'
 
 # Steven Lopez (KY) -- 30 years prison
-#   REASON FLAGGED: homicide of a fellow protester
-# php artisan prisoner:add '{"name": "Steven Lopez", "first_name": "Steven", "last_name": "Lopez", "description": "Shot and killed photographer Tyler Gerth at a June 2020 Louisville protest; first-degree manslaughter + 22 counts wanton endangerment. Sentence: 30 years prison. Verified via public court/press records: https://www.lpm.org/news/2024-02-14/man-sentenced-to-30-years-in-prison-for-killing-louisville-photographer-tyler-gerth", "state": "KY", "cases": [{"charges": "Shot and killed photographer Tyler Gerth at a June 2020 Louisville protest; first-degree manslaughter + 22 counts wanton endangerment", "sentence": "30 years prison"}]}'
+#   NOTE: homicide of a fellow protester
+php artisan prisoner:add '{"name": "Steven Lopez", "first_name": "Steven", "last_name": "Lopez", "description": "Shot and killed photographer Tyler Gerth at a June 2020 Louisville protest; first-degree manslaughter + 22 counts wanton endangerment. Sentence: 30 years prison. Verified via public court/press records: https://www.lpm.org/news/2024-02-14/man-sentenced-to-30-years-in-prison-for-killing-louisville-photographer-tyler-gerth", "state": "KY", "cases": [{"charges": "Shot and killed photographer Tyler Gerth at a June 2020 Louisville protest; first-degree manslaughter + 22 counts wanton endangerment", "sentence": "30 years prison"}]}'
 
