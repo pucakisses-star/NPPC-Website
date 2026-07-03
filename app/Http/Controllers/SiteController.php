@@ -385,11 +385,22 @@ final class SiteController extends Controller {
 
     public function events(Request $request) {
         $tab = $request->input('tab', 'upcoming');
-        $upcoming = Event::published()->upcoming()->get();
-        $past = Event::published()->past()->get();
         $series = Event::published()->whereNotNull('series')->where('series', '!=', '')->distinct()->pluck('series');
 
-        return view('pages.events', compact('upcoming', 'past', 'series', 'tab'));
+        // Optional filter: /events?series=... narrows both lists to one series.
+        $activeSeries = $request->input('series');
+        if ($activeSeries !== null && ! $series->contains($activeSeries)) {
+            $activeSeries = null;
+        }
+
+        $upcoming = Event::published()->upcoming()
+            ->when($activeSeries, fn ($q) => $q->where('series', $activeSeries))
+            ->get();
+        $past = Event::published()->past()
+            ->when($activeSeries, fn ($q) => $q->where('series', $activeSeries))
+            ->get();
+
+        return view('pages.events', compact('upcoming', 'past', 'series', 'tab', 'activeSeries'));
     }
 
     public function volunteer() {

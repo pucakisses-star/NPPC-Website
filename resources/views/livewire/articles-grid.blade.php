@@ -50,7 +50,7 @@ EOB;
             </button >
             @foreach ($categories as $category)
                 <button
-                        wire:click="selectCategory('{{ $category->title }}')"
+                        wire:click="selectCategory(@js($category->title))"
                         style="text-transform: uppercase; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; padding-bottom: 8px; border-bottom: 2px solid {{ $selectedCategory === $category->title ? 'var(--accent)' : 'transparent' }}; background: none; color: var(--fg); cursor: pointer;">
                     {{ $category->title }}
                 </button>
