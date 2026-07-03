@@ -512,7 +512,7 @@
             document.querySelector(".suggestions").innerHTML = "";
             document.getElementById("info-container").style.display = "none";
 
-            this._map.flyTo({
+            map.flyTo({
                 center: {lng: -97.81, lat: 39.14},
                 zoom: 3.25
             });

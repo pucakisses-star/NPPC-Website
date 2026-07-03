@@ -136,8 +136,15 @@
         @if($series->isNotEmpty())
             <div class="events-sidebar">
                 <div class="sidebar-title">Event Series</div>
+                @if(!empty($activeSeries))
+                    <a href="/events" class="sidebar-series">
+                        <span class="sidebar-series-dot" style="background: rgba(var(--fg-rgb),0.3);"></span>
+                        All events
+                    </a>
+                @endif
                 @foreach($series as $s)
-                    <a href="/events?series={{ urlencode($s) }}" class="sidebar-series">
+                    <a href="/events?series={{ urlencode($s) }}" class="sidebar-series"
+                       @if(($activeSeries ?? null) === $s) style="color: var(--fg);" aria-current="true" @endif>
                         <span class="sidebar-series-dot"></span>
                         {{ $s }}
                     </a>
