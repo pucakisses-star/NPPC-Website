@@ -30,9 +30,12 @@ class ArticlesGrid extends Component {
 
     public function render() {
         if ($this->selectedCategory === 'Latest') {
-            $query = Article::with('category')->orderBy('published_at', 'desc');
+            $query = Article::with('category')
+                ->whereNotNull('published_at')
+                ->orderBy('published_at', 'desc');
         } else {
             $query = Article::with('category')
+                ->whereNotNull('published_at')
                 ->whereHas('category', function ($q) {
                     $q->where('title', $this->selectedCategory);
                 })

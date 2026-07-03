@@ -34,7 +34,8 @@ final class Article extends Model {
     ];
 
     public static function getBySlug(string $slug): ?self {
-        return self::where('slug', $slug)->first();
+        // A null published_at means draft — never serve it publicly.
+        return self::where('slug', $slug)->whereNotNull('published_at')->first();
     }
 
     public function author(): BelongsTo {
