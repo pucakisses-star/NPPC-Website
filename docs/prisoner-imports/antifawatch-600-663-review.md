@@ -55,7 +55,7 @@ and 2020 felony-rioting charges that were later dropped.
 | Urooj Rahman | NY | 15 months federal prison | Threw Molotov cocktail at NYPD vehicle, Brooklyn (2020); attorney | https://www.cnn.com/2022/11/18/us/lawyer-molotov-cocktail-protest-prison-sentence/index.html |
 | Wesley Somers | TN | 5 years federal prison | Federal arson of Nashville Historic Courthouse (May 30 2020) | https://www.justice.gov/usao-mdtn/pr/hendersonville-man-sentenced-federal-prison-metro-courthouse-arson |
 
-## Group B — verified served time, but editorially sensitive — NPPC to decide (13)
+## Group B — verified served time; editorially sensitive but INCLUDED per NPPC decision (13)
 
 | Name | State | Sentence | Flag | Source |
 |------|-------|----------|------|--------|

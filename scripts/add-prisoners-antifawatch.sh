@@ -122,59 +122,59 @@ php artisan prisoner:add '{"name": "Urooj Rahman", "first_name": "Urooj", "last_
 php artisan prisoner:add '{"name": "Wesley Somers", "first_name": "Wesley", "last_name": "Somers", "description": "Federal arson of Nashville Historic Courthouse (May 30 2020). Sentence: 5 years federal prison. Verified via public court/press records: https://www.justice.gov/usao-mdtn/pr/hendersonville-man-sentenced-federal-prison-metro-courthouse-arson", "state": "TN", "cases": [{"charges": "Federal arson of Nashville Historic Courthouse (May 30 2020)", "sentence": "5 years federal prison"}]}'
 
 # ===================================================================
-# GROUP B — REVIEW BEFORE PUBLISHING (13): editorially sensitive.
-# Commented out by default. Un-comment individually if NPPC chooses to include them.
+# GROUP B — flagged but INCLUDED per NPPC decision (13).
+# Editorially sensitive; the caveat is noted above each entry for transparency.
 # ===================================================================
 
 # Anthony Hayne (OH) — 72 months federal prison
-#   REASON FLAGGED: 2012 FBI-sting bridge bomb plot (entrapment case)
-# php artisan prisoner:add '{"name": "Anthony Hayne", "first_name": "Anthony", "last_name": "Hayne", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 72 months federal prison. Verified via public court/press records: https://www.cbsnews.com/news/ohio-bomb-plot-update-4th-defendant-gets-prison-in-try-to-blow-up-cleveland-bridge/", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "72 months federal prison"}]}'
+#   NOTE: 2012 FBI-sting bridge bomb plot (entrapment case)
+php artisan prisoner:add '{"name": "Anthony Hayne", "first_name": "Anthony", "last_name": "Hayne", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 72 months federal prison. Verified via public court/press records: https://www.cbsnews.com/news/ohio-bomb-plot-update-4th-defendant-gets-prison-in-try-to-blow-up-cleveland-bridge/", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "72 months federal prison"}]}'
 
 # Brandon Baxter (OH) — 117 months federal prison
-#   REASON FLAGGED: 2012 FBI-sting bridge bomb plot (entrapment case)
-# php artisan prisoner:add '{"name": "Brandon Baxter", "first_name": "Brandon", "last_name": "Baxter", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 117 months federal prison. Verified via public court/press records: https://www.cnn.com/2012/11/20/justice/ohio-bridge-plot-sentencing/index.html", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "117 months federal prison"}]}'
+#   NOTE: 2012 FBI-sting bridge bomb plot (entrapment case)
+php artisan prisoner:add '{"name": "Brandon Baxter", "first_name": "Brandon", "last_name": "Baxter", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 117 months federal prison. Verified via public court/press records: https://www.cnn.com/2012/11/20/justice/ohio-bridge-plot-sentencing/index.html", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "117 months federal prison"}]}'
 
 # Channel Lewis (KY) — 7 months federal prison
-#   REASON FLAGGED: apparent economic/looting motive, not clearly protest-political
-# php artisan prisoner:add '{"name": "Channel Lewis", "first_name": "Channel", "last_name": "Lewis", "description": "Federal conspiracy; lookout/driver in CVS pharmacy burglary during June 2020 Louisville unrest. Sentence: 7 months federal prison. Verified via public court/press records: https://www.fbi.gov/contact-us/field-offices/louisville/news/press-releases/three-sentenced-for-pharmacy-burglary", "state": "KY", "cases": [{"charges": "Federal conspiracy; lookout/driver in CVS pharmacy burglary during June 2020 Louisville unrest", "sentence": "7 months federal prison"}]}'
+#   NOTE: apparent economic/looting motive, not clearly protest-political
+php artisan prisoner:add '{"name": "Channel Lewis", "first_name": "Channel", "last_name": "Lewis", "description": "Federal conspiracy; lookout/driver in CVS pharmacy burglary during June 2020 Louisville unrest. Sentence: 7 months federal prison. Verified via public court/press records: https://www.fbi.gov/contact-us/field-offices/louisville/news/press-releases/three-sentenced-for-pharmacy-burglary", "state": "KY", "cases": [{"charges": "Federal conspiracy; lookout/driver in CVS pharmacy burglary during June 2020 Louisville unrest", "sentence": "7 months federal prison"}]}'
 
 # Connor Stevens (OH) — 97 months federal prison
-#   REASON FLAGGED: 2012 FBI-sting bridge bomb plot (entrapment case)
-# php artisan prisoner:add '{"name": "Connor Stevens", "first_name": "Connor", "last_name": "Stevens", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 97 months federal prison. Verified via public court/press records: https://www.cnn.com/2012/11/20/justice/ohio-bridge-plot-sentencing/index.html", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "97 months federal prison"}]}'
+#   NOTE: 2012 FBI-sting bridge bomb plot (entrapment case)
+php artisan prisoner:add '{"name": "Connor Stevens", "first_name": "Connor", "last_name": "Stevens", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 97 months federal prison. Verified via public court/press records: https://www.cnn.com/2012/11/20/justice/ohio-bridge-plot-sentencing/index.html", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "97 months federal prison"}]}'
 
 # David Elmakayes (PA) — 15 years federal prison
-#   REASON FLAGGED: apparent economic/looting motive, not clearly protest-political
-# php artisan prisoner:add '{"name": "David Elmakayes", "first_name": "David", "last_name": "Elmakayes", "description": "Blew up an ATM with explosive during 2020 Philadelphia unrest + felon-in-possession. Sentence: 15 years federal prison. Verified via public court/press records: https://www.justice.gov/usao-edpa/pr/philadelphia-man-sentenced-15-years-blowing-atm-during-spring-2020-civil-unrest", "state": "PA", "cases": [{"charges": "Blew up an ATM with explosive during 2020 Philadelphia unrest + felon-in-possession", "sentence": "15 years federal prison"}]}'
+#   NOTE: apparent economic/looting motive, not clearly protest-political
+php artisan prisoner:add '{"name": "David Elmakayes", "first_name": "David", "last_name": "Elmakayes", "description": "Blew up an ATM with explosive during 2020 Philadelphia unrest + felon-in-possession. Sentence: 15 years federal prison. Verified via public court/press records: https://www.justice.gov/usao-edpa/pr/philadelphia-man-sentenced-15-years-blowing-atm-during-spring-2020-civil-unrest", "state": "PA", "cases": [{"charges": "Blew up an ATM with explosive during 2020 Philadelphia unrest + felon-in-possession", "sentence": "15 years federal prison"}]}'
 
 # Deyanna Davis (NY) — 30 months state prison
-#   REASON FLAGGED: serious injury to a person (drove into a trooper)
-# php artisan prisoner:add '{"name": "Deyanna Davis", "first_name": "Deyanna", "last_name": "Davis", "description": "Drove SUV into a state trooper during Buffalo protest (2020). Sentence: 30 months state prison. Verified via public court/press records: https://buffalonews.com/news/local/crime-courts/deyanna-davis-buffalo-sentencing/article_37b19070-10fc-11ee-80c2-a7e4d07c4b60.html", "state": "NY", "cases": [{"charges": "Drove SUV into a state trooper during Buffalo protest (2020)", "sentence": "30 months state prison"}]}'
+#   NOTE: serious injury to a person (drove into a trooper)
+php artisan prisoner:add '{"name": "Deyanna Davis", "first_name": "Deyanna", "last_name": "Davis", "description": "Drove SUV into a state trooper during Buffalo protest (2020). Sentence: 30 months state prison. Verified via public court/press records: https://buffalonews.com/news/local/crime-courts/deyanna-davis-buffalo-sentencing/article_37b19070-10fc-11ee-80c2-a7e4d07c4b60.html", "state": "NY", "cases": [{"charges": "Drove SUV into a state trooper during Buffalo protest (2020)", "sentence": "30 months state prison"}]}'
 
 # Douglas Wright (OH) — 138 months federal prison
-#   REASON FLAGGED: 2012 FBI-sting bridge bomb plot (entrapment case)
-# php artisan prisoner:add '{"name": "Douglas Wright", "first_name": "Douglas", "last_name": "Wright", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 138 months federal prison. Verified via public court/press records: https://www.cnn.com/2012/11/20/justice/ohio-bridge-plot-sentencing/index.html", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "138 months federal prison"}]}'
+#   NOTE: 2012 FBI-sting bridge bomb plot (entrapment case)
+php artisan prisoner:add '{"name": "Douglas Wright", "first_name": "Douglas", "last_name": "Wright", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 138 months federal prison. Verified via public court/press records: https://www.cnn.com/2012/11/20/justice/ohio-bridge-plot-sentencing/index.html", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "138 months federal prison"}]}'
 
 # Joshua Stafford (OH) — 120 months federal prison
-#   REASON FLAGGED: 2012 FBI-sting bridge bomb plot (entrapment case)
-# php artisan prisoner:add '{"name": "Joshua Stafford", "first_name": "Joshua", "last_name": "Stafford", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 120 months federal prison. Verified via public court/press records: https://www.cleveland19.com/story/23630019/bomb-plot-convict-gets-10-years-in-prison-and-a-lifetime-of-probation/", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "120 months federal prison"}]}'
+#   NOTE: 2012 FBI-sting bridge bomb plot (entrapment case)
+php artisan prisoner:add '{"name": "Joshua Stafford", "first_name": "Joshua", "last_name": "Stafford", "description": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot. Sentence: 120 months federal prison. Verified via public court/press records: https://www.cleveland19.com/story/23630019/bomb-plot-convict-gets-10-years-in-prison-and-a-lifetime-of-probation/", "state": "OH", "cases": [{"charges": "'\''Cleveland 5'\'' 2012 FBI-sting bridge bomb plot", "sentence": "120 months federal prison"}]}'
 
 # Linwood Kaine (MN) — 4 days jail + probation
-#   REASON FLAGGED: minor — only a few days in jail
-# php artisan prisoner:add '{"name": "Linwood Kaine", "first_name": "Linwood", "last_name": "Kaine", "description": "Obstructing legal process at March 2017 St. Paul counter-protest. Sentence: 4 days jail + probation. Verified via public court/press records: https://www.cbsnews.com/minnesota/news/linwood-kaine-probation/", "state": "MN", "cases": [{"charges": "Obstructing legal process at March 2017 St. Paul counter-protest", "sentence": "4 days jail + probation"}]}'
+#   NOTE: minor — only a few days in jail
+php artisan prisoner:add '{"name": "Linwood Kaine", "first_name": "Linwood", "last_name": "Kaine", "description": "Obstructing legal process at March 2017 St. Paul counter-protest. Sentence: 4 days jail + probation. Verified via public court/press records: https://www.cbsnews.com/minnesota/news/linwood-kaine-probation/", "state": "MN", "cases": [{"charges": "Obstructing legal process at March 2017 St. Paul counter-protest", "sentence": "4 days jail + probation"}]}'
 
 # Robert Majure (OR) — 5 days jail + probation
-#   REASON FLAGGED: minor — only a few days in jail
-# php artisan prisoner:add '{"name": "Robert Majure", "first_name": "Robert", "last_name": "Majure", "description": "Doused officers with lubricant/glitter, Aug 2018 Portland counter-protest; harassment. Sentence: 5 days jail + probation. Verified via public court/press records: https://www.bendbulletin.com/nation/portland-protesters-who-doused-cops-with-glitter-lubricant-in-2018-sentenced-to-5-days-in/article_f127ed65-0ddd-5fbe-a3ca-b244f6a943c2.html", "state": "OR", "cases": [{"charges": "Doused officers with lubricant/glitter, Aug 2018 Portland counter-protest; harassment", "sentence": "5 days jail + probation"}]}'
+#   NOTE: minor — only a few days in jail
+php artisan prisoner:add '{"name": "Robert Majure", "first_name": "Robert", "last_name": "Majure", "description": "Doused officers with lubricant/glitter, Aug 2018 Portland counter-protest; harassment. Sentence: 5 days jail + probation. Verified via public court/press records: https://www.bendbulletin.com/nation/portland-protesters-who-doused-cops-with-glitter-lubricant-in-2018-sentenced-to-5-days-in/article_f127ed65-0ddd-5fbe-a3ca-b244f6a943c2.html", "state": "OR", "cases": [{"charges": "Doused officers with lubricant/glitter, Aug 2018 Portland counter-protest; harassment", "sentence": "5 days jail + probation"}]}'
 
 # Tandre Buchanan (OH) — 4 years federal prison
-#   REASON FLAGGED: apparent economic/looting motive, not clearly protest-political
-# php artisan prisoner:add '{"name": "Tandre Buchanan", "first_name": "Tandre", "last_name": "Buchanan", "description": "Hobbs Act robbery of a Cleveland shop during May 30 2020 unrest. Sentence: 4 years federal prison. Verified via public court/press records: https://www.justice.gov/usao-ndoh/pr/cleveland-man-sentenced-prison-after-robbery-and-evidence-tampering-conviction", "state": "OH", "cases": [{"charges": "Hobbs Act robbery of a Cleveland shop during May 30 2020 unrest", "sentence": "4 years federal prison"}]}'
+#   NOTE: apparent economic/looting motive, not clearly protest-political
+php artisan prisoner:add '{"name": "Tandre Buchanan", "first_name": "Tandre", "last_name": "Buchanan", "description": "Hobbs Act robbery of a Cleveland shop during May 30 2020 unrest. Sentence: 4 years federal prison. Verified via public court/press records: https://www.justice.gov/usao-ndoh/pr/cleveland-man-sentenced-prison-after-robbery-and-evidence-tampering-conviction", "state": "OH", "cases": [{"charges": "Hobbs Act robbery of a Cleveland shop during May 30 2020 unrest", "sentence": "4 years federal prison"}]}'
 
 # Edgar Samaniego (NV) — 20-50 years state prison
-#   REASON FLAGGED: attempted murder / shooting of officer
-# php artisan prisoner:add '{"name": "Edgar Samaniego", "first_name": "Edgar", "last_name": "Samaniego", "description": "Shot and paralyzed a Las Vegas police officer during June 2020 protest; attempted murder. Sentence: 20-50 years state prison. Verified via public court/press records: https://www.reviewjournal.com/crime/courts/man-who-shot-vegas-police-officer-sentenced-to-prison-2569025/", "state": "NV", "cases": [{"charges": "Shot and paralyzed a Las Vegas police officer during June 2020 protest; attempted murder", "sentence": "20-50 years state prison"}]}'
+#   NOTE: attempted murder / shooting of officer
+php artisan prisoner:add '{"name": "Edgar Samaniego", "first_name": "Edgar", "last_name": "Samaniego", "description": "Shot and paralyzed a Las Vegas police officer during June 2020 protest; attempted murder. Sentence: 20-50 years state prison. Verified via public court/press records: https://www.reviewjournal.com/crime/courts/man-who-shot-vegas-police-officer-sentenced-to-prison-2569025/", "state": "NV", "cases": [{"charges": "Shot and paralyzed a Las Vegas police officer during June 2020 protest; attempted murder", "sentence": "20-50 years state prison"}]}'
 
 # Montez Lee (MN) — 120 months federal prison
-#   REASON FLAGGED: arson resulting in death
-# php artisan prisoner:add '{"name": "Montez Lee", "first_name": "Montez", "last_name": "Lee", "description": "Arson of Minneapolis pawn shop (2020); a man died in the fire. Sentence: 120 months federal prison. Verified via public court/press records: https://www.justice.gov/usao-mn/pr/rochester-man-sentenced-10-years-prison-arson-minneapolis-pawn-shop-resulted-death-man", "state": "MN", "cases": [{"charges": "Arson of Minneapolis pawn shop (2020); a man died in the fire", "sentence": "120 months federal prison"}]}'
+#   NOTE: arson resulting in death
+php artisan prisoner:add '{"name": "Montez Lee", "first_name": "Montez", "last_name": "Lee", "description": "Arson of Minneapolis pawn shop (2020); a man died in the fire. Sentence: 120 months federal prison. Verified via public court/press records: https://www.justice.gov/usao-mn/pr/rochester-man-sentenced-10-years-prison-arson-minneapolis-pawn-shop-resulted-death-man", "state": "MN", "cases": [{"charges": "Arson of Minneapolis pawn shop (2020); a man died in the fire", "sentence": "120 months federal prison"}]}'
 
