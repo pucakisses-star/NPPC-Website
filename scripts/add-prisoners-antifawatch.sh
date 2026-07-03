@@ -4,7 +4,9 @@
 # served jail or prison time (or substantial pretrial detention) in a protest-connected case.
 # RUN ON THE SERVER (this web container has no DB). Review before running.
 # The command de-duplicates by name and refuses to create an existing prisoner.
-set -euo pipefail
+# NOTE: continue-on-error is intentional -- a duplicate (or any single failure)
+# must NOT abort the batch, so we do NOT use 'set -e' here.
+set +e
 
 # ===================================================================
 # GROUP A — READY (37): protest-connected, served time, no special caveat
