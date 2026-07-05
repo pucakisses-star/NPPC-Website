@@ -117,7 +117,10 @@ watch(filterObject, (newValue, oldValue) => {
       <template v-for="record in visibleRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
-      <div v-if="hasMore" ref="loadMoreTrigger" class="load-more-sentinel"></div>
+      <div v-if="hasMore" ref="loadMoreTrigger" class="load-more-indicator" role="status" aria-live="polite">
+        <span class="load-more-spinner" aria-hidden="true"></span>
+        <span>Loading more prisoners…</span>
+      </div>
     </div>
   </section>
 </template>
@@ -144,8 +147,29 @@ watch(filterObject, (newValue, oldValue) => {
   color: rgba(255,255,255,0.4);
   margin-bottom: 16px;
 }
-.load-more-sentinel {
-  height: 1px;
+.load-more-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 16px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 600;
+}
+.load-more-spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #fff;
+  animation: load-more-spin 0.8s linear infinite;
+}
+@keyframes load-more-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .load-more-spinner { animation-duration: 2.4s; }
 }
 </style>
 
