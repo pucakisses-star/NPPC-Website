@@ -38,7 +38,7 @@ class AddGeoGroupProtesters extends Command
 
     private const CONVICTED = 'Arrested and charged; the final disposition of the case is not documented in the available sources.';
 
-    private const SENTENCE = 'Faced up to 15 years in prison on the felony false-imprisonment and conspiracy charges. Released pending trial; outcome not documented in available sources.';
+    private const SENTENCE = 'Booked and released on $4,500 bond pending trial; faced up to 15 years in prison on the felony false-imprisonment and conspiracy charges. The final disposition of the case is not documented in available sources.';
 
     public function handle(): int
     {
@@ -47,31 +47,33 @@ class AddGeoGroupProtesters extends Command
             ['city' => 'West Palm Beach', 'state' => 'Florida'],
         );
 
-        // name => [first, last, age-at-arrest fragment]
+        // name, first, last, age-at-arrest, home city (or null), extra note (or null)
         $people = [
-            ['Carlos Naranjo', 'Carlos', 'Naranjo', '36'],
-            ['Mathi Paguth', 'Mathi', 'Paguth', '40'],
-            ['Nicholas Vazquez', 'Nicholas', 'Vazquez', '22'],
-            ['Alexis Butler', 'Alexis', 'Butler', '25'],
-            ['Ellen Vessels', 'Ellen', 'Vessels', '34'],
-            ['Christian Minaya', 'Christian', 'Minaya', '39'],
-            ['Wendy King', 'Wendy', 'King', '36'],
-            ['David Hitchcock', 'David', 'Hitchcock', '30'],
+            ['Carlos Naranjo', 'Carlos', 'Naranjo', '36', 'Hollywood', null],
+            ['Mathi Paguth', 'Mathi', 'Paguth', '40', 'Lake Worth', null],
+            ['Nicholas Vazquez', 'Nicholas', 'Vazquez', '22', 'Miami', null],
+            ['Alexis Butler', 'Alexis', 'Butler', '25', 'Dania Beach', ' Butler was arrested at her Dania Beach home and held about four days in the Broward County jail before posting bond.'],
+            ['Ellen Vessels', 'Ellen', 'Vessels', '34', null, null],
+            ['Christian Minaya', 'Christian', 'Minaya', '39', null, null],
+            ['Wendy King', 'Wendy', 'King', '36', 'Coral Springs', null],
+            ['David Hitchcock', 'David', 'Hitchcock', '30', 'Dania Beach', null],
         ];
 
         DB::transaction(function () use ($people, $jail) {
-            foreach ($people as [$name, $first, $last, $age]) {
+            foreach ($people as [$name, $first, $last, $age, $city, $note]) {
                 if (Prisoner::where('name', $name)->exists()) {
                     $this->warn('Skipped (already exists): '.$name);
 
                     continue;
                 }
 
+                $subject = $name.', '.$age.' at the time'.($city ? ' and of '.$city.', Florida,' : ',');
+
                 $prisoner = Prisoner::create([
                     'name' => $name,
                     'first_name' => $first,
                     'last_name' => $last,
-                    'description' => sprintf(self::BIO, $name.', '.$age.' at the time of the protest,'),
+                    'description' => sprintf(self::BIO, $subject).($note ?? ''),
                     'state' => 'Florida',
                     'era' => '2010s',
                     'ideologies' => ['Prison abolition', 'Anti–private prison', 'Immigrant rights'],
