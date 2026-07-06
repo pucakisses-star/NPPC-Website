@@ -154,6 +154,17 @@ class ConsolidateIdeologies extends Command
         'Migrant rights' => 'Immigrant rights',
         'Christian nonviolence' => 'Christian pacifism',
         'Indigenous treaty rights' => 'Treaty rights',
+
+        // --- environmental -> Environmental Activism ---
+        'Environmental justice' => 'Environmental Activism',
+        'Climate justice' => 'Environmental Activism',
+        'Eco-defense' => 'Environmental Activism',
+        'Radical ecology' => 'Environmental Activism',
+
+        // --- farm/agricultural organizing -> Farm organizing ---
+        'Farmers movement' => 'Farm organizing',
+        'Farmworker organizing' => 'Farm organizing',
+        'Farm labor organizing' => 'Farm organizing',
     ];
 
     public function handle(): int
