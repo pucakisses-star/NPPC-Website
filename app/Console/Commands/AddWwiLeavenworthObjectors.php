@@ -83,6 +83,19 @@ class AddWwiLeavenworthObjectors extends Command
                 'incarceration' => [1918, 5, 28], 'release' => [1919, 4, 13], 'institution' => $leavenworth->id,
             ],
 
+            // ---- Mennonite Brethren objector who died at Fort Leavenworth ----
+            [
+                'name' => 'Henry H. Franz', 'first' => 'Henry', 'middle' => 'H.', 'last' => 'Franz',
+                'race' => 'White', 'state' => 'Oklahoma', 'era' => '1910s',
+                'birth' => [1896, 4, 25], 'death' => [1918, 12, 1],
+                'ideologies' => ['Pacifism', 'Conscientious objection'], 'affiliation' => ['Mennonite Brethren'],
+                'bio' => 'Henry H. Franz (April 25, 1896 – December 1, 1918) was a Mennonite Brethren conscientious objector who died at age 22 while imprisoned at the Fort Leavenworth military prison. Born near Inman, Kansas to Henry and Agnes Franz, Russian-German immigrants, he was farming near Hooker, Oklahoma when he registered for the draft in June 1917, claiming exemption on "Mennonite conviction." Court-martialed at Camp Travis with a group of 45 conscientious objectors — all sentenced to life imprisonment, later reduced to 25 years, for refusing to wear the uniform — he was transferred to the Fort Leavenworth disciplinary barracks in June 1918. Weakened by the brutal treatment of objectors (solitary confinement, bread-and-water diets, stress positions) and vulnerable to the 1918 influenza pandemic, he died in custody on December 1, 1918, three weeks after the Armistice, while awaiting the release that came too late. He is buried in the Adams Mennonite Brethren Cemetery near Adams, Oklahoma. (He is often incorrectly listed as "Henry E. Franz.")',
+                'charges' => 'Refusing to wear the uniform or perform military service as a Mennonite Brethren conscientious objector during World War I.',
+                'convicted' => 'Yes — court-martialed at Camp Travis and sentenced to life imprisonment (one of 45 objectors), reduced to 25 years.',
+                'sentence' => 'Life imprisonment, reduced to 25 years; transferred to the Fort Leavenworth disciplinary barracks in June 1918, he died in custody there on December 1, 1918, at age 22.',
+                'died' => [1918, 12, 1], 'institution' => $leavenworth->id,
+            ],
+
             // ---- Molokan absolutists (Glendale, Arizona community) ----
             [
                 'name' => 'J. D. Conovaloff', 'first' => 'J. D.', 'last' => 'Conovaloff',
