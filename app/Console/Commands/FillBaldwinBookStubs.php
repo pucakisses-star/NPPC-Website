@@ -182,6 +182,18 @@ class FillBaldwinBookStubs extends Command
 
                 $this->info('Filled: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
             }
+
+            // Ben Salmon was duplicated as a second record, "Benjamin Joseph
+            // Salmon" (his full name, kept here as the canonical record's aka).
+            // Fold that duplicate into the filled ben-salmon record and delete
+            // it. Idempotent — no-op once the duplicate is gone.
+            $canon = Prisoner::withUnderReview()->where('slug', 'ben-salmon')->first();
+            $dup = Prisoner::withUnderReview()->where('slug', 'benjamin-joseph-salmon')->first();
+            if ($canon && $dup && $dup->id !== $canon->id) {
+                $dup->cases()->delete();
+                $dup->delete();
+                $this->info('Deleted duplicate "Benjamin Joseph Salmon" (merged into ben-salmon).');
+            }
         });
 
         Cache::forget(PrisonerApiController::cacheKey());
