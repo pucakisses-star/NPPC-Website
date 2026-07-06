@@ -8,6 +8,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Fills out the empty Randy Kehler stub (draft-resistance and war-tax-resistance
@@ -47,6 +48,7 @@ class FillRandyKehler extends Command
                 'race' => 'White',
                 'state' => 'Massachusetts',
                 'era' => '1970s',
+                'website' => 'https://www.randykehler.com',
                 'ideologies' => ['Anti-War', 'Pacifism', 'Anti-militarism'],
                 'affiliation' => ['War Resisters League', 'Nuclear Weapons Freeze Campaign', 'Traprock Peace Center'],
                 'description' => 'Randy Kehler (July 16, 1944 – July 2024) was an American anti-war activist, draft resister, and war tax resister. Working for the War Resisters League in San Francisco from 1967, he returned his draft card to the Selective Service rather than cooperate with the Vietnam-era draft. He represented himself at trial, arguing the war and the draft were themselves unjust, and — refusing even to claim conscientious-objector status as a form of cooperation — was convicted and served twenty-two months of a two-year federal sentence. Daniel Ellsberg later credited hearing Kehler speak in August 1969, as Kehler prepared to go to prison, as a pivotal moment in his own decision to release the Pentagon Papers. From 1977, Kehler and his wife Betsy Corner refused to pay federal income taxes in protest of military spending, redirecting the money to charity; the IRS seized their Colrain, Massachusetts farmhouse in 1989. Arrested for trespassing at the seized home in 1990 and 1991, Kehler was jailed for six months for contempt of court. He went on to serve as national coordinator of the Nuclear Weapons Freeze Campaign (1981–1984) and co-founded the Traprock Peace Center and the Valley Community Land Trust.',
@@ -84,6 +86,16 @@ class FillRandyKehler extends Command
             $tax->save();
 
             $this->info('Filled Randy Kehler (slug: '.$k->slug.') with two cases.');
+
+            // Attach his portrait (non-free; photo by Ed Hedemann) if unset.
+            $src = database_path('data/photos/nonfree/randy-kehler.jpg');
+            if (is_file($src) && empty($k->photo)) {
+                Storage::disk('public')->makeDirectory('prisoners');
+                Storage::disk('public')->put('prisoners/randy-kehler.jpg', file_get_contents($src));
+                $k->photo = 'prisoners/randy-kehler.jpg';
+                $k->save();
+                $this->info('Linked photo for Randy Kehler.');
+            }
 
             // Delete the garbled duplicate stub.
             $dup = Prisoner::withUnderReview()->where('slug', 'randall-forsberg-kehler')->first();
