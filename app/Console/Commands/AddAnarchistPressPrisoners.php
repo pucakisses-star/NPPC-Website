@@ -47,6 +47,7 @@ class AddAnarchistPressPrisoners extends Command
             }
 
             $prisoner = Prisoner::create(array_merge([
+                'name' => $p['name'],
                 'in_custody' => false,
                 'released' => true,
                 'in_exile' => false,
