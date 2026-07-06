@@ -55,10 +55,10 @@ class FillBaldwinBookStubs extends Command
             [
                 'name' => 'Ben Salmon', 'first' => 'Ben', 'last' => 'Salmon', 'aka' => 'Benjamin Joseph Salmon',
                 'race' => 'White', 'state' => 'Colorado', 'era' => '1910s',
-                'birth' => [1889], 'death' => [1932],
+                'birth' => [1888, 10, 15], 'death' => [1932, 2, 15],
                 'ideologies' => ['Pacifism', 'Anti-War', 'Conscientious objection'],
                 'affiliation' => ['Catholic Church'],
-                'bio' => 'Benjamin Joseph "Ben" Salmon (1889–1932) was a Catholic conscientious objector during World War I and an outspoken critic of just-war theory. Refusing both to register and to serve, he was court-martialed and found guilty; initially sentenced to death, his sentence was commuted to twenty-five years at hard labor. Imprisoned and subjected to brutal treatment, he went on a prolonged hunger strike protesting the treatment of objectors. On November 26, 1920 the War Department pardoned and released him along with thirty-two other conscientious objectors.',
+                'bio' => 'Benjamin Joseph "Ben" Salmon (1888–1932) was a Catholic conscientious objector during World War I and an outspoken critic of just-war theory. Refusing both to register and to serve, he was court-martialed and found guilty; initially sentenced to death, his sentence was commuted to twenty-five years at hard labor. Imprisoned and subjected to brutal treatment, he went on a prolonged hunger strike protesting the treatment of objectors. On November 26, 1920 the War Department pardoned and released him along with thirty-two other conscientious objectors.',
                 'charges' => 'Refusing to register for or perform military service (desertion / disobedience) as a Catholic conscientious objector during World War I.',
                 'convicted' => 'Yes — court-martialed and convicted.',
                 'sentence' => 'Sentenced to death, commuted to twenty-five years at hard labor; released by War Department pardon on November 26, 1920.',
