@@ -24,3 +24,4 @@ require. Each links to the Commons File: page (full author/license details).
 | Tillie Paul | tillie-paul.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Matilda_%22Tillie%22_Kinnon_Paul_Tamaree.jpg) |
 | Wes Studi | wes-studi.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Wes_Studi_visiting_with_Gavin_Newsom_-_2019_03.jpg) |
 | Winona LaDuke | winona-laduke.jpg | CC BY-SA 4.0 | Frypie | [File](https://commons.wikimedia.org/wiki/File:Winona_laduke_2.jpg) |
+| Chandler Davis | chandler-davis.jpg | GFDL 1.2 | George Bergman (Oberwolfach Photo Collection) | [File](https://commons.wikimedia.org/wiki/File:Chandler_Davis_(cropped).jpg) |

@@ -9,6 +9,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Fills three anti-HUAC civil-liberties resisters who already existed as empty
@@ -79,6 +80,7 @@ class FillAntiHuacResisters extends Command
                 'incarceration' => [1960, 2, 2],
                 'release' => [1960, 8],
                 'institution_id' => $danbury->id,
+                'photo' => 'chandler-davis.jpg',   // free (GFDL 1.2), from data/photos/
             ],
         ];
 
@@ -122,7 +124,27 @@ class FillAntiHuacResisters extends Command
                 }
                 $case->save();
 
+                // Attach a bundled portrait (from data/photos/) if unset.
+                if (! empty($p['photo'])) {
+                    $src = database_path('data/photos/'.$p['photo']);
+                    if (is_file($src) && empty($prisoner->photo)) {
+                        Storage::disk('public')->makeDirectory('prisoners');
+                        Storage::disk('public')->put('prisoners/'.$p['photo'], file_get_contents($src));
+                        $prisoner->photo = 'prisoners/'.$p['photo'];
+                        $prisoner->save();
+                    }
+                }
+
                 $this->info('Filled: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
+            }
+
+            // Remove the duplicate "H. Chandler Davis" stub, merged into
+            // the canonical chandler-davis record above.
+            $dup = Prisoner::withUnderReview()->where('slug', 'h-chandler-davis')->first();
+            if ($dup) {
+                $dup->cases()->delete();
+                $dup->delete();
+                $this->info('Deleted duplicate stub "H. Chandler Davis".');
             }
         });
 
