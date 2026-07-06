@@ -126,8 +126,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Ring Lardner Jr., a screenwriter and son of the humorist Ring Lardner, who had already won an Academy Award for “Woman of the Year”').' Asked whether he was a Communist, he famously answered, “I could answer that, but I’d hate myself in the morning.” He served his sentence at Danbury alongside Lester Cole, resumed writing under pseudonyms, and two decades later won a second Oscar for “M*A*S*H.”',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served at the Federal Correctional Institution in Danbury, Connecticut.',
+                'sentence' => 'One year in federal prison and a $1,000 fine, served at the Federal Correctional Institution in Danbury, Connecticut. He entered in July 1950 and was released about nine and a half months later, in April 1951.',
                 'institution_id' => $danbury->id,
+                'incarceration' => [1950, 7],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Albert Maltz', 'first' => 'Albert', 'last' => 'Maltz',
@@ -367,6 +369,12 @@ class AddHuacJailedPersons extends Command
                     'convicted' => $p['convicted'],
                     'sentence' => $p['sentence'],
                 ]);
+                if (! empty($p['incarceration'])) {
+                    $case->setPartialDate('incarceration_date', ...$p['incarceration']);
+                }
+                if (! empty($p['release'])) {
+                    $case->setPartialDate('release_date', ...$p['release']);
+                }
                 if (! empty($p['in_exile_since'])) {
                     $case->setPartialDate('in_exile_since', ...$p['in_exile_since']);
                 }
