@@ -9,6 +9,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Bulk-adds the World War I conscientious objectors who were imprisoned in the
@@ -104,6 +105,17 @@ class AddWwiCoDatabase extends Command
                         $prisoner->setPartialDate('death_date', ...$p['death']);
                     }
                     $prisoner->save();
+
+                    // Attach a bundled portrait (from data/photos/) if provided and unset.
+                    if (! empty($p['photo']) && empty($prisoner->photo)) {
+                        $src = database_path('data/photos/'.$p['photo']);
+                        if (is_file($src)) {
+                            Storage::disk('public')->makeDirectory('prisoners');
+                            Storage::disk('public')->put('prisoners/'.$p['photo'], file_get_contents($src));
+                            $prisoner->photo = 'prisoners/'.$p['photo'];
+                            $prisoner->save();
+                        }
+                    }
 
                     $prisoner->cases()->delete();
                     $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
