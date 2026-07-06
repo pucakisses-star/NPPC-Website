@@ -41,7 +41,7 @@ class MergeGildayRecords extends Command
             // Merge fields into the canonical record.
             $canon->aka = 'Lefty Gilday';
             $canon->ideologies = ['Anti-War', 'Anti-imperialism'];
-            $canon->description = str_replace('September 10, 2011', 'September 9, 2011', (string) $canon->description);
+            $canon->description = 'William "Lefty" Gilday was a minor league baseball player and anti-war activist who served as a member of Students for a Democratic Society (SDS) and the Weather Underground. On September 23, 1970, Gilday and other members were involved in a bank expropriation attempting to fund the anti-war movement which ended with a police officer being killed. Gilday was tried and found guilty for the killing of the Boston police officer. He was sentenced to death but his sentence was later reduced to life imprisonment. Gilday died in prison in 2011.';
             $canon->setPartialDate('death_date', 2011, 9, 9);
             $canon->in_custody = false;
             $canon->released = true;
