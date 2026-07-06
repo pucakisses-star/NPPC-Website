@@ -2,9 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -108,13 +110,13 @@ class AddFriesRebellion extends Command
 
         DB::transaction(function () use ($people) {
             foreach ($people as $p) {
-                if (Prisoner::where('name', $p['name'])->exists()) {
-                    $this->warn('Skipped (already exists): '.$p['name']);
+                // These defendants were pre-seeded as empty stubs, so fill the
+                // existing record instead of skipping it. fill() touches only
+                // the listed columns, preserving any photo already present.
+                $existing = Prisoner::withUnderReview()->where('name', $p['name'])->first();
+                $prisoner = $existing ?? new Prisoner(['name' => $p['name']]);
 
-                    continue;
-                }
-
-                $prisoner = Prisoner::create([
+                $prisoner->fill([
                     'name' => $p['name'],
                     'first_name' => $p['first'] ?? null,
                     'last_name' => $p['last'] ?? null,
@@ -136,9 +138,12 @@ class AddFriesRebellion extends Command
                 // site shows "1769", never a fabricated "January 1, 1769".
                 if (! empty($p['birth_year'])) {
                     $prisoner->setPartialDate('birthdate', (int) $p['birth_year']);
-                    $prisoner->save();
                 }
+                $prisoner->save();
 
+                // Rebuild the single case so re-runs (and the empty stub's
+                // placeholder case) collapse to exactly one.
+                $prisoner->cases()->delete();
                 PrisonerCase::create([
                     'prisoner_id' => $prisoner->id,
                     'institution_id' => $p['institution_id'] ?? null,
@@ -150,9 +155,11 @@ class AddFriesRebellion extends Command
                     'release_date' => $p['release_date'] ?? null,
                 ]);
 
-                $this->info('Added: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
+                $this->info(($existing ? 'Filled: ' : 'Added: ').$prisoner->name.' (slug: '.$prisoner->slug.')');
             }
         });
+
+        Cache::forget(PrisonerApiController::cacheKey());
 
         return self::SUCCESS;
     }
