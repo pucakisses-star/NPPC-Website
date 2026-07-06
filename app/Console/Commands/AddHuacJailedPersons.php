@@ -2,10 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -30,7 +32,8 @@ use Illuminate\Support\Facades\DB;
  *
  * Sourced to the HUAC and Hollywood-blacklist records, Barsky v. United States
  * (167 F.2d 241), Joint Anti-Fascist Refugee Committee v. McGrath, and the
- * standard biographies. Idempotent (skips by name).
+ * standard biographies. Idempotent — create-or-update by name: fills the
+ * (often pre-seeded, empty) existing record and rebuilds its single case.
  */
 class AddHuacJailedPersons extends Command
 {
@@ -300,13 +303,15 @@ class AddHuacJailedPersons extends Command
 
         DB::transaction(function () use ($people) {
             foreach ($people as $p) {
-                if (Prisoner::where('name', $p['name'])->exists()) {
-                    $this->warn('Skipped (already exists): '.$p['name']);
+                // Many of these people were pre-seeded as empty stubs (no bio,
+                // no case). Fill the existing record instead of skipping it;
+                // only create a new one when truly absent. fill() touches only
+                // the listed columns, so any photo/birthdate already present is
+                // preserved.
+                $existing = Prisoner::withUnderReview()->where('name', $p['name'])->first();
+                $prisoner = $existing ?? new Prisoner(['name' => $p['name']]);
 
-                    continue;
-                }
-
-                $prisoner = Prisoner::create([
+                $prisoner->fill([
                     'name' => $p['name'],
                     'first_name' => $p['first'] ?? null,
                     'middle_name' => $p['middle'] ?? null,
@@ -324,7 +329,11 @@ class AddHuacJailedPersons extends Command
                     'in_exile' => $p['in_exile'] ?? false,
                     'awaiting_trial' => false,
                 ]);
+                $prisoner->save();
 
+                // Rebuild the single contempt case so re-runs (and the empty
+                // stub's placeholder case) collapse to exactly one.
+                $prisoner->cases()->delete();
                 PrisonerCase::create([
                     'prisoner_id' => $prisoner->id,
                     'institution_id' => $p['institution_id'] ?? null,
@@ -333,9 +342,11 @@ class AddHuacJailedPersons extends Command
                     'sentence' => $p['sentence'],
                 ]);
 
-                $this->info('Added: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
+                $this->info(($existing ? 'Filled: ' : 'Added: ').$prisoner->name.' (slug: '.$prisoner->slug.')');
             }
         });
+
+        Cache::forget(PrisonerApiController::cacheKey());
 
         return self::SUCCESS;
     }
