@@ -157,6 +157,9 @@ class AddWwiCoDatabase extends Command
 
     private function bio(array $p, bool $died): string
     {
+        if (! empty($p['bio'])) {
+            return $p['bio'];
+        }
         $denom = ! empty($p['denom']) && $p['denom'] !== 'Socialist' ? $p['denom'].' ' : '';
         $where = ! empty($p['state']) ? ' from '.$p['state'] : '';
         $prison = $this->prisonReadable($p);
