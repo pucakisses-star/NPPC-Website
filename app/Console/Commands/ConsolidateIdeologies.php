@@ -57,16 +57,16 @@ class ConsolidateIdeologies extends Command
         'Anarcho-syndicalist' => 'Anarcho-Syndicalism',
         'Puerto Rican independence' => 'Puerto Rican Independence',
         'Irish Republicanism' => 'Irish republicanism',
-        'Women\'s suffrage' => 'Women\'s Suffrage',
+        'Women\'s suffrage' => 'Feminism',
         'Feminist' => 'Feminism',
-        'Reproductive Justice' => 'Reproductive justice',
-        'LGBTQ rights' => 'LGBTQ Rights',
+        'Reproductive Justice' => 'Reproductive Rights',
+        'LGBTQ rights' => 'LGBTQ liberation',
         'LGBTQ+ liberation' => 'LGBTQ liberation',
-        'Trans Liberation' => 'Trans liberation',
+        'Trans Liberation' => 'LGBTQ liberation',
         'Press Freedom' => 'Press freedom',
         'Free Speech' => 'Free speech',
         'Anti-Police Brutality' => 'Anti-police brutality',
-        'Anti-Police Violence' => 'Anti-police violence',
+        'Anti-Police Violence' => 'Anti-police brutality',
         'Prison abolition' => 'Prison Abolition',
         'Prison abolitionist' => 'Prison Abolition',
         'Abolitionist' => 'Abolitionism',
@@ -80,7 +80,7 @@ class ConsolidateIdeologies extends Command
         'Immigrant Rights' => 'Immigrant rights',
         'Migrant Solidarity' => 'Migrant solidarity',
         'Prisoners\' Rights' => 'Prisoners\' rights',
-        'Animal Liberation' => 'Animal liberation',
+        'Animal Liberation' => 'Animal Rights Activism',
         'Financial Privacy' => 'Financial privacy',
         'Catholic left' => 'Catholic Left',
         'Quaker' => 'Quakerism',
@@ -116,6 +116,44 @@ class ConsolidateIdeologies extends Command
         'Native American sovereignty' => 'Indigenous Sovereignty',
         'Indigenous Right\'s Activism' => 'Indigenous rights',
         'Native American rights' => 'Indigenous rights',
+
+        // --- additional case / spelling variants ---
+        'Forest defense' => 'Forest Defense',
+        'Latin American solidarity' => 'Latin America solidarity',
+        'Anti-Federalism' => 'Anti-Federalist',
+        'Homeless rights' => 'Houseless rights',
+
+        // --- women's movement -> Feminism ---
+        'Women\'s Suffrage' => 'Feminism',
+        'Women\'s liberation' => 'Feminism',
+        'Women\'s rights' => 'Feminism',
+        'Gender equality' => 'Feminism',
+
+        // --- LGBTQ movements -> LGBTQ liberation ---
+        'Gay liberation' => 'LGBTQ liberation',
+        'Queer liberation' => 'LGBTQ liberation',
+        'Trans liberation' => 'LGBTQ liberation',
+        'LGBTQ Rights' => 'LGBTQ liberation',
+
+        // --- anti-police variants -> Anti-police brutality ---
+        'Anti-police' => 'Anti-police brutality',
+        'Anti-police repression' => 'Anti-police brutality',
+        'Anti-police violence' => 'Anti-police brutality',
+
+        // --- other unambiguous synonyms ---
+        'Reproductive justice' => 'Reproductive Rights',
+        'Animal liberation' => 'Animal Rights Activism',
+        'Abolition' => 'Abolitionism',
+        'Anti-slavery' => 'Abolitionism',
+        'Black freedom' => 'Black liberation',
+        'Anti-colonial resistance' => 'Anti-colonial',
+        'Anti-Vietnam War' => 'Anti-War',
+        'Anti-Iraq War' => 'Anti-War',
+        'Working-class organizing' => 'Labor organizing',
+        'Immigration justice' => 'Immigrant rights',
+        'Migrant rights' => 'Immigrant rights',
+        'Christian nonviolence' => 'Christian pacifism',
+        'Indigenous treaty rights' => 'Treaty rights',
     ];
 
     public function handle(): int
