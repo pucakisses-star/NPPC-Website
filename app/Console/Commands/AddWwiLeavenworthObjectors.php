@@ -400,6 +400,16 @@ class AddWwiLeavenworthObjectors extends Command
 
                 $this->info(($prisoner->wasRecentlyCreated ? 'Added: ' : 'Filled: ').$prisoner->name.' (slug: '.$prisoner->slug.')');
             }
+
+            // Remove the mis-listed duplicate: WWI Mennonite CO rolls sometimes
+            // record Henry H. Franz incorrectly as "Henry E. Franz." Delete that
+            // stray record so only the correct Henry H. Franz remains.
+            $wrong = Prisoner::withUnderReview()->where('name', 'Henry E. Franz')->first();
+            if ($wrong) {
+                $wrong->cases()->delete();
+                $wrong->delete();
+                $this->info('Deleted mis-listed duplicate "Henry E. Franz".');
+            }
         });
 
         Cache::forget(PrisonerApiController::cacheKey());
