@@ -53,7 +53,7 @@ class FillBaldwinBookStubs extends Command
                 'incarceration' => [1918, 3], 'release' => [1918, 5],
             ],
             [
-                'name' => 'Ben Salmon', 'first' => 'Ben', 'last' => 'Salmon', 'aka' => 'Benjamin Joseph Salmon',
+                'name' => 'Ben Salmon', 'first' => 'Benjamin', 'middle' => 'Joseph', 'last' => 'Salmon',
                 'race' => 'White', 'state' => 'Colorado', 'era' => '1910s',
                 'birth' => [1888, 10, 15], 'death' => [1932, 2, 15],
                 'ideologies' => ['Pacifism', 'Anti-War', 'Conscientious objection'],
