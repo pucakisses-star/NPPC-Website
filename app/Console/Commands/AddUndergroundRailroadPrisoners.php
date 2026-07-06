@@ -107,10 +107,10 @@ class AddUndergroundRailroadPrisoners extends Command
             [
                 'name' => 'William Baylis', 'first' => 'William', 'last' => 'Baylis',
                 'race' => 'White', 'state' => 'Virginia', 'era' => '1850s',
-                'bio' => 'William Baylis was the captain of the schooner Keziah and an Underground Railroad operative known to leaders such as William Still and Thomas Garrett. On May 31, 1858, on the James River, Petersburg officials overtook the Keziah and arrested Baylis and his mate, seizing five freedom seekers hidden below. His trial so crowded the Petersburg Court House that it had to be postponed twice. Convicted on five counts of slave abduction and sentenced to a total of forty years, he served about six years before being pardoned by Confederate President Jefferson Davis — his wife Martha having moved to Richmond and campaigned tirelessly for his release — and returned home to Wilmington, Delaware, in March 1865.',
+                'bio' => 'William Baylis was the captain of the schooner Keziah and an Underground Railroad operative known to leaders such as William Still and Thomas Garrett. On May 31, 1858, on the James River, Petersburg officials overtook the Keziah and arrested Baylis and his mate, seizing five freedom seekers hidden below. His trial so crowded the Petersburg Court House that it had to be postponed twice. Convicted on five counts of slave abduction and sentenced to a total of forty years, he served about six years before being pardoned in March 1865 — his wife Martha having moved to Richmond and campaigned tirelessly for his release — and returned home to Wilmington, Delaware.',
                 'charges' => 'Aiding the escape of enslaved people — carrying five freedom seekers aboard the schooner Keziah, seized May 31, 1858.',
                 'convicted' => 'Yes — convicted in Petersburg Circuit Court on five counts of slave abduction.',
-                'sentence' => 'Sentenced to a total of forty years in the Virginia penitentiary; he served about six years before being pardoned by Confederate President Jefferson Davis and returning home to Wilmington, Delaware, in March 1865.',
+                'sentence' => 'Sentenced to a total of forty years in the Virginia penitentiary; he served about six years before being pardoned in March 1865 and returning home to Wilmington, Delaware.',
                 'incarceration' => [1858], 'release' => [1865, 3],
             ],
             [
