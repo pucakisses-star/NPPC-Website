@@ -48,7 +48,7 @@ class FillAntiHuacResisters extends Command
                 'charges' => 'Contempt of Congress — for refusing, on First Amendment grounds, to answer questions before the House Un-American Activities Committee (Atlanta, 1958) about his civil-rights associations.',
                 'convicted' => 'Yes — conviction affirmed 5–4 by the Supreme Court in Braden v. United States (1961), decided with Wilkinson v. United States.',
                 'sentence' => 'Sentenced to twelve months; served about nine months in federal prison (1961–1962).',
-                'incarceration_year' => 1961,
+                'incarceration' => [1961],
                 'institution_id' => null,
             ],
             [
@@ -62,7 +62,7 @@ class FillAntiHuacResisters extends Command
                 'charges' => 'Contempt of Congress — for refusing, on First Amendment grounds, to answer the House Un-American Activities Committee (Atlanta, 1958) about his organizing to abolish the committee.',
                 'convicted' => 'Yes — conviction affirmed 5–4 by the Supreme Court in Wilkinson v. United States, 365 U.S. 399 (1961).',
                 'sentence' => 'Sentenced to twelve months; served about nine months in federal prison (1961–1962).',
-                'incarceration_year' => 1961,
+                'incarceration' => [1961],
                 'institution_id' => null,
             ],
             [
@@ -75,8 +75,9 @@ class FillAntiHuacResisters extends Command
                 'bio' => 'Horace Chandler Davis (August 12, 1926 – September 24, 2022) was an American-Canadian mathematician, science-fiction writer, and civil-liberties figure. Subpoenaed in 1953 and called before the House Un-American Activities Committee at its 1954 hearings in Lansing, Michigan, he — alongside University of Michigan colleagues Clement Markert and Mark Nickerson — refused to cooperate; but where the others invoked the Fifth Amendment, Davis uniquely pled the First Amendment, seeking to establish that HUAC had no right to question anyone about political belief or association. The university suspended and then fired him. Convicted of contempt of Congress, he pressed the constitutional challenge on appeal until the Supreme Court declined to hear his case in 1959, and in 1960 he served a six-month sentence in the federal prison at Danbury, Connecticut — where he kept doing mathematics, publishing a paper that carried the acknowledgment "Research supported in part by the Federal Prison System." Blacklisted from American universities, he emigrated to Canada in 1962 and spent the rest of his career at the University of Toronto, becoming a distinguished operator theorist (the Davis–Kahan theorem bears his name), co-editor-in-chief of The Mathematical Intelligencer, and a published science-fiction author whose stories appeared in Astounding Science Fiction.',
                 'charges' => 'Contempt of Congress — for refusing, on First Amendment grounds, to answer the House Un-American Activities Committee (1954 Lansing, Michigan hearings) about his political beliefs and associations.',
                 'convicted' => 'Yes — convicted of contempt of Congress; he pressed a First Amendment challenge on appeal until the Supreme Court declined to hear his case in 1959.',
-                'sentence' => 'Six months in the federal prison at Danbury, Connecticut (1960).',
-                'incarceration_year' => 1960,
+                'sentence' => 'A six-month sentence. He surrendered to a U.S. marshal in Grand Rapids, Michigan and began serving on February 2, 1960, and was released about six months later, in the summer of 1960.',
+                'incarceration' => [1960, 2, 2],
+                'release' => [1960, 8],
                 'institution_id' => $danbury->id,
             ],
         ];
@@ -115,7 +116,10 @@ class FillAntiHuacResisters extends Command
                     'convicted' => $p['convicted'],
                     'sentence' => $p['sentence'],
                 ]);
-                $case->setPartialDate('incarceration_date', $p['incarceration_year']);
+                $case->setPartialDate('incarceration_date', ...$p['incarceration']);
+                if (! empty($p['release'])) {
+                    $case->setPartialDate('release_date', ...$p['release']);
+                }
                 $case->save();
 
                 $this->info('Filled: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
