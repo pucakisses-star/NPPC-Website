@@ -47,9 +47,21 @@ class MergeGildayRecords extends Command
             $canon->released = true;
             $canon->save();
 
-            // Fill his (currently absent) murder case.
+            // Delete the duplicate record (and its cases) entirely — its single
+            // case is just a duplicate of the same murder, so nothing to keep.
+            if ($dup && $dup->id !== $canon->id) {
+                $dup->cases()->delete();
+                $dup->delete();
+                $this->info('Deleted duplicate william-gilday.');
+            }
+
+            // Rebuild exactly one murder case. Delete any existing cases first so
+            // re-runs (and the earlier bug that left two duplicate cases, which
+            // made the API sum ~41 + ~41 = 82 years) collapse back to a single
+            // ~41-year term (captured 1970 → died in custody 2011).
             $shirley = Institution::firstOrCreate(['name' => 'MCI Shirley'], ['city' => 'Shirley', 'state' => 'Massachusetts']);
-            $case = $canon->cases()->first() ?? new PrisonerCase(['prisoner_id' => $canon->id]);
+            $canon->cases()->delete();
+            $case = new PrisonerCase(['prisoner_id' => $canon->id]);
             $case->fill([
                 'prisoner_id' => $canon->id,
                 'institution_id' => $shirley->id,
@@ -60,22 +72,6 @@ class MergeGildayRecords extends Command
             ]);
             $case->setPartialDate('incarceration_date', 1970, 9); // captured Sept 1970
             $case->save();
-
-            // Fold in the duplicate, then delete it.
-            if ($dup && $dup->id !== $canon->id) {
-                foreach ($dup->cases()->get() as $dc) {
-                    if (trim((string) $dc->charges) !== '') {
-                        $dc->prisoner_id = $canon->id;
-                        $dc->save();
-                    } else {
-                        $dc->delete();
-                    }
-                }
-                $dup->delete();
-                $this->info('Deleted duplicate william-gilday and merged into william-lefty-gilday.');
-            } else {
-                $this->info('Duplicate already merged/absent; canonical record re-asserted.');
-            }
         });
 
         Cache::forget(PrisonerApiController::cacheKey());
