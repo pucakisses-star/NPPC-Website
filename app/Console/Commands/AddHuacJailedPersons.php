@@ -9,6 +9,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * People imprisoned as a direct result of the House Un-American Activities
@@ -265,7 +266,13 @@ class AddHuacJailedPersons extends Command
                 'sentence' => 'Sentenced for contempt of Congress; escaped to East Germany in 1949 before serving the term.',
                 'institution_id' => null,
                 'in_exile' => true,
+                'currently_in_exile' => false,
                 'released' => false,
+                'birth' => [1897, 2, 20],
+                'death' => [1968, 3, 21],
+                'in_exile_since' => [1949, 5],   // fled aboard the MS Batory, May 1949
+                'end_of_exile' => [1968, 3, 21], // remained in exile until his death
+                'photo' => 'gerhart-eisler.jpg',
             ],
 
             // ---- Ku Klux Klan officials jailed for contempt (1969) ----
@@ -327,20 +334,46 @@ class AddHuacJailedPersons extends Command
                     'in_custody' => false,
                     'released' => $p['released'] ?? true,
                     'in_exile' => $p['in_exile'] ?? false,
+                    'currently_in_exile' => $p['currently_in_exile'] ?? false,
                     'awaiting_trial' => false,
                 ]);
+                if (! empty($p['birth'])) {
+                    $prisoner->setPartialDate('birthdate', ...$p['birth']);
+                }
+                if (! empty($p['death'])) {
+                    $prisoner->setPartialDate('death_date', ...$p['death']);
+                }
                 $prisoner->save();
+
+                // Attach a bundled portrait (non-free) if the record has none.
+                if (! empty($p['photo'])) {
+                    $src = database_path('data/photos/nonfree/'.$p['photo']);
+                    if (is_file($src) && empty($prisoner->photo)) {
+                        Storage::disk('public')->makeDirectory('prisoners');
+                        Storage::disk('public')->put('prisoners/'.$p['photo'], file_get_contents($src));
+                        $prisoner->photo = 'prisoners/'.$p['photo'];
+                        $prisoner->save();
+                    }
+                }
 
                 // Rebuild the single contempt case so re-runs (and the empty
                 // stub's placeholder case) collapse to exactly one.
                 $prisoner->cases()->delete();
-                PrisonerCase::create([
+                $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
+                $case->fill([
                     'prisoner_id' => $prisoner->id,
                     'institution_id' => $p['institution_id'] ?? null,
                     'charges' => $p['charges'],
                     'convicted' => $p['convicted'],
                     'sentence' => $p['sentence'],
                 ]);
+                if (! empty($p['in_exile_since'])) {
+                    $case->setPartialDate('in_exile_since', ...$p['in_exile_since']);
+                }
+                if (! empty($p['end_of_exile'])) {
+                    $case->setPartialDate('end_of_exile', ...$p['end_of_exile']);
+                }
+                $case->save();
 
                 $this->info(($existing ? 'Filled: ' : 'Added: ').$prisoner->name.' (slug: '.$prisoner->slug.')');
             }
