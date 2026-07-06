@@ -25,3 +25,4 @@ require. Each links to the Commons File: page (full author/license details).
 | Wes Studi | wes-studi.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Wes_Studi_visiting_with_Gavin_Newsom_-_2019_03.jpg) |
 | Winona LaDuke | winona-laduke.jpg | CC BY-SA 4.0 | Frypie | [File](https://commons.wikimedia.org/wiki/File:Winona_laduke_2.jpg) |
 | Chandler Davis | chandler-davis.jpg | GFDL 1.2 | George Bergman (Oberwolfach Photo Collection) | [File](https://commons.wikimedia.org/wiki/File:Chandler_Davis_(cropped).jpg) |
+| John Turner | john-turner.jpg | Public domain | Anonymous (*Current Literature* Vol. 36, 1904) | [File](https://commons.wikimedia.org/wiki/File:John_Turner_(anarchist)_001.jpg) |
