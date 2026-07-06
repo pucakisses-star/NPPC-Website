@@ -45,7 +45,7 @@ class AttachImperialValley1930Photos extends Command
         $missing = [];
 
         foreach (self::MAP as $name => $file) {
-            $src = database_path("photos/imperial-valley-1930/{$file}");
+            $src = database_path("data/photos/imperial-valley-1930/{$file}");
             if (! is_file($src)) {
                 $this->warn("Source image not found: {$src}");
 
