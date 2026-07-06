@@ -68,9 +68,10 @@ class MergeGildayRecords extends Command
                 'charges' => 'First-degree murder of Boston Police Officer Walter Schroeder, shot responding to the silent alarm during the September 23, 1970 robbery of the State Street Bank and Trust Company (Brighton branch) — a $26,585 bank expropriation by five radicals to fund the anti-war movement.',
                 'convicted' => 'Yes — convicted of the murder of Officer Schroeder.',
                 'sentence' => 'Sentenced to death; commuted to life imprisonment. He remained imprisoned for the rest of his life and died in custody at MCI Shirley on September 9, 2011, at age 82.',
+                'arrest_date' => '1970-09-28',        // captured after a 4-day manhunt
+                'incarceration_date' => '1970-09-28',
                 'death_in_custody_date' => '2011-09-09',
             ]);
-            $case->setPartialDate('incarceration_date', 1970, 9); // captured Sept 1970
             $case->save();
         });
 

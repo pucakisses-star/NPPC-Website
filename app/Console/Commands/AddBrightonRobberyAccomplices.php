@@ -103,25 +103,9 @@ class AddBrightonRobberyAccomplices extends Command
 
     private function newPeople(): array
     {
+        // Stanley Bond is handled by prisoners:set-stanley-bond-details
+        // (create-or-update + photo), which carries his corrected record.
         return [
-            [
-                'name' => 'Stanley Bond',
-                'death_date' => '1972-05-24',
-                'fields' => [
-                    'first_name' => 'Stanley', 'last_name' => 'Bond',
-                    'gender' => 'Male', 'race' => 'White', 'state' => 'Massachusetts', 'era' => '1970s',
-                    'ideologies' => ['Anti-War', 'Anti-imperialism'],
-                    'affiliation' => ['Students for a Democratic Society', 'Weather Underground'],
-                    'description' => 'Stanley Bond was an Army veteran of the Vietnam War and radical who, while serving a prior robbery sentence, met William "Lefty" Gilday and Robert Valeri in prison. Entering college through the Student Tutor Education Program, he joined the campus movement, SDS, and the Weather Underground, and organized the September 23, 1970 robbery of the State Street Bank and Trust Company in Brighton, Boston, to fund the anti-war movement — the robbery in which Boston Police Officer Walter Schroeder was killed. Convicted and imprisoned, he was killed on May 24, 1972 at MCI Walpole when a bomb he was building inside the prison exploded.',
-                ],
-                'case' => [
-                    'institution' => ['name' => 'MCI Walpole', 'city' => 'Walpole', 'state' => 'Massachusetts'],
-                    'charges' => 'Armed robbery and murder — for organizing the September 23, 1970 Brighton bank robbery in which Officer Walter Schroeder was killed.',
-                    'convicted' => 'Yes — convicted/pleaded guilty in the Brighton robbery.',
-                    'sentence' => 'Imprisoned; killed on May 24, 1972 at MCI Walpole when a bomb he was assembling in the prison exploded.',
-                    'death_in_custody_date' => '1972-05-24',
-                ],
-            ],
             [
                 'name' => 'Robert Valeri',
                 'fields' => [
