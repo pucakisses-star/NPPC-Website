@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Attaches portraits to two existing prisoner records:
- *   - Louis Fraina — non-free archival portrait (spartacus-educational.com).
+ *   - Louis Fraina — public-domain period portrait (pre-1929), via
+ *     spartacus-educational.com.
  *   - John Turner — public-domain portrait (Current Literature, 1904, via
  *     Wikimedia Commons).
  *
@@ -26,7 +27,7 @@ class AttachFrainaTurnerPhotos extends Command
     public function handle(): int
     {
         $map = [
-            'louis-fraina' => database_path('data/photos/nonfree/louis-fraina.jpg'),
+            'louis-fraina' => database_path('data/photos/louis-fraina.jpg'),
             'john-turner' => database_path('data/photos/john-turner.jpg'),
         ];
 
