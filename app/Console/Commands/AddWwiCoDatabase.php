@@ -58,16 +58,27 @@ class AddWwiCoDatabase extends Command
             'macarthur' => Institution::firstOrCreate(['name' => 'Fort MacArthur'], ['city' => 'San Pedro', 'state' => 'California'])->id,
         ];
 
-        $added = $filled = $skipped = 0;
+        // Records this command authors carry this phrase; we may safely re-run
+        // over our own records, but never overwrite an unrelated prisoner who
+        // happens to share a name.
+        $signature = 'World War I Conscientious Objectors database';
+
+        $added = $updated = $skipped = 0;
 
         foreach (array_chunk($people, 100) as $chunk) {
-            DB::transaction(function () use ($chunk, $institutions, &$added, &$filled, &$skipped) {
+            DB::transaction(function () use ($chunk, $institutions, $signature, &$added, &$updated, &$skipped) {
                 foreach ($chunk as $p) {
                     $existing = Prisoner::withUnderReview()->where('name', $p['name'])->first();
-                    if ($existing && trim((string) $existing->description) !== '') {
-                        $skipped++;
+                    if ($existing) {
+                        $desc = (string) $existing->description;
+                        if (trim($desc) !== '' && ! str_contains($desc, $signature)) {
+                            $skipped++;
 
-                        continue; // never overwrite an already-described record
+                            continue; // an unrelated described record — leave it alone
+                        }
+                        $updated++;
+                    } else {
+                        $added++;
                     }
                     $prisoner = $existing ?? new Prisoner(['name' => $p['name']]);
                     $died = ! empty($p['died']);
@@ -136,14 +147,12 @@ class AddWwiCoDatabase extends Command
                         $case->setPartialDate('death_in_custody_date', ...$p['died']);
                     }
                     $case->save();
-
-                    $existing ? $filled++ : $added++;
                 }
             });
         }
 
         Cache::forget(PrisonerApiController::cacheKey());
-        $this->info("Done. Added {$added}, filled {$filled} stubs, skipped {$skipped} (already described).");
+        $this->info("Done. Added {$added} new, updated {$updated} existing, skipped {$skipped} (unrelated records).");
 
         return self::SUCCESS;
     }
