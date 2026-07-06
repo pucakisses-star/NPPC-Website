@@ -76,6 +76,8 @@ class AddHuacJailedPersons extends Command
         $atlanta = Institution::firstOrCreate(['name' => 'United States Penitentiary, Atlanta'], ['city' => 'Atlanta', 'state' => 'Georgia']);
         $texarkana = Institution::firstOrCreate(['name' => 'Federal Correctional Institution, Texarkana'], ['city' => 'Texarkana', 'state' => 'Texas']);
         $latuna = Institution::firstOrCreate(['name' => 'Federal Correctional Institution, La Tuna'], ['city' => 'Anthony', 'state' => 'Texas']);
+        $millpoint = Institution::firstOrCreate(['name' => 'Mill Point Federal Prison Camp'], ['city' => 'Mill Point', 'state' => 'West Virginia']);
+        $springfield = Institution::firstOrCreate(['name' => 'United States Medical Center for Federal Prisoners, Springfield'], ['city' => 'Springfield', 'state' => 'Missouri']);
 
         $people = [
             // ---- The Hollywood Ten ----
@@ -86,8 +88,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'John Howard Lawson, a screenwriter and playwright who had been the first president of the Screen Writers Guild and was regarded as the intellectual “dean” of the group').' Lawson’s combative testimony — gaveled down by chairman J. Parnell Thomas — became the emblem of the confrontation, and his conviction was carried through the courts as one of the two test cases for all ten.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served in 1950 at the Federal Correctional Institution in Ashland, Kentucky.',
+                'sentence' => 'One year in federal prison and a $1,000 fine at the Federal Correctional Institution in Ashland, Kentucky. As one of the two test-case defendants he entered first, in June 1950, and was released in the spring of 1951.',
                 'institution_id' => $ashland->id,
+                'incarceration' => [1950, 6],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Dalton Trumbo', 'first' => 'Dalton', 'last' => 'Trumbo',
@@ -96,8 +100,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Dalton Trumbo, at the time one of the highest-paid screenwriters in Hollywood and the author of the antiwar novel “Johnny Got His Gun”').' His conviction was the second of the two test cases. After his release Trumbo kept working under pseudonyms and fronts — winning two Academy Awards in secret — and his open screen credits for “Spartacus” and “Exodus” in 1960 are widely credited with breaking the blacklist.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison (of which he served about ten months) and a $1,000 fine, at the Federal Correctional Institution in Ashland, Kentucky.',
+                'sentence' => 'One year in federal prison (of which he served about ten months) and a $1,000 fine, at the Federal Correctional Institution in Ashland, Kentucky. He entered around June 9, 1950 and was released in April 1951.',
                 'institution_id' => $ashland->id,
+                'incarceration' => [1950, 6, 9],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Alvah Bessie', 'first' => 'Alvah', 'last' => 'Bessie',
@@ -106,8 +112,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA', 'Abraham Lincoln Brigade'],
                 'bio' => sprintf(self::TEN, 'Alvah Bessie, a screenwriter and novelist who had volunteered with the Abraham Lincoln Brigade to fight fascism in the Spanish Civil War').' Blacklisted for the rest of his Hollywood career, he later worked as a stagehand and wrote “Inquisition in Eden,” a memoir of the ordeal.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served in 1950.',
-                'institution_id' => null,
+                'sentence' => 'One year in federal prison and a $1,000 fine, of which he served about ten months at the Federal Correctional Institution in Texarkana, Texas. He entered in the summer of 1950 and was released in the spring of 1951.',
+                'institution_id' => $texarkana->id,
+                'incarceration' => [1950, 7],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Lester Cole', 'first' => 'Lester', 'last' => 'Cole',
@@ -116,8 +124,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Lester Cole, a screenwriter and a founding member of the Screen Writers Guild').' He served his term at the federal prison in Danbury, Connecticut — where, by a notorious irony, a fellow inmate was J. Parnell Thomas, the former HUAC chairman who had jailed him and was himself now imprisoned for payroll fraud.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served at the Federal Correctional Institution in Danbury, Connecticut.',
+                'sentence' => 'One year in federal prison and a $1,000 fine (of which he served about ten months), at the Federal Correctional Institution in Danbury, Connecticut. He entered in the summer of 1950 and was released in the spring of 1951.',
                 'institution_id' => $danbury->id,
+                'incarceration' => [1950, 7],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Ring Lardner Jr.', 'first' => 'Ring', 'middle' => 'Wilmer', 'last' => 'Lardner',
@@ -138,8 +148,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Albert Maltz, an award-winning short-story writer, novelist and screenwriter').' Blacklisted after his release, he lived and worked for years in exile in Mexico and did not receive open screen credit again until the 1970s.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served in 1950.',
-                'institution_id' => null,
+                'sentence' => 'One year in federal prison and a $1,000 fine, of which he served about ten months at the Mill Point Federal Prison Camp in West Virginia. His prison mug shot is dated July 17, 1950; he was released in April 1951.',
+                'institution_id' => $millpoint->id,
+                'incarceration' => [1950, 7, 17],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Samuel Ornitz', 'first' => 'Samuel', 'last' => 'Ornitz',
@@ -148,8 +160,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Screen Writers Guild', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Samuel Ornitz, a novelist and screenwriter and a founding member of the Screen Writers Guild').' In poor health, he served his term and was blacklisted for the remainder of his life; he died in 1957.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served in 1950.',
-                'institution_id' => null,
+                'sentence' => 'One year in federal prison and a $1,000 fine; in poor health, he served about nine months at the United States Medical Center for Federal Prisoners in Springfield, Missouri. He entered in the summer of 1950 and was released in the spring of 1951.',
+                'institution_id' => $springfield->id,
+                'incarceration' => [1950, 7],
+                'release' => [1951, 4],
             ],
             [
                 'name' => 'Adrian Scott', 'first' => 'Adrian', 'last' => 'Scott',
@@ -158,8 +172,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Adrian Scott, the producer of the acclaimed anti-antisemitism film noir “Crossfire” (1947), which was in theaters even as HUAC subpoenaed him').' The only producer among the Ten, he was blacklisted for the rest of his career and worked afterward under his wife’s name.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'One year in federal prison and a $1,000 fine, served in 1950.',
-                'institution_id' => null,
+                'sentence' => 'One year in federal prison and a $1,000 fine, served at the Federal Correctional Institution in Ashland, Kentucky. The last of the Ten to be sentenced — on September 27, 1950, having been hospitalized for ulcers — he entered shortly afterward and was released in 1951.',
+                'institution_id' => $ashland->id,
+                'incarceration' => [1950, 10],
+                'release' => [1951],
             ],
             [
                 'name' => 'Herbert Biberman', 'first' => 'Herbert', 'last' => 'Biberman',
@@ -168,8 +184,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Herbert Biberman, a screenwriter and director').' After his release he defied the blacklist by independently producing and directing “Salt of the Earth” (1954), a landmark pro-labor film made largely by blacklisted artists that was suppressed on its release.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'Six months in federal prison and a $500 fine (a lighter term than the other eight), served in 1950.',
-                'institution_id' => null,
+                'sentence' => 'Six months in federal prison and a $500 fine (a lighter term than the other eight), served at the Federal Correctional Institution in Texarkana, Texas. He entered in the summer of 1950 and was released around the end of the year.',
+                'institution_id' => $texarkana->id,
+                'incarceration' => [1950, 7],
+                'release' => [1950, 12],
             ],
             [
                 'name' => 'Edward Dmytryk', 'first' => 'Edward', 'last' => 'Dmytryk',
@@ -178,8 +196,10 @@ class AddHuacJailedPersons extends Command
                 'affiliation' => ['Hollywood Ten', 'Communist Party USA'],
                 'bio' => sprintf(self::TEN, 'Edward Dmytryk, the director of “Murder, My Sweet” and the Oscar-nominated “Crossfire”').' He, too, went to prison for contempt — but partway through his sentence he changed course, and in 1951 he appeared again before HUAC as a cooperative witness, admitted his former Party membership and named more than twenty others, becoming the only one of the Ten to renounce his stand and be removed from the blacklist.',
                 'charges' => self::TEN_CHARGES, 'convicted' => self::TEN_CONVICTED,
-                'sentence' => 'Six months in federal prison and a $500 fine, served in 1950; he was released after serving part of the term and afterward cooperated with the committee.',
-                'institution_id' => null,
+                'sentence' => 'Six months in federal prison and a $500 fine, at the Mill Point Federal Prison Camp in West Virginia; he served about four and a half months (four months and seventeen days). He entered in the summer of 1950 and was released late that year, afterward cooperating with the committee.',
+                'institution_id' => $millpoint->id,
+                'incarceration' => [1950, 7],
+                'release' => [1950, 12],
             ],
 
             // ---- Joint Anti-Fascist Refugee Committee board ----
