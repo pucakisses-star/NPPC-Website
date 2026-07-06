@@ -70,8 +70,8 @@ class PrisonerApiController extends Controller
                     return [
                         'Indicted' => $case->indicted,
                         'Convicted' => $case->convicted,
-                        'Sentenced Date' => $case->sentenced_date?->format('Y-m-d'),
-                        'Release Date' => $case->release_date?->format('Y-m-d'),
+                        'Sentenced Date' => $case->partialDateIso('sentenced_date'),
+                        'Release Date' => $case->partialDateIso('release_date'),
                         'Charges' => $case->charges ? array_map('trim', explode("\n", $case->charges)) : [],
                         'Prosecutor' => $case->prosecutor,
                         'Judge' => $case->judge,
@@ -81,8 +81,8 @@ class PrisonerApiController extends Controller
                         'Institution city' => $case->institution ? [$case->institution->city] : [],
                         'Institution state' => $case->institution?->state,
                         'Institution security' => $case->institution ? [$case->institution->security] : [],
-                        'Arrest Date' => $case->arrest_date?->format('Y-m-d'),
-                        'Incarceration Date' => $case->incarceration_date?->format('Y-m-d'),
+                        'Arrest Date' => $case->partialDateIso('arrest_date'),
+                        'Incarceration Date' => $case->partialDateIso('incarceration_date'),
                         'Mailing address' => $case->institution?->mailing_address,
                         'Physical address' => $case->institution?->physical_address,
                     ];
@@ -108,8 +108,13 @@ class PrisonerApiController extends Controller
                     'Photo' => $prisoner->photo ? asset('storage/'.$prisoner->photo) : null,
                     'Description' => $prisoner->description,
                     'Age' => $prisoner->age,
-                    'Birthdate' => $prisoner->birthdate?->format('Y-m-d'),
-                    'Death date' => $prisoner->death_date?->format('Y-m-d'),
+                    // The card's Birthday field shows a month + day, so only send a
+                    // date when we actually know the full day; a year- or month-only
+                    // birthdate would render a defaulted "1st" that isn't real.
+                    'Birthdate' => $prisoner->datePrecisionFor('birthdate') === 'day'
+                        ? $prisoner->birthdate?->format('Y-m-d')
+                        : null,
+                    'Death date' => $prisoner->partialDateIso('death_date'),
                     'Gender' => $prisoner->gender,
                     'Race' => $prisoner->race,
                     'AKA' => $prisoner->aka,

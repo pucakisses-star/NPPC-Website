@@ -68,6 +68,27 @@ trait HasPartialDates
     }
 
     /**
+     * ISO display truncated to precision: "1919", "1919-06" or "1919-06-15"
+     * (null when unset). Used by the JSON API so the front end never shows a
+     * defaulted "-01" day/month the data doesn't actually have.
+     */
+    public function partialDateIso(string $field): ?string
+    {
+        $value = $this->{$field};
+        if (! $value) {
+            return null;
+        }
+
+        $c = $value instanceof Carbon ? $value : Carbon::parse($value);
+
+        return match ($this->datePrecisionFor($field)) {
+            'year' => $c->format('Y'),
+            'month' => $c->format('Y-m'),
+            default => $c->format('Y-m-d'),
+        };
+    }
+
+    /**
      * Set a date from its parts, defaulting missing month/day to 1 and recording
      * the precision. A null/empty year clears the date entirely.
      */
