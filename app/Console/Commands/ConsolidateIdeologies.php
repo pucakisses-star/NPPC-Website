@@ -165,6 +165,103 @@ class ConsolidateIdeologies extends Command
         'Farmers movement' => 'Farm organizing',
         'Farmworker organizing' => 'Farm organizing',
         'Farm labor organizing' => 'Farm organizing',
+
+        // --- single-prisoner categories folded into an existing broad
+        //     category so the person keeps a meaningful, filterable tag ---
+        'Chiricahua Apache sovereignty' => 'Indigenous Sovereignty',
+        'Diné sovereignty' => 'Indigenous Sovereignty',
+        'Hawaiian sovereignty' => 'Indigenous Sovereignty',
+        'Lakota sovereignty' => 'Indigenous Sovereignty',
+        'Oglala Lakota sovereignty' => 'Indigenous Sovereignty',
+        'Sauk sovereignty' => 'Indigenous Sovereignty',
+        'Land back' => 'Indigenous Sovereignty',
+        'Lakota Spiritual Tradition' => 'Indigenous rights',
+        'Palestinian liberation' => 'Pro-Palestine',
+        'Anti-Zionism' => 'Pro-Palestine',
+        'Indian independence' => 'Anti-colonial',
+        'Korean independence' => 'Anti-colonial',
+        'Namibian independence' => 'Anti-colonial',
+        'Christian socialism' => 'Socialism',
+        'Democratic socialism' => 'Socialism',
+        'Egoist Anarchism' => 'Anarchism',
+        'Green anarchism' => 'Anarchism',
+        'Magonista' => 'Anarchism',
+        'Voluntaryism' => 'Libertarianism',
+        'Black Arts Movement' => 'Black liberation',
+        'Black Panther Party' => 'Black liberation',
+        'Black political empowerment' => 'Black liberation',
+        'Revolutionary Intercommunalism' => 'Black liberation',
+        'Solidarity with Black liberation' => 'Black liberation',
+        'New Afrikan Black Panther Party (Prison Chapter)' => 'New Afrikan independence',
+        'Black Muslim' => 'Black Nationalism',
+        'Garveyism' => 'Pan-Africanism',
+        'Land Grant Movement' => 'Chicano liberation',
+        'Mexican national liberation' => 'Chicano liberation',
+        'Raza Unida' => 'Chicano liberation',
+        'Zapatista solidarity' => 'Latin America solidarity',
+        'Academic freedom' => 'Civil liberties',
+        'Anti-HUAC' => 'Civil liberties',
+        'Civil rights law' => 'Civil rights',
+        'Grand Jury Resistance' => 'Civil disobedience',
+        'Anabaptism' => 'Christian pacifism',
+        'Catholic social teaching' => 'Catholic',
+        'Anti-deployment protest' => 'Anti-War',
+        'Military refuser' => 'Conscientious Objection',
+        'Anti-fracking' => 'Environmental Activism',
+        'Earth liberation' => 'Environmental Activism',
+        'Birth control' => 'Reproductive Rights',
+        'Anti-solitary' => 'Prisoners\' rights',
+        'Political-prisoner advocacy' => 'Prisoners\' rights',
+        'Prisoner self-governance' => 'Prison movement',
+        'Police abolition' => 'Prison Abolition',
+        'Armed self-defense' => 'Self-defense',
+        'Digital Privacy' => 'Anti-surveillance',
+        'Frontier farmer' => 'Agrarian populism',
+        'Land reform' => 'Agrarian populism',
+        'Knights of Labor' => 'Labor organizing',
+        'WFM' => 'Labor organizing',
+        'Irish republican socialism' => 'Irish republicanism',
+        'Veterans\' organizing' => 'Veterans\' rights',
+        'Housing justice' => 'Tenant rights',
+    ];
+
+    /**
+     * Ideology labels removed outright (dropped from every record). These are
+     * either explicitly retired categories or vague/one-off orphans with no
+     * sensible broader category to fold into.
+     */
+    private const REMOVE = [
+        // explicitly retired
+        'Agorism',
+        'Cryptocurrency freedom',
+        'Cypherpunk',
+        // vague or one-off orphans (single-prisoner, no sensible home)
+        'Anti-communism',
+        'Anti-Stalinism',
+        'Anti-system',
+        'Anti-Díaz',
+        'Armed struggle',
+        'Binationalist Zionism',
+        'Cuban revolution',
+        'Democracy',
+        'Economic justice',
+        'Foreign-Policy Dissent',
+        'Humanitarian',
+        'Leftist',
+        'Liberalism',
+        'Marijuana legalization',
+        'Naturalism',
+        'Peace Democrats',
+        'Pro-China',
+        'Pro-Lebanese resistance',
+        'Rastafari',
+        'Reform Judaism',
+        'Revolutionary',
+        'Right-wing populism',
+        'Social Justice',
+        'Sovereign citizen',
+        'Targeted by post-9/11 terrorism prosecution',
+        'Traditional religion',
     ];
 
     public function handle(): int
@@ -174,6 +271,7 @@ class ConsolidateIdeologies extends Command
 
         $changed = 0;
         $remaps = 0;
+        $removed = 0;
 
         foreach ($prisoners as $p) {
             $ids = $p->ideologies;
@@ -188,6 +286,12 @@ class ConsolidateIdeologies extends Command
             $didRemap = false;
             foreach ($ids as $i) {
                 $canon = self::MAP[$i] ?? $i;
+                if (in_array($canon, self::REMOVE, true)) {
+                    $removed++;
+                    $didRemap = true;
+
+                    continue; // drop this label entirely
+                }
                 if ($canon !== $i) {
                     $didRemap = true;
                     $remaps++;
@@ -208,10 +312,10 @@ class ConsolidateIdeologies extends Command
         }
 
         if ($dryRun) {
-            $this->info("Dry run — {$changed} prisoner rows would change; {$remaps} individual label remaps across ".count(self::MAP).' mapped variants.');
+            $this->info("Dry run — {$changed} prisoner rows would change; {$remaps} label remaps and {$removed} label removals across ".count(self::MAP).' mapped variants + '.count(self::REMOVE).' removed labels.');
         } else {
             Cache::forget(PrisonerApiController::cacheKey());
-            $this->info("Consolidated ideologies on {$changed} prisoner rows ({$remaps} label remaps). API cache cleared.");
+            $this->info("Consolidated ideologies on {$changed} prisoner rows ({$remaps} remaps, {$removed} removals). API cache cleared.");
         }
 
         return self::SUCCESS;
