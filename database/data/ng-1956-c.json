@@ -1,24 +1,356 @@
 [
-  {"name":"Arthur Miller","first_name":"Arthur","last_name":"Miller","gender":"Male","state":"New York","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Arthur Miller, the playwright, was cited for contempt of Congress in 1956 (the House voted 373–9) after he refused, as a matter of conscience, to name people present at meetings of Communist writers he had attended years earlier. He had just been granted a passport and married Marilyn Monroe; his conviction was later overturned on appeal.","charges":"Contempt of Congress — for refusing to name names before HUAC","convicted":"Cited for contempt 1956; prosecution referred to the Justice Department","sentence":"Faced up to a year and a $1,000 fine"},
-  {"name":"Otto Nathan","first_name":"Otto","last_name":"Nathan","gender":"Male","state":"New York","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Dr. Otto Nathan was an economist and the executor of Albert Einstein's estate, cited for contempt of Congress in 1956 after refusing, on First Amendment grounds, to answer the House Un-American Activities Committee's questions about his beliefs and to surrender his passport.","charges":"Contempt of Congress — for refusing to answer HUAC and to surrender his passport","convicted":"Cited for contempt 1956; prosecution referred to the Justice Department","sentence":"Faced up to a year and a $1,000 fine"},
-  {"name":"Pete Seeger","first_name":"Pete","last_name":"Seeger","gender":"Male","state":"New York","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Pete Seeger, the folk singer, was cited for contempt of Congress in 1956 after refusing — on First Amendment grounds rather than the Fifth — to tell the House Un-American Activities Committee about his associations; he described himself to the committee as a 'banjo picker.' He was convicted in 1961 and the conviction was overturned in 1962.","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Cited for contempt 1956; prosecution referred to the Justice Department","sentence":"Faced up to a year and a $1,000 fine"},
-  {"name":"Elliott Sullivan","first_name":"Elliott","last_name":"Sullivan","gender":"Male","state":"New York","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Elliott Sullivan, a New York actor, was cited for contempt of Congress in 1956 after refusing to tell the House Un-American Activities Committee of his past or present associations.","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Cited for contempt 1956; prosecution referred to the Justice Department","sentence":"Faced up to a year and a $1,000 fine"},
-  {"name":"George Tyne","first_name":"George","last_name":"Tyne","gender":"Male","state":"New York","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"George Tyne, a New York actor, was cited for contempt of Congress in 1956 after refusing to tell the House Un-American Activities Committee of his associations.","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Cited for contempt 1956; prosecution referred to the Justice Department","sentence":"Faced up to a year and a $1,000 fine"},
-  {"name":"John T. Watkins","first_name":"John","last_name":"Watkins","gender":"Male","state":"Illinois","ideologies":["Civil liberties","Labor"],"affiliation":["United Auto Workers"],"released":true,"bio":"John T. Watkins was a United Auto Workers organizer who admitted his own past cooperation with the Communist Party but refused, as a matter of principle, to name others before the House Un-American Activities Committee. Convicted of contempt of Congress, his appeal became the landmark 1957 Supreme Court decision Watkins v. United States.","charges":"Contempt of Congress — for refusing to name former Communists","convicted":"Convicted; reinstated on rehearing; appealing to the Supreme Court","sentence":"One year and a $500 fine (under appeal)"},
-  {"name":"John T. Gojack","first_name":"John","last_name":"Gojack","gender":"Male","state":"Indiana","ideologies":["Civil liberties","Labor"],"affiliation":["United Electrical Workers (UE)"],"released":true,"bio":"John T. Gojack was a vice-president of the United Electrical Workers and head of its District 9, convicted of contempt of Congress in May 1956 for refusing, on First Amendment grounds, to answer HUAC's questions about his associations. His conviction was later reversed by the Supreme Court (Gojack v. United States).","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Convicted May 1956; on appeal","sentence":"Faced up to a year and a $1,000 fine"},
-  {"name":"Saul Grossman","first_name":"Saul","last_name":"Grossman","gender":"Male","state":"Michigan","ideologies":["Civil liberties"],"affiliation":["Michigan Committee for Protection of Foreign Born"],"released":true,"bio":"Saul Grossman was the executive secretary of the Michigan Committee for Protection of the Foreign Born, convicted of contempt of Congress for refusing to turn over his organization's records to the House Un-American Activities Committee in 1952. The U.S. Court of Appeals reversed his conviction in January 1956.","charges":"Contempt of Congress — for refusing to surrender organization records to HUAC","convicted":"Convicted; reversed by the Court of Appeals January 1956","sentence":"Conviction reversed"},
-  {"name":"Lee Lorch","first_name":"Lee","last_name":"Lorch","gender":"Male","state":"Tennessee","ideologies":["Civil liberties","Civil rights"],"affiliation":[],"released":true,"bio":"Dr. Lee Lorch was a mathematician and anti-segregation activist — fired in turn from City College, Penn State and Fisk University for his civil-rights work — who was indicted for contempt of Congress after declining, on First Amendment grounds, to answer HUAC while teaching at Fisk. The Justice Department dropped the charges in April 1956, conceding the indictment should not have been returned.","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Indicted; charges dropped by the Justice Department April 1956","sentence":"Charges dismissed"},
-  {"name":"Clark Foreman","first_name":"Clark","last_name":"Foreman","gender":"Male","state":"New York","ideologies":["Civil liberties"],"affiliation":["Emergency Civil Liberties Committee"],"released":true,"bio":"Clark Foreman was the director of the Emergency Civil Liberties Committee, cited for contempt of Congress in June 1956 for refusing to surrender his passport to the House Un-American Activities Committee during its passport-violations probe.","charges":"Contempt of Congress — for refusing to surrender his passport to HUAC","convicted":"Cited for contempt June 1956","sentence":"Cited for contempt of Congress"},
-  {"name":"Paul Robeson","first_name":"Paul","last_name":"Robeson","gender":"Male","state":"New York","race":"Black","ideologies":["Civil rights","Civil liberties","Peace movement"],"affiliation":[],"released":true,"bio":"Paul Robeson — the Black singer, actor, and activist — was held in contempt by the House Un-American Activities Committee in June 1956 when, subpoenaed in its passport probe, he refused to say whether he was a Communist and turned the questioning back on the committee. He had been denied a passport for years because of his political views.","charges":"Contempt of Congress — and denial of a passport for his political views","convicted":"Held in contempt by HUAC June 1956","sentence":"Cited for contempt of Congress"},
-  {"name":"Bernard Deutch","first_name":"Bernard","last_name":"Deutch","gender":"Male","state":"Pennsylvania","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Bernard Deutch was a University of Pennsylvania student convicted of contempt of Congress for refusing, on First Amendment grounds, to name people he allegedly knew to be Communists during a 1954 appearance before the House Un-American Activities Committee.","charges":"Contempt of Congress — for refusing to name names before HUAC","convicted":"Convicted of contempt of Congress","sentence":"Convicted; faced jail and a fine"},
-  {"name":"Herbert Simpson","first_name":"Herbert","last_name":"Simpson","gender":"Male","state":"Oregon","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Herbert Simpson was one of three Portland, Oregon residents convicted of contempt of Congress for refusing to answer the Velde committee (HUAC) during its 1954 West Coast hearings. He was sentenced to ten months and a $250 fine and was appealing before the Ninth Circuit in 1956.","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Convicted; on appeal (1956)","sentence":"Ten months and a $250 fine"},
-  {"name":"Don Wallam","first_name":"Don","last_name":"Wallam","gender":"Male","state":"Oregon","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Don Wallam was one of three Portland, Oregon contempt-of-Congress defendants from the Velde committee's 1954 West Coast hearings, sentenced to a year and a $250 fine and appealing his conviction in 1956.","charges":"Contempt of Congress — for refusing to answer HUAC","convicted":"Convicted; on appeal (1956)","sentence":"One year and a $250 fine"},
-  {"name":"Alden Whitman","first_name":"Alden","last_name":"Whitman","gender":"Male","state":"New York","ideologies":["Civil liberties","Press freedom"],"affiliation":[],"released":true,"bio":"Alden Whitman, a New York Times copy editor, was one of six people indicted for contempt of Congress in December 1956 for defying, on grounds other than the Fifth Amendment, the Senate Internal Security Subcommittee's 1955 inquisition into the New York press.","charges":"Contempt of Congress — for defying the Senate Internal Security Subcommittee","convicted":"Indicted December 1956","sentence":"Indicted for contempt of Congress"},
-  {"name":"Robert Shelton","first_name":"Robert","last_name":"Shelton","gender":"Male","state":"New York","ideologies":["Civil liberties","Press freedom"],"affiliation":[],"released":true,"bio":"Robert Shelton, a New York Times copy editor, was one of six indicted for contempt of Congress in December 1956 for refusing to cooperate with the Senate Internal Security Subcommittee's probe of the New York press.","charges":"Contempt of Congress — for defying the Senate Internal Security Subcommittee","convicted":"Indicted December 1956","sentence":"Indicted for contempt of Congress"},
-  {"name":"Seymour Peck","first_name":"Seymour","last_name":"Peck","gender":"Male","state":"New York","ideologies":["Civil liberties","Press freedom"],"affiliation":[],"released":true,"bio":"Seymour Peck, an editor on the New York Times Sunday magazine, was one of six indicted for contempt of Congress in December 1956 for defying the Senate Internal Security Subcommittee's inquisition into the press; he had admitted past Communist membership but refused to name associates.","charges":"Contempt of Congress — for defying the Senate Internal Security Subcommittee","convicted":"Indicted December 1956","sentence":"Indicted for contempt of Congress"},
-  {"name":"William A. Price","first_name":"William","last_name":"Price","gender":"Male","state":"New York","ideologies":["Civil liberties","Press freedom"],"affiliation":[],"released":true,"bio":"William A. Price was a New York Daily News reporter fired the day he refused to answer the Senate Internal Security Subcommittee's questions in its 1955 press probe; he was among the six indicted for contempt of Congress in December 1956.","charges":"Contempt of Congress — for defying the Senate Internal Security Subcommittee","convicted":"Indicted December 1956; also fired by his paper","sentence":"Indicted for contempt of Congress"},
-  {"name":"Herman Liveright","first_name":"Herman","last_name":"Liveright","gender":"Male","state":"Louisiana","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Herman Liveright was a former New Orleans television programmer (WDSU) cited and then indicted for contempt of Congress in 1956 for declining, on grounds other than the Fifth Amendment, to tell the Senate Internal Security Subcommittee whether he had ever been a Communist.","charges":"Contempt of Congress — for defying the Senate Internal Security Subcommittee","convicted":"Cited 1956; indicted December 1956","sentence":"Indicted for contempt of Congress"},
-  {"name":"Mary Knowles","first_name":"Mary","last_name":"Knowles","gender":"Female","state":"Pennsylvania","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Mary Knowles was a librarian employed by the Quaker Plymouth Monthly Meeting in Pennsylvania, indicted for contempt of Congress in December 1956 for refusing to answer a Congressional committee's questions about her associations. Her stand inspired the 1956 film 'Storm Center.'","charges":"Contempt of Congress — for refusing to answer a Congressional committee","convicted":"Cited; indicted December 1956","sentence":"Indicted for contempt of Congress"},
-  {"name":"Pauline Feuer","first_name":"Pauline","last_name":"Feuer","gender":"Female","state":"Louisiana","ideologies":["Civil liberties"],"affiliation":[],"released":true,"bio":"Pauline Feuer was a New Orleans educator cited for contempt of Congress in 1956 after telling the Senate Internal Security Subcommittee it had no authority to inquire into her personal beliefs.","charges":"Contempt of Congress — for defying the Senate Internal Security Subcommittee","convicted":"Contempt citation recommended to the Senate (1956)","sentence":"Cited for contempt of Congress"},
-  {"name":"Frank Wilkinson","first_name":"Frank","last_name":"Wilkinson","gender":"Male","state":"California","ideologies":["Civil liberties"],"affiliation":["American Committee for Protection of Foreign Born"],"released":true,"bio":"Frank Wilkinson was a Los Angeles housing official turned civil-liberties organizer who, at the House Un-American Activities Committee's 1956 hearings, relied solely on the First Amendment in refusing to answer — exposing himself to a contempt citation. His resistance culminated in the Supreme Court case Wilkinson v. United States.","charges":"Contempt of Congress — for refusing, on First Amendment grounds, to answer HUAC","convicted":"Faced a contempt citation for his 1956 HUAC defiance","sentence":"Faced contempt of Congress"}
+    {
+        "name": "Arthur Miller",
+        "first_name": "Arthur",
+        "last_name": "Miller",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Arthur Miller, the playwright, was cited for contempt of Congress in 1956 (the House voted 373–9) after he refused, as a matter of conscience, to name people present at meetings of Communist writers he had attended years earlier. He had just been granted a passport and married Marilyn Monroe; his conviction was later overturned on appeal.",
+        "charges": "Contempt of Congress — for refusing to name names before HUAC",
+        "convicted": "Cited for contempt 1956; prosecution referred to the Justice Department",
+        "sentence": "Faced up to a year and a $1,000 fine"
+    },
+    {
+        "name": "Otto Nathan",
+        "first_name": "Otto",
+        "last_name": "Nathan",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Dr. Otto Nathan was an economist and the executor of Albert Einstein's estate, cited for contempt of Congress in 1956 after refusing, on First Amendment grounds, to answer the House Un-American Activities Committee's questions about his beliefs and to surrender his passport.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC and to surrender his passport",
+        "convicted": "Cited for contempt 1956; prosecution referred to the Justice Department",
+        "sentence": "Faced up to a year and a $1,000 fine"
+    },
+    {
+        "name": "Pete Seeger",
+        "first_name": "Pete",
+        "last_name": "Seeger",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Pete Seeger, the folk singer, was cited for contempt of Congress in 1956 after refusing — on First Amendment grounds rather than the Fifth — to tell the House Un-American Activities Committee about his associations; he described himself to the committee as a 'banjo picker.' He was convicted in 1961 and the conviction was overturned in 1962.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Cited for contempt 1956; prosecution referred to the Justice Department",
+        "sentence": "Faced up to a year and a $1,000 fine"
+    },
+    {
+        "name": "Elliott Sullivan",
+        "first_name": "Elliott",
+        "last_name": "Sullivan",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Elliott Sullivan, a New York actor, was cited for contempt of Congress in 1956 after refusing to tell the House Un-American Activities Committee of his past or present associations.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Cited for contempt 1956; prosecution referred to the Justice Department",
+        "sentence": "Faced up to a year and a $1,000 fine"
+    },
+    {
+        "name": "George Tyne",
+        "first_name": "George",
+        "last_name": "Tyne",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "George Tyne, a New York actor, was cited for contempt of Congress in 1956 after refusing to tell the House Un-American Activities Committee of his associations.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Cited for contempt 1956; prosecution referred to the Justice Department",
+        "sentence": "Faced up to a year and a $1,000 fine"
+    },
+    {
+        "name": "John T. Watkins",
+        "first_name": "John",
+        "last_name": "Watkins",
+        "gender": "Male",
+        "state": "Illinois",
+        "ideologies": [
+            "Civil liberties",
+            "Labor"
+        ],
+        "affiliation": [
+            "United Auto Workers"
+        ],
+        "released": true,
+        "bio": "John T. Watkins was a United Auto Workers organizer who admitted his own past cooperation with the Communist Party but refused, as a matter of principle, to name others before the House Un-American Activities Committee. Convicted of contempt of Congress, his appeal became the landmark 1957 Supreme Court decision Watkins v. United States.",
+        "charges": "Contempt of Congress — for refusing to name former Communists",
+        "convicted": "Convicted; reinstated on rehearing; appealing to the Supreme Court",
+        "sentence": "One year and a $500 fine (under appeal)"
+    },
+    {
+        "name": "John T. Gojack",
+        "first_name": "John",
+        "last_name": "Gojack",
+        "gender": "Male",
+        "state": "Indiana",
+        "ideologies": [
+            "Civil liberties",
+            "Labor"
+        ],
+        "affiliation": [
+            "United Electrical Workers (UE)"
+        ],
+        "released": true,
+        "bio": "John T. Gojack was a vice-president of the United Electrical Workers and head of its District 9, convicted of contempt of Congress in May 1956 for refusing, on First Amendment grounds, to answer HUAC's questions about his associations. His conviction was later reversed by the Supreme Court (Gojack v. United States).",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Convicted May 1956; on appeal",
+        "sentence": "Faced up to a year and a $1,000 fine"
+    },
+    {
+        "name": "Saul Grossman",
+        "first_name": "Saul",
+        "last_name": "Grossman",
+        "gender": "Male",
+        "state": "Michigan",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [
+            "Michigan Committee for Protection of Foreign Born"
+        ],
+        "released": true,
+        "bio": "Saul Grossman was the executive secretary of the Michigan Committee for Protection of the Foreign Born, convicted of contempt of Congress for refusing to turn over his organization's records to the House Un-American Activities Committee in 1952. The U.S. Court of Appeals reversed his conviction in January 1956.",
+        "charges": "Contempt of Congress — for refusing to surrender organization records to HUAC",
+        "convicted": "Convicted; reversed by the Court of Appeals January 1956",
+        "sentence": "Conviction reversed"
+    },
+    {
+        "name": "Lee Lorch",
+        "first_name": "Lee",
+        "last_name": "Lorch",
+        "gender": "Male",
+        "state": "Tennessee",
+        "ideologies": [
+            "Civil liberties",
+            "Civil rights"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Dr. Lee Lorch was a mathematician and anti-segregation activist — fired in turn from City College, Penn State and Fisk University for his civil-rights work — who was indicted for contempt of Congress after declining, on First Amendment grounds, to answer HUAC while teaching at Fisk. The Justice Department dropped the charges in April 1956, conceding the indictment should not have been returned.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Indicted; charges dropped by the Justice Department April 1956",
+        "sentence": "Charges dismissed"
+    },
+    {
+        "name": "Paul Robeson",
+        "first_name": "Paul",
+        "last_name": "Robeson",
+        "gender": "Male",
+        "state": "New York",
+        "race": "Black",
+        "ideologies": [
+            "Civil rights",
+            "Civil liberties",
+            "Peace movement"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Paul Robeson — the Black singer, actor, and activist — was held in contempt by the House Un-American Activities Committee in June 1956 when, subpoenaed in its passport probe, he refused to say whether he was a Communist and turned the questioning back on the committee. He had been denied a passport for years because of his political views.",
+        "charges": "Contempt of Congress — and denial of a passport for his political views",
+        "convicted": "Held in contempt by HUAC June 1956",
+        "sentence": "Cited for contempt of Congress"
+    },
+    {
+        "name": "Bernard Deutch",
+        "first_name": "Bernard",
+        "last_name": "Deutch",
+        "gender": "Male",
+        "state": "Pennsylvania",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Bernard Deutch was a University of Pennsylvania student convicted of contempt of Congress for refusing, on First Amendment grounds, to name people he allegedly knew to be Communists during a 1954 appearance before the House Un-American Activities Committee.",
+        "charges": "Contempt of Congress — for refusing to name names before HUAC",
+        "convicted": "Convicted of contempt of Congress",
+        "sentence": "Convicted; faced jail and a fine"
+    },
+    {
+        "name": "Herbert Simpson",
+        "first_name": "Herbert",
+        "last_name": "Simpson",
+        "gender": "Male",
+        "state": "Oregon",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Herbert Simpson was one of three Portland, Oregon residents convicted of contempt of Congress for refusing to answer the Velde committee (HUAC) during its 1954 West Coast hearings. He was sentenced to ten months and a $250 fine and was appealing before the Ninth Circuit in 1956.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Convicted; on appeal (1956)",
+        "sentence": "Ten months and a $250 fine"
+    },
+    {
+        "name": "Don Wallam",
+        "first_name": "Don",
+        "last_name": "Wallam",
+        "gender": "Male",
+        "state": "Oregon",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Don Wallam was one of three Portland, Oregon contempt-of-Congress defendants from the Velde committee's 1954 West Coast hearings, sentenced to a year and a $250 fine and appealing his conviction in 1956.",
+        "charges": "Contempt of Congress — for refusing to answer HUAC",
+        "convicted": "Convicted; on appeal (1956)",
+        "sentence": "One year and a $250 fine"
+    },
+    {
+        "name": "Alden Whitman",
+        "first_name": "Alden",
+        "last_name": "Whitman",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties",
+            "Press freedom"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Alden Whitman, a New York Times copy editor, was one of six people indicted for contempt of Congress in December 1956 for defying, on grounds other than the Fifth Amendment, the Senate Internal Security Subcommittee's 1955 inquisition into the New York press.",
+        "charges": "Contempt of Congress — for defying the Senate Internal Security Subcommittee",
+        "convicted": "Indicted December 1956",
+        "sentence": "Indicted for contempt of Congress"
+    },
+    {
+        "name": "Robert Shelton",
+        "first_name": "Robert",
+        "last_name": "Shelton",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties",
+            "Press freedom"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Robert Shelton, a New York Times copy editor, was one of six indicted for contempt of Congress in December 1956 for refusing to cooperate with the Senate Internal Security Subcommittee's probe of the New York press.",
+        "charges": "Contempt of Congress — for defying the Senate Internal Security Subcommittee",
+        "convicted": "Indicted December 1956",
+        "sentence": "Indicted for contempt of Congress"
+    },
+    {
+        "name": "Seymour Peck",
+        "first_name": "Seymour",
+        "last_name": "Peck",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties",
+            "Press freedom"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Seymour Peck, an editor on the New York Times Sunday magazine, was one of six indicted for contempt of Congress in December 1956 for defying the Senate Internal Security Subcommittee's inquisition into the press; he had admitted past Communist membership but refused to name associates.",
+        "charges": "Contempt of Congress — for defying the Senate Internal Security Subcommittee",
+        "convicted": "Indicted December 1956",
+        "sentence": "Indicted for contempt of Congress"
+    },
+    {
+        "name": "William A. Price",
+        "first_name": "William",
+        "last_name": "Price",
+        "gender": "Male",
+        "state": "New York",
+        "ideologies": [
+            "Civil liberties",
+            "Press freedom"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "William A. Price was a New York Daily News reporter fired the day he refused to answer the Senate Internal Security Subcommittee's questions in its 1955 press probe; he was among the six indicted for contempt of Congress in December 1956.",
+        "charges": "Contempt of Congress — for defying the Senate Internal Security Subcommittee",
+        "convicted": "Indicted December 1956; also fired by his paper",
+        "sentence": "Indicted for contempt of Congress"
+    },
+    {
+        "name": "Herman Liveright",
+        "first_name": "Herman",
+        "last_name": "Liveright",
+        "gender": "Male",
+        "state": "Louisiana",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Herman Liveright was a former New Orleans television programmer (WDSU) cited and then indicted for contempt of Congress in 1956 for declining, on grounds other than the Fifth Amendment, to tell the Senate Internal Security Subcommittee whether he had ever been a Communist.",
+        "charges": "Contempt of Congress — for defying the Senate Internal Security Subcommittee",
+        "convicted": "Cited 1956; indicted December 1956",
+        "sentence": "Indicted for contempt of Congress"
+    },
+    {
+        "name": "Mary Knowles",
+        "first_name": "Mary",
+        "last_name": "Knowles",
+        "gender": "Female",
+        "state": "Pennsylvania",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Mary Knowles was a librarian employed by the Quaker Plymouth Monthly Meeting in Pennsylvania, indicted for contempt of Congress in December 1956 for refusing to answer a Congressional committee's questions about her associations. Her stand inspired the 1956 film 'Storm Center.'",
+        "charges": "Contempt of Congress — for refusing to answer a Congressional committee",
+        "convicted": "Cited; indicted December 1956",
+        "sentence": "Indicted for contempt of Congress"
+    },
+    {
+        "name": "Pauline Feuer",
+        "first_name": "Pauline",
+        "last_name": "Feuer",
+        "gender": "Female",
+        "state": "Louisiana",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [],
+        "released": true,
+        "bio": "Pauline Feuer was a New Orleans educator cited for contempt of Congress in 1956 after telling the Senate Internal Security Subcommittee it had no authority to inquire into her personal beliefs.",
+        "charges": "Contempt of Congress — for defying the Senate Internal Security Subcommittee",
+        "convicted": "Contempt citation recommended to the Senate (1956)",
+        "sentence": "Cited for contempt of Congress"
+    },
+    {
+        "name": "Frank Wilkinson",
+        "first_name": "Frank",
+        "last_name": "Wilkinson",
+        "gender": "Male",
+        "state": "California",
+        "ideologies": [
+            "Civil liberties"
+        ],
+        "affiliation": [
+            "American Committee for Protection of Foreign Born"
+        ],
+        "released": true,
+        "bio": "Frank Wilkinson was a Los Angeles housing official turned civil-liberties organizer who, at the House Un-American Activities Committee's 1956 hearings, relied solely on the First Amendment in refusing to answer — exposing himself to a contempt citation. His resistance culminated in the Supreme Court case Wilkinson v. United States.",
+        "charges": "Contempt of Congress — for refusing, on First Amendment grounds, to answer HUAC",
+        "convicted": "Faced a contempt citation for his 1956 HUAC defiance",
+        "sentence": "Faced contempt of Congress"
+    }
 ]
