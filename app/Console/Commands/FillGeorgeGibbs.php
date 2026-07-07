@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\DB;
  *   - Later indicted for criminal syndicalism and arraigned about October 1,
  *     1940; no record found that he served a prison sentence.
  *
- * Birth/death dates are unknown (age 39 in August 1940 implies a birth around
- * 1900–1901) so no birthdate is set. Idempotent — rebuilds the single case.
+ * His exact birth date is unknown; age 39 in August 1940 implies a birth about
+ * 1901, stored at year precision. Idempotent — rebuilds the single case.
  */
 final class FillGeorgeGibbs extends Command
 {
@@ -50,6 +50,9 @@ final class FillGeorgeGibbs extends Command
         )->id;
 
         DB::transaction(function () use ($prisoner, $jail) {
+            $prisoner->setPartialDate('birthdate', 1901);
+            $prisoner->save();
+
             $prisoner->cases()->delete();
             $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
             $case->fill([
