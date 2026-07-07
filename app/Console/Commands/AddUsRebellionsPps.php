@@ -18,8 +18,6 @@ use Illuminate\Console\Command;
  *   - Jerry Rescue 1851: Enoch Reed, Ira Cobb
  *   - Anthony Burns rendition 1854: Thomas Wentworth Higginson,
  *     Martin Stowell, Theodore Parker, Wendell Phillips
- *   - Boston Five anti-Vietnam draft resistance 1968: Benjamin
- *     Spock, Mitchell Goodman, Michael Ferber, Marcus Raskin
  *
  * Era values per project decade-string convention.
  */
@@ -225,34 +223,6 @@ final class AddUsRebellionsPps extends Command {
                     'arrest_date' => '1854-06-07', 'sentenced_date' => '1855-04-03',
                     'convicted' => 'No — charges dismissed.',
                     'sentence' => 'Charges dismissed.',
-                ]],
-            ];
-        }
-
-        // === Boston Five 1968 ===
-        $bostonFiveDesc = 'One of the "Boston Five" defendants in United States v. Spock (1968) — the federal conspiracy prosecution of five prominent antiwar leaders for "conspiring to counsel, aid, and abet draft refusal" through public statements like "A Call to Resist Illegitimate Authority" and the October 1967 draft-card return ceremonies. The First Circuit Court of Appeals overturned all four convictions in 1969.';
-        $bostonFiveData = [
-            'Benjamin Spock' => ['World-famous pediatrician and author of "The Common Sense Book of Baby and Child Care." Convicted; sentenced to 2 years; conviction overturned on appeal.', '2yrs overturned'],
-            'Mitchell Goodman' => ['Novelist and co-organizer of the October 1967 nationwide draft-card turn-in. Convicted; 2 years; overturned.', '2yrs overturned'],
-            'Michael Ferber' => ['Harvard graduate student and the youngest of the Boston Five. Convicted; 2 years; overturned.', '2yrs overturned'],
-            'Marcus Raskin' => ['Co-founder of the Institute for Policy Studies (IPS). The only Boston Five defendant acquitted at the original trial.', 'acquitted'],
-        ];
-        foreach ($bostonFiveData as $name => [$bio, $sentence]) {
-            $parts = explode(' ', $name);
-            $out[] = [
-                'name' => $name,
-                'first_name' => $parts[0], 'last_name' => end($parts),
-                'description' => $bostonFiveDesc.' '.$bio,
-                'state' => 'Massachusetts', 'race' => 'White', 'gender' => 'Male',
-                'ideologies' => ['Anti-Vietnam War', 'Draft resistance'],
-                'affiliation' => ['Boston Five'],
-                'era' => '1960s', 'in_custody' => false, 'released' => true,
-                'cases' => [[
-                    'institution_state' => 'Massachusetts',
-                    'charges' => 'Conspiracy to counsel, aid, and abet refusal of service in the armed forces.',
-                    'arrest_date' => '1968-01-05', 'sentenced_date' => '1968-07-10',
-                    'convicted' => $sentence === 'acquitted' ? 'No — acquitted.' : 'Yes — overturned on appeal 1969.',
-                    'sentence' => $sentence === 'acquitted' ? 'Acquitted.' : '2 years; conviction overturned by First Circuit 1969.',
                 ]],
             ];
         }

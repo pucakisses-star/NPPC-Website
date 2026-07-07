@@ -12,9 +12,8 @@ use Illuminate\Support\Facades\DB;
 /**
  * Fills the empty stubs for political prisoners mentioned in the Roger Baldwin /
  * ACLU biography: the WWI Espionage Act and conscientious-objector cases (Scott
- * Nearing, Agnes Smedley, Ben Salmon), the WWII Japanese-American exclusion
- * resister Gordon Hirabayashi, and the 1968 "Boston Five" draft-conspiracy
- * defendants (Spock, Coffin, Goodman, Ferber — convicted; Raskin — acquitted).
+ * Nearing, Agnes Smedley, Ben Salmon) and the WWII Japanese-American exclusion
+ * resister Gordon Hirabayashi.
  *
  * Create-or-update by name; rebuilds each single case. Idempotent.
  */
@@ -22,12 +21,10 @@ class FillBaldwinBookStubs extends Command
 {
     protected $signature = 'prisoners:fill-baldwin-book-stubs';
 
-    protected $description = 'Fill empty stubs for political prisoners named in the Baldwin/ACLU book (Nearing, Smedley, Salmon, Hirabayashi, the Boston Five)';
+    protected $description = 'Fill empty stubs for political prisoners named in the Baldwin/ACLU book (Nearing, Smedley, Salmon, Hirabayashi)';
 
     public function handle(): int
     {
-        $bostonFive = "one of the \"Boston Five,\" indicted in January 1968 for conspiracy to aid, abet, and counsel young men to resist the draft during the Vietnam War, after publicly supporting draft resistance in the statement \"A Call to Resist Illegitimate Authority.\"";
-
         $people = [
             [
                 'name' => 'Scott Nearing', 'first' => 'Scott', 'last' => 'Nearing',
@@ -75,61 +72,6 @@ class FillBaldwinBookStubs extends Command
                 'convicted' => 'Yes — convicted in 1942; upheld in Hirabayashi v. United States (1943). The convictions were vacated in 1987 (coram nobis).',
                 'sentence' => 'Ninety days at a road camp for the 1942 convictions, and a further prison term for his later draft resistance.',
                 'incarceration' => [1942],
-            ],
-            [
-                'name' => 'Benjamin Spock', 'first' => 'Benjamin', 'last' => 'Spock', 'aka' => 'Dr. Benjamin Spock',
-                'race' => 'White', 'state' => 'New York', 'era' => '1960s',
-                'birth' => [1903], 'death' => [1998],
-                'ideologies' => ['Anti-War', 'Pacifism'],
-                'affiliation' => ['Boston Five'],
-                'bio' => 'Dr. Benjamin Spock (1903–1998), the famous pediatrician and author of "The Common Sense Book of Baby and Child Care," was '.$bostonFive.' Convicted in June 1968 and sentenced to two years in prison, he remained free on his own recognizance pending appeal; in 1969 the court of appeals reversed the convictions, acquitting Spock outright on First Amendment grounds. He served no time and continued as a leading antiwar organizer.',
-                'charges' => 'Conspiracy to counsel, aid, and abet draft resistance during the Vietnam War (the "Boston Five" case).',
-                'convicted' => 'Yes — convicted in June 1968; the conviction was reversed on appeal in 1969 (acquitted).',
-                'sentence' => 'Two years, but he was freed pending appeal and served no time; the conviction was overturned in 1969.',
-            ],
-            [
-                'name' => 'William Sloane Coffin', 'first' => 'William', 'middle' => 'Sloane', 'last' => 'Coffin',
-                'race' => 'White', 'state' => 'Connecticut', 'era' => '1960s',
-                'birth' => [1924], 'death' => [2006],
-                'ideologies' => ['Anti-War', 'Pacifism', 'Civil rights'],
-                'affiliation' => ['Boston Five'],
-                'bio' => 'The Reverend William Sloane Coffin (1924–2006), chaplain of Yale University and a prominent civil-rights and antiwar clergyman, was '.$bostonFive.' Convicted in 1968 and sentenced to two years, he remained free pending appeal; the convictions were reversed in 1969. He served no time and went on to lead Riverside Church and the nuclear-freeze movement.',
-                'charges' => 'Conspiracy to counsel, aid, and abet draft resistance during the Vietnam War (the "Boston Five" case).',
-                'convicted' => 'Yes — convicted in 1968; the conviction was reversed on appeal in 1969.',
-                'sentence' => 'Two years, but he was freed pending appeal and served no time; the conviction was overturned in 1969.',
-            ],
-            [
-                'name' => 'Mitchell Goodman', 'first' => 'Mitchell', 'last' => 'Goodman',
-                'race' => 'White', 'state' => 'Maine', 'era' => '1960s',
-                'birth' => [1923], 'death' => [1997],
-                'ideologies' => ['Anti-War', 'Pacifism'],
-                'affiliation' => ['Boston Five'],
-                'bio' => 'Mitchell Goodman (1923–1997) was a novelist and antiwar activist (and husband of the poet Denise Levertov) who helped organize the October 1967 turn-in of draft cards at the Justice Department. He was '.$bostonFive.' Convicted in 1968 and sentenced to two years, he stayed free pending appeal; the convictions were reversed in 1969, and he served no time.',
-                'charges' => 'Conspiracy to counsel, aid, and abet draft resistance during the Vietnam War (the "Boston Five" case).',
-                'convicted' => 'Yes — convicted in 1968; the conviction was reversed on appeal in 1969.',
-                'sentence' => 'Two years, but he was freed pending appeal and served no time; the conviction was overturned in 1969.',
-            ],
-            [
-                'name' => 'Michael Ferber', 'first' => 'Michael', 'last' => 'Ferber',
-                'race' => 'White', 'state' => 'Massachusetts', 'era' => '1960s',
-                'birth' => [1944],
-                'ideologies' => ['Anti-War', 'Pacifism'],
-                'affiliation' => ['Boston Five'],
-                'bio' => 'Michael Ferber (born 1944) was a Harvard graduate student and draft resister who, at twenty-three, was the youngest of the "Boston Five." He was '.$bostonFive.' Convicted in 1968, he remained free pending appeal; in 1969 the court of appeals acquitted him on First Amendment grounds. He became a professor of English literature.',
-                'charges' => 'Conspiracy to counsel, aid, and abet draft resistance during the Vietnam War (the "Boston Five" case).',
-                'convicted' => 'Yes — convicted in 1968; acquitted on appeal in 1969.',
-                'sentence' => 'Freed pending appeal; he served no time and the conviction was overturned in 1969.',
-            ],
-            [
-                'name' => 'Marcus Raskin', 'first' => 'Marcus', 'last' => 'Raskin',
-                'race' => 'White', 'state' => 'Washington, D.C.', 'era' => '1960s',
-                'birth' => [1934], 'death' => [2017],
-                'ideologies' => ['Anti-War', 'Pacifism'],
-                'affiliation' => ['Boston Five', 'Institute for Policy Studies'],
-                'bio' => 'Marcus Raskin (1934–2017), a former Kennedy administration aide and cofounder of the Institute for Policy Studies, was '.$bostonFive.' Of the five defendants, he was the only one acquitted at the 1968 trial. He remained a leading progressive intellectual and policy critic for decades.',
-                'charges' => 'Conspiracy to counsel, aid, and abet draft resistance during the Vietnam War (the "Boston Five" case).',
-                'convicted' => 'No — the only one of the Boston Five acquitted at the 1968 trial.',
-                'sentence' => 'None — acquitted.',
             ],
         ];
 
