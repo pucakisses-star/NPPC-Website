@@ -11,8 +11,6 @@ use Illuminate\Console\Command;
  *   - NC Regulator Movement 1771: Benjamin Merrill, James Few
  *   - Pointe Coupée Conspiracy (Spanish LA, 1795): Antoine Sarrasin,
  *     Jean-Baptiste
- *   - 1811 German Coast Uprising (LA, largest US slave revolt):
- *     Kook, Quamana, Harry Kenner
  *   - Denmark Vesey Conspiracy (SC, 1822): Peter Poyas, Gullah
  *     Jack, Monday Gell, Rolla Bennett, Ned Bennett
  *   - Christiana Resistance 1851: Castner Hanway, Elijah Lewis,
@@ -105,37 +103,6 @@ final class AddUsRebellionsPps extends Command {
                 ]],
             ];
             if ($last) $p['last_name'] = $last;
-            $out[] = $p;
-        }
-
-        // === 1811 German Coast Uprising ===
-        $germanDesc = 'Leader of the January 1811 German Coast Uprising in Louisiana — the largest slave revolt in U.S. history, in which roughly 500 enslaved people marched on New Orleans burning plantations and seizing weapons. White militia and federal troops killed approximately 95 insurgents and executed roughly 44 captured leaders; their heads were placed on poles along the River Road as warnings.';
-        $germanData = [
-            'Kook' => 'Akan-born enslaved insurgent who killed planter François Trépagnier with an axe during the uprising.',
-            'Quamana' => 'Akan-born co-commander alongside Kook and Charles Deslondes.',
-            'Harry Kenner' => 'Enslaved carpenter who recruited the English-speaking faction of insurgents.',
-        ];
-        foreach ($germanData as $name => $bio) {
-            $parts = explode(' ', $name);
-            $p = [
-                'name' => $name,
-                'first_name' => $parts[0],
-                'description' => $germanDesc.' '.$bio,
-                'state' => 'Louisiana', 'race' => 'Black', 'gender' => 'Male',
-                'death_date' => '1811-01-15',
-                'ideologies' => ['Anti-slavery', 'Black freedom', 'Akan resistance'],
-                'affiliation' => ['1811 German Coast Uprising'],
-                'era' => '1810s', 'in_custody' => false, 'released' => false,
-                'cases' => [[
-                    'institution_state' => 'Louisiana',
-                    'charges' => 'Insurrection (1811 German Coast Uprising).',
-                    'arrest_date' => '1811-01-10',
-                    'death_in_custody_date' => '1811-01-15',
-                    'convicted' => 'Yes — by Destrehan tribunal.',
-                    'sentence' => 'Death; executed; head displayed on River Road.',
-                ]],
-            ];
-            if (count($parts) > 1) $p['last_name'] = $parts[1];
             $out[] = $p;
         }
 
