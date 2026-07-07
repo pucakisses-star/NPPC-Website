@@ -9,6 +9,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Adds Ramon L. Sanchez, a Spanish-born laborer and IWW organizer arrested in
@@ -52,7 +53,17 @@ final class AddRamonSanchez extends Command
                 'in_exile' => false,
                 'awaiting_trial' => false,
             ]);
+            $prisoner->setPartialDate('birthdate', 1887);
             $prisoner->save();
+
+            // Attach his 1921 Sacramento mug-shot (public domain), cropped to the frontal view.
+            $src = database_path('data/photos/ramon-l-sanchez.jpg');
+            if (is_file($src)) {
+                Storage::disk('public')->makeDirectory('prisoners');
+                Storage::disk('public')->put('prisoners/ramon-l-sanchez.jpg', (string) file_get_contents($src));
+                $prisoner->photo = 'prisoners/ramon-l-sanchez.jpg';
+                $prisoner->save();
+            }
 
             $prisoner->cases()->delete();
             $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
