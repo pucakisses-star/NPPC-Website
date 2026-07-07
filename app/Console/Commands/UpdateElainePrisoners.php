@@ -174,7 +174,7 @@ final class UpdateElainePrisoners extends Command
     }
 
     /** Create-or-update, matched on name AND an Elaine marker so unrelated same-name records are never touched. */
-    private function write(array $p, int $inst, array $affiliation): void
+    private function write(array $p, string $inst, array $affiliation): void
     {
         $existing = Prisoner::withUnderReview()->where('name', $p['name'])->get()
             ->first(fn ($x) => $this->isElaine($x));
