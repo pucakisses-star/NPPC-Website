@@ -64,7 +64,7 @@ final class FillShellyMiller extends Command
                 'state' => 'New York',
                 'era' => '1980s',
                 'ideologies' => ['Anti-imperialism', 'Puerto Rican independence'],
-                'affiliation' => ['New Movement in Solidarity with Puerto Rican Independence and Socialism', 'May 19th Communist Organization', 'Anti-imperialist movement'],
+                'affiliation' => ['New Movement in Solidarity with Puerto Rican Independence', 'May 19th Communist Organization'],
                 'description' => $bio,
                 'in_custody' => false,
                 'released' => true,
