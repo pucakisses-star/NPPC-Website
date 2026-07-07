@@ -123,8 +123,8 @@ class ConsolidateIdeologies extends Command
         'Indigenous sovereignty' => 'Indigenous Sovereignty',
         'Native sovereignty' => 'Indigenous Sovereignty',
         'Native American sovereignty' => 'Indigenous Sovereignty',
-        'Indigenous Right\'s Activism' => 'Indigenous rights',
-        'Native American rights' => 'Indigenous rights',
+        'Indigenous Right\'s Activism' => 'Indigenous Sovereignty',
+        'Native American rights' => 'Indigenous Sovereignty',
 
         // --- additional case / spelling variants ---
         'Forest defense' => 'Environmental Activism',
@@ -163,7 +163,7 @@ class ConsolidateIdeologies extends Command
         'Immigration justice' => 'Immigrant rights',
         'Migrant rights' => 'Immigrant rights',
         'Christian nonviolence' => 'Christian pacifism',
-        'Indigenous treaty rights' => 'Treaty rights',
+        'Indigenous treaty rights' => 'Indigenous Sovereignty',
 
         // --- environmental -> Environmental Activism ---
         'Environmental justice' => 'Environmental Activism',
@@ -176,14 +176,21 @@ class ConsolidateIdeologies extends Command
         // --- organizational tags sitting in the ideology field -> the belief ---
         'IWW' => 'Industrial unionism',
         'UMWA' => 'Labor organizing',
-        'AIM' => 'Red Power',
+        'AIM' => 'Indigenous Sovereignty',
         'Catholic Worker / Plowshares' => 'Catholic Worker',
 
         // --- broad-vs-variant belief merges ---
         'Labor' => 'Labor organizing',
         'Unionism' => 'Trade unionism',
         'Nonviolence' => 'Pacifism',
-        'Native American' => 'Indigenous rights',
+        'Native American' => 'Indigenous Sovereignty',
+        // whole Indigenous cluster collapsed to one canonical
+        'Indigenous rights' => 'Indigenous Sovereignty',
+        'Indigenous liberation' => 'Indigenous Sovereignty',
+        'Indigenous resistance' => 'Indigenous Sovereignty',
+        'Indigenous solidarity' => 'Indigenous Sovereignty',
+        'Red Power' => 'Indigenous Sovereignty',
+        'Treaty rights' => 'Indigenous Sovereignty',
         'New Afrikan' => 'New Afrikan independence',
         '2020 Uprising' => 'Black Lives Matter',
         'Black uprising' => 'Black liberation',
@@ -217,7 +224,7 @@ class ConsolidateIdeologies extends Command
         'Oglala Lakota sovereignty' => 'Indigenous Sovereignty',
         'Sauk sovereignty' => 'Indigenous Sovereignty',
         'Land back' => 'Indigenous Sovereignty',
-        'Lakota Spiritual Tradition' => 'Indigenous rights',
+        'Lakota Spiritual Tradition' => 'Indigenous Sovereignty',
         'Palestinian liberation' => 'Pro-Palestine',
         'Anti-Zionism' => 'Pro-Palestine',
         'Indian independence' => 'Anti-colonial',
