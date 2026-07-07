@@ -9,6 +9,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Fills out Alan Shaw's Oklahoma criminal-syndicalism case (1940), also recording
@@ -25,6 +26,10 @@ use Illuminate\Support\Facades\DB;
  * showing he was out of custody (on appeal bond) by early 1941. The exact
  * release date is not documented, so no release date is stored; the minimum
  * proven confinement is about 114–115 days (Aug 17 – at least Dec 9, 1940).
+ *
+ * Also sets his birth date (November 13, 1918) and attaches his portrait —
+ * a ~1944 newspaper clipping cropped head-and-shoulders, in photos/nonfree/
+ * under a fair-use / memorial rationale (see CREDITS-nonfree.md).
  * Idempotent — rebuilds the single case.
  */
 final class FillAlanShaw extends Command
@@ -50,8 +55,9 @@ final class FillAlanShaw extends Command
         DB::transaction(function () use ($prisoner, $jail) {
             if (empty($prisoner->aka)) {
                 $prisoner->aka = 'Alan Lifshutz';
-                $prisoner->save();
             }
+            $prisoner->setPartialDate('birthdate', 1918, 11, 13);
+            $prisoner->save();
 
             $prisoner->cases()->delete();
             $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
@@ -69,8 +75,23 @@ final class FillAlanShaw extends Command
             $case->save();
         });
 
+        $src = database_path('data/photos/nonfree/alan-shaw.jpg');
+        if (is_file($src)) {
+            if (empty($prisoner->photo)) {
+                Storage::disk('public')->makeDirectory('prisoners');
+                Storage::disk('public')->put('prisoners/alan-shaw.jpg', (string) file_get_contents($src));
+                $prisoner->photo = 'prisoners/alan-shaw.jpg';
+                $prisoner->save();
+                $this->info('Attached portrait: prisoners/alan-shaw.jpg');
+            } else {
+                $this->info('Portrait already set; left as-is.');
+            }
+        } else {
+            $this->warn('Portrait file not found at database/data/photos/nonfree/alan-shaw.jpg — case set, photo skipped.');
+        }
+
         Cache::forget(PrisonerApiController::cacheKey());
-        $this->info('Filled Alan Shaw (alias Alan Lifshutz) criminal-syndicalism case.');
+        $this->info('Filled Alan Shaw (alias Alan Lifshutz) criminal-syndicalism case (b. Nov 13, 1918).');
 
         return self::SUCCESS;
     }
