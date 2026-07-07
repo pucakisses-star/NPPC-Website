@@ -91,7 +91,10 @@ class ConsolidateIdeologies extends Command
         'Prisoners\' Rights' => 'Prisoners\' rights',
         'Animal Liberation' => 'Animal Rights Activism',
         'Financial Privacy' => 'Financial privacy',
-        'Catholic left' => 'Catholic Left',
+        'Catholic left' => 'Catholic',
+        'Catholic Left' => 'Catholic',
+        'Catholic Worker' => 'Catholic',
+        'Catholic solidarity with Mexico' => 'Catholic',
         'Quaker' => 'Quakerism',
         'Anti-colonialism' => 'Anti-colonial',
         'Trade Unionism' => 'Trade unionism',
@@ -177,7 +180,7 @@ class ConsolidateIdeologies extends Command
         'IWW' => 'Industrial unionism',
         'UMWA' => 'Labor organizing',
         'AIM' => 'Indigenous Sovereignty',
-        'Catholic Worker / Plowshares' => 'Catholic Worker',
+        'Catholic Worker / Plowshares' => 'Catholic',
 
         // --- broad-vs-variant belief merges ---
         'Labor' => 'Labor organizing',
