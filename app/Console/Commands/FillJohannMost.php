@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Fills out the Johann Most entry created by prisoners:add-anarchist-press-prisoners.
- * Most was imprisoned repeatedly on both sides of the Atlantic; the original entry
- * carried only a single thin 1902 case. This command:
- *   - rebuilds his case list as one PrisonerCase per documented imprisonment
- *     (Austria 1870, Germany 1870s, London 1881–82, New York 1887, New York 1902);
- *   - broadens the biography to note the count of imprisonments;
+ * The original entry carried only a single thin 1902 case. This command:
+ *   - rebuilds his case list as his three documented U.S. imprisonments —
+ *     the 1886 Blackwell's Island term, the 1887 Kramer's Hall speech case
+ *     (served on appeal in 1891), and the 1901–1903 McKinley/Freiheit
+ *     "Murder vs. Murder" case;
  *   - attaches his portrait from database/data/photos/johann-most.jpg (public
  *     domain 19th-century studio portrait, cropped to a profile head-and-shoulders).
  *
- * Where an exact month/day is uncertain the date is stored at year precision.
- * Idempotent — rebuilds the cases each run.
+ * The biography is left untouched. Where an exact day is uncertain the date is
+ * stored at month precision. Idempotent — rebuilds the cases each run.
  */
 final class FillJohannMost extends Command
 {
@@ -43,30 +43,10 @@ final class FillJohannMost extends Command
             ['name' => "Blackwell's Island Penitentiary"],
             ['city' => 'New York', 'state' => 'New York']
         )->id;
-        $clerkenwell = Institution::firstOrCreate(
-            ['name' => 'Clerkenwell Prison'],
-            ['city' => 'London', 'state' => 'England']
-        )->id;
 
-        $description = 'Johann Most (1846–1906) was a German-American anarchist and the editor of '
-            .'the newspaper Freiheit, an advocate of "propaganda of the deed" whose writings influenced a '
-            .'generation of radicals. He was imprisoned repeatedly on both sides of the Atlantic — at least '
-            .'five times over some three decades. He was first jailed as a young bookbinder in Austria, '
-            .'convicted of high treason in 1870 for his part in a Vienna workers\' movement; as a Social '
-            .'Democratic deputy in the German Reichstag he was jailed again and again in the 1870s for his '
-            .'speeches and his paper. Expelled to London, he was sentenced in 1881 to sixteen months of hard '
-            .'labour for an article in Freiheit celebrating the assassination of Tsar Alexander II. After '
-            .'emigrating to the United States he served about a year on Blackwell\'s Island in 1887 for an '
-            .'incendiary speech, and after the assassination of President McKinley he was prosecuted once '
-            .'more: in People v. Most (1902) he was convicted of endangering the public peace and again '
-            .'sentenced to a year on Blackwell\'s Island for republishing a fifty-year-old article by Karl '
-            .'Heinzen advocating the assassination of political rulers.';
-
-        DB::transaction(function () use ($prisoner, $description, $blackwells, $clerkenwell) {
+        DB::transaction(function () use ($prisoner, $blackwells) {
+            // Biography is left untouched — only dates, flags and cases are set.
             $prisoner->fill([
-                'description' => $description,
-                'ideologies' => ['Anarchism'],
-                'affiliation' => ['Freiheit'],
                 'in_custody' => false,
                 'released' => true,
             ]);
@@ -78,44 +58,28 @@ final class FillJohannMost extends Command
 
             $cases = [
                 [
-                    'institution_id' => null,
-                    'charges' => 'High treason — for his part as a young bookbinder in the Vienna workers\' movement and its December 1869 demonstration.',
-                    'convicted' => 'Yes — convicted of high treason by an Austrian court in 1870.',
-                    'sentence' => 'Five years\' imprisonment; amnestied after about a year and expelled from Austria in 1871.',
-                    'incarceration' => [1870],
-                    'release' => [1871],
+                    'institution_id' => $blackwells,
+                    'charges' => 'Incendiary speech / unlawful assembly — for a New York address advocating armed action.',
+                    'convicted' => 'Yes — convicted in New York; sentenced June 2, 1886.',
+                    'sentence' => 'One year\'s imprisonment and a $500 fine. Committed to Blackwell\'s Island on June 2, 1886 and released on April 1, 1887.',
+                    'incarceration' => [1886, 6, 2],
+                    'release' => [1887, 4, 1],
                 ],
                 [
-                    'institution_id' => null,
-                    'charges' => 'Repeated press, speech and lèse-majesté offences in the German Empire — as editor and as a Social Democratic member of the Reichstag.',
-                    'convicted' => 'Yes — convicted and jailed several times during the 1870s.',
-                    'sentence' => 'A series of prison terms through the 1870s before he was driven out of Germany.',
-                    'incarceration' => [1874],
+                    'institution_id' => $blackwells,
+                    'charges' => 'Incendiary speech at Kramer\'s Hall, New York.',
+                    'convicted' => 'Yes — sentenced December 8, 1887 to twelve months, then released on $5,000 bail pending appeal; the conviction was affirmed June 16, 1891.',
+                    'sentence' => 'Twelve months. Having exhausted his appeal (affirmed June 16, 1891), he served the term on Blackwell\'s Island beginning in late June 1891.',
+                    'incarceration' => [1891, 6],
                     'release' => null,
                 ],
                 [
-                    'institution_id' => $clerkenwell,
-                    'charges' => 'Incitement to murder — for an article in Freiheit hailing the March 1881 assassination of Tsar Alexander II of Russia (R v. Most).',
-                    'convicted' => 'Yes — convicted at the Old Bailey in 1881.',
-                    'sentence' => 'Sixteen months\' imprisonment with hard labour.',
-                    'incarceration' => [1881],
-                    'release' => [1882],
-                ],
-                [
                     'institution_id' => $blackwells,
-                    'charges' => 'Unlawful assembly / incendiary speech — for an address in New York shortly after the Haymarket affair.',
-                    'convicted' => 'Yes — convicted; conviction upheld by the New York courts.',
-                    'sentence' => 'About one year on Blackwell\'s Island.',
-                    'incarceration' => [1887],
-                    'release' => [1888],
-                ],
-                [
-                    'institution_id' => $blackwells,
-                    'charges' => 'Endangering the public peace — for republishing in Freiheit a fifty-year-old article by Karl Heinzen advocating the assassination of political rulers, days after the assassination of President McKinley (People v. Most, 75 N.Y.S. 591, 1902).',
-                    'convicted' => 'Yes — convicted; conviction upheld by the New York courts.',
-                    'sentence' => 'One year on Blackwell\'s Island.',
-                    'incarceration' => [1902],
-                    'release' => [1903],
+                    'charges' => 'Endangering the public peace — for republishing in Freiheit Karl Heinzen\'s article "Murder against Murder" advocating the assassination of political rulers, days after the assassination of President McKinley (People v. Most, 75 N.Y.S. 591).',
+                    'convicted' => 'Yes — sentenced in October 1901; the conviction was affirmed on final appeal June 10, 1902.',
+                    'sentence' => 'One year on Blackwell\'s Island. The term began shortly after the appeal was affirmed on June 10, 1902; he was released by April 9, 1903, having served a year less about two months\' commutation for good behavior.',
+                    'incarceration' => [1902, 6],
+                    'release' => [1903, 4],
                 ],
             ];
 
@@ -138,7 +102,7 @@ final class FillJohannMost extends Command
             }
         });
 
-        $this->info('Rebuilt Johann Most with 5 imprisonment cases.');
+        $this->info('Rebuilt Johann Most with 3 U.S. imprisonment cases.');
 
         $src = database_path('data/photos/johann-most.jpg');
         if (is_file($src)) {
