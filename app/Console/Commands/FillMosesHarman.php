@@ -63,16 +63,18 @@ final class FillMosesHarman extends Command
                 [
                     'institution_id' => $lansing,
                     'charges' => $comstock,
-                    'convicted' => 'Yes — sentenced April 30, 1890 to five years and a $300 fine.',
+                    'convicted' => 'Yes — the jury returned a guilty verdict on four counts on April 18, 1890; sentenced April 30, 1890 to five years and a $300 fine.',
                     'sentence' => 'Five years and a $300 fine. Committed to the Kansas State Penitentiary at Lansing on May 4, 1890 and released on a writ of error on August 30, 1890.',
+                    'sentenced' => [1890, 4, 30],
                     'incarceration' => [1890, 5, 4],
                     'release' => [1890, 8, 30],
                 ],
                 [
                     'institution_id' => $lansing,
                     'charges' => $comstock,
-                    'convicted' => 'Yes — a further term in the continuing Lucifer prosecutions.',
-                    'sentence' => 'Re-imprisoned at the Kansas State Penitentiary (Lansing) in late June 1892; released in February 1893.',
+                    'convicted' => 'Yes — convicted on three counts in the O\'Neil-letter prosecution and sentenced in January 1891 to one year at Lansing.',
+                    'sentence' => 'One year at the Kansas State Penitentiary (Lansing). After his appeals were exhausted he was taken to Lansing in late June 1892; released in February 1893.',
+                    'sentenced' => [1891, 1],
                     'incarceration' => [1892, 6],
                     'release' => [1893, 2],
                 ],
@@ -80,15 +82,17 @@ final class FillMosesHarman extends Command
                     'institution_id' => $leavenworth,
                     'charges' => $comstock,
                     'convicted' => 'Yes.',
-                    'sentence' => 'Committed at the Kansas State Penitentiary (Lansing) on June 2, 1895 and later transferred to the U.S. penitentiary at Leavenworth; released April 4, 1896.',
+                    'sentence' => 'Resentenced June 2, 1895 to one year and one day at hard labor. Committed at the Kansas State Penitentiary (Lansing) and later transferred to the U.S. penitentiary at Leavenworth; released April 4, 1896.',
+                    'sentenced' => [1895, 6, 2],
                     'incarceration' => [1895, 6, 2],
                     'release' => [1896, 4, 4],
                 ],
                 [
                     'institution_id' => $leavenworth,
                     'charges' => $comstock,
-                    'convicted' => 'Yes — convicted in Chicago at the age of seventy-five and sentenced to a year of hard labor.',
-                    'sentence' => 'Taken to the Cook County Jail on February 26, 1906, transferred to the Joliet penitentiary, and then to the U.S. penitentiary at Leavenworth on June 28, 1906; released December 26, 1906.',
+                    'convicted' => 'Yes — convicted in Chicago at the age of seventy-five and sentenced in 1905 to a year of hard labor.',
+                    'sentence' => 'One year at hard labor. Taken to the Cook County Jail on February 26, 1906, transferred to the Joliet penitentiary, and then to the U.S. penitentiary at Leavenworth on June 28, 1906; released December 26, 1906 after serving about ten months.',
+                    'sentenced' => [1905],
                     'incarceration' => [1906, 2, 26],
                     'release' => [1906, 12, 26],
                 ],
@@ -103,6 +107,9 @@ final class FillMosesHarman extends Command
                     'convicted' => $c['convicted'],
                     'sentence' => $c['sentence'],
                 ]);
+                if (! empty($c['sentenced'])) {
+                    $case->setPartialDate('sentenced_date', ...$c['sentenced']);
+                }
                 $case->setPartialDate('incarceration_date', ...$c['incarceration']);
                 $case->setPartialDate('release_date', ...$c['release']);
                 $case->save();
