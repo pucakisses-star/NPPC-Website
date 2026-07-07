@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\DB;
  * defending himself against five knife-wielding strike-breakers, and on
  * November 3, 1928 he pleaded not guilty while his attorney asked for release
  * on $15,000 bail. His arrest is therefore pinned to late September 1928
- * (stored at month precision). No release date or trial outcome is documented,
- * so none is stored. Idempotent — rebuilds the single case.
+ * (stored at month precision). He was acquitted at trial (the self-defense
+ * killing); the exact acquittal/release date is not documented, so no release
+ * date is stored. Idempotent — rebuilds the single case.
  */
 final class FillWilliamShifrin extends Command
 {
@@ -35,8 +36,10 @@ final class FillWilliamShifrin extends Command
         }
 
         DB::transaction(function () use ($prisoner) {
-            $prisoner->description = 'William Shifrin, a member of the New York butchers\' union, was indicted for manslaughter after killing, in self-defense, one of five knife-wielding strike-breakers sent against the union during the September 1928 Hebrew Butchers\' Union strike — a defense the ILD\'s Labor Defender took up with a "Shifrin Defense Fund."';
+            $prisoner->description = 'William Shifrin, a member of the New York butchers\' union, was indicted for manslaughter after killing, in self-defense, one of five knife-wielding strike-breakers sent against the union during the September 1928 Hebrew Butchers\' Union strike. The ILD\'s Labor Defender took up his defense with a "Shifrin Defense Fund," and he was acquitted at trial.';
             $prisoner->era = '1920s';
+            $prisoner->in_custody = false;
+            $prisoner->released = true;
             $prisoner->save();
 
             $prisoner->cases()->delete();
@@ -44,8 +47,8 @@ final class FillWilliamShifrin extends Command
             $case->fill([
                 'prisoner_id' => $prisoner->id,
                 'charges' => 'Manslaughter — for killing, in self-defense, one of five knife-wielding strike-breakers sent by the Hebrew Butchers\' Union machine during the September 1928 butchers\' strike.',
-                'convicted' => 'Held for trial; pleaded not guilty on November 3, 1928 (his attorney asked for release on $15,000 bail). Trial outcome not documented in available sources.',
-                'sentence' => 'Held under high bail pending trial. Reported "behind the bars" by October 1, 1928; the defense committee was still seeking his release on bail in early November 1928.',
+                'convicted' => 'No — acquitted at trial. He had pleaded not guilty on November 3, 1928 (his attorney asking for release on $15,000 bail); the jury accepted the self-defense case.',
+                'sentence' => 'Held under high bail pending trial — reported "behind the bars" by October 1, 1928, with the defense committee still seeking bail in early November 1928 — then acquitted and freed. The exact acquittal/release date is not documented.',
             ]);
             // Arrested in late September 1928 (after the ~Sept 21 strike start, before the Oct 1 "behind bars" report).
             $case->setPartialDate('arrest_date', 1928, 9);
