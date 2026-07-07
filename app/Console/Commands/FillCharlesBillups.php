@@ -37,7 +37,7 @@ final class FillCharlesBillups extends Command
         }
 
         $prisoner->description = 'Rev. Charles Billups was a Civil Rights leader who along with 11 other pastors founded the Alabama Christian Movement for Human Rights after Alabama Attorney General John Patterson banned the NAACP from conducting activities in the state. During the Civil Rights Movement he was jailed numerous times for organizing marches and sit-ins to protest segregation. In 1968 he was assassinated in Chicago by an unknown gunman, police refused to investigate his murder.';
-        $prisoner->aka = 'Rev. Charles Billups Jr.';
+        $prisoner->aka = null;
         $prisoner->affiliation = ['Civil Rights Movement'];
         $prisoner->released = true;
         $prisoner->setPartialDate('birthdate', 1927, 3, 17);
