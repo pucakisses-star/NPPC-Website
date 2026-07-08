@@ -105,8 +105,12 @@
 @php
     $activeGrandchild = $activeGrandchild ?? null;
     $displayTopic = $activeGrandchild ?: ($activeChild ?: $activeTopic);
+    // Nav lists show only published topics — an unpublished topic in the nav
+    // wouldn't resolve when clicked (the controller looks it up published-only).
+    $subChildren = $activeTopic ? $activeTopic->children->where('published', true) : collect();
+    $nestedChildren = $activeChild ? $activeChild->children->where('published', true) : collect();
     // A third nav column appears when the active sub-topic has nested topics.
-    $showL3 = $activeChild && $activeChild->children->isNotEmpty();
+    $showL3 = $nestedChildren->isNotEmpty();
 
     // Bundled fallback imagery per topic, used only when a topic has no
     // image of its own. Any image uploaded in admin overrides these.
@@ -203,9 +207,9 @@
         <div class="tpx-sub">
             <div class="tpx-sub-inner">
                 <div class="tpx-sub-col">
-                    @if($activeTopic && $activeTopic->children->isNotEmpty())
+                    @if($activeTopic && $subChildren->isNotEmpty())
                         <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
-                        @foreach($activeTopic->children as $child)
+                        @foreach($subChildren as $child)
                             <a href="/topics/{{ $child->slug }}" data-no-fade
                                class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
                                 {{ $child->title }}
@@ -216,7 +220,7 @@
                 @if($showL3)
                 <div class="tpx-sub-col tpx-sub2">
                     <div class="tpx-sub-heading">About {{ $activeChild->title }}</div>
-                    @foreach($activeChild->children as $grandchild)
+                    @foreach($nestedChildren as $grandchild)
                         <a href="/topics/{{ $grandchild->slug }}" data-no-fade
                            class="tpx-sub-link {{ $activeGrandchild && $activeGrandchild->id === $grandchild->id ? 'active' : '' }}">
                             {{ $grandchild->title }}
@@ -355,10 +359,14 @@ function tpxShare() {
             requestAnimationFrame(function () { layer.style.opacity = '1'; });
         });
         window.setTimeout(function () {
-            tpx.querySelectorAll('.tpx-photo').forEach(function (p) {
-                if (p !== layer && p.parentNode) { p.parentNode.removeChild(p); }
-            });
-            layer.style.transition = '';
+            // Keep only the newest (last) photo layer — never remove a layer
+            // added by a later navigation, so rapid clicks can't strip the
+            // backdrop or leave an older photo showing.
+            var photos = tpx.querySelectorAll('.tpx-photo');
+            for (var i = 0; i < photos.length - 1; i++) {
+                if (photos[i].parentNode) { photos[i].parentNode.removeChild(photos[i]); }
+            }
+            if (photos.length) { photos[photos.length - 1].style.transition = ''; }
         }, 600);
     }
 
