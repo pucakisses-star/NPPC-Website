@@ -40,7 +40,10 @@
        grid column, filling space that was already empty — so showing it never
        moves the left nav, the sub-topics list, or the detail panel. */
     .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
-    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; }
+    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; transition: opacity 0.5s ease, transform 0.5s ease; }
+    /* Enter state for soft-nav: sub-topic columns slide in from the right and
+       fade (mirrors the ecfr.eu "Mapping Palestinian Politics" column transition). */
+    .tpx-sub-inner.tpx-enter { opacity: 0; transform: translateX(32px); }
     .tpx-sub-col { flex: 0 0 auto; min-width: 150px; }
     /* Nested-topics list — sits to the right of the sub-topics list */
     .tpx-sub2 { margin-left: clamp(20px, 2.2vw, 34px); padding-left: clamp(22px, 2.4vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
@@ -50,7 +53,7 @@
     .tpx-sub-link.active { color: #8b93ff; }
 
     /* Right column — white detail panel with a large image */
-    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }
+    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.5s ease; }
     .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
@@ -338,7 +341,7 @@ function tpxShare() {
         layer.className = 'tpx-photo';
         layer.style.backgroundImage = newBg;
         layer.style.opacity = '0';
-        layer.style.transition = 'opacity 0.6s ease';
+        layer.style.transition = 'opacity 0.5s ease';
         if (anchor) { tpx.insertBefore(layer, anchor); } else { tpx.appendChild(layer); }
         requestAnimationFrame(function () {
             requestAnimationFrame(function () { layer.style.opacity = '1'; });
@@ -348,7 +351,7 @@ function tpxShare() {
                 if (p !== layer && p.parentNode) { p.parentNode.removeChild(p); }
             });
             layer.style.transition = '';
-        }, 700);
+        }, 600);
     }
 
     // Fade the detail panel out, resolving once the fade has run.
@@ -360,7 +363,7 @@ function tpxShare() {
         });
     }
 
-    var FADE_MS = 300;
+    var FADE_MS = 500;
 
     function swapTopic(href, push) {
         var current = document.querySelector('.tpx');
@@ -386,12 +389,23 @@ function tpxShare() {
             var newBg = bgImageOf(fresh.querySelector('.tpx-photo'));
             if (newBg && newBg !== curBg) { crossfadeBackground(current, newBg); }
 
-            // Swap the columns/header in place. Nav and sub-topic lists update
-            // instantly; the detail panel is faded back in just below.
+            // Swap the columns/header in place. The root nav updates instantly;
+            // the sub-topic columns slide in from the right and the detail panel
+            // fades back in, both just below.
             var freshGrid = fresh.querySelector('.tpx-grid');
             var curGrid = current.querySelector('.tpx-grid');
             if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
             else { current.innerHTML = fresh.innerHTML; }
+
+            // Slide + fade the sub-topic column(s) in from the right (0.5s), the
+            // signature ecfr.eu column transition.
+            var newSub = current.querySelector('.tpx-sub-inner');
+            if (newSub) {
+                newSub.classList.add('tpx-enter');
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () { newSub.classList.remove('tpx-enter'); });
+                });
+            }
 
             // A soft-injected reCAPTCHA (the Contributions form) won't auto-render,
             // so render it explicitly. The api.js library is loaded site-wide. If
