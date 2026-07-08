@@ -337,12 +337,20 @@ function tpxShare() {
 (function () {
     function bgImageOf(el) { return el ? el.style.backgroundImage : ''; }
 
-    // A signature of the sub-topic column list that ignores which item is
-    // active, so clicking a sibling in the same column doesn't count as a
-    // change. Only a different section (or opening/closing a nested column)
-    // changes this — and only then should the column re-animate.
+    // A structural signature of the sub-topic column(s): the heading text plus
+    // the ordered list of link targets. It ignores which item is active (and any
+    // markup/whitespace differences), so clicking a sibling in the same column
+    // is not a change. Only a different section, or a nested column
+    // opening/closing/changing, alters it — and only then should it re-animate.
     function subSignature(el) {
-        return el ? el.innerHTML.replace(/\bactive\b/g, '').replace(/\s+/g, ' ').trim() : '';
+        if (!el) return '';
+        var parts = [];
+        el.querySelectorAll('.tpx-sub-heading, a.tpx-sub-link').forEach(function (n) {
+            parts.push(n.classList.contains('tpx-sub-heading')
+                ? 'H:' + (n.textContent || '').trim()
+                : 'L:' + (n.getAttribute('href') || ''));
+        });
+        return parts.join('|');
     }
 
     // Crossfade the backdrop: layer the new photo above the current one at
