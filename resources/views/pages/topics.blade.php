@@ -333,6 +333,14 @@ function tpxShare() {
 (function () {
     function bgImageOf(el) { return el ? el.style.backgroundImage : ''; }
 
+    // A signature of the sub-topic column list that ignores which item is
+    // active, so clicking a sibling in the same column doesn't count as a
+    // change. Only a different section (or opening/closing a nested column)
+    // changes this — and only then should the column re-animate.
+    function subSignature(el) {
+        return el ? el.innerHTML.replace(/\bactive\b/g, '').replace(/\s+/g, ' ').trim() : '';
+    }
+
     // Crossfade the backdrop: layer the new photo above the current one at
     // opacity 0, fade it in, then drop any older layers.
     function crossfadeBackground(tpx, newBg) {
@@ -394,13 +402,20 @@ function tpxShare() {
             // fades back in, both just below.
             var freshGrid = fresh.querySelector('.tpx-grid');
             var curGrid = current.querySelector('.tpx-grid');
+            // Decide whether the sub-topic column actually changed BEFORE the
+            // swap replaces it. Clicking a sibling in the same column leaves the
+            // list identical (only the active item differs), so it must not
+            // re-animate — matching the ecfr.eu reference.
+            var subChanged = subSignature(current.querySelector('.tpx-sub-inner'))
+                          !== subSignature(fresh.querySelector('.tpx-sub-inner'));
             if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
             else { current.innerHTML = fresh.innerHTML; }
 
             // Slide + fade the sub-topic column(s) in from the right (0.5s), the
-            // signature ecfr.eu column transition.
+            // signature ecfr.eu column transition — only when the column's list
+            // changed (a new section, or a nested column opening/closing).
             var newSub = current.querySelector('.tpx-sub-inner');
-            if (newSub) {
+            if (newSub && subChanged) {
                 newSub.classList.add('tpx-enter');
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () { newSub.classList.remove('tpx-enter'); });
