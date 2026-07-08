@@ -17,7 +17,13 @@
     .tpx-photo { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
     .tpx-photo-tint { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(8,7,5,0.82) 0%, rgba(8,7,5,0.45) 40%, rgba(8,7,5,0.55) 100%); }
 
-    .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; min-height: calc(100vh - 108px); }
+    .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; height: calc(100vh - 108px); }
+
+    /* Thin translucent scrollbars for the nav columns over the photo */
+    .tpx-nav, .tpx-sub-col { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.3) transparent; }
+    .tpx-nav::-webkit-scrollbar, .tpx-sub-col::-webkit-scrollbar { width: 8px; }
+    .tpx-nav::-webkit-scrollbar-thumb, .tpx-sub-col::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
+    .tpx-nav::-webkit-scrollbar-thumb:hover, .tpx-sub-col::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
 
     /* Header bar sits across the nav area */
     .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
@@ -27,7 +33,7 @@
     .tpx-action svg { width: 15px; height: 15px; }
 
     /* Left column — root topics + search, over the photo */
-    .tpx-nav { grid-column: 1; padding: 26px clamp(20px, 3vw, 40px); }
+    .tpx-nav { grid-column: 1; padding: 26px clamp(20px, 3vw, 40px); overflow-y: auto; overflow-x: hidden; min-height: 0; }
     .tpx-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.78); padding: 9px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-nav-item:hover { color: var(--on-dark); }
     .tpx-nav-item.active { color: #8b93ff; }
@@ -39,12 +45,14 @@
        nested topics, a second list sits beside the sub-topics inside this same
        grid column, filling space that was already empty — so showing it never
        moves the left nav, the sub-topics list, or the detail panel. */
-    .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
-    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; transition: opacity 0.5s ease, transform 0.5s ease; }
+    .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); overflow: hidden; min-height: 0; }
+    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; height: 100%; min-height: 0; transition: opacity 0.5s ease, transform 0.5s ease; }
     /* Enter state for soft-nav: sub-topic columns slide in from the right and
        fade (mirrors the ecfr.eu "Mapping Palestinian Politics" column transition). */
     .tpx-sub-inner.tpx-enter { opacity: 0; transform: translateX(32px); }
-    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; }
+    /* Each sub-topic column scrolls on its own when its list is taller than the
+       viewport (like the ecfr.eu reference). */
+    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; }
     /* Nested-topics list — sits to the right of the sub-topics list */
     .tpx-sub2 { margin-left: clamp(20px, 2.2vw, 34px); padding-left: clamp(22px, 2.4vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
     .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: var(--on-dark); margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
@@ -87,8 +95,12 @@
     .tpx-case-meta { font-size: 12px; color: #8a8f98; margin-top: 1px; }
 
     @@media (max-width: 1024px) {
-        .tpx-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+        /* Stack and let the page scroll normally instead of scrolling columns. */
+        .tpx-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
         .tpx-head { grid-column: 1 / 3; }
+        .tpx-nav, .tpx-sub { overflow: visible; }
+        .tpx-sub-inner { height: auto; }
+        .tpx-sub-col { overflow: visible; max-height: none; }
         .tpx-detail { grid-column: 1 / 3; grid-row: auto; max-height: none; }
     }
     @@media (max-width: 600px) {
