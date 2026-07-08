@@ -60,7 +60,7 @@ final class FillJamesMcInerneyEverett extends Command
                 'state' => 'Washington',
                 'era' => '1910s',
                 'inmate_number' => '9410',
-                'ideologies' => ['Labor activism'],
+                'ideologies' => ['Labor Activism'],
                 'affiliation' => ['Industrial Workers of the World (IWW)'],
                 'description' => $bio,
                 'in_custody' => false,
