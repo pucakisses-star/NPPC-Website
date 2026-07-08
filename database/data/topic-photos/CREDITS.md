@@ -84,3 +84,25 @@ Backgrounds added for topics that previously fell back to a section/default imag
 | the-reagan-era-1981-1989 | the-reagan-era-1981-1989.jpg | Public domain | Michael Evans (White House) | [File](https://commons.wikimedia.org/wiki/File:Official_Portrait_of_President_Reagan_1981.jpg) |
 | elder-political-prisoners | elder-political-prisoners.jpg | CC BY-SA 4.0 | Carolmooredc | [File](https://commons.wikimedia.org/wiki/File:SupremeCourt_protest_for_Mumia_Abu-Jamal_2000.JPG) |
 | the-green-scare-2005-2010 | the-green-scare-2005-2010.jpg | Public domain | U.S. Forest Service | [File](https://commons.wikimedia.org/wiki/File:Logging_truck_leaving_Staley_Creek_clearcut_unit_number_10_on_Staley_Creek%2C_Lane_County%2C_Rigdon_Ranger_District%2C_Willamette_National_Forest_in_Oregon_on_July_26%2C_1957_%28cropped%29.jpg) |
+
+## IWW event topic backgrounds
+
+Backgrounds for the Industrial Workers of the World event sub-topics (1905–1919). A few free-speech-fight events have no surviving event-specific free photo, so a clearly-noted thematic stand-in is used.
+
+| Topic | File | License | Author | Depicts | Source |
+|---|---|---|---|---|---|
+| founding-of-the-iww | founding-of-the-iww.jpg | Public domain | IWW / International Publishing Co. (1911) | the IWW-associated "Pyramid of Capitalist System" poster, 1911 | [File](https://commons.wikimedia.org/wiki/File:Anti-capitalism_color%E2%80%94_Restored.png) |
+| goldfield-organizing-drive | goldfield-organizing-drive.jpg | Public domain | C.C. Pierce | Goldfield, Nevada boomtown, ca. 1906 | [File](https://commons.wikimedia.org/wiki/File:View_of_hundreds_of_people_gathering_in_front_of_the_Mining_Stock_Exchange_building%2C_Goldfield%2C_Nevada%2C_ca.1906_%28CHS-5409%29.jpg) |
+| mckees-rocks-strike | mckees-rocks-strike.jpg | Public domain | Bain News Service | strikers at McKees Rocks, 1909 | [File](https://commons.wikimedia.org/wiki/File:Steel_strikers_at_the_%22Bloody_Corner_of_McKees_Rocks%22_LCCN2014684173.jpg) |
+| missoula-free-speech-fight | missoula-free-speech-fight.jpg | Public domain (no known copyright) | UW Digital Collections | IWW soapbox speaker Arthur Boose (free-speech theme) | [File](https://commons.wikimedia.org/wiki/File:Arthur_Boose_speaking_to_crowd%2C_circa_1910s-1920s%2C_Not_Dated.jpg) |
+| spokane-free-speech-fight | spokane-free-speech-fight.jpg | Public domain | — | Elizabeth Gurley Flynn, the central Spokane figure, 1909 | [File](https://commons.wikimedia.org/wiki/File:Elizabeth_Gurley_Flynn_1909.png) |
+| fresno-free-speech-fight | fresno-free-speech-fight.jpg | Public domain | International Socialist Review | an IWW headquarters, 1917 (thematic stand-in) | [File](https://commons.wikimedia.org/wiki/File:IWW-headquarters-1917.jpg) |
+| lawrence-textile-strike | lawrence-textile-strike.jpg | Public domain | George Grantham Bain | militia and strikers, Lawrence, 1912 | [File](https://commons.wikimedia.org/wiki/File:Massachusetts_Militia_vs_Strikers.jpg) |
+| san-diego-free-speech-fight | san-diego-free-speech-fight.jpg | Public domain | Library of Congress | Emma Goldman, driven from San Diego in 1912 | [File](https://commons.wikimedia.org/wiki/File:Emma_Goldman%2C_half-length_portrait%2C_facing_left_LCCN2005685496.jpg) |
+| paterson-silk-strike | paterson-silk-strike.jpg | Public domain | Robert Edmond Jones | the 1913 Paterson Pageant poster | [File](https://commons.wikimedia.org/wiki/File:IWW_Paterson_Silk_Strike_Poster_1913.jpg) |
+| wheatland-hop-riot | wheatland-hop-riot.jpg | Public domain | — | 1890s hop pickers (era-appropriate stand-in) | [File](https://commons.wikimedia.org/wiki/File:Northwestern_United_States_Hop_pickers%2C_1890s.jpg) |
+| joe-hill-case | joe-hill-case.jpg | Public domain | Bain News Service | Joe Hill, ca. 1915 | [File](https://commons.wikimedia.org/wiki/File:Joseph_Hillstr%C3%B6m_circa_1915.jpg) |
+| bisbee-deportation | bisbee-deportation.jpg | Public domain | George C. Dix | the deportation march, July 12, 1917 | [File](https://commons.wikimedia.org/wiki/File:Marching_from_Lowell_%28Ariz.%29_Deportation_of_I.W.W.%27s_July_12%2C_1917_LCCN2005688902.jpg) |
+| pacific-northwest-lumber-strike | pacific-northwest-lumber-strike.jpg | Public domain | Clark Kinsey | a Pacific Northwest logging crew, ca. 1916 | [File](https://commons.wikimedia.org/wiki/File:Logging_crew_at_camp%2C_train_engine_in_background%2C_Danaher_Lumber_Company%2C_ca_1916_%28KINSEY_140%29.jpeg) |
+| iww-federal-raids-and-trials | iww-federal-raids-and-trials.jpg | Public domain (no known copyright) | UW Digital Collections | imprisoned Wobblies at Leavenworth, ca. 1922 | [File](https://commons.wikimedia.org/wiki/File:IWW_prisoners_at_federal_penitentiary%2C_Leavenworth%2C_Kansas%2C_c.1922.jpg) |
+| centralia-massacre | centralia-massacre.jpg | Public domain (no known copyright) | UW Digital Collections | seven of the Centralia defendants, 1921 | [File](https://commons.wikimedia.org/wiki/File:Seven_of_the_original_ten_Centralia_Massacre_defendents%2C_1921._%286942572746%29.jpg) |
