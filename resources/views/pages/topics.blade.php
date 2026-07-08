@@ -18,14 +18,9 @@
     .tpx-photo-tint { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(8,7,5,0.82) 0%, rgba(8,7,5,0.45) 40%, rgba(8,7,5,0.55) 100%); }
 
     .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; min-height: calc(100vh - 108px); }
-    /* When the active sub-topic has its own nested topics, a third nav column
-       appears (Miller-columns). The two sub-topic columns are packed together
-       on the left at content width; a flexible spacer (photo shows through)
-       separates them from the detail panel, which stays flush-right. */
-    .tpx-grid--l3 { grid-template-columns: minmax(170px, 210px) minmax(190px, 270px) minmax(190px, 270px) 1fr minmax(340px, 520px); }
 
-    /* Header bar sits across the nav area (all columns except the detail panel) */
-    .tpx-head { grid-column: 1 / -2; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
+    /* Header bar sits across the nav area */
+    .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
     .tpx-actions { display: flex; gap: 20px; }
     .tpx-action { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.15s; }
     .tpx-action:hover { color: var(--on-dark); }
@@ -40,17 +35,22 @@
     .tpx-search::placeholder { color: rgba(255,255,255,0.5); }
     .tpx-search:focus { border-color: rgba(255,255,255,0.7); }
 
-    /* Middle column — sub-topics, over the photo */
+    /* Middle column — sub-topics, over the photo. When the active sub-topic has
+       nested topics, a second list sits beside the sub-topics inside this same
+       grid column, filling space that was already empty — so showing it never
+       moves the left nav, the sub-topics list, or the detail panel. */
     .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
-    /* Third nav column — nested topics of the active sub-topic, over the photo */
-    .tpx-sub2 { grid-column: 3; }
+    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; }
+    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; }
+    /* Nested-topics list — sits to the right of the sub-topics list */
+    .tpx-sub2 { margin-left: clamp(20px, 2.2vw, 34px); padding-left: clamp(22px, 2.4vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
     .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: var(--on-dark); margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link { display: block; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.82); padding: 8px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link:hover { color: var(--on-dark); }
     .tpx-sub-link.active { color: #8b93ff; }
 
-    /* Right column — white detail panel with a large image (always the last column) */
-    .tpx-detail { grid-column: -2 / -1; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }
+    /* Right column — white detail panel with a large image */
+    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }
     .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
@@ -84,16 +84,16 @@
     .tpx-case-meta { font-size: 12px; color: #8a8f98; margin-top: 1px; }
 
     @@media (max-width: 1024px) {
-        .tpx-grid, .tpx-grid--l3 { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-        .tpx-head { grid-column: 1 / -1; }
-        .tpx-sub2 { grid-column: auto; }
-        .tpx-detail { grid-column: 1 / -1; grid-row: auto; max-height: none; }
+        .tpx-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+        .tpx-head { grid-column: 1 / 3; }
+        .tpx-detail { grid-column: 1 / 3; grid-row: auto; max-height: none; }
     }
     @@media (max-width: 600px) {
-        .tpx-grid, .tpx-grid--l3 { grid-template-columns: 1fr; }
+        .tpx-grid { grid-template-columns: 1fr; }
         .tpx-head { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 14px; }
-        .tpx-nav, .tpx-sub, .tpx-sub2, .tpx-detail { grid-column: 1; }
-        .tpx-sub, .tpx-sub2 { border-left: 0; }
+        .tpx-nav, .tpx-sub, .tpx-detail { grid-column: 1; }
+        .tpx-sub { border-left: 0; }
+        .tpx-sub2 { margin-left: 0; padding-left: 0; border-left: 0; }
     }
 </style>
 @endsection
@@ -166,7 +166,7 @@
     <div class="tpx-photo" style="background-image: url('{{ $bgImage }}');"></div>
     <div class="tpx-photo-tint"></div>
 
-    <div class="tpx-grid {{ $showL3 ? 'tpx-grid--l3' : '' }}">
+    <div class="tpx-grid">
         {{-- Header (spans the nav columns) --}}
         <div class="tpx-head">
             <div class="tpx-actions">
@@ -194,33 +194,37 @@
             <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
         </div>
 
-        {{-- Column 2: sub-topics --}}
+        {{-- Column 2: sub-topics, with an optional nested-topics list beside them.
+             The nested list lives inside this same grid column, so it fills space
+             that was already empty and never shifts the other columns. --}}
         <div class="tpx-sub">
-            @if($activeTopic && $activeTopic->children->isNotEmpty())
-                <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
-                @foreach($activeTopic->children as $child)
-                    <a href="/topics/{{ $child->slug }}" data-no-fade
-                       class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
-                        {{ $child->title }}
-                    </a>
-                @endforeach
-            @endif
+            <div class="tpx-sub-inner">
+                <div class="tpx-sub-col">
+                    @if($activeTopic && $activeTopic->children->isNotEmpty())
+                        <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
+                        @foreach($activeTopic->children as $child)
+                            <a href="/topics/{{ $child->slug }}" data-no-fade
+                               class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
+                                {{ $child->title }}
+                            </a>
+                        @endforeach
+                    @endif
+                </div>
+                @if($showL3)
+                <div class="tpx-sub-col tpx-sub2">
+                    <div class="tpx-sub-heading">About {{ $activeChild->title }}</div>
+                    @foreach($activeChild->children as $grandchild)
+                        <a href="/topics/{{ $grandchild->slug }}" data-no-fade
+                           class="tpx-sub-link {{ $activeGrandchild && $activeGrandchild->id === $grandchild->id ? 'active' : '' }}">
+                            {{ $grandchild->title }}
+                        </a>
+                    @endforeach
+                </div>
+                @endif
+            </div>
         </div>
 
-        {{-- Column 3: nested topics of the active sub-topic (Miller-columns) --}}
-        @if($showL3)
-        <div class="tpx-sub tpx-sub2">
-            <div class="tpx-sub-heading">About {{ $activeChild->title }}</div>
-            @foreach($activeChild->children as $grandchild)
-                <a href="/topics/{{ $grandchild->slug }}" data-no-fade
-                   class="tpx-sub-link {{ $activeGrandchild && $activeGrandchild->id === $grandchild->id ? 'active' : '' }}">
-                    {{ $grandchild->title }}
-                </a>
-            @endforeach
-        </div>
-        @endif
-
-        {{-- Detail panel (always the last column) --}}
+        {{-- Detail panel --}}
         <div class="tpx-detail">
             @if($showContribute)
                 <div class="tpx-detail-eyebrow">Contribute to the database</div>
@@ -386,12 +390,7 @@ function tpxShare() {
             // instantly; the detail panel is faded back in just below.
             var freshGrid = fresh.querySelector('.tpx-grid');
             var curGrid = current.querySelector('.tpx-grid');
-            if (freshGrid && curGrid) {
-                // Sync the grid's own class (e.g. tpx-grid--l3) so the column
-                // count updates, then swap the columns in place.
-                curGrid.className = freshGrid.className;
-                curGrid.innerHTML = freshGrid.innerHTML;
-            }
+            if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
             else { current.innerHTML = fresh.innerHTML; }
 
             // A soft-injected reCAPTCHA (the Contributions form) won't auto-render,
