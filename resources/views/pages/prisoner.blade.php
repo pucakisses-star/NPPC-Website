@@ -10,6 +10,9 @@
 <meta property="og:url" content="{{ url('/prisoner/'.$prisoner->slug) }}">
 <meta property="og:type" content="profile">
 <style>
+    .deceased-indicator { cursor: help; }
+    .deceased-indicator .deceased-label { display: none; }
+    .deceased-indicator:hover .deceased-label { display: inline; }
     .prisoner-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; font-family: Avenir, Helvetica, Arial, sans-serif; }
     .prisoner-hero { display: flex; gap: 48px; padding: 48px 0 40px; align-items: flex-start; }
     .prisoner-info { flex: 1; }
@@ -117,7 +120,7 @@
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Date of birth:</span><span class="prisoner-meta-value">{{ $prisoner->formatPartialDate('birthdate', 'd. m. Y') }}</span></div>
                 @endif
                 @if($prisoner->age)
-                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}@if($prisoner->death_date) † Deceased@endif</span></div>
+                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}@if($prisoner->death_date)<span class="deceased-indicator"> †<span class="deceased-label"> Deceased</span></span>@endif</span></div>
                 @endif
                 @if($prisoner->gender)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Gender:</span><span class="prisoner-meta-value">{{ $prisoner->gender }}</span></div>

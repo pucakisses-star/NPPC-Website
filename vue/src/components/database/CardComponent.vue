@@ -117,7 +117,7 @@ const mainCase = props.record.cases[0]
               <div :class="heading5">{{field.title}}</div>
               <div :class="textValue">{{parseValueForOutput(record[field.fieldKey], field.fieldKey) ?? ''}}</div>
               <div v-if="field.title === 'Age'">
-                <span class="text-sm relative" style="top: -25px;left: 22px;;">{{ record['Death date'] ? '† Deceased' : '' }}</span>
+                <span v-if="record['Death date']" class="text-sm relative deceased-indicator" style="top: -25px;left: 22px;">†<span class="deceased-label"> Deceased</span></span>
               </div>
             </div>
           </template>
@@ -209,5 +209,12 @@ const mainCase = props.record.cases[0]
     width: auto;
     stroke: #FFF;
   }
+}
+
+.deceased-indicator {
+  cursor: help;
+
+  .deceased-label { display: none; }
+  &:hover .deceased-label { display: inline; }
 }
 </style>
