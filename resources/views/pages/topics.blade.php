@@ -56,7 +56,16 @@
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
     .tpx-detail-body p { margin-bottom: 1.2em; }
     .tpx-detail-body a { color: #1f3df0; }
+    .tpx-detail-body h3 { font-size: 17px; font-weight: 800; color: #111; margin: 30px 0 4px; }
     .tpx-detail-empty { font-size: 16px; color: #9aa0a6; font-style: italic; }
+    /* Chronological timeline (e.g. the IWW topic) */
+    .tpx-timeline { list-style: none; margin: 14px 0 0; padding: 0; }
+    .tpx-timeline li { padding: 13px 0; border-top: 1px solid rgba(0,0,0,0.09); }
+    .tpx-timeline li:first-child { border-top: 0; }
+    .tpx-tl-date { font-size: 12px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #1f3df0; }
+    .tpx-tl-loc { font-size: 13px; color: #6b7280; }
+    .tpx-tl-title { font-weight: 700; color: #111; }
+    .tpx-tl-desc { font-size: 14px; color: #444; line-height: 1.6; margin-top: 3px; }
     /* Contribute-to-the-database panel */
     .tpx-contribute-thanks { background: #eafaf1; border: 1px solid #46c08d; color: #176b48; border-radius: 8px; padding: 12px 14px; font-size: 14px; margin-bottom: 18px; }
     .tpx-contribute { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
