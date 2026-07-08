@@ -41,6 +41,16 @@ final class UpdatePrestonSmith extends Command
         DB::transaction(function () use ($prison) {
             $preston = Prisoner::withUnderReview()->where('name', 'Morrie R. Preston')->first();
             if ($preston) {
+                $preston->first_name = 'Morris';
+                $preston->middle_name = 'Rockwood';
+                $preston->last_name = 'Preston';
+                $preston->setPartialDate('birthdate', 1882, 11, 28);
+                $preston->setPartialDate('death_date', 1924, 10, 10);
+                if (! str_contains((string) $preston->description, '1924')) {
+                    $preston->description = rtrim((string) $preston->description).' He was paroled in 1914 and died in a Los Angeles workplace accident on October 10, 1924.';
+                }
+                $preston->save();
+
                 $case = $preston->cases()->first();
                 if ($case) {
                     $case->institution_id = $prison;
@@ -60,6 +70,12 @@ final class UpdatePrestonSmith extends Command
 
             $smith = Prisoner::withUnderReview()->where('name', 'Joseph W. Smith')->first();
             if ($smith) {
+                $smith->first_name = 'Joseph';
+                $smith->middle_name = 'William';
+                $smith->last_name = 'Smith';
+                $smith->setPartialDate('death_date', 1935);
+                $smith->save();
+
                 $case = $smith->cases()->first();
                 if ($case) {
                     $case->institution_id = $prison;
