@@ -212,8 +212,9 @@ final class SiteController extends Controller {
         $rootTopics = Topic::published()->roots()
             ->with('children')->orderBy('sort_order')->get();
 
-        $activeTopic = null;
-        $activeChild = null;
+        $activeTopic = null;      // root section (column 1)
+        $activeChild = null;      // depth-1 sub-topic (column 2)
+        $activeGrandchild = null; // depth-2 nested topic (column 3)
         $showIndex = ($slug === 'index');
         $showContribute = ($slug === 'contributions');
         $indexGroups = collect();
@@ -227,15 +228,26 @@ final class SiteController extends Controller {
                 ->sortBy(fn ($t) => $this->indexSortKey($t->title), SORT_NATURAL | SORT_FLAG_CASE)
                 ->groupBy(fn ($t) => strtoupper(mb_substr($this->indexSortKey($t->title), 0, 1)));
         } elseif ($slug && ! $showContribute) {
-            // Try to find as a root topic; otherwise fall back to the default
-            // first section below.
-            $activeTopic = Topic::published()
-                ->where('slug', $slug)->first();
+            // Resolve the requested topic to its section / sub-topic / nested
+            // ancestry so the explorer can surface each level in its own column
+            // (roots → sub-topics → nested topics). Supports up to two levels of
+            // nesting; e.g. Everett Massacre under Industrial Workers of the World.
+            $found = Topic::published()->where('slug', $slug)->first();
 
-            if ($activeTopic && $activeTopic->parent_id) {
-                // It's a child — surface it within its parent section.
-                $activeChild = $activeTopic;
-                $activeTopic = $activeChild->parent;
+            if ($found && $found->parent_id === null) {
+                $activeTopic = $found;
+            } elseif ($found) {
+                $parent = $found->parent;
+                if ($parent && $parent->parent_id === null) {
+                    // Depth-1 sub-topic — surface it within its section.
+                    $activeTopic = $parent;
+                    $activeChild = $found;
+                } else {
+                    // Depth-2 nested topic — surface its section, sub-topic, and self.
+                    $activeChild = $parent;
+                    $activeTopic = $parent ? $parent->parent : null;
+                    $activeGrandchild = $found;
+                }
             }
         }
 
@@ -248,7 +260,7 @@ final class SiteController extends Controller {
         // The root section pages and the Introduction are overviews, so they
         // show their essay rather than a case list.
         $relatedPrisoners = collect();
-        $displayTopic = $activeChild ?: $activeTopic;
+        $displayTopic = $activeGrandchild ?: ($activeChild ?: $activeTopic);
         if ($displayTopic && $displayTopic->parent_id) {
             $searchTerms = [strtolower($displayTopic->title)];
 
@@ -262,7 +274,7 @@ final class SiteController extends Controller {
             })->limit(20)->get();
         }
 
-        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups'));
+        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'activeGrandchild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups'));
     }
 
     /** Sort/group key for the topic index: drops a leading article. */
