@@ -62,3 +62,25 @@ as their licenses require. Each links to the Commons File: page.
 | organizations | topics-organizations.jpg | CC BY 2.0 | Fibonacci Blue from Minnesota, USA | [File](https://commons.wikimedia.org/wiki/File:Panorama_from_a_2011_%22Rally_to_Save_the_American_Dream%22_%288492315563%29.jpg) |
 | index | topics-index.jpg | CC BY 2.0 | Tony Webster | [File](https://commons.wikimedia.org/wiki/File:Rolls_of_razor_barbed_wire_fence_at_a_prison_correctional_facility.jpg) |
 | contributions | topics-contributions.jpg | CC0 | — | [File](https://commons.wikimedia.org/wiki/File:Woman_writing_on_a_notebook_with_a_pen.jpg) |
+
+## Additional topic backgrounds (batch 2)
+
+Backgrounds added for topics that previously fell back to a section/default image.
+
+| Topic | File | License | Author | Source |
+|---|---|---|---|---|
+| everett-massacre | everett-massacre.jpg | Public domain (no known copyright, 1916) | UW Digital Collections | [File](https://commons.wikimedia.org/wiki/File:Funeral_attendees_gathered_by_coffins_of_Everett_Massacre_victims%2C_November_18%2C_1916._%286942572202%29.jpg) |
+| faln | faln.jpg | CC BY 3.0 | Prensa Presidencial – Government of Venezuela | [File](https://commons.wikimedia.org/wiki/File:Oscar_L%C3%B3pez_Rivera.png) |
+| earth-liberation-front | earth-liberation-front.jpg | CC BY-SA 3.0 | M.O. Stevens | [File](https://commons.wikimedia.org/wiki/File:Northern_Oregon_Coast_Range_logging_area_2_-_Washington_and_Yamhill_counties%2C_Oregon.jpg) |
+| move | move.jpg | Public domain | Al Schell | [File](https://commons.wikimedia.org/wiki/File:Burned_out_homes_after_1985_MOVE_bombing.jpg) |
+| republic-of-new-afrika | republic-of-new-afrika.png | Public domain | — (UNIA / Pan-African flag, adopted by the RNA) | [File](https://commons.wikimedia.org/wiki/File:Flag_of_the_UNIA.svg) |
+| los-macheteros | los-macheteros.png | CC BY-SA 4.0 | Viiticus | [File](https://commons.wikimedia.org/wiki/File:Flag_of_the_Boricua_Popular_Army.svg) |
+| united-freedom-front | united-freedom-front.jpg | CC BY 2.0 | rahuldlucca | [File](https://commons.wikimedia.org/wiki/File:South_Africa_House_anti_apartheid_London_1989.jpg) |
+| may-19th-communist-organization | may-19th-communist-organization.jpg | Public domain | Ed Ford, New York World-Telegram | [File](https://commons.wikimedia.org/wiki/File:Malcolm_X_NYWTS_2a.jpg) |
+| george-jackson-brigade | george-jackson-brigade.jpg | CC BY-SA 4.0 | Frank Schulenburg | [File](https://commons.wikimedia.org/wiki/File:San_Quentin_State_Prison.jpg) |
+| conscientious-objectors-military-resisters | conscientious-objectors-military-resisters.jpg | Public domain | Universal News | [File](https://commons.wikimedia.org/wiki/File:Draft_card_burning_NYC_1967.jpg) |
+| wrongfully-convicted-cointelpro-frame-ups | wrongfully-convicted-cointelpro-frame-ups.jpg | Public domain | U.S. FBI (Richard W. Held) | [File](https://commons.wikimedia.org/wiki/File:COINTELPRO_-_Jean_Seberg.jpg) |
+| recently-released-political-prisoners | recently-released-political-prisoners.jpg | CC BY 2.0 | dignidadrebelde | [File](https://commons.wikimedia.org/wiki/File:Free_Leonard_Peltier!_Free_All_Political_Prisoners@_%285720012397%29.jpg) |
+| the-reagan-era-1981-1989 | the-reagan-era-1981-1989.jpg | Public domain | Michael Evans (White House) | [File](https://commons.wikimedia.org/wiki/File:Official_Portrait_of_President_Reagan_1981.jpg) |
+| elder-political-prisoners | elder-political-prisoners.jpg | CC BY-SA 4.0 | Carolmooredc | [File](https://commons.wikimedia.org/wiki/File:SupremeCourt_protest_for_Mumia_Abu-Jamal_2000.JPG) |
+| the-green-scare-2005-2010 | the-green-scare-2005-2010.jpg | Public domain | U.S. Forest Service | [File](https://commons.wikimedia.org/wiki/File:Logging_truck_leaving_Staley_Creek_clearcut_unit_number_10_on_Staley_Creek%2C_Lane_County%2C_Rigdon_Ranger_District%2C_Willamette_National_Forest_in_Oregon_on_July_26%2C_1957_%28cropped%29.jpg) |
