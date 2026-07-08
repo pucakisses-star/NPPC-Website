@@ -87,6 +87,7 @@ final class UpdatePrestonSmith extends Command
                     $case->setPartialDate('release_date', 1911, 11, 14);
                     $case->save();
                 }
+                $this->attachPhoto($smith, 'joseph-w-smith.jpg');
                 $this->info('Updated Joseph W. Smith.');
             } else {
                 $this->warn('Joseph W. Smith not found.');
