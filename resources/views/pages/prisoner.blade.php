@@ -117,7 +117,7 @@
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Date of birth:</span><span class="prisoner-meta-value">{{ $prisoner->formatPartialDate('birthdate', 'd. m. Y') }}</span></div>
                 @endif
                 @if($prisoner->age)
-                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}@if($prisoner->death_date) <span class="deceased-dagger" title="Deceased" aria-label="Deceased" style="cursor:help;">†</span>@endif</span></div>
+                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}@if($prisoner->death_date) † Deceased@endif</span></div>
                 @endif
                 @if($prisoner->gender)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Gender:</span><span class="prisoner-meta-value">{{ $prisoner->gender }}</span></div>
