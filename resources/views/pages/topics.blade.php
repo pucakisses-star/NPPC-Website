@@ -19,8 +19,10 @@
 
     .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; min-height: calc(100vh - 108px); }
     /* When the active sub-topic has its own nested topics, a third nav column
-       appears between the sub-topics and the detail panel (Miller-columns). */
-    .tpx-grid--l3 { grid-template-columns: minmax(170px, 210px) minmax(170px, 0.85fr) minmax(170px, 0.85fr) minmax(340px, 480px); }
+       appears (Miller-columns). The two sub-topic columns are packed together
+       on the left at content width; a flexible spacer (photo shows through)
+       separates them from the detail panel, which stays flush-right. */
+    .tpx-grid--l3 { grid-template-columns: minmax(170px, 210px) minmax(190px, 270px) minmax(190px, 270px) 1fr minmax(340px, 520px); }
 
     /* Header bar sits across the nav area (all columns except the detail panel) */
     .tpx-head { grid-column: 1 / -2; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
