@@ -243,12 +243,13 @@ final class SiteController extends Controller {
             $activeTopic = $rootTopics->first();
         }
 
-        // Related prisoners — only for leaf topics (sub-topics / content
-        // pages). Section pages and the Introduction have children or are
-        // overviews, so they show their essay rather than a case list.
+        // Related prisoners — only for sub-topics (any topic with a parent:
+        // content pages, and now nested topics like Everett Massacre under IWW).
+        // The root section pages and the Introduction are overviews, so they
+        // show their essay rather than a case list.
         $relatedPrisoners = collect();
         $displayTopic = $activeChild ?: $activeTopic;
-        if ($displayTopic && $displayTopic->children->isEmpty()) {
+        if ($displayTopic && $displayTopic->parent_id) {
             $searchTerms = [strtolower($displayTopic->title)];
 
             $relatedPrisoners = Prisoner::where(function ($q) use ($searchTerms) {

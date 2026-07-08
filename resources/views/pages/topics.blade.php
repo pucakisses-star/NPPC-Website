@@ -259,6 +259,13 @@
                     <div class="tpx-detail-empty">Content for this topic is coming soon.</div>
                 @endif
 
+                @if($displayTopic->children->isNotEmpty())
+                    <div class="tpx-cases-title">Explore</div>
+                    @foreach($displayTopic->children as $child)
+                        <a class="tpx-index-link" data-no-fade href="/topics/{{ $child->slug }}">{{ $child->title }}</a>
+                    @endforeach
+                @endif
+
                 @if($relatedPrisoners->isNotEmpty())
                     <div class="tpx-cases-title">Related Cases ({{ $relatedPrisoners->count() }})</div>
                     @foreach($relatedPrisoners as $prisoner)
