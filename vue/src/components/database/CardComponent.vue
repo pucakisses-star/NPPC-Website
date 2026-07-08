@@ -117,7 +117,7 @@ const mainCase = props.record.cases[0]
               <div :class="heading5">{{field.title}}</div>
               <div :class="textValue">{{parseValueForOutput(record[field.fieldKey], field.fieldKey) ?? ''}}</div>
               <div v-if="field.title === 'Age'">
-                <span class="text-sm relative" style="top: -25px;left: 22px;;">{{ record['Death date'] ? 'Deceased' : '' }}</span>
+                <span v-if="record['Death date']" class="text-sm relative" style="top: -25px;left: 22px;cursor:help;" title="Deceased" aria-label="Deceased">†</span>
               </div>
             </div>
           </template>
