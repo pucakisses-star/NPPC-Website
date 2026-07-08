@@ -12,7 +12,6 @@ use Illuminate\Console\Command;
  *
  *   - 4 IWW labor-war defendants: Giuseppe Caruso (Lawrence 1912),
  *     Richard "Blackie" Ford & Herman D. Suhr (Wheatland 1913),
- *     John McInerney (Centralia 1920, died in prison)
  *   - 1 Magonista: Antonio I. Villarreal (PLM 1907)
  *   - 2 Detroit Sweet case (Black armed self-defense, 1925):
  *     Ossian Sweet, Henry Sweet
@@ -116,30 +115,6 @@ final class AddPolViolenceDeep extends Command {
                     'sentence' => 'Life imprisonment; pardoned.',
                 ]],
             ],
-            [
-                'name' => 'John McInerney',
-                'first_name' => 'John',
-                'last_name' => 'McInerney',
-                'description' => 'IWW member convicted of second-degree murder in the 1920 Centralia trial alongside seven other Wobblies for the November 11, 1919 shooting of American Legion members during the IWW hall raid in Centralia, Washington. McInerney died in custody at the Washington State Penitentiary in 1930.',
-                'state' => 'Washington',
-                'gender' => 'Male',
-                'ideologies' => ['IWW', 'Anarcho-syndicalist'],
-                'affiliation' => ['Industrial Workers of the World'],
-                'era' => '1920s',
-                'in_custody' => false,
-                'released' => false,
-                'cases' => [[
-                    'institution_name' => 'Washington State Penitentiary',
-                    'institution_state' => 'Washington',
-                    'charges' => 'Second-degree murder (Centralia Massacre, November 11, 1919).',
-                    'arrest_date' => '1919-11-11',
-                    'sentenced_date' => '1920-03-13',
-                    'death_in_custody_date' => '1930-01-01',
-                    'convicted' => 'Yes.',
-                    'sentence' => '25–40 years; died in custody at Washington State Penitentiary in 1930.',
-                ]],
-            ],
-
             // === Magonista (PLM, Mexican Revolution) ===
             [
                 'name' => 'Antonio I. Villarreal',
