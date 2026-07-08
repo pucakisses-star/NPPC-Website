@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\DB;
  * is the same man who, booked as "Jim Mack" (IWW prisoner no. 4888), was held
  * after the 1916 Everett Massacre — confirmed by sources describing the
  * Centralia McInerney as "an Irish immigrant who was a veteran of the Everett
- * Massacre." Adds his "Jim Mack" alias, an estimated birth year (1884, from his
- * death at age 46 in 1930), the Everett Massacre affiliation, a note in his bio,
- * and a second case for the 1916 Everett detention — without disturbing his
- * existing Centralia case. Idempotent (only adds the Everett case once).
+ * Massacre." Adds his "Jim Mack" alias, his birth and death dates (born
+ * Aug 15, 1886 in Scariff, County Clare, Ireland; died Aug 13, 1930), the
+ * Everett Massacre affiliation, a note in his bio, and a second case for the
+ * 1916 Everett detention — without disturbing his existing Centralia case.
+ * Idempotent (only adds the Everett case once).
  */
 final class FillJamesMcInerneyEverett extends Command
 {
@@ -49,9 +50,9 @@ final class FillJamesMcInerneyEverett extends Command
             if (empty($prisoner->aka)) {
                 $prisoner->aka = 'Jim Mack';
             }
-            if (empty($prisoner->birthdate)) {
-                $prisoner->setPartialDate('birthdate', 1884);
-            }
+            // Exact dates: born Aug 15, 1886, Scariff, County Clare, Ireland; died Aug 13, 1930.
+            $prisoner->setPartialDate('birthdate', 1886, 8, 15);
+            $prisoner->setPartialDate('death_date', 1930, 8, 13);
             $aff = (array) $prisoner->affiliation;
             if (! in_array('Everett Massacre defendants', $aff, true)) {
                 $aff[] = 'Everett Massacre defendants';
@@ -62,6 +63,14 @@ final class FillJamesMcInerneyEverett extends Command
                     .' McInerney was also a veteran of the 1916 Everett Massacre: booked as "Jim Mack" (IWW prisoner no. 4888), he was among the 74 Wobblies jailed on murder charges after the shooting at the Everett dock, before those charges were dropped.';
             }
             $prisoner->save();
+
+            // Align his Centralia death-in-custody date with the confirmed date.
+            foreach ($prisoner->cases as $c) {
+                if (! empty($c->death_in_custody_date)) {
+                    $c->setPartialDate('death_in_custody_date', 1930, 8, 13);
+                    $c->save();
+                }
+            }
 
             // Add the Everett case only if it isn't already present.
             $hasEverett = $prisoner->cases()->where('charges', 'like', '%Everett%')->exists();
