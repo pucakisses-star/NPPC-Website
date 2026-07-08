@@ -30,14 +30,13 @@ final class AddHarDayal extends Command
     public function handle(): int
     {
         DB::transaction(function () {
-            $prisoner = Prisoner::withUnderReview()->where('name', 'Har Dayal')->first();
-            if ($prisoner) {
-                $this->warn('Skipped (already exists): Har Dayal');
+            // Create-or-update so the record's fields stay authoritative on
+            // re-run (e.g. the IWW affiliation added later). The case is only
+            // created for a brand-new record so re-running never duplicates it.
+            $existing = Prisoner::withUnderReview()->where('name', 'Har Dayal')->first();
+            $prisoner = $existing ?? new Prisoner(['name' => 'Har Dayal']);
 
-                return;
-            }
-
-            $prisoner = Prisoner::create([
+            $prisoner->fill([
                 'name' => 'Har Dayal',
                 'first_name' => 'Har',
                 'last_name' => 'Dayal',
@@ -46,8 +45,8 @@ final class AddHarDayal extends Command
                 'state' => 'California',
                 'era' => '1910s',
                 'ideologies' => ['Indian independence', 'Anarchism'],
-                'affiliation' => ['Ghadar Party'],
-                'description' => 'Lala Har Dayal was an Indian revolutionary, scholar, and anti-colonial organizer who became a leading figure of the Indian independence movement in the United States. A lecturer at Stanford University, in 1913 he helped found the Ghadar Party in San Francisco, which called for an armed uprising against British rule in India. On March 16, 1914 he was arrested by U.S. immigration authorities for deportation as an "undesirable alien," on the grounds that he was an anarchist, and was freed on bail on March 27, 1914. Rather than submit to deportation he jumped bail and fled to Switzerland on April 14, 1914, beginning a long exile in Europe, where he continued to work for Indian independence. His exile ended when he returned to the United States on November 7, 1938. He died in Philadelphia the following year.',
+                'affiliation' => ['Ghadar Party', 'Industrial Workers of the World (IWW)'],
+                'description' => 'Lala Har Dayal was an Indian revolutionary, scholar, and anti-colonial organizer who became a leading figure of the Indian independence movement in the United States. A lecturer at Stanford University, he was also active in the Bay Area labor movement and served as secretary of the San Francisco branch of the Industrial Workers of the World (IWW). In 1913 he helped found the Ghadar Party in San Francisco, which called for an armed uprising against British rule in India. On March 16, 1914 he was arrested by U.S. immigration authorities for deportation as an "undesirable alien," on the grounds that he was an anarchist, and was freed on bail on March 27, 1914. Rather than submit to deportation he jumped bail and fled to Switzerland on April 14, 1914, beginning a long exile in Europe, where he continued to work for Indian independence. His exile ended when he returned to the United States on November 7, 1938. He died in Philadelphia the following year.',
                 'in_custody' => false,
                 'released' => true,
                 'in_exile' => true,
@@ -58,19 +57,25 @@ final class AddHarDayal extends Command
             $prisoner->setPartialDate('death_date', 1939, 3, 4);
             $prisoner->save();
 
-            $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
-            $case->fill([
-                'prisoner_id' => $prisoner->id,
-                'charges' => 'Arrested by U.S. immigration authorities for deportation as an "undesirable alien," on the grounds that he was an anarchist, over his Ghadar Party organizing for Indian independence.',
-                'convicted' => 'No — held for deportation and freed on bail; he jumped bail and fled the country before any deportation proceeding was completed.',
-                'sentence' => 'Arrested March 16, 1914 and released on bail March 27, 1914. Facing deportation, he fled to Switzerland on April 14, 1914, beginning an exile in Europe that lasted until he returned to the United States on November 7, 1938.',
-            ]);
-            $case->setPartialDate('arrest_date', 1914, 3, 16);
-            $case->setPartialDate('incarceration_date', 1914, 3, 16);
-            $case->setPartialDate('release_date', 1914, 3, 27);
-            $case->setPartialDate('in_exile_since', 1914, 4, 14);
-            $case->setPartialDate('end_of_exile', 1938, 11, 7);
-            $case->save();
+            if ($existing) {
+                $this->info('Updated: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
+            } else {
+                $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
+                $case->fill([
+                    'prisoner_id' => $prisoner->id,
+                    'charges' => 'Arrested by U.S. immigration authorities for deportation as an "undesirable alien," on the grounds that he was an anarchist, over his Ghadar Party organizing for Indian independence.',
+                    'convicted' => 'No — held for deportation and freed on bail; he jumped bail and fled the country before any deportation proceeding was completed.',
+                    'sentence' => 'Arrested March 16, 1914 and released on bail March 27, 1914. Facing deportation, he fled to Switzerland on April 14, 1914, beginning an exile in Europe that lasted until he returned to the United States on November 7, 1938.',
+                ]);
+                $case->setPartialDate('arrest_date', 1914, 3, 16);
+                $case->setPartialDate('incarceration_date', 1914, 3, 16);
+                $case->setPartialDate('release_date', 1914, 3, 27);
+                $case->setPartialDate('in_exile_since', 1914, 4, 14);
+                $case->setPartialDate('end_of_exile', 1938, 11, 7);
+                $case->save();
+
+                $this->info('Added: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
+            }
 
             // Public-domain 1910s portrait, if bundled and not already set.
             $src = database_path('data/photos/har-dayal.jpg');
@@ -80,8 +85,6 @@ final class AddHarDayal extends Command
                 $prisoner->photo = 'prisoners/har-dayal.jpg';
                 $prisoner->save();
             }
-
-            $this->info('Added: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
         });
 
         Cache::forget(PrisonerApiController::cacheKey());
