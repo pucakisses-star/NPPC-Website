@@ -9,6 +9,7 @@ use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Adds Helen Schloss, "the Red Nurse," a socialist public-health nurse jailed
@@ -65,6 +66,15 @@ final class AddHelenSchloss extends Command
             $case->setPartialDate('incarceration_date', 1912, 10);
             $case->setPartialDate('release_date', 1912, 11);
             $case->save();
+
+            // Attach her newspaper portrait (public domain), cropped from the clipping.
+            $src = database_path('data/photos/helen-schloss.jpg');
+            if (is_file($src) && empty($prisoner->photo)) {
+                Storage::disk('public')->makeDirectory('prisoners');
+                Storage::disk('public')->put('prisoners/helen-schloss.jpg', (string) file_get_contents($src));
+                $prisoner->photo = 'prisoners/helen-schloss.jpg';
+                $prisoner->save();
+            }
 
             $this->info(($prisoner->wasRecentlyCreated ? 'Added: ' : 'Filled: ').$prisoner->name.' (slug: '.$prisoner->slug.')');
         });
