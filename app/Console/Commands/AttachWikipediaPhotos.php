@@ -44,6 +44,7 @@ final class AttachWikipediaPhotos extends Command
         'Wes Studi' => 'photos/wes-studi.jpg',
         'Clemente Soto Vélez' => 'photos/clemente-soto-velez.jpg',
         'Lyda Conley' => 'photos/lyda-conley.jpg',
+        'Voltairine de Cleyre' => 'photos/voltairine-de-cleyre.jpg',
     ];
 
     public function handle(): int
