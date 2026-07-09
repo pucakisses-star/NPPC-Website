@@ -53,7 +53,7 @@ final class AddPpBatch5 extends Command
             ],
             [
                 'name' => 'Per Herngren', 'first' => 'Per', 'last' => 'Herngren', 'aka' => 'Pat Herngren', 'gender' => 'Male',
-                'state' => 'Sweden', 'inmate' => '03824-018', 'era' => '1980s',
+                'state' => null, 'inmate' => '03824-018', 'era' => '1980s',
                 'ideologies' => ['Anti-militarism', 'Christian pacifism'], 'affiliation' => ['Plowshares'],
                 'desc' => 'Per Herngren is a Swedish peace activist and writer on nonviolence. On Easter morning, April 22, 1984, he was one of eight Pershing Plowshares activists who entered a Martin Marietta plant in Orlando, Florida, and hammered and poured blood on Pershing II and Patriot missile components. He received an eight-year U.S. sentence — longer than his co-defendants — and served about fifteen months across eleven prisons before being deported to Sweden.',
                 'prison' => ['FCI Danbury', 'Danbury', 'Connecticut'],
