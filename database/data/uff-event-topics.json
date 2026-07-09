@@ -1,0 +1,41 @@
+{
+  "overview": "<p>The United Freedom Front was a small, disciplined armed clandestine group built by working-class ex-prisoners and Vietnam-era radicals around Raymond Luc Levasseur and Tom Manning. Across nearly a decade underground it bombed corporate and military targets tied to South African apartheid and U.S. intervention in Central America — always at night, with warning calls — until the November 1984 arrests of the \"Ohio 7\" and the marathon prosecutions that followed, including the last great sedition trial of the twentieth century, which the government lost. The events below trace that history and its prisoners.</p>",
+  "events": [
+    {
+      "slug": "uff-origins-scar",
+      "title": "Origins: Prisoners, SCAR & the Melville–Jackson Unit (1971–1976)",
+      "sort_order": 10,
+      "body": "<p>The UFF's founders came out of prison, not the campuses. Raymond Luc Levasseur, a French-Canadian mill-town Vietnam veteran radicalized by the war and by a Tennessee drug sentence, and Tom Manning, a Boston working-class veteran politicized in Walpole prison, met through SCAR — the Statewide Correctional Alliance for Reform, a Maine ex-prisoner organization running bail funds, a bookstore, and prisoner-support programs in the early 1970s. Around them gathered Carol Saucier Manning, Pat Gros, and the Ohio organizers Jaan Laaman and Barbara Curzi, with Richard Williams and Kazi Toure of the same prison-movement milieu.</p><p>Concluding that legal reform work was met only with repression, the group went underground in the mid-1970s as the Sam Melville–Jonathan Jackson Unit — named for the Attica and Marin County martyrs — announcing itself in 1976 by bombing the Suffolk County Courthouse in Boston in protest of prison conditions and the case of Bobby Dellelo.</p>"
+    },
+    {
+      "slug": "uff-bombing-campaign",
+      "title": "The Bombing Campaign: Apartheid & Central America (1976–1984)",
+      "sort_order": 20,
+      "body": "<p>Over nearly a decade the network carried out roughly twenty bombings and attempted bombings across the Northeast under the Sam Melville–Jonathan Jackson and United Freedom Front names — IBM and Union Carbide offices for their South African operations; military recruiting stations, Navy and defense-contractor facilities for the wars in Central America; courthouses for the prison struggle. The actions were conducted at night with telephoned warnings, and communiqués — typed over the UFF's five-pointed star — laid out each target's corporate or military role.</p><p>The campaign injured almost no one across its span, a fact the defense would place at the center of the later trials; the government answered with one of the largest fugitive investigations of the era, BOSLUC, and years of grand juries that jailed supporters who refused to testify.</p>"
+    },
+    {
+      "slug": "uff-lamonaco-shooting",
+      "title": "The Death of Trooper Philip Lamonaco (1981)",
+      "sort_order": 30,
+      "body": "<p>On December 21, 1981, New Jersey State Trooper Philip Lamonaco was shot and killed in a gunfight after stopping a car on Interstate 80 carrying Tom Manning and Richard Williams. The killing made the underground network the object of a massive manhunt and, for the movement, produced its hardest cases. Manning, who maintained he fired in self-defense after Lamonaco shot him, was convicted of murder in 1987 and sentenced to life; Williams's first trial ended in a hung jury, and he was convicted at a 1986 retrial.</p><p>Both men spent the rest of their lives in prison as recognized political prisoners of the prison-movement generation — Williams died in custody in 2005, and Manning, an accomplished painter whose work toured with political-prisoner art exhibitions, died at USP Hazelton in 2019, still serving the New Jersey life term alongside his federal sentences.</p>"
+    },
+    {
+      "slug": "uff-ohio-7-arrests",
+      "title": "The Ohio 7 Arrests (1984–1985)",
+      "sort_order": 40,
+      "body": "<p>The decade underground ended in the fall of 1984. On November 4, FBI agents took Raymond Levasseur and Pat Gros, with their three daughters, near Deerfield, Ohio, and captured the Mannings' close comrades Jaan Laaman and Barbara Curzi with Richard Williams in Cleveland the same day; Tom and Carol Manning were caught in Norfolk, Virginia the following April. The seven adults — tried together as the \"Ohio 7\" — had raised eleven children underground, and the government's treatment of those children, interrogated and placed in custody as leverage, became a lasting scandal of the case.</p><p>In the 1986 Brooklyn federal trial the defendants were convicted of the bombings themselves, drawing sentences up to 53 years (Levasseur, Manning) and 45 years (Laaman, Williams), with lesser terms for Carol Manning and Curzi and probation-range outcomes for Gros — punishment the defense noted exceeded most contemporary sentences for violent crimes that killed.</p>"
+    },
+    {
+      "slug": "uff-sedition-trial",
+      "title": "The Springfield Sedition Trial (1989)",
+      "sort_order": 50,
+      "body": "<p>Not content with the bombing convictions, the government indicted the Ohio 7 for seditious conspiracy and RICO — putting their politics themselves on trial in Springfield, Massachusetts in 1989, in the last major sedition prosecution of the century. Levasseur defended himself, turning the ten-month trial into a history of the prison movement, apartheid, and Central America; the jury acquitted him and Pat Gros outright, and hung for the remaining defendants, after which the government abandoned the case — a multi-million-dollar defeat widely compared to the failed 1988 Fort Smith sedition trial.</p><p>The verdict stands as the era's clearest jury repudiation of prosecuting revolutionaries for their beliefs. Kazi Toure, tried separately, had become the only Black man convicted of sedition in U.S. history — a distinction his supporters wielded in the campaign that won his 1991 release.</p>"
+    },
+    {
+      "slug": "uff-prisoners-releases",
+      "title": "The UFF Prisoners & the Long Releases (1992–2021)",
+      "sort_order": 60,
+      "body": "<p>The UFF prisoners anchored the political-prisoner movement for three decades. Levasseur's writings from Marion and the ADX — where he spent years in isolation units his supporters called internal exile — made him one of the tradition's essential voices; denied parole repeatedly, he was released in 2004 after twenty years. Carol Manning and Barbara Curzi had been freed in the early 1990s, Pat Gros completed probation, and Kazi Toure was released in 1991.</p><p>Richard Williams died of illness at FMC Butner in 2005; Tom Manning died at Hazelton in 2019 after years of medical neglect documented by his supporters. Jaan Laaman, the last UFF prisoner, was released in May 2021 after 37 years, closing the case's ledger — though both Manning's New Jersey life sentence and the movement's memory of the children of the Ohio 7 remain fixtures of political-prisoner history.</p>"
+    }
+  ]
+}

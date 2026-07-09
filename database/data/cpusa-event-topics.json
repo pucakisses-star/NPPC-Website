@@ -1,0 +1,59 @@
+{
+  "overview": "<p>No American organization has produced more political prisoners than the Communist Party USA. From the Palmer Raids that greeted its birth, through the criminal-syndicalism prosecutions of the 1920s and the insurrection case of Angelo Herndon, to the Smith Act and McCarran Act machinery that imprisoned its entire national and state leadership in the 1950s, the Party's century is a map of American political repression — and of the defense campaigns, from the ILD to the fight that ended in Yates v. United States, that finally broke the prosecutions. The events below trace that history.</p>",
+  "events": [
+    {
+      "slug": "cpusa-founding-palmer-raids",
+      "title": "Founding & the Palmer Raids (1919–1920)",
+      "sort_order": 10,
+      "body": "<p>The American communist movement was born in the summer of 1919, when the left wing of the Socialist Party split into the Communist Party of America and the Communist Labor Party — and the federal government attacked it almost at birth. In November 1919 and January 1920, Attorney General A. Mitchell Palmer and his young Radical Division chief J. Edgar Hoover directed coordinated raids in dozens of cities, arresting as many as ten thousand radicals, most without warrants, holding them incommunicado in overcrowded detention pens.</p><p>Hundreds of foreign-born members were deported — 249 on the Buford, the \"Soviet Ark,\" in December 1919 — while citizens faced state sedition and criminal-anarchy prosecutions, including CLP founder Benjamin Gitlow, whose case reached the Supreme Court. The raids drove the movement underground for years and established the deportation of immigrant radicals as a permanent weapon of American politics.</p>"
+    },
+    {
+      "slug": "cpusa-bridgman-syndicalism-cases",
+      "title": "The Bridgman Raid & Criminal-Syndicalism Prosecutions (1922–1927)",
+      "sort_order": 20,
+      "body": "<p>In August 1922 state and federal agents raided the Party's secret convention in the dunes at Bridgman, Michigan, arresting the national leadership and charging them under Michigan's criminal-syndicalism law — simple membership in the Party was the crime. General Secretary C. E. Ruthenberg was convicted and died in 1927 with his appeal pending; William Z. Foster's jury hung. Parallel prosecutions ran across the country under the criminal-syndicalism statutes that more than thirty states had passed against the IWW and the communists.</p><p>In California, Charlotte Anita Whitney's conviction for helping found the Communist Labor Party produced Whitney v. California (1927), in which the Supreme Court upheld guilt by association over Brandeis's great concurrence on free speech; she was pardoned within months. The syndicalism era normalized the doctrine — membership as crime — that the Smith Act would federalize a generation later.</p>"
+    },
+    {
+      "slug": "cpusa-herndon-insurrection-case",
+      "title": "The Angelo Herndon Insurrection Case (1932–1937)",
+      "sort_order": 30,
+      "body": "<p>Angelo Herndon, a nineteen-year-old Black Communist organizer of the unemployed in Atlanta, was arrested in July 1932 after leading an interracial relief march and charged under Georgia's Reconstruction-era slave-insurrection statute — a capital offense — for possessing Party literature. Held incommunicado, he was convicted by an all-white jury in January 1933 and sentenced to eighteen to twenty years on the chain gang. \"You may do what you will with Angelo Herndon,\" he told the court, \"you cannot kill the working class.\"</p><p>The International Labor Defense made Herndon, alongside Scottsboro, the emblem of the Black South's criminalization of dissent. After five years of litigation, bail campaigns, and a return to prison in 1935, the Supreme Court in Herndon v. Lowry (1937) struck down his conviction by a single vote, freeing him and gutting the insurrection statute — one of the era's few outright victories over political prosecution.</p>"
+    },
+    {
+      "slug": "cpusa-browder-passport-case",
+      "title": "The Browder Passport Case (1940–1942)",
+      "sort_order": 40,
+      "body": "<p>As war approached and the Party's Nazi-Soviet-Pact line made it a pariah, the government reached for any available charge against its leaders. General Secretary Earl Browder — the Party's 1936 and 1940 presidential candidate — was prosecuted in 1940 not for anything political but for decades-old passport fraud, and sentenced to four years in Atlanta, a punishment universally understood as political: the sentencing judge was urged by the prosecution itself to note the maximum was rarely given for the offense.</p><p>Browder entered Atlanta in March 1941. After Pearl Harbor made the Soviet Union an ally and \"Free Earl Browder\" a mainstream slogan, President Roosevelt commuted the sentence in May 1942 in the interest of \"national unity.\" The episode previewed the coming pattern: when the Party's politics could not be prosecuted directly, its leaders would be imprisoned on whatever statute lay to hand.</p>"
+    },
+    {
+      "slug": "cpusa-foley-square-trial",
+      "title": "The Foley Square Smith Act Trial (1949)",
+      "sort_order": 50,
+      "body": "<p>In 1948 the Truman Justice Department indicted the Party's entire national board under the Smith Act — not for any act or plan, but for conspiring to teach and advocate the overthrow of the government, a conspiracy proven from Marxist-Leninist classics. The nine-month 1949 trial before Judge Harold Medina at Foley Square was the longest federal trial to that date, a daily front-page spectacle with FBI informers expounding the Party's books.</p><p>All eleven defendants — Eugene Dennis, Benjamin Davis Jr., John Gates, Gus Hall, Henry Winston, and the rest — were convicted in October 1949 and sentenced to five years (three for veteran Robert Thompson, decorated at Guadalcanal). Medina then summarily jailed the defense lawyers for contempt, a punishment upheld by the Supreme Court that chilled political defense work for a decade: after Foley Square, communists could scarcely find counsel.</p>"
+    },
+    {
+      "slug": "cpusa-dennis-underground",
+      "title": "Dennis v. United States & the Party Underground (1951–1955)",
+      "sort_order": 60,
+      "body": "<p>In June 1951 the Supreme Court in Dennis v. United States upheld the Foley Square convictions 6–2, with Black and Douglas dissenting — Black predicting that \"in calmer times\" the decision would be seen for what it was. The leaders went to prison; four, including Gus Hall, Henry Winston, and Gil Green, jumped bail and went underground or fled, drawing added five-year contempt terms when caught. Winston went blind in Terre Haute after a tumor was left untreated, becoming an international cause.</p><p>Expecting fascism, the Party sent hundreds of cadre into an \"underground\" apparatus — a decision that consumed its resources, isolated its members, and handed the FBI an espionage narrative. Dennis green-lit the mass prosecution of the whole second tier of Party leadership across the country.</p>"
+    },
+    {
+      "slug": "cpusa-second-string-trials",
+      "title": "The \"Second-String\" Smith Act Trials (1951–1956)",
+      "sort_order": 70,
+      "body": "<p>After Dennis, the Justice Department indicted the Party's state and district leaderships wholesale: New York's \"second string\" including Elizabeth Gurley Flynn and Claudia Jones, the California board (the Yates defendants including Dorothy Healey and Oleta Yates), and boards in Pennsylvania, Maryland, Ohio, Michigan, Missouri, Washington, Hawaii, Puerto Rico and beyond. In all, some 145 people were indicted under the Smith Act's advocacy and membership clauses and over a hundred convicted, with sentences of two to five years; Claudia Jones was deported to Britain on release, and Flynn served over two years at Alderson in her sixties.</p><p>The trials ran on a traveling repertory of paid FBI informer-witnesses — Harvey Matusow's 1955 recantation, False Witness, blew up several cases — and stripped the Party of functioning leadership everywhere, even as the convictions moved toward a reckoning in the Supreme Court.</p>"
+    },
+    {
+      "slug": "cpusa-mccarran-act-fight",
+      "title": "The McCarran Act, Deportations & the Communist Control Act (1950–1965)",
+      "sort_order": 80,
+      "body": "<p>Beyond the Smith Act, Congress built an administrative machine against the Party. The McCarran Internal Security Act of 1950 — passed over Truman's veto — required \"Communist-action\" organizations to register, created the Subversive Activities Control Board, barred members from passports and defense jobs, and authorized detention camps for emergencies; the Communist Control Act of 1954 purported to outlaw the Party outright. The immigration arm swept up foreign-born radicals for deportation under the McCarran and McCarran–Walter Acts: Harisiades v. Shaughnessy (1952) upheld deportation for past membership, while detainees fought years-long battles from Ellis Island and Terminal Island.</p><p>The Party litigated the registration order for fifteen years, and in Albertson v. SACB (1965) the Supreme Court held that forced registration violated the privilege against self-incrimination — a final, belated collapse of the scheme, by which time the damage was long done.</p>"
+    },
+    {
+      "slug": "cpusa-yates-scales-collapse",
+      "title": "Yates, Scales & the Collapse of the Smith Act Prosecutions (1957–1962)",
+      "sort_order": 90,
+      "body": "<p>On \"Red Monday,\" June 17, 1957, the Supreme Court in Yates v. United States reversed the California convictions, holding that the Smith Act reached only advocacy of concrete action, not abstract doctrine — a standard the government's book-based cases could not meet. Pending prosecutions collapsed across the country, and no new Smith Act advocacy case was ever brought.</p><p>The membership clause survived a last gasp: Junius Scales, a North Carolina textile-family heir who had led the Party in the Carolinas, was convicted for membership alone and entered prison in 1961 — by then having publicly quit the Party after 1956 — becoming the only American imprisoned under the clause. An extraordinary campaign spanning his prosecutor's own doubts won a commutation from President Kennedy in December 1962, closing the Smith Act era after some two decades and well over a hundred political convictions.</p>"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "overview": "<p>The Symbionese Liberation Army was a small armed group that emerged from the Bay Area prison movement in 1973 and burned across the American front page for barely two years — the assassination of Oakland schools superintendent Marcus Foster, the kidnapping of Patricia Hearst, the televised Los Angeles shootout that killed six members — before its survivors were hunted down across three decades of trials ending only in the 2000s. Its prisoners, from Joe Remiro and Russell Little to Sara Jane Olson and the Opsahl-case defendants, span the entire afterlife of the 1970s underground. The events below trace that history.</p>",
+  "events": [
+    {
+      "slug": "sla-formation-prison-movement",
+      "title": "Out of the Prison Movement: the SLA Forms (1973)",
+      "sort_order": 10,
+      "body": "<p>The SLA grew out of the Bay Area's prison-visiting and tutoring programs of the early 1970s, where young white radicals from Berkeley met Black prisoners politicized by George Jackson's writings. Donald DeFreeze, who had been part of a Black Cultural Association program at Vacaville, walked away from Soledad in March 1973 and, sheltered by movement contacts, took the name \"General Field Marshal Cinque.\" Around him gathered a dozen radicals — Nancy Ling Perry, Patricia Soltysik, Angela Atwood, Bill and Emily Harris, Willie Wolfe, Camilla Hall, Joe Remiro, Russell Little — under a seven-headed cobra symbol and the slogan \"Death to the fascist insect that preys upon the life of the people.\"</p><p>Unlike the Weather Underground, which bombed property with warnings, the SLA embraced armed action against people from the start — a choice that isolated it from almost the entire left and defined everything that followed.</p>"
+    },
+    {
+      "slug": "sla-marcus-foster-remiro-little",
+      "title": "The Marcus Foster Assassination & the Remiro–Little Case (1973–1981)",
+      "sort_order": 20,
+      "body": "<p>On November 6, 1973, SLA members shot and killed Marcus Foster, Oakland's first Black superintendent of schools, and gravely wounded his deputy Robert Blackburn, absurdly branding Foster a fascist over a student-ID proposal he had in fact opposed. The killing was denounced across the left, including by imprisoned Black revolutionaries. In January 1974 a traffic stop in Concord netted Joe Remiro and Russell Little, who were convicted of the murder in 1975 and sentenced to life.</p><p>Little's conviction was overturned by the California Court of Appeal, and at his 1981 retrial in Monterey County he was acquitted; he has since said Remiro was likewise not a shooter. Remiro remains imprisoned five decades later — among the longest-held prisoners of the 1970s underground — repeatedly denied parole in a case still entangled with the SLA's founding crime.</p>"
+    },
+    {
+      "slug": "sla-hearst-kidnapping-hibernia",
+      "title": "The Hearst Kidnapping & the Hibernia Bank Robbery (1974)",
+      "sort_order": 30,
+      "body": "<p>On February 4, 1974, the SLA kidnapped nineteen-year-old newspaper heiress Patricia Hearst from her Berkeley apartment, demanding as \"ransom\" a food giveaway to California's poor — the People In Need program her family funded with millions as chaotic crowds mobbed distribution points. The abduction made the tiny group the most famous underground organization on earth.</p><p>Two months later Hearst declared on tape that she had joined her captors as \"Tania,\" and on April 15, 1974, cameras filmed her carrying a carbine in the SLA's robbery of the Hibernia Bank in San Francisco, in which two bystanders were shot. Whether she was a convert or a coerced, brutalized captive — she later described confinement in a closet, rape, and relentless indoctrination — became the central question of her trial and of the group's strange legend.</p>"
+    },
+    {
+      "slug": "sla-la-shootout",
+      "title": "The Los Angeles Shootout (May 17, 1974)",
+      "sort_order": 40,
+      "body": "<p>After a botched shoplifting incident exposed the group's Los Angeles refuge, more than 400 LAPD officers, including the department's new SWAT teams, surrounded a small house at 1466 East 54th Street on May 17, 1974. In a two-hour gun battle broadcast live on television — the first such spectacle in American history — police fired thousands of rounds and the house burned to the ground with the SLA's core inside.</p><p>Six members died: Donald DeFreeze, Nancy Ling Perry, Angela Atwood, Patricia Soltysik, Camilla Hall, and Willie Wolfe, several of gunshots, others of smoke and burns as the house collapsed. The Harrises and Hearst, watching on a motel television, survived as the remnant. The shootout hardened debate that continues: a necessary confrontation with an armed cell, or a deliberate incineration that stood in for trial.</p>"
+    },
+    {
+      "slug": "sla-hearst-trial-clemency",
+      "title": "The Hearst Trial, Commutation & Pardon (1975–2001)",
+      "sort_order": 50,
+      "body": "<p>Patricia Hearst was captured in San Francisco on September 18, 1975, listing her occupation as \"urban guerrilla.\" Her 1976 bank-robbery trial became the case of the decade: F. Lee Bailey's defense of coercion and \"brainwashing\" against prosecutor James Browning's cross-examination, which used her post-arrest silence and Tania rhetoric to convict. She was sentenced to seven years, while the Harrises, convicted of the kidnapping itself, served about eight.</p><p>The disparity — the kidnapped teenager imprisoned nearly as long as her kidnappers — fueled a clemency campaign spanning the political spectrum. President Carter commuted her sentence in February 1979 after 22 months, and President Clinton granted a full pardon in January 2001, the rare American to receive both forms of relief; her case remains the standard reference on coercive captivity and criminal responsibility.</p>"
+    },
+    {
+      "slug": "sla-olson-opsahl-reckoning",
+      "title": "The Long Reckoning: Sara Jane Olson & the Opsahl Case (1999–2009)",
+      "sort_order": 60,
+      "body": "<p>The SLA's second generation — the remnant that regrouped after Los Angeles — surfaced in the courts a quarter century later. Kathleen Soliah, who had lived for decades in St. Paul as Sara Jane Olson, a doctor's wife and community actress, was arrested in June 1999 after an America's Most Wanted broadcast, and in 2002 pleaded guilty to the attempted pipe-bombing of LAPD cars in 1975, drawing a long state term.</p><p>Her arrest revived the unsolved killing of Myrna Opsahl, a mother of four shot dead in the SLA's April 1975 robbery of the Crocker National Bank in Carmichael. In 2002 Emily Harris — who admitted her shotgun fired the fatal blast — Bill Harris, Michael Bortin, and Olson pleaded guilty to second-degree murder, and James Kilgore, arrested in South Africa, followed in 2003. All served terms and were paroled by 2009, closing the SLA's ledger more than thirty years after its two-year rampage.</p>"
+    }
+  ]
+}

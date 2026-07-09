@@ -1,0 +1,41 @@
+{
+  "overview": "<p>The Young Lords transformed from a Chicago street organization into the Puerto Rican counterpart of the Black Panther Party — occupying churches and hospitals to run breakfast programs and health clinics, forcing the city to collect East Harlem's garbage, and building a prison-rights movement after the death of Julio Roldán in the Tombs. Surveilled and infiltrated from the start, the organization produced arrests by the hundred and a political-prisoner tradition that connects the barrio's church occupations to the prison uprisings of the early 1970s. The events below trace that history.</p>",
+  "events": [
+    {
+      "slug": "young-lords-chicago-founding",
+      "title": "From Street Gang to Movement: Chicago & Cha Cha Jiménez (1968–1969)",
+      "sort_order": 10,
+      "body": "<p>The Young Lords began in 1960 as a Puerto Rican street gang in Chicago's Lincoln Park. Their transformation came through prison: José \"Cha Cha\" Jiménez, jailed in 1968, encountered the writings of Malcolm X and the example of the Black Panthers, and on release rebuilt the Lords as the Young Lords Organization — a political formation fighting the urban-renewal bulldozers displacing Puerto Ricans from Lincoln Park.</p><p>The YLO occupied the McCormick Theological Seminary and the People's Church (Armitage Avenue Methodist), where it ran free breakfast and daycare programs, and joined Fred Hampton's original Rainbow Coalition alongside the Panthers and the Young Patriots. The police answer was relentless: raids, hundreds of arrests of Jiménez on movement-related charges, and the never-solved 1969 killing of Lords minister Manuel Ramos by an off-duty officer.</p>"
+    },
+    {
+      "slug": "young-lords-garbage-offensive",
+      "title": "The New York Young Lords & the Garbage Offensive (1969)",
+      "sort_order": 20,
+      "body": "<p>In July 1969, radical Puerto Rican students and street youth in New York — Felipe Luciano, Juan González, Pablo Guzmán, Denise Oliver, Iris Morales and others — won a charter from Chicago and launched the Young Lords in East Harlem. Their first campaign answered the neighborhood's plainest grievance: the city barely collected El Barrio's garbage. When brooms and bags were refused them, the Lords swept the trash into the middle of Third Avenue and set it alight, repeating the \"Garbage Offensive\" through the summer until the city surrendered regular pickup.</p><p>The offensive established the organization's method — seize a concrete need, dramatize it, force the state's hand — and its 13-Point Program fused Puerto Rican independence with socialism and community self-determination. Police infiltration began just as early: the NYPD's BOSS unit had undercover officers inside from the founding.</p>"
+    },
+    {
+      "slug": "young-lords-peoples-church",
+      "title": "The First People's Church Occupation (1969–1970)",
+      "sort_order": 30,
+      "body": "<p>After the First Spanish United Methodist Church on 111th Street refused space for a free breakfast program, the Young Lords took the building on December 28, 1969, renamed it the People's Church, and ran eleven days of breakfast programs, clothing drives, health services, a liberation school, and poetry nights that drew thousands — the single most famous action in Puerto Rican New York's history.</p><p>On January 7, 1970, police entered and arrested 105 members, who went to court as the \"East Harlem 105.\" The occupation multiplied the organization — branches opened in the Bronx, Lower East Side, Philadelphia, and beyond — and set the template of militant service: the church seizure was, as the Lords said, an armed takeover in which the only weapons were breakfast, medicine, and poems.</p>"
+    },
+    {
+      "slug": "young-lords-lincoln-hospital",
+      "title": "The Lincoln Hospital Takeover & the Health Offensives (1970)",
+      "sort_order": 40,
+      "body": "<p>At dawn on July 14, 1970, over a hundred Young Lords occupied the decrepit Lincoln Hospital in the South Bronx — the \"butcher shop\" where Carmen Rodríguez had died in a botched procedure — flying the Puerto Rican flag from its roof and issuing demands for community-worker control, door-to-door preventive care, and a new building. With allies in the hospital's own staff collective, they ran patient advocacy and screening programs during the twelve-hour occupation and left without convictions.</p><p>The health offensives — tuberculosis-truck seizures, lead-poisoning testing drives, and with the Panthers the first acupuncture-based detox program at Lincoln — forced the city to build the new Lincoln Hospital and wrote the Lords into public-health history. The Patient Bill of Rights adopted nationally traces in part to the demands nailed up that morning.</p>"
+    },
+    {
+      "slug": "young-lords-julio-roldan",
+      "title": "Julio Roldán, the Tombs & the Second Church Occupation (1970)",
+      "sort_order": 50,
+      "body": "<p>In October 1970, days after prisoners rebelled against the inhuman conditions of the Manhattan House of Detention — the Tombs — Young Lords member Julio Roldán, arrested on a trivial charge during the ferment, was found hanged in his cell. Authorities called it suicide; the Lords, who had watched a string of Puerto Rican and Black prisoners die the same way that year, called it murder by the state, and carried Roldán's coffin through El Barrio to the People's Church, which they occupied a second time — now openly bearing arms — and held for two months as the Julio Roldán Memorial Defense Center.</p><p>The Roldán case turned the organization decisively toward the prisons: Lords organized the families of Tombs and Attica prisoners, David Pérez and others sat on observer committees, and the group's prison branch made \"political prisoner\" a household phrase in the barrio a year before Attica burned the issue into national consciousness.</p>"
+    },
+    {
+      "slug": "young-lords-repression-decline",
+      "title": "Infiltration, Repression & the Organization's End (1971–1976)",
+      "sort_order": 60,
+      "body": "<p>The Young Lords were saturated targets of the NYPD's Bureau of Special Services and the FBI — the Handschu litigation and later-released files documented undercover officers in the leadership's orbit from 1969 onward, and COINTELPRO-style operations tracked the group as it opened branches in Puerto Rico itself. Members faced continual arrest; supporters counted cases like the Lords defendants swept up around the 1971 armed actions and the surveillance-driven prosecutions of the mid-1970s among the era's political prisoners.</p><p>Renamed the Puerto Rican Revolutionary Workers Organization in 1972, the group turned toward party-building, was wracked by the factionalism its infiltrators fed, and dissolved by 1976. Its veterans — Juan González, Pablo Guzmán, Iris Morales, Denise Oliver — carried its legacy into journalism, law, medicine, and the movements that freed the FALN prisoners a generation later.</p>"
+    }
+  ]
+}

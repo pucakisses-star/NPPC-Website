@@ -1,0 +1,41 @@
+{
+  "overview": "<p>The May 19th Communist Organization — named for the shared birthday of Malcolm X and Ho Chi Minh — was formed in 1978 by women veterans of the Weather Underground and Prairie Fire Organizing Committee who committed themselves to direct support of the Black Liberation Army and other Third-World revolutionary organizations. Its history runs from the 1979 liberation of Assata Shakur, through the 1981 Brink's robbery and the 1983–85 bombing campaign that reached the U.S. Capitol, to the Resistance Conspiracy case — and its imprisoned members, held in the experimental Lexington High Security Unit, became the center of the political-prisoner movement of the 1980s and 1990s. The events below trace that history.</p>",
+  "events": [
+    {
+      "slug": "m19co-formation",
+      "title": "Formation from the Weather Underground's Ashes (1978)",
+      "sort_order": 10,
+      "body": "<p>The May 19th Communist Organization was founded in 1978 in New York by cadre from the collapsed Weather Underground and the Prairie Fire Organizing Committee — most prominently women, including Judith Clark, Susan Rosenberg, Marilyn Buck, Silvia Baraldini, Laura Whitehorn, and Linda Evans. Rejecting the Weather leadership's turn back toward open organizing, May 19th held that the primary duty of white revolutionaries was direct, material support for Black and Puerto Rican armed movements — above all the Black Liberation Army and the FALN — under Third-World leadership.</p><p>The organization operated above ground through solidarity committees and clinics while sustaining a clandestine apparatus of safehouses, false documents, and logistics. That dual structure — legal politics wrapped around an underground — shaped both its actions and the sweeping conspiracy prosecutions that eventually consumed it.</p>"
+    },
+    {
+      "slug": "m19co-assata-liberation",
+      "title": "The Liberation of Assata Shakur (1979)",
+      "sort_order": 20,
+      "body": "<p>On November 2, 1979, a BLA unit walked Assata Shakur out of the Clinton Correctional Facility for Women in New Jersey in a bloodless armed escape organized with May 19th's logistical support — Marilyn Buck and Silvia Baraldini were later convicted for their roles, and Sekou Odinga for commanding the operation. Shakur, convicted in 1977 for the death of a state trooper in a case her defenders regard as the era's paradigmatic frame-up, surfaced in Cuba in 1984, where she received political asylum.</p><p>The escape, claimed as the \"liberation of a prisoner of war,\" was May 19th's founding achievement in its own eyes and the government's central exhibit against it — charged again and again through the RICO and conspiracy prosecutions of the following decade, while Shakur herself became the first woman ever placed on the FBI's Most Wanted Terrorists list, with a $2 million bounty that still stands.</p>"
+    },
+    {
+      "slug": "m19co-brinks-robbery",
+      "title": "The Brink's Robbery at Nyack (1981)",
+      "sort_order": 30,
+      "body": "<p>On October 20, 1981, a joint BLA–May 19th unit robbed a Brink's armored truck of $1.6 million at the Nanuet Mall near Nyack, New York. The robbery went catastrophically wrong: guard Peter Paige was killed at the mall, and at a roadblock minutes later BLA fighter Mtayari Shabaka Sundiata and officers Waverly Brown and Edward O'Grady died in the shootout. Weather veterans Kathy Boudin and David Gilbert, acting as drivers, were captured that day with Judith Clark and Sam Brown; Kuwasi Balagoon, Sekou Odinga, and Marilyn Buck were taken in the months that followed.</p><p>The prosecutions defined the decade's political trials: Balagoon, Gilbert, and Clark, refusing the court's legitimacy as prisoners of war, drew 75-to-life; Boudin pleaded to 20-to-life and was paroled in 2003; Clark's sentence was commuted by Governor Cuomo and she was paroled in 2019; Gilbert's was commuted in 2021. Balagoon died of AIDS in prison in 1986. Brink's shattered both organizations and opened the era of the grand-jury resisters jailed for refusing to testify about it.</p>"
+    },
+    {
+      "slug": "m19co-armed-resistance-unit-bombings",
+      "title": "The Armed Resistance Unit Bombings & the Capitol (1983–1985)",
+      "sort_order": 40,
+      "body": "<p>Between 1983 and 1985, May 19th members carried out a string of night-time bombings of government and military targets in Washington and New York under the names Armed Resistance Unit and Red Guerrilla Resistance — including the National War College, the Washington Navy Yard, and, on November 7, 1983, the U.S. Capitol itself, where a device outside the Senate chamber answered the invasion of Grenada. The actions were carried out with warning calls and caused no injuries, only property damage.</p><p>The Capitol bombing nonetheless produced a permanent transformation of the building's security and stands as the charge around which the government built the Resistance Conspiracy case. For the organization it was the continuation of Weather-style armed propaganda; for prosecutors it was terrorism at the heart of the state, and it guaranteed that May 19th's prisoners would receive some of the longest political sentences of the era.</p>"
+    },
+    {
+      "slug": "m19co-arrests-1984-85",
+      "title": "The Arrests (1984–1985)",
+      "sort_order": 50,
+      "body": "<p>The underground came apart in a cascade of captures. On November 29, 1984, Susan Rosenberg and Timothy Blunk were arrested unloading 740 pounds of dynamite at a Cherry Hill, New Jersey storage locker; tried for possession alone, they received 58 years each — at the time among the longest such sentences in U.S. history, explicitly framed by supporters as punishment for their politics. In May 1985 Marilyn Buck, Linda Evans, and Laura Whitehorn were taken in Baltimore and elsewhere; Evans drew 40 years for false-ID gun purchases and harboring.</p><p>Rosenberg and Baraldini were sent to the underground Lexington High Security Unit, a small isolation prison for women political prisoners whose sensory-deprivation regime drew Amnesty International's condemnation and was closed by federal court order in 1988 — the case that put the term \"political prisoner\" back into American federal jurisprudence.</p>"
+    },
+    {
+      "slug": "m19co-resistance-conspiracy-case",
+      "title": "The Resistance Conspiracy Case & the Long Release (1988–2021)",
+      "sort_order": 60,
+      "body": "<p>In May 1988 the government indicted six imprisoned radicals — Marilyn Buck, Linda Evans, Susan Rosenberg, Laura Whitehorn, Alan Berkman, and Timothy Blunk — for the Capitol and related bombings as a single \"resistance conspiracy.\" The defendants fought a three-year political trial in Washington; in 1990, in a plea that dismissed charges against the three already serving long terms, Whitehorn, Evans, and the gravely ill Berkman pleaded to conspiracy and destruction of government property. Berkman, twice a cancer patient behind bars, was released in 1992 and became an AIDS physician; Whitehorn was released in 1999.</p><p>On his last day in office in January 2001, President Clinton commuted the sentences of Rosenberg and Evans, ending the case's active imprisonments. Buck, serving 80 years across the Assata escape, Brink's, and the bombings, was granted compassionate release in July 2010 with terminal cancer and died within a month — the organization's last political prisoner, freed twenty days before her death.</p>"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "overview": "<p>Los Macheteros — the Ejército Popular Boricua, or Boricua Popular Army — took up the armed independence struggle inside Puerto Rico itself in 1976, under the leadership of the veteran clandestino Filiberto Ojeda Ríos. From the destruction of nine National Guard jets at Muñiz Air Base to the $7.1 million Wells Fargo robbery in Hartford — the money famously routed to the movement, with Robin Hood-style giveaways — the organization drew one of the largest FBI operations in history, the Hartford 15 prosecutions, and, in 2005, the killing of Ojeda Ríos in an FBI siege on the anniversary of the Grito de Lares. The events below trace that history and its prisoners.</p>",
+  "events": [
+    {
+      "slug": "macheteros-founding-ojeda-rios",
+      "title": "Founding & Filiberto Ojeda Ríos (1976)",
+      "sort_order": 10,
+      "body": "<p>The Boricua Popular Army — universally known as Los Macheteros, the machete-wielders, after the cane-cutters of Puerto Rico's history — was founded in 1976 by Filiberto Ojeda Ríos, Juan Segarra Palmer, Orlando González Claudio and other veterans of the island's clandestine independence organizations. A musician by training who had played trumpet in Cuban orchestras, Ojeda had helped found the earlier MIRA and worked with the FALN's island wing; the Macheteros were his project of a disciplined armed organization rooted in Puerto Rico itself rather than the diaspora.</p><p>The group announced itself with attacks on police and military targets framed as reprisals for state violence against independentistas — in a decade when the Cerro Maravilla police killings of 1978 seemed to confirm everything the clandestinos said about the colonial state.</p>"
+    },
+    {
+      "slug": "macheteros-sabana-seca",
+      "title": "The Sabana Seca Ambush (1979)",
+      "sort_order": 20,
+      "body": "<p>On December 3, 1979, Macheteros gunmen ambushed a U.S. Navy bus carrying personnel to the Sabana Seca communications station, killing two sailors and wounding ten. Communiqués claimed the attack jointly with other armed groups as retaliation for the death of Ángel Rodríguez Cristóbal — the Vieques protester found hanged in his cell at the federal prison in Tallahassee a month earlier, a death the movement regarded as murder — and for the 1978 police killings of two young independentistas at Cerro Maravilla.</p><p>Sabana Seca was the deadliest single action of the island's armed struggle and marked the Macheteros as the FBI's chief target in Puerto Rico. No one was ever convicted for the ambush itself; its cited grievances — Vieques, Cerro Maravilla, deaths in custody — remained the movement's central political indictments of the United States.</p>"
+    },
+    {
+      "slug": "macheteros-muniz-air-base",
+      "title": "The Muñiz Air National Guard Base Raid (1981)",
+      "sort_order": 30,
+      "body": "<p>In the early hours of January 12, 1981, a Machetero commando infiltrated Muñiz Air National Guard Base at San Juan's international airport and blew up eleven jet aircraft — destroying eight A-7 Corsair fighters and a Phantom outright — causing some $45 million in damage in a few minutes, without casualties. It was among the costliest attacks ever carried out on a U.S. military installation in peacetime.</p><p>The raid, announced as a protest against the use of Puerto Rico as a U.S. military platform and against the Vieques bombing range, humiliated base security and made the tiny organization internationally known. It also concentrated federal attention: the FBI's San Juan field office and a Connecticut grand jury began building the conspiracy architecture that would produce the mass arrests of 1985.</p>"
+    },
+    {
+      "slug": "macheteros-wells-fargo-gerena",
+      "title": "The Wells Fargo Robbery & Víctor Gerena (1983)",
+      "sort_order": 40,
+      "body": "<p>On September 12, 1983, Víctor Manuel Gerena, a young Puerto Rican guard at the Wells Fargo depot in West Hartford, Connecticut, disarmed his co-workers at the end of a shift and drove off with $7.1 million — then the largest cash robbery in U.S. history — in an operation the Macheteros called Águila Blanca, after the guerrilla hero of 1898. The money moved through Mexico to Cuba and, the group said, to the struggle; in a flourish that fixed the legend, Macheteros dressed as the Three Kings distributed toys to poor children in Hartford and Puerto Rico the following Epiphany.</p><p>Gerena vanished into Cuba and spent 32 years on the FBI's Ten Most Wanted list — longer than anyone in its history — before being quietly removed in 2016, never captured. The robbery financed the organization and triggered the investigation that broke it.</p>"
+    },
+    {
+      "slug": "macheteros-1985-raids-hartford-15",
+      "title": "The 1985 Island Raids & the Hartford 15 Trials",
+      "sort_order": 50,
+      "body": "<p>At dawn on August 30, 1985, some 300 FBI agents executed simultaneous raids across Puerto Rico — the largest FBI operation ever mounted on the island — arresting Ojeda Ríos, Segarra Palmer, and a dozen others for the Wells Fargo robbery and hauling them to Hartford for trial as the \"Hartford 15.\" The raids, with their blacked-out helicopters and seized movement archives, were denounced across the island's political spectrum as a colonial show of force; defendants were held years in pretrial detention, some in isolation units.</p><p>The prosecutions sprawled for a decade. Ojeda Ríos, who had fired on agents during his arrest, defended himself before a San Juan jury and was acquitted of assault in 1989 — jurors accepting self-defense. Segarra Palmer drew 55 years; Norman Ramírez and others received lesser terms; and in 1999 President Clinton's clemency, which freed the FALN prisoners, cut Segarra Palmer's sentence, releasing him in 2004.</p>"
+    },
+    {
+      "slug": "macheteros-ojeda-rios-killing",
+      "title": "The FBI Killing of Filiberto Ojeda Ríos (2005)",
+      "sort_order": 60,
+      "body": "<p>Freed on bail during the Hartford litigation, Ojeda Ríos removed his electronic monitor in 1990 and disappeared into the island's mountains, becoming, over fifteen clandestine years of communiqués and radio interviews, the living symbol of the independence underground — convicted of the Wells Fargo conspiracy in absentia in 1992. On September 23, 2005 — the anniversary of the Grito de Lares, the island's sacred insurrectionary date — FBI agents surrounded his farmhouse near Hormigueros. In the exchange of fire an agent was wounded and Ojeda, 72, was shot by a sniper; the FBI then waited nearly 24 hours to enter, and he bled to death from a treatable wound.</p><p>The killing provoked island-wide outrage — the governor, the bar association, and political parties across the status spectrum condemned it, and the Puerto Rico Civil Rights Commission and later inquiries called the operation unjustifiable. Thousands attended his funeral. \"Filiberto vive\" remains a wall-slogan of the independence movement.</p>"
+    },
+    {
+      "slug": "macheteros-gonzalez-claudio-cases",
+      "title": "The Last Prosecutions: the González Claudio Brothers (2008–2012)",
+      "sort_order": 70,
+      "body": "<p>The Wells Fargo case outlived its era. Avelino González Claudio, a founding-generation Machetero who had spent 23 years underground, was arrested in Puerto Rico in February 2008, extradited to Connecticut, and — at 65, suffering from Parkinson's disease — sentenced in 2010 to seven years for the robbery conspiracy. Supporters campaigned for him as the hemisphere's newest political prisoner of one of its oldest struggles; he was released in 2013 and returned to a hero's welcome.</p><p>His brother Norberto González Claudio, arrested in 2011 after 26 years as a fugitive, pleaded guilty and received five years, closing the federal docket on Águila Blanca nearly three decades after the robbery — with Víctor Gerena, the man who carried it out, never caught. The brothers' cases carried the Puerto Rican political-prisoner tradition, begun under Albizu Campos, into its ninth decade.</p>"
+    }
+  ]
+}
