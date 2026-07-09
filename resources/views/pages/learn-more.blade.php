@@ -4,22 +4,43 @@
 <style>
     .lm-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
 
-    /* Hero — slatted strip layout */
-    .lm-hero { position: relative; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; background: #000; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+    /* Hero — staggered vertical photo panels (after freedomhouse.org's
+       "Free Them All" hero): each strip starts and ends at its own height,
+       duotone-tinted, with the serif title overlaid across them. */
+    .lm-hero { position: relative; min-height: 620px; overflow: hidden; display: flex; align-items: flex-end; background: #0a0a0e; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
     /* Let the full-bleed hero escape the centered .container (this page only);
        every other section stays within the container's max-width. */
     .page-learn-more .container { overflow: visible; }
-    .lm-hero-photos { position: absolute; inset: 40px 24px; display: flex; gap: 20px; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
-    .lm-hero-photos > div { flex: 1; background-size: cover; background-position: center top; filter: grayscale(85%); }
-    .lm-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 70%); pointer-events: none; }
-    .lm-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center; padding: 96px 24px 64px; }
-    .lm-hero-title { font-size: 3rem; font-weight: 700; color: var(--on-dark); line-height: 1.2; margin-bottom: 24px; }
+    .lm-hero-photos { position: absolute; inset: 0 20px; display: flex; gap: 14px; align-items: stretch; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
+    .lm-hero-photos > div { flex: 1; position: relative; overflow: hidden; }
+    /* The photo lives on ::before so the grayscale filter can't wash out the
+       duotone tint layered above it. background-image is inherited from the
+       panel's inline style. */
+    .lm-hero-photos > div::before { content: ''; position: absolute; inset: 0; background-image: inherit; background-size: cover; background-position: center top; filter: grayscale(100%) contrast(1.05) brightness(1.05); }
+    /* Duotone wash per panel — warm gold / crimson / slate, cycling. */
+    .lm-hero-photos > div::after { content: ''; position: absolute; inset: 0; mix-blend-mode: multiply; opacity: 0.5; }
+    .lm-hero-photos > div:nth-child(3n+1)::after { background: #b98a2f; }
+    .lm-hero-photos > div:nth-child(3n+2)::after { background: #7a1f2b; }
+    .lm-hero-photos > div:nth-child(3n)::after   { background: #2f4d6b; }
+    /* Uneven tops and bottoms — no two neighbors aligned. */
+    .lm-hero-photos > div:nth-child(1) { margin-top: 52px;  margin-bottom: 150px; }
+    .lm-hero-photos > div:nth-child(2) { margin-top: 0;     margin-bottom: 64px; }
+    .lm-hero-photos > div:nth-child(3) { margin-top: 96px;  margin-bottom: 0; }
+    .lm-hero-photos > div:nth-child(4) { margin-top: 24px;  margin-bottom: 110px; }
+    .lm-hero-photos > div:nth-child(5) { margin-top: 68px;  margin-bottom: 36px; }
+    .lm-hero-photos > div:nth-child(6) { margin-top: 0;     margin-bottom: 88px; }
+    .lm-hero-photos > div:nth-child(7) { margin-top: 118px; margin-bottom: 18px; }
+    .lm-hero-photos > div:nth-child(8) { margin-top: 36px;  margin-bottom: 0; }
+    .lm-hero-photos > div:nth-child(9) { margin-top: 80px;  margin-bottom: 124px; }
+    .lm-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.62) 78%); pointer-events: none; }
+    .lm-hero-content { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; text-align: center; padding: 96px 24px 64px; }
+    .lm-hero-title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 3.4rem; font-weight: 700; color: var(--on-dark); line-height: 1.15; margin-bottom: 24px; text-shadow: 0 2px 24px rgba(0,0,0,0.6); }
     .lm-hero-title .lm-line { display: block; overflow: hidden; }
     .lm-hero-title .lm-line > span { display: inline-block; clip-path: inset(0 100% 0 0); animation: revealSweep 1.5s ease-out forwards; }
     .lm-hero-title .lm-line:nth-child(1) > span { animation-delay: 0.4s; }
     .lm-hero-title .lm-line:nth-child(2) > span { animation-delay: 1.1s; }
     .lm-hero-title .lm-line:nth-child(3) > span { animation-delay: 1.8s; }
-    .lm-hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 32px; opacity: 0; animation: fadeInUp 1s ease-out 2.8s forwards; }
+    .lm-hero-sub { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.15rem; color: rgba(255,255,255,0.92); line-height: 1.6; margin: 0 auto 32px; max-width: 620px; background: rgba(0,0,0,0.45); padding: 18px 26px; opacity: 0; animation: fadeInUp 1s ease-out 2.8s forwards; }
     .lm-hero-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeInUp 1s ease-out 3.2s forwards; }
     .lm-hero-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-size: 14px; font-weight: 700; border: 1px solid rgba(255,255,255,0.4); color: #fff; text-decoration: none; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s; }
     .lm-hero-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
