@@ -38,20 +38,18 @@ class SetMartinYoungPhoto extends Command
             return self::SUCCESS;
         }
 
-        if (! empty($prisoner->photo) && ! $this->option('overwrite')) {
-            $this->info('Martin Young already has a photo — leaving alone (use --overwrite to replace).');
-
-            return self::SUCCESS;
-        }
-
+        // Always (re)write the stored copy from the committed source so a
+        // redeploy replaces any earlier crop rather than skipping. The
+        // --overwrite flag is kept for compatibility but is now the default.
         Storage::disk('public')->makeDirectory('prisoners');
         $relative = 'prisoners/martin-young.jpg';
+        Storage::disk('public')->delete($relative);
         Storage::disk('public')->put($relative, (string) file_get_contents($src));
         $prisoner->photo = $relative;
         $prisoner->save();
 
         Cache::forget(PrisonerApiController::cacheKey());
-        $this->info('Linked photo for Martin Young (slug: '.$prisoner->slug.').');
+        $this->info('Set photo for Martin Young (slug: '.$prisoner->slug.').');
 
         return self::SUCCESS;
     }
