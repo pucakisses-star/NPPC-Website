@@ -46,13 +46,14 @@
        grid column, filling space that was already empty — so showing it never
        moves the left nav, the sub-topics list, or the detail panel. */
     .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); overflow: hidden; min-height: 0; }
-    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; height: 100%; min-height: 0; transition: opacity 0.5s ease, transform 0.5s ease; }
-    /* Enter state for soft-nav: sub-topic columns slide in from the right and
-       fade (mirrors the ecfr.eu "Mapping Palestinian Politics" column transition). */
-    .tpx-sub-inner.tpx-enter { opacity: 0; transform: translateX(32px); }
+    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; height: 100%; min-height: 0; }
     /* Each sub-topic column scrolls on its own when its list is taller than the
-       viewport (like the ecfr.eu reference). */
-    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; }
+       viewport (like the ecfr.eu reference), and animates independently so an
+       unchanged column never re-renders when only a neighbour changes. */
+    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; transition: opacity 0.5s ease, transform 0.5s ease; }
+    /* Enter state for soft-nav: a (re)built column slides in from the right and
+       fades (mirrors the ecfr.eu "Mapping Palestinian Politics" transition). */
+    .tpx-sub-col.tpx-enter { opacity: 0; transform: translateX(32px); }
     /* Nested-topics list — sits to the right of the sub-topics list */
     .tpx-sub2 { margin-left: clamp(20px, 2.2vw, 34px); padding-left: clamp(22px, 2.4vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
     .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: var(--on-dark); margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
@@ -349,20 +350,71 @@ function tpxShare() {
 (function () {
     function bgImageOf(el) { return el ? el.style.backgroundImage : ''; }
 
-    // A structural signature of the sub-topic column(s): the heading text plus
-    // the ordered list of link targets. It ignores which item is active (and any
-    // markup/whitespace differences), so clicking a sibling in the same column
-    // is not a change. Only a different section, or a nested column
-    // opening/closing/changing, alters it — and only then should it re-animate.
-    function subSignature(el) {
-        if (!el) return '';
+    // Structural signature of a single nav column: its heading text plus the
+    // ordered list of link targets. Ignores which item is active (and markup
+    // noise), so navigating within a column is not a change to that column.
+    function colSignature(colEl) {
+        if (!colEl) return null;
         var parts = [];
-        el.querySelectorAll('.tpx-sub-heading, a.tpx-sub-link').forEach(function (n) {
+        colEl.querySelectorAll('.tpx-sub-heading, a.tpx-sub-link').forEach(function (n) {
             parts.push(n.classList.contains('tpx-sub-heading')
                 ? 'H:' + (n.textContent || '').trim()
                 : 'L:' + (n.getAttribute('href') || ''));
         });
         return parts.join('|');
+    }
+
+    // Move the active highlight inside a column to match the fresh version,
+    // without rebuilding the column's DOM.
+    function syncActive(scope, freshScope, sel) {
+        var active = {};
+        freshScope.querySelectorAll(sel + '.active').forEach(function (a) {
+            active[a.getAttribute('href')] = true;
+        });
+        scope.querySelectorAll(sel).forEach(function (a) {
+            a.classList.toggle('active', !!active[a.getAttribute('href')]);
+        });
+    }
+
+    // Slide + fade a (re)built column in from the right (the ecfr.eu transition).
+    function animateCol(colEl) {
+        colEl.classList.add('tpx-enter');
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () { colEl.classList.remove('tpx-enter'); });
+        });
+    }
+
+    // Reconcile the sub-topic columns one by one: keep an unchanged column's DOM
+    // (just move its highlight), rebuild a changed one, insert a new one, remove
+    // a gone one — so a column never re-renders unless it actually changed.
+    function reconcileColumns(curInner, freshInner) {
+        if (!curInner || !freshInner) return;
+        var kids = function (el) {
+            return Array.prototype.filter.call(el.children, function (c) {
+                return c.classList && c.classList.contains('tpx-sub-col');
+            });
+        };
+        var curCols = kids(curInner), freshCols = kids(freshInner);
+        var n = Math.max(curCols.length, freshCols.length);
+        for (var i = 0; i < n; i++) {
+            var curCol = curCols[i], freshCol = freshCols[i];
+            if (curCol && freshCol) {
+                if (colSignature(curCol) === colSignature(freshCol)) {
+                    syncActive(curCol, freshCol, 'a.tpx-sub-link');
+                } else {
+                    curCol.className = freshCol.className;
+                    curCol.innerHTML = freshCol.innerHTML;
+                    curCol.scrollTop = 0;
+                    animateCol(curCol);
+                }
+            } else if (freshCol && !curCol) {
+                var clone = document.importNode(freshCol, true);
+                curInner.appendChild(clone);
+                animateCol(clone);
+            } else if (curCol && !freshCol) {
+                curCol.parentNode.removeChild(curCol);
+            }
+        }
     }
 
     // Crossfade the backdrop: layer the new photo above the current one at
@@ -425,41 +477,16 @@ function tpxShare() {
             var newBg = bgImageOf(fresh.querySelector('.tpx-photo'));
             if (newBg && newBg !== curBg) { crossfadeBackground(current, newBg); }
 
-            var freshGrid = fresh.querySelector('.tpx-grid');
-            var curGrid = current.querySelector('.tpx-grid');
-            // Does the sub-topic column list actually change? Clicking a sibling
-            // in the same column keeps it identical (only the active item moves),
-            // so the columns must NOT be rebuilt or re-animated — matching ecfr.eu.
-            var subChanged = subSignature(current.querySelector('.tpx-sub-inner'))
-                          !== subSignature(fresh.querySelector('.tpx-sub-inner'));
-
-            if (subChanged) {
-                // A new section, or a nested column opening/closing/changing:
-                // swap the whole grid in place and slide the new column in.
-                if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
-                else { current.innerHTML = fresh.innerHTML; }
-                var newSub = current.querySelector('.tpx-sub-inner');
-                if (newSub) {
-                    newSub.classList.add('tpx-enter');
-                    requestAnimationFrame(function () {
-                        requestAnimationFrame(function () { newSub.classList.remove('tpx-enter'); });
-                    });
-                }
-            } else {
-                // Same column: leave the nav columns entirely untouched — no DOM
-                // rebuild, no flash, no scroll reset. Just move the active
-                // highlight and replace the detail panel's content.
-                var activeHrefs = {};
-                fresh.querySelectorAll('.tpx-nav-item.active, .tpx-sub-link.active').forEach(function (a) {
-                    activeHrefs[a.getAttribute('href')] = true;
-                });
-                current.querySelectorAll('.tpx-nav-item, .tpx-sub-link').forEach(function (a) {
-                    a.classList.toggle('active', !!activeHrefs[a.getAttribute('href')]);
-                });
-                var freshDetail = fresh.querySelector('.tpx-detail');
-                var curDetail = current.querySelector('.tpx-detail');
-                if (freshDetail && curDetail) { curDetail.innerHTML = freshDetail.innerHTML; }
-            }
+            // Update in place, column by column, so an unchanged column never
+            // re-renders (no flash, no scroll reset) — only a changed/new column
+            // rebuilds and slides in. Then move the root-nav highlight and swap
+            // the detail panel's content.
+            reconcileColumns(current.querySelector('.tpx-sub-inner'),
+                             fresh.querySelector('.tpx-sub-inner'));
+            syncActive(current, fresh, 'a.tpx-nav-item');
+            var freshDetail = fresh.querySelector('.tpx-detail');
+            var curDetail = current.querySelector('.tpx-detail');
+            if (freshDetail && curDetail) { curDetail.innerHTML = freshDetail.innerHTML; }
 
             // A soft-injected reCAPTCHA (the Contributions form) won't auto-render,
             // so render it explicitly. The api.js library is loaded site-wide. If
