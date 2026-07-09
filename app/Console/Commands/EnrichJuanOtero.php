@@ -81,6 +81,7 @@ final class EnrichJuanOtero extends Command
             .'not documented — possible maximum custody March 20, 1973 – September 26, 1974 (~555 days).';
         $case->setPartialDate('incarceration_date', 1973, 3, 20);
         $case->setPartialDate('sentenced_date', 1973, 3, 20);
+        $case->setPartialDate('release_date', 1974, 9, 26);
         $case->save();
 
         $src = database_path('data/photos/nonfree/juan-otero.jpg');
