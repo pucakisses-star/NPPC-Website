@@ -177,9 +177,11 @@
             : ($activeOverride
                 ?: ($displayTopic && $displayTopic->image
                     ? Storage::url($displayTopic->image)
-                    : ($activeTopic && $activeTopic->image
-                        ? Storage::url($activeTopic->image)
-                        : $defaultFor($displayTopic ?: $activeTopic)))));
+                    : ($activeChild && $activeChild->image
+                        ? Storage::url($activeChild->image)
+                        : ($activeTopic && $activeTopic->image
+                            ? Storage::url($activeTopic->image)
+                            : $defaultFor($displayTopic ?: $activeTopic))))));
     $heroImage = $activeOverride
         ?: ($displayTopic && $displayTopic->image
             ? Storage::url($displayTopic->image)
