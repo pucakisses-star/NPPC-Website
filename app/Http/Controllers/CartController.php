@@ -25,7 +25,16 @@ final class CartController extends Controller {
         ]);
 
         $product = Product::published()->findOrFail($data['product_id']);
-        $cart->add($product, (int) ($data['quantity'] ?? 1), $data['size'] ?? null);
+        $qty = (int) ($data['quantity'] ?? 1);
+        $cart->add($product, $qty, $data['size'] ?? null);
+
+        // Fetch-driven adds (the slide-out cart drawer) get the cart back as
+        // JSON; plain form posts keep the classic redirect to /cart.
+        if ($request->wantsJson()) {
+            return response()->json($this->payload($cart) + [
+                'added' => ['name' => $product->name, 'quantity' => $qty, 'size' => $data['size'] ?? null],
+            ]);
+        }
 
         return redirect('/cart')->with('cart_status', $product->name.' was added to your cart.');
     }
@@ -38,6 +47,10 @@ final class CartController extends Controller {
 
         $cart->update($data['key'], (int) $data['quantity']);
 
+        if ($request->wantsJson()) {
+            return response()->json($this->payload($cart));
+        }
+
         return redirect('/cart');
     }
 
@@ -45,7 +58,29 @@ final class CartController extends Controller {
         $data = $request->validate(['key' => ['required', 'string']]);
         $cart->remove($data['key']);
 
+        if ($request->wantsJson()) {
+            return response()->json($this->payload($cart));
+        }
+
         return redirect('/cart');
+    }
+
+    /** Cart state as JSON for the slide-out drawer. */
+    private function payload(CartService $cart): array {
+        return [
+            'items' => $cart->items()->map(fn ($i) => [
+                'key'        => $i->key,
+                'name'       => $i->name,
+                'slug'       => $i->slug,
+                'image_url'  => $i->image_url,
+                'size'       => $i->size,
+                'price'      => (float) $i->price,
+                'quantity'   => (int) $i->quantity,
+                'line_total' => (float) $i->line_total,
+            ])->values()->all(),
+            'subtotal' => (float) $cart->subtotal(),
+            'count'    => $cart->count(),
+        ];
     }
 
     public function checkout(CartService $cart) {

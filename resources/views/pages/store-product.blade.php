@@ -279,4 +279,6 @@
         });
     })();
 </script>
+@include('sections.cart-drawer')
+
 @endsection
