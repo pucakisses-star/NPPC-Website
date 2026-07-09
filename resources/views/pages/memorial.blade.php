@@ -128,8 +128,8 @@
 <script>
 (function () {
     var DATA = window.__MEM || [];
+    var CFG = window.__MEMCFG || { min: 1850, max: new Date().getFullYear() };
     var cv = document.getElementById('mem-canvas');
-    var ctx = cv.getContext('2d');
     var tooltip = document.getElementById('mem-tooltip');
     var focusEl = document.getElementById('mem-focus');
     var nameEl = document.getElementById('mem-focus-name');
@@ -137,24 +137,25 @@
     var linkEl = document.getElementById('mem-focus-link');
     var searchInput = document.getElementById('mem-search-input');
     var searchResults = document.getElementById('mem-search-results');
-    if (!cv || !ctx) return;
-
-    var W = 0, H = 0, DPR = 1;
-    var hover = -1, focus = -1;
-
-    // Timeline state — stars ignite in the year that person was imprisoned.
-    var CFG = window.__MEMCFG || { min: 1850, max: new Date().getFullYear() };
     var yearEl = document.getElementById('mem-tl-year');
     var countEl = document.getElementById('mem-tl-count');
     var scrub = document.getElementById('mem-scrub');
     var playBtn = document.getElementById('mem-play');
     var playIcon = document.getElementById('mem-play-icon');
     var speedBtn = document.getElementById('mem-speed');
+    if (!cv) return;
+
+    var N = DATA.length;
+    var Wc = 0, Hc = 0, DPR = 1;
+    var hover = -1, focus = -1;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0;
+
     var SPEEDS = [1, 2, 4, 0.5];
     var speedIx = 0;
     var curYear = CFG.max;          // fractional "now" on the timeline
     var playing = false;
-    var PLAY_SECS = 30;             // wall-clock seconds to sweep min→max at 1×
+    var PLAY_SECS = 28;             // wall-clock seconds to sweep min→max at 1×
+
     // Sorted imprisonment years, for a fast "how many lit by year Y" count.
     var sortedYears = DATA.map(function (p) { return p.y || CFG.min; }).sort(function (a, b) { return a - b; });
     function litCount(y) {
@@ -162,8 +163,17 @@
         while (lo < hi) { var mid = (lo + hi) >> 1; if (sortedYears[mid] <= y) lo = mid + 1; else hi = mid; }
         return lo;
     }
+    // Fractional reveal rank for a (possibly fractional) year — drives the pour
+    // exactly like gazaschildren's uRevealCount over each star's appear rank.
+    function revealFloat(y) {
+        var k = litCount(y);
+        if (k >= N) return N;
+        var nextY = sortedYears[k], prevY = k > 0 ? sortedYears[k - 1] : CFG.min;
+        var span = Math.max(1, nextY - prevY);
+        return k + Math.min(1, Math.max(0, (y - prevY) / span));
+    }
 
-    // Deterministic per-star positions (stable across resizes).
+    // Deterministic per-star RNG (stable positions).
     function mulberry32(a) {
         return function () {
             a |= 0; a = a + 0x6D2B79F5 | 0;
@@ -173,89 +183,195 @@
         };
     }
 
-    var stars = DATA.map(function (p, i) {
-        var rnd = mulberry32((i * 2654435761) >>> 0);
-        var size = p.d ? 2.6 : (p.c ? 2.1 : 1.5);   // deceased largest, imprisoned mid, released small
-        var base = p.d ? 1.0 : (p.c ? 0.9 : 0.62);
-        return { p: p, nx: rnd(), ny: rnd(), size: size, base: base,
-                 twp: rnd() * Math.PI * 2, tws: 0.5 + rnd() * 1.1, x: 0, y: 0, litAt: null };
-    });
+    // Per-star attributes, interleaved for one WebGL point-cloud draw.
+    // [clipx, clipy, size, brightness, phase, speed, amplitude, style, order, index, r, g, b]
+    var STRIDE = 13;
+    var buf = new Float32Array(N * STRIDE);
+    var clipx = new Float32Array(N), clipy = new Float32Array(N);
+    var sx = new Float32Array(N), sy = new Float32Array(N);   // screen px (css) for hit-testing
 
-    // Pre-rendered glow sprites (warm gold; brighter warm-white for the deceased).
-    function makeSprite(core, edge) {
-        var s = 64, c = document.createElement('canvas'); c.width = c.height = s;
-        var g = c.getContext('2d');
-        var grd = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
-        grd.addColorStop(0, core); grd.addColorStop(0.22, core); grd.addColorStop(1, edge);
-        g.fillStyle = grd; g.beginPath(); g.arc(s / 2, s / 2, s / 2, 0, 7); g.fill();
-        return c;
+    // Chronological appear order (the reveal rank).
+    var order = new Float32Array(N);
+    var byYear = []; for (var q = 0; q < N; q++) byYear.push(q);
+    byYear.sort(function (a, b) { return (DATA[a].y || CFG.min) - (DATA[b].y || CFG.min) || a - b; });
+    for (var r = 0; r < N; r++) order[byYear[r]] = r;
+
+    for (var i = 0; i < N; i++) {
+        var p = DATA[i];
+        var rnd = mulberry32((i * 2654435761 + 12345) >>> 0);
+        var cx = -0.985 + rnd() * 1.97;
+        var cy = -0.985 + rnd() * 1.97;
+        clipx[i] = cx; clipy[i] = cy;
+        var depth = rnd(); depth = depth * depth;                 // bias to many small/far, few big/near
+        var sSize = p.d ? 2.4 : (p.c ? 2.0 : 1.5);               // deceased largest, imprisoned mid, released small
+        var sBright = p.d ? 1.0 : (p.c ? 0.92 : 0.66);
+        var col = p.d ? [1.0, 0.97, 0.90] : (p.c ? [0.99, 0.90, 0.74] : [0.82, 0.75, 0.62]);
+        var o = i * STRIDE;
+        buf[o] = cx; buf[o + 1] = cy;
+        buf[o + 2] = sSize * (0.55 + depth * 1.5);
+        buf[o + 3] = Math.min(1, sBright * (0.5 + depth * 0.55));
+        buf[o + 4] = rnd() * Math.PI * 2;                        // phase
+        buf[o + 5] = 0.4 + rnd() * 1.7;                          // speed
+        buf[o + 6] = 0.05 + rnd() * 0.22;                        // amplitude
+        buf[o + 7] = Math.floor(rnd() * 3);                      // twinkle style 0/1/2
+        buf[o + 8] = order[i];
+        buf[o + 9] = i;
+        buf[o + 10] = col[0]; buf[o + 11] = col[1]; buf[o + 12] = col[2];
     }
-    var spriteGold = makeSprite('rgba(247,228,191,1)', 'rgba(247,228,191,0)');
-    var spriteWhite = makeSprite('rgba(255,248,230,1)', 'rgba(255,248,230,0)');
+
+    // ---- WebGL point cloud (crisp pinpoints, per-star twinkle, reveal-by-rank) ----
+    var gl = cv.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: true })
+          || cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
+
+    var VERT = [
+        'precision mediump float;',
+        'attribute vec2 aClip; attribute float aSize; attribute float aBrightness;',
+        'attribute float aPhase; attribute float aSpeed; attribute float aAmplitude;',
+        'attribute float aStyle; attribute float aOrder; attribute float aIndex; attribute vec3 aColor;',
+        'uniform float uTime, uPixelRatio, uHoverIndex, uFocusIndex, uReducedMotion, uRevealCount;',
+        'varying float vAlpha, vHover, vFocus, vReveal; varying vec3 vColor;',
+        'void main(){',
+        '  float reveal = clamp(uRevealCount - aOrder, 0.0, 1.0); vReveal = reveal;',
+        '  float tw = 0.0;',
+        '  if (uReducedMotion < 0.5) {',
+        '    float t = uTime * 0.001;',
+        '    if (aStyle > 1.5) { tw = (sin(t*aSpeed+aPhase)*0.6 + sin(t*aSpeed*2.3+aPhase+1.1)*0.4) * aAmplitude; }',
+        '    else if (aStyle > 0.5) { float s = sin(t*aSpeed+aPhase); tw = (s*s*sign(s)) * aAmplitude; }',
+        '    else { tw = sin(t*aSpeed+aPhase) * aAmplitude; }',
+        '  }',
+        '  float base = clamp(aBrightness + tw, 0.10, 1.0);',
+        '  vAlpha = base * reveal;',
+        '  float hover = (abs(aIndex - uHoverIndex) < 0.5) ? 1.0 : 0.0;',
+        '  float focus = (abs(aIndex - uFocusIndex) < 0.5) ? 1.0 : 0.0;',
+        '  vHover = hover; vFocus = focus; vColor = aColor;',
+        '  float highlight = max(hover, focus);',
+        '  float ps = aSize * uPixelRatio * (1.0 + highlight * 4.0);',
+        '  if (highlight > 0.5) ps = max(ps, 22.0 * uPixelRatio);',
+        '  gl_PointSize = clamp(ps, 1.0, (highlight > 0.5) ? 64.0 : 20.0);',
+        '  gl_Position = vec4(aClip, 0.0, 1.0);',
+        '}'
+    ].join('\n');
+
+    var FRAG = [
+        'precision mediump float;',
+        'uniform vec3 uHoverColor, uFocusColor;',
+        'varying float vAlpha, vHover, vFocus, vReveal; varying vec3 vColor;',
+        'void main(){',
+        '  if (vReveal <= 0.0) discard;',
+        '  vec2 uv = gl_PointCoord - 0.5; float dist = length(uv);',
+        '  if (dist > 0.5) discard;',
+        '  float core = smoothstep(0.5, 0.18, dist);',           // crisp pinpoint, no halo
+        '  if (vHover > 0.5 || vFocus > 0.5) {',
+        '    float pinpoint = smoothstep(0.22, 0.0, dist);',
+        '    float glow = smoothstep(0.5, 0.0, dist);',
+        '    float intensity = clamp(pinpoint + glow * 0.55, 0.0, 1.0);',
+        '    float a = intensity * max(vAlpha, 0.6);',
+        '    vec3 c = (vHover > 0.5) ? uHoverColor : uFocusColor;',
+        '    gl_FragColor = vec4(c * a, a); return;',
+        '  }',
+        '  float a = core * vAlpha;',
+        '  gl_FragColor = vec4(vColor * a, a);',
+        '}'
+    ].join('\n');
+
+    var prog, uni = {};
+    function compile(type, src) {
+        var sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh);
+        return sh;
+    }
+    function initGL() {
+        prog = gl.createProgram();
+        gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
+        gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { gl = null; return false; }
+        gl.useProgram(prog);
+
+        var vbo = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+        gl.bufferData(gl.ARRAY_BUFFER, buf, gl.STATIC_DRAW);
+        var FS = 4, ST = STRIDE * FS;
+        function attr(name, size, off) {
+            var loc = gl.getAttribLocation(prog, name);
+            gl.enableVertexAttribArray(loc);
+            gl.vertexAttribPointer(loc, size, gl.FLOAT, false, ST, off * FS);
+        }
+        attr('aClip', 2, 0); attr('aSize', 1, 2); attr('aBrightness', 1, 3);
+        attr('aPhase', 1, 4); attr('aSpeed', 1, 5); attr('aAmplitude', 1, 6);
+        attr('aStyle', 1, 7); attr('aOrder', 1, 8); attr('aIndex', 1, 9); attr('aColor', 3, 10);
+
+        ['uTime', 'uPixelRatio', 'uHoverIndex', 'uFocusIndex', 'uReducedMotion', 'uRevealCount', 'uHoverColor', 'uFocusColor']
+            .forEach(function (u) { uni[u] = gl.getUniformLocation(prog, u); });
+        gl.uniform3f(uni.uHoverColor, 1.0, 0.96, 0.86);
+        gl.uniform3f(uni.uFocusColor, 1.0, 0.90, 0.62);
+        gl.uniform1f(uni.uReducedMotion, reduced);
+
+        gl.disable(gl.DEPTH_TEST);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);           // premultiplied output
+        gl.clearColor(0, 0, 0, 0);
+        return true;
+    }
+
+    // 2D fallback (crisp dots) if WebGL is unavailable.
+    var ctx2d = null;
+    if (!gl || !initGL()) { gl = null; ctx2d = cv.getContext('2d'); }
 
     function resize() {
         DPR = Math.min(2, window.devicePixelRatio || 1);
         var rect = cv.getBoundingClientRect();
-        W = rect.width; H = rect.height;
-        cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
-        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-        var m = Math.min(W, H) * 0.05;
-        for (var i = 0; i < stars.length; i++) {
-            stars[i].x = m + stars[i].nx * (W - 2 * m);
-            stars[i].y = m + stars[i].ny * (H - 2 * m);
+        Wc = rect.width; Hc = rect.height;
+        cv.width = Math.round(Wc * DPR); cv.height = Math.round(Hc * DPR);
+        for (var i = 0; i < N; i++) {
+            sx[i] = (clipx[i] * 0.5 + 0.5) * Wc;
+            sy[i] = (1 - (clipy[i] * 0.5 + 0.5)) * Hc;
         }
+        if (gl) { gl.viewport(0, 0, cv.width, cv.height); gl.useProgram(prog); gl.uniform1f(uni.uPixelRatio, DPR); }
     }
 
-    var t0 = performance.now();
-    var lastFrame = t0;
-    function draw(now) {
-        var t = (now - t0) / 1000;
-        var dt = Math.min(0.1, (now - lastFrame) / 1000);
-        lastFrame = now;
+    function drawGL(now, rc) {
+        gl.uniform1f(uni.uTime, now);
+        gl.uniform1f(uni.uRevealCount, rc);
+        gl.uniform1f(uni.uHoverIndex, hover);
+        gl.uniform1f(uni.uFocusIndex, focus);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.POINTS, 0, N);
+    }
 
-        // Advance the timeline while playing.
+    function drawFallback(now, rc) {
+        var t = now * 0.001;
+        ctx2d.setTransform(DPR, 0, 0, DPR, 0, 0);
+        ctx2d.clearRect(0, 0, Wc, Hc);
+        ctx2d.globalCompositeOperation = 'lighter';
+        for (var i = 0; i < N; i++) {
+            var o = i * STRIDE;
+            var reveal = Math.min(1, Math.max(0, rc - buf[o + 8]));
+            if (reveal <= 0) continue;
+            var tw = reduced ? 0 : Math.sin(t * buf[o + 5] + buf[o + 4]) * buf[o + 6];
+            var a = Math.min(1, (buf[o + 3] + tw)) * reveal;
+            var hi = (i === hover || i === focus);
+            var rad = buf[o + 2] * (hi ? 2.2 : 0.9);
+            ctx2d.globalAlpha = hi ? Math.max(0.7, a) : a;
+            ctx2d.fillStyle = 'rgb(' + (buf[o + 10] * 255 | 0) + ',' + (buf[o + 11] * 255 | 0) + ',' + (buf[o + 12] * 255 | 0) + ')';
+            ctx2d.beginPath(); ctx2d.arc(sx[i], sy[i], rad, 0, 7); ctx2d.fill();
+        }
+        ctx2d.globalAlpha = 1; ctx2d.globalCompositeOperation = 'source-over';
+    }
+
+    var lastFrame = performance.now();
+    function frame(now) {
+        var dt = Math.min(0.1, (now - lastFrame) / 1000); lastFrame = now;
         if (playing) {
             curYear += dt * ((CFG.max - CFG.min) / PLAY_SECS) * SPEEDS[speedIx];
             if (curYear >= CFG.max) { curYear = CFG.max; setPlaying(false); }
             syncTimeline();
         }
-        var yNow = curYear;
-
-        ctx.clearRect(0, 0, W, H);
-        ctx.globalCompositeOperation = 'lighter';
-        for (var i = 0; i < stars.length; i++) {
-            var st = stars[i];
-            var lit = (st.p.y || CFG.min) <= yNow;
-            if (lit && st.litAt === null) st.litAt = now;  // just crossed its year
-            else if (!lit) st.litAt = null;
-
-            var tw = 0.72 + 0.28 * Math.sin(t * st.tws + st.twp);
-            var big = (focus === i) ? 2.4 : (hover === i ? 1.8 : 1);
-            // A brief ignite flare in the ~1.1s after a star lights up.
-            var flare = st.litAt !== null ? Math.max(0, 1 - (now - st.litAt) / 1100) : 0;
-            big *= 1 + flare * 1.6;
-            var px = st.size * 7 * big;
-            var a;
-            if (lit) {
-                a = st.base * tw * ((focus === i || hover === i) ? 1.35 : 1) * (1 + flare * 1.1);
-            } else {
-                a = st.base * 0.12 * tw;                  // ghosted: not yet imprisoned
-            }
-            ctx.globalAlpha = Math.min(1, a);
-            ctx.drawImage(st.p.d ? spriteWhite : spriteGold, st.x - px / 2, st.y - px / 2, px, px);
-        }
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.globalAlpha = 1;
-        if (focus >= 0 && stars[focus]) {
-            var f = stars[focus];
-            var r = 13 + 2.5 * Math.sin(t * 2.6);
-            ctx.beginPath(); ctx.arc(f.x, f.y, r, 0, 7);
-            ctx.strokeStyle = 'rgba(247,228,191,' + (0.45 + 0.25 * Math.sin(t * 2.6)) + ')';
-            ctx.lineWidth = 1.2; ctx.stroke();
-        }
-        requestAnimationFrame(draw);
+        var rc = revealFloat(curYear);
+        if (gl) drawGL(now, rc); else drawFallback(now, rc);
+        requestAnimationFrame(frame);
     }
 
+    // ---- Timeline controls ----
     var ICON_PLAY = '<path d="M3 2l11 6-11 6z"/>';
     var ICON_PAUSE = '<path d="M3 2h4v12H3zM9 2h4v12H9z"/>';
     function setPlaying(on) {
@@ -271,35 +387,30 @@
     }
     playBtn.addEventListener('click', function () {
         if (playing) { setPlaying(false); return; }
-        if (curYear >= CFG.max) { curYear = CFG.min; syncTimeline(); }  // replay from the start
+        if (curYear >= CFG.max) { curYear = CFG.min; syncTimeline(); }
         setPlaying(true);
     });
-    scrub.addEventListener('input', function () {
-        setPlaying(false);
-        curYear = parseInt(this.value, 10);
-        syncTimeline();
-    });
+    scrub.addEventListener('input', function () { setPlaying(false); curYear = parseInt(this.value, 10); syncTimeline(); });
     speedBtn.addEventListener('click', function () {
         speedIx = (speedIx + 1) % SPEEDS.length;
         var s = SPEEDS[speedIx];
         speedBtn.innerHTML = (s === 0.5 ? '½' : s) + '×';
     });
 
+    // ---- Interaction (hover / focus / search) ----
     function nearest(mx, my, maxPx) {
         var best = -1, bd = maxPx * maxPx;
-        for (var i = 0; i < stars.length; i++) {
-            var dx = stars[i].x - mx, dy = stars[i].y - my, d = dx * dx + dy * dy;
+        for (var i = 0; i < N; i++) {
+            var dx = sx[i] - mx, dy = sy[i] - my, d = dx * dx + dy * dy;
             if (d < bd) { bd = d; best = i; }
         }
         return best;
     }
-
     function statusText(p) { return p.c ? 'Currently imprisoned' : (p.d ? 'Deceased' : 'Released'); }
-
     function setFocus(i) {
         focus = i;
         if (i < 0) { focusEl.hidden = true; return; }
-        var p = stars[i].p;
+        var p = DATA[i];
         nameEl.textContent = p.n;
         metaEl.textContent = (p.e ? p.e + ' · ' : '') + statusText(p);
         linkEl.href = p.u || '#';
@@ -311,60 +422,52 @@
         var idx = nearest(e.clientX - rect.left, e.clientY - rect.top, 16);
         hover = idx;
         if (idx >= 0) {
-            tooltip.textContent = stars[idx].p.n;
+            tooltip.textContent = DATA[idx].n;
             tooltip.style.left = e.clientX + 'px';
             tooltip.style.top = e.clientY + 'px';
-            tooltip.hidden = false;
-            cv.style.cursor = 'pointer';
+            tooltip.hidden = false; cv.style.cursor = 'pointer';
         } else { tooltip.hidden = true; cv.style.cursor = 'default'; }
     });
     cv.addEventListener('mouseleave', function () { hover = -1; tooltip.hidden = true; });
-
     cv.addEventListener('click', function (e) {
         var rect = cv.getBoundingClientRect();
         var idx = nearest(e.clientX - rect.left, e.clientY - rect.top, 18);
-        if (idx >= 0) setFocus(idx); else setFocus(-1);
+        setFocus(idx >= 0 ? idx : -1);
     });
 
     document.getElementById('mem-focus-close').addEventListener('click', function () { setFocus(-1); });
-    document.getElementById('mem-focus-prev').addEventListener('click', function () { if (focus >= 0) setFocus((focus - 1 + stars.length) % stars.length); });
-    document.getElementById('mem-focus-next').addEventListener('click', function () { if (focus >= 0) setFocus((focus + 1) % stars.length); });
+    document.getElementById('mem-focus-prev').addEventListener('click', function () { if (focus >= 0) setFocus((focus - 1 + N) % N); });
+    document.getElementById('mem-focus-next').addEventListener('click', function () { if (focus >= 0) setFocus((focus + 1) % N); });
     document.addEventListener('keydown', function (e) {
         if (focus < 0) return;
         if (e.key === 'Escape') setFocus(-1);
-        else if (e.key === 'ArrowLeft') setFocus((focus - 1 + stars.length) % stars.length);
-        else if (e.key === 'ArrowRight') setFocus((focus + 1) % stars.length);
+        else if (e.key === 'ArrowLeft') setFocus((focus - 1 + N) % N);
+        else if (e.key === 'ArrowRight') setFocus((focus + 1) % N);
     });
 
-    // Search: jump to a matching star.
     searchInput.addEventListener('input', function () {
-        var q = this.value.trim().toLowerCase();
+        var query = this.value.trim().toLowerCase();
         searchResults.innerHTML = '';
-        if (q.length < 2) return;
-        var out = [], n = 0;
-        for (var i = 0; i < stars.length && n < 8; i++) {
-            if (stars[i].p.n.toLowerCase().indexOf(q) !== -1) { out.push(i); n++; }
+        if (query.length < 2) return;
+        var n = 0;
+        for (var i = 0; i < N && n < 8; i++) {
+            if (DATA[i].n.toLowerCase().indexOf(query) !== -1) {
+                (function (idx) {
+                    var b = document.createElement('button');
+                    b.textContent = DATA[idx].n;
+                    b.addEventListener('click', function () { setFocus(idx); searchResults.innerHTML = ''; searchInput.value = DATA[idx].n; });
+                    searchResults.appendChild(b);
+                })(i);
+                n++;
+            }
         }
-        out.forEach(function (i) {
-            var b = document.createElement('button');
-            b.textContent = stars[i].p.n;
-            b.addEventListener('click', function () {
-                setFocus(i); searchResults.innerHTML = ''; searchInput.value = stars[i].p.n;
-            });
-            searchResults.appendChild(b);
-        });
     });
     searchInput.addEventListener('blur', function () { setTimeout(function () { searchResults.innerHTML = ''; }, 150); });
 
-    // Seed the initial full sky (curYear = max) as already-lit, without a flare.
-    for (var s = 0; s < stars.length; s++) {
-        if ((stars[s].p.y || CFG.min) <= curYear) stars[s].litAt = -1e7;
-    }
     syncTimeline();
-
     window.addEventListener('resize', resize);
     resize();
-    requestAnimationFrame(draw);
+    requestAnimationFrame(frame);
 })();
 </script>
 @endsection
