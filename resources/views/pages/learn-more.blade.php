@@ -106,6 +106,33 @@
     .sbs-item:hover .sbs-name, .sbs-item:hover .sbs-ico { color: var(--accent); }
     @@media (max-width: 900px) { .sbs-grid { column-count: 2; } }
     @@media (max-width: 560px) { .sbs-grid { column-count: 1; } }
+
+    /* ==================== MORE FROM NPPC (City Journal-style band) ==================== */
+    .lmj { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: #5660fe; margin-top: 72px; }
+    .lmj-inner { display: flex; align-items: stretch; min-height: 440px; }
+    .lmj-brand { flex: 0 0 24%; display: flex; flex-direction: column; justify-content: space-between; padding: 56px 24px 44px 6vw; }
+    .lmj-mark { display: flex; align-items: flex-start; gap: 16px; color: #fff; }
+    .lmj-mark-slash { width: 4px; height: 74px; background: #fff; transform: skewX(-18deg); margin-top: 4px; flex: 0 0 auto; }
+    .lmj-mark-word { font-size: 1.6rem; font-weight: 600; letter-spacing: 0.42em; line-height: 1.5; text-transform: uppercase; }
+    .lmj-more { color: #fff; font-size: 1.05rem; text-decoration: none; border-bottom: 2px solid #fff; align-self: flex-start; padding-bottom: 3px; }
+    .lmj-more:hover { opacity: 0.85; }
+    .lmj-card { flex: 1 1 38%; position: relative; display: block; overflow: hidden; background: #14141c; clip-path: polygon(52px 0, 100% 0, calc(100% - 52px) 100%, 0 100%); margin-left: -26px; text-decoration: none; }
+    .lmj-card + .lmj-card { margin-left: 10px; }
+    .lmj-card-img { position: absolute; inset: 0; background-size: cover; background-position: center 25%; filter: grayscale(100%) contrast(1.05) brightness(0.8); transition: transform 0.5s ease; }
+    .lmj-card:hover .lmj-card-img { transform: scale(1.03); }
+    .lmj-card-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,12,0.92) 0%, rgba(5,5,12,0.55) 38%, rgba(5,5,12,0.12) 70%); }
+    .lmj-card-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 76px 34px 76px; }
+    .lmj-card-cat { color: #fff; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; padding-bottom: 10px; border-bottom: 1px solid rgba(86,96,254,0.9); margin-bottom: 14px; }
+    .lmj-card-title { color: #fff; font-size: 1.7rem; line-height: 1.25; font-weight: 500; margin: 0 0 10px; }
+    .lmj-card-author { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+    @@media (max-width: 900px) {
+        .lmj-inner { flex-direction: column; }
+        .lmj-brand { flex-basis: auto; flex-direction: row; align-items: center; justify-content: space-between; padding: 32px 6vw; }
+        .lmj-mark-slash { height: 46px; }
+        .lmj-mark-word { font-size: 1.2rem; }
+        .lmj-card, .lmj-card + .lmj-card { clip-path: none; margin-left: 0; min-height: 300px; }
+        .lmj-card-text { padding: 0 6vw 28px; }
+    }
 </style>
 @endsection
 
@@ -319,5 +346,44 @@
     <p class="lm-cta-text">Every voice matters in the fight against political imprisonment. Explore the database, write to a prisoner, sign a petition, or support our work with a donation.</p>
     <a href="/get-involved" class="lm-cta-btn">Get Involved</a>
 </div>
+
+{{-- ==================== MORE FROM NPPC (City Journal-style band) ==================== --}}
+@php
+    $lmjArticles = \App\Models\Article::with(['category', 'author'])
+        ->whereNotNull('published_at')
+        ->where('image', '!=', '')
+        ->whereNotNull('image')
+        ->orderByDesc('published_at')
+        ->limit(2)
+        ->get();
+@endphp
+@if($lmjArticles->isNotEmpty())
+<section class="lmj">
+    <div class="lmj-inner">
+        <div class="lmj-brand">
+            <div class="lmj-mark">
+                <span class="lmj-mark-slash"></span>
+                <span class="lmj-mark-word">NPPC<br>News</span>
+            </div>
+            <a class="lmj-more" href="/news">More from NPPC News</a>
+        </div>
+        @foreach($lmjArticles as $a)
+            <a class="lmj-card" href="{{ $a->url }}">
+                <div class="lmj-card-img" style="background-image: url('{{ $a->image_url }}')"></div>
+                <div class="lmj-card-shade"></div>
+                <div class="lmj-card-text">
+                    @if($a->category)
+                        <div class="lmj-card-cat">{{ $a->category->title }}</div>
+                    @endif
+                    <h3 class="lmj-card-title lm-serif">{{ $a->title }}</h3>
+                    @if($a->author)
+                        <div class="lmj-card-author">{{ $a->author->name }}</div>
+                    @endif
+                </div>
+            </a>
+        @endforeach
+    </div>
+</section>
+@endif
 
 @endsection
