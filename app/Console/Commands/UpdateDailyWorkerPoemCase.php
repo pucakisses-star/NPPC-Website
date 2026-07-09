@@ -40,12 +40,31 @@ final class UpdateDailyWorkerPoemCase extends Command
             if ($gordon) {
                 $gordon->setPartialDate('birthdate', 1909);
                 $gordon->setPartialDate('death_date', 1973, 6, 21);
+                $gordon->ideologies = ['Communism', 'Labor organizing'];
+                $gordon->affiliation = ['Communist Party USA', 'Abraham Lincoln Brigade', 'Paper, Pulp and Sulphite Workers Union'];
+                $gordon->description = 'David Gordon (1909–1973) was a Communist trade unionist, author, editor, and '
+                    .'journalist. Born in Ukraine, he immigrated to the United States at the age of three. As a '
+                    .'teenage worker-poet he was convicted of obscenity for his poem "America" — published in the '
+                    .'Daily Worker, the newspaper of the Communist Party USA — which compared the country to a '
+                    .'whorehouse; sentenced to the New York reformatory, he was, after a broad free-speech campaign, '
+                    .'paroled to the University of Wisconsin\'s Experimental College, where he held a Zona Gale '
+                    .'literary scholarship and studied for two years. He became active in the labor movement as an '
+                    .'organizer for the Paper, Pulp and Sulphite Workers Union and then as a Communist Party organizer '
+                    .'in Toledo, Ohio, where he took part in the 1934 Auto-Lite strike. From 1936 to 1938 he served '
+                    .'with the Abraham Lincoln Brigade in the Spanish Civil War, and was afterward briefly held in an '
+                    .'internment camp on the French border. In September 1942 he entered the U.S. Army, where he wrote '
+                    .'hometown press releases about soldiers\' families and drafted medal recommendations. Through the '
+                    .'1950s and 1960s he wrote feature articles for medical journals and taught Communist history and '
+                    .'theory; he edited the Communist-initiated cultural periodical American Dialog and served on the '
+                    .'Cultural Commission of the Communist Party USA. In 1970 he became cultural editor of the Party\'s '
+                    .'newspaper, then titled the People\'s Daily World, and he made several trips to Cuba, writing '
+                    .'extensively about them. He died on June 21, 1973.';
                 $gordon->save();
                 $case = $gordon->cases()->first();
                 if ($case) {
                     $case->sentence = 'Sentenced to up to three years in the New York reformatory for the poem "America"; '
-                        .'actually held about 35 days (roughly April 5 – May 10, 1928) before release after a broad '
-                        .'free-speech campaign.';
+                        .'actually held about 35 days (roughly April 5 – May 10, 1928) before being paroled — to the '
+                        .'University of Wisconsin\'s Experimental College — after a broad free-speech campaign.';
                     $case->setPartialDate('incarceration_date', 1928, 4, 5);
                     $case->setPartialDate('release_date', 1928, 5, 10);
                     $case->save();
