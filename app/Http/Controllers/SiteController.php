@@ -286,21 +286,56 @@ final class SiteController extends Controller {
         // A memorial starfield — one star for every political prisoner in the
         // database (after gazaschildren.com's "one star for every name"). Only
         // the few fields the starfield needs are sent, keyed short to keep the
-        // embedded payload small.
-        $people = Prisoner::orderBy('sort_order')
+        // embedded payload small. Each carries a year (`y`) — the earliest of
+        // its cases' arrest/incarceration/sentencing dates, or the era's year —
+        // so the timeline player can ignite stars in chronological order.
+        $people = Prisoner::with(['cases:id,prisoner_id,arrest_date,incarceration_date,sentenced_date'])
+            ->orderBy('sort_order')
             ->get(['id', 'name', 'slug', 'era', 'death_date', 'in_custody'])
-            ->map(fn ($p) => [
-                'n' => $p->name,
-                'u' => $p->url,
-                'e' => $p->era,
-                'c' => (bool) $p->in_custody,   // still imprisoned
-                'd' => (bool) $p->death_date,    // deceased
-            ])
+            ->map(function ($p) {
+                $year = null;
+                foreach ($p->cases as $c) {
+                    foreach (['incarceration_date', 'arrest_date', 'sentenced_date'] as $f) {
+                        if ($c->$f) {
+                            $y = (int) \Carbon\Carbon::parse($c->$f)->year;
+                            if ($y > 1000) {
+                                $year = $year ? min($year, $y) : $y;
+                            }
+                        }
+                    }
+                }
+                if (! $year && $p->era && preg_match('/\d{4}/', $p->era, $m)) {
+                    $year = (int) $m[0];
+                }
+
+                return [
+                    'n' => $p->name,
+                    'u' => $p->url,
+                    'e' => $p->era,
+                    'c' => (bool) $p->in_custody,   // still imprisoned
+                    'd' => (bool) $p->death_date,    // deceased
+                    'y' => $year,                    // year of imprisonment (nullable)
+                ];
+            })
             ->values();
+
+        $years = $people->pluck('y')->filter()->values();
+        $minYear = $years->isNotEmpty() ? (int) $years->min() : 1850;
+        $maxYear = (int) date('Y');
+
+        // Give anyone with no datable year the earliest year, so they still
+        // appear (lit from the start) rather than never igniting.
+        $people = $people->map(function ($r) use ($minYear) {
+            $r['y'] = $r['y'] ?: $minYear;
+
+            return $r;
+        })->values();
 
         return view('pages.memorial', [
             'people' => $people,
             'count' => $people->count(),
+            'minYear' => $minYear,
+            'maxYear' => $maxYear,
         ]);
     }
 

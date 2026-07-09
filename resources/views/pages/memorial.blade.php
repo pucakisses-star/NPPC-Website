@@ -27,7 +27,7 @@
     .mem-search-results button { display: block; width: 100%; text-align: left; background: none; border: 0; color: #d6d0c3; font: inherit; font-size: 14px; padding: 9px 16px; cursor: pointer; }
     .mem-search-results button:hover { background: rgba(247,228,191,0.1); color: #f7e4bf; }
 
-    .mem-legend { position: absolute; left: clamp(16px, 3vw, 34px); bottom: clamp(16px, 3vh, 30px); display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #8a8377; z-index: 3; pointer-events: none; }
+    .mem-legend { position: absolute; left: clamp(16px, 3vw, 34px); bottom: calc(clamp(16px, 3vh, 30px) + 74px); display: flex; flex-direction: column; gap: 8px; font-size: 12px; color: #8a8377; z-index: 3; pointer-events: none; }
     .mem-legend span { display: flex; align-items: center; gap: 9px; }
     .mem-dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
     .mem-dot--custody { background: #f7e4bf; box-shadow: 0 0 10px 2px rgba(247,228,191,0.55); }
@@ -37,7 +37,7 @@
     .mem-tooltip { position: fixed; z-index: 5; pointer-events: none; transform: translate(-50%, -140%); background: rgba(11,10,18,0.92); border: 1px solid rgba(247,228,191,0.25); color: #f7e4bf; font-size: 13px; font-weight: 600; padding: 5px 11px; border-radius: 8px; white-space: nowrap; }
     .mem-tooltip[hidden] { display: none; }
 
-    .mem-focus { position: absolute; left: 50%; bottom: clamp(20px, 5vh, 44px); transform: translateX(-50%); z-index: 4; width: min(440px, calc(100vw - 40px)); background: rgba(8,7,14,0.86); backdrop-filter: blur(10px); border: 1px solid rgba(247,228,191,0.22); border-radius: 16px; padding: 22px 24px 20px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .mem-focus { position: absolute; left: 50%; bottom: calc(clamp(20px, 5vh, 44px) + 74px); transform: translateX(-50%); z-index: 4; width: min(440px, calc(100vw - 40px)); background: rgba(8,7,14,0.86); backdrop-filter: blur(10px); border: 1px solid rgba(247,228,191,0.22); border-radius: 16px; padding: 22px 24px 20px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
     .mem-focus[hidden] { display: none; }
     .mem-focus__close { position: absolute; top: 10px; right: 12px; background: none; border: 0; color: #8a8377; font-size: 22px; line-height: 1; cursor: pointer; }
     .mem-focus__close:hover { color: #f2eee4; }
@@ -49,9 +49,28 @@
     .mem-focus__link { flex: 1; background: #f7e4bf; color: #1a1508; font-weight: 700; font-size: 14px; text-decoration: none; padding: 10px 16px; border-radius: 999px; transition: background 0.2s; }
     .mem-focus__link:hover { background: #fff0cf; }
 
+    /* Chronological timeline player (stars ignite in the year of imprisonment). */
+    .mem-timeline { position: absolute; left: 0; right: 0; bottom: 0; z-index: 6; display: flex; align-items: center; gap: clamp(10px, 2vw, 20px); padding: 14px clamp(16px, 3vw, 34px) 18px; background: linear-gradient(to top, rgba(5,4,8,0.92) 40%, rgba(5,4,8,0)); }
+    .mem-play { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(247,228,191,0.35); background: rgba(247,228,191,0.1); color: #f7e4bf; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; padding: 0; }
+    .mem-play:hover { background: rgba(247,228,191,0.2); border-color: rgba(247,228,191,0.6); }
+    .mem-play svg { width: 16px; height: 16px; fill: currentColor; }
+    .mem-tl-main { flex: 1 1 auto; min-width: 0; }
+    .mem-tl-readout { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+    .mem-tl-year { font-size: clamp(20px, 3.4vw, 30px); font-weight: 700; color: #f7e4bf; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .mem-tl-count { font-size: 13px; color: #d6d0c3; text-align: right; }
+    .mem-tl-count b { color: #f7e4bf; font-variant-numeric: tabular-nums; }
+    .mem-scrub { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: rgba(247,228,191,0.18); outline: none; cursor: pointer; }
+    .mem-scrub::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px; border-radius: 50%; background: #f7e4bf; box-shadow: 0 0 10px 2px rgba(247,228,191,0.55); cursor: pointer; border: 0; }
+    .mem-scrub::-moz-range-thumb { width: 15px; height: 15px; border-radius: 50%; background: #f7e4bf; box-shadow: 0 0 10px 2px rgba(247,228,191,0.55); cursor: pointer; border: 0; }
+    .mem-speed { flex: 0 0 auto; background: rgba(247,228,191,0.08); border: 1px solid rgba(247,228,191,0.22); color: #f2eee4; font: inherit; font-size: 13px; font-weight: 700; padding: 8px 12px; border-radius: 999px; cursor: pointer; min-width: 50px; text-align: center; transition: background 0.2s; }
+    .mem-speed:hover { background: rgba(247,228,191,0.18); }
+
     @@media (max-width: 640px) {
         .mem { height: calc(100vh - 88px); }
-        .mem-legend { flex-direction: row; flex-wrap: wrap; gap: 6px 16px; }
+        .mem-legend { flex-direction: row; flex-wrap: wrap; gap: 6px 16px; bottom: calc(clamp(16px, 3vh, 30px) + 92px); }
+        .mem-focus { bottom: calc(clamp(20px, 5vh, 44px) + 92px); }
+        .mem-tl-year { font-size: 20px; }
+        .mem-timeline { gap: 10px; padding: 12px 16px 14px; }
     }
 </style>
 @endsection
@@ -89,9 +108,23 @@
     </div>
 
     <div class="mem-tooltip" id="mem-tooltip" hidden></div>
+
+    <div class="mem-timeline" id="mem-timeline">
+        <button class="mem-play" id="mem-play" aria-label="Play timeline">
+            <svg id="mem-play-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2l11 6-11 6z"/></svg>
+        </button>
+        <div class="mem-tl-main">
+            <div class="mem-tl-readout">
+                <span class="mem-tl-year" id="mem-tl-year">{{ $maxYear }}</span>
+                <span class="mem-tl-count"><b id="mem-tl-count">{{ number_format($count) }}</b> imprisoned by this year</span>
+            </div>
+            <input class="mem-scrub" id="mem-scrub" type="range" min="{{ $minYear }}" max="{{ $maxYear }}" value="{{ $maxYear }}" step="1" aria-label="Year">
+        </div>
+        <button class="mem-speed" id="mem-speed" aria-label="Playback speed">1&times;</button>
+    </div>
 </div>
 
-<script>window.__MEM = @json($people);</script>
+<script>window.__MEM = @json($people); window.__MEMCFG = { min: {{ $minYear }}, max: {{ $maxYear }} };</script>
 <script>
 (function () {
     var DATA = window.__MEM || [];
@@ -109,6 +142,27 @@
     var W = 0, H = 0, DPR = 1;
     var hover = -1, focus = -1;
 
+    // Timeline state — stars ignite in the year that person was imprisoned.
+    var CFG = window.__MEMCFG || { min: 1850, max: new Date().getFullYear() };
+    var yearEl = document.getElementById('mem-tl-year');
+    var countEl = document.getElementById('mem-tl-count');
+    var scrub = document.getElementById('mem-scrub');
+    var playBtn = document.getElementById('mem-play');
+    var playIcon = document.getElementById('mem-play-icon');
+    var speedBtn = document.getElementById('mem-speed');
+    var SPEEDS = [1, 2, 4, 0.5];
+    var speedIx = 0;
+    var curYear = CFG.max;          // fractional "now" on the timeline
+    var playing = false;
+    var PLAY_SECS = 30;             // wall-clock seconds to sweep min→max at 1×
+    // Sorted imprisonment years, for a fast "how many lit by year Y" count.
+    var sortedYears = DATA.map(function (p) { return p.y || CFG.min; }).sort(function (a, b) { return a - b; });
+    function litCount(y) {
+        var lo = 0, hi = sortedYears.length;
+        while (lo < hi) { var mid = (lo + hi) >> 1; if (sortedYears[mid] <= y) lo = mid + 1; else hi = mid; }
+        return lo;
+    }
+
     // Deterministic per-star positions (stable across resizes).
     function mulberry32(a) {
         return function () {
@@ -124,7 +178,7 @@
         var size = p.d ? 2.6 : (p.c ? 2.1 : 1.5);   // deceased largest, imprisoned mid, released small
         var base = p.d ? 1.0 : (p.c ? 0.9 : 0.62);
         return { p: p, nx: rnd(), ny: rnd(), size: size, base: base,
-                 twp: rnd() * Math.PI * 2, tws: 0.5 + rnd() * 1.1, x: 0, y: 0 };
+                 twp: rnd() * Math.PI * 2, tws: 0.5 + rnd() * 1.1, x: 0, y: 0, litAt: null };
     });
 
     // Pre-rendered glow sprites (warm gold; brighter warm-white for the deceased).
@@ -153,17 +207,41 @@
     }
 
     var t0 = performance.now();
+    var lastFrame = t0;
     function draw(now) {
         var t = (now - t0) / 1000;
+        var dt = Math.min(0.1, (now - lastFrame) / 1000);
+        lastFrame = now;
+
+        // Advance the timeline while playing.
+        if (playing) {
+            curYear += dt * ((CFG.max - CFG.min) / PLAY_SECS) * SPEEDS[speedIx];
+            if (curYear >= CFG.max) { curYear = CFG.max; setPlaying(false); }
+            syncTimeline();
+        }
+        var yNow = curYear;
+
         ctx.clearRect(0, 0, W, H);
         ctx.globalCompositeOperation = 'lighter';
         for (var i = 0; i < stars.length; i++) {
             var st = stars[i];
+            var lit = (st.p.y || CFG.min) <= yNow;
+            if (lit && st.litAt === null) st.litAt = now;  // just crossed its year
+            else if (!lit) st.litAt = null;
+
             var tw = 0.72 + 0.28 * Math.sin(t * st.tws + st.twp);
             var big = (focus === i) ? 2.4 : (hover === i ? 1.8 : 1);
+            // A brief ignite flare in the ~1.1s after a star lights up.
+            var flare = st.litAt !== null ? Math.max(0, 1 - (now - st.litAt) / 1100) : 0;
+            big *= 1 + flare * 1.6;
             var px = st.size * 7 * big;
-            var a = Math.min(1, st.base * tw * ((focus === i || hover === i) ? 1.35 : 1));
-            ctx.globalAlpha = a;
+            var a;
+            if (lit) {
+                a = st.base * tw * ((focus === i || hover === i) ? 1.35 : 1) * (1 + flare * 1.1);
+            } else {
+                a = st.base * 0.12 * tw;                  // ghosted: not yet imprisoned
+            }
+            ctx.globalAlpha = Math.min(1, a);
             ctx.drawImage(st.p.d ? spriteWhite : spriteGold, st.x - px / 2, st.y - px / 2, px, px);
         }
         ctx.globalCompositeOperation = 'source-over';
@@ -177,6 +255,35 @@
         }
         requestAnimationFrame(draw);
     }
+
+    var ICON_PLAY = '<path d="M3 2l11 6-11 6z"/>';
+    var ICON_PAUSE = '<path d="M3 2h4v12H3zM9 2h4v12H9z"/>';
+    function setPlaying(on) {
+        playing = on;
+        playIcon.innerHTML = on ? ICON_PAUSE : ICON_PLAY;
+        playBtn.setAttribute('aria-label', on ? 'Pause timeline' : 'Play timeline');
+    }
+    function syncTimeline() {
+        var yInt = Math.round(curYear);
+        yearEl.textContent = yInt;
+        countEl.textContent = litCount(curYear).toLocaleString();
+        scrub.value = yInt;
+    }
+    playBtn.addEventListener('click', function () {
+        if (playing) { setPlaying(false); return; }
+        if (curYear >= CFG.max) { curYear = CFG.min; syncTimeline(); }  // replay from the start
+        setPlaying(true);
+    });
+    scrub.addEventListener('input', function () {
+        setPlaying(false);
+        curYear = parseInt(this.value, 10);
+        syncTimeline();
+    });
+    speedBtn.addEventListener('click', function () {
+        speedIx = (speedIx + 1) % SPEEDS.length;
+        var s = SPEEDS[speedIx];
+        speedBtn.innerHTML = (s === 0.5 ? '½' : s) + '×';
+    });
 
     function nearest(mx, my, maxPx) {
         var best = -1, bd = maxPx * maxPx;
@@ -248,6 +355,12 @@
         });
     });
     searchInput.addEventListener('blur', function () { setTimeout(function () { searchResults.innerHTML = ''; }, 150); });
+
+    // Seed the initial full sky (curYear = max) as already-lit, without a flare.
+    for (var s = 0; s < stars.length; s++) {
+        if ((stars[s].p.y || CFG.min) <= curYear) stars[s].litAt = -1e7;
+    }
+    syncTimeline();
 
     window.addEventListener('resize', resize);
     resize();
