@@ -4,9 +4,10 @@
      remove controls, and a "You just added …" note appears under the buy
      button (in #cart-added-msg if present, else injected after the form). --}}
 <style>
-    .cdw-backdrop { position: fixed; inset: 0; background: rgba(10,10,14,0.45); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 998; }
+    /* Above the site header/nav layers (which run up to z-index 999999). */
+    .cdw-backdrop { position: fixed; inset: 0; background: rgba(10,10,14,0.45); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 1000000; }
     .cdw-backdrop.open { opacity: 1; pointer-events: auto; }
-    .cdw { position: fixed; top: 0; right: 0; bottom: 0; width: min(400px, 92vw); background: var(--store-surface, #fff); color: var(--store-fg, #17161d); box-shadow: -18px 0 50px rgba(0,0,0,0.22); transform: translateX(105%); transition: transform 0.32s cubic-bezier(0.22, 0.7, 0.3, 1); z-index: 999; display: flex; flex-direction: column; }
+    .cdw { position: fixed; top: 0; right: 0; bottom: 0; width: min(400px, 92vw); background: var(--store-surface, #fff); color: var(--store-fg, #17161d); box-shadow: -18px 0 50px rgba(0,0,0,0.22); transform: translateX(105%); transition: transform 0.32s cubic-bezier(0.22, 0.7, 0.3, 1); z-index: 1000001; display: flex; flex-direction: column; }
     .cdw.open { transform: translateX(0); }
     .cdw-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(0,0,0,0.08); }
     .cdw-title { font-size: 18px; font-weight: 800; }
