@@ -274,7 +274,23 @@ final class SiteController extends Controller {
             })->limit(20)->get();
         }
 
-        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'activeGrandchild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups'));
+        // Compact search index of every published topic (title, slug, ancestor
+        // path) for the explorer's search box — searched client-side, like the
+        // ecfr.eu mapping explorer, so results appear as you type.
+        $all = Topic::published()->get(['id', 'title', 'slug', 'parent_id']);
+        $byId = $all->keyBy('id');
+        $searchIndex = $all->map(function ($t) use ($byId) {
+            $path = [];
+            $p = $t->parent_id ? $byId->get($t->parent_id) : null;
+            while ($p) {
+                array_unshift($path, $p->title);
+                $p = $p->parent_id ? $byId->get($p->parent_id) : null;
+            }
+
+            return ['t' => $t->title, 's' => $t->slug, 'p' => implode(' → ', $path)];
+        })->values();
+
+        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'activeGrandchild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups', 'searchIndex'));
     }
 
     /** Sort/group key for the topic index: drops a leading article. */

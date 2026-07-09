@@ -37,9 +37,19 @@
     .tpx-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.78); padding: 9px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-nav-item:hover { color: var(--on-dark); }
     .tpx-nav-item.active { color: #8b93ff; }
-    .tpx-search { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.3); color: var(--on-dark); padding: 9px 12px; font-size: 13px; width: 100%; margin-top: 24px; outline: none; }
+    .tpx-search-wrap { margin-top: 24px; }
+    .tpx-search { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.3); color: var(--on-dark); padding: 9px 12px; font-size: 13px; width: 100%; outline: none; }
     .tpx-search::placeholder { color: rgba(255,255,255,0.5); }
     .tpx-search:focus { border-color: rgba(255,255,255,0.7); }
+    /* Search results — in-flow below the box so the column scrolls naturally. */
+    .tpx-search-results { margin-top: 6px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.45); max-height: 300px; overflow-y: auto; }
+    .tpx-search-results[hidden] { display: none; }
+    a.tpx-search-result { display: block; padding: 8px 12px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    a.tpx-search-result:last-child { border-bottom: 0; }
+    a.tpx-search-result:hover, a.tpx-search-result.sel { background: rgba(255,255,255,0.14); }
+    .tpx-search-result .tsr-t { display: block; color: var(--on-dark); font-size: 13px; line-height: 1.35; }
+    .tpx-search-result .tsr-p { display: block; color: rgba(255,255,255,0.55); font-size: 11px; margin-top: 2px; }
+    .tpx-search-empty { padding: 8px 12px; color: rgba(255,255,255,0.55); font-size: 12px; }
 
     /* Middle column — sub-topics, over the photo. When the active sub-topic has
        nested topics, a second list sits beside the sub-topics inside this same
@@ -211,7 +221,10 @@
             @endforeach
             <a href="/topics/index" data-no-fade class="tpx-nav-item {{ $showIndex ? 'active' : '' }}">Index</a>
             <a href="/topics/contributions" data-no-fade class="tpx-nav-item {{ $showContribute ? 'active' : '' }}">Contributions</a>
-            <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
+            <div class="tpx-search-wrap">
+                <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" autocomplete="off" spellcheck="false">
+                <div class="tpx-search-results" id="topic-search-results" hidden></div>
+            </div>
         </div>
 
         {{-- Column 2: sub-topics, with an optional nested-topics list beside them.
@@ -330,13 +343,95 @@
     </div>
 </div>
 
+<script>window.__TPX_INDEX = @json($searchIndex);</script>
 <script>
-function filterTopics(q) {
-    q = q.toLowerCase();
-    document.querySelectorAll('.tpx-nav-item').forEach(function (el) {
-        el.style.display = el.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+/* Topic search — searches every published topic (title + section path) and
+   shows clickable results, like the ecfr.eu mapping explorer's search. */
+(function () {
+    var IDX = window.__TPX_INDEX || [];
+    var input = document.getElementById('topic-search');
+    var box = document.getElementById('topic-search-results');
+    if (!input || !box) return;
+    var sel = -1;
+
+    function clearResults() { box.innerHTML = ''; box.hidden = true; sel = -1; }
+
+    function render(matches) {
+        box.innerHTML = '';
+        sel = -1;
+        if (!matches.length) {
+            var empty = document.createElement('div');
+            empty.className = 'tpx-search-empty';
+            empty.textContent = 'No matching topics';
+            box.appendChild(empty);
+        }
+        matches.slice(0, 12).forEach(function (m) {
+            var a = document.createElement('a');
+            a.className = 'tpx-search-result';
+            a.href = '/topics/' + m.s;
+            var t = document.createElement('span');
+            t.className = 'tsr-t';
+            t.textContent = m.t;
+            a.appendChild(t);
+            if (m.p) {
+                var p = document.createElement('span');
+                p.className = 'tsr-p';
+                p.textContent = m.p;
+                a.appendChild(p);
+            }
+            box.appendChild(a);
+        });
+        box.hidden = false;
+    }
+
+    function search(q) {
+        q = q.trim().toLowerCase();
+        if (q.length < 2) { clearResults(); return; }
+        var scored = [];
+        for (var i = 0; i < IDX.length; i++) {
+            var t = IDX[i].t.toLowerCase(), p = (IDX[i].p || '').toLowerCase();
+            var s = -1;
+            if (t.indexOf(q) === 0) s = 0;                       // title starts with
+            else if (t.indexOf(' ' + q) !== -1) s = 1;           // word in title
+            else if (t.indexOf(q) !== -1) s = 2;                 // anywhere in title
+            else if (p.indexOf(q) !== -1) s = 3;                 // in section path
+            if (s >= 0) scored.push([s, IDX[i]]);
+        }
+        scored.sort(function (a, b) { return a[0] - b[0] || a[1].t.localeCompare(b[1].t); });
+        render(scored.map(function (x) { return x[1]; }));
+    }
+
+    function items() { return box.querySelectorAll('a.tpx-search-result'); }
+    function highlight(n) {
+        var list = items();
+        if (!list.length) return;
+        sel = (n + list.length) % list.length;
+        list.forEach(function (el, i) { el.classList.toggle('sel', i === sel); });
+        list[sel].scrollIntoView({ block: 'nearest' });
+    }
+
+    input.addEventListener('input', function () { search(this.value); });
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { clearResults(); input.value = ''; input.blur(); }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); highlight(sel + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(sel - 1); }
+        else if (e.key === 'Enter') {
+            var list = items();
+            var target = list[sel >= 0 ? sel : 0];
+            if (target) { e.preventDefault(); target.click(); }
+        }
     });
-}
+    // Choosing a result closes the panel (the click itself soft-navigates).
+    box.addEventListener('click', function (e) {
+        if (e.target.closest('a.tpx-search-result')) {
+            window.setTimeout(function () { clearResults(); input.value = ''; }, 0);
+        }
+    });
+    // Click elsewhere closes the panel.
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.tpx-search-wrap')) clearResults();
+    });
+})();
 function tpxShare() {
     var url = window.location.href, title = document.title;
     if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); }
@@ -517,7 +612,7 @@ function tpxShare() {
     }
 
     document.addEventListener('click', function (e) {
-        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link, a.tpx-index-link');
+        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link, a.tpx-index-link, a.tpx-search-result');
         if (!a) return;
         if (a.hasAttribute('data-fullload')) return;   // let this link do a full page load (form + reCAPTCHA)
         // Respect new-tab / modified clicks.
