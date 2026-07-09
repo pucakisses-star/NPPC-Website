@@ -79,15 +79,18 @@
     "last_name": "Otero",
     "gender": "Male",
     "race": "Hispanic",
+    "state": "New York",
     "era": "1970s",
+    "ideologies": ["Community organizing"],
+    "affiliation": ["Committee to Defend Juan Otero"],
     "in_custody": false,
     "released": true,
-    "description": "Juan Otero was the subject of a 1973 Puerto Rican movement defense campaign — \"Free Juan Otero. Framed, Convicted, He Must be Freed\" — which held that he had been framed and wrongly convicted. Biographical and case details are not documented beyond the defense campaign.",
+    "description": "Juan Otero was a Bronx family man, educational specialist, and community activist — a young father with no police record — working for equality in the building trades when he became the subject of a 1973 Puerto Rican movement defense campaign, \"Free Juan Otero.\" The Committee to Defend Juan Otero (c/o Rev. Juan Otero, 535 Jackson Avenue, the Bronx) held that he had been framed on two robbery charges — no evidence was ever found in his home or car, and the robberies took place while he was visiting friends — through a personal vendetta by South Bronx police who knew him from his community work, in collaboration with corrupt construction contractors. Convicted by a jury after an attorney urged him not to \"make a political case out of this,\" he was sentenced to five years in prison. The campaign linked his case to those of Angela Davis, the Berrigans, and Carlos Feliciano. (Sourced from the \"Free Juan Otero\" defense flyer now catalogued in the archive.)",
     "cases": [
       {
-        "charges": "Framed and convicted (per the 1973 \"Free Juan Otero\" defense campaign); specifics not documented",
-        "convicted": "Yes — per the 1973 defense flyer",
-        "sentence": "Not documented"
+        "charges": "Two robbery charges — which the \"Free Juan Otero\" defense campaign (1973) called a frame-up by South Bronx police, in collaboration with corrupt building-trades contractors, in retaliation for his community organizing; no evidence was found in his home or car.",
+        "convicted": "Yes — convicted by a jury (per the 1973 defense campaign).",
+        "sentence": "Five years in prison."
       }
     ]
   },
