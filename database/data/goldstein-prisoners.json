@@ -3483,7 +3483,7 @@
     "name": "John Briggs",
     "first_name": "John",
     "last_name": "Briggs",
-    "description": "Vietnam veteran and member of Vietnam Veterans Against the War (VVAW) indicted in 1972 as one of the 'Gainesville Eight' for conspiracy to disrupt the 1972 Republican National Convention in Miami Beach. All eight defendants were acquitted by a federal jury on August 31, 1973.",
+    "description": "Vietnam veteran and member of Vietnam Veterans Against the War (VVAW) indicted in 1972 as one of the 'Gainesville Eight' for conspiracy to disrupt the 1972 Republican National Convention in Miami Beach. He was jailed September 8–17, 1972. All eight defendants were acquitted by a federal jury on August 31, 1973.",
     "race": "White",
     "gender": "Male",
     "ideologies": [
@@ -3504,7 +3504,10 @@
         "institution_state": "Florida",
         "charges": "Conspiracy to incite a riot at the 1972 Republican National Convention",
         "arrest_date": "1972-07-10",
-        "convicted": "No \u2014 acquitted by jury August 31, 1973"
+        "incarceration_date": "1972-09-08",
+        "release_date": "1972-09-17",
+        "convicted": "No \u2014 acquitted by jury August 31, 1973",
+        "sentence": "Jailed September 8\u201317, 1972."
       }
     ]
   },
