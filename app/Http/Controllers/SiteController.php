@@ -282,6 +282,28 @@ final class SiteController extends Controller {
         return ltrim(preg_replace('/^(the|a|an)\s+/i', '', trim($title)));
     }
 
+    public function memorial() {
+        // A memorial starfield — one star for every political prisoner in the
+        // database (after gazaschildren.com's "one star for every name"). Only
+        // the few fields the starfield needs are sent, keyed short to keep the
+        // embedded payload small.
+        $people = Prisoner::orderBy('sort_order')
+            ->get(['id', 'name', 'slug', 'era', 'death_date', 'in_custody'])
+            ->map(fn ($p) => [
+                'n' => $p->name,
+                'u' => $p->url,
+                'e' => $p->era,
+                'c' => (bool) $p->in_custody,   // still imprisoned
+                'd' => (bool) $p->death_date,    // deceased
+            ])
+            ->values();
+
+        return view('pages.memorial', [
+            'people' => $people,
+            'count' => $people->count(),
+        ]);
+    }
+
     public function birthdays(Request $request) {
         // Currently-incarcerated prisoners with a known birthdate, for
         // the letter-writing birthday calendar.
