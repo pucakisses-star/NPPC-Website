@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\DB;
  * 1862, charging him as a "prominent Secessionist" for having led the local
  * "Home Committee of Safety." He was moved from Russellville through Louisville
  * to Camp Chase in Ohio, where he was held until President Lincoln pardoned him
- * on January 13, 1864. Mirrors the existing Civil War cohort (era "1800s").
- * Idempotent — skips if a record with this name already exists.
+ * on January 13, 1864. Born Sept 3, 1797 in Mason County, Kentucky; died July 6,
+ * 1864, about six months after his release. Mirrors the existing Civil War
+ * cohort (era "1800s"). Create-or-update by name, so it is idempotent and
+ * refreshes the record (incl. birth/death dates) on re-run.
  */
 final class AddEdwardStevenson extends Command
 {
@@ -28,13 +30,10 @@ final class AddEdwardStevenson extends Command
     public function handle(): int
     {
         DB::transaction(function () {
-            if (Prisoner::where('name', 'Edward Stevenson')->exists()) {
-                $this->warn('Skipped (already exists): Edward Stevenson');
+            $existing = Prisoner::withUnderReview()->where('name', 'Edward Stevenson')->first();
+            $prisoner = $existing ?? new Prisoner(['name' => 'Edward Stevenson']);
 
-                return;
-            }
-
-            $prisoner = Prisoner::create([
+            $prisoner->fill([
                 'name' => 'Edward Stevenson',
                 'first_name' => 'Edward',
                 'last_name' => 'Stevenson',
@@ -43,12 +42,21 @@ final class AddEdwardStevenson extends Command
                 'state' => 'Kentucky',
                 'era' => '1800s',
                 'ideologies' => ['Confederate sympathies'],
-                'description' => 'The Reverend Edward Stevenson was a minister in Russellville, Kentucky. On June 30, 1862, federal authorities arrested him at his home, charging him with being a "prominent Secessionist" — evidenced, they said, by his having led the local "Home Committee of Safety." After his arrest he was shuttled from Russellville through Louisville and eventually to Camp Chase in Ohio, where he was held as a political prisoner until President Abraham Lincoln pardoned him on January 13, 1864.',
+                'description' => 'The Reverend Edward Stevenson was a minister in Russellville, Kentucky, born September 3, 1797 in Mason County, Kentucky. On June 30, 1862, federal authorities arrested him at his home, charging him with being a "prominent Secessionist" — evidenced, they said, by his having led the local "Home Committee of Safety." After his arrest he was shuttled from Russellville through Louisville and eventually to Camp Chase in Ohio, where he was held as a political prisoner until President Abraham Lincoln pardoned him on January 13, 1864. He died on July 6, 1864, about six months after his release.',
                 'in_custody' => false,
                 'released' => true,
                 'in_exile' => false,
                 'awaiting_trial' => false,
             ]);
+            $prisoner->setPartialDate('birthdate', 1797, 9, 3);
+            $prisoner->setPartialDate('death_date', 1864, 7, 6);
+            $prisoner->save();
+
+            if ($existing) {
+                $this->info('Updated: '.$prisoner->name.' (slug: '.$prisoner->slug.')');
+
+                return;
+            }
 
             $campChase = Institution::firstOrCreate(
                 ['name' => 'Camp Chase'],
