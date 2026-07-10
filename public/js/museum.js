@@ -1778,12 +1778,21 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
    so the ground floor stays clear. ---- */
 (function levelTwo() {
     const FY = 4.6, Y = 10.5;
-    const fascia = new THREE.MeshStandardMaterial({ color: 0xf1efe9, roughness: 0.85 });
+    // soffit reads self-lit so the balcony underside isn't a black band from
+    // the atrium floor (its downward face gets no direct light)
+    const fascia = new THREE.MeshStandardMaterial({ color: 0xf1efe9, roughness: 0.85, emissive: 0xf3ecdf, emissiveIntensity: 0.32 });
 
     // --- south balcony slab (over the entrance), continuous off the east strip ---
     box(24.2, 0.32, 4, fascia, 1, FY - 0.15, 23.85, {});          // slab edge / soffit
     floorRect(-11, 13, 22, 25.8, MAT.galleryFloor, 4.61);
     addFloorZone(-11, 13, 22, 25.8, 4.6);
+    // recessed downlights on the soffit underside (lit-balcony look + reads over
+    // the entrance below)
+    for (const [dx, dz] of [[-8, 23], [-3, 24.5], [3, 23], [8, 24.5], [11, 22.5]]) {
+        const dl = new THREE.Mesh(new THREE.CircleGeometry(0.18, 18),
+            new THREE.MeshBasicMaterial({ color: 0xfff1d6, toneMapped: false }));
+        dl.rotation.x = Math.PI / 2; dl.position.set(dx, FY - 0.31, dz); worldGroup.add(dl);
+    }
     // overlook rails: north edge (over the atrium) west of the east-strip
     // junction, and the west edge
     balustrade('x', 22, -11, 10, 4.6);
@@ -2607,10 +2616,7 @@ function buildLoopCorridor(sign) {
     wallRun('z', -X, spineEnd, 6, Y, { doors: westDoors });
     wallRun('x', spineEnd, -X, X, Y, { doors: [{ at: 0, w: 3, h: 3 }] });   // → archive
 
-    // colonnade + monoliths down the centre
-    for (let z = 0; z >= spineEnd + 2; z -= BAND) {
-        column(-5.4, z, Y); column(5.4, z, Y);
-    }
+    // monoliths down the centre
     const mono = DATA.monoliths || [];
     let mz = -2.5;
     mono.forEach((m, k) => {
@@ -2817,7 +2823,6 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
     buildLoopCorridor(1);
     wallRun('z', xHi, zLo, zHi, Y, {});
     // west wall (x=8) built by archive with the door
-    column(16, cz - 6, Y); column(16, cz + 6, Y);
 
     const reading = (DATA.reading || []).filter(r => r.img || r.file);
     const books = reading.filter(r => r.book), sheets = reading.filter(r => !r.book);
@@ -2941,7 +2946,9 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
     readingTable(15, cz + 1); readingTable(20, cz + 1);
     ceilingLight(15, Y, cz, 1.8, 0.26); ceilingLight(20, Y, cz, 1.8, 0.26);
     rooms.push({
-        name: 'Reading Room', minX: xLo, maxX: xHi, minZ: zLo, maxZ: zHi,
+        // extend the bounds north to swallow the loop corridor so it isn't a
+        // dark, unowned dead-zone between rooms
+        name: 'Reading Room', minX: xLo, maxX: xHi, minZ: zLo, maxZ: loopLinks[1] ? loopLinks[1].zGal : zHi,
         rig: { key: { p: [17, Y - 0.5, cz], t: [17, 0.5, cz], i: 105, angle: 0.95, dist: 16 },
             fills: [[13, 2.3, cz, 22, 0xffdfae], [20, 2.3, cz, 22, 0xffdfae], [16, 2.6, zLo + 3, 18, 0xffe6c0]] } });
 })();
