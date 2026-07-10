@@ -1588,7 +1588,9 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     addCollider(-12.8, -10.4, 10.85, 11.05, -Infinity, 4.4);            // under-run face (pass above only)
 
     // ---- mezzanine: north band + east strip (walkable, y=4.6) ----
-    const fascia = new THREE.MeshStandardMaterial({ color: 0xf1efe9, roughness: 0.85 });
+    // self-lit so the mezzanine underside doesn't read as a black band from the
+    // atrium floor (a downward face gets no direct light)
+    const fascia = new THREE.MeshStandardMaterial({ color: 0xf1efe9, roughness: 0.85, emissive: 0xf3ecdf, emissiveIntensity: 0.3 });
     box(26, 0.3, 5, fascia, 0, 4.45, 8.5, {});
     box(3, 0.3, 11, fascia, 11.5, 4.45, 16.5, {});
     floorRect(-13, 13, 6, 11, MAT.galleryFloor, 4.61);
@@ -2701,18 +2703,25 @@ galleryMeta.forEach(({ i, g, sign, zHi, zLo, doorZ }) => {
     // Interconnection: cut a doorway in the end walls shared with the same-side
     // gallery in the next/previous row, so the branches read as one enfilade
     // circuit (walk gallery→gallery) instead of dead-end rooms off the spine.
-    const doorX = sign * 22, DW = 2.4, DH = 3.0;
+    const DW = 2.4, DH = 3.0;
+    const row = Math.floor(i / 2);
+    // Stagger the enfilade doors between two x positions by shared-wall parity
+    // so the aligned doorways don't form a straight sightline down the whole
+    // wing (which would reveal a culled gallery / the sky through the chain).
+    // 22 and 9 both clear the end-wall art (at x±13,±19) and the floor fins.
+    const boundaryX = (bIdx) => sign * ((((bIdx % 2) + 2) % 2 === 0) ? 22 : 9);
     const hasNext = i + 2 < GAL.length;   // deeper same-side gallery (lower z, zA wall)
     const hasPrev = i - 2 >= 0;            // shallower same-side gallery (higher z, zB wall)
     const lk = loopLinks[sign];           // loop link out of the deepest gallery's south wall
+    const southX = boundaryX(row), northX = boundaryX(row - 1);
     const southDoors = [];
-    if (hasNext) southDoors.push({ at: doorX, w: DW, h: DH });
+    if (hasNext) southDoors.push({ at: southX, w: DW, h: DH });
     if (lk && lk.i === i) southDoors.push({ at: lk.linkX, w: 2.4, h: 2.8 });
     wallRun('x', zA, loX, hiX, Y, { mat: wallMat, doors: southDoors });
-    wallRun('x', zB, loX, hiX, Y, { mat: wallMat, doors: hasPrev ? [{ at: doorX, w: DW, h: DH }] : [] });
+    wallRun('x', zB, loX, hiX, Y, { mat: wallMat, doors: hasPrev ? [{ at: northX, w: DW, h: DH }] : [] });
     // bridge floor across the ~0.4m gap between the two galleries' walls
-    if (hasNext) floorRect(doorX - DW / 2 - 0.25, doorX + DW / 2 + 0.25, zA - 0.6, zA + 0.1, MAT.galleryFloor);
-    if (hasPrev) floorRect(doorX - DW / 2 - 0.25, doorX + DW / 2 + 0.25, zB - 0.1, zB + 0.6, MAT.galleryFloor);
+    if (hasNext) floorRect(southX - DW / 2 - 0.25, southX + DW / 2 + 0.25, zA - 0.6, zA + 0.1, MAT.galleryFloor);
+    if (hasPrev) floorRect(northX - DW / 2 - 0.25, northX + DW / 2 + 0.25, zB - 0.1, zB + 0.6, MAT.galleryFloor);
 
     // track lighting over the outer wall + the fins
     trackLightZ(zA + 2, zB - 2, outerX - sign * 1.4, Y, 6);
