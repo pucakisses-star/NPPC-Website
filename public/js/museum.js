@@ -216,7 +216,13 @@ const artQueue = [];            // progressive photo loading
 const rooms = [];               // {name,minX,maxX,minZ,maxZ,rig}
 const slideshows = [];          // animated canvas screens
 
-function addCollider(minX, maxX, minZ, maxZ) { colliders.push({ minX, maxX, minZ, maxZ }); }
+/* Colliders may carry a vertical band [y0,y1]; a walker only collides when
+   their body (ground..ground+1.7) overlaps the band. Default = full height,
+   so walls behave as before; balustrades on the mezzanine use a band so the
+   ground floor can pass beneath them. */
+function addCollider(minX, maxX, minZ, maxZ, y0 = -Infinity, y1 = Infinity) {
+    colliders.push({ minX, maxX, minZ, maxZ, y0, y1 });
+}
 function addFloorZone(minX, maxX, minZ, maxZ, y) { floorZones.push({ minX, maxX, minZ, maxZ, y }); }
 function floorHeightAt(x, z) {
     // Zones are non-overlapping tier platforms; return the containing zone's y.
@@ -980,46 +986,360 @@ function fillOpenGallery(items, sign, innerX, outerX, cxMid, zLo, zHi, doorZ, fr
     [-3, 3].forEach(dx => { const it = next(); if (it) hangArt(it, new THREE.Vector3(cxMid + dx, 1.6, zHi - 0.18), new THREE.Vector3(0, 0, -1), { frame: frameMat, artH: 1.15, edge: accent }); });
 }
 
-/* ---- Entrance rotunda: x[-9,9] z[6,20] ---- */
-(function rotunda() {
-    const Y = CEIL.rotunda;
-    const refl = new Reflector(new THREE.PlaneGeometry(18, 14), {
-        textureWidth: 1024, textureHeight: 1024, color: 0x8f8f8f, clipBias: 0.003,
+/* ======================================================================
+   ENTRANCE SEQUENCE v3 — exterior plaza → glazed facade → grand atrium.
+   A double-height mass-timber atrium with skylight wells, a monumental
+   travertine stair to a walkable mezzanine, a reflecting pond with a
+   waterfall, ficus trees, and a cascade of hanging light rods.
+   ====================================================================== */
+const animatedTex = [];                  // per-frame texture updaters (waterfall)
+
+/* --- small nature/architecture builders ------------------------------ */
+const FOLIAGE_TEX = canvasTexture(256, 256, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const greens = ['#2e4a2c', '#3a5c36', '#466b40', '#557a4b', '#39543a'];
+    for (let i = 0; i < 46; i++) {
+        g.fillStyle = greens[Math.floor(Math.random() * greens.length)];
+        g.globalAlpha = 0.75 + Math.random() * 0.25;
+        const x = 30 + Math.random() * (w - 60), y = 30 + Math.random() * (h - 60);
+        const rx = 14 + Math.random() * 26, ry2 = 8 + Math.random() * 18;
+        g.beginPath(); g.ellipse(x, y, rx, ry2, Math.random() * Math.PI, 0, Math.PI * 2); g.fill();
+    }
+    g.globalAlpha = 1;
+});
+function bushSprite(x, y, z, s = 1) {
+    const mat = new THREE.MeshStandardMaterial({ map: FOLIAGE_TEX, transparent: true, alphaTest: 0.35, roughness: 0.95, side: THREE.DoubleSide });
+    for (let i = 0; i < 3; i++) {
+        const p = new THREE.Mesh(new THREE.PlaneGeometry(1.1 * s, 0.85 * s), mat);
+        p.position.set(x, y + 0.42 * s, z); p.rotation.y = i * Math.PI / 3;
+        worldGroup.add(p);
+    }
+}
+function ficusTree(x, z, h = 4, potR = 0.55) {
+    const pot = new THREE.Mesh(new THREE.CylinderGeometry(potR, potR * 0.82, potR * 0.9, 20),
+        new THREE.MeshStandardMaterial({ color: 0x2c2c30, roughness: 0.6 }));
+    pot.position.set(x, potR * 0.45, z); pot.castShadow = true; worldGroup.add(pot);
+    const soil = new THREE.Mesh(new THREE.CircleGeometry(potR * 0.88, 18), new THREE.MeshStandardMaterial({ color: 0x241b12, roughness: 1 }));
+    soil.rotation.x = -Math.PI / 2; soil.position.set(x, potR * 0.9, z); worldGroup.add(soil);
+    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.11, h * 0.55, 8),
+        new THREE.MeshStandardMaterial({ color: 0x5a4632, roughness: 0.9 }));
+    trunk.position.set(x, potR * 0.9 + h * 0.27, z); trunk.castShadow = true; worldGroup.add(trunk);
+    const greens = [0x2e4a2c, 0x3a5c36, 0x466b40];
+    for (let i = 0; i < 4; i++) {
+        const r = h * (0.22 - i * 0.028);
+        const c = new THREE.Mesh(new THREE.SphereGeometry(r, 10, 8),
+            new THREE.MeshStandardMaterial({ color: greens[i % 3], roughness: 0.95, envMapIntensity: 0.15 }));
+        c.position.set(x + (i % 2 ? 0.16 : -0.14) * (i > 1 ? -1 : 1), potR * 0.9 + h * 0.52 + i * r * 0.72, z + (i % 2 ? -0.1 : 0.12));
+        c.scale.y = 0.8; c.castShadow = true; worldGroup.add(c);
+    }
+    addCollider(x - potR, x + potR, z - potR, z + potR);
+}
+function planterBed(x0, x1, z0, z1, nBush = 4) {
+    const w = x1 - x0, d = z1 - z0;
+    const curb = new THREE.Mesh(new THREE.BoxGeometry(w, 0.42, d), MAT.benchWood);
+    curb.position.set((x0 + x1) / 2, 0.21, (z0 + z1) / 2); curb.castShadow = true; curb.receiveShadow = true;
+    worldGroup.add(curb);
+    const soil = new THREE.Mesh(new THREE.BoxGeometry(w - 0.12, 0.05, d - 0.12), new THREE.MeshStandardMaterial({ color: 0x241b12, roughness: 1 }));
+    soil.position.set((x0 + x1) / 2, 0.44, (z0 + z1) / 2); worldGroup.add(soil);
+    for (let i = 0; i < nBush; i++) {
+        bushSprite(x0 + 0.4 + Math.random() * (w - 0.8), 0.4, z0 + 0.4 + Math.random() * (d - 0.8), 0.8 + Math.random() * 0.5);
+    }
+    addCollider(x0, x1, z0, z1);
+}
+/* Glass balustrade with timber cap rail; collider only bites at its own level. */
+function balustrade(axis, fixed, from, to, floorY) {
+    const len = Math.abs(to - from), mid = (from + to) / 2;
+    const glass = new THREE.Mesh(
+        axis === 'x' ? new THREE.PlaneGeometry(len, 0.92) : new THREE.PlaneGeometry(len, 0.92), MAT.glass);
+    glass.position.set(axis === 'x' ? mid : fixed, floorY + 0.52, axis === 'x' ? fixed : mid);
+    if (axis === 'z') glass.rotation.y = Math.PI / 2;
+    worldGroup.add(glass);
+    const rail = new THREE.Mesh(
+        axis === 'x' ? new THREE.BoxGeometry(len, 0.07, 0.09) : new THREE.BoxGeometry(0.09, 0.07, len), TIMBER);
+    rail.position.set(axis === 'x' ? mid : fixed, floorY + 1.02, axis === 'x' ? fixed : mid);
+    rail.castShadow = true; worldGroup.add(rail);
+    if (axis === 'x') addCollider(Math.min(from, to), Math.max(from, to), fixed - 0.08, fixed + 0.08, floorY - 0.3, floorY + 1.5);
+    else addCollider(fixed - 0.08, fixed + 0.08, Math.min(from, to), Math.max(from, to), floorY - 0.3, floorY + 1.5);
+}
+/* Solid monumental stair running along -z (ascending northward). */
+function grandStair(x0, x1, zBottom, zTop, rise, mat) {
+    const n = 24, run = zBottom - zTop, dz = run / n, dy = rise / n;
+    for (let i = 0; i < n; i++) {
+        const zA = zBottom - i * dz, zB = zBottom - (i + 1) * dz;
+        const topY = (i + 1) * dy;
+        const step = new THREE.Mesh(new THREE.BoxGeometry(x1 - x0, topY, dz + 0.02), mat);
+        step.position.set((x0 + x1) / 2, topY / 2, (zA + zB) / 2);
+        step.receiveShadow = true; step.castShadow = true;
+        worldGroup.add(step);
+        addFloorZone(x0, x1, zB, zA, topY);
+    }
+    // sloped handrail on the open (east) side
+    const dir = new THREE.Vector3(0, rise, -(run)).normalize();
+    const length = Math.hypot(rise, run);
+    const railGeo = new THREE.CylinderGeometry(0.035, 0.035, length, 10);
+    const rail = new THREE.Mesh(railGeo, MAT.brass);
+    rail.position.set(x1 + 0.12, rise / 2 + 1.0, (zBottom + zTop) / 2);
+    rail.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir);
+    worldGroup.add(rail);
+    for (let i = 0; i <= 4; i++) {
+        const t = i / 4;
+        const post = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.0, 8), MAT.frameBlack);
+        post.position.set(x1 + 0.12, t * rise + 0.5, zBottom - t * run);
+        worldGroup.add(post);
+    }
+}
+/* Falling-water sheet: scrolling streak texture + foam. */
+function waterfall(x, z, w = 2.0, h = 2.7) {
+    const stone = new THREE.Mesh(new THREE.BoxGeometry(w + 0.7, h + 0.4, 0.55),
+        new THREE.MeshStandardMaterial({ ...pbr('concrete', { repeat: [1.2, 1.2] }), color: 0x4d5158, envMapIntensity: 0.25 }));
+    stone.position.set(x, (h + 0.4) / 2, z); stone.castShadow = true; stone.receiveShadow = true;
+    worldGroup.add(stone);
+    const c = document.createElement('canvas'); c.width = 128; c.height = 512;
+    const g = c.getContext('2d');
+    g.clearRect(0, 0, 128, 512);
+    for (let i = 0; i < 60; i++) {
+        const a = 0.08 + Math.random() * 0.3;
+        g.strokeStyle = `rgba(235,248,252,${a})`;
+        g.lineWidth = 1 + Math.random() * 2.4;
+        const sx = Math.random() * 128;
+        g.beginPath(); g.moveTo(sx, -20); g.lineTo(sx + (Math.random() * 8 - 4), 532); g.stroke();
+    }
+    const tex = new THREE.CanvasTexture(c);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    const sheet = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
+        new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.75, depthWrite: false, side: THREE.DoubleSide }));
+    sheet.position.set(x, h / 2 + 0.16, z + 0.29);
+    worldGroup.add(sheet);
+    animatedTex.push(dt => { tex.offset.y -= dt * 0.55; });
+    const foam = new THREE.Mesh(new THREE.PlaneGeometry(w + 0.5, 0.8),
+        new THREE.MeshBasicMaterial({ map: WASH_TEX, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false }));
+    foam.rotation.x = -Math.PI / 2; foam.position.set(x, 0.17, z + 0.62);
+    worldGroup.add(foam);
+}
+
+/* ---- Exterior: museum plaza under an open sky ---- */
+(function plaza() {
+    // sky dome (day gradient + sun + soft clouds), bright regardless of tone mapping
+    const sky = canvasTexture(1024, 512, (g, w, h) => {
+        const grad = g.createLinearGradient(0, 0, 0, h);
+        grad.addColorStop(0, '#6ea8dd'); grad.addColorStop(0.55, '#a8c9e8'); grad.addColorStop(0.8, '#dce9f2'); grad.addColorStop(1, '#e8eef2');
+        g.fillStyle = grad; g.fillRect(0, 0, w, h);
+        g.fillStyle = 'rgba(255,250,235,0.95)'; g.shadowColor = '#fff7dd'; g.shadowBlur = 60;
+        g.beginPath(); g.arc(w * 0.68, h * 0.3, 26, 0, Math.PI * 2); g.fill();
+        g.shadowBlur = 40; g.fillStyle = 'rgba(255,255,255,0.5)';
+        for (const [cx, cy, r] of [[w * 0.2, h * 0.36, 42], [w * 0.31, h * 0.33, 30], [w * 0.83, h * 0.46, 36], [w * 0.5, h * 0.24, 26]]) {
+            g.beginPath(); g.ellipse(cx, cy, r * 1.9, r * 0.55, 0, 0, Math.PI * 2); g.fill();
+        }
+        g.shadowBlur = 0;
     });
-    refl.rotation.x = -Math.PI / 2; refl.position.set(0, 0.001, 13);
+    const dome = new THREE.Mesh(new THREE.SphereGeometry(75, 24, 16),
+        new THREE.MeshBasicMaterial({ map: sky, side: THREE.BackSide, toneMapped: false }));
+    dome.position.set(0, 0, 26);
+    worldGroup.add(dome);
+    // distant city skyline behind the plaza hedge
+    const skyline = canvasTexture(2048, 400, (g, w, h) => {
+        g.clearRect(0, 0, w, h);
+        for (const [tone, base] of [['rgba(150,175,196,0.85)', 0.42], ['rgba(112,138,160,0.9)', 0.6]]) {
+            g.fillStyle = tone;
+            let x = 0;
+            while (x < w) {
+                const bw = 60 + Math.random() * 130, bh = h * (base - Math.random() * 0.22);
+                g.fillRect(x, h - bh, bw, bh);
+                if (Math.random() < 0.4) g.fillRect(x + bw * 0.3, h - bh - 14, bw * 0.28, 14);
+                x += bw + 6 + Math.random() * 18;
+            }
+        }
+        g.fillStyle = 'rgba(58,74,44,0.95)';
+        for (let x = 0; x < w; x += 26) {
+            const r = 12 + Math.random() * 16;
+            g.beginPath(); g.arc(x, h - 8, r, Math.PI, 0); g.fill();
+        }
+    });
+    const far = new THREE.Mesh(new THREE.PlaneGeometry(64, 12.5),
+        new THREE.MeshBasicMaterial({ map: skyline, transparent: true, toneMapped: false }));
+    far.position.set(0, 6.05, 43.5); far.rotation.y = Math.PI;
+    worldGroup.add(far);
+
+    // paving
+    floorRect(-16, 16, 26, 42, new THREE.MeshStandardMaterial({
+        ...pbr('concrete', { repeat: [6, 3] }), color: 0x9fa3a0, roughness: 0.95, envMapIntensity: 0.25 }));
+    // perimeter hedges (and their invisible rails)
+    const hedgeMat = new THREE.MeshStandardMaterial({ color: 0x30462e, roughness: 1 });
+    for (const [hx0, hx1, hz0, hz1] of [[-16.3, -15.7, 26, 42], [15.7, 16.3, 26, 42], [-16.3, 16.3, 41.7, 42.3]]) {
+        const hg = new THREE.Mesh(new THREE.BoxGeometry(hx1 - hx0, 1.05, hz1 - hz0), hedgeMat);
+        hg.position.set((hx0 + hx1) / 2, 0.52, (hz0 + hz1) / 2); hg.castShadow = true;
+        worldGroup.add(hg);
+        addCollider(hx0, hx1, hz0, hz1);
+    }
+    ficusTree(-9, 34, 4.4, 0.7); ficusTree(9, 34, 4.4, 0.7);
+    bench(-5, 33.5, 0); bench(5, 33.5, 0);
+    planterBed(-14.6, -11.2, 27, 29.4, 5); planterBed(11.2, 14.6, 27, 29.4, 5);
+
+    // facade: dark slate flanks + timber-mullioned glass curtain + open doors
+    const slate = new THREE.MeshStandardMaterial({ ...pbr('concrete', { repeat: [2, 3] }), color: 0x3a3d44, envMapIntensity: 0.3 });
+    box(5, 10.5, 0.5, slate, -10.5, 5.25, 26, { collide: true });
+    box(5, 10.5, 0.5, slate, 10.5, 5.25, 26, { collide: true });
+    // glass curtain x[-8,8] with a 2.6m open door bay at centre
+    const curtain = new THREE.Mesh(new THREE.PlaneGeometry(16, 10.5), MAT.glass);
+    curtain.position.set(0, 5.25, 26); worldGroup.add(curtain);
+    addCollider(-8, -1.3, 25.85, 26.15);
+    addCollider(1.3, 8, 25.85, 26.15);
+    for (let i = 0; i <= 10; i++) {
+        const mx = -8 + i * 1.6;
+        if (Math.abs(mx) < 1.5) continue;
+        box(0.13, 10.5, 0.22, TIMBER, mx, 5.25, 26, {});
+    }
+    box(16, 0.16, 0.22, TIMBER, 0, 3.6, 26, {});
+    box(16, 0.16, 0.22, TIMBER, 0, 7.4, 26, {});
+    // door leaves standing open + steel frame
+    for (const s of [-1, 1]) {
+        box(0.09, 3.4, 0.12, MAT.frameBlack, s * 1.32, 1.7, 26, {});
+        const leaf = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 3.3), MAT.glass);
+        leaf.position.set(s * 1.9, 1.68, 26.55); leaf.rotation.y = s * 1.15;
+        worldGroup.add(leaf);
+    }
+    // museum name across the fascia band + crimson banners on the flanks
+    box(16.2, 1.15, 0.24, new THREE.MeshStandardMaterial({ color: 0x232529, roughness: 0.7 }), 0, 8.15, 26.14, {});
+    goldLettering('The Museum of Political Imprisonment', 0, 8.15, 26.31, new THREE.Vector3(0, 0, 1), 2.6);
+    const bannerTex = canvasTexture(256, 768, (g, w, h) => {
+        g.fillStyle = '#98002e'; g.fillRect(0, 0, w, h);
+        g.fillStyle = 'rgba(244,241,234,.96)'; g.textAlign = 'center';
+        g.font = '700 118px Georgia, serif';
+        ['N', 'P', 'P', 'C'].forEach((ch, i) => g.fillText(ch, w / 2, 190 + i * 150));
+    });
+    for (const s of [-1, 1]) {
+        const b = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 4.5),
+            new THREE.MeshStandardMaterial({ map: bannerTex, roughness: 0.85, emissive: 0xffffff, emissiveMap: bannerTex, emissiveIntensity: 0.18 }));
+        b.position.set(s * 10.5, 5.6, 26.32);
+        worldGroup.add(b);
+    }
+    rooms.push({
+        name: 'Museum Plaza', minX: -16, maxX: 16, minZ: 26, maxZ: 42,
+        rig: { key: { p: [0, 13, 33], t: [0, 0, 33], i: 210, angle: 1.0, dist: 34, c: 0xf2f6ff },
+            fills: [[-7, 4.5, 31, 40, 0xeaf2ff], [7, 4.5, 31, 40, 0xeaf2ff], [0, 5, 27.5, 34, 0xfff4e2]] } });
+})();
+
+/* ---- Grand atrium: x[-13,13] z[6,26], 10.5m tall ---- */
+(function grandAtrium() {
+    const Y = 10.5;
+    // warm travertine floor
+    floorRect(-13, 13, 6, 26, new THREE.MeshStandardMaterial({
+        ...pbr('marble', { repeat: [7, 5] }), color: 0xe8ddca, roughness: 0.42, envMapIntensity: 0.5 }));
+    cofferedCeiling(-13, 13, 6, 26, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 5, skylight: true });
+    wallRun('z', -13, 6, 26, Y, {});
+    wallRun('z', 13, 6, 26, Y, {});
+    wallRun('x', 6, -13, 13, Y, { doors: [{ at: 0, w: 3.2, h: 3.2 }] });    // → Hall of Figures
+
+    // timber slat wainscot on the tall side walls
+    for (const sx of [-12.82, 12.82]) {
+        for (let z = 7.2; z <= 25; z += 0.44) {
+            const slat = new THREE.Mesh(new THREE.BoxGeometry(0.09, 4.1, 0.16), TIMBER);
+            slat.position.set(sx, 2.2, z);
+            worldGroup.add(slat);
+        }
+    }
+    // tall timber columns
+    for (const cx of [-6.5, 6.5]) for (const cz of [9.5, 14.5, 19.5, 23.8]) column(cx, cz, Y, 0.42, TIMBER);
+
+    // ---- reflecting pond + waterfall + sculpture axis ----
+    const refl = new Reflector(new THREE.PlaneGeometry(6.6, 5.4), {
+        textureWidth: 1024, textureHeight: 1024, color: 0x8fa8a4, clipBias: 0.003,
+    });
+    refl.rotation.x = -Math.PI / 2; refl.position.set(0, 0.14, 15.5);
     worldGroup.add(refl); window.__reflector = refl;
-    const marbleTop = floorRect(-9, 9, 6, 20, new THREE.MeshStandardMaterial({
-        ...pbr('marble', { repeat: [5, 4] }), transparent: true, opacity: 0.72, roughness: 0.16, envMapIntensity: 0.85,
-    }), 0.012);
-    marbleTop.material.depthWrite = false;
-    ceilRect(-9, 9, 6, 20, Y);
-    const ring = new THREE.Mesh(new THREE.RingGeometry(1.7, 2.8, 48), new THREE.MeshBasicMaterial({ color: 0xfff2d8, side: THREE.DoubleSide }));
-    ring.rotation.x = Math.PI / 2; ring.position.set(0, Y - 0.02, 13); worldGroup.add(ring);
+    const aqua = new THREE.Mesh(new THREE.PlaneGeometry(6.6, 5.4),
+        new THREE.MeshStandardMaterial({ color: 0x9fd4cc, transparent: true, opacity: 0.16, roughness: 0.08, envMapIntensity: 1.1, depthWrite: false }));
+    aqua.rotation.x = -Math.PI / 2; aqua.position.set(0, 0.155, 15.5);
+    worldGroup.add(aqua);
+    // stone curb
+    for (const [wS, dS, xS, zS] of [[7.6, 0.5, 0, 12.45], [7.6, 0.5, 0, 18.55], [0.5, 5.6, -3.55, 15.5], [0.5, 5.6, 3.55, 15.5]]) {
+        const curb = new THREE.Mesh(new THREE.BoxGeometry(wS, 0.36, dS), MAT.plinth);
+        curb.position.set(xS, 0.18, zS); curb.castShadow = true; curb.receiveShadow = true;
+        worldGroup.add(curb);
+        addCollider(xS - wS / 2, xS + wS / 2, zS - dS / 2, zS + dS / 2);
+    }
+    waterfall(0, 12.05, 2.2, 2.7);
+    brokenChain(0, 21.5);
+    anchors.sculpt = [2.4, Y - 0.9, 23.2];
+    anchors.sculptTarget = [0, 1.3, 21.5];
 
-    wallRun('z', 20, 6, 20, Y, {});                       // south (behind entry)
-    wallRun('z', -9, 6, 20, Y, {});                       // west
-    wallRun('z', 9, 6, 20, Y, {});                        // east
-    wallRun('x', 6, -9, 9, Y, { doors: [{ at: 0, w: 3.2, h: 3.2 }] });  // north → spine
+    // hanging light installation over the pond (cascading emissive rods)
+    for (let i = 0; i < 60; i++) {
+        const len = 0.7 + Math.random() * 1.9;
+        const bottom = 5.2 + Math.random() * 2.8;
+        const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, len, 6),
+            new THREE.MeshBasicMaterial({ color: Math.random() < 0.6 ? 0xcdeee8 : 0xfff4de, toneMapped: false }));
+        rod.position.set(-3.6 + Math.random() * 7.2, bottom + len / 2, 11.8 + Math.random() * 6.8);
+        worldGroup.add(rod);
+        const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, Y - (bottom + len), 4),
+            new THREE.MeshStandardMaterial({ color: 0x2a2a2a }));
+        wire.position.set(rod.position.x, bottom + len + (Y - bottom - len) / 2, rod.position.z);
+        worldGroup.add(wire);
+    }
 
-    wallPanel(titleTexture(), new THREE.Vector3(-4.9, 3.9, 6.16), new THREE.Vector3(0, 0, 1), 5.6, 2.9, { emissive: 0.42 });
+    // greenery: big ficus pair + planter beds hugging the stair block
+    ficusTree(-5.4, 19.8, 4.6, 0.62); ficusTree(5.4, 19.8, 4.6, 0.62);
+    ficusTree(11.4, 8.4, 3.8, 0.55);
+    planterBed(-10.15, -8.4, 12, 20, 6);
+    planterBed(8.6, 9.9, 12.5, 18.5, 4);
+
+    // ---- monumental stair (west) up to the mezzanine ----
+    const stone = new THREE.MeshStandardMaterial({ ...pbr('marble', { repeat: [1.6, 1.6] }), color: 0xded3c0, roughness: 0.5, envMapIntensity: 0.4 });
+    grandStair(-12.8, -10.4, 22, 11, 4.6, stone);
+    addCollider(-10.45, -10.3, 11, 22);                                 // solid stair flank
+    addCollider(-12.8, -10.4, 10.85, 11.05, -Infinity, 4.4);            // under-run face (pass above only)
+
+    // ---- mezzanine: north band + east strip (walkable, y=4.6) ----
+    const fascia = new THREE.MeshStandardMaterial({ color: 0xf1efe9, roughness: 0.85 });
+    box(26, 0.3, 5, fascia, 0, 4.45, 8.5, {});
+    box(3, 0.3, 11, fascia, 11.5, 4.45, 16.5, {});
+    floorRect(-13, 13, 6, 11, MAT.galleryFloor, 4.61);
+    floorRect(10, 13, 11, 22, MAT.galleryFloor, 4.61);
+    addFloorZone(-13, 13, 6, 11, 4.6);
+    addFloorZone(10, 13, 11, 22, 4.6);
+    balustrade('x', 11, -10.34, 10, 4.6);
+    balustrade('z', 10, 11, 22, 4.6);
+    balustrade('x', 22, 10, 13, 4.6);
+    // mezzanine planters (banded colliders so the ground floor passes below)
+    for (const px of [-6, 2]) {
+        const pb = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 0.8), MAT.benchWood);
+        pb.position.set(px, 4.8, 7.2); worldGroup.add(pb);
+        bushSprite(px - 0.3, 4.98, 7.2, 0.7); bushSprite(px + 0.35, 4.98, 7.2, 0.6);
+        addCollider(px - 0.8, px + 0.8, 6.8, 7.6, 4.4, 6.2);
+    }
+    // upstairs hang: faces over the balustrade + the Debs quote in gold
+    goldLettering('"While there is a soul in prison, I am not free."', 0, 9.15, 6.18, new THREE.Vector3(0, 0, 1), 2.2);
+    goldLettering('— Eugene V. Debs, 1918', 6.8, 8.05, 6.18, new THREE.Vector3(0, 0, 1), 0.8);
+    (DATA.faces || []).slice(6, 10).forEach((f, i) => {
+        hangArt(f, new THREE.Vector3(-6 + i * 4, 6.15, 6.18), new THREE.Vector3(0, 0, 1), { frame: MAT.frameBlack, artH: 1.05, gallery: 'Faces of the Database' });
+    });
+    (DATA.faces || []).slice(10, 13).forEach((f, i) => {
+        hangArt(f, new THREE.Vector3(12.82, 6.15, 13 + i * 3.4), new THREE.Vector3(-1, 0, 0), { frame: MAT.frameBlack, artH: 1.0, gallery: 'Faces of the Database' });
+    });
+
+    // ---- reception desk + interpretive panels + standees ----
+    box(3.4, 1.0, 0.9, MAT.benchWood, 5, 0.5, 22.5, { collide: true });
+    box(3.6, 0.08, 1.05, new THREE.MeshStandardMaterial({ color: 0xf4f1ea, roughness: 0.4 }), 5, 1.06, 22.5, {});
+    goldLettering('Welcome', 5, 0.62, 22.94, new THREE.Vector3(0, 0, 1), 0.55);
+    wallPanel(titleTexture(), new THREE.Vector3(0, 5.6, 6.14), new THREE.Vector3(0, 0, 1), 8.2, 3.2, { emissive: 0.42 });
     wallPanel(panelTexture('Welcome', 'A museum of\nAmerican dissent',
         'Everyone in this building was jailed, exiled, or detained in the United States for political reasons — for organizing a union, refusing a draft, demanding a vote, preaching a faith, or imagining their nation free. Ahead lies the Hall of Figures and, opening off it, a gallery for each movement. Beyond are the archive, a reading room, a theater, and a replica cell. Click any work to inspect it.'),
-        new THREE.Vector3(4.9, 2.0, 6.16), new THREE.Vector3(0, 0, 1), 2.3, 3.0,
+        new THREE.Vector3(12.7, 2.15, 20.5), new THREE.Vector3(-1, 0, 0), 2.3, 3.0,
         { interact: { kind: 'panel', n: 'A museum of American dissent', l1: 'Welcome', d: 'Everyone in this building was jailed, exiled, or detained in the United States for political reasons. Ahead lies the Hall of Figures and a gallery for each movement. Click any work to inspect it and follow it to the full record.', u: '/database' } });
+    wallPanel(panelTexture('The Collection', 'One database,\nthousands of lives',
+        `The National Political Prisoner Coalition documents ${DATA.stats.total || 'thousands of'} political prisoners across ${DATA.stats.eras || 'dozens of'} eras of American history — ${DATA.stats.inCustody || 'many'} of them still in custody today. The works hung here are drawn live from that database: every frame links to a full case record you can read, cite, and act on.`),
+        new THREE.Vector3(12.7, 2.15, 15.5), new THREE.Vector3(-1, 0, 0), 2.3, 3.0,
+        { interact: { kind: 'panel', n: 'One database, thousands of lives', l1: 'The Collection', d: 'Every frame in this museum links to a full record in the NPPC database.', u: '/database' } });
 
-    brokenChain(0, 13);
-    anchors.sculpt = [2.6, Y - 1.3, 14.4];
-    anchors.sculptTarget = [0, 1.2, 13];
-
-    const st = DATA.standees.slice(0, 6);
-    [[-4.4, 16.5, 0.5], [4.4, 16.5, -0.5], [-6.6, 10.5, 0.7], [6.6, 10.5, -0.7], [-4.4, 8.6, 0.4], [4.4, 8.6, -0.4]]
+    const st = DATA.standees.slice(0, 4);
+    [[-8.6, 23.4, 0.55], [8.9, 24.2, -0.6], [-6.4, 9.2, 0.45], [6.6, 9.2, -0.45]]
         .forEach((s, i) => { if (st[i]) standee(st[i], s[0], s[1], s[2]); });
+    bench(-4.2, 23.6, 0); bench(0, 10.2, Math.PI);
 
-    ceilingLight(0, Y, 10, 2.4, 0.32); ceilingLight(0, Y, 16, 2.4, 0.32);
     rooms.push({
-        name: 'Entrance Rotunda', minX: -9, maxX: 9, minZ: 6, maxZ: 20,
-        rig: { key: { p: [0, Y - 0.5, 13], t: [0, 0, 13], i: 150, angle: 0.7, dist: 22 },
-            fills: [[0, 4.8, 16, 34, 0xffe7c0], [-5, 3.6, 10, 24, 0xfff0d8], [5, 3.6, 10, 24, 0xfff0d8]] } });
+        name: 'Grand Atrium', minX: -13, maxX: 13, minZ: 6, maxZ: 26,
+        rig: { key: { p: [0, Y - 0.7, 16], t: [0, 0.2, 15.5], i: 230, angle: 0.85, dist: 30 },
+            fills: [[0, 6.4, 22, 42, 0xfff0dc], [-8, 5.8, 11, 30, 0xfff3e4], [8, 5.8, 12, 30, 0xfff3e4], [0, 6.8, 8.5, 26, 0xffeede]] } });
 })();
 
 /* ---- Hall of Figures (central spine) + data-driven galleries ---- */
@@ -1220,7 +1540,29 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
     const shelfWood = new THREE.MeshStandardMaterial({ ...pbr('wood', { repeat: [1, 1] }), color: 0x6b4a2e, roughness: 0.6, envMapIntensity: 0.5 });
     const clothColors = [0x7a3b2e, 0x2e4a5c, 0x51402a, 0x3c5a3a, 0x5a2e3c, 0x2f3a55, 0x6e5a2f, 0x4a2f55];
     const fillerGeo = new THREE.BoxGeometry(1, 1, 1);
+    const pagesMat = new THREE.MeshStandardMaterial({ color: 0xefe8d4, roughness: 0.95 });
     let bi = 0;
+    /* Cloth spine with the title stamped in gilt, reading top-to-bottom —
+       browsable from across the room, like a real shelf. */
+    function spineTexture(title, year, color) {
+        return canvasTexture(96, 512, (g, w, h) => {
+            const hex = '#' + color.toString(16).padStart(6, '0');
+            g.fillStyle = hex; g.fillRect(0, 0, w, h);
+            g.fillStyle = 'rgba(0,0,0,0.22)'; g.fillRect(0, 0, 7, h); g.fillRect(w - 7, 0, 7, h);
+            g.fillStyle = 'rgba(255,255,255,0.07)'; g.fillRect(9, 0, 5, h);
+            g.fillStyle = 'rgba(212,175,90,0.92)';
+            g.fillRect(12, 26, w - 24, 4); g.fillRect(12, h - 30, w - 24, 4);
+            g.save(); g.translate(w / 2, h / 2); g.rotate(Math.PI / 2);
+            g.textAlign = 'center'; g.textBaseline = 'middle';
+            let t = String(title || 'Untitled');
+            if (t.length > 30) t = t.slice(0, 29) + '…';
+            g.fillStyle = '#eadfb8'; g.font = `700 ${t.length > 22 ? 30 : 36}px Georgia, serif`;
+            g.fillText(t, 0, -8);
+            const yr = String(year || '').match(/\d{4}/);
+            if (yr) { g.font = '400 22px Georgia, serif'; g.fillStyle = 'rgba(234,223,184,.7)'; g.fillText(yr[0], 0, 26); }
+            g.restore();
+        });
+    }
     function bookshelf(x, z, ry) {
         const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g); g.updateMatrixWorld(true);
         const W = 2.4, H = 2.5, D = 0.34;
@@ -1234,26 +1576,47 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
         const usable = W - 0.16;
         for (const rowY of rows) {
             let cx = -usable / 2, slot = 0;
-            while (cx < usable / 2 - 0.12) {
-                if (slot % 2 === 1 && bi < books.length && cx < usable / 2 - 0.3) {
+            while (cx < usable / 2 - 0.1) {
+                const wantReal = bi < books.length && (slot % 3 !== 2);
+                if (wantReal && (bi % 7 === 3) && cx < usable / 2 - 0.3) {
+                    // occasional face-out feature copy (cover to the room)
                     const rec = books[bi++];
-                    const coverMat = new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.8, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.22 });
+                    const coverMat = new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.8, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.24 });
                     const clothMat = new THREE.MeshStandardMaterial({ color: clothColors[bi % clothColors.length], roughness: 0.75 });
-                    const bw = 0.24, bh = 0.335, bd = 0.035;
-                    const book = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd), [clothMat, clothMat, clothMat, clothMat, coverMat, clothMat]);
-                    book.position.set(cx + bw / 2, rowY + 0.02 + bh / 2, 0.045); book.rotation.y = Math.PI; book.castShadow = true; g.add(book);
+                    const bw = 0.24, bh = 0.335;
+                    const book = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, 0.035), [clothMat, clothMat, pagesMat, clothMat, coverMat, clothMat]);
+                    book.position.set(cx + bw / 2, rowY + 0.02 + bh / 2, 0.05); book.rotation.y = Math.PI; book.castShadow = true; g.add(book);
                     if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
-                    interactables.push({ mesh: book, data: { kind: 'book', gallery: 'Reading Room', ...rec } });
-                    cx += bw + 0.06;
+                    interactables.push({ mesh: book, data: { kind: 'book', gallery: 'Reading Room', coverAxis: [0, 0, 1], ...rec } });
+                    cx += bw + 0.04;
+                } else if (wantReal) {
+                    // spine-out, title readable on the shelf (Criterion-closet style)
+                    const rec = books[bi++];
+                    const cloth = clothColors[(bi * 5 + rec.n.length) % clothColors.length];
+                    const st = 0.055 + (rec.n.length % 4) * 0.009, bh = 0.315 + (rec.n.length % 3) * 0.012;
+                    const spineMat = new THREE.MeshStandardMaterial({
+                        map: spineTexture(rec.n, rec.l1, cloth), roughness: 0.72,
+                        emissive: 0xffffff, emissiveMap: null, emissiveIntensity: 0,
+                    });
+                    spineMat.emissiveMap = spineMat.map; spineMat.emissiveIntensity = 0.14;
+                    const coverMat = new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.8, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.24 });
+                    const clothMat = new THREE.MeshStandardMaterial({ color: cloth, roughness: 0.78 });
+                    const book = new THREE.Mesh(new THREE.BoxGeometry(st, bh, 0.24),
+                        [coverMat, clothMat, pagesMat, clothMat, spineMat, clothMat]);
+                    book.position.set(cx + st / 2, rowY + 0.02 + bh / 2, 0.02);
+                    book.castShadow = true; g.add(book);
+                    if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
+                    interactables.push({ mesh: book, data: { kind: 'book', gallery: 'Reading Room', coverAxis: [1, 0, 0], ...rec } });
+                    cx += st + 0.006;
                 } else {
-                    const n = 3 + Math.floor(Math.random() * 5);
-                    for (let k = 0; k < n && cx < usable / 2 - 0.06; k++) {
+                    const n = 2 + Math.floor(Math.random() * 4);
+                    for (let k = 0; k < n && cx < usable / 2 - 0.05; k++) {
                         const sw = 0.03 + Math.random() * 0.035, sh = 0.26 + Math.random() * 0.075;
                         const spine2 = new THREE.Mesh(fillerGeo, new THREE.MeshStandardMaterial({ color: clothColors[Math.floor(Math.random() * clothColors.length)], roughness: 0.8 }));
                         spine2.scale.set(sw, sh, 0.22); spine2.position.set(cx + sw / 2, rowY + 0.02 + sh / 2, 0); g.add(spine2); cx += sw + 0.006;
                     }
                 }
-                slot++; cx += 0.02;
+                slot++; cx += 0.012;
             }
         }
         const c = Math.cos(ry), s = Math.sin(ry);
@@ -1316,16 +1679,22 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
         DATA.video, new THREE.Vector3(xScreen + 0.18, 0.0, cz), new THREE.Vector3(1, 0, 0), 10, 5.0, { speed: 7 });
     box(0.14, 5.6, 11, MAT.frameBlack, xScreen + 0.05, 0.2, cz, {});
 
-    // tiers: landing at the back (flush with archive, y=0) stepping DOWN to the pit
+    // tiers stepping DOWN toward the screen. The top tier (x -10.5..-8) is an
+    // OPEN ENTRY LANDING — no seats, no colliders — because the door from the
+    // archive lands on it at z = spineEnd-8. (v2 planted a seat-block collider
+    // straight across that doorway, which is why the theater was unenterable.)
+    // From the landing you walk anywhere along the back, then down the wide
+    // central aisle.
     const tiers = [
-        { x0: -10.5, x1: -8, y: 0.0 },
-        { x0: -13, x1: -10.5, y: -0.34 },
-        { x0: -15.5, x1: -13, y: -0.68 },
-        { x0: -18, x1: -15.5, y: -1.02 },
-        { x0: -20.5, x1: -18, y: -1.36 },
+        { x0: -10.5, x1: -8, y: 0.0, seats: false },
+        { x0: -13, x1: -10.5, y: -0.34, seats: true },
+        { x0: -15.5, x1: -13, y: -0.68, seats: true },
+        { x0: -18, x1: -15.5, y: -1.02, seats: true },
+        { x0: -20.5, x1: -18, y: -1.36, seats: true },
     ];
     const carpet = new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [2, 3] }), color: 0x3a1520, roughness: 1, envMapIntensity: 0.1 });
     const riser = new THREE.MeshStandardMaterial({ color: 0x1a0e12, roughness: 0.9 });
+    const AISLE = 1.15;                                  // half-width of the centre aisle
     tiers.forEach(t => {
         const w = t.x1 - t.x0;
         const top = new THREE.Mesh(new THREE.BoxGeometry(w, 0.3, zHi - zLo - 0.4), carpet);
@@ -1334,17 +1703,27 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
         const rf = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.34, zHi - zLo - 0.4), riser);
         rf.position.set(t.x0, t.y - 0.32, cz); worldGroup.add(rf);
         addFloorZone(t.x0, t.x1, zLo, zHi, t.y);
-        // seats: two blocks with a central aisle at cz
+        if (!t.seats) return;
+        // seats: two blocks with the centre aisle kept clear
         const rowX = t.x0 + w * 0.42;
         const accent = 0xe0913a;
         for (let zz = zLo + 1.4; zz <= zHi - 1.4; zz += 0.78) {
-            if (Math.abs(zz - cz) < 0.8) continue;      // central aisle
+            if (Math.abs(zz - cz) < AISLE + 0.35) continue;
             cinemaSeat(rowX, t.y, zz, accent);
         }
-        // block colliders (leave aisle open)
-        addCollider(t.x0 + 0.1, t.x1 - 0.1, zLo + 1.1, cz - 0.7);
-        addCollider(t.x0 + 0.1, t.x1 - 0.1, cz + 0.7, zHi - 1.1);
+        // block colliders (leave the aisle open)
+        addCollider(t.x0 + 0.1, t.x1 - 0.1, zLo + 1.1, cz - AISLE);
+        addCollider(t.x0 + 0.1, t.x1 - 0.1, cz + AISLE, zHi - 1.1);
     });
+    // aisle guide lights down the steps (little warm dots, like a real cinema)
+    for (const t of tiers.slice(1)) {
+        for (const s of [-1, 1]) {
+            const dot = new THREE.Mesh(new THREE.CircleGeometry(0.035, 8), new THREE.MeshBasicMaterial({ color: 0xffc873 }));
+            dot.rotation.x = -Math.PI / 2;
+            dot.position.set(t.x0 + 0.25, t.y + 0.005, cz + s * (AISLE - 0.12));
+            worldGroup.add(dot);
+        }
+    }
     // pit floor zone in front
     addFloorZone(xScreen, -20.5, zLo, zHi, -1.55);
 
@@ -1413,6 +1792,7 @@ function applyRig(light, rig) {
     light.intensity = rig.key.i * KEY_SCALE;
     light.angle = rig.key.angle;
     light.distance = rig.key.dist;
+    light.color.set(rig.key.c || 0xfff1da);
 }
 let curRoom = null, prevRoom = null;
 function roomAt(x, z) {
@@ -1436,7 +1816,7 @@ function setRoom(r) {
 
 /* ----------------------------------------------------------------- player */
 const player = {
-    pos: new THREE.Vector3(0, 0, 17),
+    pos: new THREE.Vector3(0, 0, 30.5),
     yaw: 0,                  // rotateY(0) → camera looks -z, into the museum
     pitch: 0,
     vel: new THREE.Vector3(),
@@ -1448,7 +1828,11 @@ const keys = {};
 window.addEventListener('keydown', (e) => {
     keys[e.code] = true;
     if (e.code === 'KeyE') tryInspect();
-    if (e.code === 'Escape' && overlayOpen) { if (readerOpen) closeReader(); else closeOverlay(); }
+    if (e.code === 'KeyQ' && held) putBackBook();
+    if (e.code === 'Escape') {
+        if (overlayOpen) { if (readerOpen) closeReader(); else closeOverlay(); }
+        else if (held) putBackBook();
+    }
 });
 window.addEventListener('keyup', (e) => { keys[e.code] = false; });
 
@@ -1521,7 +1905,11 @@ if (isTouch) {
 
 function collide(nx, nz) {
     const r = 0.35;
+    const g = player.ground;
     for (const c of colliders) {
+        if (c.y0 !== -Infinity || c.y1 !== Infinity) {
+            if (g + 1.7 <= c.y0 || g >= c.y1) continue;      // band above/below the walker
+        }
         if (nx > c.minX - r && nx < c.maxX + r && nz > c.minZ - r && nz < c.maxZ + r) return true;
     }
     return false;
@@ -1562,17 +1950,93 @@ const raycaster = new THREE.Raycaster();
 raycaster.far = 5.2;
 let hovered = null, hoverTick = 0;
 function updateHover() {
+    if (held) { reticle.classList.remove('on'); hint.textContent = ''; hovered = null; return; }
     raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
     const meshes = interactables.map(i => i.mesh);
     const hits = raycaster.intersectObjects(meshes, false);
     hovered = hits.length ? interactables.find(i => i.mesh === hits[0].object) : null;
     reticle.classList.toggle('on', !!hovered);
-    hint.textContent = hovered ? (hovered.data.kind === 'panel' ? 'Click to read' : 'Click to inspect') : '';
+    hint.textContent = hovered
+        ? (hovered.data.kind === 'book' ? 'Click to pick it up'
+            : hovered.data.kind === 'panel' ? 'Click to read' : 'Click to inspect')
+        : '';
 }
+
+/* ---- physically pick a book off the shelf (Criterion-closet style) ---- */
+let held = null;
+const bookbar = document.getElementById('museum-bookbar');
+const bbTitle = document.getElementById('bb-title');
+const bbMeta = document.getElementById('bb-meta');
+function pickUpBook(entry) {
+    if (held || overlayOpen) return;
+    const m = entry.mesh;
+    held = {
+        mesh: m, data: entry.data,
+        homeParent: m.parent,
+        homePos: m.position.clone(), homeQuat: m.quaternion.clone(),
+        coverAxis: new THREE.Vector3(...(entry.data.coverAxis || [0, 0, 1])),
+        phase: 'hold',
+    };
+    worldGroup.attach(m);                                   // keep world transform
+    held.worldHomePos = m.position.clone();
+    held.worldHomeQuat = m.quaternion.clone();
+    if (bookbar) {
+        bbTitle.textContent = entry.data.n || 'Untitled';
+        bbMeta.textContent = [entry.data.l1, entry.data.l2].filter(Boolean).join('  ·  ');
+        bookbar.classList.remove('hide');
+    }
+}
+function putBackBook() {
+    if (!held) return;
+    held.phase = 'back';
+    if (bookbar) bookbar.classList.add('hide');
+}
+function readHeld() {
+    if (!held) return;
+    const d = held.data;
+    putBackBook();
+    if (d.file) openReader(d); else openOverlay(d);
+}
+const _tmpQ = new THREE.Quaternion(), _tmpO = new THREE.Object3D();
+function updateHeld(dt) {
+    if (!held) return;
+    const m = held.mesh;
+    if (held.phase === 'hold') {
+        const fwd = new THREE.Vector3();
+        camera.getWorldDirection(fwd);
+        const tp = camera.position.clone().addScaledVector(fwd, 0.6);
+        tp.y -= 0.04;
+        _tmpO.position.copy(tp);
+        _tmpO.lookAt(camera.position);                       // +z toward the eye
+        _tmpQ.copy(_tmpO.quaternion);
+        if (held.coverAxis.x === 1) {                        // spine books: cover on +x
+            _tmpQ.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), -Math.PI / 2));
+        }
+        const k = Math.min(1, dt * 9);
+        m.position.lerp(tp, k);
+        m.quaternion.slerp(_tmpQ, k);
+    } else {                                                 // returning to the shelf
+        const k = Math.min(1, dt * 7);
+        m.position.lerp(held.worldHomePos, k);
+        m.quaternion.slerp(held.worldHomeQuat, k);
+        if (m.position.distanceTo(held.worldHomePos) < 0.02) {
+            held.homeParent.attach(m);
+            m.position.copy(held.homePos);
+            m.quaternion.copy(held.homeQuat);
+            held = null;
+        }
+    }
+}
+
+document.getElementById('bb-read')?.addEventListener('click', readHeld);
+document.getElementById('bb-back')?.addEventListener('click', putBackBook);
+
 function tryInspect() {
-    if (!hovered || overlayOpen) return;
+    if (overlayOpen) return;
+    if (held) { readHeld(); return; }
+    if (!hovered) return;
     const d = hovered.data;
-    if (d.kind === 'book' && d.file) openReader(d);
+    if (d.kind === 'book') pickUpBook(hovered);
     else openOverlay(d);
 }
 
@@ -1686,6 +2150,8 @@ function tick() {
         if (window.__reflector) window.__reflector.visible = player.pos.z > 4;
     }
     for (const s of slideshows) s.draw(dt);
+    for (const a of animatedTex) a(dt);
+    updateHeld(dt);
     if (window.__dust) window.__dust.rotation.y = Math.sin(clock.elapsedTime * 0.05) * 0.02;
     if (cellLight) cellLight.intensity = 16 + Math.sin(clock.elapsedTime * 17) * 0.9 + Math.sin(clock.elapsedTime * 3.1) * 0.7;
     renderer.render(scene, camera);
@@ -1707,6 +2173,19 @@ window.__museumDebug = {
         pumpArtQueue();
     },
     rooms_list() { return rooms.map(r => ({ n: r.name, x: (r.minX + r.maxX) / 2, z: (r.minZ + r.maxZ) / 2 })); },
+    blocked(x, z) { const px = player.pos.x, pz = player.pos.z; const g0 = player.ground; player.ground = floorHeightAt(x, z); const b = collide(x, z); player.ground = g0; return b; },
+    ground(x, z) { return floorHeightAt(x, z); },
+    pickNearestBook() {
+        let best = null, bd = 1e9;
+        for (const it of interactables) {
+            if (it.data.kind !== 'book') continue;
+            const p = it.mesh.getWorldPosition(new THREE.Vector3());
+            const d = p.distanceTo(player.pos);
+            if (d < bd) { bd = d; best = it; }
+        }
+        if (best) pickUpBook(best);
+        return !!best;
+    },
     start() {
         started = true;
         splash.classList.add('hide');

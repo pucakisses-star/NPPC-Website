@@ -52,6 +52,25 @@
         #museum-toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
         #museum-touch-note { position: absolute; bottom: 14px; width: 100%; text-align: center; color: rgba(244,241,234,.55); font-size: 12px; }
 
+        /* held-book bar (reading room) */
+        #museum-bookbar {
+            position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+            background: rgba(12,13,17,.82); backdrop-filter: blur(5px);
+            border: 1px solid rgba(228,165,36,.45); border-radius: 14px;
+            padding: 14px 22px; display: flex; align-items: center; gap: 20px;
+            pointer-events: auto; max-width: 86vw;
+        }
+        #bb-title { color: #f4f1ea; font-weight: 700; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 34vw; }
+        #bb-meta { color: rgba(244,241,234,.6); font-style: italic; font-size: 13px; white-space: nowrap; }
+        .bb-btn {
+            font-family: inherit; cursor: pointer; font-size: 13.5px; border-radius: 999px;
+            padding: 9px 18px; border: 1px solid rgba(244,241,234,.4); background: none; color: #f4f1ea;
+        }
+        .bb-btn.primary { background: #98002e; border-color: transparent; }
+        .bb-btn.primary:hover { background: #b31840; }
+        .bb-btn:hover { border-color: #fff; }
+        .bb-key { display: inline-block; border: 1px solid rgba(244,241,234,.4); border-radius: 5px; padding: 1px 7px; margin-right: 6px; font-size: 12px; }
+
         /* inspect overlay */
         #museum-inspect {
             position: absolute; inset: 0; z-index: 20; background: rgba(8,9,12,.88);
@@ -122,6 +141,14 @@
             <div id="museum-hint"></div>
             <div id="museum-toast"></div>
             <div id="museum-touch-note" class="hide">Left thumb: move &nbsp;·&nbsp; right thumb: look &nbsp;·&nbsp; tap: inspect</div>
+            <div id="museum-bookbar" class="hide">
+                <div>
+                    <div id="bb-title"></div>
+                    <div id="bb-meta"></div>
+                </div>
+                <button class="bb-btn primary" id="bb-read"><span class="bb-key">E</span>Read it</button>
+                <button class="bb-btn" id="bb-back"><span class="bb-key">Q</span>Put it back</button>
+            </div>
         </div>
 
         <div id="museum-splash" class="mu-cover">
