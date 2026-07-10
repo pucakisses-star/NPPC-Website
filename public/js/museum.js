@@ -2496,6 +2496,37 @@ GAL.forEach((g, i) => {
     galleryMeta.push({ i, g, sign, row, zHi, zLo, doorZ, midX: sign * 14 });
 });
 
+// Central-court loop: link the deepest gallery on each side to the far-end
+// room beside it (reading room east / theater west), when they sit close
+// enough to bridge — closing the two enfilade circuits into one perimeter
+// loop around the spine+archive core. Degrades gracefully when the geometry
+// leaves too large a gap (odd gallery counts on one side).
+const FAR_NORTH = spineEnd - 2;                    // north wall z of the reading room
+const loopLinks = {};                              // sign -> { i, zGal, linkX }
+// Only the east side links (to the flat reading room); the west far room is
+// the sunken theater, whose tiers don't take a level pass-through.
+[1].forEach((s) => {
+    const metas = galleryMeta.filter((m) => m.sign === s);
+    if (!metas.length) return;
+    const deepest = metas.reduce((a, b) => (b.zLo < a.zLo ? b : a));
+    const zGal = deepest.zLo + 0.2;                // deepest gallery's south wall
+    const gap = zGal - FAR_NORTH;
+    if (gap > 0.5 && gap <= 6.5) loopLinks[s] = { i: deepest.i, zGal, linkX: s * 19 };
+});
+// build one link corridor (floor + side walls + colliders) between a gallery
+// south wall and a far room north wall; doors are cut by the room builders
+function buildLoopCorridor(sign) {
+    const lk = loopLinks[sign];
+    if (!lk) return;
+    const Y = 3.2, half = 2.6, x0 = lk.linkX - half, x1 = lk.linkX + half;
+    const zN = lk.zGal, zS = FAR_NORTH;            // gallery side (north) → far room (south)
+    floorRect(x0, x1, zS, zN, MAT.galleryFloor);
+    ceilRect(x0, x1, zS, zN, Y);
+    wallRun('z', x0, zS, zN, Y, {});
+    wallRun('z', x1, zS, zN, Y, {});
+    ceilingLight(lk.linkX, Y, (zN + zS) / 2, 1.2, 0.24);
+}
+
 (function spine() {
     const Y = CEIL.spine, X = 7;
     floorRect(-X, X, spineEnd, 6, MAT.hallFloor);
@@ -2598,7 +2629,11 @@ galleryMeta.forEach(({ i, g, sign, zHi, zLo, doorZ }) => {
     const doorX = sign * 22, DW = 2.4, DH = 3.0;
     const hasNext = i + 2 < GAL.length;   // deeper same-side gallery (lower z, zA wall)
     const hasPrev = i - 2 >= 0;            // shallower same-side gallery (higher z, zB wall)
-    wallRun('x', zA, loX, hiX, Y, { mat: wallMat, doors: hasNext ? [{ at: doorX, w: DW, h: DH }] : [] });
+    const lk = loopLinks[sign];           // loop link out of the deepest gallery's south wall
+    const southDoors = [];
+    if (hasNext) southDoors.push({ at: doorX, w: DW, h: DH });
+    if (lk && lk.i === i) southDoors.push({ at: lk.linkX, w: 2.4, h: 2.8 });
+    wallRun('x', zA, loX, hiX, Y, { mat: wallMat, doors: southDoors });
     wallRun('x', zB, loX, hiX, Y, { mat: wallMat, doors: hasPrev ? [{ at: doorX, w: DW, h: DH }] : [] });
     // bridge floor across the ~0.4m gap between the two galleries' walls
     if (hasNext) floorRect(doorX - DW / 2 - 0.25, doorX + DW / 2 + 0.25, zA - 0.6, zA + 0.1, MAT.galleryFloor);
@@ -2708,7 +2743,9 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
     const rug = new THREE.Mesh(new THREE.PlaneGeometry(8, 6), new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [3, 2] }), color: 0x5c2434, roughness: 1, envMapIntensity: 0.15 }));
     rug.rotation.x = -Math.PI / 2; rug.position.set(16, 0.008, cz); rug.receiveShadow = true; worldGroup.add(rug);
     wallRun('x', zLo, xLo, xHi, Y, {});
-    wallRun('x', zHi, xLo, xHi, Y, {});
+    // north wall (z=zHi) — gains a doorway when the deepest east gallery links in
+    wallRun('x', zHi, xLo, xHi, Y, { doors: loopLinks[1] ? [{ at: loopLinks[1].linkX, w: 2.4, h: 2.8 }] : [] });
+    buildLoopCorridor(1);
     wallRun('z', xHi, zLo, zHi, Y, {});
     // west wall (x=8) built by archive with the door
     column(16, cz - 6, Y); column(16, cz + 6, Y);
@@ -3010,6 +3047,7 @@ function partitionWorldByRoom() {
     const gals = (DATA.galleries || []);
     for (let i = 0; i + 1 < gals.length; i += 2) link(gals[i].title, gals[i + 1].title);   // door-to-door across the spine
     for (let i = 0; i + 2 < gals.length; i++) link(gals[i].title, gals[i + 2].title);       // enfilade: same-side gallery-to-gallery
+    if (loopLinks[1] && gals[loopLinks[1].i]) link(gals[loopLinks[1].i].title, 'Reading Room');  // perimeter loop: deepest east gallery → reading room
     return { groups, adj };
 }
 function updateRegionVisibility() {
