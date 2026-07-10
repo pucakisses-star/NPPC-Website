@@ -1236,17 +1236,19 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         ...pbr('marble', { repeat: [7, 5] }), color: 0xe8ddca, roughness: 0.42, envMapIntensity: 0.5 }));
     cofferedCeiling(-13, 13, 6, 26, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 5, skylight: true });
     wallRun('z', -13, 6, 26, Y, {});
-    wallRun('z', 13, 6, 26, Y, {});
+    wallRun('z', 13, 6, 26, Y, { doors: [{ at: 24, w: 2.8, h: 3.1 }] });    // → Museum Shop
     wallRun('x', 6, -13, 13, Y, { doors: [{ at: 0, w: 3.2, h: 3.2 }] });    // → Hall of Figures
 
-    // timber slat wainscot on the tall side walls
+    // timber slat wainscot on the tall side walls (skip the shop doorway)
     for (const sx of [-12.82, 12.82]) {
         for (let z = 7.2; z <= 25; z += 0.44) {
+            if (sx > 0 && z > 22.35 && z < 25.65) continue;
             const slat = new THREE.Mesh(new THREE.BoxGeometry(0.09, 4.1, 0.16), TIMBER);
             slat.position.set(sx, 2.2, z);
             worldGroup.add(slat);
         }
     }
+    goldLettering('Museum Shop', 12.83, 3.72, 24, new THREE.Vector3(-1, 0, 0), 0.42);
     // tall timber columns
     for (const cx of [-6.5, 6.5]) for (const cz of [9.5, 14.5, 19.5, 23.8]) column(cx, cz, Y, 0.42, TIMBER);
 
@@ -1341,7 +1343,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         { interact: { kind: 'panel', n: 'One database, thousands of lives', l1: 'The Collection', d: 'Every frame in this museum links to a full record in the NPPC database.', u: '/database' } });
 
     const st = DATA.standees.slice(0, 4);
-    [[-8.6, 23.4, 0.55], [8.9, 24.2, -0.6], [-6.4, 9.2, 0.45], [6.6, 9.2, -0.45]]
+    [[-8.6, 23.4, 0.55], [-3.6, 24.6, -0.35], [-6.4, 9.2, 0.45], [6.6, 9.2, -0.45]]
         .forEach((s, i) => { if (st[i]) standee(st[i], s[0], s[1], s[2]); });
     bench(-4.2, 23.6, 0); bench(0, 10.2, Math.PI);
 
@@ -1349,6 +1351,153 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         name: 'Grand Atrium', minX: -13, maxX: 13, minZ: 6, maxZ: 26,
         rig: { key: { p: [0, Y - 0.7, 16], t: [0, 0.2, 15.5], i: 230, angle: 0.85, dist: 30 },
             fills: [[0, 6.4, 22, 42, 0xfff0dc], [-8, 5.8, 11, 30, 0xfff3e4], [8, 5.8, 12, 30, 0xfff3e4], [0, 6.8, 8.5, 26, 0xffeede]] } });
+})();
+
+/* ---- Museum Shop: a retail wing off the atrium's east side.
+   Real products from the store — pick one up (like a library book) and the
+   action bar offers Buy, which opens the product's store page. ---- */
+(function museumShop() {
+    const SHOP = (DATA.shop || []);
+    const X0 = 13, X1 = 24, Z0 = 16.5, Z1 = 26, Y = 4.2;
+    const shelfWood = new THREE.MeshStandardMaterial({ ...pbr('wood', { repeat: [1.2, 0.7] }), color: 0x9a7550, roughness: 0.55, envMapIntensity: 0.7 });
+    const cream = new THREE.MeshStandardMaterial({ color: 0xf4f1ea, roughness: 0.85 });
+
+    floorRect(X0, X1, Z0, Z1, new THREE.MeshStandardMaterial({
+        ...pbr('woodfloor', { repeat: [4, 3.4], ao: true }), color: 0xd6c1a2, roughness: 0.9, envMapIntensity: 0.55 }));
+    ceilRect(X0, X1, Z0, Z1, Y);
+    wallRun('z', X1, Z0, Z1, Y, {});
+    wallRun('x', Z0, X0, X1, Y, {});
+    wallRun('x', Z1, X0, X1, Y, {});
+    coveLight(X0 + 0.45, X1 - 0.45, Z0 + 0.45, Z1 - 0.45, Y - 0.22, 0xffe9c8);
+    ceilingLight(18.5, Y, 21.2, 2.2, 0.24);
+    trackLight(15, 22.5, Z1 - 1.1, Y - 0.05, 5);
+    trackLight(15, 22.5, Z0 + 1.1, Y - 0.05, 4);
+    trackLightZ(18, 24.5, X1 - 1.1, Y - 0.05, 4);
+
+    goldLettering('Museum Shop', 13.17, 3.3, 19.5, new THREE.Vector3(1, 0, 0), 0.6);
+    goldLettering('every purchase supports the coalition', 13.17, 2.55, 19.5, new THREE.Vector3(1, 0, 0), 0.4);
+
+    // one product = one box you can physically pick up; image streams onto
+    // the front face (local +z, which the held-item logic turns to the eye)
+    function productMesh(d, w, h, t, x, y, z, ry, { tilt = 0 } = {}) {
+        const side = new THREE.MeshStandardMaterial({ color: 0xe9e5da, roughness: 0.7 });
+        const front = new THREE.MeshStandardMaterial({ color: 0xdedbd2, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.05 });
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, t), [side, side, side, side, front, side]);
+        m.position.set(x, y, z); m.rotation.y = ry;
+        if (tilt) m.rotation.x = tilt;
+        m.castShadow = true; m.receiveShadow = true;
+        worldGroup.add(m);
+        if (d.img) artQueue.push({
+            url: d.img, pos: m.position.clone(),
+            apply: (tex) => {
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+                front.map = tex; front.emissiveMap = tex;
+                front.color.set(0xffffff); front.needsUpdate = true;
+            },
+        });
+        interactables.push({ mesh: m, data: { kind: 'product', gallery: 'Museum Shop', coverAxis: [0, 0, 1], ...d } });
+        return m;
+    }
+
+    const byType = t => SHOP.filter(p => p.type === t);
+    const apparel = byType('apparel').slice(0, 7);
+    const books = byType('book').slice(0, 9);
+    const posters = byType('poster').slice(0, 4);
+    const small = byType('small').slice(0, 8);
+    const taken = new Set([...apparel, ...books, ...posters, ...small]);
+    const misc = SHOP.filter(p => !taken.has(p)).slice(0, 6);
+
+    // ---- apparel rail along the north wall (hung tees facing the room) ----
+    if (apparel.length) {
+        const railY = 2.35, railZ = 25.52;
+        const x0 = 18.6 - (apparel.length - 1) * 0.45;
+        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, Math.max(3.4, apparel.length * 0.9 + 0.6), 10), MAT.brass);
+        rail.rotation.z = Math.PI / 2; rail.position.set(18.6, railY, railZ);
+        worldGroup.add(rail);
+        for (const bx of [x0 - 0.35, 18.6 * 2 - x0 + 0.35]) {
+            const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.34, 8), MAT.brass);
+            arm.rotation.x = Math.PI / 2; arm.position.set(bx, railY, railZ + 0.17);
+            worldGroup.add(arm);
+        }
+        apparel.forEach((d, i) => {
+            const x = x0 + i * 0.9;
+            const hook = new THREE.Mesh(new THREE.TorusGeometry(0.05, 0.012, 8, 14), MAT.metal);
+            hook.position.set(x, railY + 0.02, railZ); worldGroup.add(hook);
+            productMesh(d, 0.68, 0.8, 0.035, x, railY - 0.53, railZ + 0.03, Math.PI);
+        });
+        goldLettering('Apparel', 18.6, 3.35, 25.83, new THREE.Vector3(0, 0, -1), 0.5);
+        addCollider(14.6, 22.6, 25.2, 26);
+    }
+
+    // ---- bookshelf against the east wall, covers face-out ----
+    if (books.length) {
+        const bx = 23.62, caseZ0 = 18.2, caseZ1 = 24.2;
+        box(0.36, 3.1, caseZ1 - caseZ0, shelfWood, 23.86, 1.55, (caseZ0 + caseZ1) / 2, {});
+        for (const sy of [0.72, 1.62, 2.52]) box(0.34, 0.05, caseZ1 - caseZ0, shelfWood, bx + 0.1, sy, (caseZ0 + caseZ1) / 2, {});
+        books.forEach((d, i) => {
+            const sy = [0.72, 1.62, 2.52][Math.floor(i / 3)];
+            const z = caseZ0 + 1.0 + (i % 3) * 1.9;
+            productMesh(d, 0.52, 0.7, 0.05, bx, sy + 0.38, z, -Math.PI / 2);
+        });
+        goldLettering('Books & Zines', 23.83, 3.5, 21.2, new THREE.Vector3(-1, 0, 0), 0.5);
+        addCollider(23.4, 24, caseZ0 - 0.1, caseZ1 + 0.1);
+    }
+
+    // ---- posters on the south wall ----
+    posters.forEach((d, i) => {
+        productMesh(d, 0.94, 1.3, 0.02, 15.6 + i * 2.2, 2.05, 16.72, 0);
+    });
+    if (posters.length) goldLettering('Posters & Prints', 18.4, 3.25, 16.68, new THREE.Vector3(0, 0, 1), 0.5);
+
+    // ---- checkout counter by the door + counter-top sticker rack ----
+    box(2.4, 1.0, 0.85, MAT.benchWood, 15.3, 0.5, 18.7, { collide: true });
+    box(2.6, 0.07, 1.0, cream, 15.3, 1.04, 18.7, {});
+    const reg = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.3),
+        new THREE.MeshStandardMaterial({ color: 0x24262b, roughness: 0.4 }));
+    reg.position.set(14.6, 1.23, 18.7); reg.rotation.y = 0.5; reg.castShadow = true;
+    worldGroup.add(reg);
+    const regScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.2),
+        new THREE.MeshBasicMaterial({ color: 0xbfd8e8, toneMapped: false }));
+    regScreen.position.set(14.68, 1.25, 18.85); regScreen.rotation.y = 0.5;
+    worldGroup.add(regScreen);
+    if (small.length) {
+        // stepped card stand on the counter, two tiers of little items
+        for (const [ti, ty, tz] of [[0, 1.2, 18.55], [1, 1.42, 18.85]]) {
+            box(1.3, 0.05, 0.3, shelfWood, 15.7, ty - 0.12, tz, { shadow: false });
+            small.slice(ti * 4, ti * 4 + 4).forEach((d, i) => {
+                productMesh(d, 0.26, 0.26, 0.015, 15.25 + i * 0.31, ty, tz, 0, { tilt: -0.22 });
+            });
+        }
+    }
+
+    // ---- center table with the rest (tilted easel cards, back to back) ----
+    if (misc.length) {
+        box(2.3, 0.85, 1.15, shelfWood, 19.2, 0.42, 20.6, { collide: true });
+        box(2.5, 0.06, 1.3, cream, 19.2, 0.88, 20.6, {});
+        misc.forEach((d, i) => {
+            const row = Math.floor(i / 3), x = 18.5 + (i % 3) * 0.75;
+            productMesh(d, 0.56, 0.56, 0.03, x, 1.22, 20.6 + (row ? 0.26 : -0.26), row ? 0 : Math.PI, { tilt: row ? -0.2 : -0.2 });
+        });
+    }
+
+    // interpretive panel linking straight to the store
+    wallPanel(panelTexture('Museum Shop', 'Take the work\nhome with you',
+        'Everything in this room is real — shirts, books, prints, and stickers from the coalition\'s store. Pick any item up to look at it closely; if you want it, the Buy button opens its store page, and every purchase funds the documentation and defense work this museum is built on.'),
+        new THREE.Vector3(23.05, 2.1, 25.8), new THREE.Vector3(0, 0, -1), 1.5, 2.1,
+        { interact: { kind: 'panel', n: 'Take the work home with you', l1: 'Museum Shop', d: 'Everything in this room is a real product from the coalition\'s store. Every purchase funds the documentation and defense work this museum is built on.', u: '/store' } });
+
+    // greenery + a bench so it reads as a room, not a stockroom
+    ficusTree(23.1, 17.3, 3.2, 0.45);
+    bench(19.2, 24.2, 0, true);
+    const rug = new THREE.Mesh(new THREE.CircleGeometry(1.7, 40),
+        new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [2, 2] }), color: 0x7a2f3d, roughness: 1, envMapIntensity: 0.2 }));
+    rug.rotation.x = -Math.PI / 2; rug.position.set(19.2, 0.02, 21.6);
+    rug.receiveShadow = true; worldGroup.add(rug);
+
+    rooms.push({
+        name: 'Museum Shop', minX: X0, maxX: X1, minZ: Z0, maxZ: Z1,
+        rig: { key: { p: [18.5, Y - 0.5, 20.8], t: [18.5, 0.7, 21.2], i: 120, angle: 1.05, dist: 13 },
+            fills: [[15.5, 3.1, 24.3, 20, 0xfff0dc], [22.3, 3.1, 18.3, 20, 0xfff3e4], [18.5, 3.3, 17.6, 16, 0xffeede], [14.6, 2.6, 18.7, 12, 0xfff3e4]] } });
 })();
 
 /* ---- Hall of Figures (central spine) + data-driven galleries ---- */
@@ -2008,7 +2157,7 @@ function updateHover() {
     hovered = hits.length ? interactables.find(i => i.mesh === hits[0].object) : null;
     reticle.classList.toggle('on', !!hovered);
     hint.textContent = hovered
-        ? (hovered.data.kind === 'book' ? 'Click to pick it up'
+        ? (hovered.data.kind === 'book' || hovered.data.kind === 'product' ? 'Click to pick it up'
             : hovered.data.kind === 'panel' ? 'Click to read' : 'Click to inspect')
         : '';
 }
@@ -2018,6 +2167,7 @@ let held = null;
 const bookbar = document.getElementById('museum-bookbar');
 const bbTitle = document.getElementById('bb-title');
 const bbMeta = document.getElementById('bb-meta');
+const bbReadLabel = document.getElementById('bb-read-label');
 function pickUpBook(entry) {
     if (held || overlayOpen) return;
     const m = entry.mesh;
@@ -2034,6 +2184,8 @@ function pickUpBook(entry) {
     if (bookbar) {
         bbTitle.textContent = entry.data.n || 'Untitled';
         bbMeta.textContent = [entry.data.l1, entry.data.l2].filter(Boolean).join('  ·  ');
+        if (bbReadLabel) bbReadLabel.textContent = entry.data.kind === 'product'
+            ? 'Buy' + (entry.data.l1 ? ' — ' + entry.data.l1 : '') : 'Read it';
         bookbar.classList.remove('hide');
     }
 }
@@ -2046,6 +2198,7 @@ function readHeld() {
     if (!held) return;
     const d = held.data;
     putBackBook();
+    if (d.kind === 'product') { if (d.u) window.open(d.u, '_blank'); return; }
     if (d.file) openReader(d); else openOverlay(d);
 }
 const _tmpQ = new THREE.Quaternion(), _tmpO = new THREE.Object3D();
@@ -2087,7 +2240,7 @@ function tryInspect() {
     if (held) { readHeld(); return; }
     if (!hovered) return;
     const d = hovered.data;
-    if (d.kind === 'book') pickUpBook(hovered);
+    if (d.kind === 'book' || d.kind === 'product') pickUpBook(hovered);
     else openOverlay(d);
 }
 
@@ -2248,6 +2401,17 @@ window.__museumDebug = {
     ground(x, z) { return floorHeightAt(x, z, 1e9); },
     regions() {
         return regionState ? regionState.groups.map(g => ({ n: g.name.replace('region:', ''), vis: g.visible, kids: g.children.length })) : null;
+    },
+    pickNearestProduct() {
+        let best = null, bd = 1e9;
+        for (const it of interactables) {
+            if (it.data.kind !== 'product') continue;
+            const p = it.mesh.getWorldPosition(new THREE.Vector3());
+            const d = p.distanceTo(player.pos);
+            if (d < bd) { bd = d; best = it; }
+        }
+        if (best) pickUpBook(best);
+        return best ? best.data.n : null;
     },
     pickNearestBook() {
         let best = null, bd = 1e9;

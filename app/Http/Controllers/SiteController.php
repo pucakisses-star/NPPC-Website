@@ -1457,6 +1457,35 @@ final class SiteController extends Controller {
             'eras' => (int) Prisoner::whereNotNull('era')->where('era', '!=', '')->distinct()->count('era'),
         ];
 
+        // Museum shop: real store products, classified into a display type so
+        // the 3D shop knows where each belongs (apparel rail, bookshelf,
+        // poster wall, sticker counter, misc shelf). Picking one up offers a
+        // Buy action that opens the product's store page.
+        $typeOf = function ($p) {
+            $hay = mb_strtolower($p->name.' '.$p->category.' '.implode(' ', (array) ($p->categories ?? [])));
+            $has = fn (...$words) => collect($words)->contains(fn ($w) => str_contains($hay, $w));
+
+            return match (true) {
+                $has('shirt', 'tee', 'hoodie', 'sweat', 'apparel', 'tote', 'bag', 'hat', 'cap', 'beanie') => 'apparel',
+                $has('book', 'zine', 'pamphlet', 'reader', 'journal') => 'book',
+                $has('sticker', 'pin', 'button', 'badge', 'patch', 'magnet', 'postcard', 'keychain') => 'small',
+                $has('poster', 'print', 'flag', 'banner') => 'poster',
+                default => 'misc',
+            };
+        };
+        $shop = Product::published()->whereNotNull('image')->where('image', '!=', '')
+            ->orderByDesc('featured')->orderBy('sort_order')->orderBy('name')
+            ->take(26)->get()
+            ->map(fn ($p) => [
+                'n' => $p->name,
+                'img' => $p->image_url,
+                'l1' => '$'.number_format((float) $p->price, fmod((float) $p->price, 1.0) > 0.004 ? 2 : 0),
+                'l2' => $p->category ?: 'Museum Shop',
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $p->description)), 300),
+                'u' => '/store/'.$p->slug,
+                'type' => $typeOf($p),
+            ])->all();
+
         $museum = [
             'galleries' => $galleries,
             'monoliths' => $monoliths,
@@ -1467,6 +1496,7 @@ final class SiteController extends Controller {
             'archive' => $archive,
             'reading' => $reading,
             'slides' => $slides,
+            'shop' => $shop,
             'stats' => $stats,
             'video' => is_file(public_path('videos/museum-reel.mp4')) ? '/videos/museum-reel.mp4' : null,
         ];

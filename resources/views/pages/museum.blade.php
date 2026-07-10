@@ -146,7 +146,7 @@
                     <div id="bb-title"></div>
                     <div id="bb-meta"></div>
                 </div>
-                <button class="bb-btn primary" id="bb-read"><span class="bb-key">E</span>Read it</button>
+                <button class="bb-btn primary" id="bb-read"><span class="bb-key">E</span><span id="bb-read-label">Read it</span></button>
                 <button class="bb-btn" id="bb-back"><span class="bb-key">Q</span>Put it back</button>
             </div>
         </div>
