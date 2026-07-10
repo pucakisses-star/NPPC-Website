@@ -1256,4 +1256,186 @@ final class SiteController extends Controller {
     public function home() {
         return view('home');
     }
+
+    public function museum() {
+        // Walkable 3D museum (/museum). Groups prisoners who have photos into
+        // themed galleries by ideology/affiliation keywords, and gathers the
+        // timeline, archive documents, and topic backdrops the rooms are hung
+        // with. Fields are keyed short to keep the embedded payload small:
+        // n=name, img=photo, l1/l2=placard lines, d=description, u=link.
+        $themes = [
+            'black-liberation' => [
+                'title' => 'Black Liberation',
+                'intro' => 'From Marcus Garvey to the Black Panther Party, MOVE, and the Republic of New Afrika, Black liberation movements have faced surveillance, infiltration, frame-ups, and some of the longest political sentences in American history. Many of the people on these walls spent decades in prison; several remain there today.',
+                'match' => ['black liberation', 'black panther', 'black national', 'new afrika', 'move', 'black power', 'garvey'],
+            ],
+            'labor' => [
+                'title' => 'Labor & the Left',
+                'intro' => 'Union organizers, anarchists, socialists, and communists fill the oldest wings of this collection — jailed under criminal syndicalism laws, the Espionage Act, the Smith Act, and contempt citations from Congress. Their crime, in most cases, was organizing workers or holding the wrong ideas out loud.',
+                'match' => ['labor', 'anarch', 'commun', 'social', 'iww', 'union', 'syndical', 'wobbl', 'strike'],
+            ],
+            'native-rights' => [
+                'title' => 'Native & Indigenous Rights',
+                'intro' => 'Indigenous resistance — from the 19th-century prisoners of war held at Fort Marion to the American Indian Movement and the defenders at Standing Rock — has been met with military tribunals, federal conspiracy charges, and prosecutions that continue into the present.',
+                'match' => ['american indian', 'indigenous', 'native', 'aim', 'land back', 'standing rock', 'wounded knee'],
+            ],
+            'antiwar' => [
+                'title' => 'Peace & Anti-War Resistance',
+                'intro' => 'Draft resisters, conscientious objectors, Plowshares activists, and Catholic Workers have accepted prison as the price of refusing war — from World War I objectors held at Alcatraz to elderly nuns and priests jailed for hammering on missile silos.',
+                'match' => ['anti-war', 'antiwar', 'pacifis', 'draft', 'plowshares', 'catholic worker', 'conscientious', 'vietnam', 'peace'],
+            ],
+            'independence' => [
+                'title' => 'Independence & Anti-Colonial Struggle',
+                'intro' => 'Puerto Rican nationalists, Filipino ilustrados deported to Guam, Irish republicans, and other anti-colonial fighters were imprisoned for insisting their nations be free. Some, like the Guam deportees of 1901, were exiled without trial.',
+                'match' => ['puerto ric', 'independence', 'filipino', 'irish', 'national liberation', 'anti-colonial', 'macheteros', 'nationalist'],
+            ],
+            'conscience' => [
+                'title' => 'Faith & Conscience',
+                'intro' => 'Quakers exiled from Philadelphia in 1777, Jehovah\'s Witnesses jailed by the hundreds in the 1940s, Muslim leaders surveilled and imprisoned — this room holds people punished for acts of conscience rooted in faith.',
+                'match' => ['religio', 'quaker', 'jehovah', 'muslim', 'catholic', 'jewish', 'faith'],
+            ],
+            'suffrage' => [
+                'title' => 'Suffrage & Women\'s Rights',
+                'intro' => 'The Silent Sentinels were dragged from the White House gates to the Occoquan Workhouse; birth-control advocates like Ben Reitman and Becky Edelsohn chose jail over silence. This gallery holds women — and their allies — imprisoned for demanding equality.',
+                'match' => ['suffrag', 'feminis', 'birth control', 'women'],
+            ],
+            'earth' => [
+                'title' => 'Earth & Animal Liberation',
+                'intro' => 'The "Green Scare" of the 2000s branded environmental and animal-rights saboteurs as terrorists, producing some of the harshest sentences ever handed to activists who harmed no one.',
+                'match' => ['environment', 'earth liberation', 'animal', 'eco', 'green scare'],
+            ],
+        ];
+
+        $people = Prisoner::whereNotNull('photo')->where('photo', '!=', '')
+            ->get(['id', 'name', 'slug', 'photo', 'description', 'era', 'state', 'ideologies', 'affiliation', 'birthdate', 'death_date', 'in_custody', 'date_precision']);
+
+        $item = function ($p) {
+            $born = $p->birthdate ? $p->birthdate->format('Y') : null;
+            $died = $p->death_date ? $p->death_date->format('Y') : null;
+            $years = $born ? ($born.'–'.($died ?: ($p->in_custody ? '' : ' '))) : ($died ? '–'.$died : '');
+            $ideo = collect((array) $p->ideologies)->take(2)->implode(' · ');
+
+            return [
+                'n' => $p->name,
+                'img' => $p->photo_url,
+                'l1' => trim($years) ?: ($p->era ?: ''),
+                'l2' => $ideo ?: ($p->era ?: ''),
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $p->description)), 560),
+                'u' => '/prisoner/'.$p->slug,
+                'c' => (bool) $p->in_custody,
+            ];
+        };
+
+        $used = [];
+        $galleries = [];
+        foreach ($themes as $key => $t) {
+            $picks = [];
+            foreach ($people as $p) {
+                if (isset($used[$p->id])) {
+                    continue;
+                }
+                $hay = mb_strtolower(implode(' ', array_merge((array) $p->ideologies, (array) $p->affiliation, [(string) $p->era])));
+                foreach ($t['match'] as $m) {
+                    if (str_contains($hay, $m)) {
+                        $picks[] = $p;
+                        break;
+                    }
+                }
+            }
+            // Richest bios first make the best wall labels.
+            $picks = collect($picks)->sortByDesc(fn ($p) => mb_strlen((string) $p->description))->take(10)->values();
+            if ($picks->count() >= 4) {
+                foreach ($picks as $p) {
+                    $used[$p->id] = true;
+                }
+                $galleries[] = [
+                    'key' => $key,
+                    'title' => $t['title'],
+                    'intro' => $t['intro'],
+                    'items' => $picks->map($item)->all(),
+                ];
+            }
+        }
+        $galleries = array_slice($galleries, 0, 6);
+
+        // Corridor of faces: strongest remaining bios, small frames.
+        $faces = collect($people)->reject(fn ($p) => isset($used[$p->id]))
+            ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
+            ->take(24)->values()->map($item)->all();
+
+        // Rotunda standees: figures still in custody get pride of place.
+        $standees = collect($people)->filter(fn ($p) => $p->in_custody && mb_strlen((string) $p->description) > 200)
+            ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
+            ->take(4)->values()->map($item)->all();
+
+        $timeline = Timeline::orderBy('year')->get(['year', 'title', 'text', 'image'])
+            ->map(fn ($t) => [
+                'y' => (int) $t->year,
+                't' => $t->title,
+                'x' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $t->text)), 260),
+                'img' => $t->image ? \Illuminate\Support\Facades\Storage::url($t->image) : null,
+            ])->all();
+
+        $archive = ArchiveRecord::where('published', true)->whereNotNull('thumbnail')
+            ->orderBy('year')->take(10)
+            ->get()
+            ->map(fn ($r) => [
+                'n' => $r->title,
+                'img' => $r->thumbnail_url,
+                'file' => $r->file_url,
+                'l1' => trim(($r->year ?: '').' · '.($r->source_format ?: $r->record_type)),
+                'l2' => $r->collection ?: '',
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $r->description)), 420),
+                'u' => '/archive/view/'.$r->slug,
+            ])->all();
+
+        // Reading room: every digitized document, split into "books" (long-form
+        // — zines, periodicals, pamphlets — shelved on the bookcases) and
+        // "sheets" (flyers, posters — racked face-out). Picking one up opens
+        // the in-museum PDF reader on the full scan.
+        $shortFormats = ['flyer', 'poster', 'broadside', 'photograph', 'postcard', 'card'];
+        $reading = ArchiveRecord::where('published', true)->whereNotNull('file')
+            ->orderBy('collection')->orderBy('year')
+            ->take(56)
+            ->get()
+            ->map(fn ($r) => [
+                'n' => $r->title,
+                'img' => $r->thumbnail_url,
+                'file' => $r->file_url,
+                'l1' => trim(($r->year ?: '').' · '.($r->source_format ?: $r->record_type), ' ·'),
+                'l2' => $r->collection ?: '',
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $r->description)), 300),
+                'u' => '/archive/view/'.$r->slug,
+                'book' => ! in_array(mb_strtolower((string) $r->source_format), $shortFormats, true),
+            ])->all();
+
+        // Projection / theater slides: the wide topic backdrops.
+        $slides = Topic::published()->whereNotNull('image')->where('image', '!=', '')
+            ->orderBy('sort_order')->take(14)
+            ->get(['title', 'image'])
+            ->map(fn ($t) => [
+                't' => $t->title,
+                'img' => \Illuminate\Support\Facades\Storage::url($t->image),
+            ])->all();
+
+        $stats = [
+            'total' => Prisoner::count(),
+            'inCustody' => Prisoner::where('in_custody', true)->count(),
+            'eras' => (int) Prisoner::whereNotNull('era')->where('era', '!=', '')->distinct()->count('era'),
+        ];
+
+        $museum = [
+            'galleries' => $galleries,
+            'faces' => $faces,
+            'standees' => $standees,
+            'timeline' => $timeline,
+            'archive' => $archive,
+            'reading' => $reading,
+            'slides' => $slides,
+            'stats' => $stats,
+            'video' => is_file(public_path('videos/museum-reel.mp4')) ? '/videos/museum-reel.mp4' : null,
+        ];
+
+        return view('pages.museum', compact('museum'));
+    }
 }
