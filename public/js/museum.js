@@ -409,7 +409,7 @@ function wallPanel(tex, pos, normal, w, h, { emissive = 0.24, interact = null } 
 }
 
 /* Standee: photo figure board on a floor stand. */
-function standee(item, x, z, ry) {
+function standee(item, x, z, ry, band = null) {
     const g = new THREE.Group();
     g.position.set(x, 0, z); g.rotation.y = ry;
     worldGroup.add(g);
@@ -436,7 +436,7 @@ function standee(item, x, z, ry) {
             }
         });
     }
-    addCollider(x - 0.45, x + 0.45, z - 0.3, z + 0.3);
+    addCollider(x - 0.45, x + 0.45, z - 0.3, z + 0.3, band ? band[0] : -Infinity, band ? band[1] : Infinity);
     interactables.push({ mesh: photo, data: { kind: 'standee', ...item } });
     const plStand = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.78), MAT.frameBlack);
     plStand.position.set(W / 2 + 0.28, 0.39, 0.12); g.add(plStand);
@@ -447,7 +447,7 @@ function standee(item, x, z, ry) {
 }
 
 /* Vitrine: table + glass case + document propped inside. */
-function vitrine(item, x, z, ry = 0) {
+function vitrine(item, x, z, ry = 0, band = null) {
     const g = new THREE.Group();
     g.position.set(x, 0, z); g.rotation.y = ry;
     worldGroup.add(g);
@@ -508,13 +508,13 @@ function vitrine(item, x, z, ry = 0) {
     const pl = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.245),
         new THREE.MeshStandardMaterial({ map: placardTexture(item.n, item.l1, item.l2), roughness: 0.9 }));
     pl.position.set(0, th + 0.02, td / 2 - 0.1); pl.rotation.x = -Math.PI / 2 + 0.35; g.add(pl);
-    addCollider(x - tw / 2 - 0.1, x + tw / 2 + 0.1, z - td / 2 - 0.1, z + td / 2 + 0.1);
+    addCollider(x - tw / 2 - 0.1, x + tw / 2 + 0.1, z - td / 2 - 0.1, z + td / 2 + 0.1, band ? band[0] : -Infinity, band ? band[1] : Infinity);
     interactables.push({ mesh: doc, data: { kind: 'doc', ...item } });
     interactables.push({ mesh: glass, data: { kind: 'doc', ...item } });
     return g;
 }
 
-function bench(x, z, ry = 0, fabricTop = false) {
+function bench(x, z, ry = 0, fabricTop = false, band = null) {
     const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g);
     const seat = new THREE.Mesh(new THREE.BoxGeometry(1.7, 0.09, 0.48), fabricTop ? MAT.fabric : MAT.benchWood);
     seat.position.y = 0.46; seat.castShadow = true; seat.receiveShadow = true; g.add(seat);
@@ -524,7 +524,7 @@ function bench(x, z, ry = 0, fabricTop = false) {
     }
     const c = Math.cos(ry), s = Math.sin(ry);
     const hw = 0.9 * Math.abs(c) + 0.3 * Math.abs(s), hd = 0.9 * Math.abs(s) + 0.3 * Math.abs(c);
-    addCollider(x - hw, x + hw, z - hd, z + hd);
+    addCollider(x - hw, x + hw, z - hd, z + hd, band ? band[0] : -Infinity, band ? band[1] : Infinity);
     return g;
 }
 
@@ -1590,7 +1590,8 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     addFloorZone(10, 13, 11, 22, 4.6);
     balustrade('x', 11, -10.34, 10, 4.6);
     balustrade('z', 10, 11, 22, 4.6);
-    balustrade('x', 22, 10, 13, 4.6);
+    // (east strip's south rail is omitted here — the Level-2 south balcony
+    //  continues off it and carries the overlook rail instead)
     // mezzanine planter (west; the east half of the band is the café)
     for (const px of [-8]) {
         const pb = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 0.8), MAT.benchWood);
@@ -1609,7 +1610,8 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     });
 
     // ---- reception desk + interpretive panels + standees ----
-    box(3.4, 1.0, 0.9, MAT.benchWood, 5, 0.5, 22.5, { collide: true });
+    box(3.4, 1.0, 0.9, MAT.benchWood, 5, 0.5, 22.5, {});
+    addCollider(3.25, 6.75, 22.0, 23.0, 0, 2.8);        // banded (Level-2 balcony passes above)
     box(3.6, 0.08, 1.05, new THREE.MeshStandardMaterial({ color: 0xf4f1ea, roughness: 0.4 }), 5, 1.06, 22.5, {});
     goldLettering('Welcome', 5, 0.62, 22.94, new THREE.Vector3(0, 0, 1), 0.55);
     wallPanel(titleTexture(), new THREE.Vector3(0, 5.6, 6.14), new THREE.Vector3(0, 0, 1), 8.2, 3.2, { emissive: 0.42 });
@@ -1623,9 +1625,12 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         { interact: { kind: 'panel', n: 'One database, thousands of lives', l1: 'The Collection', d: 'Every frame in this museum links to a full record in the NPPC database.', u: '/database' } });
 
     const st = DATA.standees.slice(0, 4);
+    // these sit under the mezzanine/Level-2 balcony — band their colliders to
+    // the ground level so they don't wall off the walkway above
+    const GB = [0, 2.8];
     [[-8.6, 23.4, 0.55], [-3.6, 24.6, -0.35], [-6.4, 9.2, 0.45], [6.6, 9.2, -0.45]]
-        .forEach((s, i) => { if (st[i]) standee(st[i], s[0], s[1], s[2]); });
-    bench(-4.2, 23.6, 0); bench(0, 10.2, Math.PI);
+        .forEach((s, i) => { if (st[i]) standee(st[i], s[0], s[1], s[2], GB); });
+    bench(-4.2, 23.6, 0, false, GB); bench(0, 10.2, Math.PI, false, GB);
 
     rooms.push({
         name: 'Grand Atrium', minX: -13, maxX: 13, minZ: 6, maxZ: 26,
@@ -1757,6 +1762,63 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         lantern(lx, lz, ly, lr);
 
     function matteBlackAtrium() { return new THREE.MeshStandardMaterial({ color: 0x24262b, roughness: 0.5 }); }
+})();
+
+/* ---- Level Two: an upper gallery balcony wrapping the atrium. Continues off
+   the existing east-strip mezzanine with a new south balcony over the
+   entrance (city view through the glass facade), overlooking the pond hall
+   below. Reached by the grand stair; floor at y=4.6, colliders height-banded
+   so the ground floor stays clear. ---- */
+(function levelTwo() {
+    const FY = 4.6, Y = 10.5;
+    const fascia = new THREE.MeshStandardMaterial({ color: 0xf1efe9, roughness: 0.85 });
+
+    // --- south balcony slab (over the entrance), continuous off the east strip ---
+    box(24.2, 0.32, 4, fascia, 1, FY - 0.15, 23.85, {});          // slab edge / soffit
+    floorRect(-11, 13, 22, 25.8, MAT.galleryFloor, 4.61);
+    addFloorZone(-11, 13, 22, 25.8, 4.6);
+    // overlook rails: north edge (over the atrium) west of the east-strip
+    // junction, and the west edge
+    balustrade('x', 22, -11, 10, 4.6);
+    balustrade('z', -11, 22, 25.8, 4.6);
+
+    // --- upper gallery fit-out ---
+    // art along the east wall of the east strip + the balcony's east wall
+    (DATA.faces || []).slice(13, 18).forEach((f, k) => {
+        hangArt(f, new THREE.Vector3(12.82, FY + 1.5, 12.5 + k * 2.4), new THREE.Vector3(-1, 0, 0),
+            { frame: MAT.frameBlack, artH: 1.1, gallery: 'Level Two' });
+    });
+    (DATA.faces || []).slice(18, 21).forEach((f, k) => {
+        hangArt(f, new THREE.Vector3(-9 + k * 4, FY + 1.5, 25.6), new THREE.Vector3(0, 0, -1),
+            { frame: MAT.frameBlack, artH: 1.1, gallery: 'Level Two' });
+    });
+    trackLightZ(12, 21, 12.2, Y - 0.2, 5);
+
+    // a couple of freestanding vitrines up on the balcony (built at y=0, lifted
+    // to the mezzanine floor; colliders banded to the upper level so they
+    // don't block the ground floor below)
+    const UB = [4.3, 6.4];
+    const lift = (g) => { if (g) g.position.y = FY; return g; };
+    const arch2 = (DATA.archive || []);
+    if (arch2.length) {
+        lift(vitrine(arch2[3 % arch2.length], -6, 23.4, 0.2, UB));
+        lift(vitrine(arch2[4 % arch2.length], 3, 23.4, -0.2, UB));
+    }
+    // reading benches looking out over the atrium
+    lift(bench(6, 22.7, Math.PI, true, UB));
+    lift(bench(-2, 22.7, Math.PI, true, UB));
+
+    // down-lights so the upper level reads (banded emissive pucks under ceiling)
+    for (const [px, pz] of [[-6, 23.6], [2, 23.6], [8, 23.6], [11.5, 15], [11.5, 19]]) {
+        const puck = new THREE.Mesh(new THREE.CircleGeometry(0.22, 20),
+            new THREE.MeshBasicMaterial({ color: 0xfff2d8, toneMapped: false }));
+        puck.rotation.x = Math.PI / 2; puck.position.set(px, 6.4, pz); worldGroup.add(puck);
+    }
+
+    // signage visible from the hall below (part of the Grand Atrium — the
+    // room system is 2D, so the upper level is lit by the atrium rig plus the
+    // picture-lights on each frame, like the existing mezzanine)
+    goldLettering('Level Two — Upper Gallery', 6, FY + 2.9, 22.06, new THREE.Vector3(0, 0, -1), 0.5);
 })();
 
 /* ---- Museum Shop: a retail wing off the atrium's east side.
