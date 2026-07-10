@@ -1258,52 +1258,67 @@ final class SiteController extends Controller {
     }
 
     public function museum() {
-        // Walkable 3D museum (/museum). Groups prisoners who have photos into
-        // themed galleries by ideology/affiliation keywords, and gathers the
-        // timeline, archive documents, and topic backdrops the rooms are hung
-        // with. Fields are keyed short to keep the embedded payload small:
+        // Walkable 3D museum (/museum). Curates prisoners who have photos into
+        // named galleries by the specific movement/organization they belonged to
+        // (the Black Panther Party, Plowshares, the American Indian Movement …),
+        // rather than strewing portraits at random, and gathers the timeline,
+        // archive documents, and topic backdrops the rooms are built from.
+        // Fields are keyed short to keep the embedded payload small:
         // n=name, img=photo, l1/l2=placard lines, d=description, u=link.
-        $themes = [
-            'black-liberation' => [
-                'title' => 'Black Liberation',
-                'intro' => 'From Marcus Garvey to the Black Panther Party, MOVE, and the Republic of New Afrika, Black liberation movements have faced surveillance, infiltration, frame-ups, and some of the longest political sentences in American history. Many of the people on these walls spent decades in prison; several remain there today.',
-                'match' => ['black liberation', 'black panther', 'black national', 'new afrika', 'move', 'black power', 'garvey'],
-            ],
-            'labor' => [
-                'title' => 'Labor & the Left',
-                'intro' => 'Union organizers, anarchists, socialists, and communists fill the oldest wings of this collection — jailed under criminal syndicalism laws, the Espionage Act, the Smith Act, and contempt citations from Congress. Their crime, in most cases, was organizing workers or holding the wrong ideas out loud.',
-                'match' => ['labor', 'anarch', 'commun', 'social', 'iww', 'union', 'syndical', 'wobbl', 'strike'],
-            ],
-            'native-rights' => [
-                'title' => 'Native & Indigenous Rights',
-                'intro' => 'Indigenous resistance — from the 19th-century prisoners of war held at Fort Marion to the American Indian Movement and the defenders at Standing Rock — has been met with military tribunals, federal conspiracy charges, and prosecutions that continue into the present.',
-                'match' => ['american indian', 'indigenous', 'native', 'aim', 'land back', 'standing rock', 'wounded knee'],
-            ],
-            'antiwar' => [
-                'title' => 'Peace & Anti-War Resistance',
-                'intro' => 'Draft resisters, conscientious objectors, Plowshares activists, and Catholic Workers have accepted prison as the price of refusing war — from World War I objectors held at Alcatraz to elderly nuns and priests jailed for hammering on missile silos.',
-                'match' => ['anti-war', 'antiwar', 'pacifis', 'draft', 'plowshares', 'catholic worker', 'conscientious', 'vietnam', 'peace'],
-            ],
-            'independence' => [
-                'title' => 'Independence & Anti-Colonial Struggle',
-                'intro' => 'Puerto Rican nationalists, Filipino ilustrados deported to Guam, Irish republicans, and other anti-colonial fighters were imprisoned for insisting their nations be free. Some, like the Guam deportees of 1901, were exiled without trial.',
-                'match' => ['puerto ric', 'independence', 'filipino', 'irish', 'national liberation', 'anti-colonial', 'macheteros', 'nationalist'],
-            ],
-            'conscience' => [
-                'title' => 'Faith & Conscience',
-                'intro' => 'Quakers exiled from Philadelphia in 1777, Jehovah\'s Witnesses jailed by the hundreds in the 1940s, Muslim leaders surveilled and imprisoned — this room holds people punished for acts of conscience rooted in faith.',
-                'match' => ['religio', 'quaker', 'jehovah', 'muslim', 'catholic', 'jewish', 'faith'],
-            ],
-            'suffrage' => [
-                'title' => 'Suffrage & Women\'s Rights',
-                'intro' => 'The Silent Sentinels were dragged from the White House gates to the Occoquan Workhouse; birth-control advocates like Ben Reitman and Becky Edelsohn chose jail over silence. This gallery holds women — and their allies — imprisoned for demanding equality.',
-                'match' => ['suffrag', 'feminis', 'birth control', 'women'],
-            ],
-            'earth' => [
-                'title' => 'Earth & Animal Liberation',
-                'intro' => 'The "Green Scare" of the 2000s branded environmental and animal-rights saboteurs as terrorists, producing some of the harshest sentences ever handed to activists who harmed no one.',
-                'match' => ['environment', 'earth liberation', 'animal', 'eco', 'green scare'],
-            ],
+        //
+        // Each group matches a haystack of the prisoner's affiliation + ideology
+        // tags. Groups are ordered as a curatorial sequence; a person lands in
+        // the first group they match (dedup by $used), and a group only becomes a
+        // room if it collects enough portraits.
+        $groupDefs = [
+            ['key' => 'black-panther', 'title' => 'The Black Panther Party', 'accent' => 'crimson',
+                'intro' => 'Founded in Oakland in 1966, the Black Panther Party became the FBI\'s single largest COINTELPRO target. Its members were surveilled, raided, and framed; several — like the New York and New Haven Panthers — spent years in pretrial jail before juries acquitted them. Others never came home.',
+                'match' => ['black panther', 'panther 21', 'panther', 'bpp']],
+            ['key' => 'black-liberation-army', 'title' => 'The Black Liberation Army & New Afrika', 'accent' => 'gold',
+                'intro' => 'Out of the Panthers\' collapse came the Black Liberation Army and the Republic of New Afrika. Their prisoners hold some of the longest sentences in this building — many jailed since the 1970s and 1980s, several still inside today, some of the last acknowledged political prisoners in the United States.',
+                'match' => ['black liberation army', 'new afrika', 'new afrikan', 'republic of new', 'bla ', 'assata']],
+            ['key' => 'move', 'title' => 'MOVE', 'accent' => 'green',
+                'intro' => 'The MOVE organization, a Black naturalist commune in Philadelphia, was besieged twice by the city — in 1978 and again in 1985, when police dropped a bomb on their home and let the fire burn a city block. The MOVE 9 spent four decades in prison for a death the state itself set in motion.',
+                'match' => ['move organization', 'move 9', 'move nine', 'move bombing', 'the move']],
+            ['key' => 'aim', 'title' => 'The American Indian Movement', 'accent' => 'ochre',
+                'intro' => 'From the occupation of Wounded Knee to the shootout at Pine Ridge, the American Indian Movement met federal conspiracy charges, paramilitary sieges, and prosecutions that reached across decades. Leonard Peltier\'s case became the movement\'s defining injustice.',
+                'match' => ['american indian movement', 'wounded knee', 'pine ridge', 'peltier', 'indigenous', 'native american', 'aim ']],
+            ['key' => 'puerto-rico', 'title' => 'Puerto Rican Independence', 'accent' => 'teal',
+                'intro' => 'For more than a century the United States has jailed Puerto Ricans who insisted their island be free — the Nationalist Party of the 1950s, the FALN and Los Macheteros of the 1970s and 80s, prisoners held so long that mass clemency campaigns finally brought some of them home.',
+                'match' => ['puerto ric', 'faln', 'macheteros', 'nationalist party', 'young lords', 'independentista', 'boricua']],
+            ['key' => 'plowshares', 'title' => 'Plowshares & the Catholic Left', 'accent' => 'violet',
+                'intro' => 'Priests, nuns, and lay Catholics who hammered on nuclear warheads and poured blood on missile silos — beating swords into plowshares, literally — have accepted years in federal prison as an act of faith. Many were in their seventies and eighties when they were sentenced.',
+                'match' => ['plowshares', 'catholic worker', 'berrigan', 'king of prussia', 'disarmament', 'anti-nuclear', 'ploughshares']],
+            ['key' => 'antiwar', 'title' => 'Draft Resistance & the Anti-War Movement', 'accent' => 'slate',
+                'intro' => 'From the conscientious objectors of the First World War to the draft-card burners of Vietnam, refusing to fight has carried a prison sentence. This gallery holds those who went to jail rather than to war.',
+                'match' => ['draft', 'vietnam', 'conscientious objector', 'anti-war', 'antiwar', 'war resist', 'selective service', 'pacifis']],
+            ['key' => 'weather', 'title' => 'Weather Underground & the Anti-Imperialists', 'accent' => 'rust',
+                'intro' => 'The white radicals who broke from the student movement to fight alongside Black and Puerto Rican liberation — the Weather Underground, the May 19th Communist Organization, the Ohio 7 — drew long federal sentences under conspiracy and RICO statutes.',
+                'match' => ['weather underground', 'weathermen', 'may 19', 'may 19th', 'anti-imperialist', 'ohio 7', 'united freedom front', 'sds', 'students for a democratic']],
+            ['key' => 'anarchists', 'title' => 'The Anarchists', 'accent' => 'crimson',
+                'intro' => 'From the Haymarket martyrs hanged in 1887 to the Galleanists deported after the Red Scare, anarchists were the first political prisoners this country made in great numbers — jailed for their newspapers, their speeches, and their refusal of the state itself.',
+                'match' => ['anarch', 'haymarket', 'galleanist', 'galleani', 'nihilis']],
+            ['key' => 'labor', 'title' => 'Labor & the Industrial Workers of the World', 'accent' => 'ochre',
+                'intro' => 'Union organizers filled American prisons under criminal-syndicalism laws written expressly to break them. The Industrial Workers of the World — the Wobblies — were jailed by the hundreds; the mine and pecan and farm strikes of the 1930s filled the cells again.',
+                'match' => ['iww', 'industrial workers', 'wobbl', 'criminal syndicalis', 'labor', 'trade union', 'longshore', 'pecan', 'miner']],
+            ['key' => 'communists', 'title' => 'Communists & the Red Scare', 'accent' => 'crimson',
+                'intro' => 'Under the Smith Act and the subpoenas of the House Un-American Activities Committee, holding the wrong ideas — or refusing to name those who did — was enough for prison. The Hollywood Ten and the Party leadership went to jail for their beliefs and their silence.',
+                'match' => ['communist', 'smith act', 'hollywood ten', 'huac', 'un-american', 'red scare', 'cpusa', 'party leader']],
+            ['key' => 'earth', 'title' => 'The Green Scare', 'accent' => 'green',
+                'intro' => 'In the 2000s the government branded environmental and animal-rights saboteurs as terrorists, winning some of the harshest sentences ever handed to activists who took no life — the Earth and Animal Liberation Fronts, the SHAC defendants, the eco-arsonists of Operation Backfire.',
+                'match' => ['earth liberation', 'animal liberation', 'green scare', 'ecodefense', 'shac', 'operation backfire', 'environmental', ' elf', ' alf']],
+            ['key' => 'civil-rights', 'title' => 'The Civil Rights Movement', 'accent' => 'gold',
+                'intro' => 'The Freedom Riders who filled the jails of Mississippi, the students of SNCC and CORE, the marchers who went to prison by the thousands — the movement made a strategy of arrest, turning the cell into a place of witness.',
+                'match' => ['civil rights', 'sncc', ' core', 'freedom rider', 'freedom ride', 'naacp', 'sclc', 'birmingham', 'montgomery']],
+            ['key' => 'suffrage', 'title' => 'Suffrage & Women\'s Rights', 'accent' => 'violet',
+                'intro' => 'The Silent Sentinels were dragged from the White House gates to the Occoquan Workhouse and force-fed for demanding the vote. Birth-control advocates chose jail over silence. This gallery holds the women — and their allies — imprisoned for equality.',
+                'match' => ['suffrag', 'silent sentinel', "woman's party", 'birth control', 'feminis']],
+            ['key' => 'palestine', 'title' => 'Palestine Solidarity', 'accent' => 'teal',
+                'intro' => 'The newest wing of this collection: organizers, students, and writers detained, deported, or prosecuted for pro-Palestinian speech and protest — a reminder that the making of political prisoners in America is not a closed chapter but a present one.',
+                'match' => ['palestin', 'gaza', 'pro-palestine', 'boycott', 'bds', 'holy land']],
+            ['key' => 'grand-jury', 'title' => 'Grand Jury & Contempt Resisters', 'accent' => 'slate',
+                'intro' => 'People jailed not for a crime but for a refusal — declining to testify before a grand jury, to name names, or to become an instrument against their own movement. Their sentences are open-ended: they end only when the resister breaks, or the jury does.',
+                'match' => ['grand jury', 'contempt', 'refused to testify', 'refusing to testify', 'noncooperat']],
         ];
 
         $people = Prisoner::whereNotNull('photo')->where('photo', '!=', '')
@@ -1320,21 +1335,24 @@ final class SiteController extends Controller {
                 'img' => $p->photo_url,
                 'l1' => trim($years) ?: ($p->era ?: ''),
                 'l2' => $ideo ?: ($p->era ?: ''),
-                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $p->description)), 560),
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $p->description)), 620),
                 'u' => '/prisoner/'.$p->slug,
                 'c' => (bool) $p->in_custody,
             ];
         };
+        $hayOf = fn ($p) => ' '.mb_strtolower(implode(' ', array_merge(
+            (array) $p->affiliation, (array) $p->ideologies, [(string) $p->name, (string) $p->era]
+        ))).' ';
 
         $used = [];
         $galleries = [];
-        foreach ($themes as $key => $t) {
+        foreach ($groupDefs as $t) {
             $picks = [];
             foreach ($people as $p) {
                 if (isset($used[$p->id])) {
                     continue;
                 }
-                $hay = mb_strtolower(implode(' ', array_merge((array) $p->ideologies, (array) $p->affiliation, [(string) $p->era])));
+                $hay = $hayOf($p);
                 foreach ($t['match'] as $m) {
                     if (str_contains($hay, $m)) {
                         $picks[] = $p;
@@ -1342,31 +1360,46 @@ final class SiteController extends Controller {
                     }
                 }
             }
-            // Richest bios first make the best wall labels.
-            $picks = collect($picks)->sortByDesc(fn ($p) => mb_strlen((string) $p->description))->take(10)->values();
-            if ($picks->count() >= 4) {
+            // Richest bios first make the best wall labels; big rooms hold ~16.
+            $picks = collect($picks)->sortByDesc(fn ($p) => mb_strlen((string) $p->description))->take(16)->values();
+            if ($picks->count() >= 3) {
                 foreach ($picks as $p) {
                     $used[$p->id] = true;
                 }
                 $galleries[] = [
-                    'key' => $key,
+                    'key' => $t['key'],
                     'title' => $t['title'],
                     'intro' => $t['intro'],
+                    'accent' => $t['accent'],
                     'items' => $picks->map($item)->all(),
                 ];
             }
         }
-        $galleries = array_slice($galleries, 0, 6);
 
-        // Corridor of faces: strongest remaining bios, small frames.
+        // Hall of Figures — a curated set of standing portrait monoliths: the
+        // single strongest-documented figure from each populated gallery, so the
+        // central hall reads as a who's-who across the movements.
+        $monoliths = [];
+        foreach ($galleries as $g) {
+            if (! empty($g['items'][0])) {
+                $monoliths[] = $g['items'][0] + ['group' => $g['title']];
+            }
+        }
+
+        // Photo-mosaic wall + face corridors: every remaining portrait, so the
+        // hall's long wall tiles with hundreds of faces.
         $faces = collect($people)->reject(fn ($p) => isset($used[$p->id]))
             ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
-            ->take(24)->values()->map($item)->all();
+            ->values()->map($item)->all();
+        $mosaic = collect($people)
+            ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
+            ->take(180)->values()
+            ->map(fn ($p) => ['img' => $p->photo_url, 'n' => $p->name, 'u' => '/prisoner/'.$p->slug])->all();
 
         // Rotunda standees: figures still in custody get pride of place.
         $standees = collect($people)->filter(fn ($p) => $p->in_custody && mb_strlen((string) $p->description) > 200)
             ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
-            ->take(4)->values()->map($item)->all();
+            ->take(6)->values()->map($item)->all();
 
         $timeline = Timeline::orderBy('year')->get(['year', 'title', 'text', 'image'])
             ->map(fn ($t) => [
@@ -1426,6 +1459,8 @@ final class SiteController extends Controller {
 
         $museum = [
             'galleries' => $galleries,
+            'monoliths' => $monoliths,
+            'mosaic' => $mosaic,
             'faces' => $faces,
             'standees' => $standees,
             'timeline' => $timeline,

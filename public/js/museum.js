@@ -210,12 +210,21 @@ function timelineTexture(events) {
 const worldGroup = new THREE.Group();
 scene.add(worldGroup);
 const colliders = [];           // {minX,maxX,minZ,maxZ}
+const floorZones = [];          // {minX,maxX,minZ,maxZ,y} — raised/lowered floors (cinema tiers)
 const interactables = [];       // {mesh, data}
 const artQueue = [];            // progressive photo loading
 const rooms = [];               // {name,minX,maxX,minZ,maxZ,rig}
 const slideshows = [];          // animated canvas screens
 
 function addCollider(minX, maxX, minZ, maxZ) { colliders.push({ minX, maxX, minZ, maxZ }); }
+function addFloorZone(minX, maxX, minZ, maxZ, y) { floorZones.push({ minX, maxX, minZ, maxZ, y }); }
+function floorHeightAt(x, z) {
+    // Zones are non-overlapping tier platforms; return the containing zone's y.
+    for (const f of floorZones) {
+        if (x >= f.minX && x <= f.maxX && z >= f.minZ && z <= f.maxZ) return f.y;
+    }
+    return 0;
+}
 function box(w, h, d, mat, x, y, z, { shadow = true, collide = false, ry = 0 } = {}) {
     const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
     m.position.set(x, y, z); m.rotation.y = ry;
@@ -237,11 +246,14 @@ function wallRun(axis, fixed, from, to, height, { doors = [], mat = MAT.wall, ba
         cur = Math.max(cur, g1);
     }
     if (cur < end) spans.push([cur, end]);
+    // Colliders are 2D (x,z) and ignore height, so a raised filler band above a
+    // doorway must NOT collide or it walls off the passage at floor level.
+    const solid = base < 1.9;
     for (const [a, b] of spans) {
         if (b - a < 0.05) continue;
         const len = b - a, mid = (a + b) / 2;
-        if (axis === 'x') box(len, height, WALL_T, mat, mid, base + height / 2, fixed, { collide: true });
-        else box(WALL_T, height, len, mat, fixed, base + height / 2, mid, { collide: true });
+        if (axis === 'x') box(len, height, WALL_T, mat, mid, base + height / 2, fixed, { collide: solid });
+        else box(WALL_T, height, len, mat, fixed, base + height / 2, mid, { collide: solid });
     }
     // lintels over doors
     for (const d of doors) {
@@ -288,7 +300,7 @@ const placeholderArt = canvasTexture(64, 80, (g, w, h) => {
 /* Hang a framed work on a wall.
    pos = world position of art center; normal = outward wall normal. */
 function hangArt(item, pos, normal, {
-    artH = 1.15, frame = MAT.frameWood, placard = true, wash = true, light = true, gallery = ''
+    artH = 1.15, frame = MAT.frameWood, placard = true, wash = true, light = true, gallery = '', edge = null
 } = {}) {
     const g = new THREE.Group();
     g.position.copy(pos);
@@ -300,6 +312,12 @@ function hangArt(item, pos, normal, {
 
     // frame bars
     const ow = artW + matPad * 2 + frameT * 2, oh = artH + matPad * 2 + frameT * 2;
+    // edge-lit glow behind the frame (accent halo, like the reference galleries)
+    if (edge != null) {
+        const halo = new THREE.Mesh(new THREE.PlaneGeometry(ow + 0.16, oh + 0.16),
+            new THREE.MeshBasicMaterial({ color: edge, transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false }));
+        halo.position.z = 0.004; g.add(halo);
+    }
     const bar = (bw, bh, bx, by) => {
         const m = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, frameD), frame);
         m.position.set(bx, by, frameD / 2); m.castShadow = true; m.receiveShadow = true; g.add(m);
@@ -605,568 +623,785 @@ function slideshowScreen(slides, videoUrl, pos, normal, w, h, { caption = true, 
     return m;
 }
 
-/* ================================================================= LAYOUT */
-const CEIL = { rotunda: 6, hall: 4.2, gallery: 4, archive: 3.6, theater: 4.6, cell: 2.6 };
+/* ------------------------------------------------- extended display builders */
+const ACCENT = {
+    crimson: 0x98002e, gold: 0xe4a524, teal: 0x2a6d81, violet: 0x7c5cbf,
+    green: 0x4e7d3a, ochre: 0xb0772e, slate: 0x4a5a6a, rust: 0xb0592e,
+};
+function accentHex(name) { return ACCENT[name] ?? 0x98002e; }
 
-/* ---- Rotunda: x[-8,8] z[-8,8] ---- */
-(function rotunda() {
-    // marble floor + live reflection beneath a translucent marble sheet
-    const refl = new Reflector(new THREE.PlaneGeometry(16, 16), {
-        textureWidth: 1024, textureHeight: 1024, color: 0x9a9a9a, clipBias: 0.003,
-    });
-    refl.rotation.x = -Math.PI / 2; refl.position.set(0, 0.001, 0);
-    worldGroup.add(refl);
-    window.__reflector = refl;
-    const marbleTop = floorRect(-8, 8, -8, 8, new THREE.MeshStandardMaterial({
-        ...pbr('marble', { repeat: [5, 5] }), transparent: true, opacity: 0.72,
-        roughness: 0.16, envMapIntensity: 0.8,
-    }), 0.012);
-    marbleTop.material.depthWrite = false;
+/* Round column with a plain base + capital (structural realism for big halls). */
+function column(x, z, h, r = 0.34, mat = MAT.plaster || MAT.wall) {
+    const g = new THREE.Group(); g.position.set(x, 0, z); worldGroup.add(g);
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(r, r, h - 0.24, 24), mat);
+    shaft.position.y = h / 2; shaft.castShadow = true; shaft.receiveShadow = true; g.add(shaft);
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.28, r * 1.4, 0.14, 24), mat);
+    base.position.y = 0.07; base.castShadow = true; g.add(base);
+    const cap = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.4, r * 1.28, 0.14, 24), mat);
+    cap.position.y = h - 0.07; g.add(cap);
+    addCollider(x - r - 0.05, x + r + 0.05, z - r - 0.05, z + r + 0.05);
+    return g;
+}
 
-    ceilRect(-8, 8, -8, 8, CEIL.rotunda);
-    // oculus glow ring
-    const ring = new THREE.Mesh(new THREE.RingGeometry(1.6, 2.6, 48),
-        new THREE.MeshBasicMaterial({ color: 0xfff2d8, side: THREE.DoubleSide }));
-    ring.rotation.x = Math.PI / 2; ring.position.set(0, CEIL.rotunda - 0.02, 0);
-    worldGroup.add(ring);
-
-    wallRun('x', -8, -8, 8, CEIL.rotunda, { doors: [{ at: 0, w: 2.6, h: 3 }] });      // north → hall
-    wallRun('x', 8, -8, 8, CEIL.rotunda, {});                                          // south (title behind you)
-    wallRun('z', -8, -8, 8, CEIL.rotunda, {});                                         // west
-    wallRun('z', 8, -8, 8, CEIL.rotunda, {});                                          // east
-
-    // title on north wall above the hall door
-    wallPanel(titleTexture(), new THREE.Vector3(0, 4.5, -7.83), new THREE.Vector3(0, 0, 1), 7.4, 2.96, { emissive: 0.42 });
-    // projection band on the south wall
-    if (DATA.slides.length) {
-        slideshowScreen(DATA.slides, null, new THREE.Vector3(0, 3.9, 7.83), new THREE.Vector3(0, 0, -1), 11, 3.1, { speed: 9 });
+/* Coffered ceiling: a grid of shallow beams under a ceiling plane, with optional
+   emissive skylight panels between beams — lights the long halls from above. */
+function cofferedCeiling(minX, maxX, minZ, maxZ, y, { beam = MAT.frameWood, ceil = MAT.ceiling, bay = 4, skylight = false } = {}) {
+    ceilRect(minX, maxX, minZ, maxZ, y, ceil);
+    const beamMat = beam, bh = 0.28, bt = 0.16;
+    for (let x = minX; x <= maxX + 0.01; x += bay) {
+        const b = new THREE.Mesh(new THREE.BoxGeometry(bt, bh, maxZ - minZ), beamMat);
+        b.position.set(x, y - bh / 2, (minZ + maxZ) / 2); b.receiveShadow = true; b.castShadow = true;
+        worldGroup.add(b);
     }
-    // welcome interpretive panels flanking the north door
-    wallPanel(panelTexture('Welcome', 'A museum of\nAmerican dissent',
-        'Every person in this building was jailed, exiled, or detained in the United States for political reasons — for organizing a union, refusing a draft, demanding a vote, preaching a faith, or imagining their nation free. Walk the timeline hall ahead; six galleries open from it. In the far rooms you will find the paper trail, a theater, and a replica of the cell where many of these stories end. Click any work to inspect it.'),
-        new THREE.Vector3(-6.15, 1.9, -7.83), new THREE.Vector3(0, 0, 1), 2.1, 2.75,
-        { interact: { kind: 'panel', n: 'A museum of American dissent', l1: 'Welcome', d: 'Every person in this building was jailed, exiled, or detained in the United States for political reasons — for organizing a union, refusing a draft, demanding a vote, preaching a faith, or imagining their nation free. Walk the timeline hall ahead; six galleries open from it. Click any work to inspect it, and follow its link to the full record in the NPPC database.' } });
-    wallPanel(panelTexture('The Collection', 'One database,\nthousands of lives',
-        `The National Political Prisoner Coalition documents ${DATA.stats.total || 'thousands of'} political prisoners across ${DATA.stats.eras || 'dozens of'} eras of American history — ${DATA.stats.inCustody || 'many'} of them still in custody today. The works hung here are drawn live from that database: every frame links to a full case record you can read, cite, and act on.`),
-        new THREE.Vector3(6.15, 1.9, -7.83), new THREE.Vector3(0, 0, 1), 2.1, 2.75,
-        { interact: { kind: 'panel', n: 'One database, thousands of lives', l1: 'The Collection', d: `The NPPC documents ${DATA.stats.total || 'thousands of'} political prisoners across American history — ${DATA.stats.inCustody || 'many'} still in custody today. Every frame in this museum links to a full record in the database.`, u: '/database' } });
-
-    brokenChain(0, -1.2);
-
-    // standees flanking the sculpture
-    const st = DATA.standees.slice(0, 4);
-    const spots = [[-3.4, 1.6, 0.6], [3.4, 1.6, -0.6], [-3.4, -3.8, 0.9], [3.4, -3.8, -0.9]];
-    st.forEach((item, i) => { if (spots[i]) standee(item, spots[i][0], spots[i][1], spots[i][2]); });
-
-    // a few faces on east/west walls
-    const faces = DATA.faces.slice(0, 8);
-    faces.forEach((f, i) => {
-        const side = i < 4 ? -1 : 1;
-        const zi = -5.2 + (i % 4) * 3.4;
-        hangArt(f, new THREE.Vector3(side * 7.83, 1.62, zi), new THREE.Vector3(-side, 0, 0),
-            { artH: 0.85, frame: MAT.frameBlack, gallery: 'Faces of the Database' });
-    });
-
-    ceilingLight(0, CEIL.rotunda, -4, 2.2, 0.3);
-    ceilingLight(0, CEIL.rotunda, 4, 2.2, 0.3);
-    rooms.push({
-        name: 'Entrance Rotunda', minX: -8, maxX: 8, minZ: -8, maxZ: 8,
-        rig: {
-            key: { p: [0, 5.6, 0], t: [0, 0, -1.2], i: 260, angle: 0.62, dist: 18 },
-            fills: [[0, 4.6, 5.6, 40, 0xffe7c0], [-5, 3.4, -5, 26, 0xfff0d8], [5, 3.4, -5, 26, 0xfff0d8]],
-        }
-    });
-})();
-
-/* ---- Timeline hall: x[-4,4] z[-32,-8] ---- */
-(function hall() {
-    floorRect(-4, 4, -32, -8, MAT.hallFloor);
-    ceilRect(-4, 4, -32, -8, CEIL.hall);
-    const doorE = [{ at: -12.75, w: 1.9, h: 2.6 }, { at: -20.25, w: 1.9, h: 2.6 }, { at: -27.75, w: 1.9, h: 2.6 }];
-    const doorW = doorE;
-    wallRun('z', 4, -32, -8, CEIL.hall, { doors: doorE });
-    wallRun('z', -4, -32, -8, CEIL.hall, { doors: doorW });
-    wallRun('x', -32, -4, 4, CEIL.hall, { doors: [{ at: 0, w: 2.4, h: 2.8 }] });   // to archive
-
-    // timeline mural sliced across the east-wall segments
-    if (DATA.timeline.length) {
-        const tex = timelineTexture(DATA.timeline);
-        const segs = [[-8, -11.8], [-13.7, -19.3], [-21.2, -26.8], [-28.7, -32]];
-        const totalLen = segs.reduce((s, [a, b]) => s + (a - b), 0);
-        let u = 0;
-        for (const [a, b] of segs) {
-            const len = a - b;
-            const t2 = tex.clone(); t2.needsUpdate = true;
-            t2.repeat.set(len / totalLen, 1); t2.offset.set(u, 0);
-            u += len / totalLen;
-            const m = new THREE.Mesh(new THREE.PlaneGeometry(len, 2.1),
-                new THREE.MeshStandardMaterial({ map: t2, roughness: 0.92, emissive: 0xffffff, emissiveMap: t2, emissiveIntensity: 0.3 }));
-            m.position.set(3.83, 1.8, (a + b) / 2);
-            m.rotation.y = -Math.PI / 2;
-            worldGroup.add(m);
-            interactables.push({ mesh: m, data: { kind: 'panel', n: 'A Timeline of Political Imprisonment', l1: `${DATA.timeline[0]?.y ?? ''} — ${DATA.timeline[DATA.timeline.length - 1]?.y ?? ''}`, d: 'Key moments in the history of American political imprisonment, drawn from the NPPC timeline. Visit the full interactive timeline for every entry.', u: '/timeline' } });
+    for (let z = minZ; z <= maxZ + 0.01; z += bay) {
+        const b = new THREE.Mesh(new THREE.BoxGeometry(maxX - minX, bh, bt), beamMat);
+        b.position.set((minX + maxX) / 2, y - bh / 2, z); b.receiveShadow = true; b.castShadow = true;
+        worldGroup.add(b);
+    }
+    if (skylight) {
+        // bright daylight wells recessed above the beams (sky-white, warm edges)
+        const skyMat = new THREE.MeshBasicMaterial({ color: 0xeaf1ff });
+        for (let x = minX + bay / 2; x < maxX; x += bay) {
+            for (let z = minZ + bay / 2; z < maxZ; z += bay) {
+                // warm reveal reveal around a bright sky panel, recessed just below the beams
+                const well = new THREE.Mesh(new THREE.PlaneGeometry(bay * 0.72, bay * 0.72),
+                    new THREE.MeshBasicMaterial({ color: 0xe7d3a6 }));
+                well.rotation.x = Math.PI / 2; well.position.set(x, y - 0.015, z); worldGroup.add(well);
+                const s = new THREE.Mesh(new THREE.PlaneGeometry(bay * 0.6, bay * 0.6), skyMat);
+                s.rotation.x = Math.PI / 2; s.position.set(x, y - 0.03, z); worldGroup.add(s);
+            }
         }
     }
-    // faces corridor on the west-wall segments
-    const faces = DATA.faces.slice(8);
-    const segsW = [[-9.4, -11.6], [-14.2, -18.9], [-21.7, -26.4], [-29.1, -31.4]];
-    let fi = 0;
-    for (const [a, b] of segsW) {
-        const len = Math.abs(a - b);
-        const count = Math.max(1, Math.floor(len / 2.3));
-        for (let k = 0; k < count && fi < faces.length; k++, fi++) {
-            const z = a - (k + 0.5) * (len / count);
-            hangArt(faces[fi], new THREE.Vector3(-3.83, 1.62, z), new THREE.Vector3(1, 0, 0),
-                { artH: 0.8, frame: MAT.frameBlack, gallery: 'Faces of the Database' });
-        }
-    }
-    for (let z = -11; z >= -29; z -= 6) { ceilingLight(0, CEIL.hall, z, 1.6, 0.24); }
-    bench(0, -16.5, Math.PI / 2); bench(0, -24, Math.PI / 2);
-    rooms.push({
-        name: 'Timeline Hall', minX: -4, maxX: 4, minZ: -32, maxZ: -8,
-        rig: {
-            key: { p: [0, 3.9, -20], t: [3.4, 1.4, -20], i: 150, angle: 0.75, dist: 14 },
-            fills: [[0, 3.6, -11, 26, 0xfff0d8], [0, 3.6, -20, 26, 0xfff0d8], [0, 3.6, -28.5, 26, 0xfff0d8]],
-        }
+}
+
+/* Emissive cove strip — the colored ceiling wash of the accent galleries. */
+function coveLight(x1, x2, z1, z2, y, color) {
+    const w = Math.max(Math.abs(x2 - x1), 0.1), d = Math.max(Math.abs(z2 - z1), 0.1);
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w || 0.1, 0.05, d || 0.1),
+        new THREE.MeshBasicMaterial({ color }));
+    m.position.set((x1 + x2) / 2, y, (z1 + z2) / 2);
+    worldGroup.add(m);
+    return m;
+}
+
+/* Glowing neon text on a wall (canvas emissive, with soft bloom baked in). */
+function neonText(text, x, y, z, normal, color = 0xffd24a) {
+    const pad = 40, fs = 130;
+    const c = document.createElement('canvas');
+    const measure = c.getContext('2d'); measure.font = `700 ${fs}px Arial, sans-serif`;
+    const lines = String(text).split('\n');
+    const tw = Math.max(...lines.map(l => measure.measureText(l).width));
+    c.width = Math.ceil(tw + pad * 2); c.height = Math.ceil(lines.length * fs * 1.15 + pad * 2);
+    const g = c.getContext('2d');
+    g.font = `700 ${fs}px Arial, sans-serif`; g.textBaseline = 'top';
+    const hex = '#' + color.toString(16).padStart(6, '0');
+    g.shadowColor = hex; g.shadowBlur = 46; g.fillStyle = hex;
+    for (let pass = 0; pass < 3; pass++) lines.forEach((l, i) => g.fillText(l, pad, pad + i * fs * 1.15));
+    g.shadowBlur = 0; g.fillStyle = '#fff7e0';
+    lines.forEach((l, i) => g.fillText(l, pad, pad + i * fs * 1.15));
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+    const scale = 0.02;
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(c.width * scale, c.height * scale),
+        new THREE.MeshBasicMaterial({ map: tex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }));
+    m.position.set(x, y, z); m.lookAt(x + normal.x, y, z + normal.z);
+    worldGroup.add(m);
+    return m;
+}
+
+/* Standing portrait monolith — a tall emissive lightbox banner on a base, the
+   duotone portrait totems of the Hall of Figures (see reference image 1). */
+function monolith(item, x, z, ry, color = 0x2a6d81) {
+    const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g);
+    const W = 0.94, H = 3.1, D = 0.12;
+    const base = new THREE.Mesh(new THREE.BoxGeometry(W + 0.1, 0.14, D + 0.5), MAT.frameBlack);
+    base.position.y = 0.07; base.castShadow = true; base.receiveShadow = true; g.add(base);
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(W, H, D), MAT.frameBlack);
+    slab.position.y = 0.14 + H / 2; slab.castShadow = true; g.add(slab);
+    const faceZ = D / 2 + 0.006, cy = 0.14 + H / 2;
+    // portrait (upper ~78%), duotone via accent-tinted emissive + a multiply wash
+    const portH = H * 0.78, portY = cy + H * 0.5 - portH / 2 - 0.06;
+    const pmat = new THREE.MeshStandardMaterial({
+        map: placeholderArt, roughness: 0.5, metalness: 0, envMapIntensity: 0.2,
+        emissive: color, emissiveMap: placeholderArt, emissiveIntensity: 0.9,
     });
-})();
+    const port = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.04, portH), pmat);
+    port.position.set(0, portY, faceZ); g.add(port);
+    const tint = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.04, portH),
+        new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.42, blending: THREE.MultiplyBlending, depthWrite: false }));
+    tint.position.set(0, portY, faceZ + 0.002); g.add(tint);
+    // name plate (lower strip)
+    const plate = canvasTexture(512, 150, (gg, w, h) => {
+        gg.fillStyle = '#' + color.toString(16).padStart(6, '0'); gg.fillRect(0, 0, w, h);
+        gg.fillStyle = 'rgba(255,255,255,.92)'; gg.font = '700 52px Arial, sans-serif';
+        gg.textAlign = 'center'; gg.textBaseline = 'middle';
+        const nm = (item.n || '').toUpperCase();
+        gg.font = `700 ${nm.length > 18 ? 40 : 52}px Arial, sans-serif`;
+        gg.fillText(nm, w / 2, h / 2);
+    });
+    const plateH = H * 0.18;
+    const pl = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.02, plateH),
+        new THREE.MeshStandardMaterial({ map: plate, emissive: 0xffffff, emissiveMap: plate, emissiveIntensity: 0.5, roughness: 0.6 }));
+    pl.position.set(0, cy - H * 0.5 + plateH / 2 + 0.05, faceZ); g.add(pl);
 
-/* ---- Six galleries: east wing x[4,16], west wing x[-16,-4], z[-9.5,-31] ---- */
-(function galleries() {
-    const parts = [-9.5, -16.66, -23.83, -31];
-    const wings = [
-        { sign: 1, minX: 4, maxX: 16 },   // east
-        { sign: -1, minX: -16, maxX: -4 }, // west
-    ];
-    // shells
-    for (const w of wings) {
-        floorRect(w.minX, w.maxX, -31, -9.5, MAT.galleryFloor);
-        ceilRect(w.minX, w.maxX, -31, -9.5, CEIL.gallery);
-        wallRun('x', -9.5, w.minX, w.maxX, CEIL.gallery, {});
-        wallRun('x', -31, w.minX, w.maxX, CEIL.gallery, {});
-        wallRun('z', w.sign * 16, -31, -9.5, CEIL.gallery, {});
-        wallRun('x', parts[1], w.minX, w.maxX, CEIL.gallery, {});
-        wallRun('x', parts[2], w.minX, w.maxX, CEIL.gallery, {});
-    }
-    const galleryDefs = DATA.galleries.slice(0, 6);
-    galleryDefs.forEach((gal, gi) => {
-        const wing = wings[gi % 2];
-        const row = Math.floor(gi / 2);            // 0,1,2 down the hall
-        const zMin = parts[row + 1] + 0.15, zMax = parts[row] - 0.15;
-        const zMid = (zMin + zMax) / 2;
-        const inner = { minX: Math.min(wing.sign * 4.15, wing.sign * 15.85), maxX: Math.max(wing.sign * 4.15, wing.sign * 15.85) };
-        const xInner = wing.sign > 0 ? 4.15 : -15.85;
-        const xOuter = wing.sign > 0 ? 15.85 : -4.15;
-
-        // interpretive panel just inside, on the hall-side wall next to the door
-        const doorZ = [-12.75, -20.25, -27.75][row];
-        wallPanel(panelTexture(`Gallery ${gi + 1}`, gal.title, gal.intro),
-            new THREE.Vector3(wing.sign * 4.35, 1.85, doorZ + (wing.sign > 0 ? 2.6 : 2.6)),
-            new THREE.Vector3(wing.sign, 0, 0), 1.9, 2.5,
-            { interact: { kind: 'panel', n: gal.title, l1: `Gallery ${gi + 1}`, d: gal.intro } });
-
-        // artworks: 3 north, 3 south, 3 outer, 1 near door wall
-        const items = gal.items || [];
-        const spotsList = [];
-        for (let k = 0; k < 3; k++) spotsList.push({ pos: new THREE.Vector3(wing.sign * (6.6 + k * 3.1), 1.62, zMax - 0.17), n: new THREE.Vector3(0, 0, -1) });
-        for (let k = 0; k < 3; k++) spotsList.push({ pos: new THREE.Vector3(wing.sign * (6.6 + k * 3.1), 1.62, zMin + 0.17), n: new THREE.Vector3(0, 0, 1) });
-        for (let k = 0; k < 3; k++) spotsList.push({ pos: new THREE.Vector3(wing.sign * 15.68, 1.62, zMid + (k - 1) * 2.3), n: new THREE.Vector3(-wing.sign, 0, 0) });
-        spotsList.push({ pos: new THREE.Vector3(wing.sign * 4.32, 1.62, zMin + 1.6), n: new THREE.Vector3(wing.sign, 0, 0) });
-        const frameMat = [MAT.frameWood, MAT.frameBlack, MAT.frameGilt][gi % 3];
-        items.slice(0, 10).forEach((item, k) => {
-            if (spotsList[k]) hangArt(item, spotsList[k].pos, spotsList[k].n, { frame: frameMat, gallery: gal.title });
-        });
-        bench(wing.sign * 10, zMid, 0);
-        ceilingLight(wing.sign * 10, CEIL.gallery, zMid, 1.8, 0.26);
-        rooms.push({
-            name: gal.title, minX: Math.min(4, wing.sign * 16), maxX: Math.max(4, wing.sign * 16) === 4 ? -4 : Math.max(4, wing.sign * 16), minZ: zMin - 0.3, maxZ: zMax + 0.3,
-            rig: {
-                key: { p: [wing.sign * 10, 3.7, zMid], t: [wing.sign * 10, 0.4, zMid + 1.8], i: 130, angle: 0.85, dist: 12 },
-                fills: [[wing.sign * 7, 3.3, zMid - 1.6, 22, 0xfff0d8], [wing.sign * 13, 3.3, zMid + 1.6, 22, 0xfff0d8]],
+    if (item.img) {
+        artQueue.push({
+            url: item.img, pos: new THREE.Vector3(x, 1.8, z), apply: (tex) => {
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+                pmat.map = tex; pmat.emissiveMap = tex; pmat.needsUpdate = true;
+                const a = tex.image.width / tex.image.height, target = (W - 0.04) / portH;
+                if (a > target) port.scale.set(1, target / a, 1); else port.scale.set(a / target, 1, 1);
             }
         });
-        // fix wing min/max (computed clumsily above)
-        const r = rooms[rooms.length - 1];
-        r.minX = Math.min(wing.sign * 4, wing.sign * 16);
-        r.maxX = Math.max(wing.sign * 4, wing.sign * 16);
+    }
+    addCollider(x - W / 2 - 0.2, x + W / 2 + 0.2, z - 0.4, z + 0.4);
+    interactables.push({ mesh: port, data: { kind: 'monolith', gallery: item.group || 'Hall of Figures', ...item } });
+    return g;
+}
+
+/* Dense photo-mosaic wall — hundreds of small emissive portrait tiles, packed
+   like contact sheets, backing the Hall of Figures (reference image 1). */
+function mosaicWall(items, cx, cy, cz, width, height, normal, link) {
+    const g = new THREE.Group(); g.position.set(cx, cy, cz);
+    g.lookAt(cx + normal.x, cy, cz + normal.z);
+    worldGroup.add(g);
+    const backer = new THREE.Mesh(new THREE.PlaneGeometry(width, height),
+        new THREE.MeshStandardMaterial({ color: 0x14151a, roughness: 0.9 }));
+    backer.position.z = -0.02; g.add(backer);
+    const tile = 0.34, gap = 0.02;
+    const cols = Math.max(1, Math.floor(width / (tile + gap)));
+    const rows = Math.max(1, Math.floor(height / (tile + gap)));
+    const x0 = -((cols - 1) * (tile + gap)) / 2, y0 = -((rows - 1) * (tile + gap)) / 2;
+    let idx = 0;
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            const rec = items[idx % items.length]; idx++;
+            if (!rec || !rec.img) continue;
+            const m = new THREE.Mesh(new THREE.PlaneGeometry(tile, tile),
+                new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.8, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.34 }));
+            m.position.set(x0 + c * (tile + gap), y0 + r * (tile + gap), 0);
+            g.add(m);
+            const worldPos = g.localToWorld(m.position.clone());
+            const mat = m.material;
+            artQueue.push({
+                url: rec.img, pos: worldPos, apply: (tex) => {
+                    tex.colorSpace = THREE.SRGBColorSpace;
+                    mat.map = tex; mat.emissiveMap = tex; mat.needsUpdate = true;
+                }, low: true,
+            });
+        }
+    }
+    g.updateMatrixWorld(true);
+    // one interactable slab over the whole wall
+    const hit = new THREE.Mesh(new THREE.PlaneGeometry(width, height),
+        new THREE.MeshBasicMaterial({ visible: false }));
+    hit.position.z = 0.02; g.add(hit);
+    interactables.push({ mesh: hit, data: { kind: 'panel', n: 'Every face in the database', l1: 'The Collection', d: `Each tile is one documented political prisoner. The full database holds ${(DATA.stats && DATA.stats.total) || 'thousands'} of them across American history.`, u: link || '/database' } });
+    return g;
+}
+
+/* Banner suspended from the ceiling on cables — the dramatic hanging panels of
+   the darkened, colored-light galleries. */
+function hangingBanner(item, x, topY, z, w, h, normal, { emissive = 0.5 } = {}) {
+    const g = new THREE.Group(); g.position.set(x, 0, z);
+    g.lookAt(x + normal.x, 0, z + normal.z);
+    worldGroup.add(g);
+    const cy = topY - h / 2 - 0.4;
+    for (const sx of [-w / 2 + 0.1, w / 2 - 0.1]) {
+        const cable = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.8),
+            new THREE.MeshStandardMaterial({ color: 0x222222, metalness: 0.8, roughness: 0.4 }));
+        cable.position.set(sx, topY - 0.4, 0); g.add(cable);
+    }
+    const mat = new THREE.MeshStandardMaterial({
+        map: placeholderArt, roughness: 0.8, side: THREE.DoubleSide,
+        emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: emissive,
     });
+    const panel = new THREE.Mesh(new THREE.PlaneGeometry(w, h), mat);
+    panel.position.set(0, cy, 0); panel.castShadow = true; g.add(panel);
+    if (item.img) {
+        artQueue.push({
+            url: item.img, pos: new THREE.Vector3(x, cy, z), apply: (tex) => {
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+                mat.map = tex; mat.emissiveMap = tex; mat.needsUpdate = true;
+                const a = tex.image.width / tex.image.height, target = w / h;
+                if (a > target) panel.scale.set(1, target / a, 1); else panel.scale.set(a / target, 1, 1);
+            }
+        });
+    }
+    interactables.push({ mesh: panel, data: { kind: 'art', ...item } });
+    return g;
+}
+
+/* Matte plaster-cast human figure (abstracted) — the ghostly white standees of
+   the tableau room. Not a real person; a memorial silhouette. */
+function plasterFigure(x, z, ry, { seated = false, scale = 1 } = {}) {
+    const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g);
+    const mat = new THREE.MeshStandardMaterial({ color: 0xdcdad2, roughness: 0.95, metalness: 0, envMapIntensity: 0.3 });
+    const s = scale;
+    const legH = seated ? 0.5 : 0.9;
+    const hip = seated ? 0.55 : 0.95;
+    // legs
+    for (const lx of [-0.11, 0.11]) {
+        const leg = new THREE.Mesh(new THREE.CapsuleGeometry(0.09 * s, legH * s, 4, 8), mat);
+        leg.position.set(lx * s, (seated ? 0.25 : 0.5) * s, seated ? 0.18 * s : 0); leg.rotation.x = seated ? -1.3 : 0;
+        leg.castShadow = true; g.add(leg);
+    }
+    const torso = new THREE.Mesh(new THREE.CapsuleGeometry(0.17 * s, 0.5 * s, 4, 10), mat);
+    torso.position.set(0, (hip + 0.35) * s, seated ? 0.02 * s : 0); torso.castShadow = true; g.add(torso);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.13 * s, 16, 16), mat);
+    head.position.set(0, (hip + 0.78) * s, seated ? 0.02 * s : 0); head.castShadow = true; g.add(head);
+    for (const ax of [-0.28, 0.28]) {
+        const arm = new THREE.Mesh(new THREE.CapsuleGeometry(0.06 * s, 0.5 * s, 4, 8), mat);
+        arm.position.set(ax * s, (hip + 0.3) * s, seated ? 0.05 * s : 0.02 * s); arm.rotation.z = ax < 0 ? 0.18 : -0.18;
+        arm.castShadow = true; g.add(arm);
+    }
+    addCollider(x - 0.35, x + 0.35, z - 0.35, z + 0.35);
+    return g;
+}
+
+/* Single upholstered cinema seat, facing -X (toward the screen). */
+function cinemaSeat(x, y, z, accent) {
+    const g = new THREE.Group(); g.position.set(x, y, z); worldGroup.add(g);
+    const body = new THREE.MeshStandardMaterial({ color: 0x33353b, roughness: 0.7, envMapIntensity: 0.4 });
+    const acc = new THREE.MeshStandardMaterial({ color: accent, roughness: 0.7 });
+    const pan = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.1, 0.6), body);
+    pan.position.set(0, 0.47, 0); pan.castShadow = true; pan.receiveShadow = true; g.add(pan);
+    const back = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.66, 0.58), body);
+    back.position.set(0.26, 0.78, 0); back.castShadow = true; g.add(back);
+    for (const az of [-0.31, 0.31]) {
+        const arm = new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.1, 0.07), Math.abs(az) > 0.3 && az > 0 ? acc : body);
+        arm.position.set(-0.02, 0.6, az); g.add(arm);
+        const post = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.34, 0.06), new THREE.MeshStandardMaterial({ color: 0x1a1b1e, metalness: 0.6, roughness: 0.4 }));
+        post.position.set(-0.02, 0.3, az); g.add(post);
+    }
+    return g;
+}
+
+/* ================================================================= LAYOUT */
+const CEIL = { rotunda: 7, spine: 7.6, gallery: 6, archive: 3.8, cinema: 5.2, cell: 2.6, reading: 4.2 };
+
+/* Shared refs the render loop / lighting reach into. */
+let cellLight = null;
+const anchors = {};
+
+/* Themed materials for the accent (dark, dramatic) galleries. */
+const DARKWALL = new THREE.MeshStandardMaterial({ ...pbr('plaster', { repeat: [3, 1.6] }), color: 0x2a2c31, envMapIntensity: 0.14 });
+/* Warm mass-timber beams for the coffered ceilings. */
+const TIMBER = new THREE.MeshStandardMaterial({ ...pbr('wood', { repeat: [0.5, 1.2] }), color: 0xcaa066, roughness: 0.62, envMapIntensity: 0.5 });
+
+/* Hang a themed gallery's works across its three solid walls. sign=+1 east, -1 west. */
+/* Ceiling track with several visible spotlight fixtures (visual; the pools come
+   from the per-artwork washes + room key light). */
+function trackLight(x1, x2, z, y, n = 5) {
+    const len = Math.abs(x2 - x1);
+    const rail = new THREE.Mesh(new THREE.BoxGeometry(len, 0.05, 0.05), new THREE.MeshStandardMaterial({ color: 0x1c1d20, metalness: 0.6, roughness: 0.4 }));
+    rail.position.set((x1 + x2) / 2, y - 0.03, z); worldGroup.add(rail);
+    for (let i = 0; i < n; i++) {
+        const fx = x1 + (i + 0.5) * (x2 - x1) / n;
+        const head = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.06, 0.16, 12), new THREE.MeshStandardMaterial({ color: 0x141518, metalness: 0.5, roughness: 0.5 }));
+        head.position.set(fx, y - 0.14, z); head.rotation.z = 0.5; worldGroup.add(head);
+        const lens = new THREE.Mesh(new THREE.CircleGeometry(0.045, 12), new THREE.MeshBasicMaterial({ color: 0xfff2d4 }));
+        lens.position.set(fx + 0.06, y - 0.2, z); lens.rotation.x = -Math.PI / 2 + 0.5; worldGroup.add(lens);
+    }
+}
+function trackLightZ(z1, z2, x, y, n = 5) {
+    const len = Math.abs(z2 - z1);
+    const rail = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.05, len), new THREE.MeshStandardMaterial({ color: 0x1c1d20, metalness: 0.6, roughness: 0.4 }));
+    rail.position.set(x, y - 0.03, (z1 + z2) / 2); worldGroup.add(rail);
+    for (let i = 0; i < n; i++) {
+        const fz = z1 + (i + 0.5) * (z2 - z1) / n;
+        const head = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.06, 0.16, 12), new THREE.MeshStandardMaterial({ color: 0x141518, metalness: 0.5, roughness: 0.5 }));
+        head.position.set(x, y - 0.14, fz); head.rotation.x = 0.5; worldGroup.add(head);
+    }
+}
+
+/* Gold section lettering on a wall (the "BUDDHA / CONTEMPORARY" title walls). */
+function goldLettering(title, x, y, z, normal, size = 1.7) {
+    const c = document.createElement('canvas');
+    const m0 = c.getContext('2d'); m0.font = '700 130px Georgia, serif';
+    const words = String(title).toUpperCase().split(' ');
+    const lines = []; let cur = '';
+    for (const w of words) { if ((cur + ' ' + w).length > 16 && cur) { lines.push(cur); cur = w; } else cur = cur ? cur + ' ' + w : w; }
+    if (cur) lines.push(cur);
+    const tw = Math.max(...lines.map(l => m0.measureText(l).width));
+    c.width = Math.ceil(tw + 40); c.height = Math.ceil(lines.length * 150 + 40);
+    const g = c.getContext('2d');
+    g.font = '700 130px Georgia, serif'; g.textBaseline = 'top';
+    const grd = g.createLinearGradient(0, 0, 0, c.height);
+    grd.addColorStop(0, '#f0d488'); grd.addColorStop(0.5, '#c9a23c'); grd.addColorStop(1, '#8f6f1e');
+    g.fillStyle = grd;
+    lines.forEach((l, i) => g.fillText(l, 20, 20 + i * 150));
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+    const scale = size / lines.length / 1.3;
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(c.width * scale * 0.01, c.height * scale * 0.01),
+        new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.35, metalness: 0.7, emissive: 0x3a2c0a, emissiveMap: tex, emissiveIntensity: 0.25, side: THREE.DoubleSide }));
+    mesh.position.set(x, y, z); mesh.lookAt(x + normal.x, y, z + normal.z);
+    worldGroup.add(mesh);
+    return mesh;
+}
+
+/* Freestanding partition wall (a movable gallery wall) running along Z at x=px,
+   art hung on the door-facing face. Returns the face-normal used. */
+function partitionWall(px, cz, half, h, faceSign, mat) {
+    const wall = new THREE.Mesh(new THREE.BoxGeometry(0.22, h, half * 2), mat);
+    wall.position.set(px, h / 2, cz); wall.castShadow = true; wall.receiveShadow = true;
+    worldGroup.add(wall);
+    addCollider(px - 0.2, px + 0.2, cz - half, cz + half);
+    return new THREE.Vector3(faceSign, 0, 0);
+}
+
+/* Open-hall gallery hang (reference image 2/4): a salon cluster on the far
+   outer wall with a big gold section title, plus two freestanding partition
+   fins standing in the open floor holding art on both faces. Edge-lit frames. */
+function fillOpenGallery(items, sign, innerX, outerX, cxMid, zLo, zHi, doorZ, frameMat, accent, title) {
+    let k = 0;
+    const next = () => items[k++];
+    const outN = new THREE.Vector3(-sign, 0, 0);
+    const outX = outerX - sign * 0.18;
+    const finMat = new THREE.MeshStandardMaterial({ ...pbr('plaster', { repeat: [1.4, 1] }), color: 0xece7dd, envMapIntensity: 0.2 });
+
+    // gold section title high on the outer wall
+    goldLettering(title, outX, 4.7, doorZ, outN, 1.7);
+    // five large, well-spaced framed works on the outer wall (museum scale)
+    const cluster = [
+        [doorZ - 5.2, 1.7, 1.7], [doorZ - 2.6, 1.7, 1.5], [doorZ, 1.7, 1.8],
+        [doorZ + 2.6, 1.7, 1.5], [doorZ + 5.2, 1.7, 1.7],
+    ];
+    cluster.forEach(([z, y, h]) => { const it = next(); if (it) hangArt(it, new THREE.Vector3(outX, y, z), outN, { frame: frameMat, artH: h, edge: accent }); });
+
+    // two freestanding fins standing in the open floor, art on both faces
+    [sign * 12.5, sign * 18.5].forEach((px) => {
+        partitionWall(px, doorZ, 3.4, 3.6, -sign, finMat);
+        [doorZ - 1.9, doorZ + 1.9].forEach(z => { const it = next(); if (it) hangArt(it, new THREE.Vector3(px - sign * 0.14, 1.55, z), new THREE.Vector3(-sign, 0, 0), { frame: frameMat, artH: 1.35, edge: accent }); });
+        [doorZ - 1.9, doorZ + 1.9].forEach(z => { const it = next(); if (it) hangArt(it, new THREE.Vector3(px + sign * 0.14, 1.55, z), new THREE.Vector3(sign, 0, 0), { frame: frameMat, artH: 1.25, edge: accent }); });
+    });
+
+    // a couple on each end wall
+    [-3, 3].forEach(dx => { const it = next(); if (it) hangArt(it, new THREE.Vector3(cxMid + dx, 1.6, zLo + 0.18), new THREE.Vector3(0, 0, 1), { frame: frameMat, artH: 1.2, edge: accent }); });
+    [-3, 3].forEach(dx => { const it = next(); if (it) hangArt(it, new THREE.Vector3(cxMid + dx, 1.6, zHi - 0.18), new THREE.Vector3(0, 0, -1), { frame: frameMat, artH: 1.15, edge: accent }); });
+}
+
+/* ---- Entrance rotunda: x[-9,9] z[6,20] ---- */
+(function rotunda() {
+    const Y = CEIL.rotunda;
+    const refl = new Reflector(new THREE.PlaneGeometry(18, 14), {
+        textureWidth: 1024, textureHeight: 1024, color: 0x8f8f8f, clipBias: 0.003,
+    });
+    refl.rotation.x = -Math.PI / 2; refl.position.set(0, 0.001, 13);
+    worldGroup.add(refl); window.__reflector = refl;
+    const marbleTop = floorRect(-9, 9, 6, 20, new THREE.MeshStandardMaterial({
+        ...pbr('marble', { repeat: [5, 4] }), transparent: true, opacity: 0.72, roughness: 0.16, envMapIntensity: 0.85,
+    }), 0.012);
+    marbleTop.material.depthWrite = false;
+    ceilRect(-9, 9, 6, 20, Y);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(1.7, 2.8, 48), new THREE.MeshBasicMaterial({ color: 0xfff2d8, side: THREE.DoubleSide }));
+    ring.rotation.x = Math.PI / 2; ring.position.set(0, Y - 0.02, 13); worldGroup.add(ring);
+
+    wallRun('z', 20, 6, 20, Y, {});                       // south (behind entry)
+    wallRun('z', -9, 6, 20, Y, {});                       // west
+    wallRun('z', 9, 6, 20, Y, {});                        // east
+    wallRun('x', 6, -9, 9, Y, { doors: [{ at: 0, w: 3.2, h: 3.2 }] });  // north → spine
+
+    wallPanel(titleTexture(), new THREE.Vector3(-4.9, 3.9, 6.16), new THREE.Vector3(0, 0, 1), 5.6, 2.9, { emissive: 0.42 });
+    wallPanel(panelTexture('Welcome', 'A museum of\nAmerican dissent',
+        'Everyone in this building was jailed, exiled, or detained in the United States for political reasons — for organizing a union, refusing a draft, demanding a vote, preaching a faith, or imagining their nation free. Ahead lies the Hall of Figures and, opening off it, a gallery for each movement. Beyond are the archive, a reading room, a theater, and a replica cell. Click any work to inspect it.'),
+        new THREE.Vector3(4.9, 2.0, 6.16), new THREE.Vector3(0, 0, 1), 2.3, 3.0,
+        { interact: { kind: 'panel', n: 'A museum of American dissent', l1: 'Welcome', d: 'Everyone in this building was jailed, exiled, or detained in the United States for political reasons. Ahead lies the Hall of Figures and a gallery for each movement. Click any work to inspect it and follow it to the full record.', u: '/database' } });
+
+    brokenChain(0, 13);
+    anchors.sculpt = [2.6, Y - 1.3, 14.4];
+    anchors.sculptTarget = [0, 1.2, 13];
+
+    const st = DATA.standees.slice(0, 6);
+    [[-4.4, 16.5, 0.5], [4.4, 16.5, -0.5], [-6.6, 10.5, 0.7], [6.6, 10.5, -0.7], [-4.4, 8.6, 0.4], [4.4, 8.6, -0.4]]
+        .forEach((s, i) => { if (st[i]) standee(st[i], s[0], s[1], s[2]); });
+
+    ceilingLight(0, Y, 10, 2.4, 0.32); ceilingLight(0, Y, 16, 2.4, 0.32);
+    rooms.push({
+        name: 'Entrance Rotunda', minX: -9, maxX: 9, minZ: 6, maxZ: 20,
+        rig: { key: { p: [0, Y - 0.5, 13], t: [0, 0, 13], i: 150, angle: 0.7, dist: 22 },
+            fills: [[0, 4.8, 16, 34, 0xffe7c0], [-5, 3.6, 10, 24, 0xfff0d8], [5, 3.6, 10, 24, 0xfff0d8]] } });
 })();
 
-/* ---- Archive room: x[-5,5] z[-42,-32] ---- */
+/* ---- Hall of Figures (central spine) + data-driven galleries ---- */
+const GAL = (DATA.galleries || []);
+const BAND = 16;
+const bandHi = r => -r * BAND;
+const bandLo = r => -(r + 1) * BAND;
+const galRows = Math.max(1, Math.ceil(GAL.length / 2));
+const spineEnd = bandLo(galRows - 1) - 2;
+const galleryMeta = [];   // {sign, midX, zLo, zHi, doorZ} per gallery for the spine walls
+
+GAL.forEach((g, i) => {
+    const sign = (i % 2 === 0) ? 1 : -1;
+    const row = Math.floor(i / 2);
+    const zHi = bandHi(row), zLo = bandLo(row), doorZ = (zHi + zLo) / 2;
+    galleryMeta.push({ i, g, sign, row, zHi, zLo, doorZ, midX: sign * 14 });
+});
+
+(function spine() {
+    const Y = CEIL.spine, X = 7;
+    floorRect(-X, X, spineEnd, 6, MAT.hallFloor);
+    cofferedCeiling(-X, X, spineEnd, 6, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 4, skylight: true });
+
+    const eastDoors = galleryMeta.filter(m => m.sign > 0).map(m => ({ at: m.doorZ, w: 2.4, h: 2.8 }));
+    const westDoors = galleryMeta.filter(m => m.sign < 0).map(m => ({ at: m.doorZ, w: 2.4, h: 2.8 }));
+    wallRun('z', X, spineEnd, 6, Y, { doors: eastDoors });
+    wallRun('z', -X, spineEnd, 6, Y, { doors: westDoors });
+    wallRun('x', spineEnd, -X, X, Y, { doors: [{ at: 0, w: 3, h: 3 }] });   // → archive
+
+    // colonnade + monoliths down the centre
+    for (let z = 0; z >= spineEnd + 2; z -= BAND) {
+        column(-5.4, z, Y); column(5.4, z, Y);
+    }
+    const mono = DATA.monoliths || [];
+    let mz = -2.5;
+    mono.forEach((m, k) => {
+        const mx = (k % 2 === 0) ? -1.7 : 1.7;
+        const ry = (k % 2 === 0) ? 0.32 : -0.32;
+        monolith(m, mx, mz, ry, accentHex(GAL[k] ? GAL[k].accent : 'teal'));
+        mz -= 4.4;
+        if (mz < spineEnd + 3) mz = spineEnd + 3;
+    });
+
+    // photo-mosaic panels filling the wall gaps between gallery doors, both sides
+    const mosaic = DATA.mosaic || [];
+    let mi = 0;
+    const per = 40;
+    function fillSide(sign) {
+        const doors = galleryMeta.filter(m => m.sign === sign).map(m => m.doorZ).sort((a, b) => b - a);
+        const edges = [6, ...doors.flatMap(d => [d + 1.3, d - 1.3]), spineEnd].sort((a, b) => b - a);
+        for (let s = 0; s < edges.length - 1; s += 2) {
+            const zA = edges[s], zB = edges[s + 1];
+            const gap = zA - zB;
+            if (gap < 2.2) continue;
+            const slice = mosaic.slice(mi, mi + per); mi = (mi + per) % Math.max(1, mosaic.length);
+            mosaicWall(slice.length ? slice : mosaic.slice(0, per), sign * (X - 0.16), 2.3, (zA + zB) / 2, Math.min(gap - 0.4, 9), 3.4, new THREE.Vector3(-sign, 0, 0), '/database');
+        }
+    }
+    fillSide(1); fillSide(-1);
+
+    // interpretive intro on the vestibule + a couple of hanging banners over the hall
+    wallPanel(panelTexture('The Hall of Figures', 'Stand among them',
+        'Down the centre stand portraits of one leading figure from each movement gathered here. The walls hold hundreds more — every documented face in the collection. Turn through any doorway to enter that movement\'s gallery.'),
+        new THREE.Vector3(0, 4.6, 5.9), new THREE.Vector3(0, 0, 1), 5.2, 1.9, { emissive: 0.3 });
+    (DATA.faces || []).slice(0, 2).forEach((f, k) => {
+        hangingBanner(f, k === 0 ? -3.2 : 3.2, Y - 0.1, -3 - k * 6, 2.0, 3.0, new THREE.Vector3(0, 0, 1), { emissive: 0.4 });
+    });
+
+    for (let z = -1; z >= spineEnd + 2; z -= 9) ceilingLight(0, Y, z, 2.4, 0.3);
+    for (let z = -6; z >= spineEnd + 4; z -= 12) { bench(0, z, 0); }
+    rooms.push({
+        name: 'The Hall of Figures', minX: -X, maxX: X, minZ: spineEnd, maxZ: 6,
+        rig: { key: { p: [0, Y - 0.6, -8], t: [0, 0, -8], i: 90, angle: 0.9, dist: 26 },
+            fills: [[0, 5.4, -6, 26, 0xffeede], [0, 5.4, -24, 26, 0xffeede], [0, 5.4, -42, 24, 0xffeede], [0, 5.0, spineEnd + 6, 22, 0xffeede]] } });
+})();
+
+/* ---- Themed galleries: big, open, skylit halls, one per curated group ---- */
+galleryMeta.forEach(({ i, g, sign, zHi, zLo, doorZ }) => {
+    const Y = CEIL.gallery;                     // 6m — tall and airy
+    const innerX = sign * 7;
+    const outerX = sign * 25;                   // 18m wide open hall
+    const loX = Math.min(innerX, outerX), hiX = Math.max(innerX, outerX);
+    const zA = zLo + 0.2, zB = zHi - 0.2;       // ~15.6m deep
+    const cxMid = sign * 16;
+    const dark = (i % 2 === 1);                 // alternate skylit white-cube / dark dramatic
+    const accent = accentHex(g.accent);
+    const wallMat = dark ? DARKWALL : MAT.wall;
+    const frameMat = [MAT.frameWood, MAT.frameBlack, MAT.frameGilt][i % 3];
+
+    floorRect(loX, hiX, zA, zB, MAT.galleryFloor);
+    if (dark) {
+        ceilRect(loX, hiX, zA, zB, Y, new THREE.MeshStandardMaterial({ color: 0x17181c, roughness: 0.95 }));
+        coveLight(cxMid - 8, cxMid + 8, zA + 0.35, zA + 0.35, Y - 0.14, accent);
+        coveLight(cxMid - 8, cxMid + 8, zB - 0.35, zB - 0.35, Y - 0.14, accent);
+    } else {
+        cofferedCeiling(loX, hiX, zA, zB, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 4, skylight: true });
+    }
+    wallRun('z', outerX, zA, zB, Y, { mat: wallMat });
+    wallRun('x', zA, loX, hiX, Y, { mat: wallMat });
+    wallRun('x', zB, loX, hiX, Y, { mat: wallMat });
+
+    // track lighting over the outer wall + the fins
+    trackLightZ(zA + 2, zB - 2, outerX - sign * 1.4, Y, 6);
+    trackLightZ(zA + 2, zB - 2, cxMid, Y, 6);
+
+    // interpretive panel beside the door
+    wallPanel(panelTexture(`Gallery ${i + 1}`, g.title, g.intro),
+        new THREE.Vector3(innerX + sign * 0.16, 1.95, doorZ - 4.5), new THREE.Vector3(sign, 0, 0), 2.4, 3.0,
+        { interact: { kind: 'panel', n: g.title, l1: `Gallery ${i + 1}`, d: g.intro } });
+
+    fillOpenGallery(g.items || [], sign, innerX, outerX, cxMid, zA, zB, doorZ, frameMat, accent, g.title);
+    bench(sign * 9.5, doorZ, 0, true);          // red bench near the entrance
+    bench(cxMid + sign * 3, doorZ, 0, true);
+
+    rooms.push({
+        name: g.title, minX: loX, maxX: hiX, minZ: zA, maxZ: zB,
+        rig: { key: { p: [cxMid, Y - 0.6, doorZ], t: [cxMid, 0.5, doorZ], i: dark ? 175 : 210, angle: 1.0, dist: 22 },
+            fills: dark
+                ? [[outerX - sign * 2.5, 3.6, doorZ - 4, 30, 0xfff3e2], [outerX - sign * 2.5, 3.6, doorZ + 4, 30, 0xfff3e2], [cxMid, 3.4, doorZ, 20, accent]]
+                : [[outerX - sign * 2.5, 4.2, doorZ - 4, 40, 0xfff6ee], [outerX - sign * 2.5, 4.2, doorZ + 4, 40, 0xfff6ee], [innerX + sign * 4, 4.0, doorZ, 30, 0xfff2e0]] } });
+});
+
+/* ---- Archive: continues the spine axis, x[-8,8] z[spineEnd-16, spineEnd] ---- */
+const archHiZ = spineEnd, archLoZ = spineEnd - 16;
 (function archive() {
-    floorRect(-5, 5, -42, -32, MAT.galleryFloor);
-    ceilRect(-5, 5, -42, -32, CEIL.archive);
-    wallRun('x', -42, -5, 5, CEIL.archive, { doors: [{ at: 0, w: 2.2, h: 2.6 }] });   // → reading room
-    wallRun('x', -32, -5, -4, CEIL.archive, {});   // close the strips beside the hall door
-    wallRun('x', -32, 4, 5, CEIL.archive, {});
-    wallRun('z', 5, -42, -32, CEIL.archive, { doors: [{ at: -37, w: 1.14, h: 2.1 }] });   // steel door → cell
-    wallRun('z', -5, -42, -32, CEIL.archive, { doors: [{ at: -37, w: 2.1, h: 2.6 }] });   // → theater
-    // (north wall shared with hall already built)
+    const Y = CEIL.archive;
+    floorRect(-8, 8, archLoZ, archHiZ, MAT.galleryFloor);
+    ceilRect(-8, 8, archLoZ, archHiZ, Y);
+    // north wall (z=spineEnd) built by spine with the door; add flanks up to x=±8
+    wallRun('x', archHiZ, -8, -3.5, Y, {});
+    wallRun('x', archHiZ, 3.5, 8, Y, {});
+    wallRun('x', archLoZ, -8, 8, Y, { doors: [{ at: 0, w: 1.2, h: 2.1 }] });    // → cell
+    wallRun('z', -8, archLoZ, archHiZ, Y, { doors: [{ at: spineEnd - 8, w: 2.1, h: 2.6 }] });  // → cinema
+    wallRun('z', 8, archLoZ, archHiZ, Y, { doors: [{ at: spineEnd - 8, w: 2.1, h: 2.6 }] });   // → reading
 
     wallPanel(panelTexture('The Archive', 'The paper trail',
-        'Movements leave paper: strike bulletins, defense-committee pamphlets, prison letters, petitions, flyers demanding freedom for people whose names would otherwise be lost. The documents in these cases are digitized from the NPPC archive — click any one to inspect it. Through the far door is the reading room, where every digitized publication is shelved and can be read cover to cover.'),
-        new THREE.Vector3(-3.4, 1.85, -41.83), new THREE.Vector3(0, 0, 1), 2.2, 2.9,
-        { interact: { kind: 'panel', n: 'The paper trail', l1: 'The Archive', d: 'Strike bulletins, defense-committee pamphlets, prison letters, and flyers from the NPPC digital archive. Click any case to inspect the document — or step into the reading room beyond and read the full scans.', u: '/archive' } });
+        'Movements leave paper: strike bulletins, defense-committee pamphlets, prison letters, flyers demanding freedom for people whose names would otherwise be lost. These cases are digitized from the NPPC archive. Through the east door is the reading room, where the full publications can be read cover to cover; to the west, the theater.'),
+        new THREE.Vector3(0, 1.9, archLoZ + 0.16), new THREE.Vector3(0, 0, 1), 2.4, 2.9,
+        { interact: { kind: 'panel', n: 'The paper trail', l1: 'The Archive', d: 'Strike bulletins, pamphlets, prison letters, and flyers from the NPPC digital archive. Click any case to inspect the document, or read the full scans next door in the reading room.', u: '/archive' } });
 
-    const docs = DATA.archive.slice(0, 10);
+    const docs = (DATA.archive || []).slice(0, 10);
+    const cz = (archLoZ + archHiZ) / 2;
     const spots = [
-        [-3.4, -34.2, 0.35], [-1.2, -34.2, 0], [1.2, -34.2, 0], [3.4, -34.2, -0.35],
-        [-3.4, -39.8, 2.8], [-1.2, -39.8, Math.PI], [1.2, -39.8, Math.PI], [3.4, -39.8, -2.8],
-        [-2.2, -37, Math.PI / 2], [2.2, -37, -Math.PI / 2],
+        [-3.4, cz + 4, 0.3], [-1.1, cz + 4, 0], [1.1, cz + 4, 0], [3.4, cz + 4, -0.3],
+        [-3.4, cz - 4, 2.85], [-1.1, cz - 4, Math.PI], [1.1, cz - 4, Math.PI], [3.4, cz - 4, -2.85],
+        [-2.2, cz, Math.PI / 2], [2.2, cz, -Math.PI / 2],
     ];
-    docs.forEach((d, i) => { if (spots[i]) vitrine(d, spots[i][0], spots[i][1], spots[i][2]); });
-    ceilingLight(0, CEIL.archive, -35, 1.6, 0.24);
-    ceilingLight(0, CEIL.archive, -39, 1.6, 0.24);
+    docs.forEach((d, k) => { if (spots[k]) vitrine(d, spots[k][0], spots[k][1], spots[k][2]); });
+    ceilingLight(0, Y, cz + 4, 1.6, 0.24); ceilingLight(0, Y, cz - 4, 1.6, 0.24);
     rooms.push({
-        name: 'The Archive', minX: -5, maxX: 5, minZ: -42, maxZ: -32,
-        rig: {
-            key: { p: [0, 3.3, -37], t: [0, 0.9, -37.2], i: 110, angle: 0.9, dist: 11 },
-            fills: [[-2.5, 2.9, -35, 20, 0xffe9c8], [2.5, 2.9, -39, 20, 0xffe9c8]],
-        }
-    });
+        name: 'The Archive', minX: -8, maxX: 8, minZ: archLoZ, maxZ: archHiZ,
+        rig: { key: { p: [0, Y - 0.4, cz], t: [0, 0.9, cz], i: 115, angle: 0.9, dist: 13 },
+            fills: [[-2.5, 2.9, cz + 4, 20, 0xffe9c8], [2.5, 2.9, cz - 4, 20, 0xffe9c8]] } });
 })();
 
-/* ---- Theater: x[-17,-5] z[-42,-32] ---- */
-(function theater() {
-    floorRect(-17, -5, -42, -32, new THREE.MeshStandardMaterial({ ...pbr('woodfloor', { repeat: [4, 4], ao: true }), color: 0x6b6560, envMapIntensity: 0.3 }));
-    ceilRect(-17, -5, -42, -32, CEIL.theater, new THREE.MeshStandardMaterial({ color: 0x1c1d21, roughness: 0.95 }));
-    wallRun('x', -32, -17, -5, CEIL.theater, { mat: MAT.wallDark });
-    wallRun('x', -42, -17, -5, CEIL.theater, { mat: MAT.wallDark });
-    wallRun('z', -17, -42, -32, CEIL.theater, { mat: MAT.wallDark });
-    // the archive built the shared x=-5 wall only up to its lower ceiling —
-    // fill the band between the two ceiling heights
-    wallRun('z', -5, -42, -32, CEIL.theater - CEIL.archive, { mat: MAT.wallDark, base: CEIL.archive });
-
-    // screen on the west wall
-    slideshowScreen(DATA.slides.length ? DATA.slides : [{ t: 'National Political Prisoner Coalition', img: '' }],
-        DATA.video,
-        new THREE.Vector3(-16.8, 2.2, -37), new THREE.Vector3(1, 0, 0), 7.6, 4.1, { speed: 7 });
-    // screen surround
-    box(0.1, 4.5, 8.2, MAT.frameBlack, -16.92, 2.2, -37, {});
-
-    for (const [bx, bz] of [[-9.5, -35.2], [-9.5, -37], [-9.5, -38.8], [-12, -35.2], [-12, -37], [-12, -38.8]]) {
-        bench(bx, bz, Math.PI / 2, true);
-    }
-    // projector + beam + dust
-    const proj = box(0.5, 0.34, 0.42, MAT.frameBlack, -6.2, 2.6, -37, {});
-    const beamGeo = new THREE.ConeGeometry(2.6, 10.4, 24, 1, true);
-    const beam = new THREE.Mesh(beamGeo, new THREE.MeshBasicMaterial({
-        color: 0xfff3da, transparent: true, opacity: 0.045, side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending, depthWrite: false,
-    }));
-    beam.position.set(-11.4, 2.4, -37);
-    beam.rotation.z = Math.PI / 2 - 0.04;
-    worldGroup.add(beam);
-    // dust motes confined to the projector beam cone
-    const dustN = 140, dustPos = new Float32Array(dustN * 3);
-    for (let i = 0; i < dustN; i++) {
-        const t = Math.random();                       // 0 at projector → 1 at screen
-        const rad = (0.12 + 2.1 * t) * Math.sqrt(Math.random());
-        const ang = Math.random() * Math.PI * 2;
-        dustPos[i * 3] = -6.4 - t * 10.2;
-        dustPos[i * 3 + 1] = 2.55 - t * 0.35 + Math.sin(ang) * rad;
-        dustPos[i * 3 + 2] = -37 + Math.cos(ang) * rad;
-    }
-    const dustGeo = new THREE.BufferGeometry();
-    dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
-    const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
-        color: 0xffeecd, size: 0.014, transparent: true, opacity: 0.5,
-        blending: THREE.AdditiveBlending, depthWrite: false,
-    }));
-    worldGroup.add(dust);
-    window.__dust = dust;
-
-    wallPanel(panelTexture('Theater', 'Faces & places',
-        'A rolling reel of the movements, prisons, and campaigns documented across the NPPC — the same landscapes and crowds that appear behind every topic page on this site. Take a seat.'),
-        new THREE.Vector3(-5.17, 1.8, -34), new THREE.Vector3(-1, 0, 0), 1.7, 2.2,
-        { interact: { kind: 'panel', n: 'Faces & places', l1: 'Theater', d: 'A rolling reel of the movements, prisons, and campaigns documented across the NPPC.' } });
-
-    rooms.push({
-        name: 'Theater', minX: -17, maxX: -5, minZ: -42, maxZ: -32,
-        rig: {
-            key: { p: [-11, 4.1, -37], t: [-11, 0.4, -37], i: 26, angle: 1.0, dist: 10 },
-            fills: [[-6.5, 2.4, -37, 7, 0xffdca8], [-13, 1.8, -37, 9, 0xbcd0ff]],
-        }
-    });
-})();
-
-/* ---- Solitary cell: x[5,11] z[-40,-34] (entry x=5, z=-37) ---- */
+/* ---- Solitary cell: x[-4,4] z[archLoZ-8, archLoZ] ---- */
 (function cell() {
-    // vestibule text outside the door (in archive room)
+    const Y = CEIL.cell, zHi = archLoZ, zLo = archLoZ - 8, cz = (zHi + zLo) / 2;
     wallPanel(panelTexture('Period Room', 'Solitary',
-        'This room reproduces, at full scale, a segregation cell of the kind used across the federal system: roughly 2.4 by 3.4 metres, concrete on six sides, one bunk, one steel door with a food slot. People in this museum have spent years — in several cases decades — inside rooms like this one. Step in. Stay as long as you like; they could not leave.'),
-        new THREE.Vector3(4.83, 1.8, -34.6), new THREE.Vector3(-1, 0, 0), 1.8, 2.4,
-        { interact: { kind: 'panel', n: 'Solitary', l1: 'Period Room', d: 'A full-scale reproduction of a segregation cell: concrete on six sides, one bunk, one steel door with a food slot. On any given day roughly 120,000 people are held in restrictive housing in U.S. prisons and jails. Several people documented in this museum spent decades in rooms like this.' } });
-
-    const y = CEIL.cell;
-    floorRect(5.15, 10.85, -39.85, -34.15, MAT.concreteFloor);
-    ceilRect(5.15, 10.85, -39.85, -34.15, y, MAT.concrete);
-    wallRun('x', -34.15, 5, 11, y, { mat: MAT.concrete });
-    wallRun('x', -39.85, 5, 11, y, { mat: MAT.concrete });
-    wallRun('z', 10.85, -39.85, -34.15, y, { mat: MAT.concrete });
-    // west wall (x=5) already built with door gap by archive; steel door swung
-    // open nearly flat against the archive-side wall so the doorway stays clear
-    box(0.06, 2.05, 1.05, MAT.metal, 4.82, 1.06, -38.24, { ry: -1.25 });
-    addCollider(4.55, 5.1, -38.85, -37.7);
-    const slot = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.05, 0.34), new THREE.MeshStandardMaterial({ color: 0x14161a }));
-    slot.position.set(4.79, 1.02, -38.24); slot.rotation.y = -1.25; worldGroup.add(slot);
-
-    // bunk
-    box(0.9, 0.12, 2.0, MAT.metal, 10.3, 0.5, -38.6, { collide: true });
-    box(0.86, 0.1, 1.96, new THREE.MeshStandardMaterial({ color: 0x7e8894, roughness: 0.9 }), 10.3, 0.61, -38.6, {});
-    // steel sink/toilet hint
-    box(0.42, 0.5, 0.42, MAT.metal, 10.5, 0.25, -34.8, { collide: true });
-    // scratched tally marks — a placard inside
-    const pl = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.3),
-        new THREE.MeshStandardMaterial({ map: placardTexture('22–24 hours a day', '~120,000 people in the U.S.', 'on any given day'), roughness: 0.95 }));
-    pl.position.set(10.82, 1.5, -36.6); pl.rotation.y = -Math.PI / 2;
-    worldGroup.add(pl);
-
-    rooms.push({
-        name: 'Solitary — Period Room', minX: 5, maxX: 11, minZ: -40, maxZ: -34,
-        rig: {
-            key: { p: [8, 2.45, -37], t: [8.4, 0, -37.6], i: 5, angle: 1.1, dist: 6 },
-            fills: [[8, 2.2, -37, 1.2, 0xd7e4f2], [6.2, 1.3, -36, 0.6, 0x9fb4c8]],
-        }
-    });
-    // bare bulb
+        'This room reproduces, at full scale, a segregation cell: roughly 2.4 by 3.4 metres, concrete on six sides, one bunk, one steel door with a food slot. On any given day some 120,000 people are held in restrictive housing in U.S. prisons and jails. Several people in this museum spent decades in rooms like this one.'),
+        new THREE.Vector3(-4.4, 1.85, zHi - 1.2), new THREE.Vector3(1, 0, 0), 1.9, 2.5,
+        { interact: { kind: 'panel', n: 'Solitary', l1: 'Period Room', d: 'A full-scale reproduction of a segregation cell: concrete on six sides, one bunk, one steel door with a food slot. Several people documented in this museum spent decades in rooms like this.' } });
+    floorRect(-3.85, 3.85, zLo + 0.15, zHi - 0.15, MAT.concreteFloor);
+    ceilRect(-3.85, 3.85, zLo + 0.15, zHi - 0.15, Y, MAT.concrete);
+    wallRun('x', zLo, -4, 4, Y, { mat: MAT.concrete });
+    wallRun('z', -4, zLo, zHi, Y, { mat: MAT.concrete });
+    wallRun('z', 4, zLo, zHi, Y, { mat: MAT.concrete });
+    const door = box(0.06, 2.05, 1.05, MAT.metal, 0, 1.06, zHi - 0.2, { ry: 0.6 });
+    addCollider(-0.6, 0.6, zHi - 0.7, zHi + 0.1);
+    box(0.9, 0.12, 2.0, MAT.metal, -3.2, 0.5, cz, { collide: true });
+    box(0.86, 0.1, 1.96, new THREE.MeshStandardMaterial({ color: 0x7e8894, roughness: 0.9 }), -3.2, 0.61, cz, {});
+    box(0.42, 0.5, 0.42, MAT.metal, 3.4, 0.25, zLo + 0.6, { collide: true });
+    cellLight = new THREE.PointLight(0xdfe8f5, 16, 7, 1.8);
+    cellLight.position.set(0, Y - 0.15, cz); scene.add(cellLight);
     const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.05, 10, 10), new THREE.MeshBasicMaterial({ color: 0xf2f6ff }));
-    bulb.position.set(8, y - 0.12, -37); worldGroup.add(bulb);
+    bulb.position.set(0, Y - 0.12, cz); worldGroup.add(bulb);
+    rooms.push({
+        name: 'Solitary — Period Room', minX: -4, maxX: 4, minZ: zLo, maxZ: zHi,
+        rig: { key: { p: [0, Y - 0.2, cz], t: [0.3, 0, cz + 0.3], i: 5, angle: 1.1, dist: 6 },
+            fills: [[0, 2.2, cz, 1.2, 0xd7e4f2]] } });
 })();
 
-/* ---- Reading room: x[-7,7] z[-56,-42], through the archive's south door ---- */
+/* ---- Reading room: x[8,26] z[spineEnd-22, spineEnd-2] ---- */
 (function readingRoom() {
-    const CH = 4.0;
-    floorRect(-7, 7, -56, -42, MAT.galleryFloor);
-    ceilRect(-7, 7, -56, -42, CH);
-    // rug under the tables
-    const rug = new THREE.Mesh(new THREE.PlaneGeometry(7.5, 5),
-        new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [3, 2] }), color: 0x5c2434, roughness: 1, envMapIntensity: 0.15 }));
-    rug.rotation.x = -Math.PI / 2; rug.position.set(0, 0.008, -49); rug.receiveShadow = true;
-    worldGroup.add(rug);
-
-    wallRun('x', -56, -7, 7, CH, {});
-    wallRun('z', -7, -56, -42, CH, {});
-    wallRun('z', 7, -56, -42, CH, {});
-    wallRun('x', -42, -7, -5, CH, {});                                      // flanks beside the archive door
-    wallRun('x', -42, 5, 7, CH, {});
-    wallRun('x', -42, -5, 5, CH - CEIL.archive, { base: CEIL.archive });    // band above the lower archive ceiling
+    const Y = CEIL.reading, xLo = 8, xHi = 26, zLo = spineEnd - 22, zHi = spineEnd - 2, cz = (zLo + zHi) / 2;
+    floorRect(xLo, xHi, zLo, zHi, MAT.galleryFloor);
+    cofferedCeiling(xLo, xHi, zLo, zHi, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 4.5, skylight: true });
+    const rug = new THREE.Mesh(new THREE.PlaneGeometry(8, 6), new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [3, 2] }), color: 0x5c2434, roughness: 1, envMapIntensity: 0.15 }));
+    rug.rotation.x = -Math.PI / 2; rug.position.set(16, 0.008, cz); rug.receiveShadow = true; worldGroup.add(rug);
+    wallRun('x', zLo, xLo, xHi, Y, {});
+    wallRun('x', zHi, xLo, xHi, Y, {});
+    wallRun('z', xHi, zLo, zHi, Y, {});
+    // west wall (x=8) built by archive with the door
+    column(16, cz - 6, Y); column(16, cz + 6, Y);
 
     const reading = (DATA.reading || []).filter(r => r.img || r.file);
-    const books = reading.filter(r => r.book);
-    const sheets = reading.filter(r => !r.book);
-
-    // ---- shelf furniture -------------------------------------------------
+    const books = reading.filter(r => r.book), sheets = reading.filter(r => !r.book);
     const shelfWood = new THREE.MeshStandardMaterial({ ...pbr('wood', { repeat: [1, 1] }), color: 0x6b4a2e, roughness: 0.6, envMapIntensity: 0.5 });
     const clothColors = [0x7a3b2e, 0x2e4a5c, 0x51402a, 0x3c5a3a, 0x5a2e3c, 0x2f3a55, 0x6e5a2f, 0x4a2f55];
     const fillerGeo = new THREE.BoxGeometry(1, 1, 1);
-    let bi = 0;                                          // next interactable book
-
+    let bi = 0;
     function bookshelf(x, z, ry) {
-        const g = new THREE.Group();
-        g.position.set(x, 0, z); g.rotation.y = ry;
-        worldGroup.add(g);
-        g.updateMatrixWorld(true);          // localToWorld below runs pre-render
+        const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g); g.updateMatrixWorld(true);
         const W = 2.4, H = 2.5, D = 0.34;
-        const side = (sx) => {
-            const m = new THREE.Mesh(new THREE.BoxGeometry(0.05, H, D), shelfWood);
-            m.position.set(sx, H / 2, 0); m.castShadow = true; g.add(m);
-        };
+        const side = sx => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.05, H, D), shelfWood); m.position.set(sx, H / 2, 0); m.castShadow = true; g.add(m); };
         side(-W / 2 + 0.025); side(W / 2 - 0.025);
-        const top = new THREE.Mesh(new THREE.BoxGeometry(W, 0.06, D), shelfWood);
-        top.position.set(0, H - 0.03, 0); top.castShadow = true; g.add(top);
-        const back = new THREE.Mesh(new THREE.BoxGeometry(W - 0.06, H - 0.1, 0.03), new THREE.MeshStandardMaterial({ color: 0x2c2118, roughness: 0.9 }));
-        back.position.set(0, H / 2, -D / 2 + 0.02); g.add(back);
-        const plinthB = new THREE.Mesh(new THREE.BoxGeometry(W, 0.14, D), shelfWood);
-        plinthB.position.set(0, 0.07, 0); g.add(plinthB);
-
+        const top = new THREE.Mesh(new THREE.BoxGeometry(W, 0.06, D), shelfWood); top.position.set(0, H - 0.03, 0); top.castShadow = true; g.add(top);
+        const back = new THREE.Mesh(new THREE.BoxGeometry(W - 0.06, H - 0.1, 0.03), new THREE.MeshStandardMaterial({ color: 0x2c2118, roughness: 0.9 })); back.position.set(0, H / 2, -D / 2 + 0.02); g.add(back);
+        const plinthB = new THREE.Mesh(new THREE.BoxGeometry(W, 0.14, D), shelfWood); plinthB.position.set(0, 0.07, 0); g.add(plinthB);
         const rows = [0.5, 1.0, 1.5, 2.0];
-        for (const ry2 of rows) {
-            const board = new THREE.Mesh(new THREE.BoxGeometry(W - 0.08, 0.04, D - 0.04), shelfWood);
-            board.position.set(0, ry2, 0); board.castShadow = true; g.add(board);
-        }
-        // fill rows: alternating face-out readable books and clusters of spines
+        for (const ry2 of rows) { const board = new THREE.Mesh(new THREE.BoxGeometry(W - 0.08, 0.04, D - 0.04), shelfWood); board.position.set(0, ry2, 0); board.castShadow = true; g.add(board); }
         const usable = W - 0.16;
         for (const rowY of rows) {
-            let cx = -usable / 2;
-            let slot = 0;
+            let cx = -usable / 2, slot = 0;
             while (cx < usable / 2 - 0.12) {
                 if (slot % 2 === 1 && bi < books.length && cx < usable / 2 - 0.3) {
                     const rec = books[bi++];
-                    const coverMat = new THREE.MeshStandardMaterial({
-                        map: placeholderArt, roughness: 0.8,
-                        emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.22,
-                    });
+                    const coverMat = new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.8, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.22 });
                     const clothMat = new THREE.MeshStandardMaterial({ color: clothColors[bi % clothColors.length], roughness: 0.75 });
                     const bw = 0.24, bh = 0.335, bd = 0.035;
-                    const book = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd),
-                        [clothMat, clothMat, clothMat, clothMat, coverMat, clothMat]);
-                    book.position.set(cx + bw / 2, rowY + 0.02 + bh / 2, 0.045);
-                    book.rotation.y = Math.PI;              // cover faces the room
-                    book.castShadow = true;
-                    g.add(book);
-                    // face-out books hang via a thin stand lip
-                    if (rec.img) {
-                        artQueue.push({
-                            url: rec.img, pos: g.localToWorld(book.position.clone()), apply: (tex) => {
-                                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
-                                coverMat.map = tex; coverMat.emissiveMap = tex; coverMat.needsUpdate = true;
-                            }
-                        });
-                    }
+                    const book = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd), [clothMat, clothMat, clothMat, clothMat, coverMat, clothMat]);
+                    book.position.set(cx + bw / 2, rowY + 0.02 + bh / 2, 0.045); book.rotation.y = Math.PI; book.castShadow = true; g.add(book);
+                    if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
                     interactables.push({ mesh: book, data: { kind: 'book', gallery: 'Reading Room', ...rec } });
                     cx += bw + 0.06;
                 } else {
-                    // cluster of filler spines
                     const n = 3 + Math.floor(Math.random() * 5);
                     for (let k = 0; k < n && cx < usable / 2 - 0.06; k++) {
-                        const sw = 0.03 + Math.random() * 0.035;
-                        const sh = 0.26 + Math.random() * 0.075;
-                        const spine = new THREE.Mesh(fillerGeo,
-                            new THREE.MeshStandardMaterial({ color: clothColors[Math.floor(Math.random() * clothColors.length)], roughness: 0.8 }));
-                        spine.scale.set(sw, sh, 0.22);
-                        spine.position.set(cx + sw / 2, rowY + 0.02 + sh / 2, 0);
-                        g.add(spine);
-                        cx += sw + 0.006;
+                        const sw = 0.03 + Math.random() * 0.035, sh = 0.26 + Math.random() * 0.075;
+                        const spine2 = new THREE.Mesh(fillerGeo, new THREE.MeshStandardMaterial({ color: clothColors[Math.floor(Math.random() * clothColors.length)], roughness: 0.8 }));
+                        spine2.scale.set(sw, sh, 0.22); spine2.position.set(cx + sw / 2, rowY + 0.02 + sh / 2, 0); g.add(spine2); cx += sw + 0.006;
                     }
                 }
-                slot++;
-                cx += 0.02;
+                slot++; cx += 0.02;
             }
         }
-        // collider (axis-aligned; shelves sit flush on walls)
         const c = Math.cos(ry), s = Math.sin(ry);
-        const hw = (W / 2) * Math.abs(c) + (D / 2 + 0.1) * Math.abs(s);
-        const hd = (W / 2) * Math.abs(s) + (D / 2 + 0.1) * Math.abs(c);
-        addCollider(x - hw, x + hw, z - hd, z + hd);
+        addCollider(x - ((W / 2) * Math.abs(c) + (D / 2 + 0.1) * Math.abs(s)), x + ((W / 2) * Math.abs(c) + (D / 2 + 0.1) * Math.abs(s)),
+            z - ((W / 2) * Math.abs(s) + (D / 2 + 0.1) * Math.abs(c)), z + ((W / 2) * Math.abs(s) + (D / 2 + 0.1) * Math.abs(c)));
     }
+    bookshelf(13, zLo + 0.22, 0); bookshelf(16, zLo + 0.22, 0); bookshelf(19, zLo + 0.22, 0);
+    bookshelf(xHi - 0.22, cz - 3, -Math.PI / 2); bookshelf(xHi - 0.22, cz + 3, -Math.PI / 2);
 
-    // shelves: three on the south wall, two each on east/west
-    bookshelf(-2.6, -55.78, 0); bookshelf(0, -55.78, 0); bookshelf(2.6, -55.78, 0);
-    bookshelf(-6.78, -46.5, Math.PI / 2); bookshelf(-6.78, -51.5, Math.PI / 2);
-    bookshelf(6.78, -46.5, -Math.PI / 2); bookshelf(6.78, -51.5, -Math.PI / 2);
-
-    // ---- zine racks: face-out flyers flanking the door -------------------
     function zineRack(x, z, ry, items) {
         if (!items.length) return;
-        const g = new THREE.Group();
-        g.position.set(x, 0, z); g.rotation.y = ry;
-        worldGroup.add(g);
-        g.updateMatrixWorld(true);
-        const frame = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.8, 0.05), MAT.benchWood);
-        frame.position.set(0, 1.55, 0); g.add(frame);
-        items.slice(0, 8).forEach((rec, i) => {
-            const col = i % 4, row = Math.floor(i / 4);
-            const covMat = new THREE.MeshStandardMaterial({
-                map: placeholderArt, roughness: 0.85,
-                emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.26,
-            });
-            const cov = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.56), covMat);
-            cov.position.set(-0.93 + col * 0.62, 2.05 - row * 0.85, 0.05);
-            cov.rotation.x = -0.09;
-            g.add(cov);
-            const lip = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.025, 0.07), MAT.frameBlack);
-            lip.position.set(-0.93 + col * 0.62, 1.74 - row * 0.85, 0.05); g.add(lip);
-            if (rec.img) {
-                artQueue.push({
-                    url: rec.img, pos: g.localToWorld(cov.position.clone()), apply: (tex) => {
-                        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
-                        covMat.map = tex; covMat.emissiveMap = tex; covMat.needsUpdate = true;
-                        const a = tex.image.width / tex.image.height, target = 0.42 / 0.56;
-                        if (a > target) cov.scale.set(1, target / a, 1); else cov.scale.set(a / target, 1, 1);
-                    }
-                });
-            }
+        const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g); g.updateMatrixWorld(true);
+        const frame = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.8, 0.05), MAT.benchWood); frame.position.set(0, 1.55, 0); g.add(frame);
+        items.slice(0, 8).forEach((rec, k) => {
+            const col = k % 4, row = Math.floor(k / 4);
+            const covMat = new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.85, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.26 });
+            const cov = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.56), covMat); cov.position.set(-0.93 + col * 0.62, 2.05 - row * 0.85, 0.05); cov.rotation.x = -0.09; g.add(cov);
+            const lip = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.025, 0.07), MAT.frameBlack); lip.position.set(-0.93 + col * 0.62, 1.74 - row * 0.85, 0.05); g.add(lip);
+            if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(cov.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; covMat.map = t; covMat.emissiveMap = t; covMat.needsUpdate = true; const a = t.image.width / t.image.height, tg = 0.42 / 0.56; if (a > tg) cov.scale.set(1, tg / a, 1); else cov.scale.set(a / tg, 1, 1); } });
             interactables.push({ mesh: cov, data: { kind: 'book', gallery: 'Reading Room', ...rec } });
         });
     }
-    zineRack(-3.2, -42.19, Math.PI, sheets);
-    zineRack(3.2, -42.19, Math.PI, sheets.slice(8));
+    zineRack(xLo + 3, zHi - 0.19, Math.PI, sheets);
+    zineRack(xLo + 6.5, zHi - 0.19, Math.PI, sheets.slice(8));
 
-    // ---- reading tables with banker's lamps ------------------------------
     function readingTable(x, z) {
         const g = new THREE.Group(); g.position.set(x, 0, z); worldGroup.add(g);
-        const top = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.055, 1.0), MAT.benchWood);
-        top.position.y = 0.76; top.castShadow = true; top.receiveShadow = true; g.add(top);
-        for (const [lx, lz] of [[-0.85, -0.4], [0.85, -0.4], [-0.85, 0.4], [0.85, 0.4]]) {
-            const leg = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.74, 0.07), shelfWood);
-            leg.position.set(lx, 0.37, lz); g.add(leg);
-        }
-        // banker's lamp
-        const base = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.03, 16), MAT.brass);
-        base.position.set(0, 0.8, -0.25); g.add(base);
-        const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.26, 8), MAT.brass);
-        stem.position.set(0, 0.94, -0.25); g.add(stem);
-        const shade = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.11, 0.11, 12, 1, true, 0, Math.PI),
-            new THREE.MeshStandardMaterial({ color: 0x1f4d38, roughness: 0.35, metalness: 0.4, side: THREE.DoubleSide, envMapIntensity: 0.9 }));
-        shade.position.set(0, 1.07, -0.25); shade.rotation.y = Math.PI / 2; shade.rotation.z = Math.PI / 2; g.add(shade);
-        const glow = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.095, 0.09, 10, 1, true, 0, Math.PI),
-            new THREE.MeshBasicMaterial({ color: 0xffe9b8, side: THREE.DoubleSide }));
-        glow.position.set(0, 1.06, -0.245); glow.rotation.y = Math.PI / 2; glow.rotation.z = Math.PI / 2; g.add(glow);
-        // pool of lamp light on the table
-        const pool = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.0),
-            new THREE.MeshBasicMaterial({ map: WASH_TEX, transparent: true, opacity: 0.34, blending: THREE.AdditiveBlending, depthWrite: false }));
-        pool.rotation.x = -Math.PI / 2; pool.position.set(0, 0.792, -0.1); g.add(pool);
-        // open book on the table
-        for (const s of [-1, 1]) {
-            const page = new THREE.Mesh(new THREE.PlaneGeometry(0.21, 0.3),
-                new THREE.MeshStandardMaterial({ color: 0xf7f3e6, roughness: 0.95 }));
-            page.position.set(s * 0.105, 0.795, 0.12);
-            page.rotation.x = -Math.PI / 2; page.rotation.y = s * 0.09;
-            g.add(page);
-        }
-        addCollider(x - 1.05, x + 1.05, z - 0.6, z + 0.6);
-        bench(x, z + 1.05, 0);
-        bench(x, z - 1.05, Math.PI);
+        const top = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.055, 1.0), MAT.benchWood); top.position.y = 0.76; top.castShadow = true; top.receiveShadow = true; g.add(top);
+        for (const [lx, lz] of [[-0.85, -0.4], [0.85, -0.4], [-0.85, 0.4], [0.85, 0.4]]) { const leg = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.74, 0.07), shelfWood); leg.position.set(lx, 0.37, lz); g.add(leg); }
+        const base = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.03, 16), MAT.brass); base.position.set(0, 0.8, -0.25); g.add(base);
+        const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.26, 8), MAT.brass); stem.position.set(0, 0.94, -0.25); g.add(stem);
+        const shade = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.11, 0.11, 12, 1, true, 0, Math.PI), new THREE.MeshStandardMaterial({ color: 0x1f4d38, roughness: 0.35, metalness: 0.4, side: THREE.DoubleSide, envMapIntensity: 0.9 })); shade.position.set(0, 1.07, -0.25); shade.rotation.y = Math.PI / 2; shade.rotation.z = Math.PI / 2; g.add(shade);
+        const glow = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.095, 0.09, 10, 1, true, 0, Math.PI), new THREE.MeshBasicMaterial({ color: 0xffe9b8, side: THREE.DoubleSide })); glow.position.set(0, 1.06, -0.245); glow.rotation.y = Math.PI / 2; glow.rotation.z = Math.PI / 2; g.add(glow);
+        const pool = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.0), new THREE.MeshBasicMaterial({ map: WASH_TEX, transparent: true, opacity: 0.34, blending: THREE.AdditiveBlending, depthWrite: false })); pool.rotation.x = -Math.PI / 2; pool.position.set(0, 0.792, -0.1); g.add(pool);
+        for (const s of [-1, 1]) { const page = new THREE.Mesh(new THREE.PlaneGeometry(0.21, 0.3), new THREE.MeshStandardMaterial({ color: 0xf7f3e6, roughness: 0.95 })); page.position.set(s * 0.105, 0.795, 0.12); page.rotation.x = -Math.PI / 2; page.rotation.y = s * 0.09; g.add(page); }
+        addCollider(x - 1.05, x + 1.05, z - 0.6, z + 0.6); bench(x, z + 1.05, 0); bench(x, z - 1.05, Math.PI);
     }
-    readingTable(-2.6, -48.8);
-    readingTable(2.6, -48.8);
+    readingTable(15, cz + 1); readingTable(20, cz + 1);
+    ceilingLight(15, Y, cz, 1.8, 0.26); ceilingLight(20, Y, cz, 1.8, 0.26);
+    rooms.push({
+        name: 'Reading Room', minX: xLo, maxX: xHi, minZ: zLo, maxZ: zHi,
+        rig: { key: { p: [17, Y - 0.5, cz], t: [17, 0.5, cz], i: 105, angle: 0.95, dist: 16 },
+            fills: [[13, 2.3, cz, 22, 0xffdfae], [20, 2.3, cz, 22, 0xffdfae], [16, 2.6, zLo + 3, 18, 0xffe6c0]] } });
+})();
 
-    ceilingLight(-2.6, CH, -48.8, 1.8, 0.26);
-    ceilingLight(2.6, CH, -48.8, 1.8, 0.26);
+/* ---- Cinema: raked theater, x[-26,-8] z[spineEnd-22, spineEnd-2] ---- */
+(function cinema() {
+    const Y = CEIL.cinema, xScreen = -26, xBack = -8, zLo = spineEnd - 22, zHi = spineEnd - 2, cz = (zLo + zHi) / 2;
+    const darkFloor = new THREE.MeshStandardMaterial({ ...pbr('woodfloor', { repeat: [5, 5], ao: true }), color: 0x4a3b30, envMapIntensity: 0.2 });
+    // base floor (pit) + tiers as sunken platforms rising toward the entrance
+    floorRect(xScreen + 0.15, xBack - 0.15, zLo + 0.15, zHi - 0.15, MAT.concreteFloor, -1.62);
+    ceilRect(xScreen + 0.15, xBack - 0.15, zLo + 0.15, zHi - 0.15, Y, new THREE.MeshStandardMaterial({ color: 0x141418, roughness: 0.96 }));
+    wallRun('x', zLo, xScreen, xBack, Y, { mat: MAT.wallDark });
+    wallRun('x', zHi, xScreen, xBack, Y, { mat: MAT.wallDark });
+    wallRun('z', xScreen, zLo, zHi, Y, { mat: MAT.wallDark });
+    // east wall (x=-8) built by archive with door at z=spineEnd-8
 
-    wallPanel(panelTexture('Reading Room', 'Take a book\nfrom the shelf',
-        'Everything digitized in the NPPC archive is shelved here — zines from inside, defense-committee pamphlets, prisoner-support periodicals, and the flyers racked by the door. Click any book or cover to pick it up and read the full scan, page by page. Long sentences were survived one page at a time; some of these were written that way too.'),
-        new THREE.Vector3(-5.85, 1.85, -42.16), new THREE.Vector3(0, 0, -1), 1.9, 2.5,
-        { interact: { kind: 'panel', n: 'Take a book from the shelf', l1: 'Reading Room', d: 'Everything digitized in the NPPC archive is shelved in this room. Click any book or racked cover to read the full scan — or browse the whole collection in the archive.', u: '/archive' } });
+    // screen on the west wall
+    slideshowScreen(DATA.slides.length ? DATA.slides : [{ t: 'National Political Prisoner Coalition', img: '' }],
+        DATA.video, new THREE.Vector3(xScreen + 0.18, 0.0, cz), new THREE.Vector3(1, 0, 0), 10, 5.0, { speed: 7 });
+    box(0.14, 5.6, 11, MAT.frameBlack, xScreen + 0.05, 0.2, cz, {});
+
+    // tiers: landing at the back (flush with archive, y=0) stepping DOWN to the pit
+    const tiers = [
+        { x0: -10.5, x1: -8, y: 0.0 },
+        { x0: -13, x1: -10.5, y: -0.34 },
+        { x0: -15.5, x1: -13, y: -0.68 },
+        { x0: -18, x1: -15.5, y: -1.02 },
+        { x0: -20.5, x1: -18, y: -1.36 },
+    ];
+    const carpet = new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [2, 3] }), color: 0x3a1520, roughness: 1, envMapIntensity: 0.1 });
+    const riser = new THREE.MeshStandardMaterial({ color: 0x1a0e12, roughness: 0.9 });
+    tiers.forEach(t => {
+        const w = t.x1 - t.x0;
+        const top = new THREE.Mesh(new THREE.BoxGeometry(w, 0.3, zHi - zLo - 0.4), carpet);
+        top.position.set((t.x0 + t.x1) / 2, t.y - 0.15, cz); top.receiveShadow = true; worldGroup.add(top);
+        // riser face toward the screen
+        const rf = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.34, zHi - zLo - 0.4), riser);
+        rf.position.set(t.x0, t.y - 0.32, cz); worldGroup.add(rf);
+        addFloorZone(t.x0, t.x1, zLo, zHi, t.y);
+        // seats: two blocks with a central aisle at cz
+        const rowX = t.x0 + w * 0.42;
+        const accent = 0xe0913a;
+        for (let zz = zLo + 1.4; zz <= zHi - 1.4; zz += 0.78) {
+            if (Math.abs(zz - cz) < 0.8) continue;      // central aisle
+            cinemaSeat(rowX, t.y, zz, accent);
+        }
+        // block colliders (leave aisle open)
+        addCollider(t.x0 + 0.1, t.x1 - 0.1, zLo + 1.1, cz - 0.7);
+        addCollider(t.x0 + 0.1, t.x1 - 0.1, cz + 0.7, zHi - 1.1);
+    });
+    // pit floor zone in front
+    addFloorZone(xScreen, -20.5, zLo, zHi, -1.55);
+
+    // projector + beam from the back
+    box(0.5, 0.34, 0.42, MAT.frameBlack, xBack - 0.6, 2.7, cz, {});
+    const beam = new THREE.Mesh(new THREE.ConeGeometry(2.8, 16.5, 24, 1, true), new THREE.MeshBasicMaterial({ color: 0xfff3da, transparent: true, opacity: 0.04, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthWrite: false }));
+    beam.position.set((xScreen + xBack) / 2 + 0.5, 2.5, cz); beam.rotation.z = Math.PI / 2 - 0.03; worldGroup.add(beam);
+    const dustN = 150, dustPos = new Float32Array(dustN * 3);
+    for (let i = 0; i < dustN; i++) { const t = Math.random(); const rad = (0.2 + 2.4 * t) * Math.sqrt(Math.random()); const ang = Math.random() * Math.PI * 2; dustPos[i * 3] = (xBack - 0.6) - t * 17; dustPos[i * 3 + 1] = 2.6 - t * 0.4 + Math.sin(ang) * rad; dustPos[i * 3 + 2] = cz + Math.cos(ang) * rad; }
+    const dustGeo = new THREE.BufferGeometry(); dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+    window.__dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({ color: 0xffeecd, size: 0.014, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false }));
+    worldGroup.add(window.__dust);
+    anchors.cinemaProjector = [xBack - 0.6, 2.7, cz];
+    anchors.cinemaScreen = [xScreen + 0.4, 2.4, cz];
+
+    wallPanel(panelTexture('Theater', 'Faces & places',
+        'A rolling reel of the movements, prisons, and campaigns documented across the NPPC — the same landscapes and crowds that stand behind every topic on this site. Take a seat; the steps lead down toward the screen.'),
+        new THREE.Vector3(xBack - 0.16, 1.8, zHi - 2), new THREE.Vector3(-1, 0, 0), 1.7, 2.2,
+        { interact: { kind: 'panel', n: 'Faces & places', l1: 'Theater', d: 'A rolling reel of the movements, prisons, and campaigns documented across the NPPC.' } });
 
     rooms.push({
-        name: 'Reading Room', minX: -7, maxX: 7, minZ: -56, maxZ: -42,
-        rig: {
-            key: { p: [0, 3.5, -49], t: [0, 0.5, -49.4], i: 105, angle: 0.95, dist: 15 },
-            fills: [[-2.6, 2.3, -48.8, 22, 0xffdfae], [2.6, 2.3, -48.8, 22, 0xffdfae], [0, 2.6, -43.6, 20, 0xffe6c0]],
-        }
-    });
+        name: 'Theater', minX: xScreen, maxX: xBack, minZ: zLo, maxZ: zHi,
+        rig: { key: { p: [-14, Y - 0.4, cz], t: [-14, -1, cz], i: 22, angle: 1.0, dist: 20 },
+            fills: [[-9, 2.4, cz, 8, 0xffdca8], [-22, 1.2, cz, 10, 0xbcd0ff]] } });
 })();
 
 /* --------------------------------------------------------------- lighting */
-scene.add(new THREE.HemisphereLight(0xe8eeff, 0x3a352e, 0.32));
+scene.add(new THREE.HemisphereLight(0xe8eeff, 0x3a352e, 0.42));
+// cellLight is created inside the cell() layout function (module-scoped above).
 
-const cellLight = new THREE.PointLight(0xdfe8f5, 16, 7, 1.8);
-cellLight.position.set(8, CEIL.cell - 0.18, -37);
-scene.add(cellLight);
+// theater projector beam glow
+if (anchors.cinemaProjector && anchors.cinemaScreen) {
+    const beamLight = new THREE.SpotLight(0xfff0d5, 90, 22, 0.5, 0.55, 1.4);
+    beamLight.position.set(...anchors.cinemaProjector);
+    beamLight.target.position.set(...anchors.cinemaScreen);
+    scene.add(beamLight, beamLight.target);
+}
 
-const theaterBeamLight = new THREE.SpotLight(0xfff0d5, 70, 13, 0.5, 0.55, 1.4);
-theaterBeamLight.position.set(-6.3, 2.6, -37);
-theaterBeamLight.target.position.set(-16.6, 2.2, -37);
-scene.add(theaterBeamLight, theaterBeamLight.target);
-
-const sculptLight = new THREE.SpotLight(0xffe9c2, 800, 12, 0.42, 0.5, 1.9);
-sculptLight.position.set(2.6, 5.7, 1.4);
-sculptLight.target.position.set(0, 1.2, -1.2);
-sculptLight.castShadow = true;
-sculptLight.shadow.mapSize.set(1024, 1024);
-sculptLight.shadow.bias = -0.0004;
-scene.add(sculptLight, sculptLight.target);
+// bronze sculpture accent in the rotunda
+if (anchors.sculpt) {
+    const sculptLight = new THREE.SpotLight(0xffe9c2, 900, 14, 0.42, 0.5, 1.9);
+    sculptLight.position.set(...anchors.sculpt);
+    sculptLight.target.position.set(...(anchors.sculptTarget || [0, 1.2, 13]));
+    sculptLight.castShadow = true;
+    sculptLight.shadow.mapSize.set(1024, 1024);
+    sculptLight.shadow.bias = -0.0004;
+    scene.add(sculptLight, sculptLight.target);
+}
 
 /* Reposition-only pool → shader program count stays constant. */
-const keyA = new THREE.SpotLight(0xfff1da, 900, 20, 0.7, 0.55, 1.8);
+const keyA = new THREE.SpotLight(0xfff1da, 900, 26, 0.7, 0.55, 1.8);
 keyA.castShadow = true; keyA.shadow.mapSize.set(1024, 1024); keyA.shadow.bias = -0.0004;
 const keyB = keyA.clone();
 scene.add(keyA, keyA.target, keyB, keyB.target);
 const fillPool = [];
-for (let i = 0; i < 3; i++) {
-    const p = new THREE.PointLight(0xfff0d8, 0, 10, 2);
+for (let i = 0; i < 4; i++) {
+    const p = new THREE.PointLight(0xfff0d8, 0, 14, 2);
     scene.add(p); fillPool.push(p);
 }
 /* r160 uses physical light units (candela); rig values are authored in a
@@ -1201,12 +1436,13 @@ function setRoom(r) {
 
 /* ----------------------------------------------------------------- player */
 const player = {
-    pos: new THREE.Vector3(0, 0, 5.6),
+    pos: new THREE.Vector3(0, 0, 17),
     yaw: 0,                  // rotateY(0) → camera looks -z, into the museum
     pitch: 0,
     vel: new THREE.Vector3(),
     eye: 1.65,
     bob: 0,
+    ground: 0,               // current floor height (smoothly follows tiers)
 };
 const keys = {};
 window.addEventListener('keydown', (e) => {
@@ -1312,7 +1548,10 @@ function updatePlayer(dt) {
     const moving = (Math.abs(fx) + Math.abs(fz)) > 0.01;
     player.bob += dt * (moving ? (run ? 11 : 7.4) : 0);
     const bobY = moving ? Math.sin(player.bob) * 0.026 : 0;
-    camera.position.set(player.pos.x, player.eye + bobY, player.pos.z);
+    // smoothly follow tiered floors (cinema) so steps feel like walking down them
+    const targetGround = floorHeightAt(player.pos.x, player.pos.z);
+    player.ground += (targetGround - player.ground) * Math.min(1, dt * 9);
+    camera.position.set(player.pos.x, player.ground + player.eye + bobY, player.pos.z);
     camera.rotation.set(0, 0, 0);
     camera.rotateY(player.yaw);
     camera.rotateX(player.pitch);
@@ -1412,7 +1651,10 @@ let loading = 0;
 const texCache = new Map();          // url → THREE.Texture (shared)
 function pumpArtQueue() {
     if (!artQueue.length || loading >= 4) return;
-    artQueue.sort((a, b) => a.pos.distanceToSquared(player.pos) - b.pos.distanceToSquared(player.pos));
+    // portraits/frames (not low) load before the mosaic-tile swarm; then by distance
+    artQueue.sort((a, b) =>
+        (a.low ? 1 : 0) - (b.low ? 1 : 0) ||
+        a.pos.distanceToSquared(player.pos) - b.pos.distanceToSquared(player.pos));
     while (loading < 4 && artQueue.length) {
         const job = artQueue.shift();
         if (texCache.has(job.url)) {
@@ -1441,11 +1683,11 @@ function tick() {
         setRoom(roomAt(player.pos.x, player.pos.z));
         pumpArtQueue();
         // reflector only pays for itself while you can see the rotunda floor
-        if (window.__reflector) window.__reflector.visible = player.pos.z > -13;
+        if (window.__reflector) window.__reflector.visible = player.pos.z > 4;
     }
     for (const s of slideshows) s.draw(dt);
     if (window.__dust) window.__dust.rotation.y = Math.sin(clock.elapsedTime * 0.05) * 0.02;
-    cellLight.intensity = 16 + Math.sin(clock.elapsedTime * 17) * 0.9 + Math.sin(clock.elapsedTime * 3.1) * 0.7;
+    if (cellLight) cellLight.intensity = 16 + Math.sin(clock.elapsedTime * 17) * 0.9 + Math.sin(clock.elapsedTime * 3.1) * 0.7;
     renderer.render(scene, camera);
 }
 setRoom(rooms[0]);
@@ -1460,9 +1702,11 @@ window.__museumDebug = {
     teleport(x, z, yaw = Math.PI, pitch = 0) {
         player.pos.set(x, 0, z);
         player.yaw = yaw; player.pitch = pitch;
+        player.ground = floorHeightAt(x, z);
         setRoom(roomAt(x, z));
         pumpArtQueue();
     },
+    rooms_list() { return rooms.map(r => ({ n: r.name, x: (r.minX + r.maxX) / 2, z: (r.minZ + r.maxZ) / 2 })); },
     start() {
         started = true;
         splash.classList.add('hide');
