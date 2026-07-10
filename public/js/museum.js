@@ -35,8 +35,15 @@ const ACCENTS = [GOLD, CRIMSON, TEAL, '#7c5cbf', '#b0592e', '#4e7d3a'];
 
 /* ------------------------------------------------------------------ boot */
 const canvas = document.getElementById('museum-canvas');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+// Low-end heuristic: weaker devices skip MSAA and start at a lower resolution.
+const LOW_END = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: !LOW_END, powerPreference: 'high-performance' });
+// Adaptive resolution: the pixel ratio floats between a floor and a cap based
+// on measured frame time (see tick), so the scene stays smooth on any GPU.
+const DPR_CAP = Math.min(window.devicePixelRatio || 1, LOW_END ? 1.0 : 1.5);
+const DPR_FLOOR = 0.66;
+let curDPR = DPR_CAP;
+renderer.setPixelRatio(curDPR);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -1534,7 +1541,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
 
     // ---- reflecting pond + waterfall + sculpture axis ----
     const refl = new Reflector(new THREE.PlaneGeometry(6.6, 5.4), {
-        textureWidth: 1024, textureHeight: 1024, color: 0x8fa8a4, clipBias: 0.003,
+        textureWidth: 512, textureHeight: 512, color: 0x8fa8a4, clipBias: 0.003,
     });
     refl.rotation.x = -Math.PI / 2; refl.position.set(0, 0.14, 15.5);
     worldGroup.add(refl); window.__reflector = refl;
@@ -3271,12 +3278,21 @@ function updatePlayer(dt) {
 const raycaster = new THREE.Raycaster();
 raycaster.far = 5.2;
 let hovered = null, hoverTick = 0;
+const _hp = new THREE.Vector3();
 function updateHover() {
     if (held) { reticle.classList.remove('on'); hint.textContent = ''; hovered = null; return; }
     raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
-    const meshes = interactables.map(i => i.mesh);
-    const hits = raycaster.intersectObjects(meshes, false);
-    hovered = hits.length ? interactables.find(i => i.mesh === hits[0].object) : null;
+    // only raycast against interactables within reach of the camera — the
+    // museum holds thousands of clickable meshes, but the reticle can only hit
+    // what's ~5m ahead. World positions are cached on first use (static props).
+    const cam = camera.position, near = [], nearMap = new Map();
+    for (const it of interactables) {
+        if (!it._wp) { it._wp = it.mesh.getWorldPosition(new THREE.Vector3()); }
+        const p = it.grab ? it.mesh.getWorldPosition(_hp) : it._wp;   // grabbed props can move
+        if (p.distanceToSquared(cam) < 42) { near.push(it.mesh); nearMap.set(it.mesh, it); }
+    }
+    const hits = near.length ? raycaster.intersectObjects(near, false) : [];
+    hovered = hits.length ? nearMap.get(hits[0].object) : null;
     reticle.classList.toggle('on', !!hovered);
     hint.textContent = hovered
         ? (hovered.data.kind === 'book' || hovered.data.kind === 'product' ? 'Click to pick it up'
@@ -3478,23 +3494,34 @@ setInterval(pumpArtQueue, 250);      // decoupled from the render loop
 
 /* ------------------------------------------------------------------- loop */
 const clock = new THREE.Clock();
-let frame = 0;
+let frame = 0, emaMs = 16;
 function tick() {
     requestAnimationFrame(tick);
     const dt = Math.min(clock.getDelta(), 0.05);
     frame++;
+    // adaptive resolution: nudge the pixel ratio toward the frame-time budget
+    emaMs = emaMs * 0.92 + Math.min(dt * 1000, 60) * 0.08;
+    if (frame % 30 === 0) {
+        let t = curDPR;
+        if (emaMs > 24 && curDPR > DPR_FLOOR) t = Math.max(DPR_FLOOR, +(curDPR - 0.1).toFixed(2));
+        else if (emaMs < 15 && curDPR < DPR_CAP) t = Math.min(DPR_CAP, +(curDPR + 0.08).toFixed(2));
+        if (t !== curDPR) { curDPR = t; renderer.setPixelRatio(curDPR); }
+    }
     updatePlayer(dt);      // camera always follows player state (input is gated inside)
     if (frame % 6 === 0) updateHover();
     if (frame % 20 === 0) {
         setRoom(roomAt(player.pos.x, player.pos.z));
         pumpArtQueue();
-        // reflector only pays for itself while you can see the rotunda floor
-        if (window.__reflector) window.__reflector.visible = player.pos.z > 4;
+        // the pond reflector re-renders the whole scene — only pay for it while
+        // actually standing in the atrium (and never on a floored-out GPU)
+        if (window.__reflector) window.__reflector.visible = !!curRoom && curRoom.name === 'Grand Atrium' && curDPR > 0.75;
     }
     for (const s of slideshows) s.draw(dt);
     for (const a of animatedTex) a(dt);
     updateHeld(dt);
-    if (held || frame % 60 === 0) renderer.shadowMap.needsUpdate = true;
+    // shadows are static except a carried book and region reveals (handled by
+    // setRoom); refresh while holding, plus a rare safety net — not every frame
+    if (held || frame % 240 === 0) renderer.shadowMap.needsUpdate = true;
     if (window.__dust) window.__dust.rotation.y = Math.sin(clock.elapsedTime * 0.05) * 0.02;
     if (cellLight) cellLight.intensity = 16 + Math.sin(clock.elapsedTime * 17) * 0.9 + Math.sin(clock.elapsedTime * 3.1) * 0.7;
     renderer.render(scene, camera);
