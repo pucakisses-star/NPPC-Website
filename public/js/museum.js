@@ -1002,55 +1002,200 @@ function fillOpenGallery(items, sign, innerX, outerX, cxMid, zLo, zHi, doorZ, fr
 const animatedTex = [];                  // per-frame texture updaters (waterfall)
 
 /* --- small nature/architecture builders ------------------------------ */
-const FOLIAGE_TEX = canvasTexture(256, 256, (g, w, h) => {
-    g.clearRect(0, 0, w, h);
-    const greens = ['#2e4a2c', '#3a5c36', '#466b40', '#557a4b', '#39543a'];
-    for (let i = 0; i < 46; i++) {
-        g.fillStyle = greens[Math.floor(Math.random() * greens.length)];
-        g.globalAlpha = 0.75 + Math.random() * 0.25;
-        const x = 30 + Math.random() * (w - 60), y = 30 + Math.random() * (h - 60);
-        const rx = 14 + Math.random() * 26, ry2 = 8 + Math.random() * 18;
-        g.beginPath(); g.ellipse(x, y, rx, ry2, Math.random() * Math.PI, 0, Math.PI * 2); g.fill();
+/* ---------------------------------------------------- realistic foliage ---
+   Layered tropical planting like a museum atrium bed (cf. the Guggenheim
+   lobby): arching palm fronds and broad paddle leaves in the centre, sword
+   blades mid-height, variegated groundcover spilling over a low white rim,
+   all over moss. Leaves are folded shape-geometry (not billboards) so they
+   catch the spotlights. Every plant's leaves are merged into one geometry
+   per material, so a whole bed is only a handful of draw calls. */
+const TAU = Math.PI * 2;
+const POT_MAT = new THREE.MeshStandardMaterial({ color: 0xdcd5c7, roughness: 0.5, envMapIntensity: 0.5 });
+const PLANTER_MAT = new THREE.MeshStandardMaterial({ color: 0xeee9df, roughness: 0.55, envMapIntensity: 0.4 });
+const MOSS_MAT = new THREE.MeshStandardMaterial({ color: 0x33502c, roughness: 1, envMapIntensity: 0.08 });
+const STEM_MAT = new THREE.MeshStandardMaterial({ color: 0x50602f, roughness: 0.85, envMapIntensity: 0.2 });
+const LEAF_GREEN_MAT = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.44, side: THREE.DoubleSide, envMapIntensity: 0.6 });
+const LEAF_VARIE_MAT = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.5, side: THREE.DoubleSide, envMapIntensity: 0.55 });
+const GREENS = [[0.15, 0.31, 0.16], [0.21, 0.42, 0.20], [0.12, 0.26, 0.15], [0.27, 0.47, 0.23], [0.17, 0.37, 0.21]];
+const VARIES = [[0.55, 0.67, 0.41], [0.67, 0.75, 0.52], [0.43, 0.59, 0.33]];
+const greenColor = () => GREENS[Math.random() * GREENS.length | 0];
+const varieColor = () => VARIES[Math.random() * VARIES.length | 0];
+const STEM_UNIT = new THREE.CylinderGeometry(1, 1, 1, 5);
+
+// folded leaf geometry: base at origin, tip at +y, unit length; fold curls it
+// around the midrib so it isn't a flat card.
+function buildLeafGeo(W, { tipFrac = 0.68, fold = 0.32, seg = 10 } = {}) {
+    const s = new THREE.Shape();
+    s.moveTo(0, 0);
+    s.bezierCurveTo(W * 0.5, 0.22, W * 0.28, tipFrac, W * 0.05, 0.95);
+    s.quadraticCurveTo(0, 1.0, -W * 0.05, 0.95);
+    s.bezierCurveTo(-W * 0.28, tipFrac, -W * 0.5, 0.22, 0, 0);
+    const geo = new THREE.ShapeGeometry(s, seg);
+    const p = geo.attributes.position;
+    for (let i = 0; i < p.count; i++) p.setZ(i, -Math.abs(p.getX(i)) * fold);
+    geo.computeVertexNormals();
+    return geo;
+}
+const LEAFGEO = {
+    broad: buildLeafGeo(0.62, { fold: 0.34 }),            // banana / bird-of-paradise
+    heart: buildLeafGeo(0.82, { fold: 0.2, tipFrac: 0.58 }), // elephant ear
+    blade: buildLeafGeo(0.12, { fold: 0.55, tipFrac: 0.86 }), // snake plant / sword
+    leaflet: buildLeafGeo(0.17, { fold: 0.3, tipFrac: 0.82 }), // palm leaflet
+    round: buildLeafGeo(0.44, { fold: 0.16, tipFrac: 0.5 }), // groundcover
+};
+
+const mrotX = a => new THREE.Matrix4().makeRotationX(a);
+const mrotY = a => new THREE.Matrix4().makeRotationY(a);
+const mrotZ = a => new THREE.Matrix4().makeRotationZ(a);
+const mtr = (x, y, z) => new THREE.Matrix4().makeTranslation(x, y, z);
+const msc = (x, y, z) => new THREE.Matrix4().makeScale(x, y, z);
+const mmul = (...ms) => ms.reduce((a, b) => a.multiply(b), new THREE.Matrix4());
+
+function newPlant() { return { green: [], varie: [], stem: [] }; }
+function addPart(p, bucket, geo, matrix, color) { p[bucket].push({ geo, matrix, color }); }
+function mergeBucket(parts) {
+    if (!parts.length) return null;
+    let total = 0;
+    const items = parts.map(pt => {
+        const g = pt.geo.index ? pt.geo.toNonIndexed() : pt.geo.clone();
+        g.applyMatrix4(pt.matrix);
+        if (!g.attributes.normal) g.computeVertexNormals();
+        total += g.attributes.position.count;
+        return { g, color: pt.color };
+    });
+    const pos = new Float32Array(total * 3), nor = new Float32Array(total * 3), col = new Float32Array(total * 3);
+    let o = 0;
+    for (const { g, color } of items) {
+        const cnt = g.attributes.position.count;
+        pos.set(g.attributes.position.array, o * 3);
+        nor.set(g.attributes.normal.array, o * 3);
+        const c = color || [1, 1, 1];
+        for (let k = 0; k < cnt; k++) { col[(o + k) * 3] = c[0]; col[(o + k) * 3 + 1] = c[1]; col[(o + k) * 3 + 2] = c[2]; }
+        o += cnt; g.dispose();
     }
-    g.globalAlpha = 1;
-});
-function bushSprite(x, y, z, s = 1) {
-    const mat = new THREE.MeshStandardMaterial({ map: FOLIAGE_TEX, transparent: true, alphaTest: 0.35, roughness: 0.95, side: THREE.DoubleSide });
-    for (let i = 0; i < 3; i++) {
-        const p = new THREE.Mesh(new THREE.PlaneGeometry(1.1 * s, 0.85 * s), mat);
-        p.position.set(x, y + 0.42 * s, z); p.rotation.y = i * Math.PI / 3;
-        worldGroup.add(p);
+    const m = new THREE.BufferGeometry();
+    m.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    m.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+    m.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    return m;
+}
+function finalizePlant(p, x, y, z) {
+    const g = new THREE.Group(); g.position.set(x, y, z);
+    for (const [k, mat] of [['green', LEAF_GREEN_MAT], ['varie', LEAF_VARIE_MAT], ['stem', STEM_MAT]]) {
+        const geo = mergeBucket(p[k]);
+        if (!geo) continue;
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.castShadow = true; mesh.receiveShadow = true;
+        g.add(mesh);
+    }
+    worldGroup.add(g);
+    return g;
+}
+
+// one leaf on an optional petiole, radiating from `base` at azimuth/tilt
+function armLeaf(p, base, o) {
+    const arm = mmul(base, mrotY(o.az), mrotX(o.tilt));
+    if (o.stemLen > 0) addPart(p, 'stem', STEM_UNIT, mmul(arm, mtr(0, o.stemLen / 2, 0), msc(o.stemR, o.stemLen, o.stemR)));
+    addPart(p, o.bucket, o.geo, mmul(arm, mtr(0, o.stemLen, 0), mrotX(o.droop), msc(o.scale, o.scale, o.scale)), o.color);
+}
+// a pinnate palm frond: arching rachis lined with leaflets
+function emitFrond(p, base, rl, color) {
+    addPart(p, 'stem', STEM_UNIT, mmul(base, mtr(0, rl / 2, 0), msc(0.01, rl, 0.01)));
+    const pairs = 8;
+    for (let i = 1; i <= pairs; i++) {
+        const t = i / (pairs + 1), yy = t * rl, size = (0.85 - t * 0.5) * rl * 1.3;
+        for (const side of [-1, 1]) {
+            addPart(p, 'green', LEAFGEO.leaflet, mmul(base, mtr(0, yy, 0), mrotZ(side * 1.02), mrotX(0.22), msc(size, size, size)), color);
+        }
+    }
+    addPart(p, 'green', LEAFGEO.leaflet, mmul(base, mtr(0, rl, 0), msc(0.22 * rl, 0.22 * rl, 0.22 * rl)), color);
+}
+function emitPalm(p, ox, oy, oz, scale = 1) {
+    const base = mtr(ox, oy, oz);
+    const trunks = 1 + (Math.random() * 3 | 0);
+    for (let t = 0; t < trunks; t++) {
+        const bx = (Math.random() - 0.5) * 0.36 * scale, bz = (Math.random() - 0.5) * 0.36 * scale;
+        const h = (1.6 + Math.random() * 1.0) * scale;
+        addPart(p, 'stem', STEM_UNIT, mmul(base, mtr(bx, h / 2, bz), msc(0.045 * scale, h, 0.045 * scale)));
+        const crown = mmul(base, mtr(bx, h, bz));
+        const fronds = 6 + (Math.random() * 3 | 0), col = greenColor();
+        for (let f = 0; f < fronds; f++) {
+            emitFrond(p, mmul(crown, mrotY((f / fronds) * TAU + Math.random() * 0.4), mrotX(0.35 + Math.random() * 0.55)), (0.85 + Math.random() * 0.5) * scale, col);
+        }
     }
 }
-function ficusTree(x, z, h = 4, potR = 0.55) {
-    const pot = new THREE.Mesh(new THREE.CylinderGeometry(potR, potR * 0.82, potR * 0.9, 20),
-        new THREE.MeshStandardMaterial({ color: 0x2c2c30, roughness: 0.6 }));
-    pot.position.set(x, potR * 0.45, z); pot.castShadow = true; worldGroup.add(pot);
-    const soil = new THREE.Mesh(new THREE.CircleGeometry(potR * 0.88, 18), new THREE.MeshStandardMaterial({ color: 0x241b12, roughness: 1 }));
-    soil.rotation.x = -Math.PI / 2; soil.position.set(x, potR * 0.9, z); worldGroup.add(soil);
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.11, h * 0.55, 8),
-        new THREE.MeshStandardMaterial({ color: 0x5a4632, roughness: 0.9 }));
-    trunk.position.set(x, potR * 0.9 + h * 0.27, z); trunk.castShadow = true; worldGroup.add(trunk);
-    const greens = [0x2e4a2c, 0x3a5c36, 0x466b40];
-    for (let i = 0; i < 4; i++) {
-        const r = h * (0.22 - i * 0.028);
-        const c = new THREE.Mesh(new THREE.SphereGeometry(r, 10, 8),
-            new THREE.MeshStandardMaterial({ color: greens[i % 3], roughness: 0.95, envMapIntensity: 0.15 }));
-        c.position.set(x + (i % 2 ? 0.16 : -0.14) * (i > 1 ? -1 : 1), potR * 0.9 + h * 0.52 + i * r * 0.72, z + (i % 2 ? -0.1 : 0.12));
-        c.scale.y = 0.8; c.castShadow = true; worldGroup.add(c);
+function emitBroad(p, ox, oy, oz, scale = 1, geo = LEAFGEO.broad) {
+    const base = mtr(ox, oy, oz), n = 6 + (Math.random() * 3 | 0);
+    for (let i = 0; i < n; i++) {
+        armLeaf(p, base, { az: (i / n) * TAU + Math.random() * 0.5, tilt: 0.35 + (i / n) * 0.55 + Math.random() * 0.12,
+            stemLen: (0.45 + Math.random() * 0.5) * scale, stemR: 0.02 * scale, geo, bucket: 'green', color: greenColor(),
+            droop: 0.3 + Math.random() * 0.25, scale: (0.85 + Math.random() * 0.5) * scale });
     }
+}
+function emitBlade(p, ox, oy, oz, scale = 1, variegate = false) {
+    const base = mtr(ox, oy, oz), n = 7 + (Math.random() * 5 | 0);
+    for (let i = 0; i < n; i++) {
+        const varie = variegate && Math.random() < 0.4;
+        armLeaf(p, base, { az: Math.random() * TAU, tilt: Math.random() * 0.28, stemLen: 0, stemR: 0,
+            geo: LEAFGEO.blade, bucket: varie ? 'varie' : 'green', color: varie ? varieColor() : greenColor(),
+            droop: 0.05, scale: (0.5 + Math.random() * 0.6) * scale });
+    }
+}
+function emitGround(p, ox, oy, oz, scale = 1) {
+    const base = mtr(ox, oy, oz), n = 6 + (Math.random() * 4 | 0);
+    for (let i = 0; i < n; i++) {
+        const varie = Math.random() < 0.5;
+        armLeaf(p, base, { az: Math.random() * TAU, tilt: 0.7 + Math.random() * 0.5, stemLen: 0.1 * scale, stemR: 0.012 * scale,
+            geo: LEAFGEO.round, bucket: varie ? 'varie' : 'green', color: varie ? varieColor() : greenColor(),
+            droop: 0.5 + Math.random() * 0.3, scale: (0.26 + Math.random() * 0.2) * scale });
+    }
+}
+
+// small leafy clump (used on the mezzanine planter boxes)
+function bushSprite(x, y, z, s = 1) {
+    const p = newPlant();
+    emitGround(p, 0, y, 0, s * 1.6);
+    emitGround(p, 0.22 * s, y, 0.16 * s, s * 1.1);
+    finalizePlant(p, x, 0, z);
+}
+// potted specimen tree
+function ficusTree(x, z, h = 4, potR = 0.55) {
+    const potH = potR;
+    const pot = new THREE.Mesh(new THREE.CylinderGeometry(potR, potR * 0.8, potH, 22), POT_MAT);
+    pot.position.set(x, potH / 2, z); pot.castShadow = true; pot.receiveShadow = true; worldGroup.add(pot);
+    const soil = new THREE.Mesh(new THREE.CircleGeometry(potR * 0.82, 20), MOSS_MAT);
+    soil.rotation.x = -Math.PI / 2; soil.position.set(x, potH + 0.005, z); worldGroup.add(soil);
+    const p = newPlant();
+    if (h >= 3.6) emitPalm(p, 0, potH, 0, h / 3.0);
+    else emitBroad(p, 0, potH, 0, h / 3.2, LEAFGEO.heart);
+    for (let i = 0; i < 5; i++) emitGround(p, Math.cos(i * 1.3) * potR * 0.55, potH, Math.sin(i * 1.3) * potR * 0.55, 0.6);
+    finalizePlant(p, x, 0, z);
     addCollider(x - potR, x + potR, z - potR, z + potR);
 }
+// low white planter filled with a layered composition
 function planterBed(x0, x1, z0, z1, nBush = 4) {
-    const w = x1 - x0, d = z1 - z0;
-    const curb = new THREE.Mesh(new THREE.BoxGeometry(w, 0.42, d), MAT.benchWood);
-    curb.position.set((x0 + x1) / 2, 0.21, (z0 + z1) / 2); curb.castShadow = true; curb.receiveShadow = true;
-    worldGroup.add(curb);
-    const soil = new THREE.Mesh(new THREE.BoxGeometry(w - 0.12, 0.05, d - 0.12), new THREE.MeshStandardMaterial({ color: 0x241b12, roughness: 1 }));
-    soil.position.set((x0 + x1) / 2, 0.44, (z0 + z1) / 2); worldGroup.add(soil);
-    for (let i = 0; i < nBush; i++) {
-        bushSprite(x0 + 0.4 + Math.random() * (w - 0.8), 0.4, z0 + 0.4 + Math.random() * (d - 0.8), 0.8 + Math.random() * 0.5);
+    const w = x1 - x0, d = z1 - z0, cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
+    const curb = new THREE.Mesh(new THREE.BoxGeometry(w, 0.4, d), PLANTER_MAT);
+    curb.position.set(cx, 0.2, cz); curb.castShadow = true; curb.receiveShadow = true; worldGroup.add(curb);
+    const cap = new THREE.Mesh(new THREE.BoxGeometry(w + 0.08, 0.06, d + 0.08), PLANTER_MAT);
+    cap.position.set(cx, 0.4, cz); cap.castShadow = true; worldGroup.add(cap);
+    const soil = new THREE.Mesh(new THREE.BoxGeometry(w - 0.14, 0.05, d - 0.14), MOSS_MAT);
+    soil.position.set(cx, 0.42, cz); soil.receiveShadow = true; worldGroup.add(soil);
+
+    const p = newPlant();
+    const hx = (w - 0.4) / 2, hz = (d - 0.4) / 2, baseY = 0.44;
+    const rnd = h => (Math.random() * 2 - 1) * h;
+    const span = Math.max(hx, hz), cScale = Math.min(1.15, span * 0.35 + 0.55);
+    emitPalm(p, rnd(hx * 0.3), baseY, rnd(hz * 0.25), cScale);
+    if (span > 0.9) emitBroad(p, rnd(hx * 0.5), baseY, rnd(hz * 0.4), Math.min(1.0, cScale));
+    const nBlade = Math.max(2, nBush - 1);
+    for (let i = 0; i < nBlade; i++) emitBlade(p, rnd(hx * 0.85), baseY, rnd(hz * 0.85), 0.7 + Math.random() * 0.4, true);
+    const nG = nBush + 4;
+    for (let i = 0; i < nG; i++) {
+        const ex = Math.random() < 0.5 ? -1 : 1, ez = Math.random() < 0.5 ? -1 : 1;
+        emitGround(p, ex * hx * (0.55 + Math.random() * 0.4), baseY, ez * hz * (0.55 + Math.random() * 0.4), 0.9 + Math.random() * 0.5);
     }
+    finalizePlant(p, cx, 0, cz);
     addCollider(x0, x1, z0, z1);
 }
 /* Glass balustrade with timber cap rail; collider only bites at its own level. */
