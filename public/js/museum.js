@@ -1850,6 +1850,178 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         return registerProp(g, d, 0.3, 0.34, 0.16);
     }
 
+    /* ---- non-interactive retail dressing (fixtures & set decoration) ---- */
+    const steelMat = new THREE.MeshStandardMaterial({ color: 0xb9bbbe, metalness: 0.85, roughness: 0.35, envMapIntensity: 1.0 });
+    const glassMat = MAT.glass;
+    const kraftMat = new THREE.MeshStandardMaterial({ color: 0xc9ad82, roughness: 0.9 });
+    const matteBlack = new THREE.MeshStandardMaterial({ color: 0x1c1e22, roughness: 0.5 });
+
+    // neat colour-blocked stack of folded shirts
+    function foldedStack(x, y, z, n = 4, ry = 0) {
+        for (let i = 0; i < n; i++) {
+            const c = shirtColors[(i + (x | 0)) % shirtColors.length];
+            const fold = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.055, 0.34),
+                new THREE.MeshStandardMaterial({ color: c, roughness: 0.95, envMapIntensity: 0.12 }));
+            fold.position.set(x, y + 0.03 + i * 0.06, z);
+            fold.rotation.y = ry + (Math.random() - 0.5) * 0.05;
+            fold.castShadow = true; fold.receiveShadow = true; worldGroup.add(fold);
+        }
+    }
+    // pendant light with an emissive bulb
+    function pendant(x, y, z, shade = 0x2a2c30) {
+        const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, y - 0.1, 5), matteBlack);
+        cord.position.set(x, (y) / 2 + Y - y, z); // hang from ceiling
+        const drop = Y - y;
+        cord.position.set(x, Y - drop / 2, z); cord.scale.y = drop / (y - 0.1 || 1);
+        worldGroup.add(cord);
+        const cone = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.2, 20, 1, true),
+            new THREE.MeshStandardMaterial({ color: shade, metalness: 0.6, roughness: 0.4, side: THREE.DoubleSide }));
+        cone.position.set(x, y, z); cone.castShadow = true; worldGroup.add(cone);
+        const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.05, 12, 8),
+            new THREE.MeshBasicMaterial({ color: 0xfff2d4, toneMapped: false }));
+        bulb.position.set(x, y - 0.06, z); worldGroup.add(bulb);
+    }
+    // hanging blade sign over an aisle
+    function bladeSign(text, x, y, z, normal) {
+        for (const dx of [-0.55, 0.55]) {
+            const ch = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, Y - y - 0.1, 4), steelMat);
+            ch.position.set(x + dx, (Y + y + 0.1) / 2, z); ch.scale.y = 1; worldGroup.add(ch);
+        }
+        const panel = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.42, 0.05), matteBlack);
+        panel.position.set(x, y, z); panel.castShadow = true; worldGroup.add(panel);
+        goldLettering(text, x, y, z + (normal.z > 0 ? 0.03 : -0.03), normal, 0.3);
+    }
+    // glass display case on a cabinet base; returns the top surface height
+    function displayCase(cx, cz, w, d, ry) {
+        const base = new THREE.Group(); base.position.set(cx, 0, cz); base.rotation.y = ry;
+        const cab = new THREE.Mesh(new THREE.BoxGeometry(w, 0.92, d), shelfWood);
+        cab.position.y = 0.46; cab.castShadow = true; cab.receiveShadow = true; base.add(cab);
+        const kick = new THREE.Mesh(new THREE.BoxGeometry(w - 0.06, 0.08, d - 0.06), matteBlack);
+        kick.position.y = 0.04; base.add(kick);
+        // glass vitrine
+        const gh = 0.34;
+        for (const [px, pz, pw, pd] of [[0, d / 2, w, 0.02], [0, -d / 2, w, 0.02], [w / 2, 0, 0.02, d], [-w / 2, 0, 0.02, d]]) {
+            const pane = new THREE.Mesh(new THREE.BoxGeometry(pw, gh, pd), glassMat);
+            pane.position.set(px, 0.92 + gh / 2, pz); base.add(pane);
+        }
+        const lid = new THREE.Mesh(new THREE.BoxGeometry(w, 0.02, d), glassMat);
+        lid.position.y = 0.92 + gh; base.add(lid);
+        const shelf = new THREE.Mesh(new THREE.BoxGeometry(w - 0.1, 0.02, d - 0.1),
+            new THREE.MeshStandardMaterial({ color: 0xe9e4d8, roughness: 0.8 }));
+        shelf.position.y = 0.93; base.add(shelf);
+        worldGroup.add(base);
+        addCollider(cx - (Math.abs(Math.cos(ry)) * w + Math.abs(Math.sin(ry)) * d) / 2,
+            cx + (Math.abs(Math.cos(ry)) * w + Math.abs(Math.sin(ry)) * d) / 2,
+            cz - (Math.abs(Math.sin(ry)) * w + Math.abs(Math.cos(ry)) * d) / 2,
+            cz + (Math.abs(Math.sin(ry)) * w + Math.abs(Math.cos(ry)) * d) / 2);
+        return base;
+    }
+    // point-of-sale cluster: terminal, card reader, receipt printer, tip jar, bag stack
+    function posCluster(x, y, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const term = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.22, 0.22), matteBlack);
+        term.position.set(0, 0.11, 0); term.castShadow = true; g.add(term);
+        const scr = new THREE.Mesh(new THREE.PlaneGeometry(0.24, 0.16),
+            new THREE.MeshBasicMaterial({ color: 0x9fd0e8, toneMapped: false }));
+        scr.position.set(0, 0.15, 0.112); scr.rotation.x = -0.25; g.add(scr);
+        const reader = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.14, 0.05), matteBlack);
+        reader.position.set(0.28, 0.07, 0.05); reader.rotation.x = -0.3; g.add(reader);
+        const printer = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.12, 0.16),
+            new THREE.MeshStandardMaterial({ color: 0xe8e6df, roughness: 0.6 }));
+        printer.position.set(-0.34, 0.06, 0.02); g.add(printer);
+        const jar = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.14, 14), glassMat);
+        jar.position.set(-0.34, 0.07, 0.32); g.add(jar);
+        // stack of kraft bags
+        const bags = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.05, 0.34), kraftMat);
+        bags.position.set(0.28, 0.03, 0.36); bags.castShadow = true; g.add(bags);
+        worldGroup.add(g);
+    }
+    // stack of shopping baskets
+    function basketStack(x, z, n = 4) {
+        for (let i = 0; i < n; i++) {
+            const bk = new THREE.Group(); bk.position.set(x, 0.12 + i * 0.11, z); bk.rotation.y = i * 0.12;
+            const bt = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.02, 0.3), matteBlack); bk.add(bt);
+            for (const [px, pz, pw, pd] of [[0, 0.15, 0.4, 0.02], [0, -0.15, 0.4, 0.02], [0.2, 0, 0.02, 0.3], [-0.2, 0, 0.02, 0.3]]) {
+                const wall = new THREE.Mesh(new THREE.BoxGeometry(pw, 0.14, pd), matteBlack);
+                wall.position.set(px, 0.08, pz); bk.add(wall);
+            }
+            bk.castShadow = true; worldGroup.add(bk);
+        }
+        addCollider(x - 0.25, x + 0.25, z - 0.2, z + 0.2);
+    }
+    // torso mannequin on a stand wearing a featured tee (streams the product art)
+    function mannequin(d, x, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry;
+        const formMat = new THREE.MeshStandardMaterial({ color: 0xdedad0, roughness: 0.6, envMapIntensity: 0.4 });
+        const baseP = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.05, 20), steelMat);
+        baseP.position.y = 0.025; g.add(baseP);
+        const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.95, 10), steelMat);
+        pole.position.y = 0.5; g.add(pole);
+        const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.12, 0.5, 20), formMat);
+        torso.position.y = 1.2; torso.scale.z = 0.62; torso.castShadow = true; g.add(torso);
+        const shoulders = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 10), formMat);
+        shoulders.position.y = 1.42; shoulders.scale.set(1, 0.5, 0.62); g.add(shoulders);
+        const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.06, 0.12, 12), formMat);
+        neck.position.y = 1.52; g.add(neck);
+        // a real tee over the form: soft shell + chest print
+        const tee = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.14, 0.42, 20), new THREE.MeshStandardMaterial({ color: 0x2b2d33, roughness: 0.95 }));
+        tee.position.y = 1.2; tee.scale.z = 0.66; g.add(tee);
+        const pm = printMat();
+        const print = new THREE.Mesh(new THREE.PlaneGeometry(0.16, 0.18), pm);
+        print.position.set(0, 1.24, 0.116); g.add(print);
+        stream(d, g, photoOn(pm));
+        worldGroup.add(g);
+        interactables.push({ mesh: print, data: { kind: 'panel', gallery: 'Museum Shop', n: d.n, l1: d.l1, l2: 'Featured', d: d.d, u: d.u } });
+        addCollider(x - 0.28, x + 0.28, z - 0.28, z + 0.28);
+    }
+    // slatwall panel with pegged small goods
+    function slatwall(x0, x1, wy, z, normal, items) {
+        const w = x1 - x0;
+        const panel = new THREE.Mesh(new THREE.BoxGeometry(w, 1.5, 0.05),
+            new THREE.MeshStandardMaterial({ color: 0xd8d2c4, roughness: 0.8 }));
+        panel.position.set((x0 + x1) / 2, wy, z); panel.receiveShadow = true; worldGroup.add(panel);
+        for (let i = 0; i < 8; i++) {
+            const slat = new THREE.Mesh(new THREE.BoxGeometry(w - 0.06, 0.03, 0.02),
+                new THREE.MeshStandardMaterial({ color: 0xbfb8a8, roughness: 0.7 }));
+            slat.position.set((x0 + x1) / 2, wy - 0.7 + i * 0.18, z + normal.z * 0.03); worldGroup.add(slat);
+        }
+        (items || []).forEach((d, i) => {
+            const col = i % 5, row = Math.floor(i / 5);
+            const px = x0 + 0.4 + col * ((w - 0.8) / 4);
+            const py = wy + 0.35 - row * 0.5;
+            const peg = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.1, 6), steelMat);
+            peg.rotation.x = Math.PI / 2; peg.position.set(px, py + 0.14, z + normal.z * 0.08); worldGroup.add(peg);
+            stickerProp(d, px, py, z + normal.z * 0.12, normal.z > 0 ? 0 : Math.PI, { pin: isPin(d) });
+        });
+    }
+    // rotating postcard/print spinner rack
+    function spinnerRack(x, z, cards) {
+        const g = new THREE.Group(); g.position.set(x, 0, z);
+        const baseP = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.32, 0.06, 20), matteBlack);
+        baseP.position.y = 0.03; g.add(baseP);
+        const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 1.5, 12), steelMat);
+        pole.position.y = 0.78; g.add(pole);
+        (cards || []).forEach((d, i) => {
+            const wing = new THREE.Group(); wing.rotation.y = (i / Math.max(1, cards.length)) * Math.PI * 2; g.add(wing);
+            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.02, 1.2), new THREE.MeshStandardMaterial({ color: 0xcfcabd, roughness: 0.7 }));
+            mesh.position.set(0.02, 0.85, 0); wing.add(mesh);
+            for (let r = 0; r < 3; r++) {
+                const pm = printMat();
+                const card = new THREE.Mesh(new THREE.PlaneGeometry(0.26, 0.34), pm);
+                card.position.set(0.16, 0.55 + r * 0.38, 0.01); wing.add(card);
+                stream(d, wing, (t) => { photoOn(pm)(t); });
+            }
+        });
+        g.castShadow = true; worldGroup.add(g);
+        addCollider(x - 0.35, x + 0.35, z - 0.35, z + 0.35);
+    }
+    // entrance doormat
+    function doormat(x, z) {
+        const mat = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.03, 0.9),
+            new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [3, 2] }), color: 0x4a3f33, roughness: 1, envMapIntensity: 0.1 }));
+        mat.position.set(x, 0.015, z); mat.receiveShadow = true; worldGroup.add(mat);
+    }
+
     // ---- sort products onto their fixtures ----
     const byType = t => SHOP.filter(p => p.type === t);
     const isTote = d => /tote|bag/i.test(d.n);
@@ -1866,112 +2038,180 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     const caps = misc.filter(d => !mugs.includes(d) && isCap(d)).slice(0, 2);
     const boxed = misc.filter(d => !mugs.includes(d) && !caps.includes(d));
 
-    // ---- coat-hanger rail along the north wall ----
-    if (apparel.length) {
-        const railY = 2.35, railZ = 25.5;
-        const x0 = 18.6 - (apparel.length - 1) * 0.475;
-        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, Math.max(3.4, apparel.length * 0.95 + 0.7), 10), MAT.brass);
-        rail.rotation.z = Math.PI / 2; rail.position.set(18.6, railY, railZ);
-        worldGroup.add(rail);
-        for (const bx of [x0 - 0.4, 18.6 * 2 - x0 + 0.4]) {
-            const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.34, 8), MAT.brass);
-            arm.rotation.x = Math.PI / 2; arm.position.set(bx, railY, railZ + 0.17);
-            worldGroup.add(arm);
+    /* ---- dense instanced "stock": rows of the same product filling shelves,
+       the way a real shop looks. One draw call each for all mugs / books /
+       boxes. Kept as non-interactive dressing around the hero pickable props. */
+    const SHOP_C = new THREE.Vector3(18.5, 0, 21);
+    const STOCK = { mugs: [], books: [], boxes: [] };
+    const _col = new THREE.Color();
+    const _e = new THREE.Euler(), _v = new THREE.Vector3(), _q2 = new THREE.Quaternion(), _one = new THREE.Vector3(1, 1, 1);
+    const mugColors = [0xffffff, 0x2f5c96, 0x2b8a86, 0xb23a48, 0xe6b93f, 0x39527a, 0xf2efe8, 0x6d7683];
+    const bookColors = [0x3a4a63, 0x7a2f3d, 0x2e5140, 0xb2762f, 0x4a3a63, 0xc9c3b4, 0x2b3138, 0x8a8578];
+    const boxColors = [0xd8cbb0, 0xbcc7cf, 0xcdb794, 0xc7b6c9];
+    function localMat(x, y, z, ry, sx, sy, sz) {
+        return new THREE.Matrix4().compose(_v.set(x - SHOP_C.x, y, z - SHOP_C.z),
+            _q2.setFromEuler(_e.set(0, ry, 0)), new THREE.Vector3(sx, sy, sz));
+    }
+    const pushMug = (x, y, z, ry, c) => STOCK.mugs.push({ m: localMat(x, y + 0.055, z, ry, 1, 1, 1), c });
+    const pushBook = (x, y, z, h, c) => STOCK.books.push({ m: localMat(x, y + h / 2, z, 0, 0.14, h, 0.04), c });
+    const pushBox = (x, y, z, c) => STOCK.boxes.push({ m: localMat(x, y + 0.1, z, 0, 0.17, 0.2, 0.24), c });
+
+    // fill one shelf face with a dense row appropriate to its height
+    function fillShelf(fx, y, cz, length, tier, seed = 0) {
+        const type = tier < 0.62 ? 'book' : tier < 1.12 ? 'mug' : tier < 1.62 ? 'book' : 'box';
+        if (type === 'mug') {
+            const n = Math.floor(length / 0.15);
+            for (let i = 0; i < n; i++) pushMug(fx, y, cz - length / 2 + 0.09 + i * (length / n), 0, mugColors[(i + seed) % mugColors.length]);
+        } else if (type === 'book') {
+            const n = Math.floor(length / 0.05);
+            for (let i = 0; i < n; i++) pushBook(fx, y, cz - length / 2 + 0.05 + i * (length / n), 0.19 + (i % 5) * 0.015, bookColors[(i + seed) % bookColors.length]);
+        } else {
+            const n = Math.floor(length / 0.28);
+            for (let i = 0; i < n; i++) pushBox(fx, y, cz - length / 2 + 0.16 + i * (length / n), boxColors[(i + seed) % boxColors.length]);
         }
+    }
+
+    // freestanding double-sided gondola running along z: a thin center spine
+    // with shelves cantilevering out both faces, packed with stock
+    function gondola(cx, cz, len, label) {
+        const half = 0.45, topY = 1.98;
+        box(0.09, topY, len, shelfWood, cx, topY / 2, cz, {});          // center spine
+        box(half * 2, 0.12, len, matteBlack, cx, 0.06, cz, {});         // base kick
+        box(half * 2 - 0.06, 0.3, len * 0.84, matteBlack, cx, topY + 0.18, cz, {}); // header board
+        if (label) goldLettering(label, cx, topY + 0.18, cz + 0.01, new THREE.Vector3(0, 0, 1), 0.24);
+        for (const side of [1, -1]) {
+            for (const ty of [0.44, 0.94, 1.44, 1.92]) {
+                box(0.4, 0.04, len - 0.08, shelfWood, cx + side * 0.25, ty, cz, { shadow: false });
+                fillShelf(cx + side * 0.32, ty + 0.02, cz, len - 0.24, ty, (side > 0 ? 0 : 3) + (cx | 0));
+            }
+        }
+        addCollider(cx - half - 0.05, cx + half + 0.05, cz - len / 2 - 0.05, cz + len / 2 + 0.05);
+    }
+
+    // wall-mounted shelf run of stock along z at the given wall x
+    function wallShelves(wx, faceSign, cz, len) {
+        for (const ty of [0.62, 1.12, 1.62, 2.12]) {
+            box(0.3, 0.04, len, shelfWood, wx + faceSign * 0.15, ty, cz, { shadow: false });
+            const br = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.24, 0.03), matteBlack);
+            br.position.set(wx + faceSign * 0.14, ty - 0.14, cz - len / 2 + 0.2); worldGroup.add(br);
+            fillShelf(wx + faceSign * 0.13, ty + 0.02, cz, len - 0.3, ty, (ty * 7 | 0));
+        }
+    }
+
+    // strip fluorescent fixture on the ceiling
+    function stripLight(x, z, len) {
+        const h = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.09, len), new THREE.MeshStandardMaterial({ color: 0xe8e8e6, roughness: 0.5, metalness: 0.2 }));
+        h.position.set(x, Y - 0.05, z); worldGroup.add(h);
+        const t = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.04, len - 0.12), new THREE.MeshBasicMaterial({ color: 0xfff6e4, toneMapped: false }));
+        t.position.set(x, Y - 0.1, z); worldGroup.add(t);
+    }
+
+    // ---- fixtures & merchandising ----
+    doormat(14.0, 24.0);
+    for (const [sx, sz, sl] of [[15.4, 21, 7.4], [18.5, 21, 7.4], [21.6, 21, 7.4]]) stripLight(sx, sz, sl);
+
+    // two packed gondolas down the middle
+    gondola(18.0, 20.6, 5.4, 'Gifts');
+    gondola(21.0, 20.6, 5.4, 'Books & Mugs');
+    // east wall shelving full of mugs & books
+    wallShelves(23.72, -1, 21, 6.2);
+    addCollider(23.55, 24, 17.7, 24.3);
+    // north wall shelving too (short run east of the apparel rail)
+    // (kept clear on the west for the rail)
+
+    // ---- hero interactive products salted through the stock ----
+    // apparel on a coat-hanger rail (north wall, west half)
+    if (apparel.length) {
+        const railY = 2.32, railZ = 25.5, x0 = 16.2 - (apparel.length - 1) * 0.47;
+        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, apparel.length * 0.95 + 0.7, 10), MAT.brass);
+        rail.rotation.z = Math.PI / 2; rail.position.set(16.2, railY, railZ); worldGroup.add(rail);
         apparel.forEach((d, i) => {
             const x = x0 + i * 0.95;
+            const hook = new THREE.Mesh(new THREE.TorusGeometry(0.05, 0.012, 8, 14), MAT.metal);
+            hook.position.set(x, railY + 0.02, railZ); worldGroup.add(hook);
             if (isTote(d)) toteProp(d, x, railY - 0.3, railZ + 0.02, Math.PI);
             else shirtProp(d, x, railY - 0.56, railZ + 0.02, Math.PI, i);
         });
-        goldLettering('Apparel', 18.6, 3.35, 25.83, new THREE.Vector3(0, 0, -1), 0.5);
-        addCollider(14.6, 22.6, 25.15, 26);
+        goldLettering('Apparel', 16.2, 3.3, 25.83, new THREE.Vector3(0, 0, -1), 0.42);
+        addCollider(13.4, 19.2, 25.2, 26);
+        // folded stacks on a low shelf under the rail
+        for (let i = 0; i < 4; i++) foldedStack(14.3 + i * 0.5, 0.62, 25.2, 3 + (i % 2), 0);
+        box(2.4, 0.6, 0.44, shelfWood, 15.05, 0.3, 25.25, { collide: true });
     }
+    // hero mugs & books face-out on the east wall shelf front
+    mugs.forEach((d, i) => mugProp(d, 23.5, 1.175, 19.4 + i * 1.4, -Math.PI / 2));
+    books.slice(0, 4).forEach((d, i) => bookProp(d, 23.44, [0.86, 1.36][i % 2] + 0.02, 19.6 + Math.floor(i / 2) * 2.2, -Math.PI / 2, i, { w: 0.4, h: 0.54 }));
 
-    // ---- bookshelf against the east wall: standing books + flat stacks ----
-    if (books.length || mugs.length) {
-        const bx = 23.6, caseZ0 = 18.2, caseZ1 = 24.2, caseMid = (caseZ0 + caseZ1) / 2;
-        box(0.36, 3.1, caseZ1 - caseZ0, shelfWood, 23.86, 1.55, caseMid, {});
-        for (const sy of [0.72, 1.62, 2.52]) box(0.34, 0.05, caseZ1 - caseZ0, shelfWood, 23.72, sy, caseMid, {});
-        books.forEach((d, i) => {
-            const sy = [0.72, 1.62][Math.floor(i / 3)] ?? 1.62;
-            const z = caseZ0 + 1.0 + (i % 3) * 1.9;
-            bookProp(d, bx, sy + 0.32, z, -Math.PI / 2, i);
-            // a short lying stack of copies beside each display copy
-            for (let k = 0; k < 2; k++) {
-                const st = new THREE.Mesh(new THREE.BoxGeometry(0.28 - k * 0.01, 0.05, 0.4 - k * 0.015),
-                    new THREE.MeshStandardMaterial({ color: [0x4a4136, 0x36414a][k % 2], roughness: 0.65 }));
-                st.rotation.y = (k ? -0.05 : 0.04);
-                st.position.set(23.68, sy + 0.05 + k * 0.051, z + 0.62);
-                st.castShadow = true; st.receiveShadow = true;
-                worldGroup.add(st);
-            }
-        });
-        mugs.forEach((d, i) => mugProp(d, bx, 2.52 + 0.078, caseZ0 + 1.2 + i * 1.6, -Math.PI / 2));
-        goldLettering('Books & Zines', 23.83, 3.5, 21.2, new THREE.Vector3(-1, 0, 0), 0.5);
-        addCollider(23.4, 24, caseZ0 - 0.1, caseZ1 + 0.1);
-    }
+    // checkout: glass display case + POS + baskets, front-left by the entrance
+    displayCase(14.7, 20.6, 0.95, 2.8, 0);
+    posCluster(14.75, 1.28, 20.2, Math.PI / 2);
+    basketStack(14.6, 23.0, 4);
+    goldLettering('Checkout', 13.2, 2.7, 20.6, new THREE.Vector3(1, 0, 0), 0.34);
+    // impulse stickers under the register glass
+    if (small.length) small.slice(0, 4).forEach((d, i) => stickerProp(d, 14.4 + (i % 2) * 0.5, 0.99, 20.0 + Math.floor(i / 2) * 0.5, Math.PI / 2, { pin: isPin(d) }));
 
-    // ---- posters: two framed flat, the rest rolled in a browse crate ----
-    posters.slice(0, 2).forEach((d, i) => posterFlatProp(d, 15.9 + i * 2.4, 2.1, 16.71));
-    const tubes = posters.slice(2);
-    if (tubes.length) {
-        const crX = 21.6, crZ = 17.15;
-        box(1.1, 0.1, 0.8, shelfWood, crX, 0.05, crZ, {});
-        for (const [w, h, dpt, ox, oz] of [[1.1, 0.5, 0.045, 0, -0.38], [1.1, 0.5, 0.045, 0, 0.38], [0.045, 0.5, 0.72, -0.53, 0], [0.045, 0.5, 0.72, 0.53, 0]]) {
-            box(w, h, dpt, shelfWood, crX + ox, 0.35, crZ + oz, {});
-        }
-        tubes.forEach((d, i) => {
-            posterTubeProp(d, crX - 0.3 + (i % 2) * 0.6, 0.56, crZ - 0.15 + Math.floor(i / 2) * 0.3,
-                (i % 2 ? 0.05 : -0.04), (i % 3 - 1) * 0.06);
-        });
-        addCollider(crX - 0.6, crX + 0.6, crZ - 0.45, crZ + 0.45);
-    }
-    if (posters.length) goldLettering('Posters & Prints', 18.4, 3.25, 16.68, new THREE.Vector3(0, 0, 1), 0.5);
+    // slatwall of pegged small goods on the south wall (west half)
+    slatwall(14.0, 17.6, 1.5, 16.72, new THREE.Vector3(0, 0, 1), small.slice(2));
+    goldLettering('Stickers & Pins', 15.8, 2.55, 16.7, new THREE.Vector3(0, 0, 1), 0.34);
+    // framed prints on the south wall (east half)
+    posters.slice(0, 2).forEach((d, i) => posterFlatProp(d, 19.6 + i * 2.2, 2.0, 16.72));
+    if (posters.length) goldLettering('Prints', 21.8, 3.1, 16.7, new THREE.Vector3(0, 0, 1), 0.34);
 
-    // ---- checkout counter by the door + counter-top sticker stand ----
-    box(2.4, 1.0, 0.85, MAT.benchWood, 15.3, 0.5, 18.7, { collide: true });
-    box(2.6, 0.07, 1.0, cream, 15.3, 1.04, 18.7, {});
-    const reg = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.3),
-        new THREE.MeshStandardMaterial({ color: 0x24262b, roughness: 0.4 }));
-    reg.position.set(14.6, 1.23, 18.7); reg.rotation.y = 0.5; reg.castShadow = true;
-    worldGroup.add(reg);
-    const regScreen = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.2),
-        new THREE.MeshBasicMaterial({ color: 0xbfd8e8, toneMapped: false }));
-    regScreen.position.set(14.68, 1.25, 18.85); regScreen.rotation.y = 0.5;
-    worldGroup.add(regScreen);
-    if (small.length) {
-        for (const [ti, ty, tz] of [[0, 1.08, 18.5], [1, 1.3, 18.85]]) {
-            box(1.3, 0.05, 0.3, shelfWood, 15.7, ty, tz, { shadow: false });
-            small.slice(ti * 4, ti * 4 + 4).forEach((d, i) => {
-                stickerProp(d, 15.28 + i * 0.31, ty + 0.115, tz, 0, { pin: isPin(d) });
-            });
-        }
-    }
+    // two wire spinner racks of postcards near the entrance
+    spinnerRack(16.6, 23.4, posters.length ? posters : SHOP.slice(0, 6));
+    spinnerRack(16.6, 18.4, SHOP.slice(0, 6));
 
-    // ---- center table: caps + boxed goods, facing both aisles ----
+    // a mannequin bust wearing the featured tee, greeting you at the door
+    if (apparel.length) mannequin(apparel[0], 14.5, 22.6, -0.7);
+
+    // caps + boxed goods on a gondola end-cap table
     if (caps.length || boxed.length) {
-        box(2.3, 0.85, 1.15, shelfWood, 19.2, 0.42, 20.6, { collide: true });
-        box(2.5, 0.06, 1.3, cream, 19.2, 0.88, 20.6, {});
-        caps.forEach((d, i) => capProp(d, 18.6 + i * 1.2, 0.91, 20.6, i ? 2.4 : -0.7));
-        boxed.forEach((d, i) => {
-            const row = i % 2, x = 18.4 + Math.floor(i / 2) * 0.55;
-            boxProp(d, x, 1.06, 20.6 + (row ? 0.33 : -0.33), row ? 0.15 : Math.PI - 0.15);
-        });
+        box(1.0, 0.9, 0.7, shelfWood, 18.0, 0.45, 17.6, { collide: true });
+        box(1.1, 0.06, 0.8, cream, 18.0, 0.92, 17.6, {});
+        caps.forEach((d, i) => capProp(d, 17.75 + i * 0.5, 0.96, 17.6, i ? 2.4 : -0.7));
+        boxed.slice(0, 3).forEach((d, i) => boxProp(d, 20.7, 1.06, 18.6 + i * 0.0 - i * 0.0, Math.PI - 0.1));
     }
 
-    // interpretive panel linking straight to the store
+    // pendant lights over the counter and each gondola
+    for (const [px, pz] of [[14.7, 20.6], [18.0, 20.6], [21.0, 20.6]]) pendant(px, 3.1, pz);
+
+    // hanging blade sign over the entrance aisle
+    bladeSign('Museum Shop', 15.0, 3.2, 22.0, new THREE.Vector3(-1, 0, 0));
+
+    // interpretive panel linking straight to the store (north wall, east)
     wallPanel(panelTexture('Museum Shop', 'Take the work\nhome with you',
-        'Everything in this room is real — shirts, books, prints, and stickers from the coalition\'s store. Pick any item up to look at it closely; if you want it, the Buy button opens its store page, and every purchase funds the documentation and defense work this museum is built on.'),
-        new THREE.Vector3(23.05, 2.1, 25.8), new THREE.Vector3(0, 0, -1), 1.5, 2.1,
+        'Everything in this room is real — shirts, books, prints, mugs, and stickers from the coalition\'s store. Pick any item up to look at it closely; if you want it, the Buy button opens its store page, and every purchase funds the documentation and defense work this museum is built on.'),
+        new THREE.Vector3(20.5, 2.1, 25.78), new THREE.Vector3(0, 0, -1), 1.6, 2.2,
         { interact: { kind: 'panel', n: 'Take the work home with you', l1: 'Museum Shop', d: 'Everything in this room is a real product from the coalition\'s store. Every purchase funds the documentation and defense work this museum is built on.', u: '/store' } });
 
-    // greenery + a bench so it reads as a room, not a stockroom
-    ficusTree(23.1, 17.3, 3.2, 0.45);
-    bench(19.2, 24.2, 0, true);
-    const rug = new THREE.Mesh(new THREE.CircleGeometry(1.7, 40),
+    // greenery + rug so it reads as a room, not a stockroom
+    ficusTree(23.0, 24.6, 2.9, 0.42);
+    const rug = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 3.0),
         new THREE.MeshStandardMaterial({ ...pbr('fabric', { repeat: [2, 2] }), color: 0x7a2f3d, roughness: 1, envMapIntensity: 0.2 }));
-    rug.rotation.x = -Math.PI / 2; rug.position.set(19.2, 0.02, 21.6);
-    rug.receiveShadow = true; worldGroup.add(rug);
+    rug.rotation.x = -Math.PI / 2; rug.position.set(19.5, 0.02, 21.0); rug.receiveShadow = true; worldGroup.add(rug);
+
+    // ---- flush the instanced stock ----
+    const ceramicMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.26, metalness: 0.02, envMapIntensity: 1.0 });
+    const bookStockMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.62, envMapIntensity: 0.4 });
+    const boxStockMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.85, envMapIntensity: 0.3 });
+    const mugBody = new THREE.CylinderGeometry(0.05, 0.045, 0.11, 14);
+    const mugHandle = new THREE.TorusGeometry(0.03, 0.008, 6, 10, Math.PI);
+    const mugBase = mergeBucket([
+        { geo: mugBody, matrix: new THREE.Matrix4() },
+        { geo: mugHandle, matrix: new THREE.Matrix4().compose(new THREE.Vector3(0.05, 0, 0), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -Math.PI / 2)), _one) },
+    ]);
+    const unitBox = new THREE.BoxGeometry(1, 1, 1);
+    const flush = (geo, mat, arr) => {
+        if (!arr.length) return;
+        const im = new THREE.InstancedMesh(geo, mat, arr.length);
+        arr.forEach((s, i) => { im.setMatrixAt(i, s.m); im.setColorAt(i, _col.set(s.c)); });
+        im.instanceMatrix.needsUpdate = true; if (im.instanceColor) im.instanceColor.needsUpdate = true;
+        im.castShadow = false; im.receiveShadow = true; im.position.copy(SHOP_C);
+        im.frustumCulled = false; worldGroup.add(im);
+    };
+    flush(mugBase, ceramicMat, STOCK.mugs);
+    flush(unitBox, bookStockMat, STOCK.books);
+    flush(unitBox, boxStockMat, STOCK.boxes);
 
     rooms.push({
         name: 'Museum Shop', minX: X0, maxX: X1, minZ: Z0, maxZ: Z1,
