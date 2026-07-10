@@ -2448,8 +2448,17 @@ galleryMeta.forEach(({ i, g, sign, zHi, zLo, doorZ }) => {
         cofferedCeiling(loX, hiX, zA, zB, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 4, skylight: true });
     }
     wallRun('z', outerX, zA, zB, Y, { mat: wallMat });
-    wallRun('x', zA, loX, hiX, Y, { mat: wallMat });
-    wallRun('x', zB, loX, hiX, Y, { mat: wallMat });
+    // Interconnection: cut a doorway in the end walls shared with the same-side
+    // gallery in the next/previous row, so the branches read as one enfilade
+    // circuit (walk gallery→gallery) instead of dead-end rooms off the spine.
+    const doorX = sign * 22, DW = 2.4, DH = 3.0;
+    const hasNext = i + 2 < GAL.length;   // deeper same-side gallery (lower z, zA wall)
+    const hasPrev = i - 2 >= 0;            // shallower same-side gallery (higher z, zB wall)
+    wallRun('x', zA, loX, hiX, Y, { mat: wallMat, doors: hasNext ? [{ at: doorX, w: DW, h: DH }] : [] });
+    wallRun('x', zB, loX, hiX, Y, { mat: wallMat, doors: hasPrev ? [{ at: doorX, w: DW, h: DH }] : [] });
+    // bridge floor across the ~0.4m gap between the two galleries' walls
+    if (hasNext) floorRect(doorX - DW / 2 - 0.25, doorX + DW / 2 + 0.25, zA - 0.6, zA + 0.1, MAT.galleryFloor);
+    if (hasPrev) floorRect(doorX - DW / 2 - 0.25, doorX + DW / 2 + 0.25, zB - 0.1, zB + 0.6, MAT.galleryFloor);
 
     // track lighting over the outer wall + the fins
     trackLightZ(zA + 2, zB - 2, outerX - sign * 1.4, Y, 6);
@@ -2841,6 +2850,7 @@ function partitionWorldByRoom() {
     link('Grand Atrium', 'Garden of Remembrance');      // through the west vestibule
     const gals = (DATA.galleries || []);
     for (let i = 0; i + 1 < gals.length; i += 2) link(gals[i].title, gals[i + 1].title);   // door-to-door across the spine
+    for (let i = 0; i + 2 < gals.length; i++) link(gals[i].title, gals[i + 2].title);       // enfilade: same-side gallery-to-gallery
     return { groups, adj };
 }
 function updateRegionVisibility() {
