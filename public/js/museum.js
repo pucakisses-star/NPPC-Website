@@ -1591,18 +1591,18 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     balustrade('x', 11, -10.34, 10, 4.6);
     balustrade('z', 10, 11, 22, 4.6);
     balustrade('x', 22, 10, 13, 4.6);
-    // mezzanine planters (banded colliders so the ground floor passes below)
-    for (const px of [-6, 2]) {
+    // mezzanine planter (west; the east half of the band is the café)
+    for (const px of [-8]) {
         const pb = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 0.8), MAT.benchWood);
         pb.position.set(px, 4.8, 7.2); worldGroup.add(pb);
         bushSprite(px - 0.3, 4.98, 7.2, 0.7); bushSprite(px + 0.35, 4.98, 7.2, 0.6);
         addCollider(px - 0.8, px + 0.8, 6.8, 7.6, 4.4, 6.2);
     }
-    // upstairs hang: faces over the balustrade + the Debs quote in gold
-    goldLettering('"While there is a soul in prison, I am not free."', 0, 9.15, 6.18, new THREE.Vector3(0, 0, 1), 2.2);
-    goldLettering('— Eugene V. Debs, 1918', 6.8, 8.05, 6.18, new THREE.Vector3(0, 0, 1), 0.8);
+    // upstairs hang: faces over the balustrade (west half) + the Debs quote
+    goldLettering('"While there is a soul in prison, I am not free."', -3.5, 9.15, 6.18, new THREE.Vector3(0, 0, 1), 1.9);
+    goldLettering('— Eugene V. Debs, 1918', 2, 8.05, 6.18, new THREE.Vector3(0, 0, 1), 0.7);
     (DATA.faces || []).slice(6, 10).forEach((f, i) => {
-        hangArt(f, new THREE.Vector3(-6 + i * 4, 6.15, 6.18), new THREE.Vector3(0, 0, 1), { frame: MAT.frameBlack, artH: 1.05, gallery: 'Faces of the Database' });
+        hangArt(f, new THREE.Vector3(-11 + i * 3, 6.15, 6.18), new THREE.Vector3(0, 0, 1), { frame: MAT.frameBlack, artH: 1.05, gallery: 'Faces of the Database' });
     });
     (DATA.faces || []).slice(10, 13).forEach((f, i) => {
         hangArt(f, new THREE.Vector3(12.82, 6.15, 13 + i * 3.4), new THREE.Vector3(-1, 0, 0), { frame: MAT.frameBlack, artH: 1.0, gallery: 'Faces of the Database' });
@@ -1630,7 +1630,133 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     rooms.push({
         name: 'Grand Atrium', minX: -13, maxX: 13, minZ: 6, maxZ: 26,
         rig: { key: { p: [0, Y - 0.7, 16], t: [0, 0.2, 15.5], i: 230, angle: 0.85, dist: 30 },
-            fills: [[0, 6.4, 22, 42, 0xfff0dc], [-8, 5.8, 11, 30, 0xfff3e4], [8, 5.8, 12, 30, 0xfff3e4], [0, 6.8, 8.5, 26, 0xffeede]] } });
+            fills: [[0, 6.4, 22, 42, 0xfff0dc], [-8, 5.8, 11, 30, 0xfff3e4], [7, 6.6, 8.5, 26, 0xffe7c8], [0, 6.8, 8.5, 26, 0xffeede]] } });
+})();
+
+/* ---- Café / social lounge on the atrium mezzanine (east half of the north
+   band, y=4.6), overlooking the hall over the balustrade — a green living
+   wall, cascading plants, paper lanterns, a coffee bar and bar seating.
+   Colliders are height-banded so the ground floor below stays clear. ---- */
+(function cafe() {
+    const FY = 4.6, CY = 10.5;                       // mezzanine floor / atrium ceiling
+    const band = (x0, x1, z0, z1) => addCollider(x0, x1, z0, z1, 4.4, 6.6);
+    const woodMat = new THREE.MeshStandardMaterial({ ...pbr('wood', { repeat: [1.4, 0.6] }), color: 0x6a4d31, roughness: 0.6, envMapIntensity: 0.5 });
+    const stoneTop = new THREE.MeshStandardMaterial({ color: 0xece7db, roughness: 0.4, envMapIntensity: 0.6 });
+    const greenMat = new THREE.MeshStandardMaterial({ color: 0x2b5238, roughness: 0.95, envMapIntensity: 0.12 });
+    const chrome = new THREE.MeshStandardMaterial({ color: 0xcdd0d3, metalness: 0.9, roughness: 0.28, envMapIntensity: 1.1 });
+    const leafMat = new THREE.MeshStandardMaterial({ color: 0x3f6a37, roughness: 0.7, side: THREE.DoubleSide, envMapIntensity: 0.4 });
+
+    // living / trellis wall against the north wall
+    const gw = new THREE.Mesh(new THREE.BoxGeometry(11, 3.6, 0.12), greenMat);
+    gw.position.set(6.5, FY + 1.9, 6.4); gw.receiveShadow = true; worldGroup.add(gw);
+    for (let i = 0; i < 12; i++) {                    // brass trellis battens
+        const bat = new THREE.Mesh(new THREE.BoxGeometry(0.04, 3.5, 0.03), MAT.brass);
+        bat.position.set(1.4 + i * 0.92, FY + 1.9, 6.34); worldGroup.add(bat);
+    }
+    goldLettering('Café', 6.5, FY + 3.15, 6.33, new THREE.Vector3(0, 0, 1), 0.55);
+
+    // cascading hanging plant: strands of little leaves draping down
+    function hangingPlant(x, z, topY, len) {
+        const g = new THREE.Group(); g.position.set(x, topY, z); worldGroup.add(g);
+        for (let s = 0; s < 5; s++) {
+            const a = (s / 5) * Math.PI * 2, rx = Math.cos(a) * 0.12, rz = Math.sin(a) * 0.12;
+            const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, len, 4),
+                new THREE.MeshStandardMaterial({ color: 0x395c2e }));
+            wire.position.set(rx, -len / 2, rz); g.add(wire);
+            for (let k = 0; k < 5; k++) {
+                const lf = new THREE.Mesh(new THREE.PlaneGeometry(0.12, 0.2), leafMat);
+                lf.position.set(rx + (Math.random() - 0.5) * 0.05, -0.2 - k * (len / 5), rz);
+                lf.rotation.set(0.7, s + k, 0); g.add(lf);
+            }
+        }
+    }
+    for (const [px, pz, ln] of [[2.4, 6.7, 1.6], [4.4, 6.7, 2.0], [6.5, 6.7, 1.5], [8.6, 6.7, 2.1], [10.6, 6.7, 1.7]])
+        hangingPlant(px, pz, FY + 3.5, ln);
+
+    // back-bar shelves with coffee bags + mugs
+    for (const sy of [FY + 1.5, FY + 2.1]) {
+        const sh = new THREE.Mesh(new THREE.BoxGeometry(7, 0.05, 0.28), woodMat);
+        sh.position.set(6, sy, 6.62); sh.castShadow = true; worldGroup.add(sh);
+        for (let i = 0; i < 12; i++) {
+            const bag = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.24, 0.12),
+                new THREE.MeshStandardMaterial({ color: [0x8a5a2b, 0x2f4f4f, 0x7a2f3d, 0x3a3f4a][i % 4], roughness: 0.7 }));
+            bag.position.set(3 + i * 0.55, sy + 0.15, 6.62); bag.castShadow = true; worldGroup.add(bag);
+        }
+    }
+
+    // coffee bar counter
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(7.4, 1.05, 0.7), woodMat);
+    bar.position.set(6, FY + 0.525, 7.5); bar.castShadow = true; bar.receiveShadow = true; worldGroup.add(bar);
+    const top = new THREE.Mesh(new THREE.BoxGeometry(7.7, 0.07, 0.86), stoneTop);
+    top.position.set(6, FY + 1.09, 7.5); worldGroup.add(top);
+    band(2.2, 9.8, 7.05, 7.95);
+    // espresso machine + grinder + cup stack on the bar
+    const em = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.42, 0.5), chrome);
+    em.position.set(5, FY + 1.33, 7.5); em.castShadow = true; worldGroup.add(em);
+    for (const gx of [4.8, 5.2]) {
+        const grp = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.12, 8), chrome);
+        grp.position.set(gx, FY + 1.16, 7.68); worldGroup.add(grp);
+    }
+    const grinder = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.36, 0.2), matteBlackAtrium());
+    grinder.position.set(5.9, FY + 1.3, 7.5); worldGroup.add(grinder);
+    for (let i = 0; i < 3; i++) {
+        const cups = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.045, 0.18, 12),
+            new THREE.MeshStandardMaterial({ color: 0xf2efe8, roughness: 0.5 }));
+        cups.position.set(6.7 + i * 0.18, FY + 1.22, 7.5); worldGroup.add(cups);
+    }
+    // pastry display case at the end of the bar
+    const disp = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.35, 0.55), MAT.glass);
+    disp.position.set(8.7, FY + 1.31, 7.5); worldGroup.add(disp);
+
+    // bar stool
+    function stool(x, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, FY, z); g.rotation.y = ry; worldGroup.add(g);
+        const seat = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.06, 16), woodMat);
+        seat.position.y = 0.66; seat.castShadow = true; g.add(seat);
+        const post = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.66, 10), chrome);
+        post.position.y = 0.33; g.add(post);
+        const ring = new THREE.Mesh(new THREE.TorusGeometry(0.13, 0.012, 6, 16), chrome);
+        ring.position.y = 0.24; ring.rotation.x = Math.PI / 2; g.add(ring);
+        const foot = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.02, 16), chrome);
+        foot.position.y = 0.01; g.add(foot);
+    }
+    for (let i = 0; i < 6; i++) stool(3.2 + i * 1.1, 8.35, Math.PI);   // facing the bar
+    // a rail of stools facing OUT over the balustrade (the overlook bar)
+    const ledge = new THREE.Mesh(new THREE.BoxGeometry(8, 0.06, 0.36), stoneTop);
+    ledge.position.set(5.5, FY + 1.06, 10.55); worldGroup.add(ledge);
+    band(1.5, 9.6, 10.35, 10.75);
+    for (let i = 0; i < 5; i++) stool(2.4 + i * 1.5, 10.05, 0);        // facing the atrium view
+
+    // two small café tables with chairs
+    function cafeTable(x, z) {
+        const g = new THREE.Group(); g.position.set(x, FY, z); worldGroup.add(g);
+        const t = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.05, 20), stoneTop);
+        t.position.y = 0.74; t.castShadow = true; g.add(t);
+        const ped = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.09, 0.74, 10), chrome);
+        ped.position.y = 0.37; g.add(ped);
+        for (const a of [0, Math.PI]) {
+            const ch = new THREE.Group(); ch.position.set(Math.sin(a) * 0.62, 0, Math.cos(a) * 0.62); ch.rotation.y = a; g.add(ch);
+            const cs = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.05, 16), woodMat); cs.position.y = 0.46; cs.castShadow = true; ch.add(cs);
+            const cp = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.46, 8), chrome); cp.position.y = 0.23; ch.add(cp);
+            const bk = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.4, 0.04), woodMat); bk.position.set(0, 0.68, -0.18); ch.add(bk);
+        }
+        band(x - 0.9, x + 0.9, z - 0.9, z + 0.9);
+    }
+    cafeTable(3.4, 9.2); cafeTable(7.6, 9.3);
+
+    // paper-lantern pendants over the café
+    function lantern(x, z, y, r) {
+        const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.004, 0.004, CY - y, 4),
+            new THREE.MeshStandardMaterial({ color: 0x2a2a2a }));
+        cord.position.set(x, (CY + y) / 2, z); worldGroup.add(cord);
+        const lamp = new THREE.Mesh(new THREE.SphereGeometry(r, 18, 12),
+            new THREE.MeshStandardMaterial({ color: 0xfff6ea, emissive: 0xffe7c0, emissiveIntensity: 0.75, roughness: 0.6 }));
+        lamp.scale.y = 0.86; lamp.position.set(x, y, z); worldGroup.add(lamp);
+    }
+    for (const [lx, lz, ly, lr] of [[3, 8.5, 8.3, 0.26], [5.2, 9.3, 7.8, 0.32], [7.4, 8.6, 8.4, 0.24], [9.4, 9.4, 7.9, 0.3], [6.2, 7.6, 8.6, 0.22]])
+        lantern(lx, lz, ly, lr);
+
+    function matteBlackAtrium() { return new THREE.MeshStandardMaterial({ color: 0x24262b, roughness: 0.5 }); }
 })();
 
 /* ---- Museum Shop: a retail wing off the atrium's east side.
