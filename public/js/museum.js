@@ -846,9 +846,11 @@ function hangingBanner(item, x, topY, z, w, h, normal, { emissive = 0.5 } = {}) 
 
 /* Matte plaster-cast human figure (abstracted) — the ghostly white standees of
    the tableau room. Not a real person; a memorial silhouette. */
-function plasterFigure(x, z, ry, { seated = false, scale = 1 } = {}) {
+function plasterFigure(x, z, ry, { seated = false, scale = 1, bronze = false } = {}) {
     const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; worldGroup.add(g);
-    const mat = new THREE.MeshStandardMaterial({ color: 0xdcdad2, roughness: 0.95, metalness: 0, envMapIntensity: 0.3 });
+    const mat = bronze
+        ? new THREE.MeshStandardMaterial({ color: 0x6d4f2a, metalness: 0.9, roughness: 0.4, envMapIntensity: 1.3 })
+        : new THREE.MeshStandardMaterial({ color: 0xdcdad2, roughness: 0.95, metalness: 0, envMapIntensity: 0.3 });
     const s = scale;
     const legH = seated ? 0.5 : 0.9;
     const hip = seated ? 0.55 : 0.95;
@@ -2420,6 +2422,22 @@ GAL.forEach((g, i) => {
 
     for (let z = -1; z >= spineEnd + 2; z -= 9) ceilingLight(0, Y, z, 2.4, 0.3);
     for (let z = -6; z >= spineEnd + 4; z -= 12) { bench(0, z, 0); }
+
+    // freestanding artifacts along the hall edges: a bronze orator on a plinth
+    // at the threshold, document vitrines set between the portraits
+    plinth(-4.6, 3.2, 0.75, 0.42);
+    plasterFigure(-4.6, 3.2, 0.5, { scale: 0.78, bronze: true });
+    const arch = (DATA.archive || []);
+    if (arch.length) {
+        vitrine(arch[0], 4.6, -7, -0.5);
+        if (arch[1]) vitrine(arch[1], -4.6, -19, 0.5);
+        if (arch[2]) vitrine(arch[2], 4.6, -31, -0.5);
+    }
+    // two movement banners hung high down the hall
+    (DATA.monoliths || []).slice(0, 2).forEach((m, k) => {
+        hangingBanner(m, k === 0 ? 4.4 : -4.4, Y - 0.1, -12 - k * 14, 1.8, 3.4, new THREE.Vector3(k === 0 ? -1 : 1, 0, 0), { emissive: 0.42 });
+    });
+
     rooms.push({
         name: 'The Hall of Figures', minX: -X, maxX: X, minZ: spineEnd, maxZ: 6,
         rig: { key: { p: [0, Y - 0.6, -8], t: [0, 0, -8], i: 90, angle: 0.9, dist: 26 },
@@ -2472,6 +2490,21 @@ galleryMeta.forEach(({ i, g, sign, zHi, zLo, doorZ }) => {
     fillOpenGallery(g.items || [], sign, innerX, outerX, cxMid, zA, zB, doorZ, frameMat, accent, g.title);
     bench(sign * 9.5, doorZ, 0, true);          // red bench near the entrance
     bench(cxMid + sign * 3, doorZ, 0, true);
+
+    // a freestanding artifact standing in the open floor (objects, not only
+    // framed photos — the museum-object look from the references)
+    const artZ = doorZ + 5.4;
+    const arch = (DATA.archive || []);
+    if (arch.length && i % 2 === 0) {
+        vitrine(arch[(i / 2 | 0) % arch.length], cxMid, artZ, sign > 0 ? -0.4 : 0.4);   // document vitrine
+    } else {
+        plinth(cxMid, artZ, 1.1, 0.4);                                                   // bronze bust on a plinth
+        const bust = new THREE.Group(); bust.position.set(cxMid, 1.1, artZ); worldGroup.add(bust);
+        const bmat = new THREE.MeshStandardMaterial({ color: 0x6d4f2a, metalness: 0.9, roughness: 0.4, envMapIntensity: 1.3 });
+        const sh = new THREE.Mesh(new THREE.SphereGeometry(0.24, 18, 12), bmat); sh.scale.set(1, 0.5, 0.62); sh.position.y = 0.12; sh.castShadow = true; bust.add(sh);
+        const nk = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.16, 12), bmat); nk.position.y = 0.28; bust.add(nk);
+        const hd = new THREE.Mesh(new THREE.SphereGeometry(0.15, 18, 16), bmat); hd.scale.set(0.9, 1.05, 0.95); hd.position.y = 0.46; hd.castShadow = true; bust.add(hd);
+    }
 
     rooms.push({
         name: g.title, minX: loX, maxX: hiX, minZ: zA, maxZ: zB,
