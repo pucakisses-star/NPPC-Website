@@ -1377,79 +1377,280 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     goldLettering('Museum Shop', 13.17, 3.3, 19.5, new THREE.Vector3(1, 0, 0), 0.6);
     goldLettering('every purchase supports the coalition', 13.17, 2.55, 19.5, new THREE.Vector3(1, 0, 0), 0.4);
 
-    // one product = one box you can physically pick up; image streams onto
-    // the front face (local +z, which the held-item logic turns to the eye)
-    function productMesh(d, w, h, t, x, y, z, ry, { tilt = 0 } = {}) {
-        const side = new THREE.MeshStandardMaterial({ color: 0xe9e5da, roughness: 0.7 });
-        const front = new THREE.MeshStandardMaterial({ color: 0xdedbd2, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.05 });
-        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, t), [side, side, side, side, front, side]);
-        m.position.set(x, y, z); m.rotation.y = ry;
-        if (tilt) m.rotation.x = tilt;
-        m.castShadow = true; m.receiveShadow = true;
-        worldGroup.add(m);
-        if (d.img) artQueue.push({
-            url: d.img, pos: m.position.clone(),
-            apply: (tex) => {
-                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
-                front.map = tex; front.emissiveMap = tex;
-                front.color.set(0xffffff); front.needsUpdate = true;
-            },
-        });
-        interactables.push({ mesh: m, data: { kind: 'product', gallery: 'Museum Shop', coverAxis: [0, 0, 1], ...d } });
+    /* ---- 3D product props -------------------------------------------------
+       Every product is a physical object — a shirt on a wire hanger, a bound
+       book, a die-cut sticker, a ceramic mug, a rolled poster tube — with the
+       product photo printed on it. An invisible proxy box makes the whole
+       prop clickable; picking it up lifts the entire prop off its rack. */
+    const metalThin = new THREE.MeshStandardMaterial({ color: 0x9a9a98, metalness: 0.9, roughness: 0.35, envMapIntensity: 1.1 });
+    const paper = new THREE.MeshStandardMaterial({ color: 0xf1ede0, roughness: 0.85 });
+    const pagesMat = new THREE.MeshStandardMaterial({ color: 0xefe9da, roughness: 0.9 });
+    const shirtColors = [0xe8e4dc, 0x2b2d33, 0x6d7683, 0x5c2231, 0x2e3d55, 0x4a4f3a, 0x8a8578];
+    const printMat = () => new THREE.MeshStandardMaterial({ color: 0xd9d5cc, roughness: 0.55, emissive: 0xffffff, emissiveIntensity: 0.05 });
+    const photoOn = (mat, { circle = false } = {}) => (tex) => {
+        let final = tex;
+        if (circle) {                                   // die-cut sticker crop
+            const im = tex.image, s = Math.min(im.width, im.height);
+            const c = document.createElement('canvas'); c.width = c.height = 256;
+            const gc = c.getContext('2d');
+            gc.beginPath(); gc.arc(128, 128, 124, 0, 7); gc.clip();
+            gc.drawImage(im, (im.width - s) / 2, (im.height - s) / 2, s, s, 0, 0, 256, 256);
+            gc.lineWidth = 14; gc.strokeStyle = '#f2efe6'; gc.stroke();
+            final = new THREE.CanvasTexture(c);
+        }
+        final.colorSpace = THREE.SRGBColorSpace; final.anisotropy = 8;
+        mat.map = final; mat.emissiveMap = final;
+        mat.color.set(0xffffff); mat.needsUpdate = true;
+    };
+    const stream = (d, g, apply) => { if (d.img) artQueue.push({ url: d.img, pos: g.position.clone(), apply }); };
+    function registerProp(g, d, pw, ph, pt) {
+        const proxy = new THREE.Mesh(new THREE.BoxGeometry(pw, ph, pt),
+            new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false }));
+        g.add(proxy);
+        worldGroup.add(g);
+        const holdD = Math.min(1.55, Math.max(0.55, Math.max(pw, ph) * 0.95 + 0.2));
+        interactables.push({ mesh: proxy, grab: g, data: { kind: 'product', gallery: 'Museum Shop', coverAxis: [0, 0, 1], holdD, ...d } });
+        return g;
+    }
+    function bar(g, from, to, r, mat) {
+        const dir = new THREE.Vector3().subVectors(to, from);
+        const len = dir.length();
+        const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 8), mat);
+        m.position.copy(from).addScaledVector(dir, 0.5);
+        m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize());
+        g.add(m);
         return m;
     }
+    function hangerInto(g, neckY, shoulderX, shoulderY) {
+        const apex = new THREE.Vector3(0, neckY + 0.1, 0);
+        bar(g, apex, new THREE.Vector3(shoulderX, shoulderY, 0), 0.007, metalThin);
+        bar(g, apex, new THREE.Vector3(-shoulderX, shoulderY, 0), 0.007, metalThin);
+        bar(g, new THREE.Vector3(shoulderX, shoulderY, 0), new THREE.Vector3(-shoulderX, shoulderY, 0), 0.006, metalThin);
+        bar(g, apex, new THREE.Vector3(0, neckY + 0.17, 0), 0.008, metalThin);
+        const hook = new THREE.Mesh(new THREE.TorusGeometry(0.042, 0.008, 8, 12, Math.PI), metalThin);
+        hook.position.set(0, neckY + 0.17, 0); g.add(hook);
+    }
 
+    // T-shirt / hoodie on a wire hanger; photo printed on the chest
+    function shirtProp(d, x, y, z, ry, idx) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const fabricM = new THREE.MeshStandardMaterial({ color: shirtColors[idx % shirtColors.length], roughness: 0.95, envMapIntensity: 0.15 });
+        const s = new THREE.Shape();
+        s.moveTo(-0.1, 0.35); s.lineTo(-0.3, 0.3); s.lineTo(-0.43, 0.09);
+        s.lineTo(-0.335, 0.005); s.lineTo(-0.255, 0.115); s.lineTo(-0.235, -0.395);
+        s.lineTo(0.235, -0.395); s.lineTo(0.255, 0.115); s.lineTo(0.335, 0.005);
+        s.lineTo(0.43, 0.09); s.lineTo(0.3, 0.3); s.lineTo(0.1, 0.35);
+        s.quadraticCurveTo(0, 0.25, -0.1, 0.35);
+        const geo = new THREE.ExtrudeGeometry(s, { depth: 0.045, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.012, bevelSegments: 2, curveSegments: 6 });
+        geo.translate(0, 0, -0.028);
+        const shirt = new THREE.Mesh(geo, fabricM);
+        shirt.castShadow = true; shirt.receiveShadow = true; g.add(shirt);
+        if (/hood/i.test(d.n)) {                        // hood lump + drawstrings
+            const hood = new THREE.Mesh(new THREE.SphereGeometry(0.13, 10, 8), fabricM);
+            hood.scale.set(1, 0.62, 0.5); hood.position.set(0, 0.315, -0.02); g.add(hood);
+            for (const sx of [-0.045, 0.045]) bar(g, new THREE.Vector3(sx, 0.24, 0.055), new THREE.Vector3(sx, 0.1, 0.062), 0.005, new THREE.MeshStandardMaterial({ color: 0xd8d4ca, roughness: 1 }));
+        }
+        const pm = printMat();
+        const print = new THREE.Mesh(new THREE.PlaneGeometry(0.27, 0.29), pm);
+        print.position.set(0, 0.02, 0.062); g.add(print);
+        stream(d, g, photoOn(pm));
+        hangerInto(g, 0.35, 0.3, 0.3);
+        return registerProp(g, d, 0.82, 0.98, 0.15);
+    }
+
+    // canvas tote hung by its handles
+    function toteProp(d, x, y, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const canvasM = new THREE.MeshStandardMaterial({ color: 0xe6dfc9, roughness: 0.95, envMapIntensity: 0.15 });
+        const body = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.4, 0.055), canvasM);
+        body.castShadow = true; body.receiveShadow = true; g.add(body);
+        for (const hz of [-0.02, 0.02]) {
+            const handle = new THREE.Mesh(new THREE.TorusGeometry(0.105, 0.011, 8, 14, Math.PI), canvasM);
+            handle.position.set(0, 0.2, hz); g.add(handle);
+        }
+        const pm = printMat();
+        const print = new THREE.Mesh(new THREE.PlaneGeometry(0.24, 0.24), pm);
+        print.position.set(0, 0.01, 0.032); g.add(print);
+        stream(d, g, photoOn(pm));
+        return registerProp(g, d, 0.44, 0.72, 0.12);
+    }
+
+    // bound book standing face-out (cover, spine, page block)
+    function bookProp(d, x, y, z, ry, idx, { w = 0.42, h = 0.58, t = 0.065 } = {}) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const tint = [0x3a3f4a, 0x5c2231, 0x2e4638, 0x54452c][idx % 4];
+        const coverM = printMat(); coverM.color.set(0xcfccc2);
+        const clothM = new THREE.MeshStandardMaterial({ color: tint, roughness: 0.6 });
+        const book = new THREE.Mesh(new THREE.BoxGeometry(w, h, t),
+            [pagesMat, clothM, pagesMat, pagesMat, coverM, clothM]);
+        book.castShadow = true; book.receiveShadow = true; g.add(book);
+        stream(d, g, photoOn(coverM));
+        return registerProp(g, d, w + 0.05, h + 0.05, t + 0.04);
+    }
+
+    // ceramic mug with a handle and a wrapped print
+    function mugProp(d, x, y, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const ceramic = new THREE.MeshStandardMaterial({ color: 0xf4f2ec, roughness: 0.22, envMapIntensity: 1.1 });
+        const bodyM = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.046, 0.105, 18),
+            [ceramic, new THREE.MeshStandardMaterial({ color: 0x2e2620, roughness: 0.4 }), ceramic]);
+        bodyM.castShadow = true; g.add(bodyM);
+        const handle = new THREE.Mesh(new THREE.TorusGeometry(0.032, 0.0085, 8, 14, Math.PI), ceramic);
+        handle.position.set(0.05, 0, 0); handle.rotation.z = -Math.PI / 2; g.add(handle);
+        const pm = printMat();
+        const label = new THREE.Mesh(new THREE.CylinderGeometry(0.052, 0.052, 0.082, 16, 1, true, -0.95, 1.9), pm);
+        g.add(label);
+        stream(d, g, photoOn(pm));
+        return registerProp(g, d, 0.15, 0.13, 0.13);
+    }
+
+    // die-cut sticker / enamel pin leaning on a stand
+    function stickerProp(d, x, y, z, ry, { pin = false } = {}) {
+        const g = new THREE.Group(); g.position.set(x, y, z);
+        g.rotation.y = ry; g.rotation.x = -0.3;
+        const r = pin ? 0.055 : 0.1;
+        const pm = printMat();
+        const disc = new THREE.Mesh(new THREE.CylinderGeometry(r, r, pin ? 0.01 : 0.005, 24),
+            [new THREE.MeshStandardMaterial({ color: pin ? 0xb8b6b0 : 0xffffff, metalness: pin ? 0.8 : 0, roughness: pin ? 0.3 : 0.6 }), pm, paper]);
+        disc.rotation.x = Math.PI / 2;
+        disc.castShadow = true; g.add(disc);
+        stream(d, g, photoOn(pm, { circle: true }));
+        return registerProp(g, d, r * 2.3, r * 2.3, 0.06);
+    }
+
+    // framed poster flat on the wall
+    function posterFlatProp(d, x, y, z) {
+        const g = new THREE.Group(); g.position.set(x, y, z);
+        const frame = new THREE.Mesh(new THREE.BoxGeometry(1.0, 1.36, 0.03), MAT.frameBlack);
+        frame.castShadow = true; g.add(frame);
+        const pm = printMat();
+        const sheet = new THREE.Mesh(new THREE.PlaneGeometry(0.92, 1.28), pm);
+        sheet.position.z = 0.017; g.add(sheet);
+        stream(d, g, photoOn(pm));
+        return registerProp(g, d, 1.0, 1.36, 0.08);
+    }
+
+    // rolled poster tube standing in the browse crate
+    function posterTubeProp(d, x, y, z, tiltX, tiltZ) {
+        const g = new THREE.Group(); g.position.set(x, y, z);
+        g.rotation.x = tiltX; g.rotation.z = tiltZ;
+        const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.034, 0.034, 0.92, 14), paper);
+        tube.castShadow = true; g.add(tube);
+        const pm = printMat();
+        const wrap = new THREE.Mesh(new THREE.CylinderGeometry(0.0355, 0.0355, 0.5, 14, 1, true, -1.2, 2.4), pm);
+        g.add(wrap);
+        const core = new THREE.Mesh(new THREE.CircleGeometry(0.024, 12), new THREE.MeshStandardMaterial({ color: 0xd9d2bf, roughness: 1 }));
+        core.rotation.x = -Math.PI / 2; core.position.y = 0.461; g.add(core);
+        stream(d, g, photoOn(pm));
+        return registerProp(g, d, 0.1, 0.96, 0.1);
+    }
+
+    // baseball cap resting on a surface
+    function capProp(d, x, y, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const fabricM = new THREE.MeshStandardMaterial({ color: 0x2e3d55, roughness: 0.95 });
+        const dome = new THREE.Mesh(new THREE.SphereGeometry(0.095, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2), fabricM);
+        dome.scale.set(1, 0.82, 1); dome.castShadow = true; g.add(dome);
+        const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.012, 14, 1, false, -Math.PI / 2.6, Math.PI / 1.3), fabricM);
+        brim.position.set(0, 0.004, 0.09); brim.scale.set(1, 1, 1.35); g.add(brim);
+        const pm = printMat();
+        const patch = new THREE.Mesh(new THREE.CircleGeometry(0.038, 16), pm);
+        patch.position.set(0, 0.052, 0.088); patch.rotation.x = -0.5; g.add(patch);
+        stream(d, g, photoOn(pm, { circle: true }));
+        return registerProp(g, d, 0.22, 0.14, 0.26);
+    }
+
+    // boxed product (candles, sets, anything else) — photo on the carton front
+    function boxProp(d, x, y, z, ry) {
+        const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry;
+        const carton = new THREE.MeshStandardMaterial({ color: 0xcdb794, roughness: 0.9 });
+        const pm = printMat();
+        const bx = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.3, 0.12),
+            [carton, carton, carton, carton, pm, carton]);
+        bx.castShadow = true; bx.receiveShadow = true; g.add(bx);
+        stream(d, g, photoOn(pm));
+        return registerProp(g, d, 0.3, 0.34, 0.16);
+    }
+
+    // ---- sort products onto their fixtures ----
     const byType = t => SHOP.filter(p => p.type === t);
+    const isTote = d => /tote|bag/i.test(d.n);
+    const isMug = d => /mug|cup|bottle|tumbler/i.test(d.n);
+    const isCap = d => /\bhat\b|\bcap\b|beanie/i.test(d.n);
+    const isPin = d => /pin|button|badge/i.test(d.n);
     const apparel = byType('apparel').slice(0, 7);
-    const books = byType('book').slice(0, 9);
-    const posters = byType('poster').slice(0, 4);
+    const books = byType('book').slice(0, 6);
+    const posters = byType('poster').slice(0, 6);
     const small = byType('small').slice(0, 8);
     const taken = new Set([...apparel, ...books, ...posters, ...small]);
-    const misc = SHOP.filter(p => !taken.has(p)).slice(0, 6);
+    const misc = SHOP.filter(p => !taken.has(p)).slice(0, 8);
+    const mugs = misc.filter(isMug).slice(0, 3);
+    const caps = misc.filter(d => !mugs.includes(d) && isCap(d)).slice(0, 2);
+    const boxed = misc.filter(d => !mugs.includes(d) && !caps.includes(d));
 
-    // ---- apparel rail along the north wall (hung tees facing the room) ----
+    // ---- coat-hanger rail along the north wall ----
     if (apparel.length) {
-        const railY = 2.35, railZ = 25.52;
-        const x0 = 18.6 - (apparel.length - 1) * 0.45;
-        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, Math.max(3.4, apparel.length * 0.9 + 0.6), 10), MAT.brass);
+        const railY = 2.35, railZ = 25.5;
+        const x0 = 18.6 - (apparel.length - 1) * 0.475;
+        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, Math.max(3.4, apparel.length * 0.95 + 0.7), 10), MAT.brass);
         rail.rotation.z = Math.PI / 2; rail.position.set(18.6, railY, railZ);
         worldGroup.add(rail);
-        for (const bx of [x0 - 0.35, 18.6 * 2 - x0 + 0.35]) {
+        for (const bx of [x0 - 0.4, 18.6 * 2 - x0 + 0.4]) {
             const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.34, 8), MAT.brass);
             arm.rotation.x = Math.PI / 2; arm.position.set(bx, railY, railZ + 0.17);
             worldGroup.add(arm);
         }
         apparel.forEach((d, i) => {
-            const x = x0 + i * 0.9;
-            const hook = new THREE.Mesh(new THREE.TorusGeometry(0.05, 0.012, 8, 14), MAT.metal);
-            hook.position.set(x, railY + 0.02, railZ); worldGroup.add(hook);
-            productMesh(d, 0.68, 0.8, 0.035, x, railY - 0.53, railZ + 0.03, Math.PI);
+            const x = x0 + i * 0.95;
+            if (isTote(d)) toteProp(d, x, railY - 0.3, railZ + 0.02, Math.PI);
+            else shirtProp(d, x, railY - 0.56, railZ + 0.02, Math.PI, i);
         });
         goldLettering('Apparel', 18.6, 3.35, 25.83, new THREE.Vector3(0, 0, -1), 0.5);
-        addCollider(14.6, 22.6, 25.2, 26);
+        addCollider(14.6, 22.6, 25.15, 26);
     }
 
-    // ---- bookshelf against the east wall, covers face-out ----
-    if (books.length) {
-        const bx = 23.62, caseZ0 = 18.2, caseZ1 = 24.2;
-        box(0.36, 3.1, caseZ1 - caseZ0, shelfWood, 23.86, 1.55, (caseZ0 + caseZ1) / 2, {});
-        for (const sy of [0.72, 1.62, 2.52]) box(0.34, 0.05, caseZ1 - caseZ0, shelfWood, bx + 0.1, sy, (caseZ0 + caseZ1) / 2, {});
+    // ---- bookshelf against the east wall: standing books + flat stacks ----
+    if (books.length || mugs.length) {
+        const bx = 23.6, caseZ0 = 18.2, caseZ1 = 24.2, caseMid = (caseZ0 + caseZ1) / 2;
+        box(0.36, 3.1, caseZ1 - caseZ0, shelfWood, 23.86, 1.55, caseMid, {});
+        for (const sy of [0.72, 1.62, 2.52]) box(0.34, 0.05, caseZ1 - caseZ0, shelfWood, 23.72, sy, caseMid, {});
         books.forEach((d, i) => {
-            const sy = [0.72, 1.62, 2.52][Math.floor(i / 3)];
+            const sy = [0.72, 1.62][Math.floor(i / 3)] ?? 1.62;
             const z = caseZ0 + 1.0 + (i % 3) * 1.9;
-            productMesh(d, 0.52, 0.7, 0.05, bx, sy + 0.38, z, -Math.PI / 2);
+            bookProp(d, bx, sy + 0.32, z, -Math.PI / 2, i);
+            // a short lying stack of copies beside each display copy
+            for (let k = 0; k < 2; k++) {
+                const st = new THREE.Mesh(new THREE.BoxGeometry(0.28 - k * 0.01, 0.05, 0.4 - k * 0.015),
+                    new THREE.MeshStandardMaterial({ color: [0x4a4136, 0x36414a][k % 2], roughness: 0.65 }));
+                st.rotation.y = (k ? -0.05 : 0.04);
+                st.position.set(23.68, sy + 0.05 + k * 0.051, z + 0.62);
+                st.castShadow = true; st.receiveShadow = true;
+                worldGroup.add(st);
+            }
         });
+        mugs.forEach((d, i) => mugProp(d, bx, 2.52 + 0.078, caseZ0 + 1.2 + i * 1.6, -Math.PI / 2));
         goldLettering('Books & Zines', 23.83, 3.5, 21.2, new THREE.Vector3(-1, 0, 0), 0.5);
         addCollider(23.4, 24, caseZ0 - 0.1, caseZ1 + 0.1);
     }
 
-    // ---- posters on the south wall ----
-    posters.forEach((d, i) => {
-        productMesh(d, 0.94, 1.3, 0.02, 15.6 + i * 2.2, 2.05, 16.72, 0);
-    });
+    // ---- posters: two framed flat, the rest rolled in a browse crate ----
+    posters.slice(0, 2).forEach((d, i) => posterFlatProp(d, 15.9 + i * 2.4, 2.1, 16.71));
+    const tubes = posters.slice(2);
+    if (tubes.length) {
+        const crX = 21.6, crZ = 17.15;
+        box(1.1, 0.1, 0.8, shelfWood, crX, 0.05, crZ, {});
+        for (const [w, h, dpt, ox, oz] of [[1.1, 0.5, 0.045, 0, -0.38], [1.1, 0.5, 0.045, 0, 0.38], [0.045, 0.5, 0.72, -0.53, 0], [0.045, 0.5, 0.72, 0.53, 0]]) {
+            box(w, h, dpt, shelfWood, crX + ox, 0.35, crZ + oz, {});
+        }
+        tubes.forEach((d, i) => {
+            posterTubeProp(d, crX - 0.3 + (i % 2) * 0.6, 0.56, crZ - 0.15 + Math.floor(i / 2) * 0.3,
+                (i % 2 ? 0.05 : -0.04), (i % 3 - 1) * 0.06);
+        });
+        addCollider(crX - 0.6, crX + 0.6, crZ - 0.45, crZ + 0.45);
+    }
     if (posters.length) goldLettering('Posters & Prints', 18.4, 3.25, 16.68, new THREE.Vector3(0, 0, 1), 0.5);
 
-    // ---- checkout counter by the door + counter-top sticker rack ----
+    // ---- checkout counter by the door + counter-top sticker stand ----
     box(2.4, 1.0, 0.85, MAT.benchWood, 15.3, 0.5, 18.7, { collide: true });
     box(2.6, 0.07, 1.0, cream, 15.3, 1.04, 18.7, {});
     const reg = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.3),
@@ -1461,22 +1662,22 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     regScreen.position.set(14.68, 1.25, 18.85); regScreen.rotation.y = 0.5;
     worldGroup.add(regScreen);
     if (small.length) {
-        // stepped card stand on the counter, two tiers of little items
-        for (const [ti, ty, tz] of [[0, 1.2, 18.55], [1, 1.42, 18.85]]) {
-            box(1.3, 0.05, 0.3, shelfWood, 15.7, ty - 0.12, tz, { shadow: false });
+        for (const [ti, ty, tz] of [[0, 1.08, 18.5], [1, 1.3, 18.85]]) {
+            box(1.3, 0.05, 0.3, shelfWood, 15.7, ty, tz, { shadow: false });
             small.slice(ti * 4, ti * 4 + 4).forEach((d, i) => {
-                productMesh(d, 0.26, 0.26, 0.015, 15.25 + i * 0.31, ty, tz, 0, { tilt: -0.22 });
+                stickerProp(d, 15.28 + i * 0.31, ty + 0.115, tz, 0, { pin: isPin(d) });
             });
         }
     }
 
-    // ---- center table with the rest (tilted easel cards, back to back) ----
-    if (misc.length) {
+    // ---- center table: caps + boxed goods, facing both aisles ----
+    if (caps.length || boxed.length) {
         box(2.3, 0.85, 1.15, shelfWood, 19.2, 0.42, 20.6, { collide: true });
         box(2.5, 0.06, 1.3, cream, 19.2, 0.88, 20.6, {});
-        misc.forEach((d, i) => {
-            const row = Math.floor(i / 3), x = 18.5 + (i % 3) * 0.75;
-            productMesh(d, 0.56, 0.56, 0.03, x, 1.22, 20.6 + (row ? 0.26 : -0.26), row ? 0 : Math.PI, { tilt: row ? -0.2 : -0.2 });
+        caps.forEach((d, i) => capProp(d, 18.6 + i * 1.2, 0.91, 20.6, i ? 2.4 : -0.7));
+        boxed.forEach((d, i) => {
+            const row = i % 2, x = 18.4 + Math.floor(i / 2) * 0.55;
+            boxProp(d, x, 1.06, 20.6 + (row ? 0.33 : -0.33), row ? 0.15 : Math.PI - 0.15);
         });
     }
 
@@ -2170,7 +2371,7 @@ const bbMeta = document.getElementById('bb-meta');
 const bbReadLabel = document.getElementById('bb-read-label');
 function pickUpBook(entry) {
     if (held || overlayOpen) return;
-    const m = entry.mesh;
+    const m = entry.grab || entry.mesh;   // 3D props: grab the whole prop, not the click proxy
     held = {
         mesh: m, data: entry.data,
         homeParent: m.parent,
@@ -2208,7 +2409,7 @@ function updateHeld(dt) {
     if (held.phase === 'hold') {
         const fwd = new THREE.Vector3();
         camera.getWorldDirection(fwd);
-        const tp = camera.position.clone().addScaledVector(fwd, 0.6);
+        const tp = camera.position.clone().addScaledVector(fwd, held.data.holdD || 0.6);
         tp.y -= 0.04;
         _tmpO.position.copy(tp);
         _tmpO.lookAt(camera.position);                       // +z toward the eye
