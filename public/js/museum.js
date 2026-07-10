@@ -36,10 +36,11 @@ const ACCENTS = [GOLD, CRIMSON, TEAL, '#7c5cbf', '#b0592e', '#4e7d3a'];
 /* ------------------------------------------------------------------ boot */
 const canvas = document.getElementById('museum-canvas');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.autoUpdate = false;          // re-rendered on room change / periodically
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.12;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -224,12 +225,18 @@ function addCollider(minX, maxX, minZ, maxZ, y0 = -Infinity, y1 = Infinity) {
     colliders.push({ minX, maxX, minZ, maxZ, y0, y1 });
 }
 function addFloorZone(minX, maxX, minZ, maxZ, y) { floorZones.push({ minX, maxX, minZ, maxZ, y }); }
-function floorHeightAt(x, z) {
-    // Zones are non-overlapping tier platforms; return the containing zone's y.
+function floorHeightAt(x, z, cur = null) {
+    // Level-aware: a zone only counts if it is climbable from the walker's
+    // CURRENT height (a stair step, not a balcony 4.6m overhead). Without
+    // this, walking beneath the mezzanine teleports you up into its slab.
+    const from = cur === null ? player.ground : cur;
+    let best = 0;
     for (const f of floorZones) {
-        if (x >= f.minX && x <= f.maxX && z >= f.minZ && z <= f.maxZ) return f.y;
+        if (x >= f.minX && x <= f.maxX && z >= f.minZ && z <= f.maxZ) {
+            if (f.y <= from + 0.55 && f.y > best) best = f.y;
+        }
     }
-    return 0;
+    return best;
 }
 function box(w, h, d, mat, x, y, z, { shadow = true, collide = false, ry = 0 } = {}) {
     const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
@@ -1135,6 +1142,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     const dome = new THREE.Mesh(new THREE.SphereGeometry(75, 24, 16),
         new THREE.MeshBasicMaterial({ map: sky, side: THREE.BackSide, toneMapped: false }));
     dome.position.set(0, 0, 26);
+    dome.userData.shared = true;
     worldGroup.add(dome);
     // distant city skyline behind the plaza hedge
     const skyline = canvasTexture(2048, 400, (g, w, h) => {
@@ -1158,6 +1166,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     const far = new THREE.Mesh(new THREE.PlaneGeometry(64, 12.5),
         new THREE.MeshBasicMaterial({ map: skyline, transparent: true, toneMapped: false }));
     far.position.set(0, 6.05, 43.5); far.rotation.y = Math.PI;
+    far.userData.shared = true;
     worldGroup.add(far);
 
     // paving
@@ -1799,6 +1808,46 @@ function roomAt(x, z) {
     for (const r of rooms) if (x >= r.minX && x <= r.maxX && z >= r.minZ && z <= r.maxZ) return r;
     return null;
 }
+/* ---- region culling: only the current room and its sightline neighbours
+   are rendered. Content is partitioned into per-room groups after build;
+   anything tagged userData.shared (sky, skyline) stays always-on. ---- */
+let regionState = null;
+function partitionWorldByRoom() {
+    const groups = rooms.map(r => { const g = new THREE.Group(); g.name = 'region:' + r.name; return g; });
+    const shared = new THREE.Group(); shared.name = 'region:shared';
+    for (const child of [...worldGroup.children]) {
+        if (child.userData && child.userData.shared) { shared.add(child); continue; }
+        const p = child.position;
+        let target = null;
+        for (let i = 0; i < rooms.length; i++) {
+            const r = rooms[i];
+            if (p.x >= r.minX - 0.25 && p.x <= r.maxX + 0.25 && p.z >= r.minZ - 0.25 && p.z <= r.maxZ + 0.25) { target = groups[i]; break; }
+        }
+        (target || shared).add(child);
+    }
+    groups.forEach(g => worldGroup.add(g));
+    worldGroup.add(shared);
+    const adj = rooms.map(() => new Set());
+    const near = (a, b, pad) => !(a.maxX + pad < b.minX || b.maxX + pad < a.minX || a.maxZ + pad < b.minZ || b.maxZ + pad < a.minZ);
+    for (let i = 0; i < rooms.length; i++) {
+        for (let j = 0; j < rooms.length; j++) if (i !== j && near(rooms[i], rooms[j], 1.5)) adj[i].add(j);
+    }
+    // long axial vistas cross more than one boundary — link them explicitly
+    const byName = n => rooms.findIndex(r => r.name === n);
+    const link = (a, b) => { const ia = byName(a), ib = byName(b); if (ia >= 0 && ib >= 0) { adj[ia].add(ib); adj[ib].add(ia); } };
+    link('Museum Plaza', 'The Hall of Figures');       // through the atrium glass + door
+    link('Theater', 'Reading Room');                    // aligned doors across the archive
+    const gals = (DATA.galleries || []);
+    for (let i = 0; i + 1 < gals.length; i += 2) link(gals[i].title, gals[i + 1].title);   // door-to-door across the spine
+    return { groups, adj };
+}
+function updateRegionVisibility() {
+    if (!regionState || !curRoom) return;
+    const idx = rooms.indexOf(curRoom);
+    if (idx < 0) return;
+    regionState.groups.forEach((g, i) => { g.visible = (i === idx) || regionState.adj[idx].has(i); });
+}
+
 function setRoom(r) {
     if (!r || r === curRoom) return;
     prevRoom = curRoom; curRoom = r;
@@ -1812,6 +1861,8 @@ function setRoom(r) {
     });
     for (let i = r.rig.fills.length; i < fillPool.length; i++) fillPool[i].intensity = 0;
     toast(r.name);
+    updateRegionVisibility();
+    renderer.shadowMap.needsUpdate = true;
 }
 
 /* ----------------------------------------------------------------- player */
@@ -2127,7 +2178,23 @@ function pumpArtQueue() {
         }
         loading++;
         texLoader.load(job.url,
-            (tex) => { loading--; texCache.set(job.url, tex); job.apply(tex); },
+            (tex) => {
+                loading--;
+                let final = tex;
+                const im = tex.image;
+                if (im && (im.width > 1024 || im.height > 1024)) {
+                    const s = 1024 / Math.max(im.width, im.height);
+                    const c = document.createElement('canvas');
+                    c.width = Math.round(im.width * s); c.height = Math.round(im.height * s);
+                    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+                    final = new THREE.CanvasTexture(c);
+                    final.colorSpace = THREE.SRGBColorSpace;
+                    final.anisotropy = 8;
+                    tex.dispose();
+                }
+                texCache.set(job.url, final);
+                job.apply(final);
+            },
             undefined,
             () => { loading--; });
     }
@@ -2152,11 +2219,15 @@ function tick() {
     for (const s of slideshows) s.draw(dt);
     for (const a of animatedTex) a(dt);
     updateHeld(dt);
+    if (held || frame % 60 === 0) renderer.shadowMap.needsUpdate = true;
     if (window.__dust) window.__dust.rotation.y = Math.sin(clock.elapsedTime * 0.05) * 0.02;
     if (cellLight) cellLight.intensity = 16 + Math.sin(clock.elapsedTime * 17) * 0.9 + Math.sin(clock.elapsedTime * 3.1) * 0.7;
     renderer.render(scene, camera);
 }
+regionState = partitionWorldByRoom();
 setRoom(rooms[0]);
+updateRegionVisibility();
+renderer.shadowMap.needsUpdate = true;
 tick();
 
 /* boot the first textures immediately (nearest ones) */
@@ -2168,13 +2239,16 @@ window.__museumDebug = {
     teleport(x, z, yaw = Math.PI, pitch = 0) {
         player.pos.set(x, 0, z);
         player.yaw = yaw; player.pitch = pitch;
-        player.ground = floorHeightAt(x, z);
+        player.ground = floorHeightAt(x, z, 1e9);
         setRoom(roomAt(x, z));
         pumpArtQueue();
     },
     rooms_list() { return rooms.map(r => ({ n: r.name, x: (r.minX + r.maxX) / 2, z: (r.minZ + r.maxZ) / 2 })); },
-    blocked(x, z) { const px = player.pos.x, pz = player.pos.z; const g0 = player.ground; player.ground = floorHeightAt(x, z); const b = collide(x, z); player.ground = g0; return b; },
-    ground(x, z) { return floorHeightAt(x, z); },
+    blocked(x, z) { const g0 = player.ground; player.ground = floorHeightAt(x, z, g0); const b = collide(x, z); player.ground = g0; return b; },
+    ground(x, z) { return floorHeightAt(x, z, 1e9); },
+    regions() {
+        return regionState ? regionState.groups.map(g => ({ n: g.name.replace('region:', ''), vis: g.visible, kids: g.children.length })) : null;
+    },
     pickNearestBook() {
         let best = null, bd = 1e9;
         for (const it of interactables) {
