@@ -1431,6 +1431,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     dome.position.set(0, 0, 26);
     dome.userData.shared = true;
     worldGroup.add(dome);
+    (window.__sky = window.__sky || []).push(dome);
     // distant city skyline behind the plaza hedge
     const skyline = canvasTexture(2048, 400, (g, w, h) => {
         g.clearRect(0, 0, w, h);
@@ -1455,6 +1456,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     far.position.set(0, 6.05, 43.5); far.rotation.y = Math.PI;
     far.userData.shared = true;
     worldGroup.add(far);
+    (window.__sky = window.__sky || []).push(far);
 
     // paving
     floorRect(-16, 16, 26, 42, new THREE.MeshStandardMaterial({
@@ -3154,6 +3156,12 @@ function setRoom(r) {
         fillPool[i].color.set(f[4] || 0xfff0d8);
     });
     for (let i = r.rig.fills.length; i < fillPool.length; i++) fillPool[i].intensity = 0;
+    // sky dome + skyline only render in the outdoor-facing rooms, so a culling
+    // gap in the interior never reveals the sky as a big blue "hole"
+    if (window.__sky) {
+        const showSky = r.name === 'Museum Plaza' || r.name === 'Grand Atrium';
+        for (const s of window.__sky) s.visible = showSky;
+    }
     toast(r.name);
     updateRegionVisibility();
     renderer.shadowMap.needsUpdate = true;
