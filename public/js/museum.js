@@ -1198,6 +1198,139 @@ function planterBed(x0, x1, z0, z1, nBush = 4) {
     finalizePlant(p, cx, 0, cz);
     addCollider(x0, x1, z0, z1);
 }
+
+/* ------------------------------------------------ boulders & garden tree ---
+   High-resolution granite boulders (displaced icosahedra, flat-shaded, with a
+   procedural speckled-granite map on planar-projected UVs) and an airy
+   branching courtyard tree (recursive bark limbs + hi-res leaf-mass canopy). */
+const GRANITE_TEX = canvasTexture(1024, 1024, (g, w, h) => {
+    g.fillStyle = '#8c8984'; g.fillRect(0, 0, w, h);
+    const blotch = ['#6f6c69', '#a19d97', '#7d7a76', '#b6afa5', '#5e5c5a', '#9a8f80'];
+    for (let i = 0; i < 520; i++) {
+        g.globalAlpha = 0.22 + Math.random() * 0.4;
+        g.fillStyle = blotch[Math.random() * blotch.length | 0];
+        const x = Math.random() * w, y = Math.random() * h, r = 5 + Math.random() * 30;
+        g.beginPath(); g.ellipse(x, y, r, r * (0.45 + Math.random() * 0.6), Math.random() * 3, 0, TAU); g.fill();
+    }
+    for (let i = 0; i < 11000; i++) {
+        g.globalAlpha = 0.5 + Math.random() * 0.5;
+        const c = Math.random();
+        g.fillStyle = c < 0.5 ? '#efeae1' : (c < 0.8 ? '#48453f' : '#c7a78d');
+        const s = 0.6 + Math.random() * 1.9;
+        g.fillRect(Math.random() * w, Math.random() * h, s, s);
+    }
+    g.globalAlpha = 1;
+});
+GRANITE_TEX.wrapS = GRANITE_TEX.wrapT = THREE.RepeatWrapping;
+const ROCK_MAT = new THREE.MeshStandardMaterial({ map: GRANITE_TEX, color: 0xece7de, roughness: 0.82, metalness: 0.03, flatShading: true, envMapIntensity: 0.55 });
+
+function planarUV(geo, scale) {
+    const pos = geo.attributes.position, nrm = geo.attributes.normal;
+    const uv = new Float32Array(pos.count * 2);
+    for (let i = 0; i < pos.count; i++) {
+        const nx = Math.abs(nrm.getX(i)), ny = Math.abs(nrm.getY(i)), nz = Math.abs(nrm.getZ(i));
+        const px = pos.getX(i), py = pos.getY(i), pz = pos.getZ(i);
+        let u, v;
+        if (nx >= ny && nx >= nz) { u = pz; v = py; }
+        else if (ny >= nx && ny >= nz) { u = px; v = pz; }
+        else { u = px; v = py; }
+        uv[i * 2] = u * scale; uv[i * 2 + 1] = v * scale;
+    }
+    geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+}
+function makeBoulderGeo(seed) {
+    const geo = new THREE.IcosahedronGeometry(1, 2);
+    const pos = geo.attributes.position, v = new THREE.Vector3();
+    for (let i = 0; i < pos.count; i++) {
+        v.set(pos.getX(i), pos.getY(i), pos.getZ(i)).normalize();
+        let d = 1;
+        d += 0.30 * Math.sin(v.x * 2.1 + seed) * Math.sin(v.y * 2.4 + seed * 1.3) * Math.sin(v.z * 2.7 + seed * 0.7);
+        d += 0.16 * Math.sin(v.x * 4.3 + seed * 1.7) * Math.cos(v.z * 4.1 + seed * 0.5);
+        d += 0.08 * Math.cos(v.y * 8.1 + seed * 2.2);
+        v.multiplyScalar(d);
+        pos.setXYZ(i, v.x, v.y, v.z);
+    }
+    geo.computeVertexNormals();
+    planarUV(geo, 0.9);
+    return geo;
+}
+function boulder(x, z, scale, ry, { yBase = 0, collide = true } = {}) {
+    const m = new THREE.Mesh(makeBoulderGeo(Math.random() * 100), ROCK_MAT);
+    const sy = scale * (0.78 + Math.random() * 0.5);
+    m.scale.set(scale * (0.9 + Math.random() * 0.3), sy, scale * (0.9 + Math.random() * 0.3));
+    m.rotation.set((Math.random() - 0.5) * 0.28, ry, (Math.random() - 0.5) * 0.28);
+    m.position.set(x, yBase + sy * 0.58, z);
+    m.castShadow = true; m.receiveShadow = true;
+    worldGroup.add(m);
+    if (collide) addCollider(x - scale * 0.85, x + scale * 0.85, z - scale * 0.85, z + scale * 0.85);
+    return m;
+}
+
+const BARK_TEX = canvasTexture(256, 1024, (g, w, h) => {
+    g.fillStyle = '#5f5040'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 4000; i++) {
+        g.globalAlpha = 0.15 + Math.random() * 0.4;
+        const c = Math.random(); g.fillStyle = c < 0.5 ? '#4a3d30' : (c < 0.8 ? '#73624d' : '#8a7860');
+        const x = Math.random() * w, y = Math.random() * h;
+        g.fillRect(x, y, 1 + Math.random() * 2, 6 + Math.random() * 40);
+    }
+    g.globalAlpha = 1;
+});
+BARK_TEX.wrapS = BARK_TEX.wrapT = THREE.RepeatWrapping;
+const BARK_MAT = new THREE.MeshStandardMaterial({ map: BARK_TEX, color: 0x8a7a63, roughness: 0.92, envMapIntensity: 0.18 });
+const LEAFMASS_TEX = canvasTexture(1024, 1024, (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    const greens = ['#3f6a34', '#4c7d3c', '#5c8f45', '#356030', '#6d9a4f', '#2c5228'];
+    for (let i = 0; i < 900; i++) {
+        g.save();
+        g.globalAlpha = 0.65 + Math.random() * 0.35;
+        g.fillStyle = greens[Math.random() * greens.length | 0];
+        const x = 40 + Math.random() * (w - 80), y = 40 + Math.random() * (h - 80);
+        g.translate(x, y); g.rotate(Math.random() * TAU);
+        const lw = 5 + Math.random() * 9, lh = 12 + Math.random() * 22;
+        g.beginPath(); g.ellipse(0, 0, lw, lh, 0, 0, TAU); g.fill();
+        g.restore();
+    }
+    g.globalAlpha = 1;
+});
+const LEAFMASS_MAT = new THREE.MeshStandardMaterial({ map: LEAFMASS_TEX, transparent: true, alphaTest: 0.42, side: THREE.DoubleSide, roughness: 0.72, envMapIntensity: 0.4 });
+
+// airy branching courtyard tree, rooted at (x,0,z)
+function gardenTree(x, z, height = 5.4, { lean = 0.12 } = {}) {
+    const g = new THREE.Group(); g.position.set(x, 0, z);
+    const up = new THREE.Vector3(lean * (Math.random() - 0.5) * 2, 1, lean * (Math.random() - 0.5) * 2).normalize();
+    const _q = new THREE.Quaternion(), _yv = new THREE.Vector3(0, 1, 0);
+    function limb(pos, dir, len, rad, depth) {
+        const geo = new THREE.CylinderGeometry(rad * 0.72, rad, len, 6, 1, false);
+        const m = new THREE.Mesh(geo, BARK_MAT);
+        m.quaternion.copy(_q.setFromUnitVectors(_yv, dir));
+        m.position.copy(pos).addScaledVector(dir, len * 0.5);
+        m.castShadow = true; g.add(m);
+        const tip = pos.clone().addScaledVector(dir, len);
+        if (depth <= 0 || len < 0.5) { canopy(tip, len); return; }
+        const n = depth > 2 ? 3 : 2 + (Math.random() * 2 | 0);
+        for (let i = 0; i < n; i++) {
+            const nd = dir.clone();
+            nd.x += (Math.random() - 0.5) * 1.0; nd.z += (Math.random() - 0.5) * 1.0;
+            nd.y += 0.12 + Math.random() * 0.35; nd.normalize();
+            limb(tip, nd, len * (0.68 + Math.random() * 0.14), rad * 0.66, depth - 1);
+        }
+    }
+    function canopy(pos, size) {
+        const s = 1.1 + size * 1.7;
+        for (let i = 0; i < 3; i++) {
+            const p = new THREE.Mesh(new THREE.PlaneGeometry(s, s * (0.8 + Math.random() * 0.3)), LEAFMASS_MAT);
+            p.position.copy(pos).add(new THREE.Vector3((Math.random() - 0.5) * 0.5, (Math.random() - 0.5) * 0.4, (Math.random() - 0.5) * 0.5));
+            p.rotation.set((Math.random() - 0.5) * 0.5, i * 1.05 + Math.random() * 0.3, (Math.random() - 0.5) * 0.5);
+            p.castShadow = true; g.add(p);
+        }
+    }
+    const trunkLen = height * 0.4, trunkRad = height * 0.03;
+    limb(new THREE.Vector3(0, 0, 0), up, trunkLen, trunkRad, 4);
+    worldGroup.add(g);
+    addCollider(x - 0.35, x + 0.35, z - 0.35, z + 0.35);
+    return g;
+}
 /* Glass balustrade with timber cap rail; collider only bites at its own level. */
 function balustrade(axis, fixed, from, to, floorY) {
     const len = Math.abs(to - from), mid = (from + to) / 2;
@@ -1380,7 +1513,7 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     floorRect(-13, 13, 6, 26, new THREE.MeshStandardMaterial({
         ...pbr('marble', { repeat: [7, 5] }), color: 0xe8ddca, roughness: 0.42, envMapIntensity: 0.5 }));
     cofferedCeiling(-13, 13, 6, 26, Y, { beam: TIMBER, ceil: MAT.ceiling, bay: 5, skylight: true });
-    wallRun('z', -13, 6, 26, Y, {});
+    wallRun('z', -13, 6, 26, Y, { doors: [{ at: 8.5, w: 2.4, h: 3.0 }] });   // → Garden of Remembrance
     wallRun('z', 13, 6, 26, Y, { doors: [{ at: 24, w: 2.8, h: 3.1 }] });    // → Museum Shop
     wallRun('x', 6, -13, 13, Y, { doors: [{ at: 0, w: 3.2, h: 3.2 }] });    // → Hall of Figures
 
@@ -1844,6 +1977,139 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
         name: 'Museum Shop', minX: X0, maxX: X1, minZ: Z0, maxZ: Z1,
         rig: { key: { p: [18.5, Y - 0.5, 20.8], t: [18.5, 0.7, 21.2], i: 120, angle: 1.05, dist: 13 },
             fills: [[15.5, 3.1, 24.3, 20, 0xfff0dc], [22.3, 3.1, 18.3, 20, 0xfff3e4], [18.5, 3.3, 17.6, 16, 0xffeede], [14.6, 2.6, 18.7, 12, 0xfff3e4]] } });
+})();
+
+/* ---- Garden of Remembrance: a circular contemplation rotunda west of the
+   atrium, lit by a broad oculus, ringed with portraits of those who died in
+   custody, around a raked-gravel karesansui with granite boulders and a
+   single courtyard tree. ---- */
+(function rotunda() {
+    const CX = -24, CZ = 8.5, R = 8.5, H = 7.2, OC = 3.4, Rg = 5.4;
+    const doorHalf = 0.24;   // half-angle of the east opening (toward the atrium)
+
+    // warm travertine floor ring + a soft ambient underfloor
+    const floor = new THREE.Mesh(new THREE.CircleGeometry(R, 72), new THREE.MeshStandardMaterial({
+        ...pbr('marble', { repeat: [5, 5] }), color: 0xe7dcc7, roughness: 0.42, envMapIntensity: 0.5 }));
+    floor.rotation.x = -Math.PI / 2; floor.position.set(CX, 0.01, CZ); floor.receiveShadow = true; worldGroup.add(floor);
+
+    // curved plaster wall with a gap for the doorway (opening at +x / east)
+    const wallGeo = new THREE.CylinderGeometry(R, R, H, 96, 1, true, Math.PI / 2 + doorHalf, TAU - 2 * doorHalf);
+    const wall = new THREE.Mesh(wallGeo, new THREE.MeshStandardMaterial({
+        ...pbr('plaster', { repeat: [10, 3] }), color: 0xdcd7cc, side: THREE.BackSide, envMapIntensity: 0.22 }));
+    wall.position.set(CX, H / 2, CZ); wall.receiveShadow = true; worldGroup.add(wall);
+    // wall colliders: a ring of boxes approximating the cylinder, door arc left open
+    for (let i = 0; i < 40; i++) {
+        const a = (i / 40) * TAU, aa = Math.atan2(Math.sin(a), Math.cos(a));
+        if (Math.abs(aa) < doorHalf + 0.14) continue;
+        const wx = CX + Math.cos(a) * R, wz = CZ + Math.sin(a) * R, s = (TAU * R / 40) * 0.62;
+        addCollider(wx - s, wx + s, wz - s, wz + s);
+    }
+    // skirting + a picture-rail band
+    for (const [yy, hh, col] of [[0.12, 0.24, 0xbfb6a6], [3.3, 0.06, 0xcfc7b8]]) {
+        const band = new THREE.Mesh(new THREE.CylinderGeometry(R - 0.02, R - 0.02, hh, 96, 1, true, Math.PI / 2 + doorHalf, TAU - 2 * doorHalf),
+            new THREE.MeshStandardMaterial({ color: col, roughness: 0.7, side: THREE.BackSide }));
+        band.position.set(CX, yy, CZ); worldGroup.add(band);
+    }
+
+    // flat ceiling ring with a luminous oculus in the middle
+    const ceil = new THREE.Mesh(new THREE.RingGeometry(OC, R, 72, 1),
+        new THREE.MeshStandardMaterial({ color: 0xe4ddcf, roughness: 0.9, side: THREE.DoubleSide }));
+    ceil.rotation.x = Math.PI / 2; ceil.position.set(CX, H, CZ); worldGroup.add(ceil);
+    // oculus well (short cylinder up to a bright disc) + emissive sky disc
+    const well = new THREE.Mesh(new THREE.CylinderGeometry(OC, OC, 0.9, 48, 1, true),
+        new THREE.MeshStandardMaterial({ color: 0xf3efe6, side: THREE.BackSide, roughness: 0.8 }));
+    well.position.set(CX, H + 0.45, CZ); worldGroup.add(well);
+    const sky = new THREE.Mesh(new THREE.CircleGeometry(OC, 48),
+        new THREE.MeshBasicMaterial({ color: 0xfdf6e8, toneMapped: false }));
+    sky.rotation.x = Math.PI / 2; sky.position.set(CX, H + 0.9, CZ); worldGroup.add(sky);
+    const glow = new THREE.Mesh(new THREE.CircleGeometry(OC + 0.25, 48),
+        new THREE.MeshBasicMaterial({ color: 0xfff3d8, transparent: true, opacity: 0.5, depthWrite: false }));
+    glow.rotation.x = -Math.PI / 2; glow.position.set(CX, H - 0.02, CZ); worldGroup.add(glow);
+
+    // ---- raked-gravel karesansui on a low stone platform ----
+    const SAND_TEX = canvasTexture(2048, 2048, (g, w, h) => {
+        g.fillStyle = '#e9e2d2'; g.fillRect(0, 0, w, h);
+        const cx = w / 2, cy = h / 2;
+        g.strokeStyle = 'rgba(120,110,90,0.32)'; g.lineWidth = 2.6;
+        for (let r = 46; r < w * 0.74; r += 27) {
+            g.beginPath();
+            for (let a = 0; a <= TAU + 0.06; a += 0.03) {
+                const rr = r + Math.sin(a * 6) * 3.5;
+                const x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr;
+                a === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
+            }
+            g.stroke();
+        }
+        for (let i = 0; i < 26000; i++) {
+            g.globalAlpha = 0.05 + Math.random() * 0.09;
+            g.fillStyle = Math.random() < 0.5 ? '#ffffff' : '#b6ab92';
+            g.fillRect(Math.random() * w, Math.random() * h, 1.6, 1.6);
+        }
+        g.globalAlpha = 1;
+    });
+    const platform = new THREE.Mesh(new THREE.CylinderGeometry(Rg + 0.4, Rg + 0.46, 0.34, 72), MAT.plinth);
+    platform.position.set(CX, 0.17, CZ); platform.castShadow = true; platform.receiveShadow = true; worldGroup.add(platform);
+    const curb = new THREE.Mesh(new THREE.TorusGeometry(Rg + 0.4, 0.07, 10, 80),
+        new THREE.MeshStandardMaterial({ color: 0x8f8778, roughness: 0.7, envMapIntensity: 0.3 }));
+    curb.rotation.x = Math.PI / 2; curb.position.set(CX, 0.35, CZ); worldGroup.add(curb);
+    const sand = new THREE.Mesh(new THREE.CircleGeometry(Rg, 80),
+        new THREE.MeshStandardMaterial({ map: SAND_TEX, color: 0xf3ecdd, roughness: 0.95, envMapIntensity: 0.15 }));
+    sand.rotation.x = -Math.PI / 2; sand.position.set(CX, 0.345, CZ); sand.receiveShadow = true; worldGroup.add(sand);
+
+    // boulder grouping (asymmetric, like a real dry garden) + moss pads
+    const gy = 0.345;
+    const rocks = [[-1.4, 0.4, 1.35, 0.3], [-0.2, -0.1, 0.95, 1.1], [1.1, 0.7, 1.1, 2.1],
+        [0.6, -1.3, 0.8, 0.6], [2.6, -0.4, 1.2, 1.6], [-2.7, -1.1, 0.9, 2.7], [3.1, 1.5, 0.7, 0.2]];
+    for (const [dx, dz, s, ry] of rocks) {
+        boulder(CX + dx, CZ + dz, s, ry, { yBase: gy, collide: false });
+        const moss = new THREE.Mesh(new THREE.CircleGeometry(s * 0.7, 20), MOSS_MAT);
+        moss.rotation.x = -Math.PI / 2; moss.position.set(CX + dx, gy + 0.006, CZ + dz); worldGroup.add(moss);
+    }
+    // the single courtyard tree, set slightly back
+    gardenTree(CX - 0.4, CZ + 2.6, 5.6);
+
+    // block the raised garden (square collider is invisible under the round bed)
+    addCollider(CX - (Rg + 0.35), CX + (Rg + 0.35), CZ - (Rg + 0.35), CZ + (Rg + 0.35));
+
+    // ---- ring of memorial portraits on the wall ----
+    const mem = (DATA.faces || []).concat(DATA.monoliths || []);
+    const nPort = 11;
+    let mi = 0;
+    for (let i = 0; i < nPort; i++) {
+        const a = (i + 0.5) / nPort * TAU;                 // evenly spaced, offset off the door
+        if (Math.abs(Math.atan2(Math.sin(a), Math.cos(a))) < doorHalf + 0.18) continue;  // skip the doorway
+        const item = mem[mi++ % Math.max(1, mem.length)];
+        if (!item) continue;
+        const px = CX + Math.cos(a) * (R - 0.14), pz = CZ + Math.sin(a) * (R - 0.14);
+        hangArt(item, new THREE.Vector3(px, 2.0, pz), new THREE.Vector3(-Math.cos(a), 0, -Math.sin(a)),
+            { frame: MAT.frameBlack, artH: 1.15, gallery: 'Garden of Remembrance' });
+    }
+
+    // dedication over the doorway, on the wall inside
+    goldLettering('Garden of Remembrance', CX + R - 0.16, 3.05, CZ, new THREE.Vector3(-1, 0, 0), 0.34);
+    wallPanel(panelTexture('In Memoriam', 'Those who did not\ncome home',
+        'Some of the people in this museum died in prison — of age, of illness, of neglect, of the state\'s slow violence. This garden is for them. The raked stone is tended and retended; the tree keeps its own time. Sit a while.'),
+        new THREE.Vector3(CX - R + 0.16, 2.0, CZ), new THREE.Vector3(1, 0, 0), 2.0, 2.6,
+        { interact: { kind: 'panel', n: 'Those who did not come home', l1: 'In Memoriam', d: 'This garden is dedicated to the people documented in this museum who died in custody. Every frame in the building links to a full record you can read and act on.', u: '/memorial' } });
+
+    // low benches to sit and contemplate — set on the north/south axis, clear
+    // of the east doorway
+    bench(CX, CZ + Rg + 1.5, Math.PI, true);
+    bench(CX, CZ - Rg - 1.5, 0, true);
+
+    // ---- the connecting vestibule from the atrium's west wall ----
+    const vzN = CZ - 1.2, vzS = CZ + 1.2, vxW = CX + R, vxE = -13;
+    floorRect(vxW, vxE, vzN, vzS, new THREE.MeshStandardMaterial({
+        ...pbr('marble', { repeat: [2, 1] }), color: 0xe7dcc7, roughness: 0.45, envMapIntensity: 0.5 }));
+    ceilRect(vxW, vxE, vzN, vzS, 3.1);
+    wallRun('x', vzN, vxW, vxE, 3.1, {});
+    wallRun('x', vzS, vxW, vxE, 3.1, {});
+    ceilingLight((vxW + vxE) / 2, 3.1, CZ, 1.4, 0.3);
+
+    rooms.push({
+        name: 'Garden of Remembrance', minX: CX - R, maxX: -13.4, minZ: CZ - R, maxZ: CZ + R,
+        rig: { key: { p: [CX, H - 0.6, CZ], t: [CX, 0.4, CZ], i: 300, angle: 1.15, dist: 22 },
+            fills: [[CX, 5.2, CZ, 26, 0xfff2df], [CX - 4, 3.4, CZ + 3, 18, 0xfff4e6], [CX + 4, 3.4, CZ - 3, 18, 0xfff4e6], [CX, 2.4, CZ, 14, 0xffeede]] } });
 })();
 
 /* ---- Hall of Figures (central spine) + data-driven galleries ---- */
@@ -2332,6 +2598,7 @@ function partitionWorldByRoom() {
     const link = (a, b) => { const ia = byName(a), ib = byName(b); if (ia >= 0 && ib >= 0) { adj[ia].add(ib); adj[ib].add(ia); } };
     link('Museum Plaza', 'The Hall of Figures');       // through the atrium glass + door
     link('Theater', 'Reading Room');                    // aligned doors across the archive
+    link('Grand Atrium', 'Garden of Remembrance');      // through the west vestibule
     const gals = (DATA.galleries || []);
     for (let i = 0; i + 1 < gals.length; i += 2) link(gals[i].title, gals[i + 1].title);   // door-to-door across the spine
     return { groups, adj };
