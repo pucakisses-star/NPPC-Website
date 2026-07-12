@@ -1,22 +1,23 @@
 @extends('app')
 
-@section('title', 'Everything You Should Know About Rodney Reed | NPPC')
+@section('title', 'Everything You Should Know About Imam Jamil Al-Amin | NPPC')
 
 @section('head')
-<meta name="description" content="Rodney Reed's execution date has been canceled — but he's still on Texas death row. An immersive look at the case, recreated from the Innocence Project's feature.">
+<meta name="description" content="Imam Jamil Al-Amin — the civil-rights leader once known as H. Rap Brown — died in federal custody in November 2025, still maintaining his innocence in the killing of a Fulton County deputy while another man's sworn confession went unheard. An immersive look at the case.">
 <style>
     /* ============================================================
-       Rodney Reed — immersive full-screen slide deck, recreated from
-       the Innocence Project's "Everything You Should Know About Rodney
-       Reed" photo essay. Standalone dark microsite that sits on top of
-       the NPPC chrome (fixed, full-viewport). All classes rr- prefixed.
+       Imam Jamil Al-Amin — immersive full-screen slide deck in the
+       NPPC story format (originated with the Rodney Reed feature
+       adapted from the Innocence Project). Standalone dark microsite
+       that sits on top of the NPPC chrome (fixed, full-viewport).
+       All classes rr- prefixed (shared story-deck styles).
        ============================================================ */
 
     /* Lock the page behind the deck — this is a full-screen takeover. */
-    body.page-rodney-reed { overflow: hidden; }
-    body.page-rodney-reed .container { overflow: visible; }
-    body.page-rodney-reed .site-theme-toggle,
-    body.page-rodney-reed #scroll-top { display: none !important; }
+    body.page-imam-jamil-al-amin { overflow: hidden; }
+    body.page-imam-jamil-al-amin .container { overflow: visible; }
+    body.page-imam-jamil-al-amin .site-theme-toggle,
+    body.page-imam-jamil-al-amin #scroll-top { display: none !important; }
 
     .rr-deck {
         position: fixed; inset: 0; z-index: 2147483600;
@@ -67,7 +68,7 @@
 
     /* ---- Hero slide ---- */
     .rr-hero { padding: 0; }
-    .rr-hero-bg { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
+    .rr-hero-bg { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center 22%; }
     .rr-hero-inner { position: absolute; z-index: 1; left: 8%; right: 8%; top: 50%; transform: translateY(-50%); max-width: 70%; }
     .rr-hero-title { font-size: 4.4rem; line-height: 1.04; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
     .rr-hero-sub { font-size: 1.25rem; line-height: 1.5; color: rgba(255,255,255,0.9); margin: 26px 0 0; max-width: 540px; }
@@ -84,26 +85,8 @@
     .rr-photo-img { width: 100%; height: auto; max-height: 64vh; object-fit: contain; display: block; }
     .rr-cap { font-size: 0.84rem; line-height: 1.5; color: rgba(255,255,255,0.55); text-align: center; max-width: 620px; margin: 0; }
 
-    /* Photo placeholder (used until a real image is dropped in) */
-    .rr-ph {
-        width: 100%; background: #0e0e13; border: 1px solid rgba(255,255,255,0.13); border-radius: 6px;
-        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-        color: rgba(255,255,255,0.32);
-    }
-    .rr-ph--portrait { aspect-ratio: 3 / 4; max-width: 420px; }
-    .rr-ph--land { aspect-ratio: 3 / 2; }
-    .rr-ph svg { width: 46px; height: 46px; }
-    .rr-ph span { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
-
-    /* ---- Split slide (photo + text) ---- */
-    .rr-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; width: 100%; max-width: 1200px; }
-    .rr-split .rr-figure { max-width: none; align-items: flex-start; }
-    .rr-split .rr-cap { text-align: left; }
-    .rr-body { font-size: 1.18rem; line-height: 1.72; color: rgba(255,255,255,0.92); margin: 0; }
-
     /* ---- Quote slide ---- */
     .rr-quotewrap { display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; max-width: 1040px; }
-    .rr-quotewrap .rr-figure { max-width: 660px; }
     .rr-quote { font-size: 2.05rem; line-height: 1.28; font-weight: 800; text-align: center; margin: 0; letter-spacing: -0.005em; }
     .rr-quote-by { font-size: 1.05rem; color: rgba(255,255,255,0.72); text-align: center; margin: 0; }
 
@@ -148,8 +131,6 @@
         .rr-hero-title { font-size: 2.6rem; }
         .rr-hero-sub { font-size: 1.05rem; }
         .rr-statement { font-size: 1.6rem; }
-        .rr-split { grid-template-columns: 1fr; gap: 22px; }
-        .rr-split .rr-figure { max-width: 480px; }
         .rr-quote { font-size: 1.45rem; }
         .rr-cta h2, .rr-share h2 { font-size: 1.9rem; }
         .rr-nav { width: 44px; height: 44px; }
@@ -169,18 +150,14 @@
 
 @section('body')
 @php
-    // Photo slides auto-upgrade from placeholder to real image the moment a
-    // file with the expected name is added to public/images/rodney-reed/.
-    $imgBase = 'images/rodney-reed/';
+    $imgBase = 'images/imam-jamil-al-amin/';
     $img = function ($f) use ($imgBase) {
         return file_exists(public_path($imgBase.$f)) ? asset($imgBase.$f) : null;
     };
     $hero = $img('hero.jpg');
-    $reedGlass = $img('reed-glass.jpg');
-    $courtroom = $img('courtroom.jpg');
-    $rally = $img('rally.jpg');
+    $portrait = $img('portrait.jpg');
 
-    $actUrl = 'https://innocenceproject.org/petitions/justice-for-rodney-reed/';
+    $actUrl = 'https://www.imamjamilactionnetwork.org/';
     $slideCount = 14;
 @endphp
 
@@ -190,7 +167,7 @@
     <div class="rr-topbar">
         <a class="rr-logo" href="/">
             <img src="/logo.svg" alt="National Political Prisoner Coalition">
-            <span class="rr-logo-credit">Adapted from the Innocence Project</span>
+            <span class="rr-logo-credit">An NPPC story</span>
         </a>
         <div class="rr-topbar-right">
             <button type="button" class="rr-share-jump">Share
@@ -211,111 +188,87 @@
 
     {{-- 1 — Hero --}}
     <section class="rr-slide rr-hero is-active">
-        <div class="rr-hero-bg" style="@if($hero) background-image: linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.60)), url('{{ $hero }}'); @else background: radial-gradient(120% 120% at 62% 32%, #2c313d 0%, #14161d 55%, #08090d 100%); @endif"></div>
+        <div class="rr-hero-bg" style="@if($hero) background-image: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.72)), url('{{ $hero }}'); @else background: radial-gradient(120% 120% at 62% 32%, #2c313d 0%, #14161d 55%, #08090d 100%); @endif"></div>
         <div class="rr-hero-inner">
-            <h1 class="rr-hero-title">Rodney Reed's execution date has been canceled</h1>
-            <p class="rr-hero-sub">But he's still on death row. Here's what you need to know.</p>
+            <h1 class="rr-hero-title">Imam Jamil Al-Amin died in federal custody on November 23, 2025</h1>
+            <p class="rr-hero-sub">He spent his last 23 years insisting he did not kill Deputy Ricky Kinchen — while another man confessed to the crime. Here's what you need to know.</p>
         </div>
     </section>
 
-    {{-- 2 — Stay of execution --}}
+    {{-- 2 — Who he was --}}
     <section class="rr-slide">
-        <p class="rr-statement">The Texas Court of Criminal Appeals granted Rodney Reed an indefinite stay of execution on November 15, just five days before he was scheduled to be executed.</p>
-        <div class="rr-cover-cap">Cover Photo: Rodney Reed in Allan B. Polunsky Unit, West Livingston, Texas in 2015. Photo by Massoud Hayoun/Al Jazeera.</div>
+        <p class="rr-statement">Before he was Imam Jamil Al-Amin, he was H. Rap Brown — the fifth chairman of the Student Nonviolent Coordinating Committee, Minister of Justice of the Black Panther Party, and one of the defining voices of Black Power.</p>
+        <div class="rr-cover-cap">Cover photo: H. Rap Brown at a SNCC news conference, 1967. Photo by Marion S. Trikosko, U.S. News &amp; World Report collection, Library of Congress (public domain).</div>
     </section>
 
     {{-- 3 — Portrait photo --}}
     <section class="rr-slide">
         <figure class="rr-figure">
-            @if ($reedGlass)
-                <img class="rr-photo-img" src="{{ $reedGlass }}" alt="Rodney Reed in the Allan B. Polunsky Unit, 2014">
+            @if ($portrait)
+                <img class="rr-photo-img" src="{{ $portrait }}" alt="H. Rap Brown speaking at a SNCC news conference in 1967">
             @else
                 <div class="rr-ph rr-ph--portrait">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
                     <span>Photo</span>
                 </div>
             @endif
-            <figcaption class="rr-cap">Rodney Reed in Allan B. Polunsky Unit, West Livingston, Texas in 2014. Photo by Jana Birchum/Austin Chronicle.</figcaption>
+            <figcaption class="rr-cap">H. Rap Brown at a SNCC news conference in 1967. Photo by Marion S. Trikosko, U.S. News &amp; World Report collection, Library of Congress (public domain).</figcaption>
         </figure>
     </section>
 
-    {{-- 4 — Wrongful conviction --}}
+    {{-- 4 — The Rap Brown Act --}}
     <section class="rr-slide">
-        <p class="rr-statement">Rodney was wrongfully convicted in 1998 for the murder of Stacey Stites in Bastrop, Texas. But he now has another chance to prove his innocence.</p>
+        <p class="rr-statement">Washington considered him dangerous enough to write a law about him. The 1968 federal Anti-Riot Act is still known as the "Rap Brown Act" — and it has been used against protest movements from the Chicago Eight to defendants charged today.</p>
     </section>
 
-    {{-- 5 — Split: courtroom + conviction text --}}
+    {{-- 5 — Transformation --}}
     <section class="rr-slide">
-        <div class="rr-split">
-            <figure class="rr-figure">
-                @if ($courtroom)
-                    <img class="rr-photo-img" src="{{ $courtroom }}" alt="Rodney Reed and his attorney Bryce Benjet at a 2014 hearing">
-                @else
-                    <div class="rr-ph rr-ph--land">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
-                        <span>Photo</span>
-                    </div>
-                @endif
-                <figcaption class="rr-cap">Rodney Reed, left, and his attorney Bryce Benjet speaking at a hearing in Bastrop County in 2014. Photo by Jay Janner/Austin American-Statesman via AP.</figcaption>
-            </figure>
-            <p class="rr-body">But in 1998, Rodney was convicted and sentenced to death. The decision was based almost entirely on expert opinion that falsely claimed that the semen found in Stacey's body had to have been from a sexual encounter that occurred at or around the same time as the murder, thus implicating Rodney in her death. However, this testimony was false and the evidence is actually more consistent with Rodney's account of a consensual encounter the day before Stacey's disappearance.</p>
-        </div>
+        <p class="rr-statement">In prison in the 1970s he converted to Islam and emerged as Imam Jamil Abdullah Al-Amin. In Atlanta's West End, his mosque drew thousands — and neighbors credited him with helping drive drugs out of the neighborhood.</p>
     </section>
 
-    {{-- 6 — The forensic timeline --}}
+    {{-- 6 — March 16, 2000 --}}
     <section class="rr-slide">
-        <p class="rr-statement">The State told the jury Stacey was killed between 3 and 5 a.m. Leading forensic pathologists now say she was most likely killed hours earlier — before midnight — when she was alone with her fiancé.</p>
+        <p class="rr-statement">On March 16, 2000, two Fulton County sheriff's deputies — Ricky Kinchen and Aldranon English — came to his West End store to serve a warrant. Gunfire was exchanged. Kinchen was killed and English wounded. Al-Amin was arrested four days later in White Hall, Alabama.</p>
     </section>
 
-    {{-- 7 — The first suspect --}}
+    {{-- 7 — Conviction --}}
     <section class="rr-slide">
-        <p class="rr-statement">For months, the prime suspect was not Rodney Reed. It was Stacey's fiancé, police officer Jimmy Fennell — the last person to admit seeing her alive.</p>
+        <p class="rr-statement">In March 2002, a Fulton County jury convicted him of murder, and he was sentenced to life without the possibility of parole. He maintained from the first day to the last that he was not the shooter.</p>
     </section>
 
-    {{-- 8 — Fennell's record + confession --}}
+    {{-- 8 — The disputed identification --}}
     <section class="rr-slide">
-        <p class="rr-statement">Years later, Fennell was sent to prison for kidnapping and sexually assaulting a woman in his custody as a police officer. A fellow inmate swore under oath that Fennell confessed to Stacey's murder behind bars.</p>
+        <p class="rr-statement">The case against him was disputed from the start. Deputy English told investigators he had shot and wounded the gunman — but when Al-Amin was captured days later, he had no gunshot wounds. English also described a shooter with gray eyes. Al-Amin's eyes are brown.</p>
     </section>
 
-    {{-- 9 — Withheld evidence --}}
+    {{-- 9 — Otis Jackson --}}
     <section class="rr-slide">
-        <p class="rr-statement">At trial, prosecutors said no one could confirm Rodney and Stacey knew each other. It later emerged that coworkers had told investigators the two were close — statements never turned over to Rodney's defense.</p>
+        <p class="rr-statement">Another man — federal inmate Otis Jackson — repeatedly confessed, including under oath, to the shooting. The jury that convicted Al-Amin never heard him. The courts never reopened the case.</p>
     </section>
 
-    {{-- 10 — The untested belt --}}
+    {{-- 10 — Federal custody anomaly --}}
     <section class="rr-slide">
-        <p class="rr-statement">Stacey was strangled with a belt. That belt — the murder weapon — has never once been tested for DNA. For over a decade, Rodney has asked the courts to test it. The State has fought every request.</p>
+        <p class="rr-statement">Though convicted of a state crime, Al-Amin was transferred into the federal Bureau of Prisons — including years at ADX Florence, the most isolating supermax in America, a prison meant for people with federal convictions. He had none.</p>
     </section>
 
-    {{-- 11 — Supreme Court --}}
+    {{-- 11 — Calls to reopen --}}
     <section class="rr-slide">
-        <p class="rr-statement">In 2023, the U.S. Supreme Court ruled 6&ndash;3 that Rodney has the right to pursue DNA testing in federal court. The most basic question — what the evidence would show — is still unanswered.</p>
+        <p class="rr-statement">For two decades the Council on American-Islamic Relations, the Imam Jamil Action Network, and civil-rights advocates across the country called for the case to be reopened. It never was.</p>
     </section>
 
-    {{-- 12 — Quote (rally photo + quote) --}}
+    {{-- 12 — Quote --}}
     <section class="rr-slide">
         <div class="rr-quotewrap">
-            <figure class="rr-figure">
-                @if ($rally)
-                    <img class="rr-photo-img" src="{{ $rally }}" alt="Rodney Reed rally at the Texas Capitol, February 2015">
-                @else
-                    <div class="rr-ph rr-ph--land">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
-                        <span>Photo</span>
-                    </div>
-                @endif
-                <figcaption class="rr-cap">Rodney Reed rally at the Texas Capitol in February 2015. Photo courtesy of Jaynna Sims.</figcaption>
-            </figure>
-            <p class="rr-quote">&ldquo;When you first hear about this case the racial undertones in it sound like <em>To Kill a Mockingbird</em>. That this happened in the late 1990s and is going on now seems backwards.&rdquo;</p>
-            <p class="rr-quote-by">&mdash; Griffin Hardy, spokesperson for Sister Helen Prejean</p>
+            <p class="rr-quote">&ldquo;Justice means &lsquo;just us.&rsquo;&rdquo;</p>
+            <p class="rr-quote-by">&mdash; H. Rap Brown, <em>Die Nigger Die!</em> (1969)</p>
         </div>
     </section>
 
     {{-- 13 — CTA --}}
     <section class="rr-slide">
         <div class="rr-cta">
-            <h2>Join the fight for Rodney Reed</h2>
-            <p>Add your name to this petition and stay in the loop about upcoming ways to help.</p>
+            <h2>The fight for his name continues</h2>
+            <p>Imam Jamil Al-Amin died at the Federal Medical Center in Butner, North Carolina, at age 82 — still serving a sentence his supporters believe belonged to another man. His family and the Imam Jamil Action Network are still fighting to clear his name.</p>
             <a class="rr-bigbtn" href="{{ $actUrl }}" target="_blank" rel="noopener">Act now</a>
         </div>
     </section>
@@ -323,7 +276,7 @@
     {{-- 14 — Share --}}
     <section class="rr-slide">
         <div class="rr-share">
-            <h2>Share Rodney's story</h2>
+            <h2>Share his story</h2>
             <div class="rr-socials">
                 <a class="rr-social" data-share="facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
                     <svg viewBox="0 0 24 24"><path d="M14 8.5h2.5V5.2C16.1 5.1 14.9 5 13.6 5c-2.7 0-4.6 1.7-4.6 4.7V12H6v3.5h3v9h3.6v-9H15l.5-3.5h-3V10c0-1 .3-1.5 1.5-1.5z"/></svg>
@@ -336,7 +289,7 @@
                 </a>
             </div>
         </div>
-        <div class="rr-foot">Adapted by the National Political Prisoner Coalition from the Innocence Project's feature on Rodney Reed.</div>
+        <div class="rr-foot">Sources: NPPC case file for Imam Jamil Al-Amin; Library of Congress (photos). His profile in the NPPC database: <a href="/prisoner/imam-jamil-al-amin" style="color:rgba(255,255,255,0.65);">nppc.org/prisoner/imam-jamil-al-amin</a></div>
     </section>
 
     {{-- ===== Nav arrows ===== --}}
@@ -407,7 +360,7 @@
 
     // Wire share links to the live URL
     var url = encodeURIComponent(window.location.href);
-    var text = encodeURIComponent("Rodney Reed is still on Texas death row. Here's what you should know.");
+    var text = encodeURIComponent("Imam Jamil Al-Amin (H. Rap Brown) died in federal custody maintaining his innocence — while another man confessed. Here's what you should know.");
     var map = {
         facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
         twitter: 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text,
