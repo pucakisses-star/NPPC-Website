@@ -42,9 +42,6 @@ Route::controller(SiteController::class)
         Route::get('staff', 'staff');
         Route::get('podcast', 'podcast');
         Route::redirect('shop', '/store', 301);
-        // The Rodney Reed deck was replaced by the Imam Jamil Al-Amin story
-        // (same format, subject from the NPPC database).
-        Route::redirect('rodney-reed', '/imam-jamil-al-amin', 301);
         Route::get('store', 'store');
         Route::get('store/{slug}', 'storeProduct');
         Route::get('events', 'events');
