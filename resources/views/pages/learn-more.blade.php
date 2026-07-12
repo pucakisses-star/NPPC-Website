@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Learn More | NPPC')
+
 @section('head')
 <style>
     .lm-serif { font-family: Georgia, 'Times New Roman', Times, serif; }

@@ -40,6 +40,8 @@
 
 @extends('app')
 
+@section('title', 'The Price of Political Prosecution | NPPC')
+
 @section('head')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

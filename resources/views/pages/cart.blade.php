@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Your Cart | NPPC')
+
 @section('head')
 <style>
     .cart-page { max-width: 1000px; margin: 0 auto; padding: 0 24px 80px; }

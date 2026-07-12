@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Political Prisoner Database | NPPC')
+
 @section('head')
 <style>
     @media (max-width: 768px) {

@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Volunteer | NPPC')
+
 @section('head')
 <style>
     .vol2-page { color: rgba(var(--fg-rgb),0.85); }

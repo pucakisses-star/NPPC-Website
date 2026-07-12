@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Get Involved | NPPC')
+
 @section('head')
 <style>
     /* Container & Layout */

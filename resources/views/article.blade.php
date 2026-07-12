@@ -6,6 +6,14 @@
 @endphp
 @extends('app')
 
+@section('title'){{ $article->title }} | NPPC @endsection
+
+@section('meta_description'){{ substr(trim(strip_tags($article->intro ?: $article->body)), 0, 170) }}@endsection
+
+@if($article->image_url)
+@section('og_image'){{ str_starts_with($article->image_url, 'http') ? $article->image_url : url($article->image_url) }}@endsection
+@endif
+
 @section('body')
     <div class="line mt-8"></div>
 

@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Careers & Internships | NPPC')
+
 @section('head')
 <style>
     /* Container & Layout */

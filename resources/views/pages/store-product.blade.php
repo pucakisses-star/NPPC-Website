@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title'){{ $product->name }} — NPPC Store @endsection
+
 @section('head')
 <style>
     /* The page content sits in the site's 1080px .container. The category

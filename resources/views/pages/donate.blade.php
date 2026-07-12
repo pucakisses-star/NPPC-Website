@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Donate | NPPC')
+
 @section('head')
 <style>
     .donate-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }

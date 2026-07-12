@@ -6,6 +6,8 @@
 @endphp
 @extends('app')
 
+@section('title'){{ $page->title }} | NPPC @endsection
+
 @section('body')
     <div class="line mt-8"></div>
     <h1 class="text-6xl mt-12">{{$page->title}}</h1>

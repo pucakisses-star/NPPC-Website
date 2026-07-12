@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Partners | NPPC')
+
 @section('head')
 <style>
     .pp { overflow: hidden; }

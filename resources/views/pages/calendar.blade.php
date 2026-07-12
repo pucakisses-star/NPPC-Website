@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'A History of Political Prisoners — Calendar | NPPC')
+
 @section('head')
 <style>
     .cal-page { max-width: 1200px; margin: 0 auto; padding: 0 24px; }

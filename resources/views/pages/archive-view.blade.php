@@ -6,6 +6,8 @@
 @endphp
 @extends('app')
 
+@section('title'){{ $record->title }} — NPPC Archive @endsection
+
 @section('head')
 <style>
     .av-wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px 64px; }

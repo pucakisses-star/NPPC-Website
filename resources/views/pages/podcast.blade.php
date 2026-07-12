@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Podcast | NPPC')
+
 @section('head')
 <style>
     @media (max-width: 768px) {

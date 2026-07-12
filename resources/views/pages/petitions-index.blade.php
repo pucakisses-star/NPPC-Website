@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Active Petitions | NPPC')
+
 @section('head')
 <style>
 .pix-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 96px; }

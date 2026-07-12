@@ -42,6 +42,8 @@
 
 @extends('app')
 
+@section('title', 'Archive & Records | NPPC')
+
 @section('body')
     <div class="line mt-8"></div>
 

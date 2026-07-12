@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'About Us | NPPC')
+
 @section('head')
 <style>
     .about-page { overflow: hidden; }

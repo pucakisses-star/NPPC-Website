@@ -2,6 +2,12 @@
 
 @section('title'){{ $prisoner->name }} — National Political Prisoner Coalition @endsection
 
+@section('meta_description'){{ $prisoner->name }}{{ $prisoner->aka ? ' (AKA '.$prisoner->aka.')' : '' }} — {{ substr(strip_tags($prisoner->description ?? ''), 0, 155) }}@endsection
+
+@if($prisoner->photo)
+@section('og_image'){{ asset('storage/'.$prisoner->photo) }}@endsection
+@endif
+
 @section('head')
 <meta name="description" content="{{ $prisoner->name }}{{ $prisoner->aka ? ' (AKA '.$prisoner->aka.')' : '' }} — {{ substr(strip_tags($prisoner->description ?? ''), 0, 155) }}">
 <meta property="og:title" content="{{ $prisoner->name }} — NPPC">

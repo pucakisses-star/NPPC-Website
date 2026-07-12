@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Topics | NPPC')
+
 @section('head')
 <style>
     /* Full-bleed: break out of the global .container max-width (like the tracker). */

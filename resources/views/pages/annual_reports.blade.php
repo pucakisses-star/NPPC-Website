@@ -5,6 +5,8 @@
 
 @extends('app')
 
+@section('title', 'Annual Report | NPPC')
+
 @section('body')
     <main class="container">
         <div class="line mt-8"></div>

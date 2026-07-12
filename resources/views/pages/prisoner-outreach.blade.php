@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Prisoner Outreach | NPPC')
+
 @section('head')
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
