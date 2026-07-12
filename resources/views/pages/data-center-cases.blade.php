@@ -30,16 +30,20 @@
     .dcc-section--tight { padding: 30px 0; }
     .dcc-divider { border: 0; border-top: 1px solid rgba(255,255,255,.10); margin: 0; }
 
-    /* ---- hero (CSS-only: cyan glow + faint server-rack pattern) ---- */
+    /* ---- hero: aerial of Loudoun County's Data Center Alley (CC0) under the
+            cyan glow + faint server-rack pattern; dark scrims keep the white
+            text legible and fade the photo into the page's near-black. ---- */
     .dcc-hero { position: relative; overflow: hidden; background: #0a0b0d; padding: 124px 0 64px; }
     .dcc-hero::before { content: ""; position: absolute; inset: 0; z-index: 0;
         background:
             radial-gradient(80% 60% at 78% 8%, rgba(34,211,238,.20), transparent 60%),
             repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 1px, transparent 1px 26px),
             repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 26px),
-            linear-gradient(180deg, #0c1116 0%, #0a0b0d 70%); }
+            linear-gradient(180deg, rgba(10,11,13,.78) 0%, rgba(10,11,13,.62) 45%, rgba(10,11,13,.88) 82%, #0a0b0d 100%),
+            url('{{ asset('images/data-center-hero.jpg') }}') center 42% / cover no-repeat #0a0b0d; }
     .dcc-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; z-index: 0; background: linear-gradient(180deg, transparent, #0a0b0d); }
     .dcc-hero > * { position: relative; z-index: 1; }
+    .dcc-hero-credit { position: absolute; right: 16px; bottom: 10px; z-index: 1; margin: 0; font-size: 11.5px; letter-spacing: .03em; color: rgba(255,255,255,.45); text-shadow: 0 1px 3px rgba(0,0,0,.6); }
     .dcc-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #7fe3f1; margin-bottom: 20px; }
     .dcc-kicker::before { content: ""; width: 28px; height: 2px; background: #22d3ee; }
     .dcc-h1 { font-size: 4.2rem; line-height: 1.02; font-weight: 800; letter-spacing: -.025em; margin: 0 0 20px; color: var(--on-dark); }
@@ -159,6 +163,7 @@
             <p class="dcc-hero-sub">The AI build-out has reached nearly every state — and so has the backlash. As residents pack town halls to fight the water, power, and land demands of hyperscale data centers, a growing number are being dragged from meetings, jailed, and charged with felonies. This page tracks the people facing arrest for that dissent, and the surveillance now trained on them.</p>
             <div class="dcc-hero-meta"><span>Living resource</span><span>Updated June 2026</span><span>NPPC</span></div>
         </div>
+        <p class="dcc-hero-credit">Data centers in Ashburn, Va. Photo: Theodore Christopher / CC0, via Wikimedia Commons</p>
     </div>
 
     {{-- ==================== LATEST UPDATE ==================== --}}
