@@ -120,6 +120,16 @@ class AddLateJune2026DashboardCases extends Command {
                 'lat'            => 40.7143,
                 'lng'            => -74.0060,
             ],
+            [
+                'title'          => 'Week-long preliminary hearing concludes in the capital case against Tyler Robinson for Charlie Kirk\'s assassination; the judge rules after Sept. 1 closing arguments',
+                'url'            => 'https://www.cnn.com/2026/07/11/us/charlie-kirk-tyler-robinson-hearing-takeaways',
+                'source'         => 'CNN',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-07-10',
+                'location_label' => 'Provo, UT',
+                'lat'            => 40.2338,
+                'lng'            => -111.6585,
+            ],
         ];
 
         $created = 0;
