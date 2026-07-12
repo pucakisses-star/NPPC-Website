@@ -9,12 +9,14 @@
 @section('body')
     <div class="line mt-8"></div>
 
-    {{-- Hero image first --}}
+    {{-- Hero image first. The caption sits as its own line *below* the photo
+         (not overlaid on it): only the <img> is clipped/rounded, so the
+         figcaption renders outside that box as a plain attribution line. --}}
     @if($article->image_url)
-        <figure style="margin: 48px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:var(--surface-2);">
-            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top;">
+        <figure style="margin: 48px 0 32px 0;">
+            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top; border-radius:8px; background:var(--surface-2);">
             @if($article->image_caption)
-                <figcaption style="font-size:13px; color:rgba(var(--fg-rgb),0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
+                <figcaption style="font-size:13px; color:rgba(var(--fg-rgb),0.55); font-style:italic; line-height:1.5; margin-top:10px;">{{ $article->image_caption }}</figcaption>
             @endif
         </figure>
     @endif
