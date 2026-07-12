@@ -90,6 +90,36 @@ class AddLateJune2026DashboardCases extends Command {
                 'lat'            => 34.7304,
                 'lng'            => -92.2809,
             ],
+            [
+                'title'          => 'Sister Leticia Ugboaja detained by ICE while walking to Sunday Mass in McAllen, Texas; released after lawmakers intervene',
+                'url'            => 'https://www.ewtnnews.com/world/us/nun-arrested-by-ice-while-walking-to-sunday-mass-in-texas-released-after-lawmakers-intervention',
+                'source'         => 'EWTN News',
+                'category'       => 'arrest',
+                'published_at'   => '2026-06-28',
+                'location_label' => 'McAllen, TX',
+                'lat'            => 26.2034,
+                'lng'            => -98.2300,
+            ],
+            [
+                'title'          => 'Ninth Prairieland defendant sentenced to 50 years; six who pleaded guilty to material support get 2 to 15 years',
+                'url'            => 'https://www.keranews.org/criminal-justice/2026-07-01/prairieland-ice-detention-center-shooting-trial-defendant-prison-sentence-guilty-pleas-antifa-texas',
+                'source'         => 'KERA News',
+                'category'       => 'prosecution',
+                'published_at'   => '2026-07-01',
+                'location_label' => 'Fort Worth, TX',
+                'lat'            => 32.7555,
+                'lng'            => -97.3308,
+            ],
+            [
+                'title'          => 'DOJ subpoenas four New York Times reporters to a Manhattan grand jury over the Air Force One security-leak story, with FBI Director Patel directing the probe',
+                'url'            => 'https://www.nbcnews.com/politics/justice-department/trump-administration-tried-force-journalists-testify-federal-grand-jur-rcna351416',
+                'source'         => 'NBC News',
+                'category'       => 'other',
+                'published_at'   => '2026-07-10',
+                'location_label' => 'New York, NY',
+                'lat'            => 40.7143,
+                'lng'            => -74.0060,
+            ],
         ];
 
         $created = 0;
