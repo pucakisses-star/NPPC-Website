@@ -41,7 +41,10 @@ final class SetBroadviewSixCover extends Command
             return self::FAILURE;
         }
 
-        $dest = 'articles/covers/'.self::SLUG.'.jpg';
+        // "-grid" suffix so the URL differs from the old Wikimedia cover —
+        // overwriting the same filename left browsers serving the cached one.
+        $dest = 'articles/covers/'.self::SLUG.'-grid.jpg';
+        $old = 'articles/covers/'.self::SLUG.'.jpg';
         $bytes = file_get_contents($src);
         $disk = Storage::disk('public');
 
@@ -58,6 +61,12 @@ final class SetBroadviewSixCover extends Command
         $article->image = $dest;
         $article->image_caption = self::CAPTION;
         $article->save();
+
+        // Drop the stale same-URL file so nothing keeps resolving to it.
+        if ($disk->exists($old)) {
+            $disk->delete($old);
+            $this->line('Removed stale cover: '.$old);
+        }
 
         $this->info('Cover replaced and caption set for: '.self::SLUG);
 
