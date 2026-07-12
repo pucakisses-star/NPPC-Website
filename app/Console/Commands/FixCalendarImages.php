@@ -57,6 +57,7 @@ final class FixCalendarImages extends Command {
 
     /** title fragment => reason (image cleared; no good free replacement). */
     private const CLEAR = [
+        'Industrial Workers of the World founded' => 'was a starfield of deep space',
         'Bunchy Carter and John Huggins'   => 'was an Anubis statue',
         'Maile Hampton'                    => 'was a maile vine (plant)',
         'Eve\'s Hangout'                   => 'was a modern police officer',
