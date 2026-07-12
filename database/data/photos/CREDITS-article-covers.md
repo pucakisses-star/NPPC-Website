@@ -56,3 +56,9 @@ Attribution is also written into each article's `image_caption`.
 
 Three articles (marius-mason…, eric-king…, beto-coral…) prefer the person's existing prisoner
 portrait already in site storage, falling back to the Commons image above.
+
+## Update 2026-07-12 — Broadview Six cover replaced
+
+| Article slug | File | Source / credit |
+|---|---|---|
+| broadview-six-ice-protest-case-collapses-2026 | broadview-six-grid.jpg | Chicago Tribune defendants grid (© Chicago Tribune, used at site owner's direction — not a free license). Edited composite: tiles tone-matched, uniformly cropped, reassembled. Replaces the earlier Paul Goyette / CC BY 4.0 Wikimedia cover. |
