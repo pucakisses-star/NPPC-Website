@@ -191,6 +191,42 @@ $isHome = request()->segment(1) == ''
         /* Mobile slide-down menu */
         html[data-theme="light"] #mobile-menu { background: var(--bg); }
         html[data-theme="light"] #mobile-menu a { color: var(--fg); }
+
+        /* Prisoner database (compiled Vue app): the app hardcodes a black
+           canvas and white borders/text/icons. Flip them via its stable
+           hooks (#prisoners-page, .prisoner, #filters …); !important where
+           we must beat inline styles or compiled scoped-CSS. */
+        html[data-theme="light"] #prisoners-page,
+        html[data-theme="light"] #prisoners-page .bg-black { background: var(--bg) !important; color: var(--fg); }
+        html[data-theme="light"] #prisoners-page .text-white { color: var(--fg); }
+        html[data-theme="light"] #prisoners-page .prisoner { border-color: rgba(var(--fg-rgb),0.8); }
+        html[data-theme="light"] #prisoners-page .border-white { border-color: rgba(var(--fg-rgb),0.55) !important; }
+        html[data-theme="light"] #prisoners-page h2 a {
+            color: var(--fg) !important;
+            border-bottom-color: rgba(var(--fg-rgb),0.25) !important;
+        }
+        html[data-theme="light"] #prisoners-page .link-img svg,
+        html[data-theme="light"] #prisoners-page .meta svg { fill: var(--fg); stroke: var(--fg); }
+        html[data-theme="light"] #prisoners-page .currentImprisonment { border-color: rgba(var(--fg-rgb),0.8); }
+        html[data-theme="light"] #prisoners-page .clear-filters-btn {
+            color: var(--fg); border-color: rgba(var(--fg-rgb),0.35);
+        }
+        html[data-theme="light"] #prisoners-page .clear-filters-btn:hover {
+            border-color: var(--fg); background: rgba(var(--fg-rgb),0.08);
+        }
+        html[data-theme="light"] #prisoners-page .results-count { color: rgba(var(--fg-rgb),0.55); }
+        html[data-theme="light"] #prisoners-page .load-more-indicator { color: rgba(var(--fg-rgb),0.6); }
+        html[data-theme="light"] #prisoners-page .load-more-spinner {
+            border-color: rgba(var(--fg-rgb),0.2); border-top-color: var(--fg);
+        }
+        /* The no-photo placeholder SVG is white line-art — invert it on light. */
+        html[data-theme="light"] #prisoners-page img[src*="no-image-available"] { filter: invert(1); }
+        /* White filter/search boxes disappear on a white page — give them an edge. */
+        html[data-theme="light"] #prisoners-page #filters .ant-select-selector,
+        html[data-theme="light"] #prisoners-page input#prisoner-search,
+        html[data-theme="light"] #prisoners-page .ant-radio-button-wrapper {
+            border: 1px solid rgba(var(--fg-rgb),0.35) !important;
+        }
     </style>
     <script>
         /* Set the theme before first paint (no flash). */
