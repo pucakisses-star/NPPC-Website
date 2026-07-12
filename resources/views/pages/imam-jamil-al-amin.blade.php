@@ -85,8 +85,26 @@
     .rr-photo-img { width: 100%; height: auto; max-height: 64vh; object-fit: contain; display: block; }
     .rr-cap { font-size: 0.84rem; line-height: 1.5; color: rgba(255,255,255,0.55); text-align: center; max-width: 620px; margin: 0; }
 
+    /* Photo placeholder (used only if an image file goes missing) */
+    .rr-ph {
+        width: 100%; background: #0e0e13; border: 1px solid rgba(255,255,255,0.13); border-radius: 6px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+        color: rgba(255,255,255,0.32);
+    }
+    .rr-ph--portrait { aspect-ratio: 3 / 4; max-width: 420px; }
+    .rr-ph--land { aspect-ratio: 3 / 2; }
+    .rr-ph svg { width: 46px; height: 46px; }
+    .rr-ph span { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+    /* ---- Split slide (photo + text) ---- */
+    .rr-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; width: 100%; max-width: 1200px; }
+    .rr-split .rr-figure { max-width: none; align-items: flex-start; }
+    .rr-split .rr-cap { text-align: left; }
+    .rr-body { font-size: 1.18rem; line-height: 1.72; color: rgba(255,255,255,0.92); margin: 0; }
+
     /* ---- Quote slide ---- */
     .rr-quotewrap { display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; max-width: 1040px; }
+    .rr-quotewrap .rr-figure { max-width: 420px; }
     .rr-quote { font-size: 2.05rem; line-height: 1.28; font-weight: 800; text-align: center; margin: 0; letter-spacing: -0.005em; }
     .rr-quote-by { font-size: 1.05rem; color: rgba(255,255,255,0.72); text-align: center; margin: 0; }
 
@@ -131,6 +149,8 @@
         .rr-hero-title { font-size: 2.6rem; }
         .rr-hero-sub { font-size: 1.05rem; }
         .rr-statement { font-size: 1.6rem; }
+        .rr-split { grid-template-columns: 1fr; gap: 22px; }
+        .rr-split .rr-figure { max-width: 480px; }
         .rr-quote { font-size: 1.45rem; }
         .rr-cta h2, .rr-share h2 { font-size: 1.9rem; }
         .rr-nav { width: 44px; height: 44px; }
@@ -156,9 +176,13 @@
     };
     $hero = $img('hero.jpg');
     $portrait = $img('portrait.jpg');
+    $portraitMics = $img('portrait-mics.jpg');
+    $belAir = $img('bel-air-statement.jpg');
+    $courthouse = $img('courthouse.jpg');
+    $adx = $img('adx-florence.jpg');
 
     $actUrl = 'https://www.imamjamilactionnetwork.org/';
-    $slideCount = 14;
+    $slideCount = 15;
 @endphp
 
 <div class="rr-deck" id="rr-deck">
@@ -221,50 +245,100 @@
         <p class="rr-statement">Washington considered him dangerous enough to write a law about him. The 1968 federal Anti-Riot Act is still known as the "Rap Brown Act" — and it has been used against protest movements from the Chicago Eight to defendants charged today.</p>
     </section>
 
-    {{-- 5 — Transformation --}}
+    {{-- 5 — 1970: Bel Air, the manhunt --}}
+    <section class="rr-slide">
+        <div class="rr-split">
+            <figure class="rr-figure">
+                @if ($belAir)
+                    <img class="rr-photo-img" src="{{ $belAir }}" alt="SNCC's 1970 statement on the deaths of Ralph Featherstone and William Che Payne">
+                @else
+                    <div class="rr-ph rr-ph--portrait">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
+                        <span>Photo</span>
+                    </div>
+                @endif
+                <figcaption class="rr-cap">SNCC's official statement on the deaths of Ralph Featherstone and William "Che" Payne, March 11, 1970. Public domain, via Wikimedia Commons.</figcaption>
+            </figure>
+            <p class="rr-body">The state's pursuit of him was never ordinary. In March 1970, on the eve of his Maryland riot trial, two of his SNCC colleagues — Ralph Featherstone and William "Che" Payne — were killed when a bomb exploded in their car on the road near Bel Air, where the trial was to be held. Brown went underground and was placed on the FBI's Ten Most Wanted list.</p>
+        </div>
+    </section>
+
+    {{-- 6 — Transformation --}}
     <section class="rr-slide">
         <p class="rr-statement">In prison in the 1970s he converted to Islam and emerged as Imam Jamil Abdullah Al-Amin. In Atlanta's West End, his mosque drew thousands — and neighbors credited him with helping drive drugs out of the neighborhood.</p>
     </section>
 
-    {{-- 6 — March 16, 2000 --}}
+    {{-- 7 — March 16, 2000 --}}
     <section class="rr-slide">
         <p class="rr-statement">On March 16, 2000, two Fulton County sheriff's deputies — Ricky Kinchen and Aldranon English — came to his West End store to serve a warrant. Gunfire was exchanged. Kinchen was killed and English wounded. Al-Amin was arrested four days later in White Hall, Alabama.</p>
     </section>
 
-    {{-- 7 — Conviction --}}
+    {{-- 8 — Conviction --}}
     <section class="rr-slide">
-        <p class="rr-statement">In March 2002, a Fulton County jury convicted him of murder, and he was sentenced to life without the possibility of parole. He has maintained from the first day that he was not the shooter.</p>
+        <div class="rr-split">
+            <figure class="rr-figure">
+                @if ($courthouse)
+                    <img class="rr-photo-img" src="{{ $courthouse }}" alt="The Lewis R. Slaton Courthouse in Atlanta">
+                @else
+                    <div class="rr-ph rr-ph--portrait">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
+                        <span>Photo</span>
+                    </div>
+                @endif
+                <figcaption class="rr-cap">The Lewis R. Slaton Courthouse in Atlanta, seat of the Fulton County Superior Court, where Al-Amin was tried. Photo: Warren LeMay / CC0, via Wikimedia Commons.</figcaption>
+            </figure>
+            <p class="rr-body">In March 2002, a Fulton County jury convicted him of murder, and he was sentenced to life without the possibility of parole. He has maintained from the first day that he was not the shooter.</p>
+        </div>
     </section>
 
-    {{-- 8 — The disputed identification --}}
+    {{-- 9 — The disputed identification --}}
     <section class="rr-slide">
         <p class="rr-statement">The case against him was disputed from the start. Deputy English told investigators he had shot and wounded the gunman — but when Al-Amin was captured days later, he had no gunshot wounds. English also described a shooter with gray eyes. Al-Amin's eyes are brown.</p>
     </section>
 
-    {{-- 9 — Otis Jackson --}}
+    {{-- 10 — Otis Jackson --}}
     <section class="rr-slide">
         <p class="rr-statement">Another man — federal inmate Otis Jackson — has repeatedly confessed, including under oath, to the shooting. The jury that convicted Al-Amin never heard him. The courts have never reopened the case.</p>
     </section>
 
-    {{-- 10 — Federal custody anomaly --}}
+    {{-- 11 — Federal custody anomaly --}}
     <section class="rr-slide">
-        <p class="rr-statement">Though convicted of a state crime, Al-Amin was transferred into the federal Bureau of Prisons — including years at ADX Florence, the most isolating supermax in America, a prison meant for people with federal convictions. He had none.</p>
+        <div class="rr-split">
+            <figure class="rr-figure">
+                @if ($adx)
+                    <img class="rr-photo-img" src="{{ $adx }}" alt="ADX Florence federal supermax prison in Colorado">
+                @else
+                    <div class="rr-ph rr-ph--land">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>
+                        <span>Photo</span>
+                    </div>
+                @endif
+                <figcaption class="rr-cap">ADX Florence in Colorado, the federal supermax. Photo: Federal Bureau of Prisons (public domain), via Wikimedia Commons.</figcaption>
+            </figure>
+            <p class="rr-body">Though convicted of a state crime, Al-Amin was transferred into the federal Bureau of Prisons — including years at ADX Florence, the most isolating supermax in America, a prison meant for people with federal convictions. He had none.</p>
+        </div>
     </section>
 
-    {{-- 11 — Calls to reopen --}}
+    {{-- 12 — Calls to reopen --}}
     <section class="rr-slide">
         <p class="rr-statement">For two decades the Council on American-Islamic Relations, the Imam Jamil Action Network, and civil-rights advocates across the country have called for the case to be reopened. It never has been.</p>
     </section>
 
-    {{-- 12 — Quote --}}
+    {{-- 13 — Quote --}}
     <section class="rr-slide">
         <div class="rr-quotewrap">
+            <figure class="rr-figure">
+                @if ($portraitMics)
+                    <img class="rr-photo-img" src="{{ $portraitMics }}" alt="H. Rap Brown at the microphones during a 1967 SNCC news conference" style="max-height: 44vh;">
+                @endif
+                <figcaption class="rr-cap">H. Rap Brown, 1967. U.S. News &amp; World Report collection, Library of Congress (no known restrictions).</figcaption>
+            </figure>
             <p class="rr-quote">&ldquo;Justice means &lsquo;just us.&rsquo;&rdquo;</p>
             <p class="rr-quote-by">&mdash; H. Rap Brown, <em>Die Nigger Die!</em> (1969)</p>
         </div>
     </section>
 
-    {{-- 13 — CTA --}}
+    {{-- 14 — CTA --}}
     <section class="rr-slide">
         <div class="rr-cta">
             <h2>He is still waiting</h2>
@@ -273,7 +347,7 @@
         </div>
     </section>
 
-    {{-- 14 — Share --}}
+    {{-- 15 — Share --}}
     <section class="rr-slide">
         <div class="rr-share">
             <h2>Share his story</h2>
