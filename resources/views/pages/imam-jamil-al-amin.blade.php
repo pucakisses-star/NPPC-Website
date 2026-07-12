@@ -3,7 +3,7 @@
 @section('title', 'Everything You Should Know About Imam Jamil Al-Amin | NPPC')
 
 @section('head')
-<meta name="description" content="Imam Jamil Al-Amin — the civil-rights leader once known as H. Rap Brown — died in federal custody in November 2025, still maintaining his innocence in the killing of a Fulton County deputy while another man's sworn confession went unheard. An immersive look at the case.">
+<meta name="description" content="Imam Jamil Al-Amin — the civil-rights leader once known as H. Rap Brown — has spent more than two decades in prison for the killing of a Fulton County deputy, while another man's sworn confession has never been heard by a jury. An immersive look at the case.">
 <style>
     /* ============================================================
        Imam Jamil Al-Amin — immersive full-screen slide deck in the
@@ -190,8 +190,8 @@
     <section class="rr-slide rr-hero is-active">
         <div class="rr-hero-bg" style="@if($hero) background-image: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.72)), url('{{ $hero }}'); @else background: radial-gradient(120% 120% at 62% 32%, #2c313d 0%, #14161d 55%, #08090d 100%); @endif"></div>
         <div class="rr-hero-inner">
-            <h1 class="rr-hero-title">Imam Jamil Al-Amin died in federal custody on November 23, 2025</h1>
-            <p class="rr-hero-sub">He spent his last 23 years insisting he did not kill Deputy Ricky Kinchen — while another man confessed to the crime. Here's what you need to know.</p>
+            <h1 class="rr-hero-title">Imam Jamil Al-Amin has spent 22 years in prison for a killing another man confessed to</h1>
+            <p class="rr-hero-sub">The civil-rights leader once known as H. Rap Brown insists he did not kill Deputy Ricky Kinchen — and no jury has ever heard the other man's confession. Here's what you need to know.</p>
         </div>
     </section>
 
@@ -233,7 +233,7 @@
 
     {{-- 7 — Conviction --}}
     <section class="rr-slide">
-        <p class="rr-statement">In March 2002, a Fulton County jury convicted him of murder, and he was sentenced to life without the possibility of parole. He maintained from the first day to the last that he was not the shooter.</p>
+        <p class="rr-statement">In March 2002, a Fulton County jury convicted him of murder, and he was sentenced to life without the possibility of parole. He has maintained from the first day that he was not the shooter.</p>
     </section>
 
     {{-- 8 — The disputed identification --}}
@@ -243,7 +243,7 @@
 
     {{-- 9 — Otis Jackson --}}
     <section class="rr-slide">
-        <p class="rr-statement">Another man — federal inmate Otis Jackson — repeatedly confessed, including under oath, to the shooting. The jury that convicted Al-Amin never heard him. The courts never reopened the case.</p>
+        <p class="rr-statement">Another man — federal inmate Otis Jackson — has repeatedly confessed, including under oath, to the shooting. The jury that convicted Al-Amin never heard him. The courts have never reopened the case.</p>
     </section>
 
     {{-- 10 — Federal custody anomaly --}}
@@ -253,7 +253,7 @@
 
     {{-- 11 — Calls to reopen --}}
     <section class="rr-slide">
-        <p class="rr-statement">For two decades the Council on American-Islamic Relations, the Imam Jamil Action Network, and civil-rights advocates across the country called for the case to be reopened. It never was.</p>
+        <p class="rr-statement">For two decades the Council on American-Islamic Relations, the Imam Jamil Action Network, and civil-rights advocates across the country have called for the case to be reopened. It never has been.</p>
     </section>
 
     {{-- 12 — Quote --}}
@@ -267,8 +267,8 @@
     {{-- 13 — CTA --}}
     <section class="rr-slide">
         <div class="rr-cta">
-            <h2>The fight for his name continues</h2>
-            <p>Imam Jamil Al-Amin died at the Federal Medical Center in Butner, North Carolina, at age 82 — still serving a sentence his supporters believe belonged to another man. His family and the Imam Jamil Action Network are still fighting to clear his name.</p>
+            <h2>He is still waiting</h2>
+            <p>Imam Jamil Al-Amin is in his 80s and in failing health, still serving a sentence his supporters believe belongs to another man. His family and the Imam Jamil Action Network are fighting to clear his name.</p>
             <a class="rr-bigbtn" href="{{ $actUrl }}" target="_blank" rel="noopener">Act now</a>
         </div>
     </section>
@@ -360,7 +360,7 @@
 
     // Wire share links to the live URL
     var url = encodeURIComponent(window.location.href);
-    var text = encodeURIComponent("Imam Jamil Al-Amin (H. Rap Brown) died in federal custody maintaining his innocence — while another man confessed. Here's what you should know.");
+    var text = encodeURIComponent("Imam Jamil Al-Amin (H. Rap Brown) has spent over two decades in prison while another man confessed to the crime. Here's what you should know.");
     var map = {
         facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
         twitter: 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text,
