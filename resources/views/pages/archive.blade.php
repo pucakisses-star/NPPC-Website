@@ -48,7 +48,7 @@
     <div class="line mt-8"></div>
 
     <div class="a1-welcome">
-        <b>Welcome to the NPPC Archive.</b> Archive1 is a searchable index of the National Political Prisoner Coalition&rsquo;s records: prisoner profiles, case files, movement periodicals, court documents, and oral histories. It collects, in one place, the materials that document the history of U.S. political imprisonment from the late nineteenth century to the present.
+        <b>Welcome to the NPPC Archive.</b> This Archive is a searchable index of the National Political Prisoner Coalition&rsquo;s records: prisoner profiles, case files, movement periodicals, court documents, and oral histories. It collects, in one place, the materials that document the history of U.S. political imprisonment from the late nineteenth century to the present.
     </div>
 
     <section class="a1-hero" aria-label="Archive header">
@@ -176,6 +176,10 @@
         .a1r-search input::placeholder { color: rgba(var(--fg-rgb),0.4); }
         .a1r-help { width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(var(--fg-rgb),0.3); display: inline-flex; align-items: center; justify-content: center; color: rgba(var(--fg-rgb),0.6); font-size: 12px; font-weight: 700; text-decoration: none; }
         .a1r-sort { background: transparent; border: 1px solid var(--a1-line); border-radius: 4px; padding: 6px 10px; color: var(--fg); font-size: 13px; }
+        /* The select's white text inherits into the browser's native dropdown
+           list, which paints its own white background — leaving every
+           non-highlighted option invisible. Give options explicit colors. */
+        .a1r-sort option { background: var(--surface); color: var(--fg); }
         .a1r-toggle { display: inline-flex; align-items: center; gap: 8px; color: var(--a1-accent); font-size: 13px; cursor: pointer; }
         .a1r-toggle input { accent-color: var(--a1-accent); }
         .a1r-count { font-size: 13px; opacity: 0.7; padding: 8px 4px 16px; }
