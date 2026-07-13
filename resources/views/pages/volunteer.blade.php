@@ -296,6 +296,7 @@
         .vol2-form-heading { font-size: 1.4rem; }
     }
 </style>
+@include('partials.scribble-assets')
 @endsection
 
 @section('body')
@@ -312,7 +313,7 @@
     <section class="vol2-hero">
         <div>
             <div class="vol2-eyebrow"><a href="/get-involved">Get Involved</a> &nbsp;/&nbsp; Volunteer</div>
-            <h1 class="vol2-hero-title">Be the difference.</h1>
+            <h1 class="vol2-hero-title">Be the @include('partials.scribble', ['word' => 'difference']).</h1>
             <p class="vol2-hero-lede">
                 At NPPC, our volunteers are the heart and soul of our organization. By dedicating your time and skills, you help us make a significant impact in the lives of political prisoners across the United States.
             </p>
