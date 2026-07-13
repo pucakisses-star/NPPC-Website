@@ -5,6 +5,7 @@ unless noted; all public domain except the CC files listed.
 
 | File | Source / credit |
 |---|---|
+| anti-rent-war.jpg | "Attention! Anti-Renters!" meeting broadside, 1840s (public domain) |
 | whiskey-rebellion.jpg | *The Whiskey Rebellion* — Washington reviews troops near Fort Cumberland; attributed to Frederick Kemmelmeyer (public domain) |
 | john-brown.jpg | John Brown portrait, 1859 — Martin M. Lawrence (public domain) |
 | dakota-war-trials.jpg | *Execution of the thirty-eight Sioux Indians at Mankato, Minnesota*, 1862 lithograph (public domain) |

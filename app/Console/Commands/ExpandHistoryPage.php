@@ -98,7 +98,18 @@ class ExpandHistoryPage extends Command {
             $this->info('Fixed corrupted topic title -> The Sedition Act');
         }
 
-        // 2. Give Coxey's Army its missing photograph.
+        // 2. Give the Anti-Rent War its missing image (the topic renders a
+        //    blank panel without one) — a period anti-rent meeting broadside.
+        $antiRent = HistoryTopic::where('title', 'The Anti-Rent War')->first();
+        if ($antiRent && ! $antiRent->image) {
+            $antiRent->image = $this->installImage('anti-rent-war.jpg');
+            $antiRent->caption_era = $antiRent->caption_era ?: '1840s';
+            $antiRent->caption_label = '"Attention! Anti-Renters! Awake! Arouse!" — broadside for an anti-rent meeting, Rensselaer County, NY';
+            $antiRent->save();
+            $this->info('Added image to The Anti-Rent War');
+        }
+
+        // 3. Give Coxey's Army its missing photograph.
         $coxey = HistoryTopic::where('title', "Coxey's Army")->first();
         if ($coxey && ! $coxey->image) {
             $coxey->image = $this->installImage('coxeys-army.jpg');
@@ -108,7 +119,7 @@ class ExpandHistoryPage extends Command {
             $this->info("Added photograph to Coxey's Army");
         }
 
-        // 3. Add the new topics.
+        // 4. Add the new topics.
         $added = 0;
         foreach (self::TOPICS as [$eraFragment, $title, $date, $capEra, $capLabel, $bg, $image, $summary]) {
             $era = HistoryEra::where('title', 'like', '%'.$eraFragment.'%')->first();
@@ -136,7 +147,7 @@ class ExpandHistoryPage extends Command {
             }
         }
 
-        // 4. Renumber every era's topics chronologically by the first year in
+        // 5. Renumber every era's topics chronologically by the first year in
         //    their date label (stable, so same-year topics keep their order).
         foreach (HistoryEra::with('topics')->get() as $era) {
             $sorted = $era->topics->sortBy(function (HistoryTopic $t) {
