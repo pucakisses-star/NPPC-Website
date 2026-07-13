@@ -10,7 +10,7 @@
     .scr > svg { position: absolute; overflow: visible; pointer-events: none; }
     .scr > svg path { fill: none; stroke: #5660fe; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
         stroke-dasharray: var(--len, 900px); stroke-dashoffset: var(--len, 900px);
-        transition: stroke-dashoffset 0.85s cubic-bezier(.65, 0, .35, 1); }
+        transition: stroke-dashoffset 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); }
     .scr:hover > svg path, .scr:focus-visible > svg path { stroke-dashoffset: 0; }
     @media (prefers-reduced-motion: reduce) { .scr > svg path { transition: none; } }
 </style>
@@ -28,6 +28,17 @@
                 var sr = scr.getBoundingClientRect();
                 if (!tr.width) return;
                 var w = tr.width, h = tr.height, padX = w * 0.10 + 6, padY = h * 0.09 + 3;
+                // Clamp horizontal padding so a clipping ancestor (e.g. the site's
+                // overflow-x:hidden .container) never cuts off the oval's arc.
+                var clipLeft = -Infinity, clipRight = Infinity, anc = scr.parentElement;
+                while (anc && anc !== document.body) {
+                    var acs = getComputedStyle(anc);
+                    if (acs.overflow !== 'visible' || acs.overflowX !== 'visible') {
+                        var ar = anc.getBoundingClientRect(); clipLeft = ar.left; clipRight = ar.right; break;
+                    }
+                    anc = anc.parentElement;
+                }
+                padX = Math.max(4, Math.min(padX, tr.left - clipLeft - 5, clipRight - tr.right - 5));
                 var W = Math.round(w + padX * 2), H = Math.round(h + padY * 2);
                 var offX = tr.left - sr.left, offY = tr.top - sr.top;
                 var cx = W / 2, cy = H / 2, rx = W / 2 - 3, ry = H / 2 - 3;
