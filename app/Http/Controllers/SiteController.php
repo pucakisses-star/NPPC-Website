@@ -1192,12 +1192,26 @@ final class SiteController extends Controller {
     }
 
     public function petitionsIndex() {
+        // Featured spot: the newest published petition with an image
+        // (falling back to the newest overall). It renders in the hero band
+        // and is excluded from the paginated grid below.
+        $featured = \App\Models\Petition::where('published', true)
+            ->withCount('signatures')
+            ->whereNotNull('image')
+            ->orderByDesc('created_at')
+            ->first()
+            ?? \App\Models\Petition::where('published', true)
+                ->withCount('signatures')
+                ->orderByDesc('created_at')
+                ->first();
+
         $petitions = \App\Models\Petition::where('published', true)
+            ->when($featured, fn ($q) => $q->where('id', '!=', $featured->id))
             ->withCount('signatures')
             ->orderByDesc('created_at')
-            ->get();
+            ->paginate(12);
 
-        return view('pages.petitions-index', compact('petitions'));
+        return view('pages.petitions-index', compact('petitions', 'featured'));
     }
 
     public function petitionPage(string $slug) {

@@ -27,7 +27,27 @@
 .pix-card:hover .pix-card-cta { background: var(--accent-hover); }
 .pix-empty { text-align: center; padding: 96px 24px; color: rgba(var(--fg-rgb),0.5); }
 
+/* Featured petition hero band */
+.pfx { display: grid; grid-template-columns: 1.05fr 1fr; border: 1px solid rgba(var(--fg-rgb),0.1); background: rgba(var(--fg-rgb),0.03); border-radius: 12px; overflow: hidden; margin-top: 32px; }
+.pfx-img { min-height: 380px; background: var(--surface-2) center/cover no-repeat; }
+.pfx-img-empty { display: flex; align-items: center; justify-content: center; color: rgba(var(--fg-rgb),0.2); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.pfx-body { padding: 36px 40px 32px; display: flex; flex-direction: column; align-items: flex-start; }
+.pfx-kicker { display: inline-flex; align-items: flex-start; gap: 7px; font-size: 13px; font-weight: 800; color: var(--fg); }
+.pfx-kicker::before { content: ''; width: 7px; height: 7px; margin-top: 2px; background: var(--accent); }
+.pfx-title { font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 900; color: var(--fg); line-height: 1.12; margin: 14px 0 14px; }
+.pfx-sub { font-size: 1.05rem; font-weight: 700; color: rgba(var(--fg-rgb),0.75); line-height: 1.55; max-width: 620px; }
+.pfx-meta { margin-top: 14px; font-size: 13px; color: rgba(var(--fg-rgb),0.5); }
+.pfx-meta strong { color: var(--fg); }
+.pfx-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding: 10px 18px; border: 1px solid rgba(var(--fg-rgb),0.35); border-radius: 4px; font-size: 13px; font-weight: 800; color: var(--fg); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
+.pfx-cta:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
 @@media (max-width: 900px) { .pix-grid { grid-template-columns: repeat(2, 1fr); } }
+@@media (max-width: 900px) {
+    .pfx { grid-template-columns: 1fr; }
+    .pfx-img { min-height: 220px; aspect-ratio: 16 / 9; }
+    .pfx-body { padding: 24px; }
+    .pfx-cta { margin-top: 20px; }
+}
 @@media (max-width: 640px) {
     .pix-wrap { padding: 0 16px 64px; }
     .pix-hero { padding: 32px 0 16px; }
@@ -39,15 +59,34 @@
 
 @section('body')
 <main class="pix-wrap">
+    @php $activeTotal = $petitions->total() + (!empty($featured) ? 1 : 0); @endphp
     <div class="pix-hero">
         <h1>Active Petitions</h1>
         <p>Add your name to the campaigns demanding clemency, dropping charges, and accountability for U.S. political prisoners. Every signature is delivered to the named recipients.</p>
-        <div class="pix-count">{{ $petitions->count() }} active {{ \Illuminate\Support\Str::plural('petition', $petitions->count()) }}</div>
+        <div class="pix-count">{{ $activeTotal }} active {{ \Illuminate\Support\Str::plural('petition', $activeTotal) }}</div>
     </div>
 
-    @if ($petitions->isEmpty())
+    @if (!empty($featured))
+        <div class="pfx">
+            <div class="pfx-img {{ $featured->image ? '' : 'pfx-img-empty' }}"
+                 @if($featured->image) style="background-image: url('{{ $featured->image_url }}');" @endif>
+                @unless($featured->image) Petition @endunless
+            </div>
+            <div class="pfx-body">
+                <span class="pfx-kicker">Featured Petition</span>
+                <h2 class="pfx-title">{{ $featured->title }}</h2>
+                @if ($featured->body)
+                    <p class="pfx-sub">{{ \Illuminate\Support\Str::limit(trim(strip_tags($featured->body)), 170) }}</p>
+                @endif
+                <div class="pfx-meta"><strong>{{ number_format($featured->signatures_count) }}</strong> signed &middot; Goal: {{ number_format($featured->signature_goal) }}</div>
+                <a class="pfx-cta" href="/petition/{{ $featured->slug }}">Act Now &rarr;</a>
+            </div>
+        </div>
+    @endif
+
+    @if ($petitions->isEmpty() && empty($featured))
         <div class="pix-empty">No petitions are currently active. Check back soon.</div>
-    @else
+    @elseif ($petitions->isNotEmpty())
         <div class="pix-grid">
             @foreach ($petitions as $petition)
                 @php
@@ -79,6 +118,7 @@
                 </a>
             @endforeach
         </div>
+        {{ $petitions->links('vendor.pagination.nppc') }}
     @endif
 </main>
 @endsection
