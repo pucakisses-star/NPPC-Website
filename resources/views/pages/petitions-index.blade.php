@@ -41,6 +41,18 @@
 .pfx-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding: 10px 18px; border: 1px solid rgba(var(--fg-rgb),0.35); border-radius: 4px; font-size: 13px; font-weight: 800; color: var(--fg); text-decoration: none; transition: background 0.15s, border-color 0.15s; }
 .pfx-cta:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
+/* "Petitions" divider bar with sort / state controls */
+.pbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba(var(--fg-rgb),0.25); }
+.pbar h2 { font-size: 1.35rem; font-weight: 900; color: var(--fg); margin: 0; }
+.pbar-controls { display: flex; gap: 14px; flex-wrap: wrap; }
+.pbar-controls select { appearance: none; -webkit-appearance: none; min-width: 240px; padding: 10px 38px 10px 14px; font: inherit; font-size: 13px; font-weight: 700; color: var(--fg); background: transparent; border: 1px solid rgba(var(--fg-rgb),0.35); border-radius: 3px; cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23888' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; }
+.pbar-controls select:focus { outline: none; border-color: var(--accent); }
+.pbar-controls option { background: var(--surface, #16161e); color: var(--fg); }
+
+@@media (max-width: 640px) { .pbar-controls select { min-width: 0; flex: 1; } .pbar-controls { width: 100%; } }
+
 @@media (max-width: 900px) { .pix-grid { grid-template-columns: repeat(2, 1fr); } }
 @@media (max-width: 900px) {
     .pfx { grid-template-columns: 1fr; }
@@ -84,8 +96,28 @@
         </div>
     @endif
 
+    <form class="pbar" method="get" action="/petitions">
+        <h2>Petitions</h2>
+        <div class="pbar-controls">
+            <select name="sort" onchange="this.form.submit()" aria-label="Sort petitions">
+                <option value="newest" @selected(($sort ?? 'newest') === 'newest')>Sort by: Newest</option>
+                <option value="oldest" @selected(($sort ?? '') === 'oldest')>Sort by: Oldest</option>
+                <option value="most-signed" @selected(($sort ?? '') === 'most-signed')>Sort by: Most signed</option>
+                <option value="closest-to-goal" @selected(($sort ?? '') === 'closest-to-goal')>Sort by: Closest to goal</option>
+            </select>
+            <select name="state" onchange="this.form.submit()" aria-label="Filter by state">
+                <option value="">Filter by State</option>
+                @foreach (($states ?? collect()) as $s)
+                    <option value="{{ $s }}" @selected(($state ?? '') === $s)>{{ $s }}</option>
+                @endforeach
+            </select>
+        </div>
+    </form>
+
     @if ($petitions->isEmpty() && empty($featured))
         <div class="pix-empty">No petitions are currently active. Check back soon.</div>
+    @elseif ($petitions->isEmpty())
+        <div class="pix-empty">No petitions match this filter.</div>
     @elseif ($petitions->isNotEmpty())
         <div class="pix-grid">
             @foreach ($petitions as $petition)

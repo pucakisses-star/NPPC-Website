@@ -1191,7 +1191,7 @@ final class SiteController extends Controller {
         return view('pages.archive-view', compact('record'));
     }
 
-    public function petitionsIndex() {
+    public function petitionsIndex(Request $request) {
         // Featured spot: the newest published petition with an image
         // (falling back to the newest overall). It renders in the hero band
         // and is excluded from the paginated grid below.
@@ -1205,13 +1205,28 @@ final class SiteController extends Controller {
                 ->orderByDesc('created_at')
                 ->first();
 
+        $sort = $request->query('sort', 'newest');
+        $state = $request->query('state');
+
         $petitions = \App\Models\Petition::where('published', true)
             ->when($featured, fn ($q) => $q->where('id', '!=', $featured->id))
+            ->when($state, fn ($q) => $q->where('state', $state))
             ->withCount('signatures')
-            ->orderByDesc('created_at')
-            ->paginate(12);
+            ->when($sort === 'oldest', fn ($q) => $q->orderBy('created_at'))
+            ->when($sort === 'most-signed', fn ($q) => $q->orderByDesc('signatures_count'))
+            ->when($sort === 'closest-to-goal', fn ($q) => $q->orderByRaw('signatures_count / GREATEST(signature_goal, 1) DESC'))
+            ->when(! in_array($sort, ['oldest', 'most-signed', 'closest-to-goal']), fn ($q) => $q->orderByDesc('created_at'))
+            ->paginate(12)
+            ->appends($request->query());
 
-        return view('pages.petitions-index', compact('petitions', 'featured'));
+        // States present across published petitions, for the filter dropdown.
+        $states = \App\Models\Petition::where('published', true)
+            ->whereNotNull('state')
+            ->distinct()
+            ->orderBy('state')
+            ->pluck('state');
+
+        return view('pages.petitions-index', compact('petitions', 'featured', 'states', 'sort', 'state'));
     }
 
     public function petitionPage(string $slug) {
