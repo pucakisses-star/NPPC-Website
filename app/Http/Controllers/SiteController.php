@@ -10,6 +10,7 @@ use App\Models\CalendarEntry;
 use App\Models\Event;
 use App\Models\Faq;
 use App\Models\HistoryEra;
+use App\Models\Institution;
 use App\Models\Page;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
