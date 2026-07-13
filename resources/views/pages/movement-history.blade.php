@@ -475,8 +475,20 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!e.isIntersecting) return;
             var y = e.target.getAttribute('data-year');
             Object.keys(items).forEach(function (k) { items[k].classList.toggle('on', k === y); });
+            // Keep the active year visible by scrolling ONLY the sidebar list.
+            // (li.scrollIntoView also scrolls the document and fights the
+            // user's page scrolling.)
             var li = items[y];
-            if (li && li.scrollIntoView) li.scrollIntoView({ block: 'nearest' });
+            if (li) {
+                var ul = li.parentElement;
+                if (ul.scrollHeight > ul.clientHeight) {
+                    // li's offsetParent is the (positioned, sticky) UL, so
+                    // offsetTop is already list-relative.
+                    var top = li.offsetTop;
+                    if (top < ul.scrollTop + 24) ul.scrollTop = Math.max(0, top - 24);
+                    else if (top > ul.scrollTop + ul.clientHeight - 48) ul.scrollTop = top - ul.clientHeight + 48;
+                }
+            }
         });
     }, { rootMargin: '-15% 0px -70% 0px' });
     document.querySelectorAll('.mh-year').forEach(function (el) { spy.observe(el); });
