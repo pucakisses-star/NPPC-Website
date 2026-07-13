@@ -42,6 +42,17 @@ body.page-movement-history { background: #f0f1f7; }
 .mh-hero-sub { font-size: clamp(1.3rem, 2.4vw, 2rem); font-weight: 700; color: var(--ink); line-height: 1.3; margin: 0 0 14px; }
 .mh-hero-title { font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 900; line-height: 1.06; margin: 0 0 34px; letter-spacing: -.02em; }
 .mh-hero-title span { display: inline-block; background: var(--acc); color: #fff; padding: 2px 16px 6px; margin-bottom: 8px; }
+/* animated headline (CodyHouse-style slide rotator) */
+.mh-rotator { position: relative; display: inline-block; overflow: hidden; vertical-align: bottom;
+  text-align: left; white-space: nowrap; transition: width .45s cubic-bezier(.22,1,.36,1); }
+.mh-rotator b { display: inline-block; font-weight: inherit; white-space: nowrap;
+  position: absolute; left: 0; top: 0; opacity: 0; transform: translateY(105%);
+  transition: transform .55s cubic-bezier(.22,1,.36,1), opacity .45s ease; }
+.mh-rotator b.is-visible { position: relative; opacity: 1; transform: none; }
+.mh-rotator b.is-hidden { transform: translateY(-105%); opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .mh-rotator, .mh-rotator b { transition: none; }
+}
 .mh-chev { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--acc); background: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center; transition: background .2s; }
 .mh-chev::after { content: ''; width: 11px; height: 11px; border-right: 2px solid var(--acc); border-bottom: 2px solid var(--acc);
@@ -352,7 +363,10 @@ $heroBricks = [
     <section class="mh-hero">
         <div>
             <h2 class="mh-hero-sub">Chronicling a<br>Century of</h2>
-            <h1 class="mh-hero-title"><span>Freedom&nbsp;</span><br><span>Work&nbsp;</span></h1>
+            <h1 class="mh-hero-title">
+                <span><span class="mh-rotator" id="mh-rotator"><b class="is-visible">Freedom</b><b>Justice</b><b>Solidarity</b><b>Righteous</b></span>&nbsp;</span><br>
+                <span>Work&nbsp;</span>
+            </h1>
             <button type="button" class="mh-chev" id="mh-chev" aria-label="Scroll to the timeline"></button>
         </div>
         <div class="mh-masonry" aria-hidden="true">
@@ -433,6 +447,34 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('.mh .reveal').forEach(function (el) { io.observe(el); });
+
+    // animated headline: Freedom -> Justice -> Solidarity -> Righteous -> ...
+    (function () {
+        var rot = document.getElementById('mh-rotator');
+        if (!rot) return;
+        var words = rot.querySelectorAll('b');
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var i = 0;
+        function fit() {
+            var w = words[i].getBoundingClientRect().width;
+            if (w > 0) rot.style.width = Math.ceil(w) + 6 + 'px';
+        }
+        function step() {
+            var prev = words[i];
+            i = (i + 1) % words.length;
+            var next = words[i];
+            prev.classList.remove('is-visible');
+            prev.classList.add('is-hidden');
+            next.classList.remove('is-hidden');
+            next.classList.add('is-visible');
+            fit();
+            setTimeout(function () { prev.classList.remove('is-hidden'); }, 600);
+        }
+        fit();
+        window.addEventListener('resize', fit);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+        if (!reduced) setInterval(step, 2800);
+    })();
 
     // chevron
     var chev = document.getElementById('mh-chev');
