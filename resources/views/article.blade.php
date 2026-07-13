@@ -62,14 +62,27 @@
     </article>
 
     @if(!empty($article->author) && !empty($article->author['about']))
+        @php $aboutAuthorUrl = $article->author['url'] ?? null; @endphp
         <div style="display:flex; gap:16px; align-items:flex-start; margin-top:48px; padding:24px; border:1px solid rgba(var(--fg-rgb),0.12); border-radius:8px; background:rgba(var(--fg-rgb),0.02);">
             @if($article->author['avatar_url'])
-                <img src="{{ $article->author['avatar_url'] }}" alt="{{ $article->author['name'] }}" style="width:64px; height:64px; border-radius:9999px; object-fit:cover; flex-shrink:0;">
+                @if($aboutAuthorUrl)<a href="{{ $aboutAuthorUrl }}" aria-label="More articles by {{ $article->author['name'] }}" style="flex-shrink:0;">@endif
+                <img src="{{ $article->author['avatar_url'] }}" alt="{{ $article->author['name'] }}" style="width:64px; height:64px; border-radius:9999px; object-fit:cover; flex-shrink:0; display:block;">
+                @if($aboutAuthorUrl)</a>@endif
             @endif
             <div>
                 <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(var(--fg-rgb),0.5); margin-bottom:4px;">About the author</div>
-                <div style="font-weight:700; color:var(--fg); font-size:18px; margin-bottom:6px;">{{ $article->author['name'] }}</div>
+                <div style="font-weight:700; font-size:18px; margin-bottom:6px;">
+                    @if($aboutAuthorUrl)
+                        <a href="{{ $aboutAuthorUrl }}" style="color:var(--fg); text-decoration:none; border-bottom:1px solid rgba(var(--fg-rgb),0.3); transition:border-color 0.15s;"
+                           onmouseover="this.style.borderBottomColor='var(--fg)'" onmouseout="this.style.borderBottomColor='rgba(var(--fg-rgb),0.3)'">{{ $article->author['name'] }}</a>
+                    @else
+                        <span style="color:var(--fg);">{{ $article->author['name'] }}</span>
+                    @endif
+                </div>
                 <div style="color:rgba(var(--fg-rgb),0.7); line-height:1.6; font-size:15px;">{{ $article->author['about'] }}</div>
+                @if($aboutAuthorUrl)
+                    <a href="{{ $aboutAuthorUrl }}" style="display:inline-block; margin-top:10px; font-size:13.5px; font-weight:700; color:var(--accent); text-decoration:none;">More from {{ $article->author['name'] }} &rarr;</a>
+                @endif
             </div>
         </div>
     @endif

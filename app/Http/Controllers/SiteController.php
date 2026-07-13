@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnnualReport;
 use App\Models\ArchiveRecord;
 use App\Models\Article;
+use App\Models\Author;
 use App\Models\CalendarEntry;
 use App\Models\Event;
 use App\Models\Faq;
@@ -973,6 +974,21 @@ final class SiteController extends Controller {
         'the-data-center-revolt' => '/data-center-cases',
         'transnational-repression-report' => '/transnational-repression',
     ];
+
+    public function author(string $slug) {
+        $author = Author::where('slug', $slug)->firstOrFail();
+
+        $articles = $author->articles()
+            ->whereNotNull('published_at')
+            ->with('category')
+            ->orderByDesc('published_at')
+            ->paginate(12);
+
+        return view('pages.author', [
+            'author' => $author,
+            'articles' => $articles,
+        ]);
+    }
 
     public function article(string $type, string $slug) {
         if ($target = self::FEATURE_REDIRECTS[$slug] ?? null) {
