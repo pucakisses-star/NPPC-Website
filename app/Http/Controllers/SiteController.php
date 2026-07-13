@@ -501,8 +501,9 @@ final class SiteController extends Controller {
             ->get(['id', 'name', 'slug', 'last_name', 'first_name']);
 
         // "Meet Political Prisoners" carousel: a fresh random set on every
-        // page load, limited to profiles with both a photo and a bio.
-        $meetPrisoners = Prisoner::whereNotNull('photo')
+        // page load — currently imprisoned people only, with a photo and bio.
+        $meetPrisoners = Prisoner::where('in_custody', true)
+            ->whereNotNull('photo')
             ->where('photo', '!=', '')
             ->whereNotNull('description')
             ->where('description', '!=', '')
