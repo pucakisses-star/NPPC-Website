@@ -13,8 +13,26 @@
     /* Let the full-bleed hero escape the centered .container (this page only);
        every other section stays within the container's max-width. */
     .page-learn-more .container { overflow: visible; }
-    .lm-hero-photos { position: absolute; inset: 0 20px; display: flex; gap: 14px; align-items: stretch; clip-path: inset(0 100% 0 0); animation: revealSweep 3s ease-out forwards; }
-    .lm-hero-photos > div { flex: 1; position: relative; overflow: hidden; }
+    .lm-hero-photos { position: absolute; inset: 0 20px; display: flex; gap: 14px; align-items: stretch; }
+    /* Each panel grows and fades in on its own, the stagger sweeping left to
+       right (replaces the old whole-strip clip-path wipe). */
+    .lm-hero-photos > div { flex: 1; position: relative; overflow: hidden; opacity: 0; transform: scale(0.82); animation: photoGrowIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; will-change: opacity, transform; }
+    .lm-hero-photos > div:nth-child(1) { animation-delay: 0.10s; }
+    .lm-hero-photos > div:nth-child(2) { animation-delay: 0.26s; }
+    .lm-hero-photos > div:nth-child(3) { animation-delay: 0.42s; }
+    .lm-hero-photos > div:nth-child(4) { animation-delay: 0.58s; }
+    .lm-hero-photos > div:nth-child(5) { animation-delay: 0.74s; }
+    .lm-hero-photos > div:nth-child(6) { animation-delay: 0.90s; }
+    .lm-hero-photos > div:nth-child(7) { animation-delay: 1.06s; }
+    .lm-hero-photos > div:nth-child(8) { animation-delay: 1.22s; }
+    .lm-hero-photos > div:nth-child(9) { animation-delay: 1.38s; }
+    @keyframes photoGrowIn {
+        from { opacity: 0; transform: scale(0.82); }
+        to   { opacity: 1; transform: scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .lm-hero-photos > div { animation: none; opacity: 1; transform: none; }
+    }
     /* The photo lives on ::before so the grayscale filter can't wash out the
        duotone tint layered above it. background-image is inherited from the
        panel's inline style. */
