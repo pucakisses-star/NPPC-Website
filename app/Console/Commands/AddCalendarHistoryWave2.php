@@ -78,6 +78,22 @@ final class AddCalendarHistoryWave2 extends Command {
             $added++;
         }
 
+        // Correction: the "FALN clemency campaign opens with Carter remarks"
+        // entry (July 11, 1985) describes an event that doesn't exist in the
+        // record — no 1985 Carter FALN statement is documented anywhere.
+        // Replace it with the documented event it garbles: Carter's Sept. 6,
+        // 1979 commutation of the Puerto Rican Nationalists.
+        $faln = CalendarEntry::where('month', 7)->where('day', 11)
+            ->where('title', 'like', '%FALN clemency campaign%')->first();
+        if ($faln) {
+            $faln->update([
+                'month' => 9, 'day' => 6, 'year' => 1979,
+                'title' => 'Carter commutes the sentences of the Puerto Rican Nationalists',
+                'description' => "President Jimmy Carter commuted the sentences of Oscar Collazo, Lolita Lebrón, Rafael Cancel Miranda, and Irving Flores — the Puerto Rican Nationalists imprisoned since the 1950 attack on Blair House and the 1954 shooting in the U.S. House of Representatives. Released days later after more than a quarter century inside, they flew home to San Juan to a heroes' welcome.\n\nTwenty years later, Carter would again back clemency for Puerto Rican independence prisoners, urging President Clinton to release the FALN prisoners freed in 1999.",
+            ]);
+            $this->info('Corrected: bogus July 11, 1985 FALN/Carter entry replaced with the Sept 6, 1979 commutation.');
+        }
+
         // Correction: the existing Reality Winner sentencing entry sits on
         // Dec 22, 2017 — she was sentenced August 23, 2018.
         $winner = CalendarEntry::where('month', 12)->where('day', 22)
