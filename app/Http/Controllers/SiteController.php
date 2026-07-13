@@ -500,7 +500,18 @@ final class SiteController extends Controller {
             ->orderBy('first_name')
             ->get(['id', 'name', 'slug', 'last_name', 'first_name']);
 
-        return view('pages.prisoner-outreach', compact('prisoners'));
+        // "Meet Political Prisoners" carousel: a fresh random set on every
+        // page load, limited to profiles with both a photo and a bio.
+        $meetPrisoners = Prisoner::whereNotNull('photo')
+            ->where('photo', '!=', '')
+            ->whereNotNull('description')
+            ->where('description', '!=', '')
+            ->inRandomOrder()
+            ->limit(30)
+            ->get(['id', 'name', 'slug', 'photo', 'state', 'description',
+                'in_custody', 'released', 'awaiting_trial', 'in_exile']);
+
+        return view('pages.prisoner-outreach', compact('prisoners', 'meetPrisoners'));
     }
 
     public function staff(Request $request) {
