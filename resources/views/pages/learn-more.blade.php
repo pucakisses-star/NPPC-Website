@@ -155,9 +155,12 @@
             so the slanted seams glide. Without :has() support the hovered
             card still grows — the effect just degrades gracefully. ---- */
     @@media (min-width: 901px) and (hover: hover) {
-        .lmj-card { transition: flex-grow 0.55s cubic-bezier(0.22, 1, 0.36, 1); will-change: flex-grow; }
-        .lmj-card:hover { flex-grow: 1.7; }
-        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) { flex-grow: 0.55; }
+        /* Animate flex-basis, not flex-grow: the row's bases (24% + 38% + 38%)
+           fill it exactly, so grow has no free space to hand out and moves the
+           seam by mere pixels. Bases are the width share itself. */
+        .lmj-card { transition: flex-basis 0.55s cubic-bezier(0.22, 1, 0.36, 1); will-change: flex-basis; }
+        .lmj-card:hover { flex-basis: 50%; }
+        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) { flex-basis: 26%; }
 
         /* The photo wakes up: color returns, the frame brightens. */
         .lmj-card-img { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; }
@@ -177,7 +180,7 @@
     @@media (prefers-reduced-motion: reduce) {
         .lmj-card, .lmj-card-img, .lmj-card-text, .lmj-card-cat::after { transition: none !important; }
         .lmj-card:hover,
-        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) { flex-grow: 1; }
+        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) { flex-basis: 38%; }
     }
     @@media (max-width: 900px) {
         .lmj-inner { flex-direction: column; }
