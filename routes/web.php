@@ -52,6 +52,7 @@ Route::controller(SiteController::class)
         Route::post('petition/{slug}/sign', 'petitionSign');
         Route::get('prisoner/{slug}', 'prisoner');
         Route::get('author/{slug}', 'author');
+        Route::get('state/{slug}', 'state');
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
         Route::get('about', 'about');

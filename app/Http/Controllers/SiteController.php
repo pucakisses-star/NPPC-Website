@@ -987,6 +987,91 @@ final class SiteController extends Controller {
         'transnational-repression-report' => '/transnational-repression',
     ];
 
+    /** slug => [full name, abbreviation, ...extra stored variants] */
+    public const STATES = [
+        'alabama' => ['Alabama', 'AL'], 'alaska' => ['Alaska', 'AK'], 'arizona' => ['Arizona', 'AZ'],
+        'arkansas' => ['Arkansas', 'AR'], 'california' => ['California', 'CA'], 'colorado' => ['Colorado', 'CO'],
+        'connecticut' => ['Connecticut', 'CT'], 'delaware' => ['Delaware', 'DE'],
+        'district-of-columbia' => ['District of Columbia', 'DC', 'Washington, D.C.', 'Washington DC'],
+        'florida' => ['Florida', 'FL'], 'georgia' => ['Georgia', 'GA'], 'hawaii' => ['Hawaii', 'HI'],
+        'idaho' => ['Idaho', 'ID'], 'illinois' => ['Illinois', 'IL'], 'indiana' => ['Indiana', 'IN'],
+        'iowa' => ['Iowa', 'IA'], 'kansas' => ['Kansas', 'KS'], 'kentucky' => ['Kentucky', 'KY'],
+        'louisiana' => ['Louisiana', 'LA'], 'maine' => ['Maine', 'ME'], 'maryland' => ['Maryland', 'MD'],
+        'massachusetts' => ['Massachusetts', 'MA'], 'michigan' => ['Michigan', 'MI'],
+        'minnesota' => ['Minnesota', 'MN'], 'mississippi' => ['Mississippi', 'MS'],
+        'missouri' => ['Missouri', 'MO'], 'montana' => ['Montana', 'MT'], 'nebraska' => ['Nebraska', 'NE'],
+        'nevada' => ['Nevada', 'NV'], 'new-hampshire' => ['New Hampshire', 'NH'],
+        'new-jersey' => ['New Jersey', 'NJ'], 'new-mexico' => ['New Mexico', 'NM'],
+        'new-york' => ['New York', 'NY'], 'north-carolina' => ['North Carolina', 'NC'],
+        'north-dakota' => ['North Dakota', 'ND'], 'ohio' => ['Ohio', 'OH'], 'oklahoma' => ['Oklahoma', 'OK'],
+        'oregon' => ['Oregon', 'OR'], 'pennsylvania' => ['Pennsylvania', 'PA'],
+        'rhode-island' => ['Rhode Island', 'RI'], 'south-carolina' => ['South Carolina', 'SC'],
+        'south-dakota' => ['South Dakota', 'SD'], 'tennessee' => ['Tennessee', 'TN'],
+        'texas' => ['Texas', 'TX'], 'utah' => ['Utah', 'UT'], 'vermont' => ['Vermont', 'VT'],
+        'virginia' => ['Virginia', 'VA'], 'washington' => ['Washington', 'WA'],
+        'west-virginia' => ['West Virginia', 'WV'], 'wisconsin' => ['Wisconsin', 'WI'],
+        'wyoming' => ['Wyoming', 'WY'], 'puerto-rico' => ['Puerto Rico', 'PR'],
+    ];
+
+    public function state(string $slug) {
+        $variants = self::STATES[$slug] ?? null;
+        if ($variants === null) {
+            abort(404);
+        }
+        $name = $variants[0];
+
+        $base = Prisoner::whereIn('state', $variants);
+
+        $stats = [
+            'total' => (clone $base)->count(),
+            'in_custody' => (clone $base)->where('in_custody', true)->count(),
+            'released' => (clone $base)->where('released', true)->count(),
+            'awaiting' => (clone $base)->where('awaiting_trial', true)->count(),
+        ];
+
+        // Photo-bearing entries lead so the grid opens strong.
+        $prisoners = (clone $base)
+            ->orderByRaw("(photo IS NOT NULL AND photo != '') DESC")
+            ->orderByRaw('in_custody DESC')
+            ->orderBy('last_name')
+            ->orderBy('first_name')
+            ->paginate(24, ['id', 'name', 'slug', 'photo', 'state', 'description',
+                'in_custody', 'released', 'awaiting_trial', 'in_exile', 'era']);
+
+        $eras = (clone $base)
+            ->whereNotNull('era')->where('era', '!=', '')
+            ->selectRaw('era, count(*) as n')
+            ->groupBy('era')->orderByDesc('n')->limit(6)->get();
+
+        $institutions = Institution::whereIn('state', $variants)
+            ->select('institutions.*')
+            ->selectRaw('(select count(*) from prisoner_cases where prisoner_cases.institution_id = institutions.id) as cases_count')
+            ->orderByDesc('cases_count')
+            ->limit(8)->get()
+            ->filter(fn ($i) => $i->cases_count > 0)
+            ->values();
+
+        $shapes = json_decode((string) file_get_contents(database_path('data/state-shapes.json')), true) ?: [];
+
+        // prev / next state for footer navigation
+        $slugs = array_keys(self::STATES);
+        $idx = (int) array_search($slug, $slugs, true);
+        $prev = $slugs[($idx - 1 + count($slugs)) % count($slugs)];
+        $next = $slugs[($idx + 1) % count($slugs)];
+
+        return view('pages.state', [
+            'slug' => $slug,
+            'name' => $name,
+            'stats' => $stats,
+            'prisoners' => $prisoners,
+            'eras' => $eras,
+            'institutions' => $institutions,
+            'shape' => $shapes[$name] ?? null,
+            'prevState' => ['slug' => $prev, 'name' => self::STATES[$prev][0]],
+            'nextState' => ['slug' => $next, 'name' => self::STATES[$next][0]],
+        ]);
+    }
+
     public function author(string $slug) {
         $author = Author::where('slug', $slug)->firstOrFail();
 
