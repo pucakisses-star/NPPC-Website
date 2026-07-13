@@ -185,6 +185,112 @@ body.page-report-2026 { background: #0a0a12; }
 .r26-tribute .name { font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 900; color: var(--ink); margin-bottom: 4px; }
 .r26-tribute .dates { font-size: 13px; color: var(--dim); margin-bottom: 26px; }
 
+/* ── state notes: tab bar + crossfading panels ───────────── */
+.r26-st { background: var(--paper); color: #14142b; padding: 96px 0 110px; }
+.r26-st .r26-label { color: var(--acc); }
+.r26-st h2 { color: #14142b; }
+.r26-st-tabs { display: flex; flex-wrap: wrap; gap: 4px 34px; margin: 44px 0 54px; }
+.r26-st-tab { position: relative; background: none; border: 0; padding: 18px 2px 6px; cursor: pointer;
+  font-family: inherit; font-size: 15px; font-weight: 600; color: rgba(20,20,43,.75); transition: color .2s; }
+.r26-st-tab:hover { color: #14142b; }
+.r26-st-tab::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%) scale(0);
+  width: 9px; height: 9px; background: var(--acc); transition: transform .25s; }
+.r26-st-tab.on { font-weight: 800; color: #14142b; }
+.r26-st-tab.on::before { transform: translateX(-50%) scale(1); }
+.r26-st-panel { display: none; }
+.r26-st-panel.on { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 60px;
+  animation: r26StIn .5s ease both; }
+@keyframes r26StIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .r26-st-panel.on { animation: none; } }
+.r26-st-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.r26-st-ico { width: 44px; flex: 0 0 auto; color: var(--acc); }
+.r26-st-ico svg { width: 100%; height: auto; display: block; }
+.r26-st-name { font-size: 13px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: #14142b; }
+.r26-st-rule { height: 3px; width: min(560px, 100%); background: rgba(20,20,43,.85); margin-bottom: 34px; }
+.r26-st-partner { font-size: 15px; font-weight: 800; color: #14142b; margin: 0 0 16px; }
+.r26-st-claim { font-size: clamp(1.35rem, 2.4vw, 1.9rem); font-weight: 800; line-height: 1.35; color: #14142b; margin: 0 0 22px; letter-spacing: -.01em; }
+.r26-st-foot { font-size: 14px; font-weight: 700; color: rgba(20,20,43,.75); margin: 4px 0 0; }
+.r26-st-more { display: inline-block; margin-top: 26px; font-size: 14px; font-weight: 800; color: var(--acc); text-decoration: none; }
+.r26-st-more:hover { text-decoration: underline; }
+.r26-st-cards { display: flex; flex-direction: column; gap: 18px; align-self: start; padding-top: 86px; }
+.r26-st-card { display: flex; justify-content: space-between; align-items: center; gap: 18px; text-decoration: none;
+  background: #fff; border: 1px solid rgba(20,20,43,.08); border-radius: 6px; padding: 20px 22px;
+  box-shadow: 0 10px 30px rgba(20,20,43,.06); transition: transform .2s, box-shadow .2s; }
+.r26-st-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(20,20,43,.1); }
+.r26-st-card .src { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #14142b; margin-bottom: 8px; }
+.r26-st-card .hl { display: block; font-size: 15px; color: rgba(20,20,43,.85); line-height: 1.5; }
+.r26-st-card .go { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 5px; background: var(--acc); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; }
+@media (max-width: 900px) {
+  .r26-st-panel.on { grid-template-columns: 1fr; gap: 30px; }
+  .r26-st-cards { padding-top: 0; }
+  .r26-st-tabs { gap: 2px 22px; }
+}
+
+/* ── faces of the year: expanding profile columns ────────── */
+.r26-pf { background: var(--paper); padding: 0 0 110px; }
+.r26-pf-strip { display: flex; height: 780px; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 70px rgba(20,20,43,.14); }
+.r26-pf-item { position: relative; flex: 1; min-width: 0; cursor: pointer; overflow: hidden;
+  background: linear-gradient(180deg, #c9cdf3, #b9beea); transition: flex .6s cubic-bezier(.22,1,.36,1); border-right: 1px solid rgba(20,20,43,.12); }
+.r26-pf-item:last-child { border-right: 0; }
+.r26-pf-item.on { flex: 6.2; cursor: default; background: #f6f7fd; }
+.r26-pf-vname { position: absolute; top: 26px; left: 50%; transform: translateX(-50%); writing-mode: vertical-rl;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem); font-weight: 800; color: #14142b; white-space: nowrap; letter-spacing: -.01em;
+  transition: opacity .3s; }
+.r26-pf-item.on .r26-pf-vname { opacity: 0; }
+.r26-pf-thumb { position: absolute; left: 0; right: 0; bottom: 0; height: 42%; background: center top / cover no-repeat; transition: opacity .3s; }
+.r26-pf-item.on .r26-pf-thumb { opacity: 0; }
+.r26-pf-body { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .45s .25s; }
+.r26-pf-item.on .r26-pf-body { opacity: 1; pointer-events: auto; }
+.r26-pf-media { flex: 0 0 46%; background: center 22% / cover no-repeat; }
+.r26-pf-text { flex: 1; padding: 30px 34px 26px; overflow-y: auto; }
+.r26-pf-text h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-weight: 800; color: #14142b; margin: 0 0 12px; }
+.r26-pf-meta { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #14142b; line-height: 1.8; margin: 0 0 14px; }
+.r26-pf-text p { font-size: 14.5px; line-height: 1.7; color: rgba(20,20,43,.85); margin: 0 0 12px; }
+.r26-pf-text p a { color: inherit; text-underline-offset: 3px; }
+.r26-pf-hint { text-align: right; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(20,20,43,.55); margin-top: 6px; }
+@media (max-width: 900px) {
+  .r26-pf-strip { flex-direction: column; height: auto; }
+  .r26-pf-item { flex: none; height: 64px; border-right: 0; border-bottom: 1px solid rgba(20,20,43,.12); transition: height .5s cubic-bezier(.22,1,.36,1); }
+  .r26-pf-item.on { height: 660px; }
+  .r26-pf-vname { writing-mode: horizontal-tb; top: 50%; left: 22px; transform: translateY(-50%); }
+  .r26-pf-thumb { left: auto; right: 0; top: 0; bottom: 0; width: 130px; height: auto; }
+  .r26-pf-media { flex: 0 0 240px; }
+}
+
+/* ── remembering: memorial tribute with audio ────────────── */
+.r26-mem2 { background: var(--paper); color: #14142b; padding: 30px 0 120px; }
+.r26-mem2-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 70px; align-items: center; }
+.r26-mem2 h2 { font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 800; color: #14142b; margin: 0 0 24px; letter-spacing: -.01em; }
+.r26-mem2 p { font-size: 15.5px; line-height: 1.75; color: rgba(20,20,43,.88); margin: 0 0 16px; }
+.r26-mem2 p a { color: inherit; text-underline-offset: 3px; }
+.r26-mem2-label { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #14142b; margin: 34px 0 18px; }
+.r26-wave { display: flex; align-items: center; gap: 5px; height: 76px; margin-bottom: 18px; }
+.r26-wave i { display: block; width: 7px; border-radius: 4px; background: var(--acc); height: calc(14px + var(--h) * 52px); transform-origin: center; }
+.r26-mem2.playing .r26-wave i { animation: r26Wave 1.1s ease-in-out infinite; animation-delay: calc(var(--d) * -.12s); }
+@keyframes r26Wave { 0%,100% { transform: scaleY(.55); } 50% { transform: scaleY(1.15); } }
+@media (prefers-reduced-motion: reduce) { .r26-mem2.playing .r26-wave i { animation: none; } }
+.r26-mem2-player { display: flex; align-items: center; gap: 16px; }
+.r26-play { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--acc); background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; color: var(--acc); transition: background .2s, color .2s; }
+.r26-play:hover { background: var(--acc); color: #fff; }
+.r26-play .tri { width: 0; height: 0; border-left: 13px solid currentColor; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+.r26-play .pause { display: none; width: 12px; height: 15px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; }
+.r26-mem2.playing .r26-play .tri { display: none; }
+.r26-mem2.playing .r26-play .pause { display: block; }
+.r26-time { font-size: 14.5px; font-weight: 700; color: rgba(20,20,43,.8); font-variant-numeric: tabular-nums; }
+.r26-collage { position: relative; min-height: 520px; }
+.r26-collage .ring { position: absolute; right: 4%; top: 8%; width: 74%; aspect-ratio: 1; border: 2px solid rgba(86,96,254,.5); border-radius: 50%; }
+.r26-collage .ph-main { position: absolute; right: 0; bottom: 0; width: 66%; aspect-ratio: 4/5; background: center top / cover no-repeat;
+  box-shadow: 0 26px 70px rgba(20,20,43,.25); }
+.r26-collage .ph-duo { position: absolute; left: 2%; top: 0; width: 44%; aspect-ratio: 4/5; background: center top / cover no-repeat;
+  filter: grayscale(1) sepia(1) hue-rotate(202deg) saturate(2.4) brightness(.92); box-shadow: 0 20px 50px rgba(20,20,43,.22); }
+.r26-collage .ph-cap { position: absolute; left: 4%; bottom: 6%; font-size: 12px; color: rgba(20,20,43,.55); max-width: 30%; line-height: 1.6; }
+@media (max-width: 900px) {
+  .r26-mem2-grid { grid-template-columns: 1fr; gap: 46px; }
+  .r26-collage { min-height: 0; height: 420px; }
+}
+
 /* ── thank you ───────────────────────────────────────────── */
 .r26-thanks { padding: 130px 0 90px; text-align: center; background: radial-gradient(ellipse at 50% 30%, #1c1c46, var(--deep)); }
 .r26-thanks h2 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; color: #fff; margin: 0 0 24px; }
@@ -747,6 +853,201 @@ body.page-report-2026 { background: #0a0a12; }
         </div>
     </section>
 
+    {{-- STATE NOTES: tab bar + crossfading panels --}}
+    @php
+    $stShapes = json_decode((string) file_get_contents(database_path('data/state-shapes.json')), true) ?: [];
+    $stNotes = [
+        ['Colorado', 'colorado', 'With the Denver court-watch collective',
+         'Documented the Front Range deportation docket — 44 entries — and preserved bodycam evidence in nine protest cases before its scheduled deletion.',
+         null, []],
+        ['Florida', 'florida', null,
+         'Tracked the Everglades detention docket and added 38 entries from the July 2025 protest wave, with court-watchers covering every hearing at three federal courthouses.',
+         null, [['The Dispatch', 'Inside the detention docket the state built in a swamp', '/news']]],
+        ['Louisiana', 'louisiana', null,
+         'Mapped the out-of-state transfer pipeline — including the student cases held at Basile and Jena — that federal courts later put under scrutiny.',
+         null, []],
+        ['Massachusetts', 'massachusetts', 'With the Boston student-defense network',
+         'Documented the Öztürk abduction and the AAUP v. Rubio trial, and mirrored the full trial record into the archive.',
+         null, [['The Dispatch', 'The trial that finally named the policy', '/news'],
+                ['NPPC Archive', 'AAUP v. Rubio: the complete docket, preserved', '/archive']]],
+        ['Michigan', 'michigan', null,
+         'Added the Detroit deportation-defense cases and the 2026 auto-plant walkout arrests; nine entries closed by dismissal before the fiscal year ended.',
+         null, []],
+        ['Missouri', 'missouri', null,
+         'Documented the St. Louis grand-jury resistance cases and supported compassionate-release petitions for two of the state\'s oldest open entries.',
+         null, []],
+        ['North Carolina', 'north-carolina', null,
+         'Documented the Courtney Williams prosecution — the year\'s most-watched leak case — hearing by hearing, from Fort Bragg to the Eastern District.',
+         '*Docket still open as this report went to press', []],
+        ['Ohio', 'ohio', null,
+         'Backfilled 61 Palmer Raid-era Ohio entries from newly digitized records — the archive\'s deepest historical dig of the year.',
+         null, [['NPPC Archive', '1919, recovered: the Ohio Palmer Raid files', '/archive']]],
+        ['Oregon', 'oregon', null,
+         'Five years after the 2020 federal-courthouse docket, tracked Portland defendants\' expungement petitions — twelve granted this year, each noted in the census.',
+         null, []],
+        ['Pennsylvania', 'pennsylvania', null,
+         'Kept Mumia Abu-Jamal\'s 44th-year file current and documented the Philadelphia sanctuary-church standoff arrests.',
+         null, []],
+        ['Vermont', 'vermont', null,
+         'Court-watched the Mahdawi and Öztürk habeas hearings that made the District of Vermont the year\'s unlikely center of speech law.',
+         null, []],
+        ['Washington', 'washington', null,
+         'Documented the Seattle deployment-protest docket and marked Tyre Means Jr.\'s release — closing a five-year entry from the 2020 uprising.',
+         null, []],
+    ];
+    @endphp
+    <section class="r26-st" id="state-notes">
+        <div class="r26-wrap">
+            <span class="r26-label rv">Notes From the States</span>
+            <h2 class="r26-title rv">Beyond the six fronts</h2>
+            <p class="rv" style="color: rgba(20,20,43,.75); max-width: 56ch;">The mass docket reached far past the
+            deployment cities. Twelve more state files from the year, each linked to its live entries in the
+            census.</p>
+            <div class="r26-st-tabs rv" role="tablist" id="r26-st-tabs">
+                @foreach ($stNotes as $i => $n)
+                    <button type="button" role="tab" class="r26-st-tab{{ $i === 0 ? ' on' : '' }}"
+                        aria-selected="{{ $i === 0 ? 'true' : 'false' }}" data-st="{{ $i }}">{{ $n[0] }}</button>
+                @endforeach
+            </div>
+            <div id="r26-st-panels">
+                @foreach ($stNotes as $i => [$stName, $stSlug, $partner, $claim, $foot, $cards])
+                    <div class="r26-st-panel{{ $i === 0 ? ' on' : '' }}" role="tabpanel" data-st="{{ $i }}">
+                        <div>
+                            <div class="r26-st-head">
+                                @if (isset($stShapes[$stName]))
+                                    <span class="r26-st-ico" aria-hidden="true"><svg viewBox="{{ $stShapes[$stName]['viewBox'] }}" preserveAspectRatio="xMidYMid meet"><path d="{{ $stShapes[$stName]['path'] }}" fill="currentColor"/></svg></span>
+                                @endif
+                                <span class="r26-st-name">{{ $stName }}</span>
+                            </div>
+                            <div class="r26-st-rule"></div>
+                            @if ($partner)
+                                <p class="r26-st-partner">{{ $partner }}</p>
+                            @endif
+                            <p class="r26-st-claim">{{ $claim }}</p>
+                            @if ($foot)
+                                <p class="r26-st-foot">{{ $foot }}</p>
+                            @endif
+                            <a class="r26-st-more" href="/state/{{ $stSlug }}">Explore {{ $stName }} in the census &rarr;</a>
+                        </div>
+                        <div class="r26-st-cards">
+                            @foreach ($cards as [$src, $hl, $href])
+                                <a class="r26-st-card" href="{{ $href }}">
+                                    <span><span class="src">{{ $src }}</span><span class="hl">{{ $hl }}</span></span>
+                                    <span class="go">&rsaquo;</span>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- FACES OF THE YEAR: expanding profile columns --}}
+    @php
+    $pfProfiles = [
+        ['David Huerta', 'david-huerta', '/storage/prisoners/david-huerta.jpg',
+         'Arrested: June 2025<br>Status: Released on bond',
+         'President of SEIU California, <a href="/prisoner/david-huerta">David Huerta</a> was arrested at a Los
+          Angeles raid line in June 2025 while acting as an observer, and charged with felony conspiracy to impede
+          an officer. &ldquo;Free David&rdquo; rallies filled downtown within 48 hours of his arraignment. His
+          census entry tracks the case that made a union president the face of the LA deployment.'],
+        ['Tyre Means Jr.', 'tyre-wayne-means-jr', '/storage/prisoners/tyre-wayne-means-jr.jpg',
+         'Released: 2025<br>Time served: 4 years',
+         '<a href="/prisoner/tyre-wayne-means-jr">Tyre Wayne Means Jr.</a> was sentenced in 2021 for burning a
+          Seattle police cruiser during the 2020 uprising, telling the judge he had no regrets. He completed his
+          federal sentence and came home as the fiscal year opened &mdash; a five-year entry from the George Floyd
+          docket, marked closed.'],
+        ['Alfredo Juarez', 'alfredo-juarez', '/storage/prisoners/alfredo-juarez.png',
+         'Detained: March 2025<br>Status: Released; case pending',
+         'A farmworker organizer who co-founded Familias Unidas por la Justicia at 14,
+          <a href="/prisoner/alfredo-juarez">Alfredo &ldquo;Lelo&rdquo; Juarez</a> was pulled from his car by ICE
+          agents who smashed his window when he asked for a warrant. His detention triggered a wave of arrests
+          against the union&rsquo;s members &mdash; all of it documented, entry by entry, in the census.'],
+        ['Zoe Rosenberg', 'zoe-rosenberg', '/storage/prisoners/zoe-rosenberg.jpg',
+         'Tried: 2025<br>Sentence: Probation and monitoring',
+         '<a href="/prisoner/zoe-rosenberg">Zoe Rosenberg</a>, the open-rescue animal-liberation activist and
+          sanctuary founder, was tried in Sonoma County over the rescue of four chickens from a slaughterhouse.
+          Sentenced to probation and electronic monitoring as supporters filled the overflow rooms, she kept
+          organizing &mdash; with the ankle monitor in frame.'],
+        ['Courtney Williams', 'courtney-williams', '/storage/prisoners/courtney-williams.png',
+         'Charged: 2026<br>Status: Awaiting trial',
+         'A U.S. Army veteran who served eight years with Delta Force,
+          <a href="/prisoner/courtney-williams">Courtney Williams</a> became the year&rsquo;s most-watched leak
+          prosecution when she was charged in 2026. The census documents her case hearing by hearing &mdash; the
+          newest entry in the record&rsquo;s long whistleblower line.'],
+        ['Momodou Taal', 'momodou-taal', '/storage/prisoners/momodou-taal.jpg',
+         'Departed: March 2025<br>Status: In exile',
+         '<a href="/prisoner/momodou-taal">Momodou Taal</a>, a Cornell doctoral student with dual UK and Gambian
+          citizenship, sued the administration over the deportation campaign &mdash; then left the country when
+          the government moved to detain him for suing. His entry anchors the census&rsquo;s exile cohort: the
+          people the record follows even after the country loses them.'],
+    ];
+    @endphp
+    <section class="r26-pf" id="faces">
+        <div class="r26-wrap" style="padding-top: 0;">
+            <span class="r26-label rv" style="color: var(--acc);">Faces of the Year</span>
+            <h2 class="r26-title rv" style="color: #14142b;">Six entries from fiscal year 2026</h2>
+            <p class="rv" style="color: rgba(20,20,43,.75); max-width: 56ch; margin-bottom: 40px;">Click each
+            profile to learn more &mdash; and to open the full case file in the census.</p>
+            <div class="r26-pf-strip rv" id="r26-pf">
+                @foreach ($pfProfiles as $i => [$pfName, $pfSlug, $pfPhoto, $pfMeta, $pfBio])
+                    <div class="r26-pf-item{{ $i === 0 ? ' on' : '' }}" data-pf="{{ $i }}" tabindex="0" role="button" aria-label="{{ $pfName }}">
+                        <span class="r26-pf-vname">{{ $pfName }}</span>
+                        <div class="r26-pf-thumb" style="background-image: url('{{ $pfPhoto }}')"></div>
+                        <div class="r26-pf-body">
+                            <div class="r26-pf-media" style="background-image: url('{{ $pfPhoto }}')"></div>
+                            <div class="r26-pf-text">
+                                <h3>{{ $pfName }}</h3>
+                                <p class="r26-pf-meta">{!! $pfMeta !!}</p>
+                                <p>{!! $pfBio !!}</p>
+                                <div class="r26-pf-hint">Click each profile to learn more</div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- REMEMBERING: memorial tribute with audio reading --}}
+    <section class="r26-mem2" id="remembering">
+        <div class="r26-wrap r26-mem2-grid">
+            <div>
+                <h2 class="rv">Remembering Ruchell &ldquo;Cinque&rdquo; Magee</h2>
+                <p class="rv">This year&rsquo;s Days of Remembrance were dedicated to
+                <a href="/prisoner/ruchell-magee">Ruchell &ldquo;Cinque&rdquo; Magee</a> (1939&ndash;2023), the
+                longest-held political prisoner in the United States and the record&rsquo;s most stubborn
+                jailhouse lawyer.</p>
+                <p class="rv d2">Imprisoned almost continuously from 1963, Mr. Magee was the sole surviving
+                participant in the 1970 Marin County courthouse raid and argued his own case for six decades,
+                signing every filing &ldquo;Cinque,&rdquo; after the leader of the Amistad rebellion. He was
+                granted compassionate release in August 2023, at 84, and died that October at home &mdash; a free
+                man. His entry, the census&rsquo;s longest until it closed at 61 years, is preserved in full in
+                the archive.</p>
+                <div class="r26-mem2-label rv">Hear his entry read at Days of Remembrance</div>
+                <div class="r26-wave rv" aria-hidden="true">
+                    @foreach ([.5,.9,.35,.7,1,.45,.8,.3,.95,.6,.4,.85,.55,.25,.75] as $j => $h)
+                        <i style="--h: {{ $h }}; --d: {{ $j }};"></i>
+                    @endforeach
+                </div>
+                <div class="r26-mem2-player rv">
+                    <button type="button" class="r26-play" id="r26-mem2-btn" aria-label="Play the reading">
+                        <span class="tri"></span><span class="pause"></span>
+                    </button>
+                    <span class="r26-time" id="r26-mem2-time">0:00 / 0:00</span>
+                    <audio id="r26-mem2-audio" preload="metadata" src="/audio/remembering-ruchell-magee.mp3"></audio>
+                </div>
+            </div>
+            <div class="r26-collage rv rv-fade">
+                <div class="ring" aria-hidden="true"></div>
+                <div class="ph-duo" style="background-image: url('/storage/prisoners/ruchell-cinque-magee.jpg')"></div>
+                <div class="ph-main" style="background-image: url('/storage/prisoners/ruchell-magee-6fdab5ba-c736-4b6f-bc3b-4c358a42c4f5.jpg')"></div>
+                <div class="ph-cap">Ruchell Magee, photographed inside and after release. NPPC case file.</div>
+            </div>
+        </div>
+    </section>
+
     {{-- THANK YOU --}}
     <section class="r26-thanks" id="thank-you">
         <div class="r26-wrap">
@@ -828,6 +1129,62 @@ document.addEventListener('DOMContentLoaded', function () {
             }, { threshold: 0.15 }).observe(iv);
         }
     }
+
+    // faces of the year: expanding profile columns
+    (function () {
+        var items = document.querySelectorAll('#r26-pf .r26-pf-item');
+        if (!items.length) return;
+        items.forEach(function (item) {
+            function activate() {
+                items.forEach(function (o) { o.classList.toggle('on', o === item); });
+            }
+            item.addEventListener('click', activate);
+            item.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+            });
+        });
+    })();
+
+    // remembering: audio reading player
+    (function () {
+        var audio = document.getElementById('r26-mem2-audio');
+        if (!audio) return;
+        var section = document.getElementById('remembering');
+        var btn = document.getElementById('r26-mem2-btn');
+        var time = document.getElementById('r26-mem2-time');
+        function fmt(s) {
+            if (!isFinite(s)) return '0:00';
+            s = Math.round(s);
+            return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+        }
+        function paint() { time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration); }
+        audio.addEventListener('loadedmetadata', paint);
+        audio.addEventListener('timeupdate', paint);
+        audio.addEventListener('play', function () { section.classList.add('playing'); });
+        audio.addEventListener('pause', function () { section.classList.remove('playing'); });
+        audio.addEventListener('ended', function () { audio.currentTime = 0; paint(); });
+        btn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+    })();
+
+    // state-notes tabs
+    (function () {
+        var tabs = document.querySelectorAll('#r26-st-tabs .r26-st-tab');
+        var panels = document.querySelectorAll('#r26-st-panels .r26-st-panel');
+        if (!tabs.length) return;
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                var k = tab.getAttribute('data-st');
+                tabs.forEach(function (t) {
+                    var on = t === tab;
+                    t.classList.toggle('on', on);
+                    t.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                panels.forEach(function (p) {
+                    p.classList.toggle('on', p.getAttribute('data-st') === k);
+                });
+            });
+        });
+    })();
 
     // financial bars
     var bio = new IntersectionObserver(function (entries) {
