@@ -11,7 +11,26 @@
        human-rights organizations. All classes are scoped with the
        iwp- prefix so nothing leaks into the rest of the site.
        ============================================================ */
+    /* Noise-background (dark) treatment: the page is pinned to the dark
+       palette and a film-grain layer sits over it (CodyHouse-style
+       noise background, dark variant). */
+    body.page-iran-war-political-prisoners { --bg: #0a0a0c; --surface: #131318; --surface-2: #1a1a22;
+        --fg: #ffffff; --fg-rgb: 255,255,255; background: #0a0a0c; }
     .iwp { background: var(--bg); color: var(--fg); }
+    .iwp-grain { position: fixed; top: -100%; left: -100%; width: 300%; height: 300%; z-index: 5; pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+        opacity: 0.085; animation: iwpGrain 7s steps(8) infinite; }
+    @keyframes iwpGrain {
+        0%, 100% { transform: translate(0, 0); }
+        12.5% { transform: translate(-2%, -3%); }
+        25%   { transform: translate(1%, -2%); }
+        37.5% { transform: translate(-3%, 1%); }
+        50%   { transform: translate(2%, 2%); }
+        62.5% { transform: translate(-1%, 3%); }
+        75%   { transform: translate(3%, -1%); }
+        87.5% { transform: translate(-2%, 2%); }
+    }
+    @media (prefers-reduced-motion: reduce) { .iwp-grain { animation: none; } }
     .iwp-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
     .iwp a { color: #e8675b; }
     .iwp a:hover { color: var(--fg); }
@@ -143,6 +162,7 @@
 
 @section('body')
 <div class="iwp">
+    <div class="iwp-grain" aria-hidden="true"></div>
 
     {{-- ==================== HERO ==================== --}}
     <div class="iwp-hero">
