@@ -217,6 +217,8 @@
     $featuredPrisoners = \App\Models\Prisoner::with('cases')
         ->whereNotNull('description')
         ->where('description','!=','')
+        ->whereNotNull('photo')
+        ->where('photo','!=','')
         ->where(function ($q) {
             // "Currently incarcerated, in exile, or awaiting trial" only -
             // do not include in_exile=true (the "was ever in exile" flag),
