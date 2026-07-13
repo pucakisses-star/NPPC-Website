@@ -148,6 +148,37 @@
     .lmj-card-cat { color: #fff; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; padding-bottom: 10px; border-bottom: 1px solid rgba(86,96,254,0.9); margin-bottom: 14px; }
     .lmj-card-title { color: #fff; font-size: 1.7rem; line-height: 1.25; font-weight: 500; margin: 0 0 10px; }
     .lmj-card-author { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+
+    /* ---- Accordion hover: the hovered card expands and comes to life while
+            its neighbor compresses and recedes. Desktop pointer devices only
+            (the band stacks vertically under 900px). flex-grow is animatable,
+            so the slanted seams glide. Without :has() support the hovered
+            card still grows — the effect just degrades gracefully. ---- */
+    @@media (min-width: 901px) and (hover: hover) {
+        .lmj-card { transition: flex-grow 0.55s cubic-bezier(0.22, 1, 0.36, 1); will-change: flex-grow; }
+        .lmj-card:hover { flex-grow: 1.7; }
+        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) { flex-grow: 0.55; }
+
+        /* The photo wakes up: color returns, the frame brightens. */
+        .lmj-card-img { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; }
+        .lmj-card:hover .lmj-card-img { transform: scale(1.05); filter: grayscale(25%) contrast(1.05) brightness(0.92); }
+        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) .lmj-card-img { filter: grayscale(100%) contrast(1.05) brightness(0.55); }
+
+        /* The neighbor's text quiets down instead of fighting for attention. */
+        .lmj-card-text { transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+        .lmj-card:hover .lmj-card-text { transform: translateY(-6px); }
+        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) .lmj-card-text { opacity: 0.35; }
+
+        /* Category rule sweeps to full accent on the active card. */
+        .lmj-card-cat { position: relative; border-bottom-color: rgba(86,96,254,0.45); }
+        .lmj-card-cat::after { content: ''; position: absolute; left: 0; bottom: -1px; height: 2px; width: 0%; background: #8f97ff; transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .lmj-card:hover .lmj-card-cat::after { width: 100%; }
+    }
+    @@media (prefers-reduced-motion: reduce) {
+        .lmj-card, .lmj-card-img, .lmj-card-text, .lmj-card-cat::after { transition: none !important; }
+        .lmj-card:hover,
+        .lmj-inner:has(.lmj-card:hover) .lmj-card:not(:hover) { flex-grow: 1; }
+    }
     @@media (max-width: 900px) {
         .lmj-inner { flex-direction: column; }
         .lmj-brand { flex-basis: auto; flex-direction: row; align-items: center; justify-content: space-between; padding: 32px 6vw; }
