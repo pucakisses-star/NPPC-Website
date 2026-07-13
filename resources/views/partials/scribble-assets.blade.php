@@ -19,9 +19,17 @@
         function build() {
             document.querySelectorAll('.scr').forEach(function (scr) {
                 var old = scr.querySelector('svg'); if (old) old.remove();
-                var r = scr.getBoundingClientRect(); if (!r.width) return;
-                var w = r.width, h = r.height, padX = w * 0.13 + 8, padY = h * 0.26 + 6;
+                var tn = scr.firstChild; if (!tn || tn.nodeType !== 3) return;
+                // Measure the tight glyph box with a Range (the element's own
+                // rect includes line-height leading, which oversizes the oval).
+                var range = document.createRange();
+                range.selectNodeContents(tn);
+                var tr = range.getBoundingClientRect();
+                var sr = scr.getBoundingClientRect();
+                if (!tr.width) return;
+                var w = tr.width, h = tr.height, padX = w * 0.10 + 6, padY = h * 0.09 + 3;
                 var W = Math.round(w + padX * 2), H = Math.round(h + padY * 2);
+                var offX = tr.left - sr.left, offY = tr.top - sr.top;
                 var cx = W / 2, cy = H / 2, rx = W / 2 - 3, ry = H / 2 - 3;
                 var sx = cx + rx * 0.52, sy = cy - ry * 0.82, ex = cx - rx * 0.08, ey = cy - ry * 0.99,
                     tx = cx + rx * 0.72, ty = cy - ry * 0.5;
@@ -35,7 +43,7 @@
                 var svg = document.createElementNS(ns, 'svg');
                 svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
                 svg.setAttribute('aria-hidden', 'true');
-                svg.style.cssText = 'left:' + (-padX) + 'px;top:' + (-padY) + 'px;width:' + W + 'px;height:' + H + 'px';
+                svg.style.cssText = 'left:' + (offX - padX) + 'px;top:' + (offY - padY) + 'px;width:' + W + 'px;height:' + H + 'px';
                 var path = document.createElementNS(ns, 'path');
                 path.setAttribute('d', d);
                 svg.appendChild(path);
