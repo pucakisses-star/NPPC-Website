@@ -62,18 +62,38 @@ body.page-report-2023 { background: #0a0a12; }
 .rpt-sign span { display: block; font-weight: 400; color: var(--dim); font-size: 14px; }
 @media (max-width: 800px) { .rpt-cols { column-count: 1; } }
 
-/* ── freed slabs ─────────────────────────────────────────── */
-.rpt-freed { background: var(--navy); padding: 110px 0; }
-.rpt-freed-head { text-align: center; margin-bottom: 64px; }
-.rpt-freed-sub { color: var(--dim); max-width: 620px; margin: 0 auto; }
-.rpt-slab { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 26px 6px;
-  border-bottom: 1px solid rgba(236,236,242,.12); text-decoration: none; transition: background .2s; }
-.rpt-slab:hover { background: rgba(86,96,254,.07); }
-.rpt-slab-name { font-size: clamp(1.4rem, 3vw, 2.3rem); font-weight: 900; color: var(--ink); letter-spacing: -.01em; }
-.rpt-slab-meta { text-align: right; flex: 0 0 auto; }
-.rpt-slab-years { font-size: clamp(1.2rem, 2.4vw, 1.8rem); font-weight: 900; color: var(--acc2); }
-.rpt-slab-state { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
-.rpt-freed-note { margin-top: 40px; text-align: center; color: var(--dim); font-size: 14px; }
+/* ── freed — accordion list + swapping portrait ──────────── */
+.rpt-freed { background: var(--paper); padding: 110px 0; }
+.rfx-grid { display: grid; grid-template-columns: minmax(340px, 5fr) 6fr; gap: 72px; align-items: start; }
+.rfx-kicker { display: flex; align-items: center; gap: 11px; font-size: 15.5px; font-weight: 800; color: #14142b; margin-bottom: 30px; }
+.rfx-kicker::before { content: ''; width: 17px; height: 17px; background: var(--acc); flex: 0 0 auto; }
+.rfx-item { border-bottom: 1px solid rgba(20,20,43,.18); }
+.rfx-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 18px;
+  background: none; border: 0; cursor: pointer; text-align: left; padding: 17px 2px;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem); font-weight: 800; color: #14142b; letter-spacing: -.01em; font-family: inherit; }
+.rfx-item.open .rfx-q { color: var(--acc); padding-bottom: 6px; }
+.rfx-q .chev { flex: 0 0 auto; width: 9px; height: 9px; border-right: 2px solid rgba(20,20,43,.45); border-bottom: 2px solid rgba(20,20,43,.45);
+  transform: rotate(45deg) translateY(-2px); transition: transform .3s; }
+.rfx-item.open .chev { transform: rotate(-135deg) translateY(-2px); border-color: var(--acc); }
+.rfx-a { max-height: 0; overflow: hidden; transition: max-height .55s cubic-bezier(.22,1,.36,1); }
+.rfx-meta { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #14142b; margin: 0 0 14px; }
+.rfx-a p { font-size: 15px; line-height: 1.75; color: rgba(20,20,43,.85); margin: 0 0 14px; padding-right: 6px; }
+.rfx-a p a { color: inherit; text-underline-offset: 3px; }
+.rfx-credit { font-size: 12.5px; color: rgba(20,20,43,.5); margin: 0 0 24px; }
+.rfx-inline { display: none; }
+.rfx-photo { position: sticky; top: 80px; aspect-ratio: 7 / 8; overflow: hidden; }
+.rfx-photo-img { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0; transition: opacity .55s ease; }
+.rfx-photo-img.on { opacity: 1; }
+.rfx-noimg { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: var(--navy); text-align: center; padding: 30px; }
+.rfx-noimg b { font-size: clamp(5rem, 10vw, 8.5rem); font-weight: 900; line-height: 1; color: var(--acc2); }
+.rfx-noimg small { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); max-width: 30ch; line-height: 1.7; }
+.rpt-freed-note { margin-top: 34px; color: rgba(20,20,43,.6); font-size: 13.5px; }
+.rpt-freed-note a { color: var(--acc); }
+@media (max-width: 900px) {
+  .rfx-grid { grid-template-columns: 1fr; gap: 0; }
+  .rfx-photo { display: none; }
+  .rfx-inline { display: block; width: 100%; aspect-ratio: 4 / 3; background: center / cover no-repeat; margin: 0 0 16px; }
+}
 
 /* ── chapter dividers ────────────────────────────────────── */
 .rpt-chapter { position: relative; min-height: 74vh; display: flex; align-items: center; overflow: hidden; }
@@ -248,35 +268,104 @@ body.page-report-2023 { background: #0a0a12; }
         </div>
     </section>
 
-    {{-- FREED SLABS --}}
+    {{-- FREED — accordion list with swapping portrait --}}
+    @php
+    $freed = [
+        ['name' => 'Ruchell Magee', 'slug' => 'ruchell-magee',
+         'meta' => 'Released: August 2023 &middot; 61 years &middot; California',
+         'photo' => '/storage/prisoners/ruchell-magee-6fdab5ba-c736-4b6f-bc3b-4c358a42c4f5.jpg',
+         'credit' => 'Image: NPPC case file',
+         'bio' => 'was the longest-held political prisoner in the United States, imprisoned almost continuously
+            from 1963 and the sole surviving participant in the 1970 Marin County courthouse raid. He argued his
+            own case for six decades, signing every filing &ldquo;Cinque.&rdquo; Granted compassionate release in
+            August 2023 at age 84, he came home to Los Angeles and died that October &mdash; a free man, his entry
+            in the census finally marked closed.'],
+        ['name' => 'Polly H. Mann', 'slug' => 'polly-h-mann',
+         'meta' => 'Record closed: 2023 &middot; 41 years &middot; Minnesota',
+         'photo' => null, 'credit' => 'The census holds no photograph for this entry.',
+         'bio' => 'co-founded Women Against Military Madness in Minneapolis in 1981 and was arrested again and
+            again at Honeywell shareholder actions through that decade, the first time past age sixty. Her file
+            &mdash; 41 years of arrests, jailings, and organizing &mdash; is one of the longest continuous records
+            in the census, and it was marked closed in 2023.'],
+        ['name' => 'Maumin Khabir', 'slug' => 'maumin-khabir',
+         'meta' => 'Record closed: 2023 &middot; 38 years &middot; Illinois',
+         'photo' => null, 'credit' => 'The census holds no photograph for this entry.',
+         'bio' => 'was named by the government as a &ldquo;general&rdquo; of Chicago&rsquo;s El Rukn organization
+            and convicted under RICO in the case alleging the group conspired with Libya &mdash; a prosecution
+            built on paid informants inside the federal building itself. After decades imprisoned, his release
+            entered the census in 2023, closing one of the record&rsquo;s longest-running Illinois entries.'],
+        ['name' => 'John LaForge', 'slug' => 'john-laforge',
+         'meta' => 'Released: 2023 &middot; 37 years &middot; Wisconsin',
+         'photo' => null, 'credit' => 'The census holds no photograph for this entry.',
+         'bio' => 'has coordinated Nukewatch from Luck, Wisconsin since the mid-1980s, and became the first
+            American imprisoned in Germany for protesting U.S. nuclear weapons after go-in actions at
+            B&uuml;chel Air Base. He walked out of Hamburg&rsquo;s Billwerder prison in 2023 and went straight
+            back to work. His census entry spans 37 years of anti-nuclear resistance.'],
+        ['name' => 'Ana Montes', 'slug' => 'ana-montes',
+         'meta' => 'Released: January 2023 &middot; 22 years &middot; Texas',
+         'photo' => '/storage/prisoners/ana-montes.jpg', 'credit' => 'Image: NPPC case file',
+         'bio' => 'was a senior Defense Intelligence Agency analyst who passed U.S. war planning to Cuba out of
+            conviction rather than payment, telling the court she had obeyed her conscience instead of the law.
+            She served more than two decades &mdash; much of it in solitary confinement at FMC Carswell in
+            Texas &mdash; and was released in January 2023.'],
+        ['name' => 'David Williams', 'slug' => 'david-williams',
+         'meta' => 'Released: 2023 &middot; 15 years &middot; New York',
+         'photo' => null, 'credit' => 'The census holds no photograph for this entry.',
+         'bio' => 'was one of the Newburgh Four, recruited by a paid FBI informant into a fictional synagogue
+            bomb plot the government itself scripted and financed &mdash; drawn in while caring for his dying
+            mother. The sentencing judge wrote that the government came up with the crime, provided the means,
+            and removed every obstacle. He was granted compassionate release in 2023.'],
+        ['name' => 'Onta Williams', 'slug' => 'onta-williams',
+         'meta' => 'Released: 2023 &middot; 15 years &middot; New York',
+         'photo' => null, 'credit' => 'The census holds no photograph for this entry.',
+         'bio' => 'another of the Newburgh Four, was described by the sentencing judge as hapless and easily
+            manipulated &mdash; a man swept into an FBI-scripted plot by the promise of money he never saw.
+            He served 15 years of a 25-year mandatory sentence before compassionate release brought him home
+            to New York in 2023.'],
+        ['name' => 'Jerritt Pace', 'slug' => 'jerritt-pace',
+         'meta' => 'Released: 2023 &middot; 4 years &middot; District of Columbia',
+         'photo' => '/storage/prisoners/jerritt-pace.jpg', 'credit' => 'Image: NPPC case file',
+         'bio' => 'was sentenced to federal prison for attempting to set fire to a Metropolitan Police
+            Department precinct during the May 2020 uprising in Washington, DC &mdash; one of dozens of
+            protest-arson prosecutions from that summer documented in the census. He completed his sentence
+            and came home in 2023.'],
+    ];
+    @endphp
     <section class="rpt-freed">
-        <div class="rpt-wrap">
-            <div class="rpt-freed-head">
-                <span class="rpt-label rv">The Record, Restored</span>
-                <h2 class="rpt-title rv">They came home in 2023</h2>
-                <p class="rpt-freed-sub rv">Seventy-nine releases entered the record this year. These are a few of
-                them — and the years each gave up.</p>
+        <div class="rpt-wrap rfx-grid">
+            <div class="rv">
+                <div class="rfx-kicker">They Came Home in 2023</div>
+                <div id="rfx-list">
+                    @foreach ($freed as $i => $f)
+                    <div class="rfx-item{{ $i === 0 ? ' open' : '' }}">
+                        <button type="button" class="rfx-q">{{ $f['name'] }} <span class="chev"></span></button>
+                        <div class="rfx-a" @if ($i === 0) style="max-height: none" @endif>
+                            <div class="rfx-meta">{!! $f['meta'] !!}</div>
+                            @if ($f['photo'])
+                                <div class="rfx-inline" style="background-image: url('{{ $f['photo'] }}')"></div>
+                            @endif
+                            <p><a href="/prisoner/{{ $f['slug'] }}">{{ $f['name'] }}</a> {!! $f['bio'] !!}</p>
+                            <div class="rfx-credit">{{ $f['credit'] }}</div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="rpt-freed-note">Seventy-nine releases entered the record in 2023, and every one stays
+                    in the census &mdash; freedom is part of the record too.
+                    <a href="/database">Explore the database &rarr;</a></div>
             </div>
-            @foreach ([
-                ['Ruchell Magee', 'ruchell-magee', '61 years', 'California'],
-                ['Polly H. Mann', 'polly-h-mann', '41 years', 'Minnesota'],
-                ['Maumin Khabir', 'maumin-khabir', '38 years', 'Illinois'],
-                ['John LaForge', 'john-laforge', '37 years', 'Wisconsin'],
-                ['Ana Montes', 'ana-montes', '22 years', 'Texas'],
-                ['David Williams', 'david-williams', '15 years', 'New York'],
-                ['Onta Williams', 'onta-williams', '15 years', 'New York'],
-                ['Jerritt Pace', 'jerritt-pace', '4 years', 'District of Columbia'],
-            ] as $i => [$name, $slug, $years, $state])
-                <a class="rpt-slab rv" style="transition-delay: {{ $i * 60 }}ms" href="/prisoner/{{ $slug }}">
-                    <span class="rpt-slab-name">{{ $name }}</span>
-                    <span class="rpt-slab-meta">
-                        <span class="rpt-slab-years">{{ $years }}</span>
-                        <span class="rpt-slab-state">{{ $state }}</span>
-                    </span>
-                </a>
-            @endforeach
-            <div class="rpt-freed-note rv">Every release stays in the census — freedom is part of the record too.
-                <a href="/database" style="color: var(--acc2)">Explore the database &rarr;</a></div>
+            <div class="rfx-photo rv rv-fade" id="rfx-photo">
+                @foreach ($freed as $i => $f)
+                    @if ($f['photo'])
+                        <div class="rfx-photo-img{{ $i === 0 ? ' on' : '' }}" style="background-image: url('{{ $f['photo'] }}')"></div>
+                    @else
+                        <div class="rfx-photo-img rfx-noimg{{ $i === 0 ? ' on' : '' }}">
+                            <b>{{ mb_substr($f['name'], 0, 1) }}</b>
+                            <small>The census holds no photograph for this entry</small>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
     </section>
 
@@ -660,6 +749,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         document.getElementById('rpt-gal-next').addEventListener('click', function () { go(i + 1); });
         document.getElementById('rpt-gal-prev').addEventListener('click', function () { go(i - 1); });
+    })();
+
+    // Freed accordion + portrait swap
+    (function () {
+        var items = document.querySelectorAll('#rfx-list .rfx-item');
+        if (!items.length) return;
+        var photos = document.querySelectorAll('#rfx-photo .rfx-photo-img');
+        items.forEach(function (item, k) {
+            item.querySelector('.rfx-q').addEventListener('click', function () {
+                var wasOpen = item.classList.contains('open');
+                items.forEach(function (o) {
+                    o.classList.remove('open');
+                    o.querySelector('.rfx-a').style.maxHeight = '0';
+                });
+                if (wasOpen) return;
+                item.classList.add('open');
+                var a = item.querySelector('.rfx-a');
+                a.style.maxHeight = a.scrollHeight + 'px';
+                photos.forEach(function (p, j) { p.classList.toggle('on', j === k); });
+            });
+        });
     })();
 
     // FAQ accordion
