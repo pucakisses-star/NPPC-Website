@@ -17,9 +17,9 @@
    ============================================================ */
 body.page-movement-history main.container,
 body.page-movement-history .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
-body.page-movement-history { background: #f0f1f7; }
+body.page-movement-history { background: #0a0a12; }
 
-.mh { --ink: #14142b; --acc: #5660fe; --acc2: #8f97ff; --paper: #f0f1f7;
+.mh { --ink: #ececf2; --acc: #5660fe; --acc2: #8f97ff; --deep: #0a0a12; --navy: #12122a;
       color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: clip; }
 .mh a { color: inherit; }
 
@@ -29,18 +29,18 @@ body.page-movement-history { background: #f0f1f7; }
 @media (prefers-reduced-motion: reduce) { .mh .reveal { opacity: 1 !important; transform: none !important; transition: none; } }
 
 /* ── top strip ───────────────────────────────────────────── */
-.mh-nav { position: sticky; top: 0; z-index: 40; background: rgba(240,241,247,.92); backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(20,20,43,.1); }
+.mh-nav { position: sticky; top: 0; z-index: 40; background: rgba(10,10,18,.9); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(236,236,242,.1); }
 .mh-nav-in { max-width: 1280px; margin: 0 auto; padding: 14px 28px; display: flex; justify-content: space-between; align-items: center; }
-.mh-nav b { font-size: 14px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-.mh-nav a { font-size: 13px; font-weight: 700; color: var(--acc); text-decoration: none; }
+.mh-nav b { font-size: 14px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.mh-nav a { font-size: 13px; font-weight: 700; color: var(--acc2); text-decoration: none; }
 .mh-nav a:hover { text-decoration: underline; }
 
 /* ── hero ────────────────────────────────────────────────── */
 .mh-hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: center;
   max-width: 1280px; margin: 0 auto; padding: 70px 28px 60px; }
-.mh-hero-sub { font-size: clamp(1.3rem, 2.4vw, 2rem); font-weight: 700; color: var(--ink); line-height: 1.3; margin: 0 0 14px; }
-.mh-hero-title { font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 900; line-height: 1.06; margin: 0 0 34px; letter-spacing: -.02em; }
+.mh-hero-sub { font-size: clamp(1.3rem, 2.4vw, 2rem); font-weight: 700; color: rgba(236,236,242,.9); line-height: 1.3; margin: 0 0 14px; }
+.mh-hero-title { font-size: clamp(2.8rem, 6vw, 4.8rem); font-weight: 900; line-height: 1.06; margin: 0 0 34px; letter-spacing: -.02em; color: var(--ink); }
 .mh-hero-title span { display: inline-block; background: var(--acc); color: #fff; padding: 2px 16px 6px; margin-bottom: 8px; }
 /* animated headline (CodyHouse-style slide rotator) */
 .mh-rotator { position: relative; display: inline-block; overflow: hidden; vertical-align: bottom;
@@ -68,9 +68,9 @@ body.page-movement-history { background: #f0f1f7; }
 
 /* ── intro / seal legend ─────────────────────────────────── */
 .mh-intro { max-width: 1280px; margin: 0 auto; padding: 0 28px 70px; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 50px; align-items: center; }
-.mh-intro h2 { font-size: clamp(1.15rem, 1.9vw, 1.5rem); font-weight: 700; line-height: 1.55; margin: 0; color: var(--ink); }
+.mh-intro h2 { font-size: clamp(1.15rem, 1.9vw, 1.5rem); font-weight: 700; line-height: 1.55; margin: 0; color: rgba(236,236,242,.9); }
 .mh-legend { display: flex; align-items: center; gap: 18px; }
-.mh-legend p { font-size: 14px; font-weight: 700; color: var(--ink); margin: 0; }
+.mh-legend p { font-size: 14px; font-weight: 700; color: rgba(236,236,242,.85); margin: 0; }
 @media (max-width: 900px) { .mh-intro { grid-template-columns: 1fr; gap: 30px; } }
 
 /* victory seal (inline SVG, rotates slowly) */
@@ -87,13 +87,13 @@ body.page-movement-history { background: #f0f1f7; }
   max-height: calc(100vh - 76px); overflow-y: auto; scrollbar-width: none; }
 .mh-side ul::-webkit-scrollbar { display: none; }
 .mh-side li { margin-bottom: 10px; }
-.mh-side a { font-size: 14px; font-weight: 700; color: rgba(20,20,43,.45); text-decoration: none; transition: color .2s, font-size .2s; }
-.mh-side li.on a { color: var(--acc); font-weight: 900; font-size: 17px; }
+.mh-side a { font-size: 14px; font-weight: 700; color: rgba(236,236,242,.35); text-decoration: none; transition: color .2s, font-size .2s; }
+.mh-side li.on a { color: var(--acc2); font-weight: 900; font-size: 17px; }
 .mh-main { min-width: 0; }
 @media (max-width: 900px) { .mh-tl { grid-template-columns: 1fr; } .mh-side { display: none; } }
 
 .mh-year { font-size: clamp(3.4rem, 8vw, 6.5rem); font-weight: 900; letter-spacing: -.03em; color: var(--ink);
-  padding: 60px 40px 22px; line-height: 1; scroll-margin-top: 70px; }
+  padding: 44px 40px 18px; line-height: 1; scroll-margin-top: 70px; }
 
 /* ── timeline blocks ─────────────────────────────────────── */
 .mh-block { padding: 0 40px; }
@@ -102,22 +102,19 @@ body.page-movement-history { background: #f0f1f7; }
 .mh-block-body { flex: 1; min-width: 0; padding: 44px 46px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 44px; align-items: start; }
 .mh-block-body.noimg { grid-template-columns: 1fr; }
 /* palette bands (the reference's beige/white/blue/black rotation, in our scheme) */
-.mh-c-white  { background: #fbfbfe; } .mh-c-white  .mh-accent { background: #c9cdf3; }
-.mh-c-lav    { background: #e6e8f6; } .mh-c-lav    .mh-accent { background: #9aa1e8; }
-.mh-c-blue   { background: #d9dcff; } .mh-c-blue   .mh-accent { background: var(--acc); }
-.mh-c-sand   { background: #ece7d8; } .mh-c-sand   .mh-accent { background: #b3a87f; }
-.mh-c-navy   { background: #12122a; color: #ececf2; } .mh-c-navy .mh-accent { background: var(--acc); }
-.mh-c-navy .mh-eyebrow-h, .mh-c-navy .mh-h { color: #ececf2; }
-.mh-c-navy .mh-sub { color: rgba(236,236,242,.82); }
-.mh-c-navy .mh-desc { color: rgba(236,236,242,.55); }
+.mh-c-white  { background: #15152e; } .mh-c-white  .mh-accent { background: #8f97ff; }
+.mh-c-lav    { background: #1a1a3c; } .mh-c-lav    .mh-accent { background: #9aa1e8; }
+.mh-c-blue   { background: #1d2358; } .mh-c-blue   .mh-accent { background: var(--acc); }
+.mh-c-sand   { background: #26221a; } .mh-c-sand   .mh-accent { background: #b3a87f; }
+.mh-c-navy   { background: #0d0d20; } .mh-c-navy .mh-accent { background: var(--acc); }
 .mh-eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 16px; }
 .mh-eyebrow-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--acc); }
 .mh-eyebrow-h { font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
 .mh-h { font-size: clamp(1.4rem, 2.6vw, 2.1rem); font-weight: 900; line-height: 1.15; color: var(--ink); margin: 0 0 16px; letter-spacing: -.01em; }
-.mh-sub { font-size: 16px; line-height: 1.75; color: rgba(20,20,43,.85); margin: 0; }
+.mh-sub { font-size: 16px; line-height: 1.75; color: rgba(236,236,242,.85); margin: 0; }
 .mh-sub a { text-underline-offset: 3px; }
-.mh-img img { width: 100%; display: block; border-radius: 4px; box-shadow: 0 16px 44px rgba(20,20,43,.18); }
-.mh-desc { font-size: 12.5px; color: rgba(20,20,43,.55); margin-top: 10px; line-height: 1.6; }
+.mh-img img { width: 100%; display: block; border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+.mh-desc { font-size: 12.5px; color: rgba(236,236,242,.5); margin-top: 10px; line-height: 1.6; }
 .mh-block .mh-seal { width: 96px; height: 96px; margin-top: 24px; }
 @media (max-width: 900px) {
   .mh-year { padding: 46px 20px 14px; }
@@ -126,7 +123,7 @@ body.page-movement-history { background: #f0f1f7; }
 }
 
 /* ── end cap ─────────────────────────────────────────────── */
-.mh-end { background: #12122a; color: #ececf2; text-align: center; padding: 110px 28px; margin-top: 70px; }
+.mh-end { background: radial-gradient(ellipse at 50% 30%, #1c1c46, var(--deep)); color: #ececf2; text-align: center; padding: 110px 28px; margin-top: 70px; }
 .mh-end h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 900; color: #fff; margin: 0 0 18px; }
 .mh-end p { color: rgba(236,236,242,.7); max-width: 58ch; margin: 0 auto 34px; }
 .mh-btn { display: inline-block; padding: 14px 30px; border-radius: 4px; background: var(--acc); color: #fff; font-weight: 800;
@@ -170,19 +167,13 @@ $timeline = [
           census entry no. 0041, runs for president from an Atlanta cell and takes nearly a million votes.',
          '/storage/history/world-war-i.jpg', 'The wartime speech prosecutions filled the first ledgers.', false, 'mh-c-white'],
     ]],
-    ['1925', [
-        ['History', 'The International Labor Defense',
-         'The ILD builds the mass-defense model this page is a monument to: chapters in every industrial city,
-          monthly stipends to &ldquo;class-war prisoners&rdquo; and their families — the first commissary fund —
-          and the insistence that a political case is won in public, not just in court.',
-         null, null, false, 'mh-c-sand'],
-    ]],
     ['1931', [
         ['Restoring Freedom', 'Scottsboro',
-         'Nine Black teenagers are sentenced to death in Alabama on a fabricated charge. The ILD&rsquo;s global
-          campaign — marches on five continents, the mothers touring Europe — drags the case back from the brink
-          again and again, produces two landmark Supreme Court rulings, and writes the playbook every defense
-          committee since has used.',
+         'Nine Black teenagers are sentenced to death in Alabama on a fabricated charge. The International Labor
+          Defense — founded in 1925 around the mass-defense model, with chapters in every industrial city and
+          monthly stipends to &ldquo;class-war prisoners&rdquo; — meets its test: marches on five continents, the
+          mothers touring Europe, two landmark Supreme Court rulings, and the playbook every defense committee
+          since has used.',
          '/storage/history/scottsboro-nine.jpg', 'The Scottsboro defendants with their guards, 1931.', false, 'mh-c-blue'],
     ]],
     ['1946', [
@@ -193,19 +184,13 @@ $timeline = [
           leaders are themselves jailed under the Smith Act for the trouble.',
          '/storage/history/smith-act-trials.jpg', 'Smith Act defendants outside the federal courthouse, 1949.', false, 'mh-c-white'],
     ]],
-    ['1961', [
-        ['Advancing the Movement', 'Jail, No Bail',
-         'In Rock Hill, South Carolina, the Friendship Nine refuse to pay their fines and serve the sentence
-          instead — turning imprisonment itself into the protest. The civil rights movement industrializes the
-          tactic: fill the jails, publish the names, make the state hold what it has taken. The name list becomes
-          sacred technology.',
-         null, null, false, 'mh-c-lav'],
-    ]],
     ['1968', [
         ['Advancing the Movement', 'Free Huey',
-         'The campaign for Huey P. Newton invents the modern political-prisoner campaign: buttons, benefit
-          concerts, celebrity delegations, a birthday rally in the Oakland Auditorium. His manslaughter conviction
-          is reversed in 1970. Every &ldquo;Free&rdquo; poster since is a descendant.',
+         'Building on the civil-rights movement&rsquo;s jail-no-bail discipline — fill the jails, publish the
+          names, make the state hold what it has taken — the campaign for Huey P. Newton invents the modern
+          political-prisoner campaign: buttons, benefit concerts, celebrity delegations, a birthday rally in the
+          Oakland Auditorium. His manslaughter conviction is reversed in 1970. Every &ldquo;Free&rdquo; poster
+          since is a descendant.',
          '/storage/prisoners/01KVF6QKJVC1CJ75K1TJ81CBK0.jpg', 'Huey P. Newton. NPPC case file.', true, 'mh-c-navy'],
     ]],
     ['1970', [
