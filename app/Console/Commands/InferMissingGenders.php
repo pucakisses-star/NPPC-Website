@@ -25,7 +25,7 @@ final class InferMissingGenders extends Command
 
     private const MALE = 'aaron abe abraham aditya adolph adolphus al albert albin alex alexander ammon amos andre andres anthony antonin archie armin arthur august ben benedict benjamin benton bernard bert bill braulio bryce burt caesar carl charles charlie chester christian christopher clarence clark clinton clyde colin conrad corey cornelius cris curt cyril damean damion dan daniel danny dante dave david dean delbert dennis devonte don earl ed eddy edgar eduardo edward edwin elbert elias elmer emanuel emil emmanuel enrique eric ernest erwin esmond ezra felix florencio floyd forest forrest francis frank franz fred frederick frits fritz gabriel garrett george gerard gerhard giovanni godfrey gregory grover gus gustav gustave hans harold harry heinrich henry herbert hercules herman holger homer howard hugo ignatz ira isaac isadore israel ivan jabari jack jackson jacob jacques james jerome jerry jesse jim joe johannes john johnny jonathan jose joseph joshua judah julius karl khalil kyle lawrence leo leonard leroy librado lincoln linwood lonnie louis ludwig lyman manuel mark martin max mayer michael mickey mike milan morris mortimer moses muhammad myron nathan nathaniel nicholas nick norm norris olin omar orville oscar otto paul percy perley pete peter phil phillip phineas pierce pierre pietro placido rakem ralph raymond reuben richard robert ronald roy rudolf rudolph sam samuel scott seth shamar sherman sigfrid sigmund silas simon solomon stanley stephen steven talib ted terrence tetsuji theo theodore thomas tobe tom tommy tony torazo tyler valentine van vernon vicente victor vincent vincente virgil vladimir wallace walter warren wenzel wilfred wilhelm will william wilt zachary zeb';
 
-    private const FEMALE = 'agnes amy angela anna antoinette assunta audrey ayla barbara bertha beth brenda cara carmela carolyn catherine celeste clara concetta cynthia deborah devonna deyanna donna dorothea dorothy edith elizabeth ellen emma esther ethel evelyn filomena florence frances frieda gabriella gertrude giovanna gladys grace hazel helen henrietta ida joan joanna josephine kateri katherine laura lauren lillian lotta louise lucia lynette mabel margaret maria mary michelle minnie nancy nicole paige pamela paula paulette pearl rachel rosa rose ruth sadie samantha sandra sarah shante sharon shirley susan tina viola wilhelmina zainab';
+    private const FEMALE = 'agnes amy angela anna antoinette assunta audrey ayla barbara bertha beth brenda cara carmela carolyn catherine celeste clara concetta cynthia deborah devonna deyanna donna dorothea dorothy edith elizabeth ellen emily emma esther ethel evelyn filomena florence frances frieda gabriella gertrude giovanna gladys grace hazel helen henrietta ida joan joanna josephine kateri katherine laura lauren lillian lotta louise lucia lynette mabel margaret maria mary michelle minnie nancy nicole paige pamela paula paulette pearl rachel rosa rose ruth sadie samantha sandra sarah shante sharon shirley susan tina viola wilhelmina zainab';
 
     // Unisex / noisy tokens we must never guess.
     private const SKIP = 'alexis although amost angel artell ashanti billie carol casey channel clure cyan dana de earlja fornandous hedin hulet jamie jean jessie jordan kenyatta kim laurri lee linn lynn maukt mena monserrate morgan obe oliva pat robin sandy semaj shelby sidney sioux taylor terry';
@@ -116,7 +116,25 @@ final class InferMissingGenders extends Command
             return [null, 'empty'];
         }
         if (strlen($norm) === 1) {
-            return [null, 'initial'];
+            // Initials-first names are assumed male, EXCEPT when a spelled-out
+            // given name sits between the initials and the surname (e.g.
+            // "F. Emily Semple", "J. Emma Martin") — honor that name's gender.
+            $tokens = preg_split('/\s+/', trim((string) $p->name)) ?: [];
+            $middles = array_slice($tokens, 1, max(0, count($tokens) - 2));
+            foreach ($middles as $t) {
+                $tn = preg_replace('/[^a-z]/', '', strtolower($t));
+                if (strlen($tn) < 2) {
+                    continue; // another initial
+                }
+                if (isset($female[$tn])) {
+                    return ['Female', 'initial-middle'];
+                }
+                if (isset($male[$tn])) {
+                    return ['Male', 'initial-middle'];
+                }
+            }
+
+            return ['Male', 'initial-assumed'];
         }
         if (in_array($bare, self::TITLES_FEMALE, true)) {
             return ['Female', 'title'];
