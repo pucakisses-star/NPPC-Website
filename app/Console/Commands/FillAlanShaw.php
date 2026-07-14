@@ -42,9 +42,32 @@ final class FillAlanShaw extends Command
     {
         $prisoner = Prisoner::withUnderReview()->where('name', 'Alan Shaw')->first();
         if (! $prisoner) {
-            $this->error('Alan Shaw not found.');
-
-            return self::FAILURE;
+            // No base record yet — create it so a single run of this command
+            // produces the full, visible entry rather than erroring out.
+            $prisoner = Prisoner::create([
+                'name' => 'Alan Shaw',
+                'first_name' => 'Alan',
+                'last_name' => 'Shaw',
+                'gender' => 'Male',
+                'race' => 'White',
+                'state' => 'Oklahoma',
+                'era' => '1940s',
+                'ideologies' => ['Communism'],
+                'affiliation' => ['Communist Party USA'],
+                'description' => 'Alan Shaw (also known as Alan Lifshutz) was the Oklahoma City secretary of the '
+                    .'Communist Party who was prosecuted under Oklahoma\'s criminal-syndicalism law during the 1940 '
+                    .'Oklahoma City "red raids." Arrested on August 17, 1940 — he spent his 22nd birthday in the '
+                    .'Oklahoma County Jail on $20,000 bond — he was convicted of criminal syndicalism on December 9, '
+                    .'1940 and sentenced to ten years in the state penitentiary plus a $5,000 fine. Released on appeal '
+                    .'bond by early 1941, he spoke at a New York defense rally on January 22, 1941. The Oklahoma '
+                    .'Criminal Court of Appeals reversed his conviction in Shaw v. State on February 17, 1943.',
+                'in_custody' => false,
+                'released' => true,
+                'in_exile' => false,
+                'currently_in_exile' => false,
+                'awaiting_trial' => false,
+            ]);
+            $this->info('Created base record: Alan Shaw');
         }
 
         $jail = Institution::firstOrCreate(
