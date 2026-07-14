@@ -43,10 +43,19 @@ class NormalizeSortOrder extends Command
         $total = $sorted->count();
 
         if ($this->option('dry-run')) {
-            $this->info("Dry run — {$total} prisoners would be numbered 0..".($total - 1).':');
-            foreach ($sorted->take(15) as $i => $p) {
+            $row = function ($i, $p) {
                 $aff = ($p->affiliation[0] ?? '-');
                 $this->line(sprintf('  %5d  %-8s  %-30s  %s', $i, $p->era ?: '(none)', mb_substr($aff, 0, 30), $p->name));
+            };
+            $this->info("Dry run — {$total} prisoners would be numbered 0..".($total - 1).'.');
+            $this->info('TOP (newest era):');
+            foreach ($sorted->take(15) as $i => $p) {
+                $row($i, $p);
+            }
+            $this->info('BOTTOM (oldest era / blank):');
+            $start = max(0, $total - 15);
+            foreach ($sorted->slice($start) as $i => $p) {
+                $row($i, $p);
             }
 
             return self::SUCCESS;
@@ -67,24 +76,39 @@ class NormalizeSortOrder extends Command
 
     private function compare(Prisoner $a, Prisoner $b): int
     {
-        // Blank eras always sort last, regardless of the reversed era axis.
-        $aBlank = empty($a->era);
-        $bBlank = empty($b->era);
-        if ($aBlank !== $bBlank) {
-            return $aBlank ? 1 : -1;
-        }
-
-        // Era: NEWEST first. Era strings ("1700s".."2020s") compare
-        // chronologically, so reverse the comparison to put 2020s at the top.
-        if (! $aBlank) {
-            $eraCmp = strcmp((string) $b->era, (string) $a->era);
-            if ($eraCmp !== 0) {
-                return $eraCmp;
-            }
+        // Era: NEWEST first, ranked by decade NUMBER (not string). This keeps
+        // any non-decade era value ("Modern", "Early 1900s", a stray text era)
+        // from sorting above the numeric decades — such values, and blanks,
+        // rank lowest and land at the bottom rather than the top.
+        $ra = $this->eraRank($a->era);
+        $rb = $this->eraRank($b->era);
+        if ($ra !== $rb) {
+            return $rb <=> $ra; // higher rank (newer) first
         }
 
         // Within an era: affiliation grouping, then name — both ascending.
         return $this->withinEraKey($a) <=> $this->withinEraKey($b);
+    }
+
+    /**
+     * A sortable decade rank; higher = newer. "1910s" -> 1910, "2020s" -> 2020,
+     * "20th century" -> 1950. Blank sorts last (-2); a named era with no year
+     * sorts just above blank (-1) — both stay at the bottom, never the top.
+     */
+    private function eraRank(?string $era): int
+    {
+        $era = trim((string) $era);
+        if ($era === '') {
+            return -2;
+        }
+        if (preg_match('/(1[6-9]\d{2}|20\d{2})/', $era, $m)) {
+            return (int) $m[1];
+        }
+        if (preg_match('/(\d{1,2})\s*(?:st|nd|rd|th)\s*century/i', $era, $m)) {
+            return ((int) $m[1] - 1) * 100 + 50;
+        }
+
+        return -1;
     }
 
     /** @return array{0:string,1:string,2:string} */
