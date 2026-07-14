@@ -77,3 +77,11 @@ require. Each links to the Commons File: page (full author/license details).
 | Har Dayal | har-dayal.jpg | Public domain (pre-1929 portrait) | Public domain | Early portrait of the Indian revolutionary and Ghadar Party founder, taken in the 1910s. Over 100 years old — public domain. |
 | Per Herngren | per-herngren.jpg | CC BY-SA 4.0 | Sofie Sigrinn | [File](https://commons.wikimedia.org/wiki/File:Per_Herngren.jpg) |
 | Voltairine de Cleyre | voltairine-de-cleyre.jpg | Public domain (1901 portrait) | M. Herbert Bridle | 1901 studio portrait of the anarchist writer at age 35; [File](https://commons.wikimedia.org/wiki/File:Voltairine_de_Cleyre_(Age_35).jpg). Over 100 years old — public domain. |
+
+## Top-100 photo audit — public-domain additions (July 2026)
+
+| File | Subject | Source & public-domain basis |
+| --- | --- | --- |
+| `andres-figueroa-cordero.jpg` | Andrés Figueroa Cordero (Puerto Rican Nationalist; 1954 US Capitol shooting) | Wikimedia Commons `File:Andre_Figueroa_Cordero.jpg` — a 1954 AP/Library of Congress bust portrait, public domain in the United States. |
+| `muhammad-abdul-aziz.jpg` | Muhammad Abdul Aziz / Norman 3X Butler (wrongly convicted in the Malcolm X assassination; exonerated 2021) | Wikimedia Commons `File:Muhammad_Abdul_Aziz_(Norman_3X_Butler)_1965_press_photo.jpg` — a 1965 Associated Press police-station press photo, public domain in the United States. Downscaled to 900 px. |
+| `edgar-timmons-jr.jpg` | Rev. Edgar Timmons Jr. (Harris Neck land-reclamation protester; In re Timmons, 607 F.2d 120) | Cropped (second person from the left) from a U.S. Fish & Wildlife Service photograph, "Gullah Geechee community descendants at Harris Neck Refuge" (`fws.gov/media/gullah-geechee-community-descendants-harris-neck-refuge`, Monica Harris/USFWS, 2021). A federal-government work in the public domain. |
