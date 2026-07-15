@@ -140,21 +140,20 @@ $isHome = request()->segment(1) == ''
             .pet-banner, .events-page, .prisoner-page, .donate-page { padding-left: max(16px, env(safe-area-inset-left)) !important; padding-right: max(16px, env(safe-area-inset-right)) !important; }
         }
 
-        /* Content hyperlink hover: CodyHouse "scale-y" text-background effect.
-           At rest, a 2px accent bar sits under the link; on hover it expands
-           upward to fill the whole link background. Themed to --accent and
-           scoped to prose links inside article/page bodies so navigation,
-           buttons, and cards keep their own styles. */
+        /* Content hyperlink hover: CodyHouse "underline" text-background effect.
+           A thin accent underline draws in from left to right on hover. The
+           text-shadow (in the page background colour) lets the line pass
+           cleanly behind letter descenders. Scoped to prose links inside
+           article/page bodies so navigation, buttons, and cards keep their
+           own styles. */
         .page-content a {
             color: var(--accent);
             text-decoration: none;
-            padding: 1px 0;
             background-repeat: no-repeat;
-            background-position: center bottom;
-            background-size: 100% 2px;
-            /* rgba fallback for browsers without color-mix() */
-            background-image: linear-gradient(rgba(86, 96, 254, 0.22), rgba(86, 96, 254, 0.22));
-            background-image: linear-gradient(color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent) 22%, transparent));
+            background-position: left center;
+            background-size: 0% 100%;
+            background-image: linear-gradient(transparent calc(100% - 3px), currentColor calc(100% - 3px), currentColor calc(100% - 2px), transparent 2px);
+            text-shadow: 1.5px 1px var(--bg), -1.5px 1px var(--bg), 0 1px var(--bg);
             will-change: background-size;
             transition: background-size 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
