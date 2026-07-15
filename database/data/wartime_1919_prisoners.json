@@ -1,0 +1,908 @@
+[
+ {
+  "name": "Joseph Selzer",
+  "gender": "Male",
+  "state": "Iowa",
+  "city": "Cedar Rapids",
+  "date": "February 19, 1917",
+  "year": 1917,
+  "month": 2,
+  "day": 19,
+  "sentence_note": "I. W. W. organizer, 1 year and $1,000",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "first_name": "Joseph",
+  "last_name": "Selzer",
+  "middle_name": null
+ },
+ {
+  "name": "John H. Frantz",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Harrisburg",
+  "date": "May 18, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 18,
+  "sentence_note": "9 months for alleged seditious utterances",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "John",
+  "last_name": "Frantz",
+  "middle_name": "H."
+ },
+ {
+  "name": "C. C. Stemler",
+  "gender": "Female",
+  "state": "California",
+  "city": "Sacramento",
+  "date": "May 19, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 19,
+  "sentence_note": "Socialist, 60 days and $150 for alleged seditious remarks",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "C.",
+  "last_name": "Stemler",
+  "middle_name": "C."
+ },
+ {
+  "name": "George Kowalsky",
+  "gender": "Male",
+  "state": "Connecticut",
+  "city": "New Haven",
+  "date": "May 24, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 24,
+  "sentence_note": "one year and a day for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "George",
+  "last_name": "Kowalsky",
+  "middle_name": null
+ },
+ {
+  "name": "John Kolar",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Pittsburgh",
+  "date": "May 28, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 28,
+  "sentence_note": "30 days for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "John",
+  "last_name": "Kolar",
+  "middle_name": null
+ },
+ {
+  "name": "Edward A. Kolbe",
+  "gender": "Male",
+  "state": "Ohio",
+  "city": "Columbus",
+  "date": "June 26, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 26,
+  "sentence_note": "5 years for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Edward",
+  "last_name": "Kolbe",
+  "middle_name": "A."
+ },
+ {
+  "name": "Myra Dunton",
+  "gender": "Female",
+  "state": "California",
+  "city": "Sacramento",
+  "date": "June 27, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 27,
+  "sentence_note": "Socialist, 40 days and $10 fine for alleged seditious utterances",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "Myra",
+  "last_name": "Dunton",
+  "middle_name": null
+ },
+ {
+  "name": "F. M. Darby",
+  "gender": "Male",
+  "state": "Oklahoma",
+  "city": "Enid",
+  "date": "September 1918",
+  "year": 1918,
+  "month": 9,
+  "day": null,
+  "sentence_note": "3 months and $300 fine for alleged seditious utterances",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "F.",
+  "last_name": "Darby",
+  "middle_name": "M."
+ },
+ {
+  "name": "Mack Denny",
+  "gender": "Male",
+  "state": "Nebraska",
+  "city": "Lincoln",
+  "date": "September 23, 1918",
+  "year": 1918,
+  "month": 9,
+  "day": 23,
+  "sentence_note": "30 days for alleged threats against the President",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Mack",
+  "last_name": "Denny",
+  "middle_name": null
+ },
+ {
+  "name": "Frank Hockbarth",
+  "gender": "Male",
+  "state": "Nebraska",
+  "city": "Lincoln",
+  "date": "September 23, 1918",
+  "year": 1918,
+  "month": 9,
+  "day": 23,
+  "sentence_note": "4 months for alleged seditious utterances. /",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Frank",
+  "last_name": "Hockbarth",
+  "middle_name": null
+ },
+ {
+  "name": "Ludwig Evanicki",
+  "gender": "Male",
+  "state": "Connecticut",
+  "city": "New Haven",
+  "date": "September 25, 1918",
+  "year": 1918,
+  "month": 9,
+  "day": 25,
+  "sentence_note": "year and a day for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Ludwig",
+  "last_name": "Evanicki",
+  "middle_name": null
+ },
+ {
+  "name": "Charles Sahrbacher",
+  "gender": "Male",
+  "state": "Connecticut",
+  "city": "New Haven",
+  "date": "September 25, 1918",
+  "year": 1918,
+  "month": 9,
+  "day": 25,
+  "sentence_note": "1 year and a day for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Charles",
+  "last_name": "Sahrbacher",
+  "middle_name": null
+ },
+ {
+  "name": "Frank A. Feldman",
+  "gender": "Male",
+  "state": "Missouri",
+  "city": "St. Louis",
+  "date": "1917",
+  "year": 1917,
+  "month": 0,
+  "day": null,
+  "sentence_note": "3 months for' alleged remarks tending to obstruct the draft",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Frank",
+  "last_name": "Feldman",
+  "middle_name": "A."
+ },
+ {
+  "name": "John J. Ballam",
+  "gender": "Male",
+  "state": "Massachusetts",
+  "city": "Boston",
+  "date": "June 10, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 10,
+  "sentence_note": "Socialist, 1 year for saying in effect that working men should not go to war because they would be required to kill other wofkingmen in diff",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "John",
+  "last_name": "Ballam",
+  "middle_name": "J."
+ },
+ {
+  "name": "John D. Mamis",
+  "gender": "Male",
+  "state": "Illinois",
+  "city": "Chicago",
+  "date": "January 21, 1918",
+  "year": 1918,
+  "month": 1,
+  "day": 21,
+  "sentence_note": "3 years for alleged seditious letters to newspapers",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "John",
+  "last_name": "Mamis",
+  "middle_name": "D."
+ },
+ {
+  "name": "I. T. Boutell",
+  "gender": "Male",
+  "state": "Kansas",
+  "city": "Topeka",
+  "date": "June 16, 1917",
+  "year": 1917,
+  "month": 6,
+  "day": 16,
+  "sentence_note": "Socialist, 6 months for distributing leaflets \"A Good Soldier,''' by Jack Londpn, to drafted men. \"",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "I.",
+  "last_name": "Boutell",
+  "middle_name": "T."
+ },
+ {
+  "name": "J. G. Shellenberger",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Pittsburgh",
+  "date": "May 28, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 28,
+  "sentence_note": "5 months for opposing Liberty Bonds and circulating a seditious pamphlet",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "J.",
+  "last_name": "Shellenberger",
+  "middle_name": "G."
+ },
+ {
+  "name": "Edward Hofstede",
+  "gender": "Male",
+  "state": null,
+  "city": "Orofino",
+  "date": "June 15, 1917",
+  "year": 1917,
+  "month": 6,
+  "day": 15,
+  "sentence_note": "in jail five months before trial, sentenced to 4 months on charge of advising young men not to register",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Edward",
+  "last_name": "Hofstede",
+  "middle_name": null
+ },
+ {
+  "name": "Edwin Firth",
+  "gender": "Male",
+  "state": null,
+  "city": "Wheelng",
+  "date": "January 3, 1917",
+  "year": 1917,
+  "month": 1,
+  "day": 3,
+  "sentence_note": "Hilton Bias, Ben Green and Henry Howes, 6 months and costs for conspiracy to defraud the government by circulating literature opposed to the",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Edwin",
+  "last_name": "Firth",
+  "middle_name": null
+ },
+ {
+  "name": "John Katkus",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Pittsburgh",
+  "date": "May 28, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 28,
+  "sentence_note": "10 days for an al leged attempt to obstruct recruiting and enlisment",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "John",
+  "last_name": "Katkus",
+  "middle_name": null
+ },
+ {
+  "name": "Harry Fadel",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Philadelphia",
+  "date": "June 11, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 11,
+  "sentence_note": "1 year for tearing up his questionnaire",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Harry",
+  "last_name": "Fadel",
+  "middle_name": null
+ },
+ {
+  "name": "Jacob Frachter",
+  "gender": "Male",
+  "state": null,
+  "city": "New York",
+  "date": "September 1917",
+  "year": 1917,
+  "month": 9,
+  "day": null,
+  "sentence_note": "Socialist, 6 months for alleged remarks against conscription in a street : speech. ~ 9/—/17, New York, N. Y.—Alfred Levitt, Socialist, 20 da",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "Jacob",
+  "last_name": "Frachter",
+  "middle_name": null
+ },
+ {
+  "name": "Allan S. Broms",
+  "gender": "Male",
+  "state": "Minnesota",
+  "city": "Two Harbors",
+  "date": "September 28, 1917",
+  "year": 1917,
+  "month": 9,
+  "day": 28,
+  "sentence_note": "Socialist, of St. Paul, 90 days for utterances attacking the war, constituting disorderly conduct. Bemidji, Minn.-u-Jesse Dunning, I. W. W",
+  "ideologies": [
+   "Industrial unionism",
+   "Socialism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World",
+   "Socialist Party"
+  ],
+  "first_name": "Allan",
+  "last_name": "Broms",
+  "middle_name": "S."
+ },
+ {
+  "name": "W. Theo. Woodward",
+  "gender": "Male",
+  "state": "Iowa",
+  "city": "Atlantic",
+  "date": "January 10, 1917",
+  "year": 1917,
+  "month": 1,
+  "day": 10,
+  "sentence_note": "6 months and $600 for belonging to the People's Council, a violation of a state law. Prison sentence suspended",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "W.",
+  "last_name": "Woodward",
+  "middle_name": "Theo."
+ },
+ {
+  "name": "J. M. Beck",
+  "gender": "Male",
+  "state": "Oregon",
+  "city": "Portland",
+  "date": "February 8, 1917",
+  "year": 1917,
+  "month": 2,
+  "day": 8,
+  "sentence_note": "a Socialist, $50 and 20 days in jail for distributing a pamphlet without a license",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "J.",
+  "last_name": "Beck",
+  "middle_name": "M."
+ },
+ {
+  "name": "Gus Swift",
+  "gender": "Male",
+  "state": "California",
+  "city": "Grass Valley",
+  "date": "February 20, 1917",
+  "year": 1917,
+  "month": 2,
+  "day": 20,
+  "sentence_note": "60 days for dis turbing the peace by making seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Gus",
+  "last_name": "Swift",
+  "middle_name": null
+ },
+ {
+  "name": "Alexander Horr",
+  "gender": "Male",
+  "state": "California",
+  "city": "San Francisco",
+  "date": "February 28, 1917",
+  "year": 1917,
+  "month": 2,
+  "day": 28,
+  "sentence_note": "Socialist, 6 months for disorderly conduct in connection with Scott Nearing meeting",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "Alexander",
+  "last_name": "Horr",
+  "middle_name": null
+ },
+ {
+  "name": "Fleming Jordan",
+  "gender": "Male",
+  "state": "Connecticut",
+  "city": "Greenwich",
+  "date": "January 1, 1918",
+  "year": 1918,
+  "month": 1,
+  "day": 1,
+  "sentence_note": "6 months (sus pended) and $25 and costs for alleged breach of peace in speak ing disrespectfully of the President",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Fleming",
+  "last_name": "Jordan",
+  "middle_name": null
+ },
+ {
+  "name": "Casper Oberstadt",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Philadelphia",
+  "date": "January 26, 1918",
+  "year": 1918,
+  "month": 1,
+  "day": 26,
+  "sentence_note": "30 days and $150 fine, Louis Abrahamson, Isadbre Axelrod, Walter A. Ebbits and Solomon Bold, Socialists, each 15 days and $150 fine for dis",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "first_name": "Casper",
+  "last_name": "Oberstadt",
+  "middle_name": null
+ },
+ {
+  "name": "Carl A. Wold",
+  "gender": "Male",
+  "state": "Minnesota",
+  "city": "Alexandria",
+  "date": "February 11, 1918",
+  "year": 1918,
+  "month": 2,
+  "day": 11,
+  "sentence_note": "editor of Park Region \"Echo,\" 3 months and $200 for seditious editorial",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Carl",
+  "last_name": "Wold",
+  "middle_name": "A."
+ },
+ {
+  "name": "Joseph Gilbert",
+  "gender": "Male",
+  "state": "Minnesota",
+  "city": "Lakefield",
+  "date": "February 12, 1918",
+  "year": 1918,
+  "month": 2,
+  "day": 12,
+  "sentence_note": "secretary Non Partisan League, 3 months on charge of unlawful assemblage",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Joseph",
+  "last_name": "Gilbert",
+  "middle_name": null
+ },
+ {
+  "name": "G. D. Brewer",
+  "gender": "Male",
+  "state": "Minnesota",
+  "city": "Pipestone",
+  "date": "February 27, 1918",
+  "year": 1918,
+  "month": 2,
+  "day": 27,
+  "sentence_note": "Non-Partisan League lecturer, 60 days and $100 fine for \"unlawful assemblage.\"",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [
+   "Nonpartisan League"
+  ],
+  "first_name": "G.",
+  "last_name": "Brewer",
+  "middle_name": "D."
+ },
+ {
+  "name": "Henry Stock",
+  "gender": "Male",
+  "state": "Minnesota",
+  "city": "Fergust Falls",
+  "date": "March 15, 1918",
+  "year": 1918,
+  "month": 3,
+  "day": 15,
+  "sentence_note": "3 months for alleged remark that he \"wished the Germans had gotten the whole bunch of American soldiers aboard the Tuscania.\"",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Henry",
+  "last_name": "Stock",
+  "middle_name": null
+ },
+ {
+  "name": "Henry Anbelsen",
+  "gender": "Male",
+  "state": null,
+  "city": "Baltimore",
+  "date": "March 30, 1918",
+  "year": 1918,
+  "month": 3,
+  "day": 30,
+  "sentence_note": "a Danish sailor, 2 months for alleged seditious utterances",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Henry",
+  "last_name": "Anbelsen",
+  "middle_name": null
+ },
+ {
+  "name": "Sam Jesky",
+  "gender": "Male",
+  "state": "California",
+  "city": "Los Angeles",
+  "date": "April 4, 1918",
+  "year": 1918,
+  "month": 4,
+  "day": 4,
+  "sentence_note": "90 days for alleged seditious utterances",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Sam",
+  "last_name": "Jesky",
+  "middle_name": null
+ },
+ {
+  "name": "Ronda M. Hendricks",
+  "gender": "Female",
+  "state": null,
+  "city": "Monroe",
+  "date": "May 2, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 2,
+  "sentence_note": "$300 or 6 months for alleged seditious' remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Ronda",
+  "last_name": "Hendricks",
+  "middle_name": "M."
+ },
+ {
+  "name": "J. H. Shintz",
+  "gender": "Male",
+  "state": "California",
+  "city": "Los Angeles",
+  "date": "May 15, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 15,
+  "sentence_note": "3 months for disturbing the peace by making seditious remarks about the Liberty Loan",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "J.",
+  "last_name": "Shintz",
+  "middle_name": "H."
+ },
+ {
+  "name": "G. C. Henry",
+  "gender": "Female",
+  "state": "California",
+  "city": "Los Angeles",
+  "date": "May 16, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 16,
+  "sentence_note": "$50 or 50 days for alleged seditious utterances",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "G.",
+  "last_name": "Henry",
+  "middle_name": "C."
+ },
+ {
+  "name": "Henry Brinkman",
+  "gender": "Male",
+  "state": "Wisconsin",
+  "city": "Milwaukee",
+  "date": "May 18, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 18,
+  "sentence_note": "1 year for alleged seditious utterances",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Henry",
+  "last_name": "Brinkman",
+  "middle_name": null
+ },
+ {
+  "name": "Wasyl Jowchalk",
+  "gender": "Male",
+  "state": "Pennsylvania",
+  "city": "Pittsburg",
+  "date": "May 22, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 22,
+  "sentence_note": "$50 or 60 days for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Wasyl",
+  "last_name": "Jowchalk",
+  "middle_name": null
+ },
+ {
+  "name": "Gus Schader",
+  "gender": "Male",
+  "state": "California",
+  "city": "San Francisco",
+  "date": "May 25, 1918",
+  "year": 1918,
+  "month": 5,
+  "day": 25,
+  "sentence_note": "30 days for alleged seditious remarks",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Gus",
+  "last_name": "Schader",
+  "middle_name": null
+ },
+ {
+  "name": "H. Klabo",
+  "gender": "Male",
+  "state": "Montana",
+  "city": "Kalispell",
+  "date": "June 1918",
+  "year": 1918,
+  "month": 6,
+  "day": null,
+  "sentence_note": "3 months for distribu t i n g leaflets about the Tulsa outrage",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "H.",
+  "last_name": "Klabo",
+  "middle_name": null
+ },
+ {
+  "name": "Fred Masson",
+  "gender": "Male",
+  "state": "California",
+  "city": "Martinez",
+  "date": "June 1, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 1,
+  "sentence_note": "6 months for disturb ing the peace by speaking disrespectfully ôf the Red Cross",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Fred",
+  "last_name": "Masson",
+  "middle_name": null
+ },
+ {
+  "name": "B. F. Burns",
+  "gender": "Male",
+  "state": null,
+  "city": "Tampa",
+  "date": "June 4, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 4,
+  "sentence_note": "90 days for alleged dis loyal utterances against the President",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "B.",
+  "last_name": "Burns",
+  "middle_name": "F."
+ },
+ {
+  "name": "Joseph E. Hanberg",
+  "gender": "Male",
+  "state": "California",
+  "city": "Gridley",
+  "date": "June 23, 1918",
+  "year": 1918,
+  "month": 6,
+  "day": 23,
+  "sentence_note": "10 days for the alleged remark-\"The kaiser is the smartest man on earth, and the Germans are going to win this war, and T'm glad of it.\"",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Joseph",
+  "last_name": "Hanberg",
+  "middle_name": "E."
+ },
+ {
+  "name": "Waldemar Czapanski",
+  "gender": "Male",
+  "state": "California",
+  "city": "San Francisco",
+  "date": "July 16, 1918",
+  "year": 1918,
+  "month": 7,
+  "day": 16,
+  "sentence_note": "10 days for laughing at recruits drilling at the Presidio",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Waldemar",
+  "last_name": "Czapanski",
+  "middle_name": null
+ },
+ {
+  "name": "Michael Legoth",
+  "gender": "Male",
+  "state": "Wisconsin",
+  "city": "Milwaukee",
+  "date": "August 7, 1918",
+  "year": 1918,
+  "month": 8,
+  "day": 7,
+  "sentence_note": "3 months for alleged disparaging remarks about the U. S. government",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Michael",
+  "last_name": "Legoth",
+  "middle_name": null
+ },
+ {
+  "name": "Charles Sauer",
+  "gender": "Male",
+  "state": "Wisconsin",
+  "city": "Milwaukee",
+  "date": "August 7, 1918",
+  "year": 1918,
+  "month": 8,
+  "day": 7,
+  "sentence_note": "9 months for al leged disparaging remarks about the U. S. government. •",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "Charles",
+  "last_name": "Sauer",
+  "middle_name": null
+ },
+ {
+  "name": "D. M. Carr",
+  "gender": "Male",
+  "state": "Nebraska",
+  "city": "Norfolk",
+  "date": "September 23, 1918",
+  "year": 1918,
+  "month": 9,
+  "day": 23,
+  "sentence_note": "10 days and $250 fine for violation of the Espionage law. /23/18. -Norfolk, Neb.—Mack Denny, 30 days for alleged",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "first_name": "D.",
+  "last_name": "Carr",
+  "middle_name": "M."
+ }
+]
