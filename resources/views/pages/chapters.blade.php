@@ -34,11 +34,10 @@
     .ch-mapband-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .ch-map-prompt { font-size: 1.5rem; font-weight: 700; color: var(--fg); margin-bottom: 26px; }
     .ch-usmap { width: 100%; max-width: 980px; height: auto; display: block; margin: 0 auto; }
-    .ch-usmap path { fill: rgba(var(--fg-rgb),0.08); stroke: rgba(var(--fg-rgb),0.22); stroke-width: 1; transition: fill 0.12s ease; }
-    .ch-usmap path.has-chapter { cursor: pointer; }
-    .ch-usmap path.has-chapter:hover,
+    .ch-usmap path { fill: rgba(var(--fg-rgb),0.08); stroke: rgba(var(--fg-rgb),0.22); stroke-width: 1; cursor: pointer; transition: fill 0.12s ease; }
+    .ch-usmap path:hover,
     .ch-usmap path.is-selected { fill: var(--accent); }
-    .ch-usmap path.has-chapter:focus-visible { outline: none; fill: var(--accent); }
+    .ch-usmap path:focus-visible { outline: none; fill: var(--accent); }
     .ch-tip { position: fixed; z-index: 60; background: var(--gi-ev-gold, #f5b400); color: #15171c; font-size: 13px; font-weight: 800; letter-spacing: 0.02em; padding: 5px 9px; border-radius: 3px; pointer-events: none; transform: translate(-50%, -145%); display: none; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
 
     .ch-all-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(var(--fg-rgb),0.14); padding-top: 22px; margin-top: 48px; }
@@ -54,6 +53,9 @@
     .ch-ccard-name { font-size: 1.35rem; font-weight: 800; color: var(--fg); margin: 8px 0 4px; line-height: 1.15; }
     .ch-ccard:hover .ch-ccard-name { color: var(--accent); }
     .ch-ccard-desc { font-size: 13px; color: rgba(var(--fg-rgb),0.6); line-height: 1.5; }
+    .ch-empty { padding: 26px 2px; font-size: 16px; color: rgba(var(--fg-rgb),0.65); line-height: 1.6; }
+    .ch-empty a { color: var(--accent); font-weight: 700; text-decoration: none; }
+    .ch-empty a:hover { text-decoration: underline; }
 
     /* Start a chapter CTA */
     .ch-start { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: linear-gradient(120deg, #14141c 0%, #1c1550 55%, #5660fe 140%); color: #fff; margin-top: 0; }
@@ -94,11 +96,26 @@
          'svg' => '<path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>'],
     ];
 
-    // State code -> full name (for the tooltip + prompt).
+    // State codes that currently have a chapter.
     $chStateNames = [
         'NY' => 'New York', 'MA' => 'Massachusetts', 'PA' => 'Pennsylvania', 'DC' => 'District of Columbia',
         'IL' => 'Illinois', 'MN' => 'Minnesota', 'MI' => 'Michigan', 'GA' => 'Georgia', 'TX' => 'Texas',
         'NC' => 'North Carolina', 'LA' => 'Louisiana', 'CA' => 'California', 'WA' => 'Washington', 'CO' => 'Colorado',
+    ];
+
+    // Every state -> full name (any state is clickable on the map).
+    $allStateNames = [
+        'AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' => 'Arkansas', 'CA' => 'California',
+        'CO' => 'Colorado', 'CT' => 'Connecticut', 'DE' => 'Delaware', 'DC' => 'District of Columbia',
+        'FL' => 'Florida', 'GA' => 'Georgia', 'HI' => 'Hawaii', 'ID' => 'Idaho', 'IL' => 'Illinois',
+        'IN' => 'Indiana', 'IA' => 'Iowa', 'KS' => 'Kansas', 'KY' => 'Kentucky', 'LA' => 'Louisiana',
+        'ME' => 'Maine', 'MD' => 'Maryland', 'MA' => 'Massachusetts', 'MI' => 'Michigan', 'MN' => 'Minnesota',
+        'MS' => 'Mississippi', 'MO' => 'Missouri', 'MT' => 'Montana', 'NE' => 'Nebraska', 'NV' => 'Nevada',
+        'NH' => 'New Hampshire', 'NJ' => 'New Jersey', 'NM' => 'New Mexico', 'NY' => 'New York',
+        'NC' => 'North Carolina', 'ND' => 'North Dakota', 'OH' => 'Ohio', 'OK' => 'Oklahoma', 'OR' => 'Oregon',
+        'PA' => 'Pennsylvania', 'RI' => 'Rhode Island', 'SC' => 'South Carolina', 'SD' => 'South Dakota',
+        'TN' => 'Tennessee', 'TX' => 'Texas', 'UT' => 'Utah', 'VT' => 'Vermont', 'VA' => 'Virginia',
+        'WA' => 'Washington', 'WV' => 'West Virginia', 'WI' => 'Wisconsin', 'WY' => 'Wyoming',
     ];
 
     // Flat list of chapters (each tagged with its state for map filtering).
@@ -169,6 +186,10 @@
                 </a>
             @endforeach
         </div>
+        <div class="ch-empty" id="ch-empty" hidden>
+            No chapters in <strong class="ch-empty-state"></strong> yet.
+            <a href="/contact">Start one &rarr;</a>
+        </div>
     </div>
     <div class="ch-tip" id="ch-tip"></div>
 </section>
@@ -177,35 +198,52 @@
     (function () {
         var svg = document.querySelector('.ch-usmap');
         if (!svg) return;
-        var names = @json($chStateNames);
+        var names = @json($allStateNames);
+        var chapterSet = @json(array_keys($chStateNames));
         var tip = document.getElementById('ch-tip');
         var prompt = document.getElementById('ch-prompt');
         var grid = document.getElementById('ch-allgrid');
+        var empty = document.getElementById('ch-empty');
         var reset = document.getElementById('ch-reset');
         var selected = null;
 
-        function filter(code) {
-            grid.querySelectorAll('.ch-ccard').forEach(function (c) {
-                c.style.display = (!code || c.getAttribute('data-state') === code) ? '' : 'none';
-            });
-            if (code) { prompt.textContent = names[code]; reset.style.display = 'inline-block'; }
-            else { prompt.textContent = 'Select a state on the map'; reset.style.display = 'none'; }
+        function selectState(code) {
+            var name = names[code] || code;
+            prompt.textContent = name;
+            reset.style.display = 'inline-block';
+            var has = chapterSet.indexOf(code) !== -1;
+            grid.style.display = has ? '' : 'none';
+            empty.hidden = has;
+            if (has) {
+                grid.querySelectorAll('.ch-ccard').forEach(function (c) {
+                    c.style.display = c.getAttribute('data-state') === code ? '' : 'none';
+                });
+            } else {
+                empty.querySelector('.ch-empty-state').textContent = name;
+            }
         }
 
-        Object.keys(names).forEach(function (code) {
-            var p = svg.querySelector('path[data-state="' + code + '"]');
-            if (!p) return;
-            p.classList.add('has-chapter');
+        function clear() {
+            prompt.textContent = 'Select a state on the map';
+            reset.style.display = 'none';
+            empty.hidden = true;
+            grid.style.display = '';
+            grid.querySelectorAll('.ch-ccard').forEach(function (c) { c.style.display = ''; });
+        }
+
+        svg.querySelectorAll('path[data-state]').forEach(function (p) {
+            var code = p.getAttribute('data-state');
+            var name = names[code] || code;
             p.setAttribute('tabindex', '0');
             p.setAttribute('role', 'button');
-            p.setAttribute('aria-label', names[code] + ' — view chapters');
+            p.setAttribute('aria-label', name);
             p.addEventListener('mouseenter', function () { tip.textContent = code; tip.style.display = 'block'; });
             p.addEventListener('mousemove', function (e) { tip.style.left = e.clientX + 'px'; tip.style.top = e.clientY + 'px'; });
             p.addEventListener('mouseleave', function () { tip.style.display = 'none'; });
             function pick() {
                 if (selected) selected.classList.remove('is-selected');
                 selected = p; p.classList.add('is-selected');
-                filter(code);
+                selectState(code);
             }
             p.addEventListener('click', pick);
             p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
@@ -213,7 +251,7 @@
 
         reset.addEventListener('click', function () {
             if (selected) { selected.classList.remove('is-selected'); selected = null; }
-            filter(null);
+            clear();
         });
     })();
 </script>
