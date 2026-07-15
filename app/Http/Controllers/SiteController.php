@@ -495,6 +495,10 @@ final class SiteController extends Controller {
         return view('pages.volunteer');
     }
 
+    public function chapters() {
+        return view('pages.chapters');
+    }
+
     public function prisonerOutreach() {
         $prisoners = Prisoner::where('in_custody', true)
             ->orderBy('last_name')

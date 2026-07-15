@@ -45,6 +45,7 @@ Route::controller(SiteController::class)
         Route::get('store', 'store');
         Route::get('store/{slug}', 'storeProduct');
         Route::get('events', 'events');
+        Route::get('chapters', 'chapters');
         Route::get('volunteer', 'volunteer');
         Route::get('prisoner-outreach', 'prisonerOutreach');
         Route::get('petitions', 'petitionsIndex');
