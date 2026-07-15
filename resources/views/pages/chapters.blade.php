@@ -37,6 +37,9 @@
     .ch-usmap path { fill: rgba(var(--fg-rgb),0.08); stroke: rgba(var(--fg-rgb),0.22); stroke-width: 1; cursor: pointer; transition: fill 0.12s ease; }
     .ch-usmap path:hover,
     .ch-usmap path.is-selected { fill: var(--accent); }
+    /* No focus-ring box around a picked state — the accent fill already marks
+       it, for both mouse and keyboard users. */
+    .ch-usmap path:focus,
     .ch-usmap path:focus-visible { outline: none; fill: var(--accent); }
     .ch-tip { position: fixed; z-index: 60; background: var(--gi-ev-gold, #f5b400); color: #15171c; font-size: 13px; font-weight: 800; letter-spacing: 0.02em; padding: 5px 9px; border-radius: 3px; pointer-events: none; transform: translate(-50%, -145%); display: none; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
 
