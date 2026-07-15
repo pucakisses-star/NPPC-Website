@@ -112,6 +112,9 @@
     /* ==================== JOIN / SUPPORT / COMMUNITY BAND ====================
        Angled parallelogram cards (same model as the learn-more "More from NPPC"
        band), full-bleed with the accent showing through the slanted seams. */
+    /* Let the full-bleed band escape the centered .container (this page only);
+       without this, .container's overflow:hidden clips the 100vw breakout. */
+    .page-get-involved .container { overflow: visible; }
     .gij { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: var(--accent); margin-top: 80px; }
     .gij-inner { display: flex; align-items: stretch; min-height: 420px; }
     .gij-card { flex: 1 1 33.333%; position: relative; display: block; overflow: hidden; background: #14141c; clip-path: polygon(52px 0, 100% 0, calc(100% - 52px) 100%, 0 100%); margin-left: 10px; text-decoration: none; }
