@@ -1,0 +1,7232 @@
+[
+ {
+  "name": "Louise Olivereau",
+  "first": "Louise",
+  "middle": null,
+  "last": "Olivereau",
+  "gender": "Female",
+  "charges": "Socialist and I. W. W. sympathizer, sentenced to 10 years on several indictments, charging interference with the draft",
+  "sentence": "sentenced to 10 years",
+  "inc": [
+   1917,
+   12,
+   13
+  ],
+  "rel": null,
+  "institution": "Colorado State Penitentiary, Cañon City",
+  "ideologies": [
+   "Industrial unionism",
+   "Socialism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World",
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Harold Mackley",
+  "first": "Harold",
+  "middle": null,
+  "last": "Mackley",
+  "gender": "Male",
+  "charges": "Disloyal remarks",
+  "sentence": "15 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "H. E. Kirchner",
+  "first": "H.",
+  "middle": "E.",
+  "last": "Kirchner",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "two years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Joseph Selzer",
+  "first": "Joseph",
+  "middle": null,
+  "last": "Selzer",
+  "gender": "Male",
+  "charges": "I. W. W. organizer, 1 year and $1,000",
+  "sentence": "1 year and $1,000",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Paul Bosko",
+  "first": "Paul",
+  "middle": null,
+  "last": "Bosko",
+  "gender": "Male",
+  "charges": "Talking against conscription",
+  "sentence": "15 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "August Schewing",
+  "first": "August",
+  "middle": null,
+  "last": "Schewing",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "one year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "H. M. Hendricksen",
+  "first": "H.",
+  "middle": "M.",
+  "last": "Hendricksen",
+  "gender": "Male",
+  "charges": "Convicted of obstructing recruiting and enlistment",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Isensee",
+  "first": "William",
+  "middle": null,
+  "last": "Isensee",
+  "gender": "Male",
+  "charges": "Alleged disloyal remarks to bond-selling committee. \"\" , \"**",
+  "sentence": "sentenced to 30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Bernard Stenzel",
+  "first": "Bernard",
+  "middle": null,
+  "last": "Stenzel",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "18 months and $300",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Erwin Schwaer",
+  "first": "Erwin",
+  "middle": null,
+  "last": "Schwaer",
+  "gender": "Male",
+  "charges": "The alleged remark \"President Wilson would be shot within a month.\" -",
+  "sentence": "18 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Conrad Kornmann",
+  "first": "Conrad",
+  "middle": null,
+  "last": "Kornmann",
+  "gender": "Male",
+  "charges": "Opposing the Liberty Loan in a letter to a friend",
+  "sentence": "10 years and $1,000 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John H. Wolf",
+  "first": "John",
+  "middle": "H.",
+  "last": "Wolf",
+  "gender": "Male",
+  "charges": "Alleged s-editious utterances",
+  "sentence": "5 years and $1,000 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Gerard Liebisch",
+  "first": "Gerard",
+  "middle": null,
+  "last": "Liebisch",
+  "gender": "Male",
+  "charges": "Advising drafted men to surrender to the enemy",
+  "sentence": "4 years",
+  "inc": [
+   1917,
+   12,
+   15
+  ],
+  "rel": [
+   1920,
+   5,
+   10
+  ],
+  "institution": "Atlanta Penitentiary",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frank Strand",
+  "first": "Frank",
+  "middle": null,
+  "last": "Strand",
+  "gender": "Male",
+  "charges": "Convicted of obstructing recruiting and enlistment by threatening to kill an Austrian who wanted to enlist",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Turner",
+  "first": "John",
+  "middle": null,
+  "last": "Turner",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "one year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Williams",
+  "first": "John",
+  "middle": null,
+  "last": "Williams",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "sentence postponed",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Lee Lang",
+  "first": "Lee",
+  "middle": null,
+  "last": "Lang",
+  "gender": "Male",
+  "charges": "Violation of the Espionage x ct",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Daniel Mahoney",
+  "first": "Daniel",
+  "middle": null,
+  "last": "Mahoney",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "18 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Otto Janson",
+  "first": "Otto",
+  "middle": null,
+  "last": "Janson",
+  "gender": "Male",
+  "charges": "Saying in effect that the President and U. S. soldiers in Prance should be shot",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Bosses",
+  "first": "John",
+  "middle": null,
+  "last": "Bosses",
+  "gender": "Male",
+  "charges": "Threatening the life of the President",
+  "sentence": "2 years and 6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Walter Heynacher",
+  "first": "Walter",
+  "middle": null,
+  "last": "Heynacher",
+  "gender": "Male",
+  "charges": "Alleged draft obstruction",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Sam Jacobs",
+  "first": "Sam",
+  "middle": null,
+  "last": "Jacobs",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "18 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Petters",
+  "first": "John",
+  "middle": null,
+  "last": "Petters",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "1 year and a day",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Edwin S. Reitz",
+  "first": "Edwin",
+  "middle": "S.",
+  "last": "Reitz",
+  "gender": "Male",
+  "charges": "Alleged statements tending to obstruct the draft",
+  "sentence": "5 years and $1,000",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Eliason",
+  "first": "William",
+  "middle": null,
+  "last": "Eliason",
+  "gender": "Male",
+  "charges": "Convicted of alleged seditious utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John H. Frantz",
+  "first": "John",
+  "middle": "H.",
+  "last": "Frantz",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "9 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "C. C. Stemler",
+  "first": "C.",
+  "middle": "C.",
+  "last": "Stemler",
+  "gender": "Female",
+  "charges": "Alleged seditious remarks",
+  "sentence": "60 days and $150",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "George Kowalsky",
+  "first": "George",
+  "middle": null,
+  "last": "Kowalsky",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "one year and a day",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Charles Anding",
+  "first": "Charles",
+  "middle": null,
+  "last": "Anding",
+  "gender": "Male",
+  "charges": "Advising a draftee not to take the federal oath so as not to be sent overseas",
+  "sentence": "18 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Kolar",
+  "first": "John",
+  "middle": null,
+  "last": "Kolar",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Kunz",
+  "first": "John",
+  "middle": null,
+  "last": "Kunz",
+  "gender": "Male",
+  "charges": "The alleged remarks; \"Young men are fools to enlist and go across to be blown' up\" and \"Germany had a perfect right to sink the Lusitanià.\"",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Houston",
+  "first": "William",
+  "middle": null,
+  "last": "Houston",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Sidney Mader",
+  "first": "Sidney",
+  "middle": null,
+  "last": "Mader",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "3 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. A. Miller",
+  "first": "J.",
+  "middle": "A.",
+  "last": "Miller",
+  "gender": "Male",
+  "charges": "Telling a young man that he was a fool to fight in this rich man's war and that there was graft in the Red Cross",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Peter Perruchon",
+  "first": "Peter",
+  "middle": null,
+  "last": "Perruchon",
+  "gender": "Male",
+  "charges": "Possessing seditious literature. .1",
+  "sentence": "3 years and $500",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "August Sandberg",
+  "first": "August",
+  "middle": null,
+  "last": "Sandberg",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "2 years and $500 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "G. V. Strode",
+  "first": "G.",
+  "middle": "V.",
+  "last": "Strode",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Gustave H. Taubert",
+  "first": "Gustave",
+  "middle": "H.",
+  "last": "Taubert",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "3 years",
+  "inc": [
+   1918,
+   6,
+   4
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Ehrhardt",
+  "first": "William",
+  "middle": null,
+  "last": "Ehrhardt",
+  "gender": "Male",
+  "charges": "Convicted of alleged seditious utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": [
+   1918,
+   6,
+   5
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Bago",
+  "first": "William",
+  "middle": null,
+  "last": "Bago",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "15 years",
+  "inc": [
+   1918,
+   6,
+   6
+  ],
+  "rel": [
+   1920,
+   3,
+   3
+  ],
+  "institution": "Atlanta Penitentiary",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. E. Mead",
+  "first": "W.",
+  "middle": "E.",
+  "last": "Mead",
+  "gender": "Male",
+  "charges": "Alleged attempts to encourage Canadian troops to desert",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Douglas",
+  "first": "John",
+  "middle": null,
+  "last": "Douglas",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks cursing the United States",
+  "sentence": "3 years",
+  "inc": [
+   1918,
+   6,
+   26
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Edward A. Kolbe",
+  "first": "Edward",
+  "middle": "A.",
+  "last": "Kolbe",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Myra Dunton",
+  "first": "Myra",
+  "middle": null,
+  "last": "Dunton",
+  "gender": "Female",
+  "charges": "Alleged seditious utterances",
+  "sentence": "40 days and $10 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Gustav Erdtmann",
+  "first": "Gustav",
+  "middle": null,
+  "last": "Erdtmann",
+  "gender": "Male",
+  "charges": "Telling lumbermen to leave the Loyal Legion of Loggers and Lumbermen and to join the I. W. W. if they wanted results",
+  "sentence": "Sentence not stated in report",
+  "inc": [
+   1918,
+   6,
+   27
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Al Shidler",
+  "first": "Al",
+  "middle": null,
+  "last": "Shidler",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "2 years and $100 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frank Monparler",
+  "first": "Frank",
+  "middle": null,
+  "last": "Monparler",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "18 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "L. N. Legendre",
+  "first": "L.",
+  "middle": "N.",
+  "last": "Legendre",
+  "gender": "Male",
+  "charges": "Saying, \"This is a war fostered by Morgan and the rich.\"",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Arthur Roth",
+  "first": "Arthur",
+  "middle": null,
+  "last": "Roth",
+  "gender": "Male",
+  "charges": "Alleged seditious statements'in an intercepted letter to a friend",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Powell",
+  "first": "William",
+  "middle": null,
+  "last": "Powell",
+  "gender": "Male",
+  "charges": "Alleged remarks to the effect that thé government was a lie throughout, that German barbarities, were only fiction, that the Germans were right in sinking the Lusitania, that Germany would wipe the Allies off the earth in three years",
+  "sentence": "20 years and $10,000",
+  "inc": [
+   1918,
+   7,
+   24
+  ],
+  "rel": [
+   1919,
+   4,
+   22
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Bisdorf",
+  "first": "Fred",
+  "middle": null,
+  "last": "Bisdorf",
+  "gender": "Male",
+  "charges": "Convicted of alleged pro-German utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Clark Dickson",
+  "first": "Clark",
+  "middle": null,
+  "last": "Dickson",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Charles Ohlsen",
+  "first": "Charles",
+  "middle": null,
+  "last": "Ohlsen",
+  "gender": "Male",
+  "charges": "Convicted of alleged seditious utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. H. Kaufman",
+  "first": "W.",
+  "middle": "H.",
+  "last": "Kaufman",
+  "gender": "Male",
+  "charges": "The alleged remarks, \"Liberty bonds are a disgrace to America\" and \"America was buncoed into the war by munition makers.\"",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred J. Saal",
+  "first": "Fred",
+  "middle": "J.",
+  "last": "Saal",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances. ', , '",
+  "sentence": "10 years",
+  "inc": [
+   1918,
+   8,
+   17
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "F. M. Darby",
+  "first": "F.",
+  "middle": "M.",
+  "last": "Darby",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "3 months and $300 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "C. B. Schoberg",
+  "first": "C.",
+  "middle": "B.",
+  "last": "Schoberg",
+  "gender": "Male",
+  "charges": "Convicted of alleged ' seditious utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John C. Seebach",
+  "first": "John",
+  "middle": "C.",
+  "last": "Seebach",
+  "gender": "Male",
+  "charges": "Alleged remarks tending to discourage enlistment",
+  "sentence": "18 months and $3,000",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Henry Feltman",
+  "first": "Henry",
+  "middle": null,
+  "last": "Feltman",
+  "gender": "Male",
+  "charges": "Convicted of alleged seditious utterances. J. C. Masten pleaded guilty to the same charge",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. Henry Kruse",
+  "first": "J.",
+  "middle": "Henry",
+  "last": "Kruse",
+  "gender": "Male",
+  "charges": "Convicted of alleged seditious utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John A. Tolishus",
+  "first": "John",
+  "middle": "A.",
+  "last": "Tolishus",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "1 year and 3 months and $100",
+  "inc": [
+   1918,
+   9,
+   18
+  ],
+  "rel": null,
+  "institution": "Maryland Penitentiary",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Mack Denny",
+  "first": "Mack",
+  "middle": null,
+  "last": "Denny",
+  "gender": "Male",
+  "charges": "Alleged threats against the President",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frank Hockbarth",
+  "first": "Frank",
+  "middle": null,
+  "last": "Hockbarth",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances. /",
+  "sentence": "4 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Theodore Olson",
+  "first": "Theodore",
+  "middle": null,
+  "last": "Olson",
+  "gender": "Male",
+  "charges": "Alleged disloyalty",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Charles Sahrbacher",
+  "first": "Charles",
+  "middle": null,
+  "last": "Sahrbacher",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "1 year and a day",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. M. Hicks",
+  "first": "W.",
+  "middle": "M.",
+  "last": "Hicks",
+  "gender": "Male",
+  "charges": "Alleged disloyalty",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Steadman",
+  "first": "Fred",
+  "middle": null,
+  "last": "Steadman",
+  "gender": "Male",
+  "charges": "Violation of the Espionage Act",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Flora Foreman",
+  "first": "Flora",
+  "middle": null,
+  "last": "Foreman",
+  "gender": "Female",
+  "charges": "Alleged seditious utterances. «",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "P. W. Meredith",
+  "first": "P.",
+  "middle": "W.",
+  "last": "Meredith",
+  "gender": "Male",
+  "charges": "Seditious utterances",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "August Weissenfels",
+  "first": "August",
+  "middle": null,
+  "last": "Weissenfels",
+  "gender": "Male",
+  "charges": "Opposing his son's enlistment in the army",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "L. W. Boehner",
+  "first": "L.",
+  "middle": "W.",
+  "last": "Boehner",
+  "gender": "Male",
+  "charges": "Convicted of violation of the Espionage Act",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John S. Randolph",
+  "first": "John",
+  "middle": "S.",
+  "last": "Randolph",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "sentenced to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frederick O. Balcom",
+  "first": "Frederick",
+  "middle": "O.",
+  "last": "Balcom",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Edgar Held",
+  "first": "Edgar",
+  "middle": null,
+  "last": "Held",
+  "gender": "Male",
+  "charges": "Convicted of violation of the Espionage Act",
+  "sentence": "Sentence not stated in report",
+  "inc": [
+   1918,
+   12,
+   11
+  ],
+  "rel": [
+   1920,
+   1,
+   16
+  ],
+  "institution": "Federal custody",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Max Machner",
+  "first": "Max",
+  "middle": null,
+  "last": "Machner",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "7 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. Henry Albers",
+  "first": "J.",
+  "middle": "Henry",
+  "last": "Albers",
+  "gender": "Male",
+  "charges": "Alleged seditious statements said to have been provoked by a business competitor",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frank A. Feldnutn",
+  "first": "Frank",
+  "middle": "A.",
+  "last": "Feldnutn",
+  "gender": "Male",
+  "charges": "' alleged remarks tending to obstruct the draft",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. O. Bentall",
+  "first": "J.",
+  "middle": "O.",
+  "last": "Bentall",
+  "gender": "Male",
+  "charges": "Speeches and articles during their campaign activities",
+  "sentence": "4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Robert Goldstein",
+  "first": "Robert",
+  "middle": null,
+  "last": "Goldstein",
+  "gender": "Male",
+  "charges": "Producing film \"Spirit of '76\" disparaging the British Government",
+  "sentence": "10 years and $5,000",
+  "inc": [
+   1918,
+   5,
+   9
+  ],
+  "rel": [
+   1920,
+   10,
+   13
+  ],
+  "institution": "McNeil Island Penitentiary",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Carl Glesser",
+  "first": "Carl",
+  "middle": null,
+  "last": "Glesser",
+  "gender": "Male",
+  "charges": "Publishing alleged seditious articles in the Missouri Staats Zeitung.'",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "E. A. Engelin",
+  "first": "E.",
+  "middle": "A.",
+  "last": "Engelin",
+  "gender": "Male",
+  "charges": "Alleged attempt to incite mutiny and obstruct enlistments in a speech",
+  "sentence": "5 years",
+  "inc": [
+   1918,
+   5,
+   4
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "C. H. Kamann",
+  "first": "C.",
+  "middle": "H.",
+  "last": "Kamann",
+  "gender": "Male",
+  "charges": "Making alleged seditious remarks to children in'jhis history class",
+  "sentence": "3 years and $5,000",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. P. Beard",
+  "first": "W.",
+  "middle": "P.",
+  "last": "Beard",
+  "gender": "Male",
+  "charges": "Alleged seditious statements in his paper, \"The Scimitar.\"",
+  "sentence": "1 year and $500",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Rose Pastor Stokes",
+  "first": "Rose",
+  "middle": "Pastor",
+  "last": "Stokes",
+  "gender": "Female",
+  "charges": "Writing a ' s i g n e d communication to the Kansas City Star about a speech delivered by her on the government and profiteering",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Orville C. Enfield",
+  "first": "Orville",
+  "middle": "C.",
+  "last": "Enfield",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "20 years and $500",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John J. Ballam",
+  "first": "John",
+  "middle": "J.",
+  "last": "Ballam",
+  "gender": "Male",
+  "charges": "Saying in effect that working men should not go to war because they would be required to kill other wofkingmen in different uniforms",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frederick Krafft",
+  "first": "Frederick",
+  "middle": null,
+  "last": "Krafft",
+  "gender": "Male",
+  "charges": "Criticism of conscription in a street corner speech",
+  "sentence": "5 years and $1,,000",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "A. L. Sugarman",
+  "first": "A.",
+  "middle": "L.",
+  "last": "Sugarman",
+  "gender": "Male",
+  "charges": "A speech about conscrpition",
+  "sentence": "3 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Thomas Cornell",
+  "first": "Thomas",
+  "middle": null,
+  "last": "Cornell",
+  "gender": "Male",
+  "charges": "A speech calculated to interfere with recruiting",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Vincente Balbas Capo",
+  "first": "Vincente",
+  "middle": "Balbas",
+  "last": "Capo",
+  "gender": "Male",
+  "charges": "An editorial in his paper as to drafting of Porto Ricans who had declined United States citizenship",
+  "sentence": "8 years and $4,000 fine",
+  "inc": [
+   1917,
+   12,
+   1
+  ],
+  "rel": null,
+  "institution": "Federal prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Kate Richards O'Hare",
+  "first": "Kate",
+  "middle": "Richards",
+  "last": "O'Hare",
+  "gender": "Female",
+  "charges": "\"discouraging enlistments?\" See pamphlet published by N. C. L. B. Appealed, U. S. Circuit Court of Appeals. )",
+  "sentence": "5 years",
+  "inc": [
+   1919,
+   4,
+   15
+  ],
+  "rel": [
+   1920,
+   5,
+   29
+  ],
+  "institution": "Missouri State Penitentiary",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Jacob Frohwerk",
+  "first": "Jacob",
+  "middle": null,
+  "last": "Frohwerk",
+  "gender": "Male",
+  "charges": "The Missouri Staats Zeitung",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. A. Werth",
+  "first": "W.",
+  "middle": "A.",
+  "last": "Werth",
+  "gender": "Male",
+  "charges": "Alleged statement made at a soldier's funeral that the army was rotten with foul disease.-",
+  "sentence": "two years",
+  "inc": [
+   1918,
+   8,
+   7
+  ],
+  "rel": [
+   1920,
+   3,
+   31
+  ],
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Eugene V. Debs",
+  "first": "Eugene",
+  "middle": "V.",
+  "last": "Debs",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks in a speech at Canton, O",
+  "sentence": "10 years",
+  "inc": [
+   1919,
+   4,
+   12
+  ],
+  "rel": [
+   1921,
+   12,
+   25
+  ],
+  "institution": "Atlanta Penitentiary",
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Dodge",
+  "first": "William",
+  "middle": null,
+  "last": "Dodge",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "six years",
+  "inc": [
+   1918,
+   9,
+   18
+  ],
+  "rel": [
+   1920,
+   11,
+   22
+  ],
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. C. Matthey",
+  "first": "W.",
+  "middle": "C.",
+  "last": "Matthey",
+  "gender": "Male",
+  "charges": "Convicted of \"aiding and abetting Daniel H. Wallace in wilfully obstructing the enlistment or recruiting service of the United States.\"",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "David Gerdes",
+  "first": "David",
+  "middle": null,
+  "last": "Gerdes",
+  "gender": "Male",
+  "charges": "Alleged seditious sermon",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Pacifism"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John D. Mamis",
+  "first": "John",
+  "middle": "D.",
+  "last": "Mamis",
+  "gender": "Male",
+  "charges": "Alleged seditious letters to newspapers",
+  "sentence": "3 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Joseph V. Stilson",
+  "first": "Joseph",
+  "middle": "V.",
+  "last": "Stilson",
+  "gender": "Male",
+  "charges": "Publishing alleged seditious matter",
+  "sentence": "3 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Morris Zucker",
+  "first": "Morris",
+  "middle": null,
+  "last": "Zucker",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances-in a Socialist speech",
+  "sentence": "15 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Floyd Ramp",
+  "first": "Floyd",
+  "middle": null,
+  "last": "Ramp",
+  "gender": "Male",
+  "charges": "Alleged seditious statements",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Louis B. Nagler",
+  "first": "Louis",
+  "middle": "B.",
+  "last": "Nagler",
+  "gender": "Male",
+  "charges": "Alleged statements against the Red Cross, Y. M. C. A., etc",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "I. T. Boutell",
+  "first": "I.",
+  "middle": "T.",
+  "last": "Boutell",
+  "gender": "Male",
+  "charges": "Distributing leaflets \"A Good Soldier,''' by Jack Londpn, to drafted men. \"",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William J. Head",
+  "first": "William",
+  "middle": "J.",
+  "last": "Head",
+  "gender": "Male",
+  "charges": "The repeal of the draft law. Conviction set aside by United States Supreme Court upon filing of a confession of error by the attorney general and case remanded to lower court. .'",
+  "sentence": "sentenced to 3 years and $500 fine",
+  "inc": [
+   1917,
+   11,
+   2
+  ],
+  "rel": [
+   1919,
+   1,
+   25
+  ],
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Perley Doe",
+  "first": "Perley",
+  "middle": null,
+  "last": "Doe",
+  "gender": "Male",
+  "charges": "Circulating chain letter criticising the accuracy of statement that the war was brought on by Germany's breaking her pledges",
+  "sentence": "18 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "D. T. Blodgett",
+  "first": "D.",
+  "middle": "T.",
+  "last": "Blodgett",
+  "gender": "Male",
+  "charges": "Conscription",
+  "sentence": "20 years",
+  "inc": [
+   1918,
+   1,
+   11
+  ],
+  "rel": [
+   1922,
+   1,
+   7
+  ],
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "C. H. Waldron",
+  "first": "C.",
+  "middle": "H.",
+  "last": "Waldron",
+  "gender": "Male",
+  "charges": "Distributing an alleged seditious article",
+  "sentence": "15 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Florencio Romero",
+  "first": "Florencio",
+  "middle": null,
+  "last": "Romero",
+  "gender": "Male",
+  "charges": "Circulating anti-draft literature and attempting to form an antimilitarist league",
+  "sentence": "4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. G. Shellenberger",
+  "first": "J.",
+  "middle": "G.",
+  "last": "Shellenberger",
+  "gender": "Male",
+  "charges": "Opposing Liberty Bonds and circulating a seditious pamphlet",
+  "sentence": "5 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Emil Herman",
+  "first": "Emil",
+  "middle": null,
+  "last": "Herman",
+  "gender": "Male",
+  "charges": "Alleged obstruction of recruiting in having printed and distributed circulars entitled, \"Don't Be a Soldier, Be a Man.\"",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Emil Yanyar",
+  "first": "Emil",
+  "middle": null,
+  "last": "Yanyar",
+  "gender": "Male",
+  "charges": "Socialist, convicted of conveying false information tending to obstruct recruiting and enlistment in distributing circulars stating that 10,000 men in the state and 4,000 men in Providence had refused to register",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Hyman Rozansky",
+  "first": "Hyman",
+  "middle": null,
+  "last": "Rozansky",
+  "gender": "Male",
+  "charges": "Publishing and circulating a revolutionary pamphlet denouncing intervention in Russia. J. Schwarz, also indicted, died in prison before coming to trial",
+  "sentence": "3 years",
+  "inc": null,
+  "rel": [
+   1921,
+   11,
+   24
+  ],
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "American Socialist Society",
+  "first": "American",
+  "middle": "Socialist",
+  "last": "Society",
+  "gender": "Male",
+  "charges": "Publishing Scott Nearing's pamphlet, \"The Great Madness.\" The same jury acquitted Nearing, although it was admitted that he wrote the pamphlet",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Stephen Binder",
+  "first": "Stephen",
+  "middle": null,
+  "last": "Binder",
+  "gender": "Male",
+  "charges": "Convicted of preparing to circulate a book of alleged seditious character",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Edward Hofstede",
+  "first": "Edward",
+  "middle": null,
+  "last": "Hofstede",
+  "gender": "Male",
+  "charges": "Advising young men not to register",
+  "sentence": "five months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "James Cully",
+  "first": "James",
+  "middle": null,
+  "last": "Cully",
+  "gender": "Male",
+  "charges": "Convicted of inciting reciting resistance to conscription",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Daniel O'Connell",
+  "first": "Daniel",
+  "middle": null,
+  "last": "O'Connell",
+  "gender": "Male",
+  "charges": "Violating draft law. Appealed",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Katkus",
+  "first": "John",
+  "middle": null,
+  "last": "Katkus",
+  "gender": "Male",
+  "charges": "An alleged attempt to obstruct recruiting and enlisment",
+  "sentence": "10 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Harry Fadel",
+  "first": "Harry",
+  "middle": null,
+  "last": "Fadel",
+  "gender": "Male",
+  "charges": "Tearing up his questionnaire",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Roger N. Baldwin",
+  "first": "Roger",
+  "middle": "N.",
+  "last": "Baldwin",
+  "gender": "Male",
+  "charges": "Refusing to take physical examination",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Stephen Kerr",
+  "first": "Stephen",
+  "middle": null,
+  "last": "Kerr",
+  "gender": "Male",
+  "charges": "Disorderly conduct in making a .speech on Madison Square",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Henry Jager",
+  "first": "Henry",
+  "middle": null,
+  "last": "Jager",
+  "gender": "Male",
+  "charges": "Speaking in Madison Square",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "George L. Glison",
+  "first": "George",
+  "middle": "L.",
+  "last": "Glison",
+  "gender": "Male",
+  "charges": "Distributing an anti-war pamphlet",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Hyman Levinson",
+  "first": "Hyman",
+  "middle": null,
+  "last": "Levinson",
+  "gender": "Male",
+  "charges": "Morgan and Rockefeller",
+  "sentence": "27 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Jacob Frachter",
+  "first": "Jacob",
+  "middle": null,
+  "last": "Frachter",
+  "gender": "Male",
+  "charges": "Alleged remarks against conscription in a street speech",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Alfred Levitt",
+  "first": "Alfred",
+  "middle": null,
+  "last": "Levitt",
+  "gender": "Male",
+  "charges": "Street speech urging repeal of conscription",
+  "sentence": "20 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Allan S. Broms",
+  "first": "Allan",
+  "middle": "S.",
+  "last": "Broms",
+  "gender": "Male",
+  "charges": "Utterances attacking the war, constituting disorderly conduct",
+  "sentence": "90 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Jesse Dunning",
+  "first": "Jesse",
+  "middle": null,
+  "last": "Dunning",
+  "gender": "Male",
+  "charges": "Having Elizabeth Gurley Flynn's and Emile Pouget's book on sabotage on sale",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Ole Olson",
+  "first": "Ole",
+  "middle": null,
+  "last": "Olson",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances in a street-corner sermon",
+  "sentence": "30 days and $100",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. Theo. Woodward",
+  "first": "W.",
+  "middle": "Theo.",
+  "last": "Woodward",
+  "gender": "Male",
+  "charges": "Belonging to the People's Council, a violation of a state law. Prison sentence suspended",
+  "sentence": "6 months and $600",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Nathan Levine",
+  "first": "Nathan",
+  "middle": null,
+  "last": "Levine",
+  "gender": "Male",
+  "charges": "The army",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "E. B. Ford",
+  "first": "E.",
+  "middle": "B.",
+  "last": "Ford",
+  "gender": "Male",
+  "charges": "\"discouraging enlistment\" by editorial in their paper",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Richard Schell",
+  "first": "Richard",
+  "middle": null,
+  "last": "Schell",
+  "gender": "Male",
+  "charges": "Alleged disloyal remarks",
+  "sentence": "Sentence not stated in the 1919 report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Gus Swift",
+  "first": "Gus",
+  "middle": null,
+  "last": "Swift",
+  "gender": "Male",
+  "charges": "Disturbing the peace by making seditious remarks",
+  "sentence": "60 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Alexander Horr",
+  "first": "Alexander",
+  "middle": null,
+  "last": "Horr",
+  "gender": "Male",
+  "charges": "Disorderly conduct in connection with Scott Nearing meeting",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fleming Jordan",
+  "first": "Fleming",
+  "middle": null,
+  "last": "Jordan",
+  "gender": "Male",
+  "charges": "Alleged breach of peace in speaking disrespectfully of the President",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Seaford",
+  "first": "John",
+  "middle": null,
+  "last": "Seaford",
+  "gender": "Male",
+  "charges": "Spitting on the flag",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "»Bruce Rogers",
+  "first": "»Bruce",
+  "middle": null,
+  "last": "Rogers",
+  "gender": "Male",
+  "charges": "Democracy if, we have to 'bean' the Goddess of Liberty to do it.\"",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Baker",
+  "first": "Fred",
+  "middle": null,
+  "last": "Baker",
+  "gender": "Male",
+  "charges": "Socialist, convicted of making derogatory remarks about his country",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Casper Oberstadt",
+  "first": "Casper",
+  "middle": null,
+  "last": "Oberstadt",
+  "gender": "Male",
+  "charges": "Distribution of anti-conscription leaflets",
+  "sentence": "30 days and $150 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Carl A. Wold",
+  "first": "Carl",
+  "middle": "A.",
+  "last": "Wold",
+  "gender": "Male",
+  "charges": "Seditious editorial",
+  "sentence": "3 months and $200",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Joseph Gilbert",
+  "first": "Joseph",
+  "middle": null,
+  "last": "Gilbert",
+  "gender": "Male",
+  "charges": "Unlawful assemblage",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [
+   "Nonpartisan League"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "G. D. Brewer",
+  "first": "G.",
+  "middle": "D.",
+  "last": "Brewer",
+  "gender": "Male",
+  "charges": "\"unlawful assemblage.\"",
+  "sentence": "60 days and $100 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [
+   "Nonpartisan League"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Stanley Lindenberg",
+  "first": "Stanley",
+  "middle": null,
+  "last": "Lindenberg",
+  "gender": "Male",
+  "charges": "Having \"defied; cast contempt upon and defiled the flag of the United States.\"",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Socialism"
+  ],
+  "affiliation": [
+   "Socialist Party"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Herman Singer",
+  "first": "Herman",
+  "middle": null,
+  "last": "Singer",
+  "gender": "Male",
+  "charges": "Union agitation among workers in a munition factory",
+  "sentence": "5 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Henry Stock",
+  "first": "Henry",
+  "middle": null,
+  "last": "Stock",
+  "gender": "Male",
+  "charges": "Alleged remark that he \"wished the Germans had gotten the whole bunch of American soldiers aboard the Tuscania.\"-",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Mindinger",
+  "first": "Fred",
+  "middle": null,
+  "last": "Mindinger",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Mary Tekah",
+  "first": "Mary",
+  "middle": null,
+  "last": "Tekah",
+  "gender": "Female",
+  "charges": "Flying a German flag from her window",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Ferlan",
+  "first": "John",
+  "middle": null,
+  "last": "Ferlan",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances.'",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Joseph Reik",
+  "first": "Joseph",
+  "middle": null,
+  "last": "Reik",
+  "gender": "Male",
+  "charges": "Alleged remark, \"I hope every is drowned before he gets to the other side. They are only a bunch of dirty bums",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Henry Anbelsen",
+  "first": "Henry",
+  "middle": null,
+  "last": "Anbelsen",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "2 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Albert E. Maken",
+  "first": "Albert",
+  "middle": "E.",
+  "last": "Maken",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "4 to 8 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "August A. Miller",
+  "first": "August",
+  "middle": "A.",
+  "last": "Miller",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "2 to 4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Povik",
+  "first": "Fred",
+  "middle": null,
+  "last": "Povik",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Stanley Rabitz",
+  "first": "Stanley",
+  "middle": null,
+  "last": "Rabitz",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Sam Jesky",
+  "first": "Sam",
+  "middle": null,
+  "last": "Jesky",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "90 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Herman Elsmer",
+  "first": "Herman",
+  "middle": null,
+  "last": "Elsmer",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks against the President",
+  "sentence": "90 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Henry Schneider",
+  "first": "Henry",
+  "middle": null,
+  "last": "Schneider",
+  "gender": "Male",
+  "charges": "Sneering at Liberty Loan",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Pete Ervik",
+  "first": "Pete",
+  "middle": null,
+  "last": "Ervik",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "two to four years",
+  "inc": [
+   1918,
+   4,
+   16
+  ],
+  "rel": null,
+  "institution": "State prison",
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Ruck",
+  "first": "John",
+  "middle": null,
+  "last": "Ruck",
+  "gender": "Male",
+  "charges": "The alleged remark that he hoped the Germans would sink every ship America sends to Europe",
+  "sentence": "3 to 6 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Hauer",
+  "first": "John",
+  "middle": null,
+  "last": "Hauer",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Esser",
+  "first": "Fred",
+  "middle": null,
+  "last": "Esser",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Harrington",
+  "first": "John",
+  "middle": null,
+  "last": "Harrington",
+  "gender": "Male",
+  "charges": "Alleged statement that he hoped the Kaiser would beat the American army and sink our transports",
+  "sentence": "2 to 4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Ronda M. Hendricks",
+  "first": "Ronda",
+  "middle": "M.",
+  "last": "Hendricks",
+  "gender": "Female",
+  "charges": "Alleged seditious' remarks",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "N. S. Randall",
+  "first": "N.",
+  "middle": "S.",
+  "last": "Randall",
+  "gender": "Male",
+  "charges": "Alleged disloyal utterances in public address",
+  "sentence": "four months and $250",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [
+   "Nonpartisan League"
+  ],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Conrad Kroschenski",
+  "first": "Conrad",
+  "middle": null,
+  "last": "Kroschenski",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "P. L. Bernhard",
+  "first": "P.",
+  "middle": "L.",
+  "last": "Bernhard",
+  "gender": "Male",
+  "charges": "Guilty of charge of hindering enlistments bj r telling a registrant to throw his questionnaire in the stove",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Herman Bausch",
+  "first": "Herman",
+  "middle": null,
+  "last": "Bausch",
+  "gender": "Male",
+  "charges": "Convicted of alleged seditious remarks",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Margaret Davis",
+  "first": "Margaret",
+  "middle": null,
+  "last": "Davis",
+  "gender": "Female",
+  "charges": "Alleged seditious remarks",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. H. Shintz",
+  "first": "J.",
+  "middle": "H.",
+  "last": "Shintz",
+  "gender": "Male",
+  "charges": "Disturbing the peace by making seditious remarks about the Liberty Loan",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "G. C. Henry",
+  "first": "G.",
+  "middle": "C.",
+  "last": "Henry",
+  "gender": "Female",
+  "charges": "Alleged seditious utterances",
+  "sentence": "50 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "A. M. Lawson",
+  "first": "A.",
+  "middle": "M.",
+  "last": "Lawson",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Henry Brinkman",
+  "first": "Henry",
+  "middle": null,
+  "last": "Brinkman",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "\"Walking\" Elliott",
+  "first": "\"Walking\"",
+  "middle": null,
+  "last": "Elliott",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "90 days and $200",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Wask Jowchalk",
+  "first": "Wask",
+  "middle": null,
+  "last": "Jowchalk",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "60 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Gus Schader",
+  "first": "Gus",
+  "middle": null,
+  "last": "Schader",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Herbert Mansolf",
+  "first": "Herbert",
+  "middle": null,
+  "last": "Mansolf",
+  "gender": "Male",
+  "charges": "Physical examination. >",
+  "sentence": "2 to 4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "H. Klabo",
+  "first": "H.",
+  "middle": null,
+  "last": "Klabo",
+  "gender": "Male",
+  "charges": "Distribu t i n g leaflets about the Tulsa outrage",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Masson",
+  "first": "Fred",
+  "middle": null,
+  "last": "Masson",
+  "gender": "Male",
+  "charges": "Disturbing the peace by speaking disrespectfully ôf the Red Cross",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "B. F. Burns",
+  "first": "B.",
+  "middle": "F.",
+  "last": "Burns",
+  "gender": "Male",
+  "charges": "Alleged disloyal utterances against the President",
+  "sentence": "90 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Jacob Fabulich",
+  "first": "Jacob",
+  "middle": null,
+  "last": "Fabulich",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "2 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Peter Schellbach",
+  "first": "Peter",
+  "middle": null,
+  "last": "Schellbach",
+  "gender": "Male",
+  "charges": "Reviling President Wrilson",
+  "sentence": "3 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Thomas Yarkineas",
+  "first": "Thomas",
+  "middle": null,
+  "last": "Yarkineas",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "4 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "A. D. Smith",
+  "first": "A.",
+  "middle": "D.",
+  "last": "Smith",
+  "gender": "Male",
+  "charges": "The alleged remark that he hoped the streets of Minneapolis would run a foot deep with blood",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Joseph E. Hanberg",
+  "first": "Joseph",
+  "middle": "E.",
+  "last": "Hanberg",
+  "gender": "Male",
+  "charges": "The alleged remark-\"The kaiser is the smartest man on earth, and the Germans are going to win this war, and T'm glad of it.\"",
+  "sentence": "10 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Abraham Heller",
+  "first": "Abraham",
+  "middle": null,
+  "last": "Heller",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "60 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Waldemar Czapanski",
+  "first": "Waldemar",
+  "middle": null,
+  "last": "Czapanski",
+  "gender": "Male",
+  "charges": "Laughing at recruits drilling at the Presidio",
+  "sentence": "10 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John W. Rabus",
+  "first": "John",
+  "middle": "W.",
+  "last": "Rabus",
+  "gender": "Male",
+  "charges": "Disorderly conduct in tearing down a flag and an anti-German cartoon",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Peter Grimm",
+  "first": "Peter",
+  "middle": null,
+  "last": "Grimm",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Simon Engle",
+  "first": "Simon",
+  "middle": null,
+  "last": "Engle",
+  "gender": "Male",
+  "charges": "Saying the only way Americans would reach Berlin would be as prisoners of war",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Frank Gerney",
+  "first": "Frank",
+  "middle": null,
+  "last": "Gerney",
+  "gender": "Male",
+  "charges": "Writing \"Wilson, the beast of Washington\" on a theatrical poster",
+  "sentence": "30 day",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Michael Legoth",
+  "first": "Michael",
+  "middle": null,
+  "last": "Legoth",
+  "gender": "Male",
+  "charges": "Alleged disparaging remarks about the U. S. government",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Charles Sauer",
+  "first": "Charles",
+  "middle": null,
+  "last": "Sauer",
+  "gender": "Male",
+  "charges": "Alleged disparaging remarks about the U. S. government. •",
+  "sentence": "9 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "E. F",
+  "first": "E.",
+  "middle": null,
+  "last": "F",
+  "gender": "Male",
+  "charges": "E. F. C v Ebeling, convicted of teaching and advocating that citizens should not assist in the prosecution of the war",
+  "sentence": "Sentence not stated in report",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "D. M. Carr",
+  "first": "D.",
+  "middle": "M.",
+  "last": "Carr",
+  "gender": "Male",
+  "charges": "Violation of the Espionage law",
+  "sentence": "10 days and $250 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Bernard Clark",
+  "first": "Bernard",
+  "middle": null,
+  "last": "Clark",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Sucszar Michaelvich",
+  "first": "Sucszar",
+  "middle": null,
+  "last": "Michaelvich",
+  "gender": "Male",
+  "charges": "Alleged seditious 'remarks about the Liberty Loan",
+  "sentence": "90 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Samuel Nikition",
+  "first": "Samuel",
+  "middle": null,
+  "last": "Nikition",
+  "gender": "Male",
+  "charges": "Disorderly conduct in refusing to' buy Liberty bonds. New trial ordered",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Hugo Steidel",
+  "first": "Hugo",
+  "middle": null,
+  "last": "Steidel",
+  "gender": "Male",
+  "charges": "Alleged seditious utterances",
+  "sentence": "3 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Fred Cammer",
+  "first": "Fred",
+  "middle": null,
+  "last": "Cammer",
+  "gender": "Male",
+  "charges": "Spitting on the sidewalk near some Italian officers",
+  "sentence": "90 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "James Ross",
+  "first": "James",
+  "middle": null,
+  "last": "Ross",
+  "gender": "Male",
+  "charges": "Alleged disloyalty",
+  "sentence": "90 days and $300 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William J. Swinbourne",
+  "first": "William",
+  "middle": "J.",
+  "last": "Swinbourne",
+  "gender": "Male",
+  "charges": "Alleged seditious remarks",
+  "sentence": "4 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "E.L. Montgomery",
+  "first": "E.L.",
+  "middle": null,
+  "last": "Montgomery",
+  "gender": "Male",
+  "charges": "Criminal syndicalism. • • '",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Joe Murphy",
+  "first": "Joe",
+  "middle": null,
+  "last": "Murphy",
+  "gender": "Male",
+  "charges": "Criminal anarchy",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "J. J. McMurphy",
+  "first": "J.",
+  "middle": "J.",
+  "last": "McMurphy",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 year and $500 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. N. Nelson",
+  "first": "W.",
+  "middle": "N.",
+  "last": "Nelson",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "2 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "T. E. Hawkins",
+  "first": "T.",
+  "middle": "E.",
+  "last": "Hawkins",
+  "gender": "Male",
+  "charges": "6 months to 10 years, Chas. Clifford, 1 to 10 years, H. E. Herd, 4 to 10 years, on, charges of criminal syndicalism",
+  "sentence": "6 months",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "William Gavin",
+  "first": "William",
+  "middle": null,
+  "last": "Gavin",
+  "gender": "Male",
+  "charges": "Refusing to disperse when ordered to do so by the sheriff",
+  "sentence": "2 months and $100 fine",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "Haynes Jones",
+  "first": "Haynes",
+  "middle": null,
+  "last": "Jones",
+  "gender": "Male",
+  "charges": "Violation of city criminal syndicalism ordinance",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "John Grady",
+  "first": "John",
+  "middle": null,
+  "last": "Grady",
+  "gender": "Male",
+  "charges": "Violation of city criminal syndicalism ordinance. Later held on Federal charge, now out on bail",
+  "sentence": "30 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Free speech"
+  ],
+  "affiliation": [],
+  "context": "Espionage/wartime prosecution"
+ },
+ {
+  "name": "W. D. Haywood",
+  "first": "W.",
+  "middle": "D.",
+  "last": "Haywood",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "George Andreytchine",
+  "first": "George",
+  "middle": null,
+  "last": "Andreytchine",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ralph H. Chaplin",
+  "first": "Ralph",
+  "middle": "H.",
+  "last": "Chaplin",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": [
+   1918,
+   9,
+   1
+  ],
+  "rel": [
+   1923,
+   6,
+   25
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Aurelio V. Azuara",
+  "first": "Aurelio",
+  "middle": "V.",
+  "last": "Azuara",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Richard Brazier",
+  "first": "Richard",
+  "middle": null,
+  "last": "Brazier",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "W. T. Neff",
+  "first": "W.",
+  "middle": "T.",
+  "last": "Neff",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "James Rowan",
+  "first": "James",
+  "middle": null,
+  "last": "Rowan",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Manuel Rey",
+  "first": "Manuel",
+  "middle": null,
+  "last": "Rey",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Forrest Edwards",
+  "first": "Forrest",
+  "middle": null,
+  "last": "Edwards",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": [
+   1917,
+   9,
+   1
+  ],
+  "rel": [
+   1923,
+   6,
+   25
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Carl Ahlteen",
+  "first": "Carl",
+  "middle": null,
+  "last": "Ahlteen",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Leo Laukki",
+  "first": "Leo",
+  "middle": null,
+  "last": "Laukki",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "C. L. Lambert",
+  "first": "C.",
+  "middle": "L.",
+  "last": "Lambert",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Vladimir Lossieff",
+  "first": "Vladimir",
+  "middle": null,
+  "last": "Lossieff",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": [
+   1917,
+   9,
+   1
+  ],
+  "rel": [
+   1919,
+   6,
+   30
+  ],
+  "institution": "Cook County Jail and Leavenworth",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles Rothfisher",
+  "first": "Charles",
+  "middle": null,
+  "last": "Rothfisher",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Sam Scarlett",
+  "first": "Sam",
+  "middle": null,
+  "last": "Scarlett",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ray S. Fanning",
+  "first": "Ray",
+  "middle": "S.",
+  "last": "Fanning",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "20 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "C. W. Davis",
+  "first": "C.",
+  "middle": "W.",
+  "last": "Davis",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "C. H. Rice",
+  "first": "C.",
+  "middle": "H.",
+  "last": "Rice",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "A. B. Prashner",
+  "first": "A.",
+  "middle": "B.",
+  "last": "Prashner",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Fred Jakkola",
+  "first": "Fred",
+  "middle": null,
+  "last": "Jakkola",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ragnar Johanson",
+  "first": "Ragnar",
+  "middle": null,
+  "last": "Johanson",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "G. J. Bourg",
+  "first": "G.",
+  "middle": "J.",
+  "last": "Bourg",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Stanley J. Clark",
+  "first": "Stanley",
+  "middle": "J.",
+  "last": "Clark",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "E. F. Doree",
+  "first": "E.",
+  "middle": "F.",
+  "last": "Doree",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Jack Law",
+  "first": "Jack",
+  "middle": null,
+  "last": "Law",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. A. McDonald",
+  "first": "J.",
+  "middle": "A.",
+  "last": "McDonald",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. H. Beyer",
+  "first": "J.",
+  "middle": "H.",
+  "last": "Beyer",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "John Martin",
+  "first": "John",
+  "middle": null,
+  "last": "Martin",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "John I. Turner",
+  "first": "John",
+  "middle": "I.",
+  "last": "Turner",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Joseph J. Gordon",
+  "first": "Joseph",
+  "middle": "J.",
+  "last": "Gordon",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles Ashleigh",
+  "first": "Charles",
+  "middle": null,
+  "last": "Ashleigh",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Dan Buckley",
+  "first": "Dan",
+  "middle": null,
+  "last": "Buckley",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Alex Cournos",
+  "first": "Alex",
+  "middle": null,
+  "last": "Cournos",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ben Fletcher",
+  "first": "Ben",
+  "middle": null,
+  "last": "Fletcher",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Bert Lorton",
+  "first": "Bert",
+  "middle": null,
+  "last": "Lorton",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Francis Miller",
+  "first": "Francis",
+  "middle": null,
+  "last": "Miller",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "G. H. Perry",
+  "first": "G.",
+  "middle": "H.",
+  "last": "Perry",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "V. St. John",
+  "first": "V.",
+  "middle": "St.",
+  "last": "John",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "John Walsh",
+  "first": "John",
+  "middle": null,
+  "last": "Walsh",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "A. Sinclair",
+  "first": "A.",
+  "middle": null,
+  "last": "Sinclair",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Peter Green",
+  "first": "Peter",
+  "middle": null,
+  "last": "Green",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "James Slovik",
+  "first": "James",
+  "middle": null,
+  "last": "Slovik",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": [
+   1917,
+   9,
+   1
+  ],
+  "rel": [
+   1923,
+   8,
+   13
+  ],
+  "institution": "Cook County Jail and Leavenworth",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles Bennett",
+  "first": "Charles",
+  "middle": null,
+  "last": "Bennett",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Don Sheridan",
+  "first": "Don",
+  "middle": null,
+  "last": "Sheridan",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. P. Thompson",
+  "first": "J.",
+  "middle": "P.",
+  "last": "Thompson",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "John Pancner",
+  "first": "John",
+  "middle": null,
+  "last": "Pancner",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Sig. Stenberg",
+  "first": "Sig.",
+  "middle": null,
+  "last": "Stenberg",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ed Hamilton",
+  "first": "Ed",
+  "middle": null,
+  "last": "Hamilton",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. Baldazzi",
+  "first": "J.",
+  "middle": null,
+  "last": "Baldazzi",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "William Moran",
+  "first": "William",
+  "middle": null,
+  "last": "Moran",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Dave Ingar",
+  "first": "Dave",
+  "middle": null,
+  "last": "Ingar",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "H. F. Kane",
+  "first": "H.",
+  "middle": "F.",
+  "last": "Kane",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "William Weyh",
+  "first": "William",
+  "middle": null,
+  "last": "Weyh",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "P. C. Wetter",
+  "first": "P.",
+  "middle": "C.",
+  "last": "Wetter",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Joseph A. Oates",
+  "first": "Joseph",
+  "middle": "A.",
+  "last": "Oates",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "John Avilla",
+  "first": "John",
+  "middle": null,
+  "last": "Avilla",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Arthur Boose",
+  "first": "Arthur",
+  "middle": null,
+  "last": "Boose",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Frank Westerlund",
+  "first": "Frank",
+  "middle": null,
+  "last": "Westerlund",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": [
+   1918,
+   1,
+   23
+  ],
+  "rel": [
+   1922,
+   10,
+   20
+  ],
+  "institution": "Cook County Jail and Leavenworth",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Harry Lloyd",
+  "first": "Harry",
+  "middle": null,
+  "last": "Lloyd",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Joe Graber",
+  "first": "Joe",
+  "middle": null,
+  "last": "Graber",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Joe McCarty",
+  "first": "Joe",
+  "middle": null,
+  "last": "McCarty",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "William Tanner",
+  "first": "William",
+  "middle": null,
+  "last": "Tanner",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": [
+   1917,
+   12,
+   1
+  ],
+  "rel": [
+   1922,
+   10,
+   27
+  ],
+  "institution": "Cook County Jail and Leavenworth",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "C. H. McKinnon",
+  "first": "C.",
+  "middle": "H.",
+  "last": "McKinnon",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. H. Manning",
+  "first": "J.",
+  "middle": "H.",
+  "last": "Manning",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. T. Doran",
+  "first": "J.",
+  "middle": "T.",
+  "last": "Doran",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": [
+   1917,
+   9,
+   1
+  ],
+  "rel": [
+   1923,
+   11,
+   17
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Harrison George",
+  "first": "Harrison",
+  "middle": null,
+  "last": "George",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Peter McEvoy",
+  "first": "Peter",
+  "middle": null,
+  "last": "McEvoy",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Olin B. Anderson",
+  "first": "Olin",
+  "middle": "B.",
+  "last": "Anderson",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ted Fraser",
+  "first": "Ted",
+  "middle": null,
+  "last": "Fraser",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Louis Parenti",
+  "first": "Louis",
+  "middle": null,
+  "last": "Parenti",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "M. Levine",
+  "first": "M.",
+  "middle": null,
+  "last": "Levine",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Herb McCosham",
+  "first": "Herb",
+  "middle": null,
+  "last": "McCosham",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "C. R. Griffin",
+  "first": "C.",
+  "middle": "R.",
+  "last": "Griffin",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "V. V. O'Hair",
+  "first": "V.",
+  "middle": "V.",
+  "last": "O'Hair",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "James Phillips",
+  "first": "James",
+  "middle": null,
+  "last": "Phillips",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "W. H. Lewis",
+  "first": "W.",
+  "middle": "H.",
+  "last": "Lewis",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "John M. Foss",
+  "first": "John",
+  "middle": "M.",
+  "last": "Foss",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles Plahn",
+  "first": "Charles",
+  "middle": null,
+  "last": "Plahn",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "James Elliott",
+  "first": "James",
+  "middle": null,
+  "last": "Elliott",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Fred Nelson",
+  "first": "Fred",
+  "middle": null,
+  "last": "Nelson",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Walter Smith",
+  "first": "Walter",
+  "middle": null,
+  "last": "Smith",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Roy A. Brown",
+  "first": "Roy",
+  "middle": "A.",
+  "last": "Brown",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Ray Corder",
+  "first": "Ray",
+  "middle": null,
+  "last": "Corder",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles Jacobsen",
+  "first": "Charles",
+  "middle": null,
+  "last": "Jacobsen",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "A. E. Soper",
+  "first": "A.",
+  "middle": "E.",
+  "last": "Soper",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "George Hardy",
+  "first": "George",
+  "middle": null,
+  "last": "Hardy",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "George Speed",
+  "first": "George",
+  "middle": null,
+  "last": "Speed",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "R. J. Bobba",
+  "first": "R.",
+  "middle": "J.",
+  "last": "Bobba",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles McWhirt",
+  "first": "Charles",
+  "middle": null,
+  "last": "McWhirt",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "J. R. Baskett",
+  "first": "J.",
+  "middle": "R.",
+  "last": "Baskett",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Charles Jacobs",
+  "first": "Charles",
+  "middle": null,
+  "last": "Jacobs",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Meyer Friedkin",
+  "first": "Meyer",
+  "middle": null,
+  "last": "Friedkin",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "Glen Roberts",
+  "first": "Glen",
+  "middle": null,
+  "last": "Roberts",
+  "gender": "Male",
+  "charges": "Same",
+  "sentence": "10 days",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Chicago IWW mass trial"
+ },
+ {
+  "name": "C. E. Bates",
+  "first": "C.",
+  "middle": "E.",
+  "last": "Bates",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Roy Recker",
+  "first": "Roy",
+  "middle": null,
+  "last": "Recker",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Edward F. Dicks",
+  "first": "Edward",
+  "middle": "F.",
+  "last": "Dicks",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "John D. Ford",
+  "first": "John",
+  "middle": "D.",
+  "last": "Ford",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Joe Garner",
+  "first": "Joe",
+  "middle": null,
+  "last": "Garner",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Simon Hendrickson",
+  "first": "Simon",
+  "middle": null,
+  "last": "Hendrickson",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Thomas A. Jenkins",
+  "first": "Thomas",
+  "middle": "A.",
+  "last": "Jenkins",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Carl Jacobs",
+  "first": "Carl",
+  "middle": null,
+  "last": "Jacobs",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Artell Lancaster",
+  "first": "Artell",
+  "middle": null,
+  "last": "Lancaster",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Walter Pasewalk",
+  "first": "Walter",
+  "middle": null,
+  "last": "Pasewalk",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Oscar Swanson",
+  "first": "Oscar",
+  "middle": null,
+  "last": "Swanson",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "C. L. Smith",
+  "first": "C.",
+  "middle": "L.",
+  "last": "Smith",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Jim Ward",
+  "first": "Jim",
+  "middle": null,
+  "last": "Ward",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "George Adams",
+  "first": "George",
+  "middle": null,
+  "last": "Adams",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Henry Harris",
+  "first": "Henry",
+  "middle": null,
+  "last": "Harris",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Edward Hibbard",
+  "first": "Edward",
+  "middle": null,
+  "last": "Hibbard",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "E. W. Latchem",
+  "first": "E.",
+  "middle": "W.",
+  "last": "Latchem",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Pat Monahan",
+  "first": "Pat",
+  "middle": null,
+  "last": "Monahan",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "John Nielson",
+  "first": "John",
+  "middle": null,
+  "last": "Nielson",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "John Parson",
+  "first": "John",
+  "middle": null,
+  "last": "Parson",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Tom Ross",
+  "first": "Tom",
+  "middle": null,
+  "last": "Ross",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Joe Ruby",
+  "first": "Joe",
+  "middle": null,
+  "last": "Ruby",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Robert Weir",
+  "first": "Robert",
+  "middle": null,
+  "last": "Weir",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "George Winski",
+  "first": "George",
+  "middle": null,
+  "last": "Winski",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Walter Wolski",
+  "first": "Walter",
+  "middle": null,
+  "last": "Wolski",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Joseph J. Ratti",
+  "first": "Joseph",
+  "middle": "J.",
+  "last": "Ratti",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "William Wiertola",
+  "first": "William",
+  "middle": null,
+  "last": "Wiertola",
+  "gender": "Male",
+  "charges": "Federal conspiracy indictment",
+  "sentence": "No sentence; held almost a year before indictment",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Omaha IWW defendants"
+ },
+ {
+  "name": "Mortimer Downing",
+  "first": "Mortimer",
+  "middle": null,
+  "last": "Downing",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": [
+   1923,
+   12,
+   22
+  ],
+  "institution": "Local jails and Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Frederick Esmond",
+  "first": "Frederick",
+  "middle": null,
+  "last": "Esmond",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": [
+   1919,
+   1,
+   25
+  ],
+  "rel": null,
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Chris Luber",
+  "first": "Chris",
+  "middle": null,
+  "last": "Luber",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Phil McLaughlin",
+  "first": "Phil",
+  "middle": null,
+  "last": "McLaughlin",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "John Grave",
+  "first": "John",
+  "middle": null,
+  "last": "Grave",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Louis Tori",
+  "first": "Louis",
+  "middle": null,
+  "last": "Tori",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "James Quinlan",
+  "first": "James",
+  "middle": null,
+  "last": "Quinlan",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Edward Quigley",
+  "first": "Edward",
+  "middle": null,
+  "last": "Quigley",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "George O'Connell",
+  "first": "George",
+  "middle": null,
+  "last": "O'Connell",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": [
+   1923,
+   12,
+   22
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Roy P. Connor",
+  "first": "Roy",
+  "middle": "P.",
+  "last": "Connor",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "John Potthast",
+  "first": "John",
+  "middle": null,
+  "last": "Potthast",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Henry Hammer",
+  "first": "Henry",
+  "middle": null,
+  "last": "Hammer",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Myron Sprague",
+  "first": "Myron",
+  "middle": null,
+  "last": "Sprague",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": [
+   1923,
+   12,
+   22
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Elmer Anderson",
+  "first": "Elmer",
+  "middle": null,
+  "last": "Anderson",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Caesar Tabib",
+  "first": "Caesar",
+  "middle": null,
+  "last": "Tabib",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": [
+   1923,
+   12,
+   23
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Robert Connellan",
+  "first": "Robert",
+  "middle": null,
+  "last": "Connellan",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Frank Elliott",
+  "first": "Frank",
+  "middle": null,
+  "last": "Elliott",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Harry Gray",
+  "first": "Harry",
+  "middle": null,
+  "last": "Gray",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Gabe Brewer",
+  "first": "Gabe",
+  "middle": null,
+  "last": "Brewer",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Godfrey Ebel",
+  "first": "Godfrey",
+  "middle": null,
+  "last": "Ebel",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": [
+   1918,
+   4,
+   1
+  ],
+  "rel": [
+   1923,
+   6,
+   6
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "William Hood",
+  "first": "William",
+  "middle": null,
+  "last": "Hood",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Vincent Santelli",
+  "first": "Vincent",
+  "middle": null,
+  "last": "Santelli",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "George F. Voetter",
+  "first": "George",
+  "middle": "F.",
+  "last": "Voetter",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Edward S. Carey",
+  "first": "Edward",
+  "middle": "S.",
+  "last": "Carey",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Harry Murphy",
+  "first": "Harry",
+  "middle": null,
+  "last": "Murphy",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Herbert Stredwick",
+  "first": "Herbert",
+  "middle": null,
+  "last": "Stredwick",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "5 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Robert Feehan",
+  "first": "Robert",
+  "middle": null,
+  "last": "Feehan",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "James H. Mulrooney",
+  "first": "James",
+  "middle": "H.",
+  "last": "Mulrooney",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "James Price",
+  "first": "James",
+  "middle": null,
+  "last": "Price",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "4 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Joe Carroll",
+  "first": "Joe",
+  "middle": null,
+  "last": "Carroll",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "3 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Otto Eisner",
+  "first": "Otto",
+  "middle": null,
+  "last": "Eisner",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "3 years",
+  "inc": [
+   1919,
+   1,
+   25
+  ],
+  "rel": [
+   1921,
+   5,
+   17
+  ],
+  "institution": "Leavenworth Penitentiary",
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Frank Moran",
+  "first": "Frank",
+  "middle": null,
+  "last": "Moran",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Frank Reilly",
+  "first": "Frank",
+  "middle": null,
+  "last": "Reilly",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Edward Anderson",
+  "first": "Edward",
+  "middle": null,
+  "last": "Anderson",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Felix Cedino",
+  "first": "Felix",
+  "middle": null,
+  "last": "Cedino",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "2 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "H. Donovan",
+  "first": "H.",
+  "middle": null,
+  "last": "Donovan",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "W. H. Faust",
+  "first": "W.",
+  "middle": "H.",
+  "last": "Faust",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Charles Koenig",
+  "first": "Charles",
+  "middle": null,
+  "last": "Koenig",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "W. L. Miller",
+  "first": "W.",
+  "middle": "L.",
+  "last": "Miller",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Albert Whitehead",
+  "first": "Albert",
+  "middle": null,
+  "last": "Whitehead",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "1 year",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Theodora Pollok",
+  "first": "Theodora",
+  "middle": null,
+  "last": "Pollok",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "Convicted; not yet sentenced",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "A. L. Fox",
+  "first": "A.",
+  "middle": "L.",
+  "last": "Fox",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "Convicted; not yet sentenced",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Basil Saffores",
+  "first": "Basil",
+  "middle": null,
+  "last": "Saffores",
+  "gender": "Male",
+  "charges": "Conspiracy to violate federal statutes, including the Espionage Act",
+  "sentence": "Convicted; not yet sentenced",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "Sacramento IWW mass trial"
+ },
+ {
+  "name": "Charles L. Anderson",
+  "first": "Charles",
+  "middle": "L.",
+  "last": "Anderson",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Bert Banker",
+  "first": "Bert",
+  "middle": null,
+  "last": "Banker",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Frank Fleury",
+  "first": "Frank",
+  "middle": null,
+  "last": "Fleury",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Henry Farner",
+  "first": "Henry",
+  "middle": null,
+  "last": "Farner",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Lyman Moore",
+  "first": "Lyman",
+  "middle": null,
+  "last": "Moore",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Joe Martin",
+  "first": "Joe",
+  "middle": null,
+  "last": "Martin",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Dennis McCarthy",
+  "first": "Dennis",
+  "middle": null,
+  "last": "McCarthy",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Fred Morgan",
+  "first": "Fred",
+  "middle": null,
+  "last": "Morgan",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "John Shea",
+  "first": "John",
+  "middle": null,
+  "last": "Shea",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "J. L. O'Brien",
+  "first": "J.",
+  "middle": "L.",
+  "last": "O'Brien",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "George Kopp",
+  "first": "George",
+  "middle": null,
+  "last": "Kopp",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Robert Wilson",
+  "first": "Robert",
+  "middle": null,
+  "last": "Wilson",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ },
+ {
+  "name": "Charles Carlson",
+  "first": "Charles",
+  "middle": null,
+  "last": "Carlson",
+  "gender": "Male",
+  "charges": "Criminal syndicalism",
+  "sentence": "1 to 10 years",
+  "inc": null,
+  "rel": null,
+  "institution": null,
+  "ideologies": [
+   "Industrial unionism"
+  ],
+  "affiliation": [
+   "Industrial Workers of the World"
+  ],
+  "context": "St. Maries criminal syndicalism case"
+ }
+]
