@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
  * Sets the case incarceration and release dates for the two Hutterite
  * conscientious objectors who died in military custody during World War I:
  *
- *   Joseph Hofer  — incarcerated May 25, 1918; died (released) November 28, 1918
+ *   Joseph Hofer  — incarcerated May 25, 1918; died (released) November 29, 1918
  *   Michael Hofer — incarcerated May 25, 1918; died (released) December 2, 1918
  *
  * May 25, 1918 is the date the Rockport Colony (South Dakota) draftees were
@@ -37,7 +37,7 @@ final class SetHoferBrothersCaseDates extends Command
 
     /** slug => [death year, month, day] */
     private const MEN = [
-        'joseph-hofer' => [1918, 11, 28],
+        'joseph-hofer' => [1918, 11, 29],
         'michael-hofer' => [1918, 12, 2],
     ];
 
