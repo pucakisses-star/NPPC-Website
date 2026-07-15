@@ -108,6 +108,41 @@
         .gi-impact-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
         .gi-newsletter-form { flex-direction: column; }
     }
+
+    /* ==================== JOIN / SUPPORT / COMMUNITY BAND ====================
+       Angled parallelogram cards (same model as the learn-more "More from NPPC"
+       band), full-bleed with the accent showing through the slanted seams. */
+    .gij { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: var(--accent); margin-top: 80px; }
+    .gij-inner { display: flex; align-items: stretch; min-height: 420px; }
+    .gij-card { flex: 1 1 33.333%; position: relative; display: block; overflow: hidden; background: #14141c; clip-path: polygon(52px 0, 100% 0, calc(100% - 52px) 100%, 0 100%); margin-left: 10px; text-decoration: none; }
+    .gij-card:first-child { margin-left: 0; }
+    .gij-card-img { position: absolute; inset: 0; background-size: cover; background-position: center; filter: grayscale(100%) contrast(1.05) brightness(0.7); transition: transform 0.5s ease, filter 0.5s ease; }
+    .gij-card-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,12,0.88) 0%, rgba(5,5,12,0.45) 55%, rgba(5,5,12,0.2) 100%); }
+    .gij-card-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px 40px; }
+    .gij-card-label { color: #fff; font-size: 2.6rem; font-weight: 800; letter-spacing: 0.01em; line-height: 1.05; text-shadow: 0 2px 18px rgba(0,0,0,0.4); }
+    .gij-card-desc { color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.5; margin-top: 12px; max-width: 24ch; }
+    .gij-card-arrow { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid rgba(255,255,255,0.7); padding-bottom: 3px; }
+
+    @@media (min-width: 901px) and (hover: hover) {
+        .gij-card { transition: flex-basis 0.55s cubic-bezier(0.22, 1, 0.36, 1); will-change: flex-basis; }
+        .gij-card:hover { flex-basis: 44%; }
+        .gij-inner:has(.gij-card:hover) .gij-card:not(:hover) { flex-basis: 28%; }
+        .gij-card-img { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; }
+        .gij-card:hover .gij-card-img { transform: scale(1.05); filter: grayscale(0%) contrast(1.05) brightness(0.9); }
+        .gij-inner:has(.gij-card:hover) .gij-card:not(:hover) .gij-card-img { filter: grayscale(100%) contrast(1.05) brightness(0.5); }
+        /* Descriptor + arrow reveal only on the active card. */
+        .gij-card-desc, .gij-card-arrow { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+        .gij-card:hover .gij-card-desc, .gij-card:hover .gij-card-arrow { opacity: 1; transform: none; }
+    }
+    @@media (prefers-reduced-motion: reduce) {
+        .gij-card, .gij-card-img, .gij-card-desc, .gij-card-arrow { transition: none !important; }
+        .gij-card:hover, .gij-inner:has(.gij-card:hover) .gij-card:not(:hover) { flex-basis: 33.333%; }
+    }
+    @@media (max-width: 900px) {
+        .gij-inner { flex-direction: column; }
+        .gij-card, .gij-card:first-child { clip-path: none; margin-left: 0; min-height: 240px; }
+        .gij-card + .gij-card { margin-top: 8px; }
+    }
 </style>
 @include('partials.scribble-assets')
 @endsection
@@ -313,4 +348,37 @@
     </div>
 
 </div>
+
+{{-- ==================== JOIN / SUPPORT / COMMUNITY ==================== --}}
+<section class="gij">
+    <div class="gij-inner">
+        <a class="gij-card" href="/volunteer">
+            <div class="gij-card-img" style="background-image: url('{{ asset('images/become-a-partner.jpg') }}')"></div>
+            <div class="gij-card-shade"></div>
+            <div class="gij-card-text">
+                <div class="gij-card-label">Join</div>
+                <div class="gij-card-desc">Volunteer, write letters, and take action alongside us.</div>
+                <span class="gij-card-arrow">Get started &rarr;</span>
+            </div>
+        </a>
+        <a class="gij-card" href="/donate">
+            <div class="gij-card-img" style="background-image: url('{{ asset('images/donate.jpg') }}')"></div>
+            <div class="gij-card-shade"></div>
+            <div class="gij-card-text">
+                <div class="gij-card-label">Support</div>
+                <div class="gij-card-desc">Fund the fight for freedom with a donation.</div>
+                <span class="gij-card-arrow">Donate now &rarr;</span>
+            </div>
+        </a>
+        <a class="gij-card" href="/events">
+            <div class="gij-card-img" style="background-image: url('{{ asset('images/events-hero.jpg') }}')"></div>
+            <div class="gij-card-shade"></div>
+            <div class="gij-card-text">
+                <div class="gij-card-label">Community</div>
+                <div class="gij-card-desc">Join events, gatherings, and a movement that won't be silenced.</div>
+                <span class="gij-card-arrow">See what's on &rarr;</span>
+            </div>
+        </a>
+    </div>
+</section>
 @endsection
