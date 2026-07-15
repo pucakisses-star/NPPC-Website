@@ -1,0 +1,65 @@
+{
+  "overview": "<p>The American Indian Movement was founded in Minneapolis in 1968 to confront police brutality and defend treaty rights, and grew into the militant center of the Red Power era — from the Trail of Broken Treaties to the 71-day occupation of Wounded Knee. The federal response was one of the most intensive campaigns of surveillance, infiltration, and prosecution ever directed at a domestic movement: hundreds of indictments after Wounded Knee, a documented \"reign of terror\" on Pine Ridge, and the case of Leonard Peltier, for decades the most internationally recognized political prisoner in the United States. The events below trace AIM's rise and the prosecutions that followed.</p>",
+  "events": [
+    {
+      "slug": "aim-founding-minneapolis",
+      "title": "Founding in Minneapolis & the AIM Patrol (1968)",
+      "sort_order": 10,
+      "body": "<p>The American Indian Movement was founded in July 1968 in Minneapolis by Dennis Banks, Clyde Bellecourt, George Mitchell, and other urban Indian organizers, many of whom had first encountered political ideas while serving time in Minnesota prisons. Its first project, the AIM Patrol, shadowed police in the Franklin Avenue corridor to document and deter the beatings and mass arrests that filled the city's jails with Native people every weekend — within months, Indian arrest rates in the patrolled neighborhoods fell dramatically.</p><p>From street patrols AIM expanded to survival schools, housing and employment programs, and treaty-rights organizing, drawing on the militancy of the 1969–71 Alcatraz occupation. The founders' prison roots gave the movement a lasting orientation toward Native prisoners, and its confrontational style soon made it a priority target of the FBI.</p>"
+    },
+    {
+      "slug": "aim-trail-of-broken-treaties",
+      "title": "Trail of Broken Treaties & the BIA Occupation (1972)",
+      "sort_order": 20,
+      "body": "<p>In the fall of 1972 AIM helped organize the Trail of Broken Treaties, a cross-country caravan that brought hundreds of Native people to Washington the week of the presidential election carrying the Twenty Points, a program for restoring treaty-making and Indigenous sovereignty. When promised housing and meetings collapsed, the caravan occupied the Bureau of Indian Affairs headquarters on November 2, 1972, holding the building for six days and leaving with thousands of pages of files documenting federal mismanagement.</p><p>The government's response set the pattern for what followed: rather than negotiate over the Twenty Points, federal agencies opened intelligence files on the caravan's leadership, and AIM was formally classified as an extremist organization — the prelude to the saturation policing and prosecutions of the Wounded Knee years.</p>"
+    },
+    {
+      "slug": "aim-custer-courthouse",
+      "title": "The Custer Courthouse Confrontation (1973)",
+      "sort_order": 30,
+      "body": "<p>On February 6, 1973, AIM members confronted authorities at the Custer County Courthouse in South Dakota after prosecutors charged the white killer of Wesley Bad Heart Bull, a young Lakota man stabbed to death outside a bar, with only second-degree manslaughter. When officials refused to meet the family, fighting broke out with riot police and the courthouse annex burned. Dozens were arrested — among them Wesley's grieving mother, Sarah Bad Heart Bull.</p><p>The prosecutions that followed became a movement scandal: Sarah Bad Heart Bull was sentenced to one to five years for \"riot\" and served months in prison, while her son's killer never served a day for the killing. Custer radicalized the region's Lakota communities three weeks before Wounded Knee, and its defendants were among the first of the era's AIM political prisoners.</p>"
+    },
+    {
+      "slug": "aim-wounded-knee-occupation",
+      "title": "The Occupation of Wounded Knee (1973)",
+      "sort_order": 40,
+      "body": "<p>On February 27, 1973, AIM members and Oglala Lakota traditionalists occupied the hamlet of Wounded Knee on the Pine Ridge Reservation — site of the 1890 massacre — demanding hearings on broken treaties and an end to the corrupt, federally backed tribal administration of Dick Wilson. Federal marshals, FBI agents, and armored personnel carriers besieged the village for 71 days in the largest domestic military-style operation since the Civil War era; two Native men, Frank Clearwater and Buddy Lamont, were killed by government fire before the stand-down on May 8.</p><p>The occupation put Indigenous sovereignty on the world's front pages, and the government answered with mass prosecution: a special Justice Department operation produced more than 500 arrests and 185 federal indictments against participants, tying the movement up in court for years and defining a generation of Native political prisoners.</p>"
+    },
+    {
+      "slug": "aim-wounded-knee-trials",
+      "title": "The Wounded Knee Leadership Trials (1974)",
+      "sort_order": 50,
+      "body": "<p>The government chose to try AIM leaders Dennis Banks and Russell Means first, in an eight-month 1974 trial at St. Paul that became a landmark exposure of federal misconduct. The defense, led by William Kunstler and Mark Lane with the Wounded Knee Legal Defense/Offense Committee, showed that the FBI had altered documents, presented perjured testimony, and placed an informant inside the defense camp.</p><p>On September 16, 1974, Judge Fred Nichol dismissed all charges outright, declaring that \"the waters of justice have been polluted\" by the prosecution's behavior. Of the 185 Wounded Knee indictments, the government ultimately won only a handful of minor convictions — a conviction rate so low that scholars concluded the point of the prosecutions had been to drain the movement's people, money, and momentum rather than to win cases.</p>"
+    },
+    {
+      "slug": "aim-pine-ridge-reign-of-terror",
+      "title": "The \"Reign of Terror\" on Pine Ridge (1973–1976)",
+      "sort_order": 60,
+      "body": "<p>In the three years after Wounded Knee, more than sixty AIM members and supporters died violently on and around the Pine Ridge Reservation, where tribal chairman Dick Wilson's private force — the self-named GOONs (\"Guardians of the Oglala Nation\") — operated with federal arms and near-total impunity. Pine Ridge's per-capita murder rate in those years was the highest in the country, yet the FBI, with its largest field presence anywhere, solved almost none of the killings of AIM people.</p><p>Among the dead was Anna Mae Pictou Aquash, a leading Mi'kmaq AIM organizer found executed in early 1976 after being smeared by an FBI \"snitch-jacketing\" campaign; her murder remained officially unsolved for decades. The reign of terror is the essential context for the 1975 Oglala firefight and the Peltier case that grew from it.</p>"
+    },
+    {
+      "slug": "aim-oglala-firefight-resmurs",
+      "title": "The Oglala Firefight & the RESMURS Prosecutions (1975)",
+      "sort_order": 70,
+      "body": "<p>On June 26, 1975, FBI agents Jack Coler and Ronald Williams drove onto the Jumping Bull ranch near Oglala, where an AIM defense camp had formed to protect traditionalist families from GOON violence. A shootout erupted whose first shot was never established; the two agents and a young Native man, Joe Stuntz Killsright, were killed. Stuntz's death was never investigated.</p><p>The FBI's RESMURS investigation that followed was the largest in its history, saturating Pine Ridge with hundreds of agents and armored vehicles. Four AIM members were charged with the agents' deaths: charges against Jimmy Eagle were dropped, and Darrelle \"Dino\" Butler, Bob Robideau, and Leonard Peltier — who fled to Canada — became the movement's defining criminal case.</p>"
+    },
+    {
+      "slug": "aim-cedar-rapids-acquittal",
+      "title": "The Cedar Rapids Acquittal of Butler & Robideau (1976)",
+      "sort_order": 80,
+      "body": "<p>Dino Butler and Bob Robideau were tried for the agents' deaths in Cedar Rapids, Iowa, in the summer of 1976. The jury heard the full context of Pine Ridge — the GOON violence, the FBI's own memos, the climate of fear that made armed self-defense reasonable — and on July 16, 1976, acquitted both men, finding they could not be proven to have done anything but defend their camp in a firefight they did not start.</p><p>The verdict transformed the government's approach to the remaining defendant. Prosecutors and the FBI, as later-released documents showed, resolved to try Leonard Peltier before a different judge under far tighter evidentiary rules, and to \"put the full prosecutive weight of the Federal Government\" on him alone.</p>"
+    },
+    {
+      "slug": "aim-leonard-peltier-case",
+      "title": "The Leonard Peltier Case (1977– )",
+      "sort_order": 90,
+      "body": "<p>Leonard Peltier was extradited from Canada on the strength of affidavits from Myrtle Poor Bear — a woman the government knew was not present at Oglala and who recanted, saying the FBI had coerced her — and convicted at Fargo, North Dakota, in 1977 of the agents' murders, receiving two consecutive life sentences. The trial excluded most of the self-defense evidence heard at Cedar Rapids; years later the government conceded it could not prove who shot the agents, and ballistics documents withheld from the defense undercut the case's physical evidence.</p><p>Amnesty International, Nelson Mandela, the Dalai Lama, a U.S. Attorney who prosecuted him, and dozens of parliaments and tribunals called for his release across five decades in which parole was repeatedly denied. On January 19, 2025, President Biden commuted his sentence to home confinement, and Peltier — by then 80 and gravely ill — returned to the Turtle Mountain reservation that February.</p>"
+    },
+    {
+      "slug": "aim-later-prosecutions-legacy",
+      "title": "Later Prosecutions & AIM's Prisoner Legacy",
+      "sort_order": 100,
+      "body": "<p>Federal and state prosecution of AIM figures continued long after the siege years. Russell Means survived multiple trials and a state prison term in South Dakota; Dennis Banks, convicted for Custer, spent years in sanctuary in California and on the Onondaga Nation before serving his sentence in 1985. Later cases reached back decades: in 2004 and 2010, Arlo Looking Cloud and John Graham were convicted for the 1976 murder of Anna Mae Aquash, trials that reopened every wound of the infiltration era.</p><p>AIM's legacy in the political-prisoner tradition is double-edged: it produced some of the country's most celebrated defense campaigns — the Wounded Knee Legal Defense/Offense Committee became a model for movement lawyering — and, in Leonard Peltier, the longest-running clemency struggle in modern American history.</p>"
+    }
+  ]
+}

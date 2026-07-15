@@ -11,8 +11,6 @@ use Illuminate\Console\Command;
  *   - NC Regulator Movement 1771: Benjamin Merrill, James Few
  *   - Pointe Coupée Conspiracy (Spanish LA, 1795): Antoine Sarrasin,
  *     Jean-Baptiste
- *   - 1811 German Coast Uprising (LA, largest US slave revolt):
- *     Kook, Quamana, Harry Kenner
  *   - Denmark Vesey Conspiracy (SC, 1822): Peter Poyas, Gullah
  *     Jack, Monday Gell, Rolla Bennett, Ned Bennett
  *   - Christiana Resistance 1851: Castner Hanway, Elijah Lewis,
@@ -20,8 +18,6 @@ use Illuminate\Console\Command;
  *   - Jerry Rescue 1851: Enoch Reed, Ira Cobb
  *   - Anthony Burns rendition 1854: Thomas Wentworth Higginson,
  *     Martin Stowell, Theodore Parker, Wendell Phillips
- *   - Boston Five anti-Vietnam draft resistance 1968: Benjamin
- *     Spock, Mitchell Goodman, Michael Ferber, Marcus Raskin
  *
  * Era values per project decade-string convention.
  */
@@ -105,37 +101,6 @@ final class AddUsRebellionsPps extends Command {
                 ]],
             ];
             if ($last) $p['last_name'] = $last;
-            $out[] = $p;
-        }
-
-        // === 1811 German Coast Uprising ===
-        $germanDesc = 'Leader of the January 1811 German Coast Uprising in Louisiana — the largest slave revolt in U.S. history, in which roughly 500 enslaved people marched on New Orleans burning plantations and seizing weapons. White militia and federal troops killed approximately 95 insurgents and executed roughly 44 captured leaders; their heads were placed on poles along the River Road as warnings.';
-        $germanData = [
-            'Kook' => 'Akan-born enslaved insurgent who killed planter François Trépagnier with an axe during the uprising.',
-            'Quamana' => 'Akan-born co-commander alongside Kook and Charles Deslondes.',
-            'Harry Kenner' => 'Enslaved carpenter who recruited the English-speaking faction of insurgents.',
-        ];
-        foreach ($germanData as $name => $bio) {
-            $parts = explode(' ', $name);
-            $p = [
-                'name' => $name,
-                'first_name' => $parts[0],
-                'description' => $germanDesc.' '.$bio,
-                'state' => 'Louisiana', 'race' => 'Black', 'gender' => 'Male',
-                'death_date' => '1811-01-15',
-                'ideologies' => ['Anti-slavery', 'Black freedom', 'Akan resistance'],
-                'affiliation' => ['1811 German Coast Uprising'],
-                'era' => '1810s', 'in_custody' => false, 'released' => false,
-                'cases' => [[
-                    'institution_state' => 'Louisiana',
-                    'charges' => 'Insurrection (1811 German Coast Uprising).',
-                    'arrest_date' => '1811-01-10',
-                    'death_in_custody_date' => '1811-01-15',
-                    'convicted' => 'Yes — by Destrehan tribunal.',
-                    'sentence' => 'Death; executed; head displayed on River Road.',
-                ]],
-            ];
-            if (count($parts) > 1) $p['last_name'] = $parts[1];
             $out[] = $p;
         }
 
@@ -258,34 +223,6 @@ final class AddUsRebellionsPps extends Command {
                     'arrest_date' => '1854-06-07', 'sentenced_date' => '1855-04-03',
                     'convicted' => 'No — charges dismissed.',
                     'sentence' => 'Charges dismissed.',
-                ]],
-            ];
-        }
-
-        // === Boston Five 1968 ===
-        $bostonFiveDesc = 'One of the "Boston Five" defendants in United States v. Spock (1968) — the federal conspiracy prosecution of five prominent antiwar leaders for "conspiring to counsel, aid, and abet draft refusal" through public statements like "A Call to Resist Illegitimate Authority" and the October 1967 draft-card return ceremonies. The First Circuit Court of Appeals overturned all four convictions in 1969.';
-        $bostonFiveData = [
-            'Benjamin Spock' => ['World-famous pediatrician and author of "The Common Sense Book of Baby and Child Care." Convicted; sentenced to 2 years; conviction overturned on appeal.', '2yrs overturned'],
-            'Mitchell Goodman' => ['Novelist and co-organizer of the October 1967 nationwide draft-card turn-in. Convicted; 2 years; overturned.', '2yrs overturned'],
-            'Michael Ferber' => ['Harvard graduate student and the youngest of the Boston Five. Convicted; 2 years; overturned.', '2yrs overturned'],
-            'Marcus Raskin' => ['Co-founder of the Institute for Policy Studies (IPS). The only Boston Five defendant acquitted at the original trial.', 'acquitted'],
-        ];
-        foreach ($bostonFiveData as $name => [$bio, $sentence]) {
-            $parts = explode(' ', $name);
-            $out[] = [
-                'name' => $name,
-                'first_name' => $parts[0], 'last_name' => end($parts),
-                'description' => $bostonFiveDesc.' '.$bio,
-                'state' => 'Massachusetts', 'race' => 'White', 'gender' => 'Male',
-                'ideologies' => ['Anti-Vietnam War', 'Draft resistance'],
-                'affiliation' => ['Boston Five'],
-                'era' => '1960s', 'in_custody' => false, 'released' => true,
-                'cases' => [[
-                    'institution_state' => 'Massachusetts',
-                    'charges' => 'Conspiracy to counsel, aid, and abet refusal of service in the armed forces.',
-                    'arrest_date' => '1968-01-05', 'sentenced_date' => '1968-07-10',
-                    'convicted' => $sentence === 'acquitted' ? 'No — acquitted.' : 'Yes — overturned on appeal 1969.',
-                    'sentence' => $sentence === 'acquitted' ? 'Acquitted.' : '2 years; conviction overturned by First Circuit 1969.',
                 ]],
             ];
         }

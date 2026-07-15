@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Volunteer | NPPC')
+
 @section('head')
 <style>
     .vol2-page { color: rgba(var(--fg-rgb),0.85); }
@@ -53,6 +55,72 @@
         transition: background 0.15s;
     }
     .vol2-hero-cta:hover { background: var(--accent-hover); }
+
+    /* 3D Text Block (CodyHouse _1_3d-text-block) — the "Apply to Volunteer"
+       CTA rolls in 3D on hover, flipping the accent face up to a dark face.
+       Adapted to the site's theme tokens. */
+    .vol2-hero .td-text-block {
+        --td-pad-x: 40px;
+        --td-pad-y: 18px;
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        line-height: 1;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        perspective: 1000px;
+    }
+    .vol2-hero .td-text-block:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+    }
+    .vol2-hero .td-text-block__wrapper {
+        pointer-events: none;
+        display: inline-block;
+        transform-origin: 50% 50% calc(-0.5em - var(--td-pad-y));
+        transform-style: preserve-3d;
+        will-change: transform;
+        transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .vol2-hero .td-text-block:hover .td-text-block__wrapper {
+        transform: rotateX(90deg);
+    }
+    .vol2-hero .td-text-block__front-text,
+    .vol2-hero .td-text-block__final-text {
+        display: inline-flex;
+        justify-content: center;
+        white-space: nowrap;
+        padding: var(--td-pad-y) var(--td-pad-x);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        backface-visibility: hidden;
+    }
+    .vol2-hero .td-text-block__front-text {
+        position: relative;
+        z-index: 2;
+        color: var(--on-accent);
+        background: var(--accent);
+    }
+    .vol2-hero .td-text-block__final-text {
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        color: var(--bg);
+        background: var(--fg);
+        transform-origin: center top;
+        transform: rotateX(-90deg);
+    }
+    /* Reduced-motion: no 3D roll — fall back to a simple background darken. */
+    @media (prefers-reduced-motion: reduce) {
+        .vol2-hero .td-text-block__wrapper { transition: none; }
+        .vol2-hero .td-text-block:hover .td-text-block__wrapper { transform: none; }
+        .vol2-hero .td-text-block:hover .td-text-block__front-text { background: var(--accent-hover); }
+    }
 
     .vol2-hero-image {
         position: relative;
@@ -294,6 +362,7 @@
         .vol2-form-heading { font-size: 1.4rem; }
     }
 </style>
+@include('partials.scribble-assets')
 @endsection
 
 @section('body')
@@ -310,11 +379,16 @@
     <section class="vol2-hero">
         <div>
             <div class="vol2-eyebrow"><a href="/get-involved">Get Involved</a> &nbsp;/&nbsp; Volunteer</div>
-            <h1 class="vol2-hero-title">Be the difference.</h1>
+            <h1 class="vol2-hero-title">Be the @include('partials.scribble', ['word' => 'difference']).</h1>
             <p class="vol2-hero-lede">
                 At NPPC, our volunteers are the heart and soul of our organization. By dedicating your time and skills, you help us make a significant impact in the lives of political prisoners across the United States.
             </p>
-            <a href="#apply" class="vol2-hero-cta">Apply to Volunteer</a>
+            <a href="#apply" class="td-text-block" aria-label="Apply to Volunteer">
+                <span class="td-text-block__wrapper" aria-hidden="true">
+                    <span class="td-text-block__front-text">Apply to Volunteer</span>
+                    <span class="td-text-block__final-text">Apply to Volunteer</span>
+                </span>
+            </a>
         </div>
         <div class="vol2-hero-image">
             @if(file_exists(public_path('images/site/volunteer-hero.jpg')))

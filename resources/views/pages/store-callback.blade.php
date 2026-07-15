@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Order Complete | NPPC')
+
 @section('head')
 <style>
     .oc-page { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; text-align: center; }

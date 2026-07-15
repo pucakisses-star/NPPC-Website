@@ -67,6 +67,11 @@
     /* ---- main body: feed + map ---- */
     .ppd-body { display: grid; grid-template-columns: 372px 1fr; height: min(74vh, 760px); min-height: 480px; border-bottom: 1px solid var(--line); }
     .ppd-feed { border-right: 1px solid var(--line); overflow-y: auto; background: #0b0b0d; }
+    /* Timeline playback show/hides feed items every animation frame; without
+       this, Chrome's scroll anchoring treats those layout changes as content
+       shifts and keeps yanking the PAGE scroll to the bottom while the
+       timeline plays (and fights the user trying to scroll back up). */
+    .ppd-feed, .ppd-feed * { overflow-anchor: none; }
     .ppd-feed::-webkit-scrollbar { width: 9px; }
     .ppd-feed::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 9px; }
     .ppd-feed-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 18px; background: #0c0c0e; border-bottom: 1px solid var(--line); }

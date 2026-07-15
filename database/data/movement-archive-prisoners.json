@@ -77,17 +77,24 @@
     "name": "Juan Otero",
     "first_name": "Juan",
     "last_name": "Otero",
+    "aka": "Juan Otero Jr.",
     "gender": "Male",
     "race": "Hispanic",
+    "state": "New York",
     "era": "1970s",
+    "ideologies": ["Community organizing", "Puerto Rican movement"],
+    "affiliation": ["Committee to Defend Juan Otero", "Puerto Rican Socialist Party"],
     "in_custody": false,
     "released": true,
-    "description": "Juan Otero was the subject of a 1973 Puerto Rican movement defense campaign — \"Free Juan Otero. Framed, Convicted, He Must be Freed\" — which held that he had been framed and wrongly convicted. Biographical and case details are not documented beyond the defense campaign.",
+    "description": "Juan Otero (Juan Otero Jr.) was a South Bronx Puerto Rican community activist and construction-trades anti-discrimination organizer — a family man, educational specialist, and young father with no prior police record — who led pickets against discriminatory hiring at New York building sites. On March 20, 1973 he was convicted after a jury trial in Bronx County, on consolidated indictments, of burglary in the second and third degrees, two counts of grand larceny in the third degree, and attempted grand larceny, and sentenced to concurrent indeterminate terms of up to five years. A defense campaign — the Committee to Defend Juan Otero and a Puerto Rican Socialist Party statement carried in Workers World — held that he had been framed on the burglary charges by \"vengeful Bronx cops\" and racist building-trades interests in retaliation for his organizing. On September 26, 1974 the Appellate Division unanimously reversed his conviction and ordered a new trial (People v. Otero, 45 A.D.2d 952, 359 N.Y.S.2d 318): his defense was alibi, the conviction rested entirely on identification testimony whose conflicting character \"casts considerable doubt\" on the charges, and the court found improper bolstering of that eyewitness identification. His exact arrest and release dates are not documented; he was imprisoned during 1973, with a possible maximum documented custody of March 20, 1973 – September 26, 1974 (about 555 days) if held continuously.",
     "cases": [
       {
-        "charges": "Framed and convicted (per the 1973 \"Free Juan Otero\" defense campaign); specifics not documented",
-        "convicted": "Yes — per the 1973 defense flyer",
-        "sentence": "Not documented"
+        "charges": "Burglary in the second and third degrees, two counts of grand larceny in the third degree, and attempted grand larceny (consolidated indictments, jury trial, Bronx County) — which the \"Free Juan Otero\" campaign and a Puerto Rican Socialist Party statement called a frame-up by Bronx police and building-trades interests in retaliation for his anti-discrimination organizing.",
+        "convicted": "Convicted March 20, 1973 (jury, Bronx County); conviction unanimously reversed and a new trial ordered September 26, 1974 — People v. Otero, 45 A.D.2d 952, 359 N.Y.S.2d 318 (identification testimony \"casts considerable doubt\"; improper bolstering of eyewitness ID).",
+        "sentence": "Concurrent indeterminate terms of up to five years (up to 5 years on each burglary count, up to 4 years on each grand-larceny count; unconditional discharge on the attempt). Actual time served not documented — possible maximum custody March 20, 1973 – September 26, 1974 (~555 days).",
+        "incarceration_date": "1973-03-20",
+        "sentenced_date": "1973-03-20",
+        "release_date": "1974-09-26"
       }
     ]
   },

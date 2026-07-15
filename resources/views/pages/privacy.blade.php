@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Privacy Policy | NPPC')
+
 @section('head')
 <style>
     .legal-page { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }

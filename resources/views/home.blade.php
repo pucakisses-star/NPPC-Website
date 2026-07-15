@@ -1,6 +1,8 @@
 @php use App\Models\SiteSetting; @endphp
 @extends('app')
 
+@section('title', 'National Political Prisoner Coalition')
+
 @section('body')
     @php
         $heroHeadline = SiteSetting::get('hero_headline', 'Justice');

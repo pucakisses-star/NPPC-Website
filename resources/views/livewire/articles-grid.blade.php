@@ -5,14 +5,17 @@ use App\Models\Article;
 function renderArticle(Article $article, bool $large = false, bool $eager = false): string {
     if(!$article) return '';
 
-    $imgHeight = $large ? '600px' : '224px';
+    // Hero keeps its tall fixed height; the smaller cards use a landscape
+    // 3:2 aspect-ratio so they never collapse to a square (which cropped the
+    // photos) as the grid columns narrow.
+    $imgBox = $large ? 'aspect-ratio: 4 / 3' : 'aspect-ratio: 3 / 2';
     $imgUrl = $article->image ? $article->image_url : '';
     $loadingAttr = $eager ? 'eager' : 'lazy';
     $fetchPriority = $eager ? 'high' : 'auto';
 
     $imageMarkup = $imgUrl
-        ? "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; overflow: hidden; background:var(--surface-2);\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
-        : "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; background:var(--surface-2);\"></a>";
+        ? "<a href=\"{$article->url}\" style=\"display: block; {$imgBox}; overflow: hidden; background:var(--surface-2);\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
+        : "<a href=\"{$article->url}\" style=\"display: block; {$imgBox}; background:var(--surface-2);\"></a>";
 
     $category = $article->category?->title;
     $date = $article->published_at?->format('F j, Y');
@@ -31,7 +34,7 @@ function renderArticle(Article $article, bool $large = false, bool $eager = fals
     {$imageMarkup}
     <div class="line"></div>
     <h5 style="margin-top: 16px; font-size: 13px; color: rgba(var(--fg-rgb),0.5); letter-spacing: 0.02em;">{$meta}</h5>
-    <a class="article-title" style="font-size: 18px; color: var(--fg); display: block; margin-top: 4px; line-height: 1.4;" href="{$article->url}">{$article->title}</a>
+    <div style="margin-top: 4px;"><a class="article-title" style="font-size: 18px; color: var(--fg); line-height: 1.4;" href="{$article->url}">{$article->title}</a></div>
 </div>
 EOB;
 
@@ -104,25 +107,42 @@ EOB;
 
         <style>
             /* Animated underline on article titles: grows in from the left
-               when the card is highlighted (hovered or keyboard-focused),
-               mirroring the SPLC-style highlight effect. */
+               when the card is highlighted (hovered or keyboard-focused).
+               The anchor is inline with box-decoration-break: clone so every
+               wrapped line paints its own underline, not just the last. */
             .article-item .article-title {
                 text-decoration: none;
-                width: fit-content;
-                max-width: 100%;
+                display: inline;
                 background-image: linear-gradient(currentColor, currentColor);
                 background-position: 0 100%;
                 background-repeat: no-repeat;
                 background-size: 0% 1.5px;
                 padding-bottom: 2px;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
                 transition: background-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             }
             .article-item:hover .article-title,
             .article-item:focus-within .article-title {
                 background-size: 100% 1.5px;
             }
+
+            /* Gentle zoom on the card's photo while it's highlighted. The
+               image link already clips with overflow: hidden. */
+            .article-item a img {
+                transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+                will-change: transform;
+            }
+            .article-item:hover a img,
+            .article-item:focus-within a img {
+                transform: scale(1.05);
+            }
+
             @media (prefers-reduced-motion: reduce) {
                 .article-item .article-title { transition: none; }
+                .article-item a img { transition: none; }
+                .article-item:hover a img,
+                .article-item:focus-within a img { transform: none; }
             }
 
             .news-hero-row {

@@ -1,6 +1,8 @@
 @php use App\Models\Page; @endphp
 @extends('app')
 
+@section('title', 'Board of Directors | NPPC')
+
 @section('body')
 
     <h1 class="text-6xl mt-12 mb-12"> Board of directors</h1>

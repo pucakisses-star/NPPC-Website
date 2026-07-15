@@ -7,7 +7,18 @@
 // silently skipped on the map (the map slide still renders for the era,
 // but only with the topics it can locate).
 $topicCoords = [
+    'The Whiskey Rebellion'              => [40.1740, -80.2462, 'Washington County, PA'],
     'The Sedition Act'                   => [39.9526, -75.1652, 'Philadelphia, PA'],
+    'John Brown & Harpers Ferry'         => [39.3254, -77.7286, 'Harpers Ferry, WV'],
+    'The Dakota War Trials'              => [44.1636, -94.0016, 'Mankato, MN'],
+    'The Scottsboro Nine'                => [34.6723, -86.0341, 'Scottsboro, AL'],
+    'The Bonus Army'                     => [38.8730, -76.9770, 'Anacostia Flats, Washington, DC'],
+    'The Smith Act Trials'               => [40.7143, -74.0031, 'Foley Square, New York, NY'],
+    'Attica & the Prison Rebellion Years' => [42.8434, -78.2703, 'Attica, NY'],
+    'AIM & Wounded Knee'                 => [43.1425, -102.3627, 'Wounded Knee, SD'],
+    'The Whistleblowers'                 => [39.1080, -76.7710, 'Fort Meade, MD'],
+    'Standing Rock'                      => [46.0817, -100.6370, 'Standing Rock, ND'],
+    'Stop Cop City'                      => [33.6896, -84.3320, 'Weelaunee Forest, Atlanta, GA'],
     'The Abolition Movement'             => [42.3601, -71.0589, 'Boston, MA'],
     'The Anti-Rent War'                  => [42.1875, -74.7889, 'Andes, Delaware County, NY'],
     'The Civil War'                      => [38.9072, -77.0369, 'Washington, DC'],
@@ -31,6 +42,8 @@ $topicCoords = [
 @endphp
 
 @extends('app')
+
+@section('title', 'A History of Political Imprisonment | NPPC')
 
 @section('head')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>

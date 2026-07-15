@@ -1,0 +1,35 @@
+{
+  "overview": "<p>The George Jackson Brigade was the Pacific Northwest's armed clandestine group of the mid-1970s — a small collective of ex-prisoners, out gay men and lesbians, and prison-movement organizers in Seattle, named for the murdered Soledad Brother. Between 1975 and 1977 it carried out bombings and expropriations tied to concrete prison and labor struggles, lost Bruce Seidel in the Tukwila bank shootout, and produced prisoners — Ed Mead, Rita Brown, John Sherman, Mark Cook — whose later organizing, from Men Against Sexism to prisoner-support work, outlasted the group itself. The events below trace that history.</p>",
+  "events": [
+    {
+      "slug": "gjb-formation-seattle",
+      "title": "Formation in Seattle's Prison Movement (1975)",
+      "sort_order": 10,
+      "body": "<p>The George Jackson Brigade formed in Seattle in 1975 out of the city's prison-abolition milieu — the circles around Left Bank Books, the anti-Bakke and Walla Walla prisoner-support committees, and collectives like Men Against Sexism. Its members were unusual for the armed underground: several were ex-convicts politicized inside Washington's prisons, several were openly gay or lesbian, and the group spanned anarchists and communists who hammered out each action's politics together. They took their name from George Jackson, the Soledad Brother killed at San Quentin in 1971.</p><p>Unlike the student-born undergrounds, the Brigade's communiqués spoke the language of the prison yard and the picket line, and its actions were pegged to local struggles — a sensibility that made it, in the words of its own history, \"the guerrilla group that the prison movement built.\"</p>"
+    },
+    {
+      "slug": "gjb-bombing-campaign",
+      "title": "The Bombing Campaign (1975–1977)",
+      "sort_order": 20,
+      "body": "<p>Between May 1975 and 1977 the Brigade carried out roughly twenty bombings and attempted bombings around Puget Sound and Oregon, each tied by communiqué to a specific struggle: the Washington Department of Corrections offices and the state Capitol in Olympia for the treatment of prisoners at Walla Walla; Safeway stores during grocery-worker and farmworker disputes; FBI offices, power substations during a City Light workers' strike; and the Rainier National Bank. Warnings were telephoned and the actions caused property damage rather than casualties — with one exception the group itself condemned and apologized for, a Safeway blast that injured customers when the store refused to evacuate.</p><p>The campaign's signature was accountability to above-ground movements: communiqués debated tactics with local activists in the pages of Seattle's left press, an exchange later collected in the Brigade's anthology, Creating a Movement with Teeth.</p>"
+    },
+    {
+      "slug": "gjb-tukwila-shootout",
+      "title": "The Tukwila Bank Shootout (January 1976)",
+      "sort_order": 30,
+      "body": "<p>On January 23, 1976, the Brigade attempted an expropriation of the Pacific National Bank branch in Tukwila, south of Seattle, to fund its work. Police were waiting: in the gun battle Bruce Seidel — a founding member and communist theoretician of the group — was shot dead, Ed Mead was captured at the scene, and John Sherman was wounded and taken. It was the Brigade's catastrophe and its defining sacrifice; communiqués thereafter were signed \"in memory of comrade Bruce Seidel.\"</p><p>Mead, charged under Washington's tough-on-crime statutes, drew decades; at trial he turned the courtroom into a seminar on the prison system that had made him. Six weeks later, on March 10, 1976, the Brigade struck back — a member disguised as a guard walked the wounded Sherman out of custody during a hospital transfer, the group's most audacious single action.</p>"
+    },
+    {
+      "slug": "gjb-captures",
+      "title": "Manhunt & Captures (1977–1981)",
+      "sort_order": 40,
+      "body": "<p>The FBI's pursuit of the remnant ran three more years. Mark Cook, a Black prison organizer convicted for the Sherman escape and the Tukwila robbery, received consecutive terms stacked toward life; Rita Brown, the group's out-lesbian ex-convict cadre, was captured in Seattle in November 1977 and sentenced to 25 years, serving federal time including Alderson; Therese Coupez and Janine Bertram were taken in the March 1978 round-up that effectively ended the organization; and John Sherman, recaptured, escaped once more in 1979 and remained a fugitive until 1981, ultimately serving into the 1990s.</p><p>The prosecutions were framed by the state as ordinary armed-robbery cases, but the defendants — who called themselves prisoners of war of the class struggle — were adopted by the era's political-prisoner networks, and their trials became forums on Walla Walla, prison labor, and the conditions that had built the Brigade.</p>"
+    },
+    {
+      "slug": "gjb-prisoners-legacy",
+      "title": "The Brigade's Prisoners & Legacy (1993– )",
+      "sort_order": 50,
+      "body": "<p>The Brigade's story continued inside the walls. Ed Mead co-founded Men Against Sexism at Walla Walla — the celebrated prisoner collective that broke the prison's rape economy — and from his cell built Prison Legal News with Paul Wright into the country's essential prisoners'-rights journal; he was released in 1993 after eighteen years. Rita Brown, released in 1987, spent the rest of her life in queer and prisoner-support organizing; Mark Cook, the Brigade member longest held, was finally paroled in 2000 after nearly a quarter century.</p><p>Because its members survived, organized, and wrote, the Brigade left an unusually complete record — memoirs, the Creating a Movement with Teeth documentary anthology, and decades of prisoner-support work that carried the Northwest prison movement's politics into the twenty-first century.</p>"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "overview": "<p>The Puerto Rican Nationalist Party, led from 1930 by Pedro Albizu Campos, made independence from the United States a matter of national honor — and was answered with massacre, gag law, and some of the longest political imprisonments in American history. From the Ponce Massacre of 1937 to the 1950 insurrection, the Blair House attack, and the 1954 shooting in the U.S. House of Representatives, the Party's history is inseparable from the prisoners it produced: Albizu Campos himself, Oscar Collazo, Lolita Lebrón and her comrades, and the hundreds jailed under Puerto Rico's Ley de la Mordaza. The events below trace that history.</p>",
+  "events": [
+    {
+      "slug": "prnp-founding-albizu-campos",
+      "title": "Founding & the Rise of Albizu Campos (1922–1930)",
+      "sort_order": 10,
+      "body": "<p>The Puerto Rican Nationalist Party was founded in 1922 in protest of U.S. colonial rule, but it became a mass force after 1930, when Pedro Albizu Campos — a Ponce-born, Harvard-trained lawyer and World War I veteran radicalized by the racism he encountered in the U.S. Army — was elected its president. Albizu reframed independence not as a policy preference but as the restoration of a nation illegally seized in 1898, and demanded the withdrawal of the United States from the island.</p><p>Under his leadership the Party organized the Cadets of the Republic, backed the great 1934 sugar strike, and confronted a colonial administration that answered with police violence. The governorship of former U.S. Army general Blanton Winship and his police chief, Colonel Francis Riggs, set the Party and the state on the road to bloodshed.</p>"
+    },
+    {
+      "slug": "prnp-rio-piedras-riggs-beauchamp",
+      "title": "The Río Piedras Massacre & the Killing of Rosado and Beauchamp (1935–1936)",
+      "sort_order": 20,
+      "body": "<p>On October 24, 1935, police fired on Nationalists at the University of Puerto Rico in Río Piedras, killing four Party members. Colonel Francis Riggs, the U.S.-appointed police chief, promised \"war to the death against all Puerto Ricans.\" In February 1936, two young Nationalists, Hiram Rosado and Elías Beauchamp, assassinated Riggs in San Juan; arrested and taken to police headquarters, both were summarily executed inside the station without trial.</p><p>No officer was ever prosecuted for the killings. Beauchamp's final gesture — a cadet salute captured by a photographer moments before his death — became an icon of the movement, and the paired atrocities of Río Piedras and the station-house executions convinced a generation of Nationalists that the colonial state would never permit a lawful road to independence.</p>"
+    },
+    {
+      "slug": "prnp-1936-sedition-trial",
+      "title": "The 1936 Seditious Conspiracy Trial of the Party Leadership",
+      "sort_order": 30,
+      "body": "<p>Weeks after Riggs's death, federal prosecutors indicted Albizu Campos and seven other Party leaders for seditious conspiracy to overthrow the U.S. government in Puerto Rico. A first jury with a Puerto Rican majority hung; the U.S. attorney then hand-picked a second jury with an American majority, which convicted in July 1936. Albizu received ten years, served first at La Princesa in San Juan and then in the federal penitentiary in Atlanta.</p><p>The trial — prosecuted under the same seditious-conspiracy statute later used against the FALN and Macheteros generations — removed the Party's entire leadership at a stroke and made Albizu a hemispheric symbol. He would spend most of the rest of his life imprisoned, and his absence hung over every event that followed, from Ponce to Jayuya.</p>"
+    },
+    {
+      "slug": "prnp-ponce-massacre",
+      "title": "The Ponce Massacre (Palm Sunday, 1937)",
+      "sort_order": 40,
+      "body": "<p>On March 21, 1937 — Palm Sunday — Nationalists gathered in Ponce for a peaceful march marking the abolition of slavery and protesting Albizu's imprisonment. The municipal permit was revoked at the last minute on Governor Winship's orders; when the cadets stepped off anyway, unarmed, to the strains of La Borinqueña, police ringing the street opened fire for over ten minutes. Nineteen people were killed, including a seven-year-old girl and two policemen struck by their own crossfire, and some 200 were wounded, many shot in the back as they fled.</p><p>An independent investigation led by the ACLU's Arthur Garfield Hays found a deliberate massacre ordered by the governor — yet the only people prosecuted were surviving Nationalists. The Ponce Massacre remains the deadliest single act of political repression in twentieth-century U.S. territory.</p>"
+    },
+    {
+      "slug": "prnp-gag-law",
+      "title": "La Ley de la Mordaza — the Gag Law (1948–1957)",
+      "sort_order": 50,
+      "body": "<p>In 1948, as Albizu returned from prison exile and campus strikes spread, the insular legislature passed Law 53, the Ley de la Mordaza or Gag Law — a local Smith Act that made it a felony to speak, write, print, or assemble for the \"overthrow\" of the insular government, and in practice criminalized owning a Puerto Rican flag, singing patriotic songs, or advocating independence. It was signed by the U.S.-appointed governor and enforced for nearly a decade.</p><p>Thousands were surveilled under the notorious carpetas system and hundreds arrested; after the 1950 uprising the law became the engine of mass imprisonment, with sentences of ten years and more for speeches and membership. Repealed in 1957 and later acknowledged as flagrantly unconstitutional, the Gag Law defined an era in which the advocacy of independence was itself the crime.</p>"
+    },
+    {
+      "slug": "prnp-october-1950-uprising",
+      "title": "The October 1950 Insurrection: Jayuya & Utuado",
+      "sort_order": 60,
+      "body": "<p>On October 30, 1950, facing the Gag Law's tightening net and the planned plebiscite on commonwealth status, the Party rose in arms across the island. In Jayuya, Blanca Canales led rebels who took the town and proclaimed the Republic of Puerto Rico; there were risings in Utuado, Arecibo, Naranjito, San Juan and elsewhere. The insular government answered with the National Guard, artillery, and P-47 airstrikes on Jayuya and Utuado — the only aerial bombardment of U.S. citizens on their own soil — and in Utuado captured rebels were machine-gunned without trial in what became known as the Utuado massacre.</p><p>Some 3,000 independentistas and bystanders were arrested in the sweep that followed. Albizu Campos was seized at his San Juan home and sentenced to some eighty years; Blanca Canales received life plus sixty years and served seventeen; scores of others served long terms under the Gag Law.</p>"
+    },
+    {
+      "slug": "prnp-blair-house-attack",
+      "title": "The Blair House Attack: Collazo & Torresola (1950)",
+      "sort_order": 70,
+      "body": "<p>Two days after the island rising, on November 1, 1950, New York Nationalists Oscar Collazo and Griselio Torresola attacked Blair House in Washington, where President Truman was living, to force the world to see that Puerto Rico was in revolt. Torresola and White House policeman Leslie Coffelt died in the gunfight; Collazo, wounded, was convicted of murder and sentenced to death.</p><p>A week before the scheduled 1952 execution, Truman himself commuted the sentence to life, unwilling to make a martyr. Collazo served 29 years in Leavenworth, refusing to seek parole because parole implied guilt toward a government he did not recognize. President Carter commuted his sentence in 1979, and he returned to Puerto Rico with the Capitol attackers to a hero's welcome, unrepentant to his death in 1994.</p>"
+    },
+    {
+      "slug": "prnp-1954-capitol-shooting",
+      "title": "The 1954 Attack on the U.S. House of Representatives",
+      "sort_order": 80,
+      "body": "<p>On March 1, 1954, four Nationalists — Lolita Lebrón, Rafael Cancel Miranda, Andres Figueroa Cordero, and Irvin Flores — unfurled the Puerto Rican flag from the visitors' gallery of the U.S. House of Representatives, shouted \"¡Viva Puerto Rico libre!\", and fired pistols into the chamber, wounding five congressmen. Lebrón, who fired at the ceiling, declared \"I did not come to kill anyone, I came to die for Puerto Rico.\" All four were sentenced to terms amounting to life — the women's leader receiving 50 years.</p><p>They served a quarter century as the hemisphere's most famous political prisoners, refusing to request clemency. In 1979, after an international campaign joined by Castro's Cuba and human-rights bodies, President Carter commuted the sentences of the three survivors and Collazo (Figueroa Cordero, dying of cancer, had been freed in 1977). Their return to San Juan drew crowds of thousands.</p>"
+    },
+    {
+      "slug": "prnp-albizu-final-imprisonment",
+      "title": "Albizu's Final Imprisonment & Death (1950–1965)",
+      "sort_order": 90,
+      "body": "<p>Rearrested in the 1950 rising and pardoned in 1953, Albizu Campos was seized again within months of the 1954 Capitol attack and returned to La Princesa. In prison his health collapsed amid burns and lesions he attributed to radiation experimentation — claims officials dismissed as insanity but which supporters, and later researchers pointing to the era's documented federal radiation experiments on unwitting subjects, took seriously. He suffered a stroke in 1956 and spent his remaining years paralyzed and mostly speechless in custody or hospital confinement.</p><p>Pardoned by Governor Muñoz Marín only in November 1964, Albizu died on April 21, 1965; some 75,000 people followed his coffin to Old San Juan's cemetery. He had spent roughly twenty-six of his last twenty-nine years imprisoned, and his case — with the carpetas surveillance of a hundred thousand islanders — remains the foundation of the Puerto Rican political-prisoner tradition carried on by the FALN and Macheteros generations.</p>"
+    }
+  ]
+}

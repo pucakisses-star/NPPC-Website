@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title'){{ $petition->title }} — Petition | NPPC @endsection
+
 @section('head')
 <style>
     .pet-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }

@@ -5,6 +5,8 @@
 
 @extends('app')
 
+@section('title', 'Timeline | NPPC')
+
 @section('body')
     <div class="timeline-menu">
         <div class="container flex justify-center">

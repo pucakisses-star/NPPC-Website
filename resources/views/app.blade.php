@@ -9,7 +9,37 @@ $isHome = request()->segment(1) == ''
     <meta name="theme-color" content="#000000">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title>@yield('title')</title>
+    @php
+        // Page title with a site-wide default so no page ships an empty
+        // <title>. Sections may end in " | NPPC" etc.; the raw yield is
+        // also reused for the social tags below.
+        $pageTitle = trim($__env->yieldContent('title')) ?: 'National Political Prisoner Coalition';
+        $pageDesc = trim($__env->yieldContent('meta_description'))
+            ?: 'The National Political Prisoner Coalition documents, supports, and advocates for U.S. political prisoners — a live database, case files, news, and history from the nineteenth century to the present.';
+    @endphp
+    <title>{{ $pageTitle }}</title>
+
+    {{-- Social / link-preview tags. Pages can override the description via
+         @section('meta_description', '...'); a page-specific
+         <meta name="description"> in @section('head') still wins for search
+         engines since crawlers use the first occurrence. --}}
+    <meta property="og:site_name" content="National Political Prisoner Coalition">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDesc }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    @php
+        // Pages with a subject image (prisoner photo, article cover) override
+        // via @section('og_image', ...); crawlers use the first og:image, so
+        // the override must land here rather than in the page's head section.
+        $ogImage = trim($__env->yieldContent('og_image'))
+            ?: asset('images/og-default.jpg').'?v='.@filemtime(public_path('images/og-default.jpg'));
+    @endphp
+    <meta property="og:image" content="{{ $ogImage }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDesc }}">
+    <meta name="twitter:image" content="{{ $ogImage }}">
 
     {{-- Favicons (white NPPC monogram on black) --}}
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -191,6 +221,42 @@ $isHome = request()->segment(1) == ''
         /* Mobile slide-down menu */
         html[data-theme="light"] #mobile-menu { background: var(--bg); }
         html[data-theme="light"] #mobile-menu a { color: var(--fg); }
+
+        /* Prisoner database (compiled Vue app): the app hardcodes a black
+           canvas and white borders/text/icons. Flip them via its stable
+           hooks (#prisoners-page, .prisoner, #filters …); !important where
+           we must beat inline styles or compiled scoped-CSS. */
+        html[data-theme="light"] #prisoners-page,
+        html[data-theme="light"] #prisoners-page .bg-black { background: var(--bg) !important; color: var(--fg); }
+        html[data-theme="light"] #prisoners-page .text-white { color: var(--fg); }
+        html[data-theme="light"] #prisoners-page .prisoner { border-color: rgba(var(--fg-rgb),0.8); }
+        html[data-theme="light"] #prisoners-page .border-white { border-color: rgba(var(--fg-rgb),0.55) !important; }
+        html[data-theme="light"] #prisoners-page h2 a {
+            color: var(--fg) !important;
+            border-bottom-color: rgba(var(--fg-rgb),0.25) !important;
+        }
+        html[data-theme="light"] #prisoners-page .link-img svg,
+        html[data-theme="light"] #prisoners-page .meta svg { fill: var(--fg); stroke: var(--fg); }
+        html[data-theme="light"] #prisoners-page .currentImprisonment { border-color: rgba(var(--fg-rgb),0.8); }
+        html[data-theme="light"] #prisoners-page .clear-filters-btn {
+            color: var(--fg); border-color: rgba(var(--fg-rgb),0.35);
+        }
+        html[data-theme="light"] #prisoners-page .clear-filters-btn:hover {
+            border-color: var(--fg); background: rgba(var(--fg-rgb),0.08);
+        }
+        html[data-theme="light"] #prisoners-page .results-count { color: rgba(var(--fg-rgb),0.55); }
+        html[data-theme="light"] #prisoners-page .load-more-indicator { color: rgba(var(--fg-rgb),0.6); }
+        html[data-theme="light"] #prisoners-page .load-more-spinner {
+            border-color: rgba(var(--fg-rgb),0.2); border-top-color: var(--fg);
+        }
+        /* The no-photo placeholder SVG is white line-art — invert it on light. */
+        html[data-theme="light"] #prisoners-page img[src*="no-image-available"] { filter: invert(1); }
+        /* White filter/search boxes disappear on a white page — give them an edge. */
+        html[data-theme="light"] #prisoners-page #filters .ant-select-selector,
+        html[data-theme="light"] #prisoners-page input#prisoner-search,
+        html[data-theme="light"] #prisoners-page .ant-radio-button-wrapper {
+            border: 1px solid rgba(var(--fg-rgb),0.35) !important;
+        }
     </style>
     <script>
         /* Set the theme before first paint (no flash). */

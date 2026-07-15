@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Political Prisoner Birthdays | NPPC')
+
 @section('head')
 <style>
 .bd-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 96px; }

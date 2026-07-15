@@ -1,0 +1,47 @@
+{
+  "overview": "<p>MOVE, the Philadelphia naturalist and Black liberation organization founded by John Africa, has been at the center of two of the most notorious episodes of state violence in modern American history: the 1978 Powelton Village siege that produced the MOVE 9, imprisoned for four decades on a single officer's death, and the May 13, 1985 police bombing of Osage Avenue that killed eleven people, five of them children — after which the only person imprisoned was the sole adult survivor, Ramona Africa. The events below trace the organization's history and its prisoners.</p>",
+  "events": [
+    {
+      "slug": "move-founding-john-africa",
+      "title": "John Africa Founds MOVE (1972)",
+      "sort_order": 10,
+      "body": "<p>MOVE was founded in Philadelphia in the early 1970s by Vincent Leaphart, a Korean War veteran and handyman from West Philadelphia who took the name John Africa. His teaching, compiled by supporters into a sprawling text called The Guideline, held that all life is one, that the industrial \"system\" poisons everything it touches, and that its law and technology are instruments of enslavement. Members adopted the surname Africa, ate raw food, and rejected the system's schools, medicine, and courts.</p><p>Based in a communal house in the racially mixed Powelton Village neighborhood, MOVE spent the mid-1970s in constant, deliberately confrontational protest — at zoos, pet stores, school board meetings, and political rallies — absorbing hundreds of arrests and beatings that the organization understood as the system revealing its violence. By 1976, after years of street confrontations and the death of an infant, Life Africa, during a police melee, the group and the Rizzo administration were on a collision course.</p>"
+    },
+    {
+      "slug": "move-powelton-siege-blockade",
+      "title": "The Powelton Village Standoff & Starvation Blockade (1977–1978)",
+      "sort_order": 20,
+      "body": "<p>In May 1977, after escalating confrontations, MOVE members appeared on the platform of their Powelton Village house with weapons, demanding the release of imprisoned members and an end to police harassment. Mayor Frank Rizzo — who had promised to be \"so tough on crime he'd make Attila the Hun look like a faggot\" — obtained court orders and, in March 1978, sealed off a four-block perimeter, cutting water and food in an attempt to starve the house out.</p><p>The blockade lasted nearly two months and cost the city over a million dollars before a negotiated agreement in May 1978: MOVE surrendered its weapons and agreed to vacate the house within ninety days, while the city agreed to release jailed members. The truce did not hold — MOVE, viewing the deal as coerced, stayed past the deadline, and the city moved toward forcible eviction.</p>"
+    },
+    {
+      "slug": "move-august-8-1978-shootout",
+      "title": "The August 8, 1978 Shootout & the Beating of Delbert Africa",
+      "sort_order": 30,
+      "body": "<p>At dawn on August 8, 1978, hundreds of police surrounded the Powelton Village house to execute the eviction. Bulldozers tore down the stockade, firehoses flooded the basement where members and their children sheltered, and gunfire broke out — in the crossfire, Officer James Ramp was killed by a single shot and several officers and firefighters were wounded. MOVE always maintained the fatal bullet's trajectory was inconsistent with any shot from the basement.</p><p>As members surrendered, television cameras filmed three officers dragging Delbert Africa from the house by his hair, kicking and beating him unconscious in the street — footage seen around the world. The officers were acquitted at a 1981 bench trial after the judge took the case from the jury; the house itself was demolished the day after the shootout, destroying the crime scene before any defense examination.</p>"
+    },
+    {
+      "slug": "move-nine-trial",
+      "title": "The MOVE 9 Trial & Sentences (1979–1980)",
+      "sort_order": 40,
+      "body": "<p>Nine adult MOVE members — Chuck, Debbie, Delbert, Eddie, Janet, Janine, Merle, Mike, and Phil Africa — were tried collectively for the murder of Officer Ramp. Judge Edwin Malmed convicted all nine in May 1980 and sentenced each to 30 to 100 years, telling a radio interviewer afterward, when asked who shot Ramp, \"I haven't the faintest idea\" — they had been tried, he said, as a family. One bullet, nine life-defining sentences: the case became a national emblem of collective political punishment.</p><p>The MOVE 9 spent nearly four decades in Pennsylvania prisons, repeatedly denied parole for refusing to renounce MOVE. Merle Africa died in prison in 1998 and Phil Africa in 2015; the seven survivors were finally paroled between 2018 and 2020, with Delbert Africa — the man beaten on camera in 1978 — released in January 2020 and dead of illness within six months.</p>"
+    },
+    {
+      "slug": "move-1985-bombing",
+      "title": "The Bombing of Osage Avenue (May 13, 1985)",
+      "sort_order": 50,
+      "body": "<p>After the survivors of Powelton regrouped at 6221 Osage Avenue and resumed loudspeaker campaigns for their imprisoned family, the city of Philadelphia — now under Mayor Wilson Goode — moved to evict them on May 13, 1985. Police fired over ten thousand rounds into the row house, and when the occupants did not come out, a state police helicopter dropped a bomb made with C-4 and Tovex onto the roof. The fire it started was deliberately allowed to burn.</p><p>Eleven people died, including John Africa himself and five children; sixty-one homes in the Black working-class neighborhood burned to the ground. A city commission called the deaths \"unconscionable\" and found that the decision to bomb a house containing children was made with reckless disregard for life — yet no official was ever criminally charged. It remains the only aerial bombing of an American city by its own government.</p>"
+    },
+    {
+      "slug": "move-ramona-africa-imprisonment",
+      "title": "Ramona Africa: The Survivor Imprisoned (1985–1992)",
+      "sort_order": 60,
+      "body": "<p>Only two people escaped the Osage Avenue fire alive: thirteen-year-old Birdie Africa and Ramona Africa, who ran from the burning house through police gunfire with burns across her body. The city's answer to the massacre was to prosecute her — the sole surviving adult — for riot and conspiracy. Convicted in 1986, she served seven years, held past her minimum each year because she refused to disassociate from MOVE.</p><p>Released in 1992, Ramona Africa became the organization's most visible voice, touring the world for the MOVE 9 and Mumia Abu-Jamal. In 1996 a federal civil jury found the city and its top officers liable for the 1985 assault, awarding her and relatives of the dead $1.5 million — civil liability for an atrocity that produced no criminal charge against any official, while its survivor served seven years.</p>"
+    },
+    {
+      "slug": "move-paroles-remains-scandal",
+      "title": "Paroles, Deaths & the Remains Scandal (2018–2021)",
+      "sort_order": 70,
+      "body": "<p>Between 2018 and 2020, after decades of campaigning and new legal challenges to Pennsylvania's parole practices, the surviving MOVE 9 members — Debbie, Mike, Janet, Janine, Eddie, Delbert, and Chuck Africa — were finally released, the last of them, Chuck, in February 2020 after more than 41 years. Two of the nine, Merle and Phil, had died inside; Delbert and Chuck both died within months of release, their supporters counting those deaths, too, against the sentence.</p><p>In 2021 the city's violence reached back into the news: the remains of children killed in the 1985 bombing had been kept for decades by the University of Pennsylvania and Princeton, used in an online forensic anthropology course without the family's knowledge, and the city health commissioner resigned after admitting other victims' remains had been cremated without notifying relatives. The scandal forced formal apologies and returned the bombing to national attention as an unhealed atrocity.</p>"
+    }
+  ]
+}

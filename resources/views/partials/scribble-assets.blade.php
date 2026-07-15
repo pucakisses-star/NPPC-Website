@@ -1,0 +1,75 @@
+{{-- Shared assets for the scribble text decoration (CodyHouse-style
+     hand-drawn oval that circles the word on hover — drawing in on
+     mouse-enter / keyboard focus and erasing on leave). Include once per
+     page inside @section('head'); the @once guard prevents duplication.
+     JS builds a pixel-fitted oval per word so it stays undistorted at any
+     size; CSS :hover drives the reversible draw. --}}
+@once
+<style>
+    .scr { position: relative; display: inline-block; white-space: nowrap; color: #5660fe; }
+    .scr > svg { position: absolute; overflow: visible; pointer-events: none; }
+    .scr > svg path { fill: none; stroke: #5660fe; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+        stroke-dasharray: var(--len, 900px); stroke-dashoffset: var(--len, 900px);
+        transition: stroke-dashoffset 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); }
+    .scr:hover > svg path, .scr:focus-visible > svg path { stroke-dashoffset: 0; }
+    @media (prefers-reduced-motion: reduce) { .scr > svg path { transition: none; } }
+</style>
+<script>
+    (function () {
+        function build() {
+            document.querySelectorAll('.scr').forEach(function (scr) {
+                var old = scr.querySelector('svg'); if (old) old.remove();
+                var tn = scr.firstChild; if (!tn || tn.nodeType !== 3) return;
+                // Measure the tight glyph box with a Range (the element's own
+                // rect includes line-height leading, which oversizes the oval).
+                var range = document.createRange();
+                range.selectNodeContents(tn);
+                var tr = range.getBoundingClientRect();
+                var sr = scr.getBoundingClientRect();
+                if (!tr.width) return;
+                var w = tr.width, h = tr.height, padX = w * 0.10 + 6, padY = h * 0.09 + 3;
+                // Clamp horizontal padding so a clipping ancestor (e.g. the site's
+                // overflow-x:hidden .container) never cuts off the oval's arc.
+                var clipLeft = -Infinity, clipRight = Infinity, anc = scr.parentElement;
+                while (anc && anc !== document.body) {
+                    var acs = getComputedStyle(anc);
+                    if (acs.overflow !== 'visible' || acs.overflowX !== 'visible') {
+                        var ar = anc.getBoundingClientRect(); clipLeft = ar.left; clipRight = ar.right; break;
+                    }
+                    anc = anc.parentElement;
+                }
+                padX = Math.max(4, Math.min(padX, tr.left - clipLeft - 5, clipRight - tr.right - 5));
+                var W = Math.round(w + padX * 2), H = Math.round(h + padY * 2);
+                var offX = tr.left - sr.left, offY = tr.top - sr.top;
+                var cx = W / 2, cy = H / 2, rx = W / 2 - 3, ry = H / 2 - 3;
+                var sx = cx + rx * 0.52, sy = cy - ry * 0.82, ex = cx - rx * 0.08, ey = cy - ry * 0.99,
+                    tx = cx + rx * 0.72, ty = cy - ry * 0.5;
+                // A near-full elliptical arc with a small overshoot tail — a
+                // hand-drawn circle around the word.
+                var d = 'M' + sx.toFixed(1) + ',' + sy.toFixed(1) +
+                    ' A' + rx.toFixed(1) + ',' + ry.toFixed(1) + ' 0 1 1 ' + ex.toFixed(1) + ',' + ey.toFixed(1) +
+                    ' C' + (ex + rx * 0.42).toFixed(1) + ',' + (ey - ry * 0.05).toFixed(1) + ' ' +
+                           tx.toFixed(1) + ',' + (ty - ry * 0.22).toFixed(1) + ' ' + tx.toFixed(1) + ',' + ty.toFixed(1);
+                var ns = 'http://www.w3.org/2000/svg';
+                var svg = document.createElementNS(ns, 'svg');
+                svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+                svg.setAttribute('aria-hidden', 'true');
+                svg.style.cssText = 'left:' + (offX - padX) + 'px;top:' + (offY - padY) + 'px;width:' + W + 'px;height:' + H + 'px';
+                var path = document.createElementNS(ns, 'path');
+                path.setAttribute('d', d);
+                svg.appendChild(path);
+                scr.appendChild(svg);
+                path.style.setProperty('--len', Math.ceil(path.getTotalLength()) + 'px');
+            });
+        }
+        function boot() {
+            build();
+            var t;
+            addEventListener('resize', function () { clearTimeout(t); t = setTimeout(build, 200); });
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+        }
+        if (document.readyState !== 'loading') boot();
+        else document.addEventListener('DOMContentLoaded', boot);
+    })();
+</script>
+@endonce

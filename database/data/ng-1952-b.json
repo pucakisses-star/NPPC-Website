@@ -1,18 +1,18 @@
 [
   {
-    "name": "Chris Mensalvos",
+    "name": "Chris Mensalvas",
     "first_name": "Chris",
-    "last_name": "Mensalvos",
+    "last_name": "Mensalvas",
     "gender": "Male",
     "race": "Asian",
     "state": "Washington",
     "ideologies": ["Labor", "Communism"],
     "affiliation": ["ILWU Local 37"],
     "released": true,
-    "bio": "Chris Mensalvos was a Filipino leader of ILWU Local 37, the Seattle Filipino cannery workers' union, targeted for deportation under the McCarran (Internal Security) Act for his union and alleged Communist activity. His case was part of the McCarthy-era drive to deport foreign-born trade unionists for their labor and political activity.",
-    "charges": "Deportation proceedings under the McCarran (Internal Security) Act for alleged Communist affiliation and radical union activity.",
-    "convicted": "Faced deportation (no criminal conviction).",
-    "sentence": "Deportation proceedings."
+    "bio": "Chris Mensalvas (also spelled Mensalvos) was a Filipino American labor leader and poet who in 1949 was elected president of Local 7 of the cannery workers' union — which soon became Local 37 of the ILWU, the Seattle-based Filipino cannery workers' union. Shortly after taking office he was arrested on anti-Communist and deportation charges, and he spent the McCarthy years fighting repeated attempts to deport him under the McCarran–Walter Act. He defeated the deportation drive and remained president of Local 37 throughout the 1950s. His case was part of the government's campaign to break militant, foreign-born trade unionists by deporting them for their labor and political activity.",
+    "charges": "Deportation proceedings under the McCarran–Walter Act, brought soon after his 1949 election as president of the ILWU Local 37 cannery workers' union, for his union leadership and alleged Communist affiliation.",
+    "convicted": "No criminal conviction; the deportation drive was defeated.",
+    "sentence": "Repeated deportation proceedings through the 1950s; never deported."
   },
   {
     "name": "Casimiro Absolar",

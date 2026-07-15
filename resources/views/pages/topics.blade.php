@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Topics | NPPC')
+
 @section('head')
 <style>
     /* Full-bleed: break out of the global .container max-width (like the tracker). */
@@ -17,7 +19,13 @@
     .tpx-photo { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; }
     .tpx-photo-tint { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(8,7,5,0.82) 0%, rgba(8,7,5,0.45) 40%, rgba(8,7,5,0.55) 100%); }
 
-    .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; min-height: calc(100vh - 108px); }
+    .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; height: calc(100vh - 108px); }
+
+    /* Thin translucent scrollbars for the nav columns over the photo */
+    .tpx-nav, .tpx-sub-col { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.3) transparent; }
+    .tpx-nav::-webkit-scrollbar, .tpx-sub-col::-webkit-scrollbar { width: 8px; }
+    .tpx-nav::-webkit-scrollbar-thumb, .tpx-sub-col::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
+    .tpx-nav::-webkit-scrollbar-thumb:hover, .tpx-sub-col::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
 
     /* Header bar sits across the nav area */
     .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
@@ -27,23 +35,46 @@
     .tpx-action svg { width: 15px; height: 15px; }
 
     /* Left column — root topics + search, over the photo */
-    .tpx-nav { grid-column: 1; padding: 26px clamp(20px, 3vw, 40px); }
+    .tpx-nav { grid-column: 1; padding: 26px clamp(20px, 3vw, 40px); overflow-y: auto; overflow-x: hidden; min-height: 0; }
     .tpx-nav-item { display: block; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.78); padding: 9px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-nav-item:hover { color: var(--on-dark); }
     .tpx-nav-item.active { color: #8b93ff; }
-    .tpx-search { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.3); color: var(--on-dark); padding: 9px 12px; font-size: 13px; width: 100%; margin-top: 24px; outline: none; }
+    .tpx-search-wrap { margin-top: 24px; }
+    .tpx-search { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.3); color: var(--on-dark); padding: 9px 12px; font-size: 13px; width: 100%; outline: none; }
     .tpx-search::placeholder { color: rgba(255,255,255,0.5); }
     .tpx-search:focus { border-color: rgba(255,255,255,0.7); }
+    /* Search results — in-flow below the box so the column scrolls naturally. */
+    .tpx-search-results { margin-top: 6px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.45); max-height: 300px; overflow-y: auto; }
+    .tpx-search-results[hidden] { display: none; }
+    a.tpx-search-result { display: block; padding: 8px 12px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    a.tpx-search-result:last-child { border-bottom: 0; }
+    a.tpx-search-result:hover, a.tpx-search-result.sel { background: rgba(255,255,255,0.14); }
+    .tpx-search-result .tsr-t { display: block; color: var(--on-dark); font-size: 13px; line-height: 1.35; }
+    .tpx-search-result .tsr-p { display: block; color: rgba(255,255,255,0.55); font-size: 11px; margin-top: 2px; }
+    .tpx-search-empty { padding: 8px 12px; color: rgba(255,255,255,0.55); font-size: 12px; }
 
-    /* Middle column — sub-topics, over the photo */
-    .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
+    /* Middle column — sub-topics, over the photo. When the active sub-topic has
+       nested topics, a second list sits beside the sub-topics inside this same
+       grid column, filling space that was already empty — so showing it never
+       moves the left nav, the sub-topics list, or the detail panel. */
+    .tpx-sub { grid-column: 2; padding: 26px clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); overflow: hidden; min-height: 0; }
+    .tpx-sub-inner { display: flex; align-items: stretch; flex-wrap: wrap; height: 100%; min-height: 0; }
+    /* Each sub-topic column scrolls on its own when its list is taller than the
+       viewport (like the ecfr.eu reference), and animates independently so an
+       unchanged column never re-renders when only a neighbour changes. */
+    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; transition: opacity 0.5s ease, transform 0.5s ease; }
+    /* Enter state for soft-nav: a (re)built column slides in from the right and
+       fades (mirrors the ecfr.eu "Mapping Palestinian Politics" transition). */
+    .tpx-sub-col.tpx-enter { opacity: 0; transform: translateX(32px); }
+    /* Nested-topics list — sits to the right of the sub-topics list */
+    .tpx-sub2 { margin-left: clamp(20px, 2.2vw, 34px); padding-left: clamp(22px, 2.4vw, 40px); border-left: 1px solid rgba(255,255,255,0.18); }
     .tpx-sub-heading { font-size: 14px; font-weight: 800; letter-spacing: 0.03em; color: var(--on-dark); margin: 0 0 18px; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link { display: block; font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.82); padding: 8px 0; text-decoration: none; transition: color 0.15s; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
     .tpx-sub-link:hover { color: var(--on-dark); }
     .tpx-sub-link.active { color: #8b93ff; }
 
     /* Right column — white detail panel with a large image */
-    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.3s ease; }
+    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.5s ease; }
     .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
@@ -77,8 +108,12 @@
     .tpx-case-meta { font-size: 12px; color: #8a8f98; margin-top: 1px; }
 
     @@media (max-width: 1024px) {
-        .tpx-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+        /* Stack and let the page scroll normally instead of scrolling columns. */
+        .tpx-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
         .tpx-head { grid-column: 1 / 3; }
+        .tpx-nav, .tpx-sub { overflow: visible; }
+        .tpx-sub-inner { height: auto; }
+        .tpx-sub-col { overflow: visible; max-height: none; }
         .tpx-detail { grid-column: 1 / 3; grid-row: auto; max-height: none; }
     }
     @@media (max-width: 600px) {
@@ -86,13 +121,21 @@
         .tpx-head { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 14px; }
         .tpx-nav, .tpx-sub, .tpx-detail { grid-column: 1; }
         .tpx-sub { border-left: 0; }
+        .tpx-sub2 { margin-left: 0; padding-left: 0; border-left: 0; }
     }
 </style>
 @endsection
 
 @section('body')
 @php
-    $displayTopic = $activeChild ?: $activeTopic;
+    $activeGrandchild = $activeGrandchild ?? null;
+    $displayTopic = $activeGrandchild ?: ($activeChild ?: $activeTopic);
+    // Nav lists show only published topics — an unpublished topic in the nav
+    // wouldn't resolve when clicked (the controller looks it up published-only).
+    $subChildren = $activeTopic ? $activeTopic->children->where('published', true) : collect();
+    $nestedChildren = $activeChild ? $activeChild->children->where('published', true) : collect();
+    // A third nav column appears when the active sub-topic has nested topics.
+    $showL3 = $nestedChildren->isNotEmpty();
 
     // Bundled fallback imagery per topic, used only when a topic has no
     // image of its own. Any image uploaded in admin overrides these.
@@ -136,9 +179,11 @@
             : ($activeOverride
                 ?: ($displayTopic && $displayTopic->image
                     ? Storage::url($displayTopic->image)
-                    : ($activeTopic && $activeTopic->image
-                        ? Storage::url($activeTopic->image)
-                        : $defaultFor($displayTopic ?: $activeTopic)))));
+                    : ($activeChild && $activeChild->image
+                        ? Storage::url($activeChild->image)
+                        : ($activeTopic && $activeTopic->image
+                            ? Storage::url($activeTopic->image)
+                            : $defaultFor($displayTopic ?: $activeTopic))))));
     $heroImage = $activeOverride
         ?: ($displayTopic && $displayTopic->image
             ? Storage::url($displayTopic->image)
@@ -156,7 +201,7 @@
     <div class="tpx-photo-tint"></div>
 
     <div class="tpx-grid">
-        {{-- Header (spans the two nav columns) --}}
+        {{-- Header (spans the nav columns) --}}
         <div class="tpx-head">
             <div class="tpx-actions">
                 <button type="button" class="tpx-action" onclick="window.print()">
@@ -180,23 +225,43 @@
             @endforeach
             <a href="/topics/index" data-no-fade class="tpx-nav-item {{ $showIndex ? 'active' : '' }}">Index</a>
             <a href="/topics/contributions" data-no-fade class="tpx-nav-item {{ $showContribute ? 'active' : '' }}">Contributions</a>
-            <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" onkeyup="filterTopics(this.value)">
+            <div class="tpx-search-wrap">
+                <input type="text" class="tpx-search" placeholder="Search..." id="topic-search" autocomplete="off" spellcheck="false">
+                <div class="tpx-search-results" id="topic-search-results" hidden></div>
+            </div>
         </div>
 
-        {{-- Column 2: sub-topics --}}
+        {{-- Column 2: sub-topics, with an optional nested-topics list beside them.
+             The nested list lives inside this same grid column, so it fills space
+             that was already empty and never shifts the other columns. --}}
         <div class="tpx-sub">
-            @if($activeTopic && $activeTopic->children->isNotEmpty())
-                <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
-                @foreach($activeTopic->children as $child)
-                    <a href="/topics/{{ $child->slug }}" data-no-fade
-                       class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
-                        {{ $child->title }}
-                    </a>
-                @endforeach
-            @endif
+            <div class="tpx-sub-inner">
+                <div class="tpx-sub-col">
+                    @if($activeTopic && $subChildren->isNotEmpty())
+                        <div class="tpx-sub-heading">About {{ $activeTopic->title }}</div>
+                        @foreach($subChildren as $child)
+                            <a href="/topics/{{ $child->slug }}" data-no-fade
+                               class="tpx-sub-link {{ $activeChild && $activeChild->id === $child->id ? 'active' : '' }}">
+                                {{ $child->title }}
+                            </a>
+                        @endforeach
+                    @endif
+                </div>
+                @if($showL3)
+                <div class="tpx-sub-col tpx-sub2">
+                    <div class="tpx-sub-heading">About {{ $activeChild->title }}</div>
+                    @foreach($nestedChildren as $grandchild)
+                        <a href="/topics/{{ $grandchild->slug }}" data-no-fade
+                           class="tpx-sub-link {{ $activeGrandchild && $activeGrandchild->id === $grandchild->id ? 'active' : '' }}">
+                            {{ $grandchild->title }}
+                        </a>
+                    @endforeach
+                </div>
+                @endif
+            </div>
         </div>
 
-        {{-- Column 3: white detail panel --}}
+        {{-- Detail panel --}}
         <div class="tpx-detail">
             @if($showContribute)
                 <div class="tpx-detail-eyebrow">Contribute to the database</div>
@@ -282,13 +347,95 @@
     </div>
 </div>
 
+<script>window.__TPX_INDEX = @json($searchIndex);</script>
 <script>
-function filterTopics(q) {
-    q = q.toLowerCase();
-    document.querySelectorAll('.tpx-nav-item').forEach(function (el) {
-        el.style.display = el.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+/* Topic search — searches every published topic (title + section path) and
+   shows clickable results, like the ecfr.eu mapping explorer's search. */
+(function () {
+    var IDX = window.__TPX_INDEX || [];
+    var input = document.getElementById('topic-search');
+    var box = document.getElementById('topic-search-results');
+    if (!input || !box) return;
+    var sel = -1;
+
+    function clearResults() { box.innerHTML = ''; box.hidden = true; sel = -1; }
+
+    function render(matches) {
+        box.innerHTML = '';
+        sel = -1;
+        if (!matches.length) {
+            var empty = document.createElement('div');
+            empty.className = 'tpx-search-empty';
+            empty.textContent = 'No matching topics';
+            box.appendChild(empty);
+        }
+        matches.slice(0, 12).forEach(function (m) {
+            var a = document.createElement('a');
+            a.className = 'tpx-search-result';
+            a.href = '/topics/' + m.s;
+            var t = document.createElement('span');
+            t.className = 'tsr-t';
+            t.textContent = m.t;
+            a.appendChild(t);
+            if (m.p) {
+                var p = document.createElement('span');
+                p.className = 'tsr-p';
+                p.textContent = m.p;
+                a.appendChild(p);
+            }
+            box.appendChild(a);
+        });
+        box.hidden = false;
+    }
+
+    function search(q) {
+        q = q.trim().toLowerCase();
+        if (q.length < 2) { clearResults(); return; }
+        var scored = [];
+        for (var i = 0; i < IDX.length; i++) {
+            var t = IDX[i].t.toLowerCase(), p = (IDX[i].p || '').toLowerCase();
+            var s = -1;
+            if (t.indexOf(q) === 0) s = 0;                       // title starts with
+            else if (t.indexOf(' ' + q) !== -1) s = 1;           // word in title
+            else if (t.indexOf(q) !== -1) s = 2;                 // anywhere in title
+            else if (p.indexOf(q) !== -1) s = 3;                 // in section path
+            if (s >= 0) scored.push([s, IDX[i]]);
+        }
+        scored.sort(function (a, b) { return a[0] - b[0] || a[1].t.localeCompare(b[1].t); });
+        render(scored.map(function (x) { return x[1]; }));
+    }
+
+    function items() { return box.querySelectorAll('a.tpx-search-result'); }
+    function highlight(n) {
+        var list = items();
+        if (!list.length) return;
+        sel = (n + list.length) % list.length;
+        list.forEach(function (el, i) { el.classList.toggle('sel', i === sel); });
+        list[sel].scrollIntoView({ block: 'nearest' });
+    }
+
+    input.addEventListener('input', function () { search(this.value); });
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { clearResults(); input.value = ''; input.blur(); }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); highlight(sel + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(sel - 1); }
+        else if (e.key === 'Enter') {
+            var list = items();
+            var target = list[sel >= 0 ? sel : 0];
+            if (target) { e.preventDefault(); target.click(); }
+        }
     });
-}
+    // Choosing a result closes the panel (the click itself soft-navigates).
+    box.addEventListener('click', function (e) {
+        if (e.target.closest('a.tpx-search-result')) {
+            window.setTimeout(function () { clearResults(); input.value = ''; }, 0);
+        }
+    });
+    // Click elsewhere closes the panel.
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.tpx-search-wrap')) clearResults();
+    });
+})();
 function tpxShare() {
     var url = window.location.href, title = document.title;
     if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); }
@@ -302,6 +449,73 @@ function tpxShare() {
 (function () {
     function bgImageOf(el) { return el ? el.style.backgroundImage : ''; }
 
+    // Structural signature of a single nav column: its heading text plus the
+    // ordered list of link targets. Ignores which item is active (and markup
+    // noise), so navigating within a column is not a change to that column.
+    function colSignature(colEl) {
+        if (!colEl) return null;
+        var parts = [];
+        colEl.querySelectorAll('.tpx-sub-heading, a.tpx-sub-link').forEach(function (n) {
+            parts.push(n.classList.contains('tpx-sub-heading')
+                ? 'H:' + (n.textContent || '').trim()
+                : 'L:' + (n.getAttribute('href') || ''));
+        });
+        return parts.join('|');
+    }
+
+    // Move the active highlight inside a column to match the fresh version,
+    // without rebuilding the column's DOM.
+    function syncActive(scope, freshScope, sel) {
+        var active = {};
+        freshScope.querySelectorAll(sel + '.active').forEach(function (a) {
+            active[a.getAttribute('href')] = true;
+        });
+        scope.querySelectorAll(sel).forEach(function (a) {
+            a.classList.toggle('active', !!active[a.getAttribute('href')]);
+        });
+    }
+
+    // Slide + fade a (re)built column in from the right (the ecfr.eu transition).
+    function animateCol(colEl) {
+        colEl.classList.add('tpx-enter');
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () { colEl.classList.remove('tpx-enter'); });
+        });
+    }
+
+    // Reconcile the sub-topic columns one by one: keep an unchanged column's DOM
+    // (just move its highlight), rebuild a changed one, insert a new one, remove
+    // a gone one — so a column never re-renders unless it actually changed.
+    function reconcileColumns(curInner, freshInner) {
+        if (!curInner || !freshInner) return;
+        var kids = function (el) {
+            return Array.prototype.filter.call(el.children, function (c) {
+                return c.classList && c.classList.contains('tpx-sub-col');
+            });
+        };
+        var curCols = kids(curInner), freshCols = kids(freshInner);
+        var n = Math.max(curCols.length, freshCols.length);
+        for (var i = 0; i < n; i++) {
+            var curCol = curCols[i], freshCol = freshCols[i];
+            if (curCol && freshCol) {
+                if (colSignature(curCol) === colSignature(freshCol)) {
+                    syncActive(curCol, freshCol, 'a.tpx-sub-link');
+                } else {
+                    curCol.className = freshCol.className;
+                    curCol.innerHTML = freshCol.innerHTML;
+                    curCol.scrollTop = 0;
+                    animateCol(curCol);
+                }
+            } else if (freshCol && !curCol) {
+                var clone = document.importNode(freshCol, true);
+                curInner.appendChild(clone);
+                animateCol(clone);
+            } else if (curCol && !freshCol) {
+                curCol.parentNode.removeChild(curCol);
+            }
+        }
+    }
+
     // Crossfade the backdrop: layer the new photo above the current one at
     // opacity 0, fade it in, then drop any older layers.
     function crossfadeBackground(tpx, newBg) {
@@ -310,17 +524,21 @@ function tpxShare() {
         layer.className = 'tpx-photo';
         layer.style.backgroundImage = newBg;
         layer.style.opacity = '0';
-        layer.style.transition = 'opacity 0.6s ease';
+        layer.style.transition = 'opacity 0.5s ease';
         if (anchor) { tpx.insertBefore(layer, anchor); } else { tpx.appendChild(layer); }
         requestAnimationFrame(function () {
             requestAnimationFrame(function () { layer.style.opacity = '1'; });
         });
         window.setTimeout(function () {
-            tpx.querySelectorAll('.tpx-photo').forEach(function (p) {
-                if (p !== layer && p.parentNode) { p.parentNode.removeChild(p); }
-            });
-            layer.style.transition = '';
-        }, 700);
+            // Keep only the newest (last) photo layer — never remove a layer
+            // added by a later navigation, so rapid clicks can't strip the
+            // backdrop or leave an older photo showing.
+            var photos = tpx.querySelectorAll('.tpx-photo');
+            for (var i = 0; i < photos.length - 1; i++) {
+                if (photos[i].parentNode) { photos[i].parentNode.removeChild(photos[i]); }
+            }
+            if (photos.length) { photos[photos.length - 1].style.transition = ''; }
+        }, 600);
     }
 
     // Fade the detail panel out, resolving once the fade has run.
@@ -332,7 +550,7 @@ function tpxShare() {
         });
     }
 
-    var FADE_MS = 300;
+    var FADE_MS = 500;
 
     function swapTopic(href, push) {
         var current = document.querySelector('.tpx');
@@ -358,12 +576,16 @@ function tpxShare() {
             var newBg = bgImageOf(fresh.querySelector('.tpx-photo'));
             if (newBg && newBg !== curBg) { crossfadeBackground(current, newBg); }
 
-            // Swap the columns/header in place. Nav and sub-topic lists update
-            // instantly; the detail panel is faded back in just below.
-            var freshGrid = fresh.querySelector('.tpx-grid');
-            var curGrid = current.querySelector('.tpx-grid');
-            if (freshGrid && curGrid) { curGrid.innerHTML = freshGrid.innerHTML; }
-            else { current.innerHTML = fresh.innerHTML; }
+            // Update in place, column by column, so an unchanged column never
+            // re-renders (no flash, no scroll reset) — only a changed/new column
+            // rebuilds and slides in. Then move the root-nav highlight and swap
+            // the detail panel's content.
+            reconcileColumns(current.querySelector('.tpx-sub-inner'),
+                             fresh.querySelector('.tpx-sub-inner'));
+            syncActive(current, fresh, 'a.tpx-nav-item');
+            var freshDetail = fresh.querySelector('.tpx-detail');
+            var curDetail = current.querySelector('.tpx-detail');
+            if (freshDetail && curDetail) { curDetail.innerHTML = freshDetail.innerHTML; }
 
             // A soft-injected reCAPTCHA (the Contributions form) won't auto-render,
             // so render it explicitly. The api.js library is loaded site-wide. If
@@ -394,7 +616,7 @@ function tpxShare() {
     }
 
     document.addEventListener('click', function (e) {
-        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link, a.tpx-index-link');
+        var a = e.target.closest('a.tpx-nav-item, a.tpx-sub-link, a.tpx-index-link, a.tpx-search-result');
         if (!a) return;
         if (a.hasAttribute('data-fullload')) return;   // let this link do a full page load (form + reCAPTCHA)
         // Respect new-tab / modified clicks.

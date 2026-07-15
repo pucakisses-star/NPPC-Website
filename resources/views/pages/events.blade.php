@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Events | NPPC')
+
 @section('head')
 <style>
     .events-page { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -55,9 +57,8 @@
             <p class="events-intro">Join NPPC's events for conversations about political imprisonment, civil liberties, and social justice with advocates, researchers, and community members.</p>
         </div>
         <div class="events-hero-image">
-            <div style="width:100%; height:300px; background:linear-gradient(135deg, #1a1040 0%, #2a1860 50%, #5660fe 100%); border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="rgba(255,255,255,0.15)" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
-            </div>
+            <img src="{{ asset('images/candles.jpg') }}" alt="A wall of glowing votive candles at a vigil"
+                 style="width:100%; height:300px; object-fit:cover; object-position:center; border-radius:12px; display:block;">
         </div>
     </div>
 

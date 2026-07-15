@@ -1,0 +1,414 @@
+{
+  "_meta": {
+    "source": "Prisoner Database — Research-Improved Top 100 Entries (research date July 13, 2026)",
+    "note": "Revised, source-grounded biographies for the 100 most-incomplete prisoner records. Names are corrected only where a court or archival record establishes the correction. Records with no established imprisonment (name error, scope audit) are flagged under_review so they are hidden from public pages pending confirmation.",
+    "count": 100
+  },
+  "revisions": [
+    {
+      "slug": "william-stoner",
+      "description": "William Stoner appears in late-1980s and 1990 political-prisoner support rosters, including a 1987 listing at the federal correctional institution in Milan, Michigan, and a later Pennsylvania mailing address. No reliable source has yet identified his prosecution, conviction, sentence, or political affiliation, and his identity remains unresolved pending a docket or prison record."
+    },
+    {
+      "slug": "hercules-anderson",
+      "description": "Hercules Anderson was a Harris Neck descendant and community activist who joined the April 1979 occupation of the Harris Neck National Wildlife Refuge, land the federal government had condemned from a predominantly Black community during World War II. After the protesters refused an order to leave, the four men were held in criminal contempt, sentenced to 30 days, and appealed. The Fifth Circuit affirmed the contempt judgments in In re Timmons, 607 F.2d 120 (1979); the men were free on their own recognizance only while that appeal proceeded. Hercules Anderson died October 3, 2021."
+    },
+    {
+      "slug": "gregory-felix",
+      "description": "Gregory Felix was one of two Black people arrested by Oakland vice-squad officers inside an NAACP office in 1979, during the investigation and political controversy surrounding the police killing of 15-year-old Melvin Black. Contemporary movement reporting connects Felix to that controversy but does not establish his charge, case number, disposition, or organizational membership, which remain to be confirmed from court and news records."
+    },
+    {
+      "slug": "ted-clark",
+      "description": "Theodore Franklin “Ted” Clark was an Atlanta civil-rights minister who joined the April 1979 occupation of the Harris Neck National Wildlife Refuge, land the federal government had condemned from a predominantly Black community during World War II. After the protesters refused an order to leave, the four men were held in criminal contempt, sentenced to 30 days, and appealed. The Fifth Circuit affirmed the contempt judgments in In re Timmons, 607 F.2d 120 (1979); the men were free on their own recognizance only while that appeal proceeded."
+    },
+    {
+      "slug": "christopher-mcintosh",
+      "description": "Christopher McIntosh Jr. was a Harris Neck descendant and land-reclamation protester who joined the April 1979 occupation of the Harris Neck National Wildlife Refuge, land the federal government had condemned from a predominantly Black community during World War II. After the protesters refused an order to leave, the four men were held in criminal contempt, sentenced to 30 days, and appealed. The Fifth Circuit affirmed the contempt judgments in In re Timmons, 607 F.2d 120 (1979); the men were free on their own recognizance only while that appeal proceeded."
+    },
+    {
+      "slug": "edgar-timmons-jr",
+      "description": "Edgar Timmons Jr. was a Harris Neck descendant and named appellant who joined the April 1979 occupation of the Harris Neck National Wildlife Refuge, land the federal government had condemned from a predominantly Black community during World War II. After the protesters refused an order to leave, the four men were held in criminal contempt, sentenced to 30 days, and appealed. The Fifth Circuit affirmed the contempt judgments in In re Timmons, 607 F.2d 120 (1979); the men were free on their own recognizance only while that appeal proceeded."
+    },
+    {
+      "slug": "jerome-singleton",
+      "description": "Jerome Singleton, a 30-year-old Black student, husband, father of two, and honorably discharged veteran with no prior arrest record, was charged in 1979 with slashing an undercover New York police officer during a decoy operation. Judge Bruce Wright released him on his own recognizance, prompting a public dispute over bail. Later reporting indicates Singleton was convicted of second-degree assault but acquitted of attempted murder and first-degree assault."
+    },
+    {
+      "slug": "terrence-johnson",
+      "description": "Terrence G. Johnson (February 27, 1963 – February 27, 1997) was 15 when Prince George’s County officers Albert Claggett and James Swart arrested him on June 26, 1978. Both officers were shot inside the Hyattsville station; Claggett died. Johnson and his supporters said he had been beaten and acted in self-defense, an account prosecutors disputed. On March 31, 1979, a jury acquitted him of first-degree murder but convicted him of voluntary manslaughter and unlawful use of a handgun, and he received an aggregate 25-year sentence. He was later paroled and died by suicide on his 34th birthday in 1997 after a failed bank robbery."
+    },
+    {
+      "slug": "leonard-w-bolhner",
+      "description": "Leonard W. Bolhner (indexed by historian Stephen M. Kohn as Leonard W. Boehner) is listed among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he served from November 9, 1918, to January 19, 1922. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "frank-grubl",
+      "description": "Frank Grubl is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he entered Leavenworth Penitentiary on October 5, 1918, and that his conviction was reviewed in Grubl v. United States, 264 F. 44 (8th Cir. 1920). The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "john-orear",
+      "description": "John O’Rear is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he received a two-year federal sentence and served at Atlanta Penitentiary; his conviction was reviewed in O’Rear v. United States, 261 F. 257 (5th Cir. 1919). The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "samuel-lefto",
+      "description": "Samuel Lefto is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he began serving a federal sentence at Atlanta Penitentiary on April 6, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "john-piergres",
+      "description": "John Piergres is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he began serving a federal sentence at Leavenworth on May 15, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "benton-claiborne",
+      "description": "Benton Claiborne is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was confined at Atlanta Penitentiary from September 10, 1918, to October 15, 1920. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "popp-janssen",
+      "description": "Popp Janssen is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he began serving a federal sentence at Leavenworth on November 13, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "julius-reck",
+      "description": "Julius Reck is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he began serving a sentence in the Richland County jail on December 12, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "a-w-mcmasters",
+      "description": "A. W. McMasters is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he began serving a federal sentence at Leavenworth on October 17, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "norris-tucker",
+      "description": "Norris Tucker is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he served a federal prison term at Atlanta Penitentiary. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "wenzel-francik",
+      "description": "Wenzel Francik is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was convicted in the mass Wichita IWW trial and sentenced to seven and one-half years. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "walter-crosby",
+      "description": "Walter Crosby is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was released from federal prison on December 25, 1921. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "yvonne-small",
+      "description": "Yvonne Small was named as a petitioner in materials for the 1990 Special International Tribunal on Political Prisoners and Prisoners of War in the United States. That listing shows a support campaign treated her as a political prisoner, but no prosecution, sentence, organization, or biographical record has yet been located to identify her confidently; her identity remains unresolved."
+    },
+    {
+      "slug": "james-russell-hallam",
+      "description": "James Russell Hallam was a Newport, Kentucky, attorney subjected to Union political detention during the Civil War. A Camp Chase register records his admission on October 22, 1861, and his discharge on December 4, 1861, by order of General Don Carlos Buell. Other Kentucky records indicate a later arrest in 1862 and a subsequent civil action alleging false imprisonment, suggesting more than one detention episode."
+    },
+    {
+      "slug": "gloria-rodriguez",
+      "description": "Gloria Rodríguez was a Young Lords organizer active on New York’s Lower East Side and later in Philadelphia. Accounts place her in major Young Lords campaigns, including community health work and the July 1970 occupation of Lincoln Hospital. Her activist biography is well documented, but a specific charge, detention period, or court outcome supporting her inclusion as a prisoner has not been located, and the record is flagged for scope review.",
+      "under_review": true
+    },
+    {
+      "slug": "linwood-kaine",
+      "description": "Linwood “Woody” Kaine was arrested during a March 4, 2017 confrontation between supporters and opponents of President Donald Trump at the Minnesota State Capitol. He pleaded guilty to obstructing legal process, received four days in jail and one year of probation, and was ordered to pay fines and fees. Contemporary reporting identified him as the son of U.S. Senator Tim Kaine."
+    },
+    {
+      "slug": "case-johnson",
+      "description": "Case Johnson was named by The Black Panther as one of six Black prisoners indicted after the July 23, 1978 rebellion at Georgia State Prison in Reidsville, in which a guard and two prisoners were killed. The six were reported to face capital prosecution; Johnson’s individual trial result and appellate history have not been located and should not be assumed from those of his co-defendants."
+    },
+    {
+      "slug": "forest-jordan",
+      "description": "Forrest Andrew Jordan was one of six inmates charged after the July 23, 1978 Reidsville prison rebellion. Evidence showed that Jordan and Jessie Whitaker negotiated the surrender of barricaded prisoners; his defense argued that he was singled out because he acted as an inmate spokesman. In August 1980 a jury convicted him of murder and mutiny, acquitted him of aggravated assault, rejected the death penalty, and imposed life imprisonment plus a consecutive five-year term. The Georgia Supreme Court affirmed in Jordan v. State, 247 Ga. 328 (1981).",
+      "name": "Forrest Andrew Jordan"
+    },
+    {
+      "slug": "charles-2x-beasley",
+      "description": "Charles 2X Beasley was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting states he was sentenced to 15 years. Because the surviving account rests chiefly on The Black Panther and defense materials, allegations of framing, assault, or official killing are presented here as attributed claims pending court records."
+    },
+    {
+      "slug": "oscar-gamba-johnson",
+      "description": "Oscar “Gamba” Johnson was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting describes him as convicted; a 50-year figure in earlier records conflicts with later support literature describing a 148-year aggregate term. Because the surviving account rests chiefly on The Black Panther and defense materials, allegations of framing, assault, or official killing are presented here as attributed claims pending court records."
+    },
+    {
+      "slug": "naomi-burns",
+      "description": "Naomi Burns was listed as a 1975 grand-jury resister on the John Brown Anti-Klan Committee’s November 1984 “Stop the Grand Jury” roster, which grouped her with people connected to Black liberation and Puerto Rican independence investigations. The roster does not establish her own organization, subpoenaing district, contempt order, or confinement dates, and no independent case record has been located."
+    },
+    {
+      "slug": "jessie-whitaker",
+      "description": "Jessie Whitaker was one of six inmates prosecuted after the July 23, 1978 Reidsville prison rebellion. He and Forrest Jordan negotiated an end to the barricade. Whitaker was tried first and convicted of three murders, simple battery, and simple assault; the Georgia Supreme Court reviewed and affirmed the convictions in 1980 (Whitaker v. State, 246 Ga. 163)."
+    },
+    {
+      "slug": "lincoln-heard",
+      "description": "Lincoln Heard was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting states he was indicted with other prisoners in connection with the death of guard Luell Wheeler Barrow. Because the surviving account rests chiefly on The Black Panther and defense materials, allegations of framing, assault, or official killing are presented here as attributed claims pending court records."
+    },
+    {
+      "slug": "jesse-tuba-clancy",
+      "description": "Jesse “Tuba” Clancy (also printed Claney) was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting describes him as convicted in the rebellion prosecutions, though the exact judgment is unresolved. Because the surviving account rests chiefly on The Black Panther and defense materials, allegations of framing, assault, or official killing are presented here as attributed claims pending court records."
+    },
+    {
+      "slug": "moses-evans",
+      "description": "Moses Evans was identified in the 1979 Reidsville Brothers defense campaign as one of six prisoners indicted after the July 23, 1978 prison rebellion. A contemporaneous international-jurists report described him as respected among prisoners for protesting prison conditions. His individual verdict, sentence, and appellate history have not been established."
+    },
+    {
+      "slug": "tommy-dotson",
+      "description": "Tommy Dotson was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting states he faced a murder charge and was beaten by guards in March 1974; both claims require independent case and medical records. Because the surviving account rests chiefly on The Black Panther and defense materials, allegations of framing, assault, or official killing are presented here as attributed claims pending court records."
+    },
+    {
+      "slug": "stephen-bingham",
+      "description": "Stephen Mitchell Bingham was a civil-rights and legal-aid attorney who visited George Jackson at San Quentin on August 21, 1971, shortly before Jackson and five others died in violence at the prison. Prosecutors alleged that Bingham smuggled Jackson a pistol concealed in a wig. Bingham went underground, returned voluntarily in July 1984, and stood trial on murder and conspiracy charges; a jury acquitted him on June 28, 1986. The smuggling theory was an allegation the jury rejected, and his years underground were not a term of imprisonment."
+    },
+    {
+      "slug": "frank-x-moore",
+      "description": "Frank X. Moore was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting states he was indicted but died in the Escambia County jail before trial; The Black Panther reported that he was found hanging and relayed allegations of official involvement. These allegations are presented as attributed claims pending court and investigative records."
+    },
+    {
+      "slug": "grover-mccorvey",
+      "description": "Grover McCorvey (also McGorvey; nicknamed “Sitting Bull”) was associated with the Atmore-Holman Brothers, prisoners prosecuted or targeted after the January 18, 1974 uprising at Atmore Prison in Alabama. Movement reporting describes him as convicted in the rebellion prosecutions, though the exact judgment is unresolved. Because the surviving account rests chiefly on The Black Panther and defense materials, allegations of framing, assault, or official killing are presented here as attributed claims pending court records."
+    },
+    {
+      "slug": "george-chagina-dobbins",
+      "description": "George “Chagina” Dobbins was an inmate activist associated with the Atmore-Holman Brothers who, according to movement reporting, died in custody after the January 18, 1974 Atmore Prison uprising; movement sources alleged official participation in his death. These allegations are presented as attributed claims pending court and investigative records."
+    },
+    {
+      "slug": "khalil-islam",
+      "description": "Khalil Islam (formerly Thomas 15X Johnson) was convicted with Muhammad Abdul Aziz and Mujahid Abdul Halim in the 1965 assassination of Malcolm X. Islam maintained his innocence, was released in 1987, and died in 2009. On November 18, 2021, a New York judge vacated the convictions of Islam and Aziz after a reinvestigation found withheld evidence and serious weaknesses in the prosecution; his exoneration was posthumous."
+    },
+    {
+      "slug": "robert-earl-may-jr",
+      "description": "Robert Earl May Jr. was reported in 1979 prisoner-rights publications as a 14-year-old sentenced to four consecutive 12-year terms — 48 years total — after he and three other youths pleaded guilty to armed-robbery charges in Mississippi. The reports said he was sent to Parchman and was ineligible for parole under then-applicable law. The indictment, plea transcript, sentencing order, and later release history have not been located, and any claim that the plea was coerced is an attributed allegation."
+    },
+    {
+      "slug": "warren-e-sumlin-sr",
+      "description": "Warren E. Sumlin Sr. was convicted of capital murder as an accomplice in the killing of J. Y. Cooper during events connected to a jail escape. He received a death sentence, but the Arkansas Supreme Court reduced it to life imprisonment without parole in 1981 (Sumlin v. State, 617 S.W.2d 372) because comparable participants had not received death. His claim of innocence, or of being targeted in a local political struggle, is retained as his and his supporters’ position rather than an adjudicated finding."
+    },
+    {
+      "slug": "andres-figueroa-cordero-2",
+      "description": "Andrés Figueroa Cordero (November 29, 1924 – March 7, 1979) was one of four Puerto Rican Nationalists who opened fire from the U.S. House visitors’ gallery on March 1, 1954, wounding five representatives in an armed protest for Puerto Rican independence. Convicted of attempted murder and conspiracy, he served more than two decades in federal prison. President Jimmy Carter commuted his sentence in 1977 after he developed terminal cancer; Figueroa Cordero returned to Puerto Rico and died in 1979.",
+      "name": "Andrés Figueroa Cordero"
+    },
+    {
+      "slug": "muhammad-abdul-aziz",
+      "description": "Muhammad Abdul Aziz (formerly Norman 3X Butler), a U.S. Navy veteran, was convicted in 1966 of participating in the assassination of Malcolm X, served roughly two decades, and was paroled in 1985. Aziz consistently maintained his innocence. On November 18, 2021, a New York judge vacated his conviction and that of Khalil Islam after prosecutors and defense investigators found withheld evidence, unreliable identification testimony, and information pointing away from the two men."
+    },
+    {
+      "slug": "james-collins",
+      "description": "The 1979 Black Panther article naming the Reidsville Brothers lists James Johnson — not James Collins — alongside Moses Evans, Case Johnson, Forrest Jordan, Jessie Whitaker, and a sixth defendant. This “James Collins” record therefore appears to contain a name error or conflation and has been flagged for review pending the April 5, 1979 Tattnall County indictment; it should not be treated as a confirmed separate individual.",
+      "under_review": true
+    },
+    {
+      "slug": "carl-bass",
+      "description": "Carl Bass was an Alabama prisoner serving a life sentence who lost both legs after gangrene developed while he was in state custody. A 1979 National Lawyers Guild account reprinted by The Black Panther alleged prolonged denial of adequate medical care. Bass escaped from Draper prison, was arrested in Oregon in 1979, resisted extradition with ACLU assistance, and pursued civil claims against Alabama corrections officials. The medical-neglect account is substantial but is presented as attributed until the civil pleadings and judgment are located."
+    },
+    {
+      "slug": "johnny-imani-harris-2",
+      "description": "Johnny Imani Harris was a leader of Inmates for Action (IFA) and one of the principal defendants prosecuted after the January 18, 1974 uprising at Atmore Prison. In 1975 he was convicted of first-degree murder in the death of guard Luell Wheeler Barrow and received the mandatory death penalty, even though the state’s theory did not require proof that he personally stabbed Barrow. A court set the conviction aside in 1981 because the prosecution had withheld impeachment and potentially exculpatory evidence. Harris was retried and reconvicted in 1983; archival records indicate the conviction was ultimately dismissed in 1987 and he was paroled. The “framed” characterization is attributed to his supporters."
+    },
+    {
+      "slug": "p-ware",
+      "description": "P. Ware was an Industrial Workers of the World member listed by historian Stephen M. Kohn as having served a sentence at San Quentin. The roster does not give a first name, county, charge, or sentence dates, which remain to be recovered from California prison and court records."
+    },
+    {
+      "slug": "c-f-bendey",
+      "description": "Kohn’s roster identifies an IWW member from Stockton, California — rendered in one passage as C. F. Bendey and elsewhere as C. F. Bentley — who received an indeterminate one-to-fourteen-year sentence. The surname spelling is unresolved and appears to reflect an OCR or transcription error; both forms are retained pending the original record."
+    },
+    {
+      "slug": "jack-gravel",
+      "description": "Jack Gravel was an IWW prisoner whose alleged mistreatment by prison officials in 1922 helped provoke a solidarity strike by fellow IWW prisoners. The institution, original conviction, sentence, and outcome are not established in the available source."
+    },
+    {
+      "slug": "emil-gardos",
+      "description": "Emil Gardos was a Hungarian-born Communist and labor organizer active in the United States, including as a party organizer in the Pennsylvania anthracite region. Labor-defense materials identified him as a target of the early-1930s deportation campaign against foreign-born radicals. His case is one of immigration detention and deportation proceedings rather than a criminal prison sentence."
+    },
+    {
+      "slug": "herbert-f-mansol",
+      "description": "Herbert F. Mansol is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was convicted of obstructing recruitment and began serving his sentence on May 26, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "edwin-krier",
+      "description": "Edwin Krier was an Industrial Workers of the World member imprisoned under a state criminal-syndicalism statute; Kohn states the conviction rested on Krier’s IWW membership. The state, court, commitment date, sentence length, and release date remain to be recovered from Kohn’s cited note or the prison register."
+    },
+    {
+      "slug": "kalla-niemi",
+      "description": "Kalla Niemi was an Industrial Workers of the World member convicted under a state criminal-syndicalism statute, as recorded in Kohn’s roster. The state, court, commitment date, sentence length, and release date remain to be recovered from the underlying records."
+    },
+    {
+      "slug": "w-r-holey",
+      "description": "W. R. Holey was an Industrial Workers of the World member convicted under a state criminal-syndicalism statute, as recorded in Kohn’s roster. The state, court, commitment date, sentence length, and release date remain to be recovered from the underlying records."
+    },
+    {
+      "slug": "dan-curtin",
+      "description": "Dan Curtin was an Industrial Workers of the World member convicted under a state criminal-syndicalism statute, as recorded in Kohn’s roster. The state, court, commitment date, sentence length, and release date remain to be recovered from the underlying records."
+    },
+    {
+      "slug": "elias-matson",
+      "description": "Elias Matson was an Industrial Workers of the World member convicted under a state criminal-syndicalism statute, as recorded in Kohn’s roster. The state, court, commitment date, sentence length, and release date remain to be recovered from the underlying records."
+    },
+    {
+      "slug": "pavel-martinov",
+      "description": "Pavel Martinov was listed in labor-defense material as a foreign-born militant detained in Cleveland during the 1933 deportation drive. His nationality, organization, immigration charge, detention dates, and ultimate outcome have not been established from a reliable source and should not be assumed."
+    },
+    {
+      "slug": "raphael-kwesi-joseph",
+      "description": "Raphael Kwesi Joseph was identified as a New Afrikan political prisoner and petitioner in the 1990 Special International Tribunal on Political Prisoners and Prisoners of War in the United States. No prosecution, prison number, sentence, or independent biography has been located that securely distinguishes him from people with similar names; his identity remains unresolved."
+    },
+    {
+      "slug": "mohaman-koti",
+      "description": "Mohaman Koti was identified in tribunal and support materials as a New Afrikan political prisoner from the Black liberation tradition. No case number, prison register, sentence, or independent biographical source has been located, and his identity remains unresolved pending the tribunal’s case submissions."
+    },
+    {
+      "slug": "eddy-dyer",
+      "description": "Eddy Dyer (possibly Edward Dyer) took part in a May 28, 1999 nonviolent blockade of Raytheon offices protesting the company’s missile production. The four defendants were sentenced on October 14, 1999, to 30 days in jail and were reported released after serving their terms. The action appears to have taken place in Massachusetts, though the exact court, statutory charge, and release date remain to be confirmed."
+    },
+    {
+      "slug": "jonathan-leavitt",
+      "description": "Jonathan Leavitt took part in a May 28, 1999 nonviolent blockade of Raytheon offices protesting the company’s missile production. The four defendants were sentenced on October 14, 1999, to 30 days in jail and were reported released after serving their terms. The action appears to have taken place in Massachusetts, though the exact court, statutory charge, and release date remain to be confirmed."
+    },
+    {
+      "slug": "kateri-mccarthy",
+      "description": "Kateri McCarthy took part in a May 28, 1999 nonviolent blockade of Raytheon offices protesting the company’s missile production. The four defendants were sentenced on October 14, 1999, to 30 days in jail and were reported released after serving their terms. The action appears to have taken place in Massachusetts, though the exact court, statutory charge, and release date remain to be confirmed."
+    },
+    {
+      "slug": "lauren-cannon",
+      "description": "Lauren Cannon took part in a May 28, 1999 nonviolent blockade of Raytheon offices protesting the company’s missile production. The four defendants were sentenced on October 14, 1999, to 30 days in jail and were reported released after serving their terms. The action appears to have taken place in Massachusetts, though the exact court, statutory charge, and release date remain to be confirmed."
+    },
+    {
+      "slug": "scott-kenji-warren",
+      "description": "Scott Kenji Warren, a Dorothy Day Catholic Worker activist, took part in an April 2001 Pentagon action in which protesters marked the building with blood. He was convicted in federal court in Alexandria, Virginia, of throwing an object at a building and received a three-month sentence; he had also been arrested in a 1999 White House protest against the NATO bombing of Yugoslavia. He is not the Arizona migrant-aid activist Scott Daniel Warren."
+    },
+    {
+      "slug": "peter-norwood-duberg",
+      "description": "Peter Norwood Duberg was an American employee of UNESCO in Paris whose past Communist Party membership triggered a U.S. loyalty investigation. He lost his international civil-service position and received asylum in Switzerland in 1954. No evidence has been found that he was jailed or imprisoned; the record is better classified as a loyalty-security, employment, and asylum case and is flagged for scope review.",
+      "under_review": true
+    },
+    {
+      "slug": "francisco-torres",
+      "description": "Francisco “Cisco” Torres was born in Puerto Rico, raised in New York, served in Vietnam, and became a Black Panther and community activist after his 1969 military discharge. In January 2007 he was arrested as one of the San Francisco 8 in a revived prosecution over the 1971 killing of police officer John V. Young. The charges against Torres were dismissed in 2009."
+    },
+    {
+      "slug": "lt-henry-howe",
+      "description": "Second Lieutenant Henry H. Howe Jr., while off duty and out of uniform, joined an antiwar demonstration in El Paso on November 6, 1965, carrying signs condemning the Vietnam War and President Lyndon Johnson. A general court-martial convicted him under Article 88 and related provisions, sentencing him to dismissal, forfeiture of pay, and two years at hard labor. The confinement was reduced to one year, and Howe was released after roughly three months on the commandant’s parole. He later became a legal-aid lawyer."
+    },
+    {
+      "slug": "robert-majors",
+      "description": "Robert Majors is a Las Vegas Catholic Worker activist repeatedly arrested during nonviolent protests at Creech Air Force Base against U.S. drone warfare. In April 2014 he was cited after attempting to deliver a war-crimes indictment at the base. In a 2015 Creech protest case, charges against Majors and other demonstrators were dismissed when the prosecution failed to prove that a lawful dispersal order had been given."
+    },
+    {
+      "slug": "h-c-white",
+      "description": "H. C. White was an Industrial Workers of the World member who served a sentence at San Quentin, according to Kohn’s political-prisoner roster (an earlier “YWW” rendering is an OCR error). The roster does not give a first name, charge, or sentence dates, which remain to be recovered from California prison and court records."
+    },
+    {
+      "slug": "john-kunz",
+      "description": "John Kunz is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from New Britain, Connecticut, and was convicted on May 28, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "elias-graceley",
+      "description": "Elias Graceley is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Toledo, Ohio, and began serving a sentence on April 5, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "herman-orear",
+      "description": "Herman O’Rear is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was a farmer from Tyler, Texas, who served at Atlanta Penitentiary. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "john-shea",
+      "description": "John Shea, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "joe-martin",
+      "description": "Joe Martin, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "bert-banker",
+      "description": "Bert Banker, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "fred-morgan",
+      "description": "Fred Morgan, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "george-kopp",
+      "description": "George Kopp, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "j-l-brian",
+      "description": "J. L. Brian, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "lyman-moore",
+      "description": "Lyman Moore, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "frank-fleury",
+      "description": "Frank Fleury, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "charles-clifford",
+      "description": "Charles Clifford, of Moscow, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "charles-carlson",
+      "description": "Charles Carlson, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "dennis-mccarthy",
+      "description": "Dennis McCarthy, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "t-e-hawkins",
+      "description": "T. E. Hawkins, of Moscow, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of six months to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "charles-anderson",
+      "description": "Charles Anderson, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "e-l-montgomery",
+      "description": "E. L. Montgomery, of St. Maries, Idaho, was one of a group sentenced under Idaho’s Criminal Syndicalism Act during the post–World War I campaign against the Industrial Workers of the World. Kohn’s roster gives an indeterminate sentence of one to ten years. Whether each defendant held formal IWW membership beyond the shared prosecution is not independently documented."
+    },
+    {
+      "slug": "clark-dickson",
+      "description": "Clark Dickson is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Cincinnati and began serving a sentence on August 7, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "henry-feltman",
+      "description": "Henry Feltman is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Cincinnati and began serving a sentence on September 6, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "frank-monparler",
+      "description": "Frank Monparler is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Detroit and began serving a sentence on July 17, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "j-c-masten",
+      "description": "J. C. Masten is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Cincinnati and began serving a sentence on September 6, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "charles-ohlsen",
+      "description": "Charles Ohlsen is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Newark and began serving a sentence on August 8, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "erwin-schwaer",
+      "description": "Erwin Schwaer is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Milwaukee and began serving a sentence on May 3, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "benedict-prieth",
+      "description": "Benedict Prieth, a Newark German-language newspaper publisher (editor of the New Jersey Freie Zeitung), was arrested and prosecuted under the Espionage Act in 1917 for wartime publishing. Although some rosters list him as convicted, other biographical and contemporary accounts report that the jury could not agree and that the prosecution was dropped; he should not be described as having served a prison sentence until the federal docket is confirmed."
+    },
+    {
+      "slug": "r-r-hoffman",
+      "description": "R. R. Hoffman is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he received a three-year federal sentence and served at McNeil Island Penitentiary. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "gustav-erdtmann",
+      "description": "Gustav Erdtmann is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from St. Louis and began serving a sentence on June 27, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "j-a-miller",
+      "description": "J. A. Miller is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Denver and began serving a two-year sentence in April 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "charlie-slom",
+      "description": "Charlie Slom is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he began serving a sentence at Moundsville Penitentiary on September 13, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "otto-janson",
+      "description": "Otto Janson is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from Oakland and began serving a five-year sentence on May 10, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "arthur-roth",
+      "description": "Arthur Roth is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that he was from New York City and began serving a five-year sentence on July 18, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    },
+    {
+      "slug": "elizabeth-watkins",
+      "description": "Elizabeth Watkins is listed by historian Stephen M. Kohn among people imprisoned under the Espionage Act, the Sedition Act, and related wartime-obstruction prosecutions. Kohn records that she began serving a term at the Missouri State Penitentiary on September 13, 1918. The specific charge, organizational affiliation, and home state are not established by the roster listing alone and remain to be confirmed from the underlying court or prison records."
+    }
+  ]
+}

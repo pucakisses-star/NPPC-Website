@@ -33,6 +33,8 @@ Route::controller(SiteController::class)
         Route::get('timeline', 'timeline');
         Route::get('annual-report', 'annualReport');
         Route::get('topics/{slug?}', 'topics');
+        Route::get('memorial', 'memorial');
+        Route::get('museum', 'museum');
         Route::get('calendar', 'calendar');
         Route::get('birthdays', 'birthdays');
         Route::get('map', 'map');
@@ -49,6 +51,8 @@ Route::controller(SiteController::class)
         Route::get('petition/{slug}', 'petitionPage');
         Route::post('petition/{slug}/sign', 'petitionSign');
         Route::get('prisoner/{slug}', 'prisoner');
+        Route::get('author/{slug}', 'author');
+        Route::get('state/{slug}', 'state');
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
         Route::get('about', 'about');

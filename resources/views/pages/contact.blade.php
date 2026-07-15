@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Contact Us | NPPC')
+
 @section('head')
 <style>
     .ct-page { color: rgba(var(--fg-rgb),0.85); }

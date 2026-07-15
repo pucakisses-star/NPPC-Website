@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Political Prisoner Map | NPPC')
+
 
 @section('head')
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">

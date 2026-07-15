@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Prisoner Outreach | NPPC')
+
 @section('head')
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -261,6 +263,33 @@
   border-radius: 4px;
   margin-bottom: 24px;
 }
+
+/* ── Meet Political Prisoners carousel ─────────────────────────────── */
+.mp-section { margin-top: 72px; padding-bottom: 96px; }
+.mp-heading { font-size: 2rem; font-weight: 900; color: var(--fg); margin-bottom: 28px; }
+.mp-carousel { display: flex; align-items: stretch; gap: 14px; }
+.mp-viewport { overflow: hidden; flex: 1; }
+.mp-track { display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+.mp-card { flex: 0 0 calc((100% - 48px) / 3); display: flex; flex-direction: column; background: #0d0d12; border: 1px solid rgba(var(--fg-rgb),0.1); border-radius: 6px; overflow: hidden; }
+.mp-photo { height: 250px; background: var(--surface-2) center 22% / cover no-repeat; }
+.mp-body { padding: 22px 22px 8px; text-align: center; flex: 1; }
+.mp-name { font-size: 1.45rem; font-weight: 900; color: #fff; line-height: 1.15; margin: 0 0 16px; }
+.mp-kicker { font-size: 10.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 14px; }
+.mp-state { font-size: 15px; font-weight: 800; color: #fff; margin-top: 5px; }
+.mp-status { display: inline-block; margin-top: 6px; padding: 5px 14px; font-size: 13.5px; font-weight: 800; color: #fff; border-radius: 2px; }
+.mp-status.is-imprisoned { background: #a11d1d; }
+.mp-status.is-released { background: #1e5b2e; }
+.mp-status.is-awaiting { background: #8a6d1a; }
+.mp-status.is-exile { background: #44449a; }
+.mp-status.is-other { background: rgba(255,255,255,0.18); }
+.mp-bio { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.8); margin-top: 16px; text-align: left; }
+.mp-more { align-self: flex-end; display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; padding: 12px 20px; background: rgba(255,255,255,0.08); color: #fff; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.15s; }
+.mp-more:hover { background: var(--accent); }
+.mp-plus { font-size: 16px; font-weight: 400; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+.mp-arrow { flex: 0 0 auto; align-self: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(var(--fg-rgb),0.3); background: transparent; color: var(--fg); font-size: 19px; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+.mp-arrow:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media (max-width: 979px) { .mp-card { flex-basis: calc((100% - 24px) / 2); } }
+@media (max-width: 639px) { .mp-card { flex-basis: 100%; } .mp-carousel { gap: 8px; } }
 </style>
 @endsection
 
@@ -360,11 +389,81 @@
         </div>
       </form>
     </div>
+
+    @if(($meetPrisoners ?? collect())->isNotEmpty())
+    <div class="mp-section">
+      <h2 class="mp-heading">Meet Political Prisoners</h2>
+      <div class="mp-carousel">
+        <button type="button" class="mp-arrow" id="mp-prev" aria-label="Previous prisoner">&larr;</button>
+        <div class="mp-viewport">
+          <div class="mp-track" id="mp-track">
+            @foreach($meetPrisoners as $mp)
+              @php
+                if ($mp->in_custody) { $mpStatus = 'Imprisoned'; $mpClass = 'is-imprisoned'; }
+                elseif ($mp->awaiting_trial) { $mpStatus = 'Awaiting Trial'; $mpClass = 'is-awaiting'; }
+                elseif ($mp->in_exile) { $mpStatus = 'In Exile'; $mpClass = 'is-exile'; }
+                elseif ($mp->released) { $mpStatus = 'Released'; $mpClass = 'is-released'; }
+                else { $mpStatus = 'Case Documented'; $mpClass = 'is-other'; }
+              @endphp
+              <div class="mp-card">
+                <div class="mp-photo" style="background-image: url('{{ $mp->photo_url }}');"></div>
+                <div class="mp-body">
+                  <h3 class="mp-name">{{ $mp->name }}</h3>
+                  <div class="mp-kicker">State of Imprisonment</div>
+                  <div class="mp-state">{{ $mp->state ?: 'United States' }}</div>
+                  <div class="mp-kicker">Status</div>
+                  <span class="mp-status {{ $mpClass }}">{{ $mpStatus }}</span>
+                  <p class="mp-bio">{{ \Illuminate\Support\Str::limit(trim(strip_tags($mp->description)), 150) }}</p>
+                </div>
+                <a class="mp-more" href="{{ $mp->url }}">Read More <span class="mp-plus">+</span></a>
+              </div>
+            @endforeach
+          </div>
+        </div>
+        <button type="button" class="mp-arrow" id="mp-next" aria-label="Next prisoner">&rarr;</button>
+      </div>
+    </div>
+    @endif
   </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  // "Meet Political Prisoners" carousel: server randomizes the order each
+  // load; Next/Previous slide one card at a time and wrap around forever.
+  (function () {
+    const track = document.getElementById('mp-track');
+    if (!track) return;
+    const cards = track.children;
+    let idx = 0;
+    function visibleCount() {
+      // Must match the CSS media queries, which key off the window width.
+      const w = window.innerWidth;
+      return w >= 980 ? 3 : (w >= 640 ? 2 : 1);
+    }
+    function maxIdx() { return Math.max(0, cards.length - visibleCount()); }
+    function update() {
+      if (!cards.length) return;
+      const gap = 24;
+      const step = cards[0].getBoundingClientRect().width + gap;
+      track.style.transform = 'translateX(' + (-idx * step) + 'px)';
+    }
+    document.getElementById('mp-next').addEventListener('click', function () {
+      idx = idx >= maxIdx() ? 0 : idx + 1;
+      update();
+    });
+    document.getElementById('mp-prev').addEventListener('click', function () {
+      idx = idx <= 0 ? maxIdx() : idx - 1;
+      update();
+    });
+    let mprt;
+    window.addEventListener('resize', function () {
+      clearTimeout(mprt);
+      mprt = setTimeout(function () { idx = Math.min(idx, maxIdx()); update(); }, 120);
+    });
+    update();
+  })();
+
   const card = document.getElementById('postcard');
   if (!card) return;
   const wrapper = card.parentElement;

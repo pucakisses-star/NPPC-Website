@@ -6,15 +6,25 @@
 @endphp
 @extends('app')
 
+@section('title'){{ $article->title }} | NPPC @endsection
+
+@section('meta_description'){{ substr(trim(strip_tags($article->intro ?: $article->body)), 0, 170) }}@endsection
+
+@if($article->image_url)
+@section('og_image'){{ str_starts_with($article->image_url, 'http') ? $article->image_url : url($article->image_url) }}@endsection
+@endif
+
 @section('body')
     <div class="line mt-8"></div>
 
-    {{-- Hero image first --}}
+    {{-- Hero image first. The caption sits as its own line *below* the photo
+         (not overlaid on it): only the <img> is clipped/rounded, so the
+         figcaption renders outside that box as a plain attribution line. --}}
     @if($article->image_url)
-        <figure style="margin: 48px 0 {{ $article->image_caption ? '8px' : '32px' }} 0; border-radius:8px; overflow:hidden; background:var(--surface-2);">
-            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top;">
+        <figure style="margin: 48px 0 32px 0;">
+            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="display:block; width:100%; max-height:560px; object-fit:cover; object-position:center top; border-radius:8px; background:var(--surface-2);">
             @if($article->image_caption)
-                <figcaption style="font-size:13px; color:rgba(var(--fg-rgb),0.4); font-style:italic; padding:8px 0 0 0;">{{ $article->image_caption }}</figcaption>
+                <figcaption style="font-size:13px; color:rgba(var(--fg-rgb),0.55); font-style:italic; line-height:1.5; margin-top:10px;">{{ $article->image_caption }}</figcaption>
             @endif
         </figure>
     @endif
@@ -52,14 +62,27 @@
     </article>
 
     @if(!empty($article->author) && !empty($article->author['about']))
+        @php $aboutAuthorUrl = $article->author['url'] ?? null; @endphp
         <div style="display:flex; gap:16px; align-items:flex-start; margin-top:48px; padding:24px; border:1px solid rgba(var(--fg-rgb),0.12); border-radius:8px; background:rgba(var(--fg-rgb),0.02);">
             @if($article->author['avatar_url'])
-                <img src="{{ $article->author['avatar_url'] }}" alt="{{ $article->author['name'] }}" style="width:64px; height:64px; border-radius:9999px; object-fit:cover; flex-shrink:0;">
+                @if($aboutAuthorUrl)<a href="{{ $aboutAuthorUrl }}" aria-label="More articles by {{ $article->author['name'] }}" style="flex-shrink:0;">@endif
+                <img src="{{ $article->author['avatar_url'] }}" alt="{{ $article->author['name'] }}" style="width:64px; height:64px; border-radius:9999px; object-fit:cover; flex-shrink:0; display:block;">
+                @if($aboutAuthorUrl)</a>@endif
             @endif
             <div>
                 <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(var(--fg-rgb),0.5); margin-bottom:4px;">About the author</div>
-                <div style="font-weight:700; color:var(--fg); font-size:18px; margin-bottom:6px;">{{ $article->author['name'] }}</div>
+                <div style="font-weight:700; font-size:18px; margin-bottom:6px;">
+                    @if($aboutAuthorUrl)
+                        <a href="{{ $aboutAuthorUrl }}" style="color:var(--fg); text-decoration:none; border-bottom:1px solid rgba(var(--fg-rgb),0.3); transition:border-color 0.15s;"
+                           onmouseover="this.style.borderBottomColor='var(--fg)'" onmouseout="this.style.borderBottomColor='rgba(var(--fg-rgb),0.3)'">{{ $article->author['name'] }}</a>
+                    @else
+                        <span style="color:var(--fg);">{{ $article->author['name'] }}</span>
+                    @endif
+                </div>
                 <div style="color:rgba(var(--fg-rgb),0.7); line-height:1.6; font-size:15px;">{{ $article->author['about'] }}</div>
+                @if($aboutAuthorUrl)
+                    <a href="{{ $aboutAuthorUrl }}" style="display:inline-block; margin-top:10px; font-size:13.5px; font-weight:700; color:var(--accent); text-decoration:none;">More from {{ $article->author['name'] }} &rarr;</a>
+                @endif
             </div>
         </div>
     @endif

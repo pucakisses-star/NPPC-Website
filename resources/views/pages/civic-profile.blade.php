@@ -6,26 +6,208 @@
     <meta name="description" content="Discover your unique Civic Profile. An interactive quiz from the National Political Prisoner Coalition that measures your civic values, engagement, and knowledge of rights, due process, and the right to dissent.">
     @verbatim
     <style>
+        /* ============================================================
+           Civic Profile — layout & presentation modeled on
+           civicprofile.org: off-white "grid paper" background, gold /
+           crimson / teal accents, an animated photo-wall intro, a
+           three-part overview band, and a sticky photo mosaic whose
+           crimson "Take the Quiz" box expands to fill the screen.
+           ============================================================ */
+        .cph-hero, .cph-overview, .cph-mosaic-area, .cph-quiz {
+            --cph-bg: #fefdff;
+            --cph-ink: #1e2122;
+            --cph-grid: #eff6f8;
+            --cph-gold: #e4a524;
+            --cph-crimson: #98002e;
+            --cph-cta: #8b1a3a;
+            --cph-teal: #2a6d81;
+            --cph-gray: #686868;
+        }
+        .cph-hero *, .cph-overview *, .cph-mosaic-area *, .cph-quiz * { box-sizing: border-box; }
+
+        /* Hairline grid-lines backdrop (the site-wide texture on the original). */
+        .cph-gridbg { position: relative; background: var(--cph-bg); }
+        .cph-gridbg::before {
+            content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+            --cw: calc(100vw / 10); --ch: calc(100vh / 3);
+            background-image:
+                repeating-linear-gradient(to right, var(--cph-grid) 0, var(--cph-grid) 1px, transparent 1px, transparent var(--cw)),
+                repeating-linear-gradient(to bottom, var(--cph-grid) 0, var(--cph-grid) 1px, transparent 1px, transparent var(--ch));
+            border-bottom: 1px solid var(--cph-grid);
+        }
+        @media (max-width: 1024px) { .cph-gridbg::before { --cw: calc(100vw / 6); } }
+        @media (max-width: 640px)  { .cph-gridbg::before { --cw: calc(100vw / 4); } }
+
+        /* ---------- Hero: photo-wall intro that resolves to the headline ---------- */
+        .cph-hero {
+            position: relative; height: 100vh; min-height: 560px; overflow: hidden;
+            background: var(--cph-bg); color: var(--cph-ink);
+        }
+        .cph-rows {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            justify-content: center; pointer-events: none;
+        }
+        .cph-row { height: 50%; overflow: hidden; display: flex; align-items: stretch; will-change: transform; }
+        .cph-track { display: flex; width: max-content; will-change: transform; }
+        .cph-card { flex: 0 0 auto; height: 100%; aspect-ratio: 5 / 7; overflow: hidden; background: #e9e9ee; }
+        .cph-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .cph-logo {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 5; display: flex; align-items: center; gap: 22px; padding: 0 2rem;
+            max-width: 580px; width: 100%; justify-content: center; pointer-events: none;
+        }
+        .cph-logo-mark { width: clamp(72px, 12vw, 118px); height: auto; flex: 0 0 auto; }
+        .cph-logo-text { line-height: 1.02; }
+        .cph-logo-text strong {
+            display: block; font-size: clamp(34px, 6vw, 58px); font-weight: 900;
+            letter-spacing: -0.02em; color: var(--cph-ink);
+        }
+        .cph-logo-text span {
+            display: block; margin-top: 10px; font-size: clamp(11px, 1.6vw, 14px);
+            font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--cph-crimson);
+        }
+
+        .cph-content {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 6; width: 100%; max-width: 960px; padding: 3rem 1.5rem;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .cph-content h1 {
+            margin: 0; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1;
+            letter-spacing: -0.02em; font-weight: 900; color: var(--cph-ink); will-change: transform;
+        }
+        .cph-lede {
+            margin: 1.5rem auto 0; font-size: clamp(1.05rem, 2vw, 1.25rem);
+            max-width: 640px; color: var(--cph-ink); opacity: 0.85; line-height: 1.55;
+        }
+        .cph-cta-row { margin-top: 2rem; }
+        .cph-btn {
+            display: inline-block; background: var(--cph-crimson); color: #fff;
+            border: 2px solid transparent; border-radius: 3.125rem; padding: 1rem 2.25rem;
+            font-size: 1.25rem; font-weight: 600; text-decoration: none;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+        .cph-btn:hover { background: transparent; border-color: var(--cph-crimson); color: var(--cph-crimson); }
+        .cph-arrow {
+            margin-top: 2rem; display: flex; align-items: center; justify-content: center;
+            color: var(--cph-ink); animation: cphBounce 2s ease-in-out infinite;
+        }
+        .cph-arrow svg { width: 15px; height: 18px; }
+        @keyframes cphBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        .cph-progress {
+            position: absolute; bottom: 0; left: 0; height: 10px; width: 0;
+            background: var(--cph-crimson); z-index: 999; transition: width .2s ease-out;
+        }
+        /* Static / finished state (no JS, reduced motion, or replay skipped). */
+        .cph-hero.cph-done .cph-rows, .cph-hero.cph-done .cph-logo { display: none; }
+        /* Hide the site chrome while the intro is playing, like the original. */
+        body.cph-intro-active #desktop-nav,
+        body.cph-intro-active #nav-spacing,
+        body.cph-intro-active nav.fixed { opacity: 0; pointer-events: none; transition: opacity .4s; }
+        #desktop-nav, nav.fixed { transition: opacity .4s; }
+
+        /* ---------- Overview: Part One / Two / Three ---------- */
+        .cph-overview { min-height: 100vh; display: grid; grid-template-columns: repeat(3, 1fr); color: var(--cph-ink); }
+        .cph-ov-col {
+            position: relative; z-index: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 4rem 1.5rem; min-height: 100%;
+        }
+        .cph-ov-inner { max-width: 400px; display: flex; flex-direction: column; align-items: center; }
+        .cph-ov-eyebrow {
+            margin: 0 0 1.75rem; font-size: 1rem; font-weight: 500; color: var(--cph-ink); opacity: .75;
+        }
+        .cph-ov-icon { height: 64px; display: flex; align-items: center; margin-bottom: 1.5rem; }
+        .cph-ov-icon svg { width: 56px; height: 56px; }
+        .cph-ov-col h2 { margin: 0 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.01em; }
+        .cph-ov-col p { margin: 0 0 1.5rem; font-size: 1rem; line-height: 1.6; }
+        .cph-ov-link {
+            color: var(--acc, var(--cph-crimson)); font-weight: 600; text-decoration: underline;
+            text-underline-offset: 3px; padding: .5rem 0;
+        }
+        .cph-ov-link:hover { opacity: .7; }
+        @media (max-width: 900px) { .cph-overview { grid-template-columns: 1fr; min-height: 0; } .cph-ov-col { padding: 3rem 1.5rem; } }
+
+        /* ---------- Mosaic: sticky photo grid + expanding CTA ---------- */
+        .cph-mosaic-area { position: relative; }
+        .cph-mosaic-sticky { height: 100vh; overflow: hidden; position: relative; width: 100%; }
+        .cph-mosaic {
+            position: absolute; inset: 0; z-index: 2; display: grid;
+            grid-template-columns: repeat(10, 1fr); grid-template-rows: repeat(3, 1fr);
+        }
+        .cph-slot { overflow: hidden; position: relative; will-change: transform; }
+        .cph-slot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .cph-ctabox {
+            position: absolute; left: 40%; top: 33.3333%; width: 20%; height: 33.3333%;
+            z-index: 10; background: var(--cph-cta); color: #fff; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 2rem;
+        }
+        .cph-cta-heading {
+            margin: 0; color: #fff; font-weight: 700; line-height: 1.2;
+            font-size: clamp(1.5rem, 3.5vw, 3.125rem); white-space: nowrap;
+        }
+        .cph-cta-btn {
+            display: inline-block; margin-top: 2rem; background: #fff; color: var(--cph-ink);
+            border: 2px solid transparent; border-radius: 3.125rem; padding: 1rem 2.25rem;
+            font-size: 1.25rem; font-weight: 600; text-decoration: none;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+        .cph-cta-btn:hover { background: transparent; border-color: #fff; color: #fff; }
+        @media (max-width: 1024px) {
+            .cph-mosaic { grid-template-columns: repeat(3, 1fr) !important; grid-template-rows: repeat(3, 1fr) !important; }
+            .cph-slot[data-slot="4"], .cph-slot[data-slot="6"], .cph-slot[data-slot="7"],
+            .cph-slot[data-slot="9"], .cph-slot[data-slot="11"] { display: none !important; }
+            .cph-slot[data-slot="0"]  { grid-column: 1 / 2 !important; grid-row: 1 / 2 !important; }
+            .cph-slot[data-slot="1"]  { grid-column: 2 / 3 !important; grid-row: 1 / 2 !important; }
+            .cph-slot[data-slot="2"]  { grid-column: 3 / 4 !important; grid-row: 1 / 2 !important; }
+            .cph-slot[data-slot="3"]  { grid-column: 1 / 2 !important; grid-row: 2 / 3 !important; }
+            .cph-slot[data-slot="5"]  { grid-column: 3 / 4 !important; grid-row: 2 / 3 !important; }
+            .cph-slot[data-slot="8"]  { grid-column: 1 / 2 !important; grid-row: 3 / 4 !important; }
+            .cph-slot[data-slot="10"] { grid-column: 2 / 3 !important; grid-row: 3 / 4 !important; }
+            .cph-slot[data-slot="12"] { grid-column: 3 / 4 !important; grid-row: 3 / 4 !important; }
+            .cph-ctabox { left: 33.3333%; top: 33.3333%; width: 33.3333%; height: 33.3333%; }
+        }
+        @media (max-width: 768px) {
+            .cph-slot[data-slot="1"], .cph-slot[data-slot="3"], .cph-slot[data-slot="5"],
+            .cph-slot[data-slot="8"] { display: none !important; }
+            .cph-slot[data-slot="0"]  { grid-column: 1 / 3 !important; grid-row: 1 / 2 !important; }
+            .cph-slot[data-slot="2"]  { grid-column: 3 / 4 !important; grid-row: 1 / 2 !important; }
+            .cph-slot[data-slot="10"] { grid-column: 1 / 2 !important; grid-row: 3 / 4 !important; }
+            .cph-slot[data-slot="12"] { grid-column: 2 / 4 !important; grid-row: 3 / 4 !important; }
+            .cph-ctabox { left: 0; top: 33.3333%; width: 100%; height: 33.3333%; }
+        }
+
+        /* ---------- Quiz ---------- */
+        .cph-quiz { padding: 1px 0; }
         .cp {
-            --cp-accent: #5660fe;
-            --cp-accent-dark: #3a43d6;
-            --cp-ink: #14152a;
-            --cp-muted: #5b5e72;
-            --cp-line: #e4e6f1;
-            --cp-bg: #f6f7fc;
+            --cp-accent: #98002e;
+            --cp-accent-dark: #7a0025;
+            --cp-gold: #e4a524;
+            --cp-teal: #2a6d81;
+            --cp-ink: #1e2122;
+            --cp-muted: #686868;
+            --cp-line: #e5ebee;
+            --cp-bg: #fefdff;
             --cp-card: #ffffff;
-            --cp-good: #1f9d57;
+            --cp-good: #2a6d81;
             --cp-bad: #d3445b;
+            position: relative; z-index: 1;
             max-width: 760px;
             margin: 0 auto;
-            padding: 28px 20px 96px;
+            padding: 48px 20px 110px;
             color: var(--cp-ink);
             line-height: 1.5;
+            scroll-margin-top: 84px;
         }
         .cp *, .cp *::before, .cp *::after { box-sizing: border-box; }
         .cp button { font-family: inherit; cursor: pointer; }
 
-        /* ---------- Intro / hero ---------- */
+        /* Intro / hero card */
         .cp-hero { text-align: center; padding: 24px 0 8px; }
         .cp-eyebrow {
             text-transform: uppercase; letter-spacing: .14em; font-size: 13px;
@@ -38,29 +220,34 @@
         .cp-lede { font-size: clamp(17px, 2.4vw, 20px); color: var(--cp-muted); max-width: 560px; margin: 0 auto 28px; }
         .cp-parts { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); margin: 8px 0 32px; text-align: left; }
         .cp-part-card { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 14px; padding: 18px; }
-        .cp-part-card .n { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--cp-accent); color: #fff; font-weight: 800; font-size: 14px; margin-bottom: 12px; }
+        .cp-part-card .n { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--pc, var(--cp-accent)); color: #fff; font-weight: 800; font-size: 14px; margin-bottom: 12px; }
         .cp-part-card h3 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
         .cp-part-card p { margin: 0; font-size: 14px; color: var(--cp-muted); }
 
         .cp-btn {
-            display: inline-block; border: none; background: var(--cp-accent); color: #fff;
-            font-weight: 800; font-size: 17px; padding: 15px 38px; border-radius: 999px;
-            transition: background .15s ease, transform .05s ease; text-decoration: none;
+            display: inline-block; border: 2px solid transparent; background: var(--cp-accent); color: #fff;
+            font-weight: 600; font-size: 1.15rem; padding: 0.9rem 2.1rem; border-radius: 3.125rem;
+            transition: background .2s, color .2s, border-color .2s; text-decoration: none;
         }
-        .cp-btn:hover { background: var(--cp-accent-dark); }
-        .cp-btn:active { transform: translateY(1px); }
+        .cp-btn:hover { background: transparent; border-color: var(--cp-accent); color: var(--cp-accent); }
         .cp-note { font-size: 13px; color: var(--cp-muted); margin-top: 16px; }
 
-        /* ---------- Progress ---------- */
+        /* Progress */
         .cp-progress { margin: 8px 0 28px; }
         .cp-progress-meta { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--cp-muted); margin-bottom: 8px; }
-        .cp-progress-meta .part { color: var(--cp-accent); text-transform: uppercase; letter-spacing: .1em; }
+        .cp-progress-meta .part { text-transform: uppercase; letter-spacing: .1em; }
+        .cp-progress-meta .part--values { color: var(--cp-gold); }
+        .cp-progress-meta .part--engagement { color: var(--cp-accent); }
+        .cp-progress-meta .part--knowledge { color: var(--cp-teal); }
         .cp-progress-track { height: 8px; background: var(--cp-line); border-radius: 999px; overflow: hidden; }
         .cp-progress-fill { height: 100%; background: var(--cp-accent); border-radius: 999px; transition: width .35s cubic-bezier(.4,0,.2,1); }
 
-        /* ---------- Question stage ---------- */
-        .cp-stage { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 18px; padding: 32px 28px; box-shadow: 0 12px 40px -28px rgba(20,21,42,.5); }
-        .cp-part-badge { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--cp-accent); background: rgba(86,96,254,.1); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
+        /* Question stage */
+        .cp-stage { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 18px; padding: 32px 28px; box-shadow: 0 12px 40px -28px rgba(30,33,34,.5); }
+        .cp-part-badge { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
+        .cp-part-badge--values { color: #8a6210; background: rgba(228,165,36,.16); }
+        .cp-part-badge--engagement { color: var(--cp-accent); background: rgba(152,0,46,.1); }
+        .cp-part-badge--knowledge { color: var(--cp-teal); background: rgba(42,109,129,.12); }
         .cp-q { font-size: clamp(20px, 3.2vw, 26px); font-weight: 800; line-height: 1.25; margin: 0 0 24px; letter-spacing: -0.01em; }
         .cp-scale-hint { font-size: 13px; color: var(--cp-muted); margin: -14px 0 18px; }
 
@@ -71,9 +258,9 @@
             padding: 16px 18px; font-size: 16px; font-weight: 600; color: var(--cp-ink);
             transition: border-color .12s ease, background .12s ease, transform .05s ease;
         }
-        .cp-opt:hover { border-color: var(--cp-accent); background: #fbfbff; }
+        .cp-opt:hover { border-color: var(--cp-accent); background: #fffbfc; }
         .cp-opt:active { transform: scale(.995); }
-        .cp-opt.is-selected { border-color: var(--cp-accent); background: rgba(86,96,254,.08); }
+        .cp-opt.is-selected { border-color: var(--cp-accent); background: rgba(152,0,46,.06); }
         .cp-opt-key {
             flex: 0 0 auto; width: 30px; height: 30px; border-radius: 8px; background: var(--cp-bg);
             border: 1px solid var(--cp-line); display: inline-flex; align-items: center; justify-content: center;
@@ -87,13 +274,13 @@
         .cp-back[disabled] { opacity: 0; pointer-events: none; }
         .cp-tap-hint { font-size: 13px; color: var(--cp-muted); }
 
-        /* ---------- Part intro card ---------- */
+        /* Part intro card */
         .cp-partintro { text-align: center; padding: 18px 4px 6px; }
         .cp-partintro .step { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--cp-accent); margin-bottom: 14px; }
         .cp-partintro h2 { font-size: clamp(26px, 4.5vw, 38px); font-weight: 900; margin: 0 0 16px; letter-spacing: -0.02em; }
         .cp-partintro p { font-size: 17px; color: var(--cp-muted); max-width: 520px; margin: 0 auto 28px; }
 
-        /* ---------- Results ---------- */
+        /* Results */
         .cp-results-head { text-align: center; margin-bottom: 8px; }
         .cp-results-head .eyebrow { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--cp-accent); }
         .cp-results-head h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 900; margin: 10px 0 6px; letter-spacing: -0.02em; }
@@ -109,7 +296,7 @@
         .cp-bar .bar-top .v { color: var(--cp-muted); }
         .cp-bar.is-top .bar-top { color: var(--cp-accent); }
         .cp-bar-track { height: 12px; background: var(--cp-line); border-radius: 999px; overflow: hidden; }
-        .cp-bar-fill { height: 100%; border-radius: 999px; background: #b9beff; transition: width .8s cubic-bezier(.4,0,.2,1); }
+        .cp-bar-fill { height: 100%; border-radius: 999px; background: #dcb4c1; transition: width .8s cubic-bezier(.4,0,.2,1); }
         .cp-bar.is-top .cp-bar-fill { background: var(--cp-accent); }
 
         .cp-score-row { display: flex; align-items: center; gap: 22px; }
@@ -149,90 +336,8 @@
             .cp-action-grid { grid-template-columns: 1fr; }
             .cp-stage { padding: 26px 20px; }
         }
-
-        /* ---------- Scrolling gallery hero (matches civicprofile.org front page) ---------- */
-        .cpg {
-            position: relative; height: 100vh; min-height: 560px; overflow: hidden;
-            background: #0f1024;
-        }
-        .cpg-rows {
-            position: absolute; inset: 0; display: flex; flex-direction: column;
-            gap: 18px; padding: 18px 0; justify-content: center;
-        }
-        .cpg-row { flex: 1 1 0; min-height: 0; overflow: hidden; display: flex; align-items: center; }
-        .cpg-track {
-            display: flex; gap: 18px; width: max-content; padding-left: 18px;
-            will-change: transform; animation: cpg-marquee 60s linear infinite;
-        }
-        .cpg-track--rev { animation-direction: reverse; animation-duration: 74s; }
-        .cpg-row:hover .cpg-track { animation-play-state: paused; }
-        .cpg-card {
-            flex: 0 0 auto; height: 100%; aspect-ratio: 3 / 4; border-radius: 16px;
-            overflow: hidden; background: #1b1d39; box-shadow: 0 14px 34px rgba(0,0,0,.40);
-        }
-        .cpg-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        @keyframes cpg-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .cpg-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        /* When GSAP drives the hero (scroll-linked), disable the CSS auto-scroll so the two don't fight. */
-        .cpg.is-js .cpg-track { animation: none !important; }
-
-        /* Intro reveal on load -- pure CSS so it ALWAYS plays, even if GSAP is blocked,
-           not yet deployed, or motion is reduced. GSAP only adds the scroll-linked motion. */
-        @keyframes cpg-fade-up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-        @keyframes cpg-zoom-in { from { opacity: 0; transform: scale(1.06); }     to { opacity: 1; transform: none; } }
-        .cpg-row { animation: cpg-zoom-in 1.1s cubic-bezier(.16,1,.3,1) both; }
-        .cpg-row:nth-child(1) { animation-delay: .05s; }
-        .cpg-row:nth-child(2) { animation-delay: .18s; }
-        .cpg-eyebrow { animation: cpg-fade-up .7s ease-out .35s both; }
-        .cpg-title   { animation: cpg-fade-up .8s ease-out .50s both; }
-        .cpg-lede    { animation: cpg-fade-up .8s ease-out .68s both; }
-        .cpg-cta     { animation: cpg-fade-up .8s ease-out .86s both; }
-
-        /* vignette so the overlay text stays legible over the photos */
-        .cpg::after {
-            content: ""; position: absolute; inset: 0; pointer-events: none;
-            background: radial-gradient(125% 95% at 50% 50%,
-                rgba(15,16,36,.34) 0%, rgba(15,16,36,.78) 68%, rgba(15,16,36,.93) 100%);
-        }
-        .cpg-overlay {
-            position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; text-align: center; padding: 24px; color: #fff;
-        }
-        .cpg-eyebrow {
-            text-transform: uppercase; letter-spacing: .18em; font-size: 13px; font-weight: 800;
-            color: #aeb4ff; margin: 0 0 14px;
-        }
-        .cpg-title {
-            font-size: clamp(40px, 8vw, 84px); line-height: .98; font-weight: 900;
-            letter-spacing: -0.02em; margin: 0 0 16px; text-shadow: 0 4px 30px rgba(0,0,0,.45);
-        }
-        .cpg-lede {
-            font-size: clamp(16px, 2.4vw, 20px); max-width: 540px; margin: 0 auto 30px;
-            color: rgba(255,255,255,.86); line-height: 1.5;
-        }
-        .cpg-cta {
-            display: inline-flex; align-items: center; gap: 10px; background: var(--cp-accent);
-            color: #fff; font-weight: 800; font-size: 17px; text-decoration: none;
-            padding: 15px 34px; border-radius: 999px; box-shadow: 0 12px 30px rgba(86,96,254,.45);
-            transition: transform .12s, background .12s;
-        }
-        .cpg-cta:hover { background: var(--cp-accent-dark); transform: translateY(-1px); }
-        .cpg-arrow {
-            position: absolute; bottom: 22px; left: 50%; z-index: 2; color: rgba(255,255,255,.82);
-            display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
-            animation: cpg-bounce .95s ease-in-out infinite;
-        }
-        .cpg-arrow svg { width: 30px; height: 30px; }
-        @keyframes cpg-bounce {
-            0%,20%,50%,80%,100% { transform: translate(-50%, 0); }
-            40% { transform: translate(-50%, -7px); }
-            60% { transform: translate(-50%, -4px); }
-        }
-        .cp { scroll-margin-top: 84px; }
-        @media (max-width: 640px) { .cpg-rows { gap: 12px; } .cpg-track { gap: 12px; } }
         @media (prefers-reduced-motion: reduce) {
-            .cpg-track, .cpg-arrow,
-            .cpg-row, .cpg-eyebrow, .cpg-title, .cpg-lede, .cpg-cta { animation: none; }
+            .cph-arrow { animation: none; }
         }
     </style>
     @endverbatim
@@ -240,61 +345,371 @@
 
 @section('body')
     @php
-        // Hero gallery: two rows of portrait cards (a few are short videos, like
-        // civicprofile.org's hero). Each set is rendered twice so the fallback CSS
-        // marquee loops seamlessly; when GSAP loads (below) it disables that and
-        // drives the rows from scroll instead. Videos are streamed from the same
-        // CDN civicprofile.org uses, with the matching still as a poster fallback.
-        $cpgVideos = [
-            'cp-01' => 'https://civic-profile.b-cdn.net/6624496-uhd_2160_3840_24fps_1.mp4',
-            'cp-03' => 'https://civic-profile.b-cdn.net/8488847-hd_1080_1920_25fps_1.mp4',
+        $cphRow1 = ['cp-01', 'cp-05', 'cp-07', 'cp-10', 'cp-08', 'cp-11'];
+        $cphRow2 = ['cp-03', 'cp-09', 'cp-02', 'cp-12', 'cp-06', 'cp-04'];
+        // Mosaic geometry mirrors the original's 10x3 grid (slot 0 is a 3x2 feature).
+        $cphMosaic = [
+            0  => ['1 / 4',  '1 / 3', 'cp-09'],
+            1  => ['4 / 5',  '1 / 2', 'cp-05'],
+            2  => ['5 / 7',  '1 / 2', 'cp-01'],
+            3  => ['7 / 9',  '1 / 2', 'cp-10'],
+            4  => ['9 / 11', '1 / 2', 'cp-03'],
+            5  => ['4 / 5',  '2 / 3', 'cp-07'],
+            6  => ['7 / 9',  '2 / 3', 'cp-12'],
+            7  => ['9 / 11', '2 / 3', 'cp-02'],
+            8  => ['1 / 2',  '3 / 4', 'cp-06'],
+            9  => ['2 / 3',  '3 / 4', 'cp-11'],
+            10 => ['3 / 5',  '3 / 4', 'cp-04'],
+            11 => ['5 / 7',  '3 / 4', 'cp-08'],
+            12 => ['7 / 11', '3 / 4', 'cp-01'],
         ];
-        $cpgRow1 = ['cp-01', 'cp-05', 'cp-07', 'cp-10', 'cp-08', 'cp-11'];
-        $cpgRow2 = ['cp-03', 'cp-09', 'cp-02', 'cp-12', 'cp-06', 'cp-04'];
     @endphp
-    <section class="cpg">
-        <div class="cpg-rows" aria-hidden="true">
-            <div class="cpg-row">
-                <div class="cpg-track">
-                    @foreach (array_merge($cpgRow1, $cpgRow1) as $img)
-                        <div class="cpg-card">
-                            @isset($cpgVideos[$img])
-                                <video poster="/images/civic-profile/{{ $img }}.jpg" autoplay muted loop playsinline preload="metadata"><source src="{{ $cpgVideos[$img] }}" type="video/mp4"></video>
-                            @else
-                                <img src="/images/civic-profile/{{ $img }}.jpg" alt="" loading="eager">
-                            @endisset
-                        </div>
+
+    {{-- ============ Hero: photo-wall intro ============ --}}
+    <section class="cph-hero" id="cph-hero">
+        <div class="cph-rows" aria-hidden="true">
+            <div class="cph-row cph-row--1">
+                <div class="cph-track">
+                    @foreach (array_merge($cphRow1, $cphRow1) as $img)
+                        <div class="cph-card"><img src="/images/civic-profile/{{ $img }}.jpg" alt="" loading="eager"></div>
                     @endforeach
                 </div>
             </div>
-            <div class="cpg-row">
-                <div class="cpg-track cpg-track--rev">
-                    @foreach (array_merge($cpgRow2, $cpgRow2) as $img)
-                        <div class="cpg-card">
-                            @isset($cpgVideos[$img])
-                                <video poster="/images/civic-profile/{{ $img }}.jpg" autoplay muted loop playsinline preload="metadata"><source src="{{ $cpgVideos[$img] }}" type="video/mp4"></video>
-                            @else
-                                <img src="/images/civic-profile/{{ $img }}.jpg" alt="" loading="eager">
-                            @endisset
-                        </div>
+            <div class="cph-row cph-row--2">
+                <div class="cph-track">
+                    @foreach (array_merge($cphRow2, $cphRow2) as $img)
+                        <div class="cph-card"><img src="/images/civic-profile/{{ $img }}.jpg" alt="" loading="eager"></div>
                     @endforeach
                 </div>
             </div>
         </div>
-        <div class="cpg-overlay">
-            <p class="cpg-eyebrow">National Political Prisoner Coalition</p>
-            <h1 class="cpg-title">Civic Profile</h1>
-            <p class="cpg-lede">A short, interactive quiz measuring your civic values, your engagement, and your knowledge of the rights and freedoms the NPPC defends.</p>
-            <a href="#cp-app" class="cpg-cta">Take the quiz &rarr;</a>
+
+        <div class="cph-logo" aria-hidden="true">
+            <svg class="cph-logo-mark" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                <rect width="96" height="96" rx="16" fill="#e4a524"/>
+                <path d="M48 18A30 30 0 0 1 78 48L48 48Z" fill="#98002e"/>
+                <path d="M78 48A30 30 0 0 1 48 78L48 48Z" fill="#2a6d81"/>
+                <path d="M48 78A30 30 0 0 1 18 48L48 48Z" fill="#fefdff"/>
+                <path d="M18 48A30 30 0 0 1 48 18L48 48Z" fill="#1e2122"/>
+            </svg>
+            <div class="cph-logo-text">
+                <strong>Civic<br>Profile</strong>
+                <span>National Political<br>Prisoner Coalition</span>
+            </div>
         </div>
-        <a href="#cp-app" class="cpg-arrow" aria-label="Scroll to the quiz">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
+
+        <div class="cph-content">
+            <h1>Discover your <br>unique Civic Profile</h1>
+            <p class="cph-lede">The Civic Profile is an interactive quiz from the National Political Prisoner Coalition that measures your civic values, engagement, and knowledge.</p>
+            <div class="cph-cta-row">
+                <a href="#cp-app" class="cph-btn">Take the Quiz</a>
+            </div>
+            <div class="cph-arrow" aria-hidden="true">
+                <svg viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 1v11m0 0L1 7.6M5.5 12 10 7.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </div>
     </section>
 
-    <div id="cp-app" class="cp" aria-live="polite"></div>
+    {{-- ============ Overview: Part One / Two / Three ============ --}}
+    <section class="cph-overview cph-gridbg">
+        <div class="cph-ov-col">
+            <div class="cph-ov-inner">
+                <p class="cph-ov-eyebrow">Part One</p>
+                <div class="cph-ov-icon">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 42C10 32 4 24.5 4 16.5 4 10 9 5 15.2 5 19 5 22.2 6.9 24 9.8 25.8 6.9 29 5 32.8 5 39 5 44 10 44 16.5 44 24.5 38 32 24 42Z" fill="#e4a524"/></svg>
+                </div>
+                <h2>Values</h2>
+                <p>Civic values are the beliefs that people hold about what makes for a good society, a good government, and how individuals and groups should interact.</p>
+                <a class="cph-ov-link" style="--acc:#e4a524" href="#cp-app">More About Values</a>
+            </div>
+        </div>
+        <div class="cph-ov-col">
+            <div class="cph-ov-inner">
+                <p class="cph-ov-eyebrow">Part Two</p>
+                <div class="cph-ov-icon">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 20v8c0 1.7 1.3 3 3 3h3v8c0 1.7 1.3 3 3 3h4c1.1 0 2-.9 2-2v-9l16.2 7.6c1.3.6 2.8-.3 2.8-1.8V11.2c0-1.5-1.5-2.4-2.8-1.8L21 17H9c-1.7 0-3 1.3-3 3Z" fill="#98002e"/></svg>
+                </div>
+                <h2>Engagement</h2>
+                <p>Civic engagement refers to the actions and behaviors people take to make a positive contribution to society.</p>
+                <a class="cph-ov-link" style="--acc:#98002e" href="#cp-app">More about Engagement</a>
+            </div>
+        </div>
+        <div class="cph-ov-col">
+            <div class="cph-ov-inner">
+                <p class="cph-ov-eyebrow">Part Three</p>
+                <div class="cph-ov-icon">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12C20 8.7 14.6 7 8 7c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2 6.6 0 12 1.7 16 5 4-3.3 9.4-5 16-5 1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2-6.6 0-12 1.7-16 5Zm0 0v32" fill="none" stroke="#2a6d81" stroke-width="3" stroke-linejoin="round"/></svg>
+                </div>
+                <h2>Knowledge</h2>
+                <p>Civic knowledge is an understanding of how our political system is structured, the rights and responsibilities of citizens, and key events, movements, and figures from our history.</p>
+                <a class="cph-ov-link" style="--acc:#2a6d81" href="#cp-app">More about Knowledge</a>
+            </div>
+        </div>
+    </section>
+
+    {{-- ============ Mosaic: sticky photo grid, CTA expands on scroll ============ --}}
+    <div class="cph-mosaic-area" id="cph-mosaic-area">
+        <div class="cph-mosaic-sticky cph-gridbg">
+            <div class="cph-mosaic" aria-hidden="true">
+                @foreach ($cphMosaic as $slot => [$cols, $rows, $img])
+                    <div class="cph-slot" data-slot="{{ $slot }}" style="grid-column: {{ $cols }}; grid-row: {{ $rows }};">
+                        <img src="/images/civic-profile/{{ $img }}.jpg" alt="">
+                    </div>
+                @endforeach
+            </div>
+            <div class="cph-ctabox" id="cph-ctabox">
+                <h2 class="cph-cta-heading">Take the<br>Quiz</h2>
+                <a class="cph-cta-btn" href="#cp-app">Let&rsquo;s Get Started</a>
+            </div>
+        </div>
+    </div>
+
+    {{-- ============ Quiz ============ --}}
+    <section class="cph-quiz cph-gridbg">
+        <div id="cp-app" class="cp" aria-live="polite"></div>
+    </section>
+
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
 
     @verbatim
+    <script>
+    /* ---------- Hero intro (photo wall slides in, pans, slides out) ---------- */
+    (function () {
+        var hero = document.getElementById('cph-hero');
+        if (!hero) return;
+
+        // Smooth-scroll every "Take the Quiz" link down to the quiz.
+        document.querySelectorAll('a[href="#cp-app"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                var el = document.getElementById('cp-app');
+                if (!el) return;
+                e.preventDefault();
+                el.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var force = new URLSearchParams(window.location.search).get('animate') === 'true';
+        var played = sessionStorage.getItem('cphHeroPlayed');
+
+        if (!window.gsap || reduced || (played && !force)) {
+            hero.classList.add('cph-done');
+            try { sessionStorage.setItem('cphHeroPlayed', '1'); } catch (e) {}
+            return;
+        }
+
+        var row1 = hero.querySelector('.cph-row--1'), row2 = hero.querySelector('.cph-row--2');
+        var tr1 = row1.querySelector('.cph-track'), tr2 = row2.querySelector('.cph-track');
+        var logo = hero.querySelector('.cph-logo');
+        var content = hero.querySelector('.cph-content');
+        var h1 = content.querySelector('h1');
+        var lede = content.querySelector('.cph-lede');
+        var btns = content.querySelector('.cph-cta-row');
+        var arrow = content.querySelector('.cph-arrow');
+
+        // Initial state (inline styles only, so no-JS still shows the finished hero).
+        gsap.set(row1, { yPercent: -100 });
+        gsap.set(row2, { yPercent: 100 });
+        gsap.set(content, { opacity: 0 });
+        gsap.set(h1, { scale: 2, transformOrigin: 'center center' });
+        gsap.set(lede, { opacity: 0, y: 10 });
+        gsap.set(btns, { opacity: 0 });
+        gsap.set(arrow, { opacity: 0 });
+
+        // Lock scrolling and hide the site chrome while the intro plays.
+        document.body.classList.add('cph-intro-active');
+        var prevent = function (e) { e.preventDefault(); };
+        window.addEventListener('wheel', prevent, { passive: false });
+        window.addEventListener('touchmove', prevent, { passive: false });
+        document.documentElement.style.overflow = 'hidden';
+
+        var finished = false;
+        function finish() {
+            if (finished) return;
+            finished = true;
+            window.removeEventListener('wheel', prevent);
+            window.removeEventListener('touchmove', prevent);
+            document.documentElement.style.overflow = '';
+            document.body.classList.remove('cph-intro-active');
+            try { sessionStorage.setItem('cphHeroPlayed', '1'); } catch (e) {}
+        }
+        function abort() {   // failsafe: jump straight to the finished state
+            finish();
+            hero.classList.add('cph-done');
+            gsap.set(content, { opacity: 1 });
+            gsap.set(h1, { scale: 1 });
+            gsap.set(lede, { opacity: 1, y: 0 });
+            gsap.set(btns, { opacity: 1 });
+            gsap.set(arrow, { opacity: 1 });
+        }
+        var failSafe = setTimeout(abort, 12000);
+
+        // Preload the wall images behind a progress bar, then play.
+        var bar = document.createElement('div');
+        bar.className = 'cph-progress';
+        hero.appendChild(bar);
+        var srcs = [];
+        hero.querySelectorAll('.cph-track img').forEach(function (im) {
+            var s = im.currentSrc || im.src;
+            if (srcs.indexOf(s) < 0) srcs.push(s);
+        });
+        var loadedCount = 0, started = false;
+        function step() {
+            loadedCount++;
+            bar.style.width = Math.round(loadedCount / srcs.length * 100) + '%';
+            if (loadedCount >= srcs.length) start();
+        }
+        srcs.forEach(function (s) {
+            var im = new Image();
+            im.onload = step; im.onerror = step;
+            im.src = s;
+        });
+        if (!srcs.length) start();
+
+        function start() {
+            if (started) return;
+            started = true;
+            bar.style.width = '100%';
+            setTimeout(function () { if (bar.parentNode) bar.parentNode.removeChild(bar); }, 200);
+
+            // Center the tracks, then pan them a whole number of cards.
+            var vw = hero.offsetWidth;
+            var cardW = row1.offsetHeight * (5 / 7);
+            var trackW = tr1.scrollWidth;
+            var q = (vw - trackW) / 2;
+            var O = Math.max(cardW, Math.floor(((trackW - vw) / 2) / cardW) * cardW);
+            gsap.set([tr1, tr2], { x: q });
+
+            var tl = gsap.timeline({
+                onComplete: function () {
+                    clearTimeout(failSafe);
+                    finish();
+                    hero.classList.add('cph-done');
+                }
+            });
+            tl.to(row1, { yPercent: 0, duration: 1, ease: 'power2.out' }, 0);
+            tl.to(row2, { yPercent: 0, duration: 1, ease: 'power2.out' }, 0);
+            tl.to(logo, { opacity: 0, duration: 0.6, ease: 'power2.in' }, 1);
+            tl.to(tr1, { x: q + O, duration: 2.5, ease: 'power1.inOut' }, 1);
+            tl.to(tr2, { x: q - O, duration: 2.5, ease: 'power1.inOut' }, 1);
+            tl.to(content, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 3.5);
+            tl.to(row1, { yPercent: -100, duration: 1.5, ease: 'power2.inOut' }, 3.5);
+            tl.to(row2, { yPercent: 100, duration: 1.5, ease: 'power2.inOut' }, 3.5);
+            tl.to(h1, { scale: 1, duration: 1, ease: 'power2.out' }, 4);
+            tl.to(lede, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 4.7);
+            tl.to(btns, { opacity: 1, duration: 0.8, ease: 'power2.out' }, 5);
+            tl.to(arrow, { opacity: 1, duration: 0.8, ease: 'power2.out' }, 5.3);
+        }
+    })();
+
+    /* ---------- Mosaic: pinned grid, CTA box expands and pushes tiles out ---------- */
+    (function () {
+        var area = document.getElementById('cph-mosaic-area');
+        if (!area || !window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        var sticky = area.querySelector('.cph-mosaic-sticky');
+        var mosaic = area.querySelector('.cph-mosaic');
+        var cta = area.querySelector('.cph-ctabox');
+        var heading = cta.querySelector('.cph-cta-heading');
+        var btn = cta.querySelector('.cph-cta-btn');
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Push direction for each slot at each breakpoint (matches the original).
+        var DIR_D = ['left', 'left', 'up', 'right', 'right', 'left', 'right', 'right', 'left', 'left', 'left', 'down', 'right'];
+        var DIR_T = ['left', 'up', 'right', 'left', null, 'right', null, null, 'left', null, 'down', null, 'right'];
+        var DIR_M = ['left', null, 'right', null, null, null, null, null, null, null, 'left', null, 'right'];
+
+        var live = { triggers: [], tl: null, raf: null };
+
+        function teardown() {
+            live.triggers.forEach(function (t) { t.kill(); });
+            live.triggers = [];
+            if (live.tl) { live.tl.kill(); live.tl = null; }
+            gsap.set(cta, { clearProps: 'position,top,left,width,height,xPercent,yPercent' });
+            gsap.set(heading, { clearProps: 'fontSize' });
+            gsap.set(btn, { clearProps: 'opacity,height,overflow,marginTop' });
+            mosaic.querySelectorAll('.cph-slot').forEach(function (el) { el.style.transform = ''; });
+        }
+
+        function init() {
+            var dirs = window.innerWidth <= 768 ? DIR_M : window.innerWidth <= 1024 ? DIR_T : DIR_D;
+            var slots = [].slice.call(mosaic.querySelectorAll('.cph-slot'));
+
+            // Home geometry, captured before any pinning or resizing of the CTA.
+            var sr = sticky.getBoundingClientRect();
+            var cr = cta.getBoundingClientRect();
+            var home = { left: cr.left - sr.left, right: cr.right - sr.left, top: cr.top - sr.top, bottom: cr.bottom - sr.top };
+            var W = sticky.offsetWidth, H = sticky.offsetHeight;
+
+            gsap.set(cta, {
+                position: 'absolute', top: '50%', left: '50%', xPercent: -50, yPercent: -50,
+                width: cr.width, height: cr.height
+            });
+            gsap.set(btn, { opacity: 0, height: 0, overflow: 'hidden', marginTop: 0 });
+
+            function push() {
+                var e = sticky.getBoundingClientRect();
+                var t = cta.getBoundingClientRect();
+                var cur = { left: t.left - e.left, right: t.right - e.left, top: t.top - e.top, bottom: t.bottom - e.top };
+                slots.forEach(function (el, i) {
+                    var d = dirs[i];
+                    if (!d) return;
+                    var dx = 0, dy = 0;
+                    if (d === 'left') dx = Math.min(0, cur.left - home.left);
+                    else if (d === 'right') dx = Math.max(0, cur.right - home.right);
+                    else if (d === 'up') dy = Math.min(0, cur.top - home.top);
+                    else dy = Math.max(0, cur.bottom - home.bottom);
+                    el.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+                });
+            }
+
+            var headingTo = Math.min(Math.max(56, window.innerWidth * 0.08), 100); // clamp(3.5rem, 8vw, 6.25rem)
+            var tl = gsap.timeline({ paused: true });
+            tl.to(cta, { height: H, duration: 0.4, ease: 'power2.inOut' }, 0);
+            tl.to(cta, { width: W, duration: 0.4, ease: 'power2.inOut' }, 0.4);
+            tl.to(heading, { fontSize: headingTo + 'px', duration: 0.4, ease: 'power2.inOut' }, 0.4);
+            tl.to(btn, { height: 'auto', marginTop: '2rem', overflow: 'visible', duration: 0.1, ease: 'power2.out' }, 0.8);
+            tl.to(btn, { opacity: 1, duration: 0.1, ease: 'power2.out' }, 0.9);
+            live.tl = tl;
+
+            if (reduced) {
+                live.triggers.push(ScrollTrigger.create({
+                    trigger: area, start: 'top 60%', once: true,
+                    onEnter: function () { tl.progress(1); push(); }
+                }));
+            } else if (window.innerWidth <= 768) {
+                live.triggers.push(ScrollTrigger.create({
+                    trigger: area, start: 'top top', once: true,
+                    onEnter: function () { tl.eventCallback('onUpdate', push); tl.play(); }
+                }));
+            } else {
+                live.triggers.push(ScrollTrigger.create({
+                    trigger: area, start: 'top top', end: '+=' + (2 * window.innerHeight),
+                    pin: sticky, pinSpacing: true, scrub: 0.5,
+                    onUpdate: function (st) { tl.progress(st.progress); push(); }
+                }));
+            }
+            push();
+        }
+
+        var lastW = window.innerWidth, resizeT;
+        window.addEventListener('resize', function () {
+            if (window.innerWidth === lastW) return;
+            lastW = window.innerWidth;
+            clearTimeout(resizeT);
+            resizeT = setTimeout(function () {
+                teardown();
+                init();
+                ScrollTrigger.refresh();
+            }, 250);
+        });
+
+        init();
+    })();
+    </script>
+
     <script>
     (function () {
         const QUIZ = {
@@ -406,7 +821,8 @@
             cur = Math.max(0, Math.min(steps.length - 1, n));
             locked = false;
             render();
-            if (window.scrollTo) window.scrollTo({ top: 0, behavior: 'smooth' });
+            var el = document.getElementById('cp-app');
+            if (el && cur > 0) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function select(part, i, val) {
@@ -420,7 +836,7 @@
         function partProgress(part, i) {
             const labels = { values: 'Part 1 · Values', engagement: 'Part 2 · Engagement', knowledge: 'Part 3 · Knowledge' };
             return '<div class="cp-progress">'
-                + '<div class="cp-progress-meta"><span class="part">' + labels[part] + '</span>'
+                + '<div class="cp-progress-meta"><span class="part part--' + part + '">' + labels[part] + '</span>'
                 + '<span>Question ' + (i + 1) + ' of ' + QUIZ[part].questions.length + '</span></div>'
                 + '<div class="cp-progress-track"><div class="cp-progress-fill" style="width:' + Math.round(answeredCount() / totalQ * 100) + '%"></div></div>'
                 + '</div>';
@@ -442,19 +858,19 @@
                 + '<p class="cp-lede">An interactive quiz that measures your civic <strong>values</strong>, your <strong>engagement</strong>, and your <strong>knowledge</strong> of the rights, due process, and freedom to dissent that the NPPC defends.</p>'
                 + '</div>'
                 + '<div class="cp-parts">'
-                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.')
-                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.')
-                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.')
+                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.', '#e4a524')
+                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.', '#98002e')
+                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.', '#2a6d81')
                 + '</div>'
                 + '<div style="text-align:center">'
-                + '<button class="cp-btn" id="cp-start">Let’s get started</button>'
+                + '<button class="cp-btn" id="cp-start">Let’s Get Started</button>'
                 + '<p class="cp-note">Takes about 5 minutes · ' + totalQ + ' questions · No sign-up required</p>'
                 + '</div>';
             document.getElementById('cp-start').addEventListener('click', function () { go(cur + 1); });
         }
 
-        function partCard(n, title, desc) {
-            return '<div class="cp-part-card"><span class="n">' + n + '</span><h3>' + title + '</h3><p>' + desc + '</p></div>';
+        function partCard(n, title, desc, color) {
+            return '<div class="cp-part-card" style="--pc:' + color + '"><span class="n">' + n + '</span><h3>' + title + '</h3><p>' + desc + '</p></div>';
         }
 
         function renderPartIntro(part) {
@@ -499,7 +915,7 @@
             root.innerHTML =
                 partProgress(part, i)
                 + '<div class="cp-stage">'
-                + '<span class="cp-part-badge">' + esc(QUIZ[part].title) + '</span>'
+                + '<span class="cp-part-badge cp-part-badge--' + part + '">' + esc(QUIZ[part].title) + '</span>'
                 + '<p class="cp-q">' + stem + '</p>'
                 + hint
                 + '<div class="cp-opts">' + opts + '</div>'
@@ -581,8 +997,8 @@
             // knowledge ring
             const R = 46, C = 2 * Math.PI * R, off = C * (1 - k.pct / 100);
             const ring = '<div class="cp-ring"><svg width="104" height="104" viewBox="0 0 104 104">'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e4e6f1" stroke-width="9"></circle>'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#5660fe" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" stroke-width="9"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#98002e" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>'
                 + '</svg><div class="pct"><span class="num">' + k.pct + '%</span><span class="den">' + k.correct + ' / ' + k.total + '</span></div></div>';
 
             let missedHtml = '';
@@ -612,8 +1028,8 @@
                 + '<div class="label">Part 2 · Civic Engagement</div>'
                 + '<div class="cp-score-row">'
                 + '<div class="cp-ring"><svg width="104" height="104" viewBox="0 0 104 104">'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e4e6f1" stroke-width="9"></circle>'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#5660fe" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - e.sum / e.max)).toFixed(1) + '"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" stroke-width="9"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#98002e" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - e.sum / e.max)).toFixed(1) + '"></circle>'
                 + '</svg><div class="pct"><span class="num">' + e.sum + '</span><span class="den">of ' + e.max + '</span></div></div>'
                 + '<div><div class="cp-score-tier">' + esc(e.level.name) + '</div><p style="margin:0;color:var(--cp-muted)">' + esc(e.level.desc) + '</p></div>'
                 + '</div></div>'
@@ -654,50 +1070,6 @@
         }
 
         render();
-    })();
-    </script>
-    @endverbatim
-
-    {{-- Scroll-driven hero behaviour (intro reveal + pinned scroll scrub), matching
-         civicprofile.org. Loaded after the quiz; if the CDN is blocked or motion is
-         reduced, the hero simply falls back to the CSS auto-scroll marquee. --}}
-    <script src="/js/gsap.min.js"></script>
-    <script src="/js/ScrollTrigger.min.js"></script>
-    @verbatim
-    <script>
-    (function () {
-        var hero = document.querySelector('.cpg');
-        if (!hero) return;
-
-        // Smooth-scroll the "Take the quiz" / arrow links down to the quiz.
-        hero.querySelectorAll('a[href="#cp-app"]').forEach(function (a) {
-            a.addEventListener('click', function (e) {
-                var el = document.getElementById('cp-app');
-                if (!el) return;
-                e.preventDefault();
-                el.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        if (!window.gsap || !window.ScrollTrigger) return;                  // keep CSS marquee fallback
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        gsap.registerPlugin(ScrollTrigger);
-        hero.classList.add('is-js');                                        // hand the rows over to GSAP
-
-        var tracks = hero.querySelectorAll('.cpg-track');
-        var t1 = tracks[0], t2 = tracks[1];
-
-        // (The intro reveal is done in CSS so it plays even without GSAP.)
-        // Scroll-driven: pin the hero and scrub the two rows in opposite directions.
-        if (t2) gsap.set(t2, { xPercent: -22 });
-        var tl = gsap.timeline({
-            scrollTrigger: { trigger: hero, start: 'top top', end: '+=140%', pin: true, scrub: 0.6, anticipatePin: 1 }
-        });
-        if (t1) tl.to(t1, { xPercent: -22, ease: 'none' }, 0);
-        if (t2) tl.to(t2, { xPercent: 0, ease: 'none' }, 0);
-        tl.to(hero.querySelector('.cpg-overlay'), { opacity: 0, y: -30, ease: 'none' }, 0.2);
-        tl.to(hero.querySelector('.cpg-arrow'), { opacity: 0, ease: 'none' }, 0.05);
     })();
     </script>
     @endverbatim

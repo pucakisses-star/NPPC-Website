@@ -2566,181 +2566,7 @@
         "imprisoned_for_days": 1398
       }
     ]
-  },
-  {
-    "name": "Benjamin Spock",
-    "first_name": "Benjamin",
-    "middle_name": "McLane",
-    "last_name": "Spock",
-    "aka": "Dr. Spock",
-    "description": "Renowned pediatrician and author of 'Baby and Child Care' who became a leading voice in the anti-Vietnam War movement. Indicted January 5, 1968 with four others (the 'Boston Five') for conspiracy to counsel, aid, and abet draft resistance. Convicted in June 1968 and sentenced to two years in prison; conviction reversed on appeal by the First Circuit in 1969.",
-    "state": "Massachusetts",
-    "race": "White",
-    "gender": "Male",
-    "birthdate": "1903-05-02",
-    "death_date": "1998-03-15",
-    "ideologies": [
-      "Pacifism",
-      "Anti-war",
-      "Progressive"
-    ],
-    "affiliation": [
-      "National Committee for a Sane Nuclear Policy",
-      "People's Party"
-    ],
-    "era": "1960s",
-    "in_custody": false,
-    "released": true,
-    "cases": [
-      {
-        "institution_name": "U.S. District Court for the District of Massachusetts",
-        "institution_city": "Boston",
-        "institution_state": "Massachusetts",
-        "charges": "Conspiracy to counsel, aid, and abet draft resistance (Selective Service Act)",
-        "arrest_date": "1968-01-05",
-        "convicted": "Yes \u2014 convicted June 14, 1968; reversed on appeal July 11, 1969",
-        "sentence": "2 years imprisonment and $5,000 fine (never served \u2014 reversed on appeal)"
-      }
-    ]
-  },
-  {
-    "name": "William Sloane Coffin Jr.",
-    "first_name": "William",
-    "middle_name": "Sloane",
-    "last_name": "Coffin",
-    "aka": "Bill Coffin",
-    "description": "Yale University chaplain, ordained Presbyterian minister, and prominent civil rights and anti-war activist. As one of the 'Boston Five,' he was indicted in January 1968 for conspiracy to counsel draft evasion after publicly accepting draft cards from young men resisting the Vietnam War. Convicted in 1968; conviction reversed on appeal in 1969. He later led Riverside Church in New York and SANE/Freeze.",
-    "state": "Connecticut",
-    "race": "White",
-    "gender": "Male",
-    "birthdate": "1924-06-01",
-    "death_date": "2006-04-12",
-    "ideologies": [
-      "Pacifism",
-      "Christian leftism",
-      "Anti-war",
-      "Civil rights"
-    ],
-    "affiliation": [
-      "Yale University",
-      "Clergy and Laymen Concerned About Vietnam",
-      "Riverside Church"
-    ],
-    "era": "1960s",
-    "in_custody": false,
-    "released": true,
-    "cases": [
-      {
-        "institution_name": "U.S. District Court for the District of Massachusetts",
-        "institution_city": "Boston",
-        "institution_state": "Massachusetts",
-        "charges": "Conspiracy to counsel, aid, and abet draft resistance (Selective Service Act)",
-        "arrest_date": "1968-01-05",
-        "convicted": "Yes \u2014 convicted June 14, 1968; reversed on appeal July 11, 1969",
-        "sentence": "2 years imprisonment (never served \u2014 reversed on appeal)"
-      }
-    ]
-  },
-  {
-    "name": "Marcus Raskin",
-    "first_name": "Marcus",
-    "middle_name": "Goodman",
-    "last_name": "Raskin",
-    "description": "Progressive intellectual, former JFK National Security Council staff member, and co-founder of the Institute for Policy Studies in Washington, DC. Indicted as one of the 'Boston Five' in January 1968 for conspiracy to counsel draft evasion. He was acquitted by the jury in June 1968, the only one of the five to escape conviction at trial.",
-    "state": "District of Columbia",
-    "race": "White",
-    "gender": "Male",
-    "birthdate": "1934-04-30",
-    "death_date": "2017-12-24",
-    "ideologies": [
-      "Progressive",
-      "Anti-war",
-      "Democratic socialism"
-    ],
-    "affiliation": [
-      "Institute for Policy Studies"
-    ],
-    "era": "1960s",
-    "in_custody": false,
-    "released": true,
-    "cases": [
-      {
-        "institution_name": "U.S. District Court for the District of Massachusetts",
-        "institution_city": "Boston",
-        "institution_state": "Massachusetts",
-        "charges": "Conspiracy to counsel, aid, and abet draft resistance (Selective Service Act)",
-        "arrest_date": "1968-01-05",
-        "convicted": "No \u2014 acquitted by jury June 14, 1968"
-      }
-    ]
-  },
-  {
-    "name": "Mitchell Goodman",
-    "first_name": "Mitchell",
-    "last_name": "Goodman",
-    "description": "Novelist and poet, husband of poet Denise Levertov, and organizer of the October 1967 'Call to Resist Illegitimate Authority.' Indicted as one of the 'Boston Five' for conspiracy to counsel draft evasion. Convicted in June 1968 and sentenced to two years; conviction reversed on appeal in 1969.",
-    "state": "Maine",
-    "race": "White",
-    "gender": "Male",
-    "birthdate": "1923-12-13",
-    "death_date": "1997-02-01",
-    "ideologies": [
-      "Pacifism",
-      "Anti-war",
-      "Literary leftism"
-    ],
-    "affiliation": [
-      "RESIST"
-    ],
-    "era": "1960s",
-    "in_custody": false,
-    "released": true,
-    "cases": [
-      {
-        "institution_name": "U.S. District Court for the District of Massachusetts",
-        "institution_city": "Boston",
-        "institution_state": "Massachusetts",
-        "charges": "Conspiracy to counsel, aid, and abet draft resistance (Selective Service Act)",
-        "arrest_date": "1968-01-05",
-        "convicted": "Yes \u2014 convicted June 14, 1968; reversed on appeal July 11, 1969",
-        "sentence": "2 years imprisonment (never served \u2014 reversed on appeal)"
-      }
-    ]
-  },
-  {
-    "name": "Michael Ferber",
-    "first_name": "Michael",
-    "last_name": "Ferber",
-    "description": "Harvard graduate student and draft resister who delivered a celebrated sermon, 'A Time to Say No,' at Boston's Arlington Street Church in October 1967. Indicted as the youngest of the 'Boston Five' for conspiracy to counsel draft evasion. Convicted in 1968 and sentenced to two years; conviction reversed on appeal in 1969. Later became a literature professor at the University of New Hampshire.",
-    "state": "Massachusetts",
-    "race": "White",
-    "gender": "Male",
-    "birthdate": "1944-01-04",
-    "ideologies": [
-      "Pacifism",
-      "Anti-war",
-      "Draft resistance"
-    ],
-    "affiliation": [
-      "RESIST",
-      "New England Resistance"
-    ],
-    "era": "1960s",
-    "in_custody": false,
-    "released": true,
-    "cases": [
-      {
-        "institution_name": "U.S. District Court for the District of Massachusetts",
-        "institution_city": "Boston",
-        "institution_state": "Massachusetts",
-        "charges": "Conspiracy to counsel, aid, and abet draft resistance (Selective Service Act)",
-        "arrest_date": "1968-01-05",
-        "convicted": "Yes \u2014 convicted June 14, 1968; reversed on appeal July 11, 1969",
-        "sentence": "2 years imprisonment (never served \u2014 reversed on appeal)"
-      }
-    ]
-  },
-  {
+  },  {
     "name": "Daniel Berrigan",
     "first_name": "Daniel",
     "last_name": "Berrigan",
@@ -3657,7 +3483,7 @@
     "name": "John Briggs",
     "first_name": "John",
     "last_name": "Briggs",
-    "description": "Vietnam veteran and member of Vietnam Veterans Against the War (VVAW) indicted in 1972 as one of the 'Gainesville Eight' for conspiracy to disrupt the 1972 Republican National Convention in Miami Beach. All eight defendants were acquitted by a federal jury on August 31, 1973.",
+    "description": "Vietnam veteran and member of Vietnam Veterans Against the War (VVAW) indicted in 1972 as one of the 'Gainesville Eight' for conspiracy to disrupt the 1972 Republican National Convention in Miami Beach. He was jailed September 8–17, 1972. All eight defendants were acquitted by a federal jury on August 31, 1973.",
     "race": "White",
     "gender": "Male",
     "ideologies": [
@@ -3678,7 +3504,10 @@
         "institution_state": "Florida",
         "charges": "Conspiracy to incite a riot at the 1972 Republican National Convention",
         "arrest_date": "1972-07-10",
-        "convicted": "No \u2014 acquitted by jury August 31, 1973"
+        "incarceration_date": "1972-09-08",
+        "release_date": "1972-09-17",
+        "convicted": "No \u2014 acquitted by jury August 31, 1973",
+        "sentence": "Jailed September 8\u201317, 1972."
       }
     ]
   },

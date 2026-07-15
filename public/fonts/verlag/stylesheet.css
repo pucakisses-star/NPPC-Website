@@ -5,14 +5,18 @@ body {
     font-family: 'Verlag', sans-serif;
     font-weight: normal;
     line-height: 1.6;
-    color: #FFF;
+    /* color intentionally not set here — the theme (light/dark) owns text
+       color via --fg; a hardcoded #FFF made unstyled text invisible on
+       light backgrounds. */
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Verlag', sans-serif;
     line-height: 1.2;
     margin-bottom: 0.5em;
-    color: #FFF;
+    /* color inherits from the theme (see note on body above); #FFF here
+       made un-overridden headings white-on-white in light mode (e.g. the
+       archive record titles). */
     font-weight: lighter;
 }
 

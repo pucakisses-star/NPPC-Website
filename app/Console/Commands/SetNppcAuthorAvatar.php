@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Storage;
  * The "National Political Prisoner Coalition" author's avatar is the wide NPPC
  * logo (417x208), which looks wrong when cropped into the square / circular
  * avatar slots (byline, about-box, admin list). Generate a proper square avatar
- * — the logo scaled down to fit, centered on a brand-indigo square — and set it
- * on that author so it fits everywhere. Idempotent; only updates the author if
- * it exists (won't create a duplicate on prod).
+ * — the logo scaled down to fit, centered on a black square (matching the
+ * white-on-black site logo) — and set it on that author so it fits everywhere.
+ * Idempotent; only updates the author if it exists (won't create a duplicate
+ * on prod).
  */
 final class SetNppcAuthorAvatar extends Command
 {
@@ -20,7 +21,9 @@ final class SetNppcAuthorAvatar extends Command
 
     protected $description = 'Give the National Political Prisoner Coalition author a square (fitted) avatar';
 
-    private const AVATAR_PATH = 'authors/national-political-prisoner-coalition.png';
+    // Suffixed filename so the URL changes with the redesign (black square) —
+    // otherwise browsers keep serving the cached indigo version.
+    private const AVATAR_PATH = 'authors/national-political-prisoner-coalition-black.png';
 
     public function handle(): int
     {
@@ -31,7 +34,8 @@ final class SetNppcAuthorAvatar extends Command
             return self::FAILURE;
         }
 
-        // Scale the (wide) logo down to fit, centered on a brand-indigo square.
+        // Scale the (wide) logo down to fit, centered on a black square —
+        // matching the white-on-black site logo treatment.
         $src = imagecreatefrompng($logoPath);
         $sw = imagesx($src);
         $sh = imagesy($src);
@@ -39,7 +43,7 @@ final class SetNppcAuthorAvatar extends Command
         $size = 512;
         $pad = 56;
         $canvas = imagecreatetruecolor($size, $size);
-        $bg = imagecolorallocate($canvas, 0x56, 0x60, 0xFE); // #5660fe (brand, matches favicon)
+        $bg = imagecolorallocate($canvas, 0x00, 0x00, 0x00); // black
         imagefilledrectangle($canvas, 0, 0, $size, $size, $bg);
         imagealphablending($canvas, true);
 

@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Donate | NPPC')
+
 @section('head')
 <style>
     .donate-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
@@ -53,6 +55,7 @@
         .crypto-grid { grid-template-columns: 1fr; }
     }
 </style>
+@include('partials.scribble-assets')
 @endsection
 
 @section('body')
@@ -62,7 +65,7 @@
             <img src="/images/stop-jailing-truth-tellers.webp" alt="Support political prisoners">
         </div>
         <div class="donate-form-side">
-            <h1 class="donate-title">Donate to help free political prisoners.</h1>
+            <h1 class="donate-title">Donate to help @include('partials.scribble', ['word' => 'free']) political prisoners.</h1>
             <p class="donate-desc">The National Political Prisoner Coalition works to support our nation's political prisoners, fight against wrongful convictions, and create fair, compassionate, and equitable systems of justice for everyone. With your support, we can do even more — donate today.</p>
 
             <livewire:donation />

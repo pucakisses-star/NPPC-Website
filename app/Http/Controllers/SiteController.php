@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\AnnualReport;
 use App\Models\ArchiveRecord;
 use App\Models\Article;
+use App\Models\Author;
 use App\Models\CalendarEntry;
 use App\Models\Event;
 use App\Models\Faq;
 use App\Models\HistoryEra;
+use App\Models\Institution;
 use App\Models\Page;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
@@ -212,8 +214,9 @@ final class SiteController extends Controller {
         $rootTopics = Topic::published()->roots()
             ->with('children')->orderBy('sort_order')->get();
 
-        $activeTopic = null;
-        $activeChild = null;
+        $activeTopic = null;      // root section (column 1)
+        $activeChild = null;      // depth-1 sub-topic (column 2)
+        $activeGrandchild = null; // depth-2 nested topic (column 3)
         $showIndex = ($slug === 'index');
         $showContribute = ($slug === 'contributions');
         $indexGroups = collect();
@@ -227,15 +230,26 @@ final class SiteController extends Controller {
                 ->sortBy(fn ($t) => $this->indexSortKey($t->title), SORT_NATURAL | SORT_FLAG_CASE)
                 ->groupBy(fn ($t) => strtoupper(mb_substr($this->indexSortKey($t->title), 0, 1)));
         } elseif ($slug && ! $showContribute) {
-            // Try to find as a root topic; otherwise fall back to the default
-            // first section below.
-            $activeTopic = Topic::published()
-                ->where('slug', $slug)->first();
+            // Resolve the requested topic to its section / sub-topic / nested
+            // ancestry so the explorer can surface each level in its own column
+            // (roots → sub-topics → nested topics). Supports up to two levels of
+            // nesting; e.g. Everett Massacre under Industrial Workers of the World.
+            $found = Topic::published()->where('slug', $slug)->first();
 
-            if ($activeTopic && $activeTopic->parent_id) {
-                // It's a child — surface it within its parent section.
-                $activeChild = $activeTopic;
-                $activeTopic = $activeChild->parent;
+            if ($found && $found->parent_id === null) {
+                $activeTopic = $found;
+            } elseif ($found) {
+                $parent = $found->parent;
+                if ($parent && $parent->parent_id === null) {
+                    // Depth-1 sub-topic — surface it within its section.
+                    $activeTopic = $parent;
+                    $activeChild = $found;
+                } else {
+                    // Depth-2 nested topic — surface its section, sub-topic, and self.
+                    $activeChild = $parent;
+                    $activeTopic = $parent ? $parent->parent : null;
+                    $activeGrandchild = $found;
+                }
             }
         }
 
@@ -243,12 +257,13 @@ final class SiteController extends Controller {
             $activeTopic = $rootTopics->first();
         }
 
-        // Related prisoners — only for leaf topics (sub-topics / content
-        // pages). Section pages and the Introduction have children or are
-        // overviews, so they show their essay rather than a case list.
+        // Related prisoners — only for sub-topics (any topic with a parent:
+        // content pages, and now nested topics like Everett Massacre under IWW).
+        // The root section pages and the Introduction are overviews, so they
+        // show their essay rather than a case list.
         $relatedPrisoners = collect();
-        $displayTopic = $activeChild ?: $activeTopic;
-        if ($displayTopic && $displayTopic->children->isEmpty()) {
+        $displayTopic = $activeGrandchild ?: ($activeChild ?: $activeTopic);
+        if ($displayTopic && $displayTopic->parent_id) {
             $searchTerms = [strtolower($displayTopic->title)];
 
             $relatedPrisoners = Prisoner::where(function ($q) use ($searchTerms) {
@@ -261,12 +276,85 @@ final class SiteController extends Controller {
             })->limit(20)->get();
         }
 
-        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups'));
+        // Compact search index of every published topic (title, slug, ancestor
+        // path) for the explorer's search box — searched client-side, like the
+        // ecfr.eu mapping explorer, so results appear as you type.
+        $all = Topic::published()->get(['id', 'title', 'slug', 'parent_id']);
+        $byId = $all->keyBy('id');
+        $searchIndex = $all->map(function ($t) use ($byId) {
+            $path = [];
+            $p = $t->parent_id ? $byId->get($t->parent_id) : null;
+            while ($p) {
+                array_unshift($path, $p->title);
+                $p = $p->parent_id ? $byId->get($p->parent_id) : null;
+            }
+
+            return ['t' => $t->title, 's' => $t->slug, 'p' => implode(' → ', $path)];
+        })->values();
+
+        return view('pages.topics', compact('rootTopics', 'activeTopic', 'activeChild', 'activeGrandchild', 'relatedPrisoners', 'showIndex', 'showContribute', 'indexGroups', 'searchIndex'));
     }
 
     /** Sort/group key for the topic index: drops a leading article. */
     private function indexSortKey(string $title): string {
         return ltrim(preg_replace('/^(the|a|an)\s+/i', '', trim($title)));
+    }
+
+    public function memorial() {
+        // A memorial starfield — one star for every political prisoner in the
+        // database (after gazaschildren.com's "one star for every name"). Only
+        // the few fields the starfield needs are sent, keyed short to keep the
+        // embedded payload small. Each carries a year (`y`) — the earliest of
+        // its cases' arrest/incarceration/sentencing dates, or the era's year —
+        // so the timeline player can ignite stars in chronological order.
+        $people = Prisoner::with(['cases:id,prisoner_id,arrest_date,incarceration_date,sentenced_date'])
+            ->orderBy('sort_order')
+            ->get(['id', 'name', 'slug', 'era', 'death_date', 'in_custody'])
+            ->map(function ($p) {
+                $year = null;
+                foreach ($p->cases as $c) {
+                    foreach (['incarceration_date', 'arrest_date', 'sentenced_date'] as $f) {
+                        if ($c->$f) {
+                            $y = (int) \Carbon\Carbon::parse($c->$f)->year;
+                            if ($y > 1000) {
+                                $year = $year ? min($year, $y) : $y;
+                            }
+                        }
+                    }
+                }
+                if (! $year && $p->era && preg_match('/\d{4}/', $p->era, $m)) {
+                    $year = (int) $m[0];
+                }
+
+                return [
+                    'n' => $p->name,
+                    'u' => $p->url,
+                    'e' => $p->era,
+                    'c' => (bool) $p->in_custody,   // still imprisoned
+                    'd' => (bool) $p->death_date,    // deceased
+                    'y' => $year,                    // year of imprisonment (nullable)
+                ];
+            })
+            ->values();
+
+        $years = $people->pluck('y')->filter()->values();
+        $minYear = $years->isNotEmpty() ? (int) $years->min() : 1850;
+        $maxYear = (int) date('Y');
+
+        // Give anyone with no datable year the earliest year, so they still
+        // appear (lit from the start) rather than never igniting.
+        $people = $people->map(function ($r) use ($minYear) {
+            $r['y'] = $r['y'] ?: $minYear;
+
+            return $r;
+        })->values();
+
+        return view('pages.memorial', [
+            'people' => $people,
+            'count' => $people->count(),
+            'minYear' => $minYear,
+            'maxYear' => $maxYear,
+        ]);
     }
 
     public function birthdays(Request $request) {
@@ -413,7 +501,19 @@ final class SiteController extends Controller {
             ->orderBy('first_name')
             ->get(['id', 'name', 'slug', 'last_name', 'first_name']);
 
-        return view('pages.prisoner-outreach', compact('prisoners'));
+        // "Meet Political Prisoners" carousel: a fresh random set on every
+        // page load — currently imprisoned people only, with a photo and bio.
+        $meetPrisoners = Prisoner::where('in_custody', true)
+            ->whereNotNull('photo')
+            ->where('photo', '!=', '')
+            ->whereNotNull('description')
+            ->where('description', '!=', '')
+            ->inRandomOrder()
+            ->limit(30)
+            ->get(['id', 'name', 'slug', 'photo', 'state', 'description',
+                'in_custody', 'released', 'awaiting_trial', 'in_exile']);
+
+        return view('pages.prisoner-outreach', compact('prisoners', 'meetPrisoners'));
     }
 
     public function staff(Request $request) {
@@ -888,6 +988,106 @@ final class SiteController extends Controller {
         'transnational-repression-report' => '/transnational-repression',
     ];
 
+    /** slug => [full name, abbreviation, ...extra stored variants] */
+    public const STATES = [
+        'alabama' => ['Alabama', 'AL'], 'alaska' => ['Alaska', 'AK'], 'arizona' => ['Arizona', 'AZ'],
+        'arkansas' => ['Arkansas', 'AR'], 'california' => ['California', 'CA'], 'colorado' => ['Colorado', 'CO'],
+        'connecticut' => ['Connecticut', 'CT'], 'delaware' => ['Delaware', 'DE'],
+        'district-of-columbia' => ['District of Columbia', 'DC', 'Washington, D.C.', 'Washington DC'],
+        'florida' => ['Florida', 'FL'], 'georgia' => ['Georgia', 'GA'], 'hawaii' => ['Hawaii', 'HI'],
+        'idaho' => ['Idaho', 'ID'], 'illinois' => ['Illinois', 'IL'], 'indiana' => ['Indiana', 'IN'],
+        'iowa' => ['Iowa', 'IA'], 'kansas' => ['Kansas', 'KS'], 'kentucky' => ['Kentucky', 'KY'],
+        'louisiana' => ['Louisiana', 'LA'], 'maine' => ['Maine', 'ME'], 'maryland' => ['Maryland', 'MD'],
+        'massachusetts' => ['Massachusetts', 'MA'], 'michigan' => ['Michigan', 'MI'],
+        'minnesota' => ['Minnesota', 'MN'], 'mississippi' => ['Mississippi', 'MS'],
+        'missouri' => ['Missouri', 'MO'], 'montana' => ['Montana', 'MT'], 'nebraska' => ['Nebraska', 'NE'],
+        'nevada' => ['Nevada', 'NV'], 'new-hampshire' => ['New Hampshire', 'NH'],
+        'new-jersey' => ['New Jersey', 'NJ'], 'new-mexico' => ['New Mexico', 'NM'],
+        'new-york' => ['New York', 'NY'], 'north-carolina' => ['North Carolina', 'NC'],
+        'north-dakota' => ['North Dakota', 'ND'], 'ohio' => ['Ohio', 'OH'], 'oklahoma' => ['Oklahoma', 'OK'],
+        'oregon' => ['Oregon', 'OR'], 'pennsylvania' => ['Pennsylvania', 'PA'],
+        'rhode-island' => ['Rhode Island', 'RI'], 'south-carolina' => ['South Carolina', 'SC'],
+        'south-dakota' => ['South Dakota', 'SD'], 'tennessee' => ['Tennessee', 'TN'],
+        'texas' => ['Texas', 'TX'], 'utah' => ['Utah', 'UT'], 'vermont' => ['Vermont', 'VT'],
+        'virginia' => ['Virginia', 'VA'], 'washington' => ['Washington', 'WA'],
+        'west-virginia' => ['West Virginia', 'WV'], 'wisconsin' => ['Wisconsin', 'WI'],
+        'wyoming' => ['Wyoming', 'WY'], 'puerto-rico' => ['Puerto Rico', 'PR'],
+    ];
+
+    public function state(string $slug) {
+        $variants = self::STATES[$slug] ?? null;
+        if ($variants === null) {
+            abort(404);
+        }
+        $name = $variants[0];
+
+        $base = Prisoner::whereIn('state', $variants);
+
+        $stats = [
+            'total' => (clone $base)->count(),
+            'in_custody' => (clone $base)->where('in_custody', true)->count(),
+            'released' => (clone $base)->where('released', true)->count(),
+            'awaiting' => (clone $base)->where('awaiting_trial', true)->count(),
+        ];
+
+        // Photo-bearing entries lead so the grid opens strong.
+        $prisoners = (clone $base)
+            ->orderByRaw("(photo IS NOT NULL AND photo != '') DESC")
+            ->orderByRaw('in_custody DESC')
+            ->orderBy('last_name')
+            ->orderBy('first_name')
+            ->paginate(24, ['id', 'name', 'slug', 'photo', 'state', 'description',
+                'in_custody', 'released', 'awaiting_trial', 'in_exile', 'era']);
+
+        $eras = (clone $base)
+            ->whereNotNull('era')->where('era', '!=', '')
+            ->selectRaw('era, count(*) as n')
+            ->groupBy('era')->orderByDesc('n')->limit(6)->get();
+
+        $institutions = Institution::whereIn('state', $variants)
+            ->select('institutions.*')
+            ->selectRaw('(select count(*) from prisoner_cases where prisoner_cases.institution_id = institutions.id) as cases_count')
+            ->orderByDesc('cases_count')
+            ->limit(8)->get()
+            ->filter(fn ($i) => $i->cases_count > 0)
+            ->values();
+
+        $shapes = json_decode((string) file_get_contents(database_path('data/state-shapes.json')), true) ?: [];
+
+        // prev / next state for footer navigation
+        $slugs = array_keys(self::STATES);
+        $idx = (int) array_search($slug, $slugs, true);
+        $prev = $slugs[($idx - 1 + count($slugs)) % count($slugs)];
+        $next = $slugs[($idx + 1) % count($slugs)];
+
+        return view('pages.state', [
+            'slug' => $slug,
+            'name' => $name,
+            'stats' => $stats,
+            'prisoners' => $prisoners,
+            'eras' => $eras,
+            'institutions' => $institutions,
+            'shape' => $shapes[$name] ?? null,
+            'prevState' => ['slug' => $prev, 'name' => self::STATES[$prev][0]],
+            'nextState' => ['slug' => $next, 'name' => self::STATES[$next][0]],
+        ]);
+    }
+
+    public function author(string $slug) {
+        $author = Author::where('slug', $slug)->firstOrFail();
+
+        $articles = $author->articles()
+            ->whereNotNull('published_at')
+            ->with('category')
+            ->orderByDesc('published_at')
+            ->paginate(12);
+
+        return view('pages.author', [
+            'author' => $author,
+            'articles' => $articles,
+        ]);
+    }
+
     public function article(string $type, string $slug) {
         if ($target = self::FEATURE_REDIRECTS[$slug] ?? null) {
             return redirect($target);
@@ -1089,13 +1289,42 @@ final class SiteController extends Controller {
         return view('pages.archive-view', compact('record'));
     }
 
-    public function petitionsIndex() {
-        $petitions = \App\Models\Petition::where('published', true)
+    public function petitionsIndex(Request $request) {
+        // Featured spot: the newest published petition with an image
+        // (falling back to the newest overall). It renders in the hero band
+        // and is excluded from the paginated grid below.
+        $featured = \App\Models\Petition::where('published', true)
             ->withCount('signatures')
+            ->whereNotNull('image')
             ->orderByDesc('created_at')
-            ->get();
+            ->first()
+            ?? \App\Models\Petition::where('published', true)
+                ->withCount('signatures')
+                ->orderByDesc('created_at')
+                ->first();
 
-        return view('pages.petitions-index', compact('petitions'));
+        $sort = $request->query('sort', 'newest');
+        $state = $request->query('state');
+
+        $petitions = \App\Models\Petition::where('published', true)
+            ->when($featured, fn ($q) => $q->where('id', '!=', $featured->id))
+            ->when($state, fn ($q) => $q->where('state', $state))
+            ->withCount('signatures')
+            ->when($sort === 'oldest', fn ($q) => $q->orderBy('created_at'))
+            ->when($sort === 'most-signed', fn ($q) => $q->orderByDesc('signatures_count'))
+            ->when($sort === 'closest-to-goal', fn ($q) => $q->orderByRaw('signatures_count / GREATEST(signature_goal, 1) DESC'))
+            ->when(! in_array($sort, ['oldest', 'most-signed', 'closest-to-goal']), fn ($q) => $q->orderByDesc('created_at'))
+            ->paginate(12)
+            ->appends($request->query());
+
+        // States present across published petitions, for the filter dropdown.
+        $states = \App\Models\Petition::where('published', true)
+            ->whereNotNull('state')
+            ->distinct()
+            ->orderBy('state')
+            ->pluck('state');
+
+        return view('pages.petitions-index', compact('petitions', 'featured', 'states', 'sort', 'state'));
     }
 
     public function petitionPage(string $slug) {
@@ -1169,5 +1398,252 @@ final class SiteController extends Controller {
 
     public function home() {
         return view('home');
+    }
+
+    public function museum() {
+        // Walkable 3D museum (/museum). Curates prisoners who have photos into
+        // named galleries by the specific movement/organization they belonged to
+        // (the Black Panther Party, Plowshares, the American Indian Movement …),
+        // rather than strewing portraits at random, and gathers the timeline,
+        // archive documents, and topic backdrops the rooms are built from.
+        // Fields are keyed short to keep the embedded payload small:
+        // n=name, img=photo, l1/l2=placard lines, d=description, u=link.
+        //
+        // Each group matches a haystack of the prisoner's affiliation + ideology
+        // tags. Groups are ordered as a curatorial sequence; a person lands in
+        // the first group they match (dedup by $used), and a group only becomes a
+        // room if it collects enough portraits.
+        $groupDefs = [
+            ['key' => 'black-panther', 'title' => 'The Black Panther Party', 'accent' => 'crimson',
+                'intro' => 'Founded in Oakland in 1966, the Black Panther Party became the FBI\'s single largest COINTELPRO target. Its members were surveilled, raided, and framed; several — like the New York and New Haven Panthers — spent years in pretrial jail before juries acquitted them. Others never came home.',
+                'match' => ['black panther', 'panther 21', 'panther', 'bpp']],
+            ['key' => 'black-liberation-army', 'title' => 'The Black Liberation Army & New Afrika', 'accent' => 'gold',
+                'intro' => 'Out of the Panthers\' collapse came the Black Liberation Army and the Republic of New Afrika. Their prisoners hold some of the longest sentences in this building — many jailed since the 1970s and 1980s, several still inside today, some of the last acknowledged political prisoners in the United States.',
+                'match' => ['black liberation army', 'new afrika', 'new afrikan', 'republic of new', 'bla ', 'assata']],
+            ['key' => 'move', 'title' => 'MOVE', 'accent' => 'green',
+                'intro' => 'The MOVE organization, a Black naturalist commune in Philadelphia, was besieged twice by the city — in 1978 and again in 1985, when police dropped a bomb on their home and let the fire burn a city block. The MOVE 9 spent four decades in prison for a death the state itself set in motion.',
+                'match' => ['move organization', 'move 9', 'move nine', 'move bombing', 'the move']],
+            ['key' => 'aim', 'title' => 'The American Indian Movement', 'accent' => 'ochre',
+                'intro' => 'From the occupation of Wounded Knee to the shootout at Pine Ridge, the American Indian Movement met federal conspiracy charges, paramilitary sieges, and prosecutions that reached across decades. Leonard Peltier\'s case became the movement\'s defining injustice.',
+                'match' => ['american indian movement', 'wounded knee', 'pine ridge', 'peltier', 'indigenous', 'native american', 'aim ']],
+            ['key' => 'puerto-rico', 'title' => 'Puerto Rican Independence', 'accent' => 'teal',
+                'intro' => 'For more than a century the United States has jailed Puerto Ricans who insisted their island be free — the Nationalist Party of the 1950s, the FALN and Los Macheteros of the 1970s and 80s, prisoners held so long that mass clemency campaigns finally brought some of them home.',
+                'match' => ['puerto ric', 'faln', 'macheteros', 'nationalist party', 'young lords', 'independentista', 'boricua']],
+            ['key' => 'plowshares', 'title' => 'Plowshares & the Catholic Left', 'accent' => 'violet',
+                'intro' => 'Priests, nuns, and lay Catholics who hammered on nuclear warheads and poured blood on missile silos — beating swords into plowshares, literally — have accepted years in federal prison as an act of faith. Many were in their seventies and eighties when they were sentenced.',
+                'match' => ['plowshares', 'catholic worker', 'berrigan', 'king of prussia', 'disarmament', 'anti-nuclear', 'ploughshares']],
+            ['key' => 'antiwar', 'title' => 'Draft Resistance & the Anti-War Movement', 'accent' => 'slate',
+                'intro' => 'From the conscientious objectors of the First World War to the draft-card burners of Vietnam, refusing to fight has carried a prison sentence. This gallery holds those who went to jail rather than to war.',
+                'match' => ['draft', 'vietnam', 'conscientious objector', 'anti-war', 'antiwar', 'war resist', 'selective service', 'pacifis']],
+            ['key' => 'weather', 'title' => 'Weather Underground & the Anti-Imperialists', 'accent' => 'rust',
+                'intro' => 'The white radicals who broke from the student movement to fight alongside Black and Puerto Rican liberation — the Weather Underground, the May 19th Communist Organization, the Ohio 7 — drew long federal sentences under conspiracy and RICO statutes.',
+                'match' => ['weather underground', 'weathermen', 'may 19', 'may 19th', 'anti-imperialist', 'ohio 7', 'united freedom front', 'sds', 'students for a democratic']],
+            ['key' => 'anarchists', 'title' => 'The Anarchists', 'accent' => 'crimson',
+                'intro' => 'From the Haymarket martyrs hanged in 1887 to the Galleanists deported after the Red Scare, anarchists were the first political prisoners this country made in great numbers — jailed for their newspapers, their speeches, and their refusal of the state itself.',
+                'match' => ['anarch', 'haymarket', 'galleanist', 'galleani', 'nihilis']],
+            ['key' => 'labor', 'title' => 'Labor & the Industrial Workers of the World', 'accent' => 'ochre',
+                'intro' => 'Union organizers filled American prisons under criminal-syndicalism laws written expressly to break them. The Industrial Workers of the World — the Wobblies — were jailed by the hundreds; the mine and pecan and farm strikes of the 1930s filled the cells again.',
+                'match' => ['iww', 'industrial workers', 'wobbl', 'criminal syndicalis', 'labor', 'trade union', 'longshore', 'pecan', 'miner']],
+            ['key' => 'communists', 'title' => 'Communists & the Red Scare', 'accent' => 'crimson',
+                'intro' => 'Under the Smith Act and the subpoenas of the House Un-American Activities Committee, holding the wrong ideas — or refusing to name those who did — was enough for prison. The Hollywood Ten and the Party leadership went to jail for their beliefs and their silence.',
+                'match' => ['communist', 'smith act', 'hollywood ten', 'huac', 'un-american', 'red scare', 'cpusa', 'party leader']],
+            ['key' => 'earth', 'title' => 'The Green Scare', 'accent' => 'green',
+                'intro' => 'In the 2000s the government branded environmental and animal-rights saboteurs as terrorists, winning some of the harshest sentences ever handed to activists who took no life — the Earth and Animal Liberation Fronts, the SHAC defendants, the eco-arsonists of Operation Backfire.',
+                'match' => ['earth liberation', 'animal liberation', 'green scare', 'ecodefense', 'shac', 'operation backfire', 'environmental', ' elf', ' alf']],
+            ['key' => 'civil-rights', 'title' => 'The Civil Rights Movement', 'accent' => 'gold',
+                'intro' => 'The Freedom Riders who filled the jails of Mississippi, the students of SNCC and CORE, the marchers who went to prison by the thousands — the movement made a strategy of arrest, turning the cell into a place of witness.',
+                'match' => ['civil rights', 'sncc', ' core', 'freedom rider', 'freedom ride', 'naacp', 'sclc', 'birmingham', 'montgomery']],
+            ['key' => 'suffrage', 'title' => 'Suffrage & Women\'s Rights', 'accent' => 'violet',
+                'intro' => 'The Silent Sentinels were dragged from the White House gates to the Occoquan Workhouse and force-fed for demanding the vote. Birth-control advocates chose jail over silence. This gallery holds the women — and their allies — imprisoned for equality.',
+                'match' => ['suffrag', 'silent sentinel', "woman's party", 'birth control', 'feminis']],
+            ['key' => 'palestine', 'title' => 'Palestine Solidarity', 'accent' => 'teal',
+                'intro' => 'The newest wing of this collection: organizers, students, and writers detained, deported, or prosecuted for pro-Palestinian speech and protest — a reminder that the making of political prisoners in America is not a closed chapter but a present one.',
+                'match' => ['palestin', 'gaza', 'pro-palestine', 'boycott', 'bds', 'holy land']],
+            ['key' => 'grand-jury', 'title' => 'Grand Jury & Contempt Resisters', 'accent' => 'slate',
+                'intro' => 'People jailed not for a crime but for a refusal — declining to testify before a grand jury, to name names, or to become an instrument against their own movement. Their sentences are open-ended: they end only when the resister breaks, or the jury does.',
+                'match' => ['grand jury', 'contempt', 'refused to testify', 'refusing to testify', 'noncooperat']],
+        ];
+
+        $people = Prisoner::whereNotNull('photo')->where('photo', '!=', '')
+            ->get(['id', 'name', 'slug', 'photo', 'description', 'era', 'state', 'ideologies', 'affiliation', 'birthdate', 'death_date', 'in_custody', 'date_precision']);
+
+        $item = function ($p) {
+            $born = $p->birthdate ? $p->birthdate->format('Y') : null;
+            $died = $p->death_date ? $p->death_date->format('Y') : null;
+            $years = $born ? ($born.'–'.($died ?: ($p->in_custody ? '' : ' '))) : ($died ? '–'.$died : '');
+            $ideo = collect((array) $p->ideologies)->take(2)->implode(' · ');
+
+            return [
+                'n' => $p->name,
+                'img' => $p->photo_url,
+                'l1' => trim($years) ?: ($p->era ?: ''),
+                'l2' => $ideo ?: ($p->era ?: ''),
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $p->description)), 620),
+                'u' => '/prisoner/'.$p->slug,
+                'c' => (bool) $p->in_custody,
+            ];
+        };
+        $hayOf = fn ($p) => ' '.mb_strtolower(implode(' ', array_merge(
+            (array) $p->affiliation, (array) $p->ideologies, [(string) $p->name, (string) $p->era]
+        ))).' ';
+
+        $used = [];
+        $galleries = [];
+        foreach ($groupDefs as $t) {
+            $picks = [];
+            foreach ($people as $p) {
+                if (isset($used[$p->id])) {
+                    continue;
+                }
+                $hay = $hayOf($p);
+                foreach ($t['match'] as $m) {
+                    if (str_contains($hay, $m)) {
+                        $picks[] = $p;
+                        break;
+                    }
+                }
+            }
+            // Richest bios first make the best wall labels; big rooms hold ~16.
+            $picks = collect($picks)->sortByDesc(fn ($p) => mb_strlen((string) $p->description))->take(16)->values();
+            if ($picks->count() >= 3) {
+                foreach ($picks as $p) {
+                    $used[$p->id] = true;
+                }
+                $galleries[] = [
+                    'key' => $t['key'],
+                    'title' => $t['title'],
+                    'intro' => $t['intro'],
+                    'accent' => $t['accent'],
+                    'items' => $picks->map($item)->all(),
+                ];
+            }
+        }
+
+        // Hall of Figures — a curated set of standing portrait monoliths: the
+        // single strongest-documented figure from each populated gallery, so the
+        // central hall reads as a who's-who across the movements.
+        $monoliths = [];
+        foreach ($galleries as $g) {
+            if (! empty($g['items'][0])) {
+                $monoliths[] = $g['items'][0] + ['group' => $g['title']];
+            }
+        }
+
+        // Photo-mosaic wall + face corridors: every remaining portrait, so the
+        // hall's long wall tiles with hundreds of faces.
+        $faces = collect($people)->reject(fn ($p) => isset($used[$p->id]))
+            ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
+            ->values()->map($item)->all();
+        $mosaic = collect($people)
+            ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
+            ->take(180)->values()
+            ->map(fn ($p) => ['img' => $p->photo_url, 'n' => $p->name, 'u' => '/prisoner/'.$p->slug])->all();
+
+        // Rotunda standees: figures still in custody get pride of place.
+        $standees = collect($people)->filter(fn ($p) => $p->in_custody && mb_strlen((string) $p->description) > 200)
+            ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
+            ->take(6)->values()->map($item)->all();
+
+        $timeline = Timeline::orderBy('year')->get(['year', 'title', 'text', 'image'])
+            ->map(fn ($t) => [
+                'y' => (int) $t->year,
+                't' => $t->title,
+                'x' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $t->text)), 260),
+                'img' => $t->image ? \Illuminate\Support\Facades\Storage::url($t->image) : null,
+            ])->all();
+
+        $archive = ArchiveRecord::where('published', true)->whereNotNull('thumbnail')
+            ->orderBy('year')->take(10)
+            ->get()
+            ->map(fn ($r) => [
+                'n' => $r->title,
+                'img' => $r->thumbnail_url,
+                'file' => $r->file_url,
+                'l1' => trim(($r->year ?: '').' · '.($r->source_format ?: $r->record_type)),
+                'l2' => $r->collection ?: '',
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $r->description)), 420),
+                'u' => '/archive/view/'.$r->slug,
+            ])->all();
+
+        // Reading room: every digitized document, split into "books" (long-form
+        // — zines, periodicals, pamphlets — shelved on the bookcases) and
+        // "sheets" (flyers, posters — racked face-out). Picking one up opens
+        // the in-museum PDF reader on the full scan.
+        $shortFormats = ['flyer', 'poster', 'broadside', 'photograph', 'postcard', 'card'];
+        $reading = ArchiveRecord::where('published', true)->whereNotNull('file')
+            ->orderBy('collection')->orderBy('year')
+            ->take(56)
+            ->get()
+            ->map(fn ($r) => [
+                'n' => $r->title,
+                'img' => $r->thumbnail_url,
+                'file' => $r->file_url,
+                'l1' => trim(($r->year ?: '').' · '.($r->source_format ?: $r->record_type), ' ·'),
+                'l2' => $r->collection ?: '',
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $r->description)), 300),
+                'u' => '/archive/view/'.$r->slug,
+                'book' => ! in_array(mb_strtolower((string) $r->source_format), $shortFormats, true),
+            ])->all();
+
+        // Projection / theater slides: the wide topic backdrops.
+        $slides = Topic::published()->whereNotNull('image')->where('image', '!=', '')
+            ->orderBy('sort_order')->take(14)
+            ->get(['title', 'image'])
+            ->map(fn ($t) => [
+                't' => $t->title,
+                'img' => \Illuminate\Support\Facades\Storage::url($t->image),
+            ])->all();
+
+        $stats = [
+            'total' => Prisoner::count(),
+            'inCustody' => Prisoner::where('in_custody', true)->count(),
+            'eras' => (int) Prisoner::whereNotNull('era')->where('era', '!=', '')->distinct()->count('era'),
+        ];
+
+        // Museum shop: real store products, classified into a display type so
+        // the 3D shop knows where each belongs (apparel rail, bookshelf,
+        // poster wall, sticker counter, misc shelf). Picking one up offers a
+        // Buy action that opens the product's store page.
+        $typeOf = function ($p) {
+            $hay = mb_strtolower($p->name.' '.$p->category.' '.implode(' ', (array) ($p->categories ?? [])));
+            $has = fn (...$words) => collect($words)->contains(fn ($w) => str_contains($hay, $w));
+
+            return match (true) {
+                $has('shirt', 'tee', 'hoodie', 'sweat', 'apparel', 'tote', 'bag', 'hat', 'cap', 'beanie') => 'apparel',
+                $has('book', 'zine', 'pamphlet', 'reader', 'journal') => 'book',
+                $has('sticker', 'pin', 'button', 'badge', 'patch', 'magnet', 'postcard', 'keychain') => 'small',
+                $has('poster', 'print', 'flag', 'banner') => 'poster',
+                default => 'misc',
+            };
+        };
+        $shop = Product::published()->whereNotNull('image')->where('image', '!=', '')
+            ->orderByDesc('featured')->orderBy('sort_order')->orderBy('name')
+            ->take(26)->get()
+            ->map(fn ($p) => [
+                'n' => $p->name,
+                'img' => $p->image_url,
+                'l1' => '$'.number_format((float) $p->price, fmod((float) $p->price, 1.0) > 0.004 ? 2 : 0),
+                'l2' => $p->category ?: 'Museum Shop',
+                'd' => \Illuminate\Support\Str::limit(trim(strip_tags((string) $p->description)), 300),
+                'u' => '/store/'.$p->slug,
+                'type' => $typeOf($p),
+            ])->all();
+
+        $museum = [
+            'galleries' => $galleries,
+            'monoliths' => $monoliths,
+            'mosaic' => $mosaic,
+            'faces' => $faces,
+            'standees' => $standees,
+            'timeline' => $timeline,
+            'archive' => $archive,
+            'reading' => $reading,
+            'slides' => $slides,
+            'shop' => $shop,
+            'stats' => $stats,
+            'video' => is_file(public_path('videos/museum-reel.mp4')) ? '/videos/museum-reel.mp4' : null,
+        ];
+
+        return view('pages.museum', compact('museum'));
     }
 }

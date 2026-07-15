@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Get Involved | NPPC')
+
 @section('head')
 <style>
     /* Container & Layout */
@@ -107,6 +109,7 @@
         .gi-newsletter-form { flex-direction: column; }
     }
 </style>
+@include('partials.scribble-assets')
 @endsection
 
 @section('body')
@@ -115,7 +118,7 @@
     {{-- ==================== HERO ==================== --}}
     <div class="gi-hero">
         <div class="gi-hero-label">Get Involved</div>
-        <h1 class="gi-hero-title">Your Voice Can Free a Prisoner</h1>
+        <h1 class="gi-hero-title">Your Voice Can @include('partials.scribble', ['word' => 'Free']) a Prisoner</h1>
         <p class="gi-hero-sub">Political prisoners need more than thoughts and prayers. They need people willing to write letters, make calls, spread awareness, donate resources, and show up. Here's how you can help.</p>
     </div>
 </div>

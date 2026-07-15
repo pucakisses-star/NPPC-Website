@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Our Staff | NPPC')
+
 @section('head')
 <style>
     .staff-page { max-width: 1200px; margin: 0 auto; padding: 0 24px; }

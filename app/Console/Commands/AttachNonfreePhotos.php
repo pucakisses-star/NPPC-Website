@@ -33,6 +33,8 @@ final class AttachNonfreePhotos extends Command
         [['Kenny "Zulu" Whitmore', 'Zulu Whitmore', 'Whitmore'], 'whitmore-kenny-zulu.jpg'],
         [['Ángel Rodríguez Cristóbal', 'Rodríguez Cristóbal', 'Cristóbal'], 'rodriguez-cristobal-angel.jpg'],
         [['Robert Robideau', 'Robideau'], 'robideau-robert.jpg'],
+        [['Yorie von Kahl', 'Yorie Von Kahl'], 'yorie-von-kahl.jpg'],
+        [['Bethany Terrill', 'Bethany Abigail Terrill'], 'bethany-terrill.jpg'],
     ];
 
     public function handle(): int

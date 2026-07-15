@@ -5,6 +5,8 @@
 
 @extends('app')
 
+@section('title', 'Donation Complete | NPPC')
+
 @section('body')
     <h1 class="text-6xl mt-12 mb-12 text-white text-center">Thank you for your donation</h1>
 
