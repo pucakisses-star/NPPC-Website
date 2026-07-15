@@ -171,16 +171,23 @@
     .gi-ev-list { display: flex; flex-direction: column; }
     .gi-ev-item { display: flex; gap: 20px; text-decoration: none; color: inherit; padding: 16px 0; }
     .gi-ev-item + .gi-ev-item { border-top: 1px solid rgba(var(--fg-rgb),0.1); }
-    .gi-ev-date { flex: 0 0 86px; background: var(--accent); color: #fff; text-align: center; padding: 14px 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); align-self: flex-start; }
+    .gi-ev-date { flex: 0 0 86px; background: var(--accent); color: #fff; text-align: center; padding: 14px 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); align-self: flex-start; transition: background 0.18s ease; }
     .gi-ev-date .d { font-size: 1.8rem; font-weight: 900; line-height: 1; }
     .gi-ev-date .m { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
     .gi-ev-date .y { font-size: 0.72rem; font-weight: 600; opacity: 0.85; }
     .gi-ev-body { flex: 1; min-width: 0; }
-    .gi-ev-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: rgba(var(--fg-rgb),0.5); border-bottom: 1px solid rgba(var(--fg-rgb),0.12); padding-bottom: 7px; margin-bottom: 9px; }
-    .gi-ev-meta .lbl { font-weight: 700; }
-    .gi-ev-title { font-size: 1.25rem; font-weight: 800; color: var(--fg); line-height: 1.22; margin: 0 0 4px; transition: color 0.15s; }
-    .gi-ev-item:hover .gi-ev-title { color: var(--accent); }
+    .gi-ev-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: rgba(var(--fg-rgb),0.5); border-bottom: 1px solid rgba(var(--fg-rgb),0.12); padding-bottom: 7px; margin-bottom: 9px; transition: border-color 0.18s ease; }
+    .gi-ev-meta .lbl { font-weight: 700; transition: color 0.18s ease; }
+    .gi-ev-title { font-size: 1.25rem; font-weight: 800; color: var(--fg); line-height: 1.22; margin: 0 0 4px; }
     .gi-ev-sub { font-size: 13px; color: rgba(var(--fg-rgb),0.55); line-height: 1.5; }
+    /* On highlight (hover / keyboard focus) the row turns gold: date tab,
+       "Event" label, and the top rule. */
+    .gi-ev-item:hover .gi-ev-date,
+    .gi-ev-item:focus-visible .gi-ev-date { background: var(--gi-ev-gold); }
+    .gi-ev-item:hover .gi-ev-meta,
+    .gi-ev-item:focus-visible .gi-ev-meta { border-bottom-color: var(--gi-ev-gold); }
+    .gi-ev-item:hover .gi-ev-meta .lbl,
+    .gi-ev-item:focus-visible .gi-ev-meta .lbl { color: var(--gi-ev-gold); }
     @@media (max-width: 900px) { .gi-ev-grid { grid-template-columns: 1fr; gap: 40px; } }
 </style>
 @include('partials.scribble-assets')
