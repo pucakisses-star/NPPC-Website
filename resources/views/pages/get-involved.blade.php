@@ -160,7 +160,9 @@
     .gi-ev-feat-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
     .gi-ev-feat:hover .gi-ev-feat-media img { transform: scale(1.03); }
     .gi-ev-feat-top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 16px 20px; background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent); color: #fff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
-    .gi-ev-feat-date { position: absolute; left: 0; bottom: 0; background: var(--gi-ev-gold); color: #111; display: flex; align-items: baseline; gap: 8px; padding: 12px 24px 12px 18px; clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+    .gi-ev-feat-date { position: absolute; left: 0; bottom: 0; background: var(--accent); color: #fff; display: flex; align-items: baseline; gap: 8px; padding: 12px 24px 12px 18px; clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%); transition: background 0.18s ease; }
+    .gi-ev-feat:hover .gi-ev-feat-date,
+    .gi-ev-feat:focus-visible .gi-ev-feat-date { background: var(--gi-ev-gold); }
     .gi-ev-feat-date .d { font-size: 2rem; font-weight: 900; line-height: 1; }
     .gi-ev-feat-date .my { font-size: 0.8rem; font-weight: 700; line-height: 1.15; }
     .gi-ev-feat-title { font-size: 2rem; font-weight: 900; color: var(--fg); line-height: 1.12; margin: 22px 0 10px; }
