@@ -69,3 +69,14 @@ have no photo and never overwrites an existing image.
 | `jacob-coxey.jpg` | Jacob S. Coxey (led Coxey's Army of unemployed to Washington, 1894; arrested for walking on the Capitol lawn) | Library of Congress (`loc.gov/pictures/item/2021651660`). **Public domain**. |
 | `anthony-burns.jpg` | Anthony Burns (fugitive from slavery whose 1854 arrest under the Fugitive Slave Act sparked mass protest in Boston) | Central portrait medallion cropped from the 1855 commemorative print by John Andrews, Library of Congress (`loc.gov/pictures/item/2003689280`). **Public domain**. |
 | `parson-brownlow.jpg` | William G. "Parson" Brownlow (Tennessee Unionist editor jailed by the Confederacy in 1861) | Photograph by Giers, via Wikimedia Commons. **Public domain** (19th-century work). |
+| `emilio-aguinaldo.jpg` | Emilio Aguinaldo (first president of the Philippines; captured and imprisoned by U.S. forces, 1901) | Restored photograph, c. 1919, via Wikimedia Commons. **Public domain**. |
+| `apolinario-mabini.jpg` | Apolinario Mabini ("Brains of the Revolution"; deported by the U.S. to Guam, 1901–03) | Portrait via Wikimedia Commons. **Public domain**. |
+| `artemio-ricarte.jpg` | Artemio Ricarte ("Vibora"; imprisoned and exiled by the U.S. for refusing to swear allegiance) | Photograph (cropped), via Wikimedia Commons. **Public domain**. |
+| `mariano-llanera.jpg` | Mariano Llanera (Philippine revolutionary general) | Portrait via Wikimedia Commons. **Public domain**. |
+| `mariano-trias.jpg` | Mariano Trías (first vice-president of the Philippine Republic) | Portrait via Wikimedia Commons. **Public domain**. |
+| `pablo-ocampo.jpg` | Pablo Ocampo (Philippine resident commissioner; revolutionary imprisoned under Spanish and U.S. rule) | Photograph, c. 1908, via Wikimedia Commons. **Public domain**. |
+| `pio-del-pilar.jpg` | Pío del Pilar (Philippine revolutionary general; captured by U.S. forces) | Photograph (cropped to bust; Ayala/Filipinas Heritage Library caption trimmed), via Wikimedia Commons. **Public domain**. |
+| `ida-craddock.jpg` | Ida Craddock (free-speech and sexual-education writer jailed under the Comstock Act; died 1902) | Portrait via Wikimedia Commons. **Public domain**. |
+| `steve-adams.jpg` | Steve Adams (Western Federation of Miners; held in the 1906–07 Idaho conspiracy prosecutions) | "Steve Adams, hardrock miner," via Wikimedia Commons. **Public domain**. |
+| `charles-moyer.jpg` | Charles H. Moyer (president of the Western Federation of Miners; jailed in the 1906–07 Haywood–Moyer–Pettibone case) | Cropped (left figure) from the Haywood–Moyer–Pettibone group photograph, via Wikimedia Commons. **Public domain**. |
+| `george-pettibone.jpg` | George Pettibone (WFM defendant in the 1906–07 Idaho conspiracy prosecutions) | Cropped (right figure) from the Haywood–Moyer–Pettibone group photograph, via Wikimedia Commons. **Public domain**. |
