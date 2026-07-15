@@ -5,14 +5,17 @@ use App\Models\Article;
 function renderArticle(Article $article, bool $large = false, bool $eager = false): string {
     if(!$article) return '';
 
-    $imgHeight = $large ? '600px' : '224px';
+    // Hero keeps its tall fixed height; the smaller cards use a landscape
+    // 3:2 aspect-ratio so they never collapse to a square (which cropped the
+    // photos) as the grid columns narrow.
+    $imgBox = $large ? 'height: 600px' : 'aspect-ratio: 3 / 2';
     $imgUrl = $article->image ? $article->image_url : '';
     $loadingAttr = $eager ? 'eager' : 'lazy';
     $fetchPriority = $eager ? 'high' : 'auto';
 
     $imageMarkup = $imgUrl
-        ? "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; overflow: hidden; background:var(--surface-2);\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
-        : "<a href=\"{$article->url}\" style=\"display: block; height: {$imgHeight}; background:var(--surface-2);\"></a>";
+        ? "<a href=\"{$article->url}\" style=\"display: block; {$imgBox}; overflow: hidden; background:var(--surface-2);\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
+        : "<a href=\"{$article->url}\" style=\"display: block; {$imgBox}; background:var(--surface-2);\"></a>";
 
     $category = $article->category?->title;
     $date = $article->published_at?->format('F j, Y');
