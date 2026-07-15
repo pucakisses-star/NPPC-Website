@@ -57,8 +57,8 @@
             <p class="events-intro">Join NPPC's events for conversations about political imprisonment, civil liberties, and social justice with advocates, researchers, and community members.</p>
         </div>
         <div class="events-hero-image">
-            <img src="{{ asset('images/events-hero.jpg') }}" alt="An NPPC outreach table at a community event, with a chalkboard sign reading &quot;Learn about political prisoners — National Political Prisoner Coalition&quot;"
-                 style="width:100%; height:300px; object-fit:cover; object-position:center 62%; border-radius:12px; display:block;">
+            <img src="{{ asset('images/become-a-partner.jpg') }}" alt="A speaker addresses a crowd with a megaphone at an outdoor rally"
+                 style="width:100%; height:300px; object-fit:cover; object-position:center; border-radius:12px; display:block;">
         </div>
     </div>
 
