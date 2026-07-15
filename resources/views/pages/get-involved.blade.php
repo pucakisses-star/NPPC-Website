@@ -191,6 +191,30 @@
     .gi-ev-item:hover .gi-ev-meta .lbl,
     .gi-ev-item:focus-visible .gi-ev-meta .lbl { color: var(--gi-ev-gold); }
     @@media (max-width: 900px) { .gi-ev-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ==================== AREAS OF WORK (MI "policy areas" style) ==================== */
+    .gi-aw { --gi-aw-hl: #f5b400; position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: #eef0ff; margin: 84px 0; overflow: hidden; }
+    .gi-aw-inner { display: flex; align-items: stretch; min-height: 440px; }
+    .gi-aw-nav { flex: 0 0 320px; background: #1c1c28; padding: 54px 40px 54px max(36px, calc((100vw - 1240px) / 2)); clip-path: polygon(0 0, 100% 0, calc(100% - 56px) 100%, 0 100%); position: relative; z-index: 2; }
+    .gi-aw-title { font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 26px; }
+    .gi-aw-list { display: flex; flex-direction: column; gap: 13px; }
+    .gi-aw-link { background: none; border: none; text-align: left; padding: 0; font-family: inherit; font-size: 1.3rem; font-weight: 600; color: rgba(255,255,255,0.72); cursor: pointer; transition: color 0.15s; }
+    .gi-aw-link:hover { color: #fff; }
+    .gi-aw-link.active { color: var(--gi-aw-hl); font-weight: 800; }
+    .gi-aw-mid { flex: 1; padding: 56px 64px; display: flex; flex-direction: column; justify-content: space-between; margin-left: -40px; }
+    .gi-aw-desc { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; line-height: 1.35; color: #15171c; max-width: 660px; }
+    .gi-aw-more { align-self: flex-start; margin-top: 36px; color: #15171c; font-size: 1.05rem; text-decoration: none; border-bottom: 2px solid var(--gi-aw-hl); padding-bottom: 4px; transition: color 0.15s; }
+    .gi-aw-more:hover { color: var(--gi-aw-hl); }
+    .gi-aw-imgwrap { flex: 0 0 27%; position: relative; overflow: hidden; clip-path: polygon(56px 0, 100% 0, 100% 100%, 0 100%); margin-left: -30px; background: #111; }
+    .gi-aw-imgwrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.05); opacity: 0; transition: opacity 0.45s ease; }
+    .gi-aw-imgwrap img.active { opacity: 1; }
+    @@media (max-width: 900px) {
+        .gi-aw-inner { flex-direction: column; }
+        .gi-aw-nav { flex-basis: auto; clip-path: none; padding: 36px 24px; }
+        .gi-aw-mid { margin-left: 0; padding: 32px 24px; }
+        .gi-aw-desc { font-size: 1.5rem; }
+        .gi-aw-imgwrap { flex-basis: auto; clip-path: none; margin-left: 0; min-height: 240px; }
+    }
 </style>
 @include('partials.scribble-assets')
 @endsection
@@ -264,6 +288,65 @@
         </a>
 
     </div>
+
+    <div class="gi-divider"></div>
+
+    {{-- ==================== AREAS OF WORK ==================== --}}
+    @php
+        $giAreas = [
+            ['name' => 'Documentation', 'href' => '/database', 'img' => 'data-center-hero.jpg',
+             'desc' => 'We maintain the most comprehensive database of U.S. political prisoners ever built, tracking hundreds of cases across more than a century of political imprisonment.'],
+            ['name' => 'Prisoner Support', 'href' => '/prisoner-outreach', 'img' => 'candles.jpg',
+             'desc' => 'We connect people on the outside with those inside — organizing letter-writing, commissary and legal-defense funds, and direct outreach to imprisoned activists.'],
+            ['name' => 'Public Education', 'href' => '/learn-more', 'img' => 'news-header.jpg',
+             'desc' => 'We tell the stories behind the cases through articles, teach-ins, and our history section, so the public understands the ongoing reality of political repression.'],
+            ['name' => 'Advocacy', 'href' => '/get-involved', 'img' => 'become-a-partner.jpg',
+             'desc' => 'We campaign for the release of political prisoners through petitions, rallies, and sustained pressure on the institutions responsible for their imprisonment.'],
+            ['name' => 'History', 'href' => '/history', 'img' => 'topics-eras.jpg',
+             'desc' => 'We document the long history of U.S. political imprisonment, from the labor, anarchist, and wartime prosecutions of the early 1900s through to the present day.'],
+            ['name' => 'Events', 'href' => '/events', 'img' => 'events-hero.jpg',
+             'desc' => 'We bring the movement together through letter-writing nights, panel discussions, film screenings, and international days of solidarity.'],
+        ];
+    @endphp
+    <section class="gi-aw">
+        <div class="gi-aw-inner">
+            <div class="gi-aw-nav">
+                <div class="gi-aw-title">Our Areas of Work</div>
+                <div class="gi-aw-list" id="gi-aw-list">
+                    @foreach($giAreas as $i => $a)
+                        <button type="button" class="gi-aw-link @if($i === 0) active @endif" data-i="{{ $i }}" data-href="{{ $a['href'] }}" data-desc="{{ $a['desc'] }}">{{ $a['name'] }}</button>
+                    @endforeach
+                </div>
+            </div>
+            <div class="gi-aw-mid">
+                <div class="gi-aw-desc" id="gi-aw-desc">{{ $giAreas[0]['desc'] }}</div>
+                <a class="gi-aw-more" id="gi-aw-more" href="{{ $giAreas[0]['href'] }}">View Area of Work</a>
+            </div>
+            <div class="gi-aw-imgwrap">
+                @foreach($giAreas as $i => $a)
+                    <img class="@if($i === 0) active @endif" data-i="{{ $i }}" src="{{ asset('images/'.$a['img']) }}" alt="{{ $a['name'] }}" loading="lazy">
+                @endforeach
+            </div>
+        </div>
+        <script>
+            (function () {
+                var list = document.getElementById('gi-aw-list');
+                if (!list) return;
+                var desc = document.getElementById('gi-aw-desc');
+                var more = document.getElementById('gi-aw-more');
+                var imgs = document.querySelectorAll('.gi-aw-imgwrap img');
+                list.querySelectorAll('.gi-aw-link').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        list.querySelectorAll('.gi-aw-link').forEach(function (b) { b.classList.remove('active'); });
+                        btn.classList.add('active');
+                        desc.textContent = btn.dataset.desc;
+                        more.setAttribute('href', btn.dataset.href);
+                        imgs.forEach(function (im) { im.classList.toggle('active', im.dataset.i === btn.dataset.i); });
+                    });
+                });
+            })();
+        </script>
+    </section>
 
     <div class="gi-divider"></div>
 
