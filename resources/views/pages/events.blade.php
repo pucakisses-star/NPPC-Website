@@ -57,7 +57,7 @@
             <p class="events-intro">Join NPPC's events for conversations about political imprisonment, civil liberties, and social justice with advocates, researchers, and community members.</p>
         </div>
         <div class="events-hero-image">
-            <img src="{{ asset('images/candles.jpg') }}" alt="A wall of glowing votive candles at a vigil"
+            <img src="{{ asset('images/become-a-partner.jpg') }}" alt="A speaker addresses a crowd with a megaphone at an outdoor rally"
                  style="width:100%; height:300px; object-fit:cover; object-position:center; border-radius:12px; display:block;">
         </div>
     </div>
