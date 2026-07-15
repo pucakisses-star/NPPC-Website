@@ -17,6 +17,9 @@
        Playfair Display as the serif accent on the topic title. Form controls
        don't inherit font-family, so they're named explicitly. */
     .tpx, .tpx input, .tpx button, .tpx textarea, .tpx select { font-family: "Karla", Helvetica, Arial, sans-serif; }
+    /* The right-hand detail panel keeps the site's original default sans — the
+       Karla/Playfair fonts apply only to the explorer nav. */
+    .tpx-detail, .tpx-detail input, .tpx-detail button, .tpx-detail textarea, .tpx-detail select { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
 
     /* ── Topic explorer, modeled on ecfr.eu "Mapping Palestinian Politics":
        a strong photographic backdrop with light nav columns on the left, and
@@ -85,7 +88,7 @@
 
     /* Right column — white detail panel with a large image */
     .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.5s linear; }
-    .tpx-detail-eyebrow { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
+    .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
     .tpx-detail-body p { margin-bottom: 1.2em; }
