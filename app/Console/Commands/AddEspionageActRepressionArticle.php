@@ -59,7 +59,7 @@ final class AddEspionageActRepressionArticle extends Command
         $author->save();
         $this->info(($author->wasRecentlyCreated ? 'Created' : 'Updated')." author: {$author->name}");
 
-        $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
+        $category = Category::firstOrCreate(['title' => 'Publications'], ['slug' => 'publications']);
 
         $intro = 'The Espionage Act of 1917 was written to protect military secrets in wartime — but within months '
             .'it had become the engine of one of the most repressive periods in American history, with more than 2,000 '
