@@ -62,15 +62,17 @@
     .ch-map-col { min-width: 0; }
     .ch-map-col .ch-usmap { margin: 0; }
     .ch-intl-h { font-size: 1.3rem; font-weight: 800; color: var(--accent-2); line-height: 1.15; padding-bottom: 12px; border-bottom: 2px solid var(--accent); margin: 4px 0 20px; }
-    .ch-intl-list { display: flex; flex-direction: column; gap: 12px; }
-    .ch-intl-box { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: none; border: 1px solid rgba(var(--fg-rgb),0.14); border-radius: 8px; padding: 12px 14px; cursor: pointer; color: inherit; transition: border-color 0.15s, background 0.15s; }
-    .ch-intl-box:hover { border-color: var(--accent); background: rgba(86,96,254,0.06); }
-    .ch-intl-box.is-selected { border-color: var(--accent); background: rgba(86,96,254,0.12); }
-    .ch-intl-ico { flex: none; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; color: rgba(var(--fg-rgb),0.32); transition: color 0.15s; }
+    .ch-intl-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; }
+    .ch-intl-box { display: flex; flex-direction: column; align-items: center; gap: 11px; width: 100%; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; }
+    /* The square tile that holds the country silhouette. */
+    .ch-intl-sq { width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(var(--fg-rgb),0.14); border-radius: 8px; transition: border-color 0.15s, background 0.15s; }
+    .ch-intl-box:hover .ch-intl-sq,
+    .ch-intl-box.is-selected .ch-intl-sq { border-color: var(--accent); background: rgba(86,96,254,0.08); }
+    .ch-intl-ico { width: 50%; height: 50%; display: flex; align-items: center; justify-content: center; color: rgba(var(--fg-rgb),0.32); transition: color 0.15s; }
     .ch-intl-ico svg { width: 100%; height: 100%; display: block; }
     .ch-intl-box:hover .ch-intl-ico,
     .ch-intl-box.is-selected .ch-intl-ico { color: var(--accent); }
-    .ch-intl-name { font-size: 15px; font-weight: 700; color: var(--fg); }
+    .ch-intl-name { font-size: 14px; font-weight: 700; color: var(--fg); text-align: center; }
     @media (max-width: 860px) { .ch-mapwrap { grid-template-columns: 1fr; } }
 
     /* Start a chapter CTA */
@@ -215,8 +217,10 @@
                 <div class="ch-intl-list">
                     @foreach($chIntl as $ic)
                         <button type="button" class="ch-intl-box" data-state="{{ $ic['code'] }}">
-                            <span class="ch-intl-ico" aria-hidden="true">
-                                <svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid meet"><path d="{{ $chIntlIcons[$ic['code']] ?? '' }}" fill="currentColor"/></svg>
+                            <span class="ch-intl-sq">
+                                <span class="ch-intl-ico" aria-hidden="true">
+                                    <svg viewBox="0 0 40 40" preserveAspectRatio="xMidYMid meet"><path d="{{ $chIntlIcons[$ic['code']] ?? '' }}" fill="currentColor"/></svg>
+                                </span>
                             </span>
                             <span class="ch-intl-name">{{ $ic['name'] }}</span>
                         </button>
