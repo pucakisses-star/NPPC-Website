@@ -3,10 +3,20 @@
 @section('title', 'Topics | NPPC')
 
 @section('head')
+{{-- Fonts matching ecfr.eu "Mapping Palestinian Politics": Karla (body/nav/
+     headings) + Playfair Display (serif display accent). --}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
     /* Full-bleed: break out of the global .container max-width (like the tracker). */
     body.page-topics main.container, body.page-topics .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
     body.page-topics { background: #14110e; }
+
+    /* Typography — Karla throughout (like ecfr.eu's body + h1–h6), with
+       Playfair Display as the serif accent on the topic title. Form controls
+       don't inherit font-family, so they're named explicitly. */
+    .tpx, .tpx input, .tpx button, .tpx textarea, .tpx select { font-family: "Karla", Helvetica, Arial, sans-serif; }
 
     /* ── Topic explorer, modeled on ecfr.eu "Mapping Palestinian Politics":
        a strong photographic backdrop with light nav columns on the left, and
@@ -75,7 +85,7 @@
 
     /* Right column — white detail panel with a large image */
     .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.5s linear; }
-    .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
+    .tpx-detail-eyebrow { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
     .tpx-detail-body p { margin-bottom: 1.2em; }
