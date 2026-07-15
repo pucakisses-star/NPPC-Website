@@ -17,7 +17,8 @@
   ],
   "first_name": "Joseph",
   "last_name": "Selzer",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "John H. Frantz",
@@ -35,7 +36,8 @@
   "affiliation": [],
   "first_name": "John",
   "last_name": "Frantz",
-  "middle_name": "H."
+  "middle_name": "H.",
+  "kind": "conviction"
  },
  {
   "name": "C. C. Stemler",
@@ -55,7 +57,8 @@
   ],
   "first_name": "C.",
   "last_name": "Stemler",
-  "middle_name": "C."
+  "middle_name": "C.",
+  "kind": "conviction"
  },
  {
   "name": "George Kowalsky",
@@ -73,7 +76,8 @@
   "affiliation": [],
   "first_name": "George",
   "last_name": "Kowalsky",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "John Kolar",
@@ -91,7 +95,8 @@
   "affiliation": [],
   "first_name": "John",
   "last_name": "Kolar",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Edward A. Kolbe",
@@ -109,7 +114,8 @@
   "affiliation": [],
   "first_name": "Edward",
   "last_name": "Kolbe",
-  "middle_name": "A."
+  "middle_name": "A.",
+  "kind": "conviction"
  },
  {
   "name": "Myra Dunton",
@@ -129,7 +135,8 @@
   ],
   "first_name": "Myra",
   "last_name": "Dunton",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "F. M. Darby",
@@ -147,7 +154,8 @@
   "affiliation": [],
   "first_name": "F.",
   "last_name": "Darby",
-  "middle_name": "M."
+  "middle_name": "M.",
+  "kind": "conviction"
  },
  {
   "name": "Mack Denny",
@@ -165,7 +173,8 @@
   "affiliation": [],
   "first_name": "Mack",
   "last_name": "Denny",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Frank Hockbarth",
@@ -183,7 +192,8 @@
   "affiliation": [],
   "first_name": "Frank",
   "last_name": "Hockbarth",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Ludwig Evanicki",
@@ -201,7 +211,8 @@
   "affiliation": [],
   "first_name": "Ludwig",
   "last_name": "Evanicki",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Charles Sahrbacher",
@@ -219,7 +230,8 @@
   "affiliation": [],
   "first_name": "Charles",
   "last_name": "Sahrbacher",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Frank A. Feldman",
@@ -237,7 +249,8 @@
   "affiliation": [],
   "first_name": "Frank",
   "last_name": "Feldman",
-  "middle_name": "A."
+  "middle_name": "A.",
+  "kind": "conviction"
  },
  {
   "name": "John J. Ballam",
@@ -257,7 +270,8 @@
   ],
   "first_name": "John",
   "last_name": "Ballam",
-  "middle_name": "J."
+  "middle_name": "J.",
+  "kind": "conviction"
  },
  {
   "name": "John D. Mamis",
@@ -275,7 +289,8 @@
   "affiliation": [],
   "first_name": "John",
   "last_name": "Mamis",
-  "middle_name": "D."
+  "middle_name": "D.",
+  "kind": "conviction"
  },
  {
   "name": "I. T. Boutell",
@@ -295,7 +310,8 @@
   ],
   "first_name": "I.",
   "last_name": "Boutell",
-  "middle_name": "T."
+  "middle_name": "T.",
+  "kind": "conviction"
  },
  {
   "name": "J. G. Shellenberger",
@@ -313,7 +329,8 @@
   "affiliation": [],
   "first_name": "J.",
   "last_name": "Shellenberger",
-  "middle_name": "G."
+  "middle_name": "G.",
+  "kind": "conviction"
  },
  {
   "name": "Edward Hofstede",
@@ -331,7 +348,8 @@
   "affiliation": [],
   "first_name": "Edward",
   "last_name": "Hofstede",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Edwin Firth",
@@ -349,7 +367,8 @@
   "affiliation": [],
   "first_name": "Edwin",
   "last_name": "Firth",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "John Katkus",
@@ -367,7 +386,8 @@
   "affiliation": [],
   "first_name": "John",
   "last_name": "Katkus",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Harry Fadel",
@@ -385,7 +405,8 @@
   "affiliation": [],
   "first_name": "Harry",
   "last_name": "Fadel",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Jacob Frachter",
@@ -405,7 +426,8 @@
   ],
   "first_name": "Jacob",
   "last_name": "Frachter",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Allan S. Broms",
@@ -427,7 +449,8 @@
   ],
   "first_name": "Allan",
   "last_name": "Broms",
-  "middle_name": "S."
+  "middle_name": "S.",
+  "kind": "conviction"
  },
  {
   "name": "W. Theo. Woodward",
@@ -445,7 +468,8 @@
   "affiliation": [],
   "first_name": "W.",
   "last_name": "Woodward",
-  "middle_name": "Theo."
+  "middle_name": "Theo.",
+  "kind": "conviction"
  },
  {
   "name": "J. M. Beck",
@@ -465,7 +489,8 @@
   ],
   "first_name": "J.",
   "last_name": "Beck",
-  "middle_name": "M."
+  "middle_name": "M.",
+  "kind": "conviction"
  },
  {
   "name": "Gus Swift",
@@ -483,7 +508,8 @@
   "affiliation": [],
   "first_name": "Gus",
   "last_name": "Swift",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Alexander Horr",
@@ -503,7 +529,8 @@
   ],
   "first_name": "Alexander",
   "last_name": "Horr",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Fleming Jordan",
@@ -521,7 +548,8 @@
   "affiliation": [],
   "first_name": "Fleming",
   "last_name": "Jordan",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Casper Oberstadt",
@@ -541,7 +569,8 @@
   ],
   "first_name": "Casper",
   "last_name": "Oberstadt",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Carl A. Wold",
@@ -559,7 +588,8 @@
   "affiliation": [],
   "first_name": "Carl",
   "last_name": "Wold",
-  "middle_name": "A."
+  "middle_name": "A.",
+  "kind": "conviction"
  },
  {
   "name": "Joseph Gilbert",
@@ -577,7 +607,8 @@
   "affiliation": [],
   "first_name": "Joseph",
   "last_name": "Gilbert",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "G. D. Brewer",
@@ -597,7 +628,8 @@
   ],
   "first_name": "G.",
   "last_name": "Brewer",
-  "middle_name": "D."
+  "middle_name": "D.",
+  "kind": "conviction"
  },
  {
   "name": "Henry Stock",
@@ -615,7 +647,8 @@
   "affiliation": [],
   "first_name": "Henry",
   "last_name": "Stock",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Henry Anbelsen",
@@ -633,7 +666,8 @@
   "affiliation": [],
   "first_name": "Henry",
   "last_name": "Anbelsen",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Sam Jesky",
@@ -651,7 +685,8 @@
   "affiliation": [],
   "first_name": "Sam",
   "last_name": "Jesky",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Ronda M. Hendricks",
@@ -669,7 +704,8 @@
   "affiliation": [],
   "first_name": "Ronda",
   "last_name": "Hendricks",
-  "middle_name": "M."
+  "middle_name": "M.",
+  "kind": "conviction"
  },
  {
   "name": "J. H. Shintz",
@@ -687,7 +723,8 @@
   "affiliation": [],
   "first_name": "J.",
   "last_name": "Shintz",
-  "middle_name": "H."
+  "middle_name": "H.",
+  "kind": "conviction"
  },
  {
   "name": "G. C. Henry",
@@ -705,7 +742,8 @@
   "affiliation": [],
   "first_name": "G.",
   "last_name": "Henry",
-  "middle_name": "C."
+  "middle_name": "C.",
+  "kind": "conviction"
  },
  {
   "name": "Henry Brinkman",
@@ -723,7 +761,8 @@
   "affiliation": [],
   "first_name": "Henry",
   "last_name": "Brinkman",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Wasyl Jowchalk",
@@ -741,7 +780,8 @@
   "affiliation": [],
   "first_name": "Wasyl",
   "last_name": "Jowchalk",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Gus Schader",
@@ -759,7 +799,8 @@
   "affiliation": [],
   "first_name": "Gus",
   "last_name": "Schader",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "H. Klabo",
@@ -777,7 +818,8 @@
   "affiliation": [],
   "first_name": "H.",
   "last_name": "Klabo",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Fred Masson",
@@ -795,7 +837,8 @@
   "affiliation": [],
   "first_name": "Fred",
   "last_name": "Masson",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "B. F. Burns",
@@ -813,7 +856,8 @@
   "affiliation": [],
   "first_name": "B.",
   "last_name": "Burns",
-  "middle_name": "F."
+  "middle_name": "F.",
+  "kind": "conviction"
  },
  {
   "name": "Joseph E. Hanberg",
@@ -831,7 +875,8 @@
   "affiliation": [],
   "first_name": "Joseph",
   "last_name": "Hanberg",
-  "middle_name": "E."
+  "middle_name": "E.",
+  "kind": "conviction"
  },
  {
   "name": "Waldemar Czapanski",
@@ -849,7 +894,8 @@
   "affiliation": [],
   "first_name": "Waldemar",
   "last_name": "Czapanski",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Michael Legoth",
@@ -867,7 +913,8 @@
   "affiliation": [],
   "first_name": "Michael",
   "last_name": "Legoth",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "Charles Sauer",
@@ -885,7 +932,8 @@
   "affiliation": [],
   "first_name": "Charles",
   "last_name": "Sauer",
-  "middle_name": null
+  "middle_name": null,
+  "kind": "conviction"
  },
  {
   "name": "D. M. Carr",
@@ -903,6 +951,707 @@
   "affiliation": [],
   "first_name": "D.",
   "last_name": "Carr",
-  "middle_name": "M."
+  "middle_name": "M.",
+  "kind": "conviction"
+ },
+ {
+  "name": "Abraham Bieber",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Abraham",
+  "last_name": "Bieber",
+  "middle_name": null
+ },
+ {
+  "name": "Gustav Salty",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Gustav",
+  "last_name": "Salty",
+  "middle_name": null
+ },
+ {
+  "name": "Earl Huckelberry",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Earl",
+  "last_name": "Huckelberry",
+  "middle_name": null
+ },
+ {
+  "name": "Fred J. Muhlke",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Fred",
+  "last_name": "Muhlke",
+  "middle_name": "J."
+ },
+ {
+  "name": "Adolph L. Yanyar",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Adolph",
+  "last_name": "Yanyar",
+  "middle_name": "L."
+ },
+ {
+  "name": "Verner Siro",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Verner",
+  "last_name": "Siro",
+  "middle_name": null
+ },
+ {
+  "name": "Eno R. Larson",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Eno",
+  "last_name": "Larson",
+  "middle_name": "R."
+ },
+ {
+  "name": "Louis H. Blumenthal",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Louis",
+  "last_name": "Blumenthal",
+  "middle_name": "H."
+ },
+ {
+  "name": "Gerald DeCessa",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Gerald",
+  "last_name": "DeCessa",
+  "middle_name": null
+ },
+ {
+  "name": "Robert W. Franke",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Robert",
+  "last_name": "Franke",
+  "middle_name": "W."
+ },
+ {
+  "name": "Edward J. Heath",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Edward",
+  "last_name": "Heath",
+  "middle_name": "J."
+ },
+ {
+  "name": "Walter L. Hirshberg",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Walter",
+  "last_name": "Hirshberg",
+  "middle_name": "L."
+ },
+ {
+  "name": "Roy Horlacher",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Roy",
+  "last_name": "Horlacher",
+  "middle_name": null
+ },
+ {
+  "name": "Wassili Krjworuk",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Wassili",
+  "last_name": "Krjworuk",
+  "middle_name": null
+ },
+ {
+  "name": "Nicola LaCasale",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Nicola",
+  "last_name": "LaCasale",
+  "middle_name": null
+ },
+ {
+  "name": "Walfred E. Maher",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Walfred",
+  "last_name": "Maher",
+  "middle_name": "E."
+ },
+ {
+  "name": "Fred Penick",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Fred",
+  "last_name": "Penick",
+  "middle_name": null
+ },
+ {
+  "name": "Andrew Gust Prince",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Andrew",
+  "last_name": "Prince",
+  "middle_name": "Gust"
+ },
+ {
+  "name": "Joseph H. Quinn",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Joseph",
+  "last_name": "Quinn",
+  "middle_name": "H."
+ },
+ {
+  "name": "John Kas",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "John",
+  "last_name": "Kas",
+  "middle_name": null
+ },
+ {
+  "name": "Louis Smith",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Louis",
+  "last_name": "Smith",
+  "middle_name": null
+ },
+ {
+  "name": "Aaron Smith",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Aaron",
+  "last_name": "Smith",
+  "middle_name": null
+ },
+ {
+  "name": "Nickolaus Ungar",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Nickolaus",
+  "last_name": "Ungar",
+  "middle_name": null
+ },
+ {
+  "name": "George Weiershauser",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "George",
+  "last_name": "Weiershauser",
+  "middle_name": null
+ },
+ {
+  "name": "Philip B. Grossner",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Philip",
+  "last_name": "Grossner",
+  "middle_name": "B."
+ },
+ {
+  "name": "Charles E. Wheeler",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Charles",
+  "last_name": "Wheeler",
+  "middle_name": "E."
+ },
+ {
+  "name": "David Wagner",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "David",
+  "last_name": "Wagner",
+  "middle_name": null
+ },
+ {
+  "name": "Joe White",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Joe",
+  "last_name": "White",
+  "middle_name": null
+ },
+ {
+  "name": "Russell R. Wood",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Russell",
+  "last_name": "Wood",
+  "middle_name": "R."
+ },
+ {
+  "name": "Isidor Bach",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Isidor",
+  "last_name": "Bach",
+  "middle_name": null
+ },
+ {
+  "name": "Charles Clodi",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Charles",
+  "last_name": "Clodi",
+  "middle_name": null
+ },
+ {
+  "name": "Morris Bloch",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Morris",
+  "last_name": "Bloch",
+  "middle_name": null
+ },
+ {
+  "name": "Benjamin Breger",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Benjamin",
+  "last_name": "Breger",
+  "middle_name": null
+ },
+ {
+  "name": "William Briedert",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "William",
+  "last_name": "Briedert",
+  "middle_name": null
+ },
+ {
+  "name": "Phillip Caplowitz",
+  "gender": "Male",
+  "state": null,
+  "city": null,
+  "date": null,
+  "year": null,
+  "month": null,
+  "day": null,
+  "kind": "co",
+  "sentence_note": "confined as a conscientious objector, chiefly at the Fort Leavenworth Disciplinary Barracks, as of March 1, 1919",
+  "ideologies": [
+   "Pacifism",
+   "Conscientious objection"
+  ],
+  "affiliation": [],
+  "first_name": "Phillip",
+  "last_name": "Caplowitz",
+  "middle_name": null
  }
 ]

@@ -74,19 +74,29 @@ final class AddWartime1919Prisoners extends Command
             }
 
             DB::transaction(function () use ($r, $name) {
+                $isCo = ($r['kind'] ?? 'conviction') === 'co';
                 $he = ($r['gender'] ?? 'Male') === 'Female' ? 'she' : 'he';
                 $where = trim(($r['city'] ?? '').(($r['city'] ?? '') && ($r['state'] ?? '') ? ', ' : '').($r['state'] ?? ''));
                 $when = $r['date'] ?? null;
 
-                $desc = "{$name} appears in the National Civil Liberties Bureau's March 1919 compilation "
-                    .'"War-Time Prosecutions and Mob Violence" among people convicted and jailed under World War I–era '
-                    .'free-speech statutes — chiefly the Espionage Act, the Sedition Act, draft-obstruction charges, or '
-                    .'wartime state and local laws. Per that record, '
-                    .($when ? "on {$when}" : 'during 1917–1919')
-                    .($where ? " in {$where}" : '')
-                    .", {$he} was sentenced: {$r['sentence_note']}. The NCLB — the direct predecessor of the American "
-                    .'Civil Liberties Union — compiled these cases from April 1, 1917 to March 1, 1919 as a public record '
-                    .'of the wartime suppression of free speech, a free press, and peaceful assembly.';
+                if ($isCo) {
+                    $desc = "{$name} was a conscientious objector imprisoned during World War I. He was among the 179 "
+                        .'conscientious objectors recorded by the National Civil Liberties Bureau as still confined in '
+                        .'federal military or civil prisons — almost all in the Disciplinary Barracks at Fort Leavenworth, '
+                        .'Kansas — as of March 1, 1919, in its compilation "War-Time Prosecutions and Mob Violence." The '
+                        .'NCLB, the direct predecessor of the American Civil Liberties Union, noted the list likely '
+                        .'covered fewer than half the objectors still confined at that date.';
+                } else {
+                    $desc = "{$name} appears in the National Civil Liberties Bureau's March 1919 compilation "
+                        .'"War-Time Prosecutions and Mob Violence" among people convicted and jailed under World War I–era '
+                        .'free-speech statutes — chiefly the Espionage Act, the Sedition Act, draft-obstruction charges, or '
+                        .'wartime state and local laws. Per that record, '
+                        .($when ? "on {$when}" : 'during 1917–1919')
+                        .($where ? " in {$where}" : '')
+                        .", {$he} was sentenced: {$r['sentence_note']}. The NCLB — the direct predecessor of the American "
+                        .'Civil Liberties Union — compiled these cases from April 1, 1917 to March 1, 1919 as a public record '
+                        .'of the wartime suppression of free speech, a free press, and peaceful assembly.';
+                }
 
                 $prisoner = Prisoner::create([
                     'name' => $name,
@@ -107,15 +117,25 @@ final class AddWartime1919Prisoners extends Command
                 ]);
 
                 $case = new PrisonerCase(['prisoner_id' => $prisoner->id]);
-                $case->fill([
-                    'prisoner_id' => $prisoner->id,
-                    'charges' => 'Prosecuted under World War I–era wartime speech statutes (Espionage Act, Sedition Act, '
-                        .'draft obstruction, or related state/local law). Recorded offense/sentence: '.$r['sentence_note'].'.',
-                    'convicted' => 'Yes — listed among the convictions in the NCLB 1919 report "War-Time Prosecutions and Mob Violence."',
-                    'sentence' => $r['sentence_note'].'.',
-                ]);
-                if (! empty($r['year'])) {
-                    $case->setPartialDate('sentenced_date', (int) $r['year'], $r['month'] ?: null, $r['day'] ?: null);
+                if ($isCo) {
+                    $case->fill([
+                        'prisoner_id' => $prisoner->id,
+                        'charges' => 'Refusal of military service as a conscientious objector (World War I); court-martialed '
+                            .'and imprisoned, chiefly at the Fort Leavenworth Disciplinary Barracks.',
+                        'convicted' => 'Yes — court-martialed as a conscientious objector.',
+                        'sentence' => 'Still confined as a conscientious objector, per the NCLB, as of March 1, 1919.',
+                    ]);
+                } else {
+                    $case->fill([
+                        'prisoner_id' => $prisoner->id,
+                        'charges' => 'Prosecuted under World War I–era wartime speech statutes (Espionage Act, Sedition Act, '
+                            .'draft obstruction, or related state/local law). Recorded offense/sentence: '.$r['sentence_note'].'.',
+                        'convicted' => 'Yes — listed among the convictions in the NCLB 1919 report "War-Time Prosecutions and Mob Violence."',
+                        'sentence' => $r['sentence_note'].'.',
+                    ]);
+                    if (! empty($r['year'])) {
+                        $case->setPartialDate('sentenced_date', (int) $r['year'], $r['month'] ?: null, $r['day'] ?: null);
+                    }
                 }
                 $case->save();
             });
