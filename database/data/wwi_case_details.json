@@ -1,0 +1,22 @@
+[
+ {"slug":"louise-olivereau","charges":"Interference with the draft through mailed literature.","sentence":"10 years; served approximately two years at the Colorado State Penitentiary.","incarceration":[1917,12,13],"release":null,"institution":"Colorado State Penitentiary","institution_city":"Cañon City","institution_state":"Colorado"},
+ {"slug":"robert-harden","charges":"Threatening President Woodrow Wilson.","sentence":"2 years.","incarceration":[1917,8,13],"release":[1919,10,14]},
+ {"slug":"harold-g-mackley","charges":"Alleged disloyal remarks.","sentence":"15 years; released after clemency.","incarceration":[1918,3,21],"release":[1920,7,22]},
+ {"slug":"gerard-liebisch","charges":"Advising drafted men to surrender to the enemy.","sentence":"4 years.","incarceration":[1917,12,15],"release":[1920,5,10]},
+ {"slug":"sam-jacobs","charges":"Alleged seditious remarks.","sentence":"18 months; held at Fort Leavenworth and later at St. Elizabeths Hospital.","incarceration":null,"release":[1920,5,20]},
+ {"slug":"sidney-wallace-mader","charges":"Alleged seditious utterances.","sentence":"3 years; released April 1, 1919 after commutation.","incarceration":[1917,9,1],"release":[1919,4,1]},
+ {"slug":"william-bago","charges":"Alleged seditious utterances.","sentence":"15 years; sentence commuted to two years.","incarceration":[1918,6,6],"release":[1920,3,3]},
+ {"slug":"william-powell","charges":"Anti-government and pro-German statements.","sentence":"20 years and a $10,000 fine; sentence commuted.","incarceration":[1918,7,24],"release":[1919,4,22]},
+ {"slug":"kate-richards-ohare","charges":"A speech allegedly discouraging enlistment.","sentence":"5 years; sentence commuted.","incarceration":[1919,4,15],"release":[1920,5,29]},
+ {"slug":"robert-goldstein","charges":"Producing the film \"The Spirit of '76,\" held to disparage a wartime ally (Britain).","sentence":"10 years and a $5,000 fine.","incarceration":[1918,5,9],"release":[1920,10,13]},
+ {"slug":"eugene-debs","charges":"An antiwar speech delivered in Canton, Ohio.","sentence":"10 years.","incarceration":[1919,4,12],"release":[1921,12,25],"institution":"United States Penitentiary, Atlanta","institution_city":"Atlanta","institution_state":"Georgia"},
+ {"slug":"ricardo-flores-magon","charges":"Articles in a Mexican anarchist newspaper.","sentence":"20 years. He died at the United States Penitentiary at Leavenworth on November 21, 1922 and was never released.","incarceration":null,"release":[1922,11,21],"death":[1922,11,21],"institution":"United States Penitentiary, Leavenworth","institution_city":"Leavenworth","institution_state":"Kansas"},
+ {"slug":"david-t-blodgett","charges":"Circulating an anti-conscription election leaflet.","sentence":"20 years, including a period of confinement at St. Elizabeths Hospital.","incarceration":[1918,1,11],"release":[1922,1,7]},
+ {"slug":"frank-shaffer","charges":"Distributing \"The Finished Mystery.\"","sentence":"2½ years; pardoned.","incarceration":[1918,7,10],"release":[1920,1,23]},
+ {"slug":"mollie-steimer","charges":"Distributing leaflets opposing U.S. intervention in Russia.","sentence":"15 years and a $500 fine. Released and deported November 24, 1921.","incarceration":[1918,8,null],"release":[1921,11,24]},
+ {"slug":"emma-goldman","charges":"Conspiracy to obstruct conscription.","sentence":"2 years and a $10,000 fine. Subsequently deported.","incarceration":[1917,6,15],"release":[1919,9,28]},
+ {"slug":"alexander-berkman","charges":"Conspiracy to obstruct conscription (the same draft-conspiracy prosecution as Emma Goldman).","sentence":"2 years and a $10,000 fine. Subsequently deported.","incarceration":[1917,6,15],"release":[1919,9,28]},
+ {"slug":"hulet-m-wells","charges":"Conspiracy to obstruct the draft.","sentence":"2 years; sentence commuted.","incarceration":[1918,3,19],"release":[1920,11,13]},
+ {"slug":"bill-haywood","charges":"The Chicago IWW federal conspiracy trial.","sentence":"20 years. Released on bond July 15, 1919; he fled the country before returning to prison.","incarceration":[1918,9,6],"release":[1919,7,15]},
+ {"slug":"mortimer-downing","charges":"The Sacramento IWW federal conspiracy trial.","sentence":"10 years.","incarceration":[1917,11,null],"release":[1923,12,22]}
+]
