@@ -193,7 +193,7 @@
     @@media (max-width: 900px) { .gi-ev-grid { grid-template-columns: 1fr; gap: 40px; } }
 
     /* ==================== AREAS OF WORK (MI "policy areas" style) ==================== */
-    .gi-aw { --gi-aw-hl: #f5b400; position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: #eef0ff; margin: 84px 0; overflow: hidden; }
+    .gi-aw { --gi-aw-hl: #f5b400; position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 84px; margin-bottom: 84px; background: #eef0ff; overflow: hidden; }
     .gi-aw-inner { display: flex; align-items: stretch; min-height: 440px; }
     .gi-aw-nav { flex: 0 0 320px; background: #1c1c28; padding: 54px 40px 54px max(36px, calc((100vw - 1240px) / 2)); clip-path: polygon(0 0, 100% 0, calc(100% - 56px) 100%, 0 100%); position: relative; z-index: 2; }
     .gi-aw-title { font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 26px; }
