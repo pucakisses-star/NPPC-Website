@@ -80,3 +80,19 @@ have no photo and never overwrites an existing image.
 | `steve-adams.jpg` | Steve Adams (Western Federation of Miners; held in the 1906–07 Idaho conspiracy prosecutions) | "Steve Adams, hardrock miner," via Wikimedia Commons. **Public domain**. |
 | `charles-moyer.jpg` | Charles H. Moyer (president of the Western Federation of Miners; jailed in the 1906–07 Haywood–Moyer–Pettibone case) | Cropped (left figure) from the Haywood–Moyer–Pettibone group photograph, via Wikimedia Commons. **Public domain**. |
 | `george-pettibone.jpg` | George Pettibone (WFM defendant in the 1906–07 Idaho conspiracy prosecutions) | Cropped (right figure) from the Haywood–Moyer–Pettibone group photograph, via Wikimedia Commons. **Public domain**. |
+| `william-bross-lloyd.jpg` | William Bross Lloyd (millionaire socialist convicted under the 1919 Illinois sedition law) | Portrait via Wikimedia Commons. **Public domain**. |
+| `ella-reeve-bloor.jpg` | Ella Reeve "Mother" Bloor (labor organizer arrested many times) | Photograph, 1910, via Wikimedia Commons. **Public domain**. |
+| `clarence-hathaway.jpg` | Clarence Hathaway (Communist editor and organizer) | Photograph, 1925, via Wikimedia Commons. **Public domain**. |
+| `max-shachtman.jpg` | Max Shachtman (Trotskyist leader tried under the Smith Act, 1941) | Photograph, 1928, via Wikimedia Commons. **Public domain**. |
+| `robert-minor.jpg` | Robert Minor (cartoonist and Communist organizer, jailed repeatedly) | Photograph, 1938, via Wikimedia Commons. **Public domain**. |
+| `william-dunne.jpg` | William F. "Bill" Dunne (labor editor and Communist organizer) | Portrait via Wikimedia Commons. **Public domain**. |
+| `pablo-manlapit.jpg` | Pablo Manlapit (Filipino labor leader in Hawaii, imprisoned after the 1924 sugar strike) | Portrait (cropped) via Wikimedia Commons. **Public domain**. |
+| `john-brophy.jpg` | John Brophy (United Mine Workers leader) | Photograph, c. 1905, via Wikimedia Commons. **Public domain**. |
+| `harry-eisman.jpg` | Harry Eisman (teenage Young Pioneer deported for radical activity, 1930) | Portrait via Wikimedia Commons. **Public domain**. |
+| `hugo-oehler.jpg` | Hugo Oehler (Communist and later revolutionary-socialist organizer) | Photograph, 1928, via Wikimedia Commons. **Public domain**. |
+| `marcus-garvey.jpg` | Marcus Garvey (UNIA founder; convicted of mail fraud in 1923, imprisoned and deported) | Library of Congress (`loc.gov/pictures/item/94509041`). **Public domain**. |
+| `powers-hapgood.jpg` | Powers Hapgood (labor organizer jailed in the Sacco–Vanzetti protests) | Digital Commonwealth / Boston Public Library (`digitalcommonwealth.org`, commonwealth:5q47sv89j). **Public domain** (no known copyright). |
+| `karl-yoneda.jpg` | Karl Goso Yoneda (Japanese-American labor organizer, repeatedly jailed) | Photograph, 1923, via Wikimedia Commons. **Public domain**. |
+| `rothschild-francis.jpg` | Rothschild "Polly" Francis (Virgin Islands civil-rights editor jailed for his journalism in the 1920s) | Via Wikimedia Commons, uploaded by Nathanthatcher15 — **CC BY-SA 4.0**. |
+| `milka-sablich.jpg` | Amelia "Milka" Sablich ("the Woman in Red" of the 1927–28 Colorado coal strike) | Cropped (center figure) from a photograph on the Shoe Leather History Project (`shoeleatherhistoryproject.com`). Early-20th-century image; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `paul-crouch.jpg` | Paul Crouch (Communist organizer court-martialed and imprisoned at Alcatraz, 1925) | Cropped (the standing figure at right) from a 1949 Acme press photograph, Library of Congress (`loc.gov/pictures/item/2012647198`). **Public domain**. |
