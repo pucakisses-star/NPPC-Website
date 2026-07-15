@@ -4,20 +4,26 @@
 @section('meta_description', 'NPPC chapters are volunteer-led local groups organizing letter-writing, court support, community education, and mutual aid for political prisoners. Find a chapter near you or start one.')
 
 @section('head')
-@if(config('services.mapbox.token'))
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js" defer></script>
-@endif
 <style>
     .ch { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    /* Map */
-    .ch-map-wrap { border: 1px solid rgba(var(--fg-rgb),0.1); border-radius: 12px; overflow: hidden; margin-top: 28px; }
-    #ch-map { width: 100%; height: 440px; }
-    .ch-marker { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 4px rgba(86,96,254,0.28); cursor: pointer; }
-    .mapboxgl-popup-content { font-family: inherit; padding: 12px 16px; border-radius: 8px; }
-    .mapboxgl-popup-content strong { display: block; font-size: 15px; margin-bottom: 4px; color: #15171c; }
-    .mapboxgl-popup-content a { color: var(--accent); font-weight: 700; font-size: 13px; text-decoration: none; }
+    /* Interactive US states map (self-contained SVG) */
+    .ch-map2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center; margin-top: 28px; }
+    .ch-usmap { width: 100%; height: auto; display: block; }
+    .ch-usmap path { fill: rgba(var(--fg-rgb),0.07); stroke: var(--bg); stroke-width: 1; transition: fill 0.15s ease; }
+    .ch-usmap path.has-chapter { fill: rgba(86,96,254,0.55); cursor: pointer; }
+    .ch-usmap path.has-chapter:hover { fill: var(--accent); }
+    .ch-usmap path.is-selected { fill: var(--gi-ev-gold, #f5b400); }
+    .ch-map2-panel { min-height: 220px; }
+    .ch-panel-hint { font-size: 15px; color: rgba(var(--fg-rgb),0.5); line-height: 1.6; }
+    .ch-panel-state { font-size: 1.6rem; font-weight: 900; color: var(--fg); margin-bottom: 16px; }
+    .ch-panel-item { display: block; text-decoration: none; color: inherit; padding: 14px 0; border-top: 1px solid rgba(var(--fg-rgb),0.1); }
+    .ch-panel-item:first-of-type { border-top: none; }
+    .ch-panel-city { font-size: 1.1rem; font-weight: 800; color: var(--fg); }
+    .ch-panel-item:hover .ch-panel-city { color: var(--accent); }
+    .ch-panel-desc { font-size: 13px; color: rgba(var(--fg-rgb),0.55); line-height: 1.5; margin-top: 4px; }
+    .ch-panel-connect { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+    @media (max-width: 860px) { .ch-map2 { grid-template-columns: 1fr; gap: 24px; } }
 
     /* Hero */
     .ch-hero { padding: 72px 0 40px; max-width: 820px; }
@@ -153,49 +159,70 @@
         <p class="ch-dir-note">Our chapter network is growing. Reach out to connect with organizers near you — and if there isn't a chapter in your area yet, we will help you start one.</p>
     </div>
 
-    @if(config('services.mapbox.token'))
-        <div class="ch-map-wrap"><div id="ch-map"></div></div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                (function initChMap() {
-                    if (typeof mapboxgl === 'undefined') { return setTimeout(initChMap, 200); }
-                    mapboxgl.accessToken = @json(config('services.mapbox.token'));
-                    var map = new mapboxgl.Map({
-                        container: 'ch-map',
-                        style: 'mapbox://styles/mapbox/dark-v11',
-                        center: [-96, 38], zoom: 3.1,
-                        cooperativeGestures: true, attributionControl: false
-                    });
-                    map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
-                    var chapters = [
-                        { name: 'New York City', c: [-74.006, 40.7128] },
-                        { name: 'Boston', c: [-71.0589, 42.3601] },
-                        { name: 'Philadelphia', c: [-75.1652, 39.9526] },
-                        { name: 'Washington, D.C.', c: [-77.0369, 38.9072] },
-                        { name: 'Chicago', c: [-87.6298, 41.8781] },
-                        { name: 'Twin Cities', c: [-93.265, 44.9778] },
-                        { name: 'Detroit', c: [-83.0458, 42.3314] },
-                        { name: 'Atlanta', c: [-84.388, 33.749] },
-                        { name: 'Austin', c: [-97.7431, 30.2672] },
-                        { name: 'Durham', c: [-78.8986, 35.994] },
-                        { name: 'New Orleans', c: [-90.0715, 29.9511] },
-                        { name: 'Los Angeles', c: [-118.2437, 34.0522] },
-                        { name: 'Bay Area', c: [-122.4194, 37.7749] },
-                        { name: 'Seattle', c: [-122.3321, 47.6062] },
-                        { name: 'Denver', c: [-104.9903, 39.7392] }
-                    ];
-                    chapters.forEach(function (ch) {
-                        var el = document.createElement('div');
-                        el.className = 'ch-marker';
-                        new mapboxgl.Marker(el).setLngLat(ch.c)
-                            .setPopup(new mapboxgl.Popup({ offset: 16, closeButton: false })
-                                .setHTML('<strong>' + ch.name + '</strong><a href="/contact">Connect &rarr;</a>'))
-                            .addTo(map);
-                    });
-                })();
+    {{-- Interactive US map: highlighted states have chapters; click to see them. --}}
+    @php
+        $chByState = [
+            'NY' => [['New York City', 'Letter-writing, court support, and street outreach across the five boroughs.']],
+            'MA' => [['Boston', 'Campus organizing and solidarity actions across Greater Boston.']],
+            'PA' => [['Philadelphia', 'Court support and mutual aid for regional political prisoners.']],
+            'DC' => [['Washington, D.C.', 'Advocacy and days of action in the capital.']],
+            'IL' => [['Chicago', 'Letter-writing nights and defense-committee support.']],
+            'MN' => [['Twin Cities', 'Community education and prisoner solidarity in Minneapolis–St. Paul.']],
+            'MI' => [['Detroit', 'Local outreach and fundraising drives.']],
+            'GA' => [['Atlanta', 'Court support and organizing across the Southeast.']],
+            'TX' => [['Austin', 'Teach-ins and letter-writing in Central Texas.']],
+            'NC' => [['Durham', 'Mutual aid and campus solidarity in the Triangle.']],
+            'LA' => [['New Orleans', 'Community education and Gulf Coast organizing.']],
+            'CA' => [['Los Angeles', 'Film screenings, tabling, and prisoner outreach.'], ['Bay Area', 'Court support and defense-fund drives across the Bay.']],
+            'WA' => [['Seattle', 'Letter-writing and Pacific Northwest solidarity.']],
+            'CO' => [['Denver', 'Community education and regional actions.']],
+        ];
+    @endphp
+    <div class="ch-map2">
+        <div class="ch-map2-svg">@include('partials.us-chapters-map')</div>
+        <div class="ch-map2-panel" id="ch-panel">
+            <p class="ch-panel-hint">Highlighted states have an active chapter. Select one on the map to see its chapters — or browse the full list below.</p>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var byState = @json($chByState);
+            var svg = document.querySelector('.ch-usmap');
+            var panel = document.getElementById('ch-panel');
+            if (!svg || !panel) return;
+            var selected = null;
+
+            function render(code, name) {
+                var list = byState[code];
+                if (!list) return;
+                var html = '<div class="ch-panel-state">' + (name || code) + '</div>';
+                list.forEach(function (c) {
+                    html += '<a class="ch-panel-item" href="/contact">'
+                        + '<div class="ch-panel-city">' + c[0] + '</div>'
+                        + '<div class="ch-panel-desc">' + c[1] + '</div>'
+                        + '<span class="ch-panel-connect">Connect &rarr;</span></a>';
+                });
+                panel.innerHTML = html;
+            }
+
+            Object.keys(byState).forEach(function (code) {
+                var p = svg.querySelector('path[data-state="' + code + '"]');
+                if (!p) return;
+                p.classList.add('has-chapter');
+                var full = p.getAttribute('data-name');
+                p.setAttribute('tabindex', '0');
+                p.setAttribute('role', 'button');
+                p.setAttribute('aria-label', full + ' — view chapters');
+                function pick() {
+                    if (selected) selected.classList.remove('is-selected');
+                    selected = p; p.classList.add('is-selected');
+                    render(code, full);
+                }
+                p.addEventListener('click', pick);
+                p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
             });
-        </script>
-    @endif
+        })();
+    </script>
 
     @foreach($chRegions as $region => $cities)
         <div class="ch-region">
