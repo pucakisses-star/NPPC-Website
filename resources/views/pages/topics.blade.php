@@ -62,7 +62,7 @@
     /* Each sub-topic column scrolls on its own when its list is taller than the
        viewport (like the ecfr.eu reference), and animates independently so an
        unchanged column never re-renders when only a neighbour changes. */
-    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; transition: opacity 0.8s ease, transform 0.8s ease; }
+    .tpx-sub-col { flex: 0 0 auto; min-width: 150px; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; transition: opacity 0.5s linear, transform 0.5s ease; }
     /* Enter state for soft-nav: a (re)built column slides in from the right and
        fades (mirrors the ecfr.eu "Mapping Palestinian Politics" transition). */
     .tpx-sub-col.tpx-enter { opacity: 0; transform: translateX(32px); }
@@ -74,7 +74,7 @@
     .tpx-sub-link.active { color: #8b93ff; }
 
     /* Right column — white detail panel with a large image */
-    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.8s ease; }
+    .tpx-detail { grid-column: 3; grid-row: 1 / span 2; position: relative; z-index: 3; background: #fff; color: #1a1a1a; padding: 40px clamp(28px, 3vw, 48px); overflow-y: auto; max-height: calc(100vh - 108px); transition: opacity 0.5s linear; }
     .tpx-detail-eyebrow { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #6b7280; margin-bottom: 18px; }
     .tpx-detail-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 22px; background: #ece9e4; }
     .tpx-detail-body { font-size: 16px; color: #333; line-height: 1.75; }
@@ -524,7 +524,7 @@ function tpxShare() {
         layer.className = 'tpx-photo';
         layer.style.backgroundImage = newBg;
         layer.style.opacity = '0';
-        layer.style.transition = 'opacity 0.8s ease';
+        layer.style.transition = 'opacity 0.5s linear';
         if (anchor) { tpx.insertBefore(layer, anchor); } else { tpx.appendChild(layer); }
         requestAnimationFrame(function () {
             requestAnimationFrame(function () { layer.style.opacity = '1'; });
@@ -538,7 +538,7 @@ function tpxShare() {
                 if (photos[i].parentNode) { photos[i].parentNode.removeChild(photos[i]); }
             }
             if (photos.length) { photos[photos.length - 1].style.transition = ''; }
-        }, 900);
+        }, 600);
     }
 
     // Fade the detail panel out, resolving once the fade has run.
@@ -550,7 +550,7 @@ function tpxShare() {
         });
     }
 
-    var FADE_MS = 800;
+    var FADE_MS = 500;
 
     function swapTopic(href, push) {
         var current = document.querySelector('.tpx');
