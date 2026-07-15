@@ -208,6 +208,60 @@
         .lmj-card, .lmj-card + .lmj-card { clip-path: none; margin-left: 0; min-height: 300px; }
         .lmj-card-text { padding: 0 6vw 28px; }
     }
+
+    /* ==================== Upcoming Event + Latest Podcasts (Manhattan Institute-style band) ==================== */
+    .lm-mp { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: rgba(var(--fg-rgb),0.035); border-top: 1px solid rgba(var(--fg-rgb),0.09); border-bottom: 1px solid rgba(var(--fg-rgb),0.09); }
+    .lm-mp-inner { max-width: 1220px; margin: 0 auto; padding: 66px 24px; display: grid; grid-template-columns: 340px 1fr; gap: 68px; align-items: start; }
+    .lm-mp-inner.is-solo { grid-template-columns: 1fr; }
+    .lm-mp-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+    .lm-mp-h { font-size: 1.7rem; font-weight: 800; color: var(--fg); margin: 0; letter-spacing: -0.01em; }
+    .lm-mp-more { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-2); text-decoration: none; white-space: nowrap; }
+    .lm-mp-more:hover { color: var(--fg); }
+    .lm-mp-rule { height: 2px; background: rgba(var(--fg-rgb),0.14); position: relative; margin: 12px 0 30px; }
+    .lm-mp-rule::before { content: ''; position: absolute; left: 0; top: 0; height: 2px; width: 66px; background: var(--accent); }
+
+    /* Left column: the featured upcoming event with a calendar tear-off badge */
+    .lm-mp-event { display: flex; gap: 20px; align-items: flex-start; text-decoration: none; }
+    .lm-cal { flex: 0 0 auto; width: 88px; }
+    .lm-cal-rings { display: flex; justify-content: center; gap: 20px; height: 9px; }
+    .lm-cal-rings span { width: 4px; height: 9px; background: rgba(var(--fg-rgb),0.45); border-radius: 2px; }
+    .lm-cal-body { background: var(--accent); color: var(--on-accent); padding: 13px 6px 15px; text-align: center; clip-path: polygon(0 0, 100% 0, 91% 100%, 9% 100%); box-shadow: 0 8px 20px rgba(86,96,254,0.28); }
+    .lm-cal-day { font-size: 2.7rem; font-weight: 800; line-height: 0.95; }
+    .lm-cal-mon { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-top: 6px; }
+    .lm-cal-yr { font-size: 0.72rem; opacity: 0.82; margin-top: 3px; letter-spacing: 0.04em; }
+    .lm-mp-ev-body { flex: 1; min-width: 0; border-top: 1px solid rgba(var(--fg-rgb),0.16); padding-top: 10px; }
+    .lm-mp-ev-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(var(--fg-rgb),0.5); }
+    .lm-mp-ev-title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.5rem; line-height: 1.22; color: var(--fg); margin: 9px 0 12px; font-weight: 700; transition: color 0.15s; }
+    .lm-mp-event:hover .lm-mp-ev-title { color: var(--accent); }
+    .lm-mp-ev-sub { font-size: 0.95rem; color: rgba(var(--fg-rgb),0.55); line-height: 1.5; }
+    .lm-mp-empty { font-size: 0.98rem; color: rgba(var(--fg-rgb),0.55); line-height: 1.6; }
+    .lm-mp-empty a { color: var(--accent); font-weight: 700; text-decoration: none; }
+    .lm-mp-empty a:hover { text-decoration: underline; }
+
+    /* Right column: 2x2 grid of latest podcast episodes */
+    .lm-mp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 44px; }
+    .lm-pod { display: grid; grid-template-columns: 96px 1fr; gap: 18px; text-decoration: none; align-items: start; }
+    .lm-pod-thumb { width: 96px; height: 96px; border-radius: 3px; background-size: cover; background-position: center; background-color: rgba(var(--fg-rgb),0.08); overflow: hidden; position: relative; }
+    .lm-pod-thumb.is-fallback { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(86,96,254,0.9), rgba(86,96,254,0.55)); }
+    .lm-pod-thumb.is-fallback svg { width: 34px; height: 34px; color: #fff; opacity: 0.9; }
+    .lm-pod-body { min-width: 0; }
+    .lm-pod-meta { display: flex; align-items: center; gap: 7px; font-size: 0.72rem; margin-bottom: 8px; min-width: 0; }
+    .lm-pod-badge { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-2); font-weight: 800; letter-spacing: 0.01em; flex: 0 0 auto; }
+    .lm-pod-badge svg { width: 15px; height: 15px; }
+    .lm-pod-cat { color: rgba(var(--fg-rgb),0.6); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+    .lm-pod-date { margin-left: auto; color: rgba(var(--fg-rgb),0.5); font-weight: 600; white-space: nowrap; flex: 0 0 auto; }
+    .lm-pod-title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 1.16rem; line-height: 1.26; color: var(--fg); font-weight: 700; margin: 0 0 6px; transition: color 0.15s; }
+    .lm-pod:hover .lm-pod-title { color: var(--accent); }
+    .lm-pod-src { font-size: 0.82rem; color: rgba(var(--fg-rgb),0.5); }
+
+    @@media (max-width: 900px) {
+        .lm-mp-inner { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px; }
+        .lm-mp-grid { grid-template-columns: 1fr; gap: 26px; }
+    }
+    @@media (max-width: 480px) {
+        .lm-pod { grid-template-columns: 72px 1fr; gap: 14px; }
+        .lm-pod-thumb { width: 72px; height: 72px; }
+    }
 </style>
 @endsection
 
@@ -459,6 +513,103 @@
                 </div>
             </a>
         @endforeach
+    </div>
+</section>
+@endif
+
+{{-- ==================== UPCOMING EVENT + LATEST PODCASTS (Manhattan Institute-style) ==================== --}}
+@php
+    $lmUpcoming = \App\Models\Event::published()->upcoming()->first();
+    $lmPodcasts = \App\Models\PodcastEpisode::published()
+        ->with('prisoner')
+        ->orderByDesc('created_at')
+        ->limit(4)
+        ->get();
+@endphp
+@if($lmUpcoming || $lmPodcasts->isNotEmpty())
+<section class="lm-mp">
+    <div class="lm-mp-inner {{ ($lmUpcoming && $lmPodcasts->isNotEmpty()) ? '' : 'is-solo' }}">
+        @if($lmUpcoming)
+            @php
+                $lmEvSub = collect([$lmUpcoming->time, $lmUpcoming->location])->filter()->implode(' · ');
+                if (! $lmEvSub && $lmUpcoming->series) { $lmEvSub = $lmUpcoming->series; }
+                if (! $lmEvSub && $lmUpcoming->description) { $lmEvSub = \Illuminate\Support\Str::limit(strip_tags($lmUpcoming->description), 90); }
+            @endphp
+            <div class="lm-mp-col">
+                <div class="lm-mp-head">
+                    <h2 class="lm-mp-h">Upcoming Event</h2>
+                    <a href="/events" class="lm-mp-more">More Events</a>
+                </div>
+                <div class="lm-mp-rule"></div>
+                <a class="lm-mp-event" href="{{ $lmUpcoming->event_url ?: '/events' }}"
+                   @if($lmUpcoming->event_url) target="_blank" rel="noopener" @endif>
+                    <div class="lm-cal" aria-hidden="true">
+                        <div class="lm-cal-rings"><span></span><span></span></div>
+                        <div class="lm-cal-body">
+                            <div class="lm-cal-day">{{ $lmUpcoming->event_date->format('d') }}</div>
+                            <div class="lm-cal-mon">{{ $lmUpcoming->event_date->format('F') }}</div>
+                            <div class="lm-cal-yr">{{ $lmUpcoming->event_date->format('Y') }}</div>
+                        </div>
+                    </div>
+                    <div class="lm-mp-ev-body">
+                        <div class="lm-mp-ev-label">Event</div>
+                        <h3 class="lm-mp-ev-title">{{ $lmUpcoming->title }}</h3>
+                        @if($lmEvSub)
+                            <div class="lm-mp-ev-sub">{{ $lmEvSub }}</div>
+                        @endif
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        @if($lmPodcasts->isNotEmpty())
+            <div class="lm-mp-col">
+                <div class="lm-mp-head">
+                    <h2 class="lm-mp-h">Latest Podcasts</h2>
+                    <a href="/podcast" class="lm-mp-more">All Podcasts</a>
+                </div>
+                <div class="lm-mp-rule"></div>
+                <div class="lm-mp-grid">
+                    @foreach($lmPodcasts as $ep)
+                        @php
+                            $lmPodSrc = $ep->prisoner ? 'Featuring '.$ep->prisoner->name : ($ep->show_name ?: 'NPPC Podcast');
+                        @endphp
+                        <a class="lm-pod" href="{{ $ep->audio_url ?: '/podcast' }}"
+                           @if($ep->audio_url) target="_blank" rel="noopener" @endif>
+                            @if($ep->cover_url)
+                                <span class="lm-pod-thumb" style="background-image: url('{{ $ep->cover_url }}')"></span>
+                            @else
+                                <span class="lm-pod-thumb is-fallback">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                                        <path d="M8.5 15.5a5 5 0 0 1 0-7"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+                                        <path d="M5.8 18.2a9 9 0 0 1 0-12.4"/><path d="M18.2 5.8a9 9 0 0 1 0 12.4"/>
+                                    </svg>
+                                </span>
+                            @endif
+                            <div class="lm-pod-body">
+                                <div class="lm-pod-meta">
+                                    <span class="lm-pod-badge">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+                                            <path d="M8.5 15.5a5 5 0 0 1 0-7"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+                                            <path d="M5.8 18.2a9 9 0 0 1 0-12.4"/><path d="M18.2 5.8a9 9 0 0 1 0 12.4"/>
+                                        </svg>
+                                        Podcast
+                                    </span>
+                                    @if($ep->show_name)
+                                        <span class="lm-pod-cat">/ {{ $ep->show_name }}</span>
+                                    @endif
+                                    <span class="lm-pod-date">{{ $ep->created_at->format('M d Y') }}</span>
+                                </div>
+                                <h3 class="lm-pod-title">{{ $ep->title }}</h3>
+                                <div class="lm-pod-src">{{ $lmPodSrc }}</div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </div>
 </section>
 @endif
