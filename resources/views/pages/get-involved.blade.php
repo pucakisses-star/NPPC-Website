@@ -146,6 +146,42 @@
         .gij-card, .gij-card:first-child { clip-path: none; margin-left: 0; min-height: 240px; }
         .gij-card + .gij-card { margin-top: 8px; }
     }
+
+    /* ==================== EVENTS PANEL (featured + upcoming list) ==================== */
+    .gi-events { --gi-ev-gold: #f5b400; }
+    .gi-ev-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 36px; }
+    .gi-ev-head h2 { font-size: 1.7rem; font-weight: 800; color: var(--accent); margin: 0; }
+    .gi-ev-viewall { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+    .gi-ev-viewall:hover { color: var(--accent-hover); }
+    .gi-ev-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 48px; align-items: start; }
+
+    .gi-ev-feat { text-decoration: none; color: inherit; display: block; }
+    .gi-ev-feat-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-2); }
+    .gi-ev-feat-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .gi-ev-feat:hover .gi-ev-feat-media img { transform: scale(1.03); }
+    .gi-ev-feat-top { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 16px 20px; background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent); color: #fff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+    .gi-ev-feat-date { position: absolute; left: 0; bottom: 0; background: var(--gi-ev-gold); color: #111; display: flex; align-items: baseline; gap: 8px; padding: 12px 24px 12px 18px; clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+    .gi-ev-feat-date .d { font-size: 2rem; font-weight: 900; line-height: 1; }
+    .gi-ev-feat-date .my { font-size: 0.8rem; font-weight: 700; line-height: 1.15; }
+    .gi-ev-feat-title { font-size: 2rem; font-weight: 900; color: var(--fg); line-height: 1.12; margin: 22px 0 10px; }
+    .gi-ev-feat:hover .gi-ev-feat-title { color: var(--accent); }
+    .gi-ev-feat-sub { font-size: 15px; color: rgba(var(--fg-rgb),0.6); line-height: 1.6; }
+    .gi-ev-feat-more { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: underline; }
+
+    .gi-ev-list { display: flex; flex-direction: column; }
+    .gi-ev-item { display: flex; gap: 20px; text-decoration: none; color: inherit; padding: 16px 0; }
+    .gi-ev-item + .gi-ev-item { border-top: 1px solid rgba(var(--fg-rgb),0.1); }
+    .gi-ev-date { flex: 0 0 86px; background: var(--accent); color: #fff; text-align: center; padding: 14px 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); align-self: flex-start; }
+    .gi-ev-date .d { font-size: 1.8rem; font-weight: 900; line-height: 1; }
+    .gi-ev-date .m { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
+    .gi-ev-date .y { font-size: 0.72rem; font-weight: 600; opacity: 0.85; }
+    .gi-ev-body { flex: 1; min-width: 0; }
+    .gi-ev-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: rgba(var(--fg-rgb),0.5); border-bottom: 1px solid rgba(var(--fg-rgb),0.12); padding-bottom: 7px; margin-bottom: 9px; }
+    .gi-ev-meta .lbl { font-weight: 700; }
+    .gi-ev-title { font-size: 1.25rem; font-weight: 800; color: var(--fg); line-height: 1.22; margin: 0 0 4px; transition: color 0.15s; }
+    .gi-ev-item:hover .gi-ev-title { color: var(--accent); }
+    .gi-ev-sub { font-size: 13px; color: rgba(var(--fg-rgb),0.55); line-height: 1.5; }
+    @@media (max-width: 900px) { .gi-ev-grid { grid-template-columns: 1fr; gap: 40px; } }
 </style>
 @include('partials.scribble-assets')
 @endsection
@@ -247,6 +283,69 @@
     </div>
 
     <div class="gi-divider"></div>
+
+    {{-- ==================== EVENTS ==================== --}}
+    @php
+        $giEvents = \App\Models\Event::where('published', true)
+            ->where('event_date', '>=', now()->startOfDay())
+            ->orderBy('event_date')
+            ->limit(5)
+            ->get();
+    @endphp
+    @if($giEvents->isNotEmpty())
+        @php $giFeat = $giEvents->first(); $giRest = $giEvents->slice(1); @endphp
+        <div class="gi-events">
+            <div class="gi-ev-head">
+                <h2>Events</h2>
+                <a class="gi-ev-viewall" href="/events">View All</a>
+            </div>
+            <div class="gi-ev-grid">
+                <a class="gi-ev-feat" href="{{ $giFeat->event_url ?: '/events' }}" @if($giFeat->event_url) target="_blank" rel="noopener" @endif>
+                    <div class="gi-ev-feat-media">
+                        <img src="{{ $giFeat->image_url ?: asset('images/events-hero.jpg') }}" alt="{{ $giFeat->title }}">
+                        <div class="gi-ev-feat-top">
+                            <span>Event</span>
+                            @if($giFeat->location)<span>{{ $giFeat->location }}</span>@endif
+                        </div>
+                        <div class="gi-ev-feat-date">
+                            <span class="d">{{ $giFeat->event_date->format('j') }}</span>
+                            <span class="my">{{ $giFeat->event_date->format('M') }}<br>{{ $giFeat->event_date->format('Y') }}</span>
+                        </div>
+                    </div>
+                    <div class="gi-ev-feat-title">{{ $giFeat->title }}</div>
+                    @if($giFeat->description)
+                        <div class="gi-ev-feat-sub">{{ \Illuminate\Support\Str::limit(strip_tags($giFeat->description), 110) }}</div>
+                    @endif
+                    <span class="gi-ev-feat-more">View Details</span>
+                </a>
+                <div class="gi-ev-list">
+                    @foreach($giRest as $ev)
+                        <a class="gi-ev-item" href="{{ $ev->event_url ?: '/events' }}" @if($ev->event_url) target="_blank" rel="noopener" @endif>
+                            <div class="gi-ev-date">
+                                <div class="d">{{ $ev->event_date->format('j') }}</div>
+                                <div class="m">{{ $ev->event_date->format('M') }}</div>
+                                <div class="y">{{ $ev->event_date->format('Y') }}</div>
+                            </div>
+                            <div class="gi-ev-body">
+                                <div class="gi-ev-meta">
+                                    <span class="lbl">Event</span>
+                                    @if($ev->location)<span>{{ $ev->location }}</span>@endif
+                                </div>
+                                <h3 class="gi-ev-title">{{ $ev->title }}</h3>
+                                @if($ev->description)
+                                    <div class="gi-ev-sub">{{ \Illuminate\Support\Str::limit(strip_tags($ev->description), 72) }}</div>
+                                @elseif($ev->time)
+                                    <div class="gi-ev-sub">{{ $ev->time }}</div>
+                                @endif
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <div class="gi-divider"></div>
+    @endif
 
     {{-- ==================== IMPACT STATS ==================== --}}
     <div class="gi-impact">
