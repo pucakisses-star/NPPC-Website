@@ -217,27 +217,24 @@
     }
 
     /* ===== Projects slideshow (Manhattan Institute-style, dark theme) ===== */
-    .gi-proj { margin: 84px 0; --gi-proj-dur: 6s; }
+    .gi-proj { margin: 84px 0; }
     .gi-proj-head { display: flex; align-items: baseline; justify-content: space-between; }
     .gi-proj-head h2 { font-size: 1.9rem; font-weight: 900; color: var(--fg); margin: 0; letter-spacing: -0.01em; }
     .gi-proj-rule { height: 2px; background: rgba(var(--fg-rgb),0.16); margin-top: 14px; position: relative; }
     .gi-proj-rule::before { content: ''; position: absolute; left: 0; top: 0; height: 2px; width: 70px; background: var(--accent); }
-    .gi-proj-stage { display: grid; grid-template-columns: 46% 1fr; gap: 56px; align-items: center; margin-top: 44px; }
-    .gi-proj-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #0c0c1e; }
+    .gi-proj-stage { display: grid; grid-template-columns: 38% 1fr; gap: 52px; align-items: center; margin-top: 44px; }
+    .gi-proj-media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: #0c0c1e; }
     .gi-proj-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.03); opacity: 0; transition: opacity 0.6s ease; }
     .gi-proj-media img.active { opacity: 1; }
     .gi-proj-content { position: relative; }
-    .gi-proj-bars { display: flex; gap: 7px; height: 30px; margin-bottom: 28px; }
-    .gi-proj-bar { width: 5px; height: 30px; padding: 0; border: 0; background: rgba(var(--fg-rgb),0.18); cursor: pointer; position: relative; overflow: hidden; border-radius: 1px; }
-    .gi-proj-bar-fill { position: absolute; left: 0; right: 0; top: 0; height: 0; background: var(--accent); }
-    .gi-proj-bar.done .gi-proj-bar-fill { height: 100%; }
-    .gi-proj-bar.active .gi-proj-bar-fill { animation: giProjFill var(--gi-proj-dur) linear forwards; }
-    .gi-proj:hover .gi-proj-bar.active .gi-proj-bar-fill { animation-play-state: paused; }
-    @keyframes giProjFill { from { height: 0; } to { height: 100%; } }
-    @@media (prefers-reduced-motion: reduce) { .gi-proj-bar.active .gi-proj-bar-fill { animation: none; height: 100%; } }
+    /* Slanted tally-mark indicator: only the active slide's slash is bold blue. */
+    .gi-proj-bars { display: flex; align-items: flex-end; gap: 9px; height: 40px; margin-bottom: 30px; }
+    .gi-proj-bar { width: 4px; height: 30px; padding: 0; border: 0; background: rgba(var(--fg-rgb),0.22); cursor: pointer; transform: skewX(-14deg); transition: background 0.2s ease, width 0.2s ease, height 0.2s ease; }
+    .gi-proj-bar:hover { background: rgba(var(--fg-rgb),0.4); }
+    .gi-proj-bar.active { background: var(--accent); width: 5px; height: 38px; }
     .gi-proj-slides { position: relative; min-height: 300px; }
-    .gi-proj-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease; }
-    .gi-proj-slide.active { opacity: 1; visibility: visible; }
+    .gi-proj-slide { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 0.6s ease; }
+    .gi-proj-slide.active { opacity: 1; pointer-events: auto; }
     .gi-proj-title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 2.6rem; font-weight: 700; color: var(--fg); line-height: 1.1; margin: 0 0 18px; }
     .gi-proj-desc { font-size: 17px; color: rgba(var(--fg-rgb),0.62); line-height: 1.65; max-width: 470px; margin: 0 0 34px; }
     .gi-proj-more { display: inline-block; color: var(--fg); font-size: 15px; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color 0.15s, border-color 0.15s; }
@@ -408,7 +405,7 @@
             <div class="gi-proj-content">
                 <div class="gi-proj-bars">
                     @foreach($giProjects as $i => $p)
-                        <button type="button" class="gi-proj-bar @if($i === 0) active @endif" data-i="{{ $i }}" aria-label="Show project {{ $i + 1 }}"><span class="gi-proj-bar-fill"></span></button>
+                        <button type="button" class="gi-proj-bar @if($i === 0) active @endif" data-i="{{ $i }}" aria-label="Show project {{ $i + 1 }}"></button>
                     @endforeach
                 </div>
                 <div class="gi-proj-slides">
@@ -436,14 +433,7 @@
                     cur = (i + n) % n;
                     slides.forEach(function (s, k) { s.classList.toggle('active', k === cur); });
                     imgs.forEach(function (im, k) { im.classList.toggle('active', k === cur); });
-                    bars.forEach(function (b, k) {
-                        b.classList.remove('active', 'done');
-                        if (k < cur) b.classList.add('done');
-                    });
-                    // restart the active bar's fill animation
-                    var active = bars[cur];
-                    void active.offsetWidth;
-                    active.classList.add('active');
+                    bars.forEach(function (b, k) { b.classList.toggle('active', k === cur); });
                 }
                 function next() { show(cur + 1); }
                 function start() { stop(); timer = window.setInterval(next, DUR); }
