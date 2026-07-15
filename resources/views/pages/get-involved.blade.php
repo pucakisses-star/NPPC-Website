@@ -148,7 +148,7 @@
     }
 
     /* ==================== EVENTS PANEL (featured + upcoming list) ==================== */
-    .gi-events { --gi-ev-gold: #f5b400; }
+    .gi-events { --gi-ev-gold: #22b8cf; }
     .gi-ev-head { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 36px; }
     .gi-ev-head h2 { font-size: 1.7rem; font-weight: 800; color: var(--accent); margin: 0; }
     .gi-ev-viewall { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
@@ -182,7 +182,7 @@
     .gi-ev-meta .lbl { font-weight: 700; transition: color 0.18s ease; }
     .gi-ev-title { font-size: 1.25rem; font-weight: 800; color: var(--fg); line-height: 1.22; margin: 0 0 4px; }
     .gi-ev-sub { font-size: 13px; color: rgba(var(--fg-rgb),0.55); line-height: 1.5; }
-    /* On highlight (hover / keyboard focus) the row turns gold: date tab,
+    /* On highlight (hover / keyboard focus) the row turns teal: date tab,
        "Event" label, and the top rule. */
     .gi-ev-item:hover .gi-ev-date,
     .gi-ev-item:focus-visible .gi-ev-date { background: var(--gi-ev-gold); }
