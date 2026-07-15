@@ -193,19 +193,19 @@
     @@media (max-width: 900px) { .gi-ev-grid { grid-template-columns: 1fr; gap: 40px; } }
 
     /* ==================== AREAS OF WORK (MI "policy areas" style) ==================== */
-    .gi-aw { --gi-aw-hl: #f5b400; position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 84px; margin-bottom: 84px; background: #eef0ff; overflow: hidden; }
+    .gi-aw { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 84px; margin-bottom: 84px; background: rgba(var(--fg-rgb),0.05); overflow: hidden; }
     .gi-aw-inner { display: flex; align-items: stretch; min-height: 440px; }
-    .gi-aw-nav { flex: 0 0 320px; background: #1c1c28; padding: 54px 40px 54px max(36px, calc((100vw - 1240px) / 2)); clip-path: polygon(0 0, 100% 0, calc(100% - 56px) 100%, 0 100%); position: relative; z-index: 2; }
-    .gi-aw-title { font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 26px; }
+    .gi-aw-nav { flex: 0 0 320px; background: #0c0c1e; padding: 54px 40px 54px max(36px, calc((100vw - 1240px) / 2)); clip-path: polygon(0 0, 100% 0, calc(100% - 56px) 100%, 0 100%); position: relative; z-index: 2; }
+    .gi-aw-title { font-size: 1.35rem; font-weight: 800; color: var(--on-dark, #fff); margin-bottom: 26px; }
     .gi-aw-list { display: flex; flex-direction: column; gap: 13px; }
-    .gi-aw-link { background: none; border: none; text-align: left; padding: 0; font-family: inherit; font-size: 1.3rem; font-weight: 600; color: rgba(255,255,255,0.72); cursor: pointer; transition: color 0.15s; }
+    .gi-aw-link { background: none; border: none; text-align: left; padding: 0; font-family: inherit; font-size: 1.3rem; font-weight: 600; color: rgba(255,255,255,0.7); cursor: pointer; transition: color 0.15s; }
     .gi-aw-link:hover { color: #fff; }
-    .gi-aw-link.active { color: var(--gi-aw-hl); font-weight: 800; }
+    .gi-aw-link.active { color: var(--accent-2); font-weight: 800; }
     .gi-aw-mid { flex: 1; padding: 56px 64px; display: flex; flex-direction: column; justify-content: space-between; margin-left: -40px; }
-    .gi-aw-desc { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; line-height: 1.35; color: #15171c; max-width: 660px; }
-    .gi-aw-more { align-self: flex-start; margin-top: 36px; color: #15171c; font-size: 1.05rem; text-decoration: none; border-bottom: 2px solid var(--gi-aw-hl); padding-bottom: 4px; transition: color 0.15s; }
-    .gi-aw-more:hover { color: var(--gi-aw-hl); }
-    .gi-aw-imgwrap { flex: 0 0 27%; position: relative; overflow: hidden; clip-path: polygon(56px 0, 100% 0, 100% 100%, 0 100%); margin-left: -30px; background: #111; }
+    .gi-aw-desc { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; line-height: 1.35; color: var(--fg); max-width: 660px; }
+    .gi-aw-more { align-self: flex-start; margin-top: 36px; color: var(--fg); font-size: 1.05rem; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color 0.15s, border-color 0.15s; }
+    .gi-aw-more:hover { color: var(--accent-2); border-bottom-color: var(--accent-2); }
+    .gi-aw-imgwrap { flex: 0 0 27%; position: relative; overflow: hidden; clip-path: polygon(56px 0, 100% 0, 100% 100%, 0 100%); margin-left: -30px; background: #0c0c1e; }
     .gi-aw-imgwrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.05); opacity: 0; transition: opacity 0.45s ease; }
     .gi-aw-imgwrap img.active { opacity: 1; }
     @@media (max-width: 900px) {
