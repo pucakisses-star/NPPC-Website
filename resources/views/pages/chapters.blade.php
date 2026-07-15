@@ -4,8 +4,20 @@
 @section('meta_description', 'NPPC chapters are volunteer-led local groups organizing letter-writing, court support, community education, and mutual aid for political prisoners. Find a chapter near you or start one.')
 
 @section('head')
+@if(config('services.mapbox.token'))
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js" defer></script>
+@endif
 <style>
     .ch { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Map */
+    .ch-map-wrap { border: 1px solid rgba(var(--fg-rgb),0.1); border-radius: 12px; overflow: hidden; margin-top: 28px; }
+    #ch-map { width: 100%; height: 440px; }
+    .ch-marker { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 4px rgba(86,96,254,0.28); cursor: pointer; }
+    .mapboxgl-popup-content { font-family: inherit; padding: 12px 16px; border-radius: 8px; }
+    .mapboxgl-popup-content strong { display: block; font-size: 15px; margin-bottom: 4px; color: #15171c; }
+    .mapboxgl-popup-content a { color: var(--accent); font-weight: 700; font-size: 13px; text-decoration: none; }
 
     /* Hero */
     .ch-hero { padding: 72px 0 40px; max-width: 820px; }
@@ -140,6 +152,50 @@
         <h2 class="ch-dir-title">Find a chapter</h2>
         <p class="ch-dir-note">Our chapter network is growing. Reach out to connect with organizers near you — and if there isn't a chapter in your area yet, we will help you start one.</p>
     </div>
+
+    @if(config('services.mapbox.token'))
+        <div class="ch-map-wrap"><div id="ch-map"></div></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                (function initChMap() {
+                    if (typeof mapboxgl === 'undefined') { return setTimeout(initChMap, 200); }
+                    mapboxgl.accessToken = @json(config('services.mapbox.token'));
+                    var map = new mapboxgl.Map({
+                        container: 'ch-map',
+                        style: 'mapbox://styles/mapbox/dark-v11',
+                        center: [-96, 38], zoom: 3.1,
+                        cooperativeGestures: true, attributionControl: false
+                    });
+                    map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+                    var chapters = [
+                        { name: 'New York City', c: [-74.006, 40.7128] },
+                        { name: 'Boston', c: [-71.0589, 42.3601] },
+                        { name: 'Philadelphia', c: [-75.1652, 39.9526] },
+                        { name: 'Washington, D.C.', c: [-77.0369, 38.9072] },
+                        { name: 'Chicago', c: [-87.6298, 41.8781] },
+                        { name: 'Twin Cities', c: [-93.265, 44.9778] },
+                        { name: 'Detroit', c: [-83.0458, 42.3314] },
+                        { name: 'Atlanta', c: [-84.388, 33.749] },
+                        { name: 'Austin', c: [-97.7431, 30.2672] },
+                        { name: 'Durham', c: [-78.8986, 35.994] },
+                        { name: 'New Orleans', c: [-90.0715, 29.9511] },
+                        { name: 'Los Angeles', c: [-118.2437, 34.0522] },
+                        { name: 'Bay Area', c: [-122.4194, 37.7749] },
+                        { name: 'Seattle', c: [-122.3321, 47.6062] },
+                        { name: 'Denver', c: [-104.9903, 39.7392] }
+                    ];
+                    chapters.forEach(function (ch) {
+                        var el = document.createElement('div');
+                        el.className = 'ch-marker';
+                        new mapboxgl.Marker(el).setLngLat(ch.c)
+                            .setPopup(new mapboxgl.Popup({ offset: 16, closeButton: false })
+                                .setHTML('<strong>' + ch.name + '</strong><a href="/contact">Connect &rarr;</a>'))
+                            .addTo(map);
+                    });
+                })();
+            });
+        </script>
+    @endif
 
     @foreach($chRegions as $region => $cities)
         <div class="ch-region">
