@@ -8,7 +8,7 @@ function renderArticle(Article $article, bool $large = false, bool $eager = fals
     // Hero keeps its tall fixed height; the smaller cards use a landscape
     // 3:2 aspect-ratio so they never collapse to a square (which cropped the
     // photos) as the grid columns narrow.
-    $imgBox = $large ? 'height: 600px' : 'aspect-ratio: 3 / 2';
+    $imgBox = $large ? 'aspect-ratio: 4 / 3' : 'aspect-ratio: 3 / 2';
     $imgUrl = $article->image ? $article->image_url : '';
     $loadingAttr = $eager ? 'eager' : 'lazy';
     $fetchPriority = $eager ? 'high' : 'auto';
