@@ -57,6 +57,19 @@
     .ch-empty a { color: var(--accent); font-weight: 700; text-decoration: none; }
     .ch-empty a:hover { text-decoration: underline; }
 
+    /* Map + international side panel */
+    .ch-mapwrap { display: grid; grid-template-columns: 1fr 260px; gap: 44px; align-items: start; }
+    .ch-map-col { min-width: 0; }
+    .ch-map-col .ch-usmap { margin: 0; }
+    .ch-intl-h { font-size: 1.3rem; font-weight: 800; color: var(--accent-2); line-height: 1.15; padding-bottom: 12px; border-bottom: 2px solid var(--accent); margin: 4px 0 20px; }
+    .ch-intl-list { display: flex; flex-direction: column; gap: 12px; }
+    .ch-intl-box { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: none; border: 1px solid rgba(var(--fg-rgb),0.14); border-radius: 8px; padding: 12px 14px; cursor: pointer; color: inherit; transition: border-color 0.15s, background 0.15s; }
+    .ch-intl-box:hover { border-color: var(--accent); background: rgba(86,96,254,0.06); }
+    .ch-intl-box.is-selected { border-color: var(--accent); background: rgba(86,96,254,0.12); }
+    .ch-intl-flag { font-size: 1.7rem; line-height: 1; }
+    .ch-intl-name { font-size: 15px; font-weight: 700; color: var(--fg); }
+    @media (max-width: 860px) { .ch-mapwrap { grid-template-columns: 1fr; } }
+
     /* Start a chapter CTA */
     .ch-start { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background: linear-gradient(120deg, #14141c 0%, #1c1550 55%, #5660fe 140%); color: #fff; margin-top: 0; }
     .ch-start-inner { max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; gap: 48px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
@@ -136,6 +149,21 @@
         ['st' => 'WA', 'loc' => 'Seattle, WA', 'city' => 'Seattle', 'desc' => 'Letter-writing and Pacific Northwest solidarity.'],
         ['st' => 'CO', 'loc' => 'Denver, CO', 'city' => 'Denver', 'desc' => 'Community education and regional actions.'],
     ];
+
+    // International solidarity chapters (shown in the side panel).
+    $chIntl = [
+        ['code' => 'CAN', 'flag' => '🇨🇦', 'name' => 'Canada', 'city' => 'Toronto', 'loc' => 'Toronto, Canada', 'desc' => 'Cross-border solidarity and letter-writing for U.S. and Canadian political prisoners.'],
+        ['code' => 'GBR', 'flag' => '🇬🇧', 'name' => 'United Kingdom', 'city' => 'London', 'loc' => 'London, UK', 'desc' => 'International solidarity actions and prisoner support based in London.'],
+        ['code' => 'MEX', 'flag' => '🇲🇽', 'name' => 'Mexico', 'city' => 'Mexico City', 'loc' => 'Mexico City, Mexico', 'desc' => 'Support for cross-border and Latin American political-prisoner campaigns.'],
+    ];
+    // Fold the international chapters into the "All Chapters" list (tagged by country code).
+    foreach ($chIntl as $ic) {
+        $chapters[] = ['st' => $ic['code'], 'loc' => $ic['loc'], 'city' => $ic['city'], 'desc' => $ic['desc']];
+    }
+
+    // Every selectable place -> display name (US states + countries) and the set that has chapters.
+    $chPlaceNames = $allStateNames + collect($chIntl)->pluck('name', 'code')->all();
+    $chapterCodes = array_merge(array_keys($chStateNames), array_column($chIntl, 'code'));
 @endphp
 
 <div class="ch">
@@ -167,8 +195,23 @@
 {{-- ===== Find a chapter: interactive US map + filterable chapter list ===== --}}
 <section class="ch-mapband">
     <div class="ch-mapband-inner">
-        <div class="ch-map-prompt" id="ch-prompt">Select a state on the map</div>
-        @include('partials.us-chapters-map')
+        <div class="ch-mapwrap">
+            <div class="ch-map-col">
+                <div class="ch-map-prompt" id="ch-prompt">Select a state on the map</div>
+                @include('partials.us-chapters-map')
+            </div>
+            <aside class="ch-intl">
+                <h3 class="ch-intl-h">Our Chapters<br>around the World</h3>
+                <div class="ch-intl-list">
+                    @foreach($chIntl as $ic)
+                        <button type="button" class="ch-intl-box" data-state="{{ $ic['code'] }}">
+                            <span class="ch-intl-flag" aria-hidden="true">{{ $ic['flag'] }}</span>
+                            <span class="ch-intl-name">{{ $ic['name'] }}</span>
+                        </button>
+                    @endforeach
+                </div>
+            </aside>
+        </div>
 
         <div class="ch-all-head">
             <div class="ch-all-title">All Chapters</div>
@@ -198,8 +241,8 @@
     (function () {
         var svg = document.querySelector('.ch-usmap');
         if (!svg) return;
-        var names = @json($allStateNames);
-        var chapterSet = @json(array_keys($chStateNames));
+        var names = @json($chPlaceNames);
+        var chapterSet = @json($chapterCodes);
         var tip = document.getElementById('ch-tip');
         var prompt = document.getElementById('ch-prompt');
         var grid = document.getElementById('ch-allgrid');
@@ -247,6 +290,16 @@
             }
             p.addEventListener('click', pick);
             p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+        });
+
+        // International chapter boxes behave like states (no cursor tooltip).
+        document.querySelectorAll('.ch-intl-box').forEach(function (box) {
+            var code = box.getAttribute('data-state');
+            box.addEventListener('click', function () {
+                if (selected) selected.classList.remove('is-selected');
+                selected = box; box.classList.add('is-selected');
+                selectState(code);
+            });
         });
 
         reset.addEventListener('click', function () {
