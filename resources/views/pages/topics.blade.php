@@ -34,11 +34,15 @@
 
     .tpx-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(200px, 240px) minmax(220px, 1fr) minmax(380px, 520px); grid-template-rows: auto 1fr; align-items: stretch; height: calc(100vh - 108px); }
 
-    /* Thin translucent scrollbars for the nav columns over the photo */
-    .tpx-nav, .tpx-sub-col { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.3) transparent; }
+    /* Thin translucent scrollbars for the nav columns over the photo. The
+       thumb stays invisible until the cursor is over that column, then fades
+       in — so an idle scrollbar never sits over the photo. */
+    .tpx-nav, .tpx-sub-col { scrollbar-width: thin; scrollbar-color: transparent transparent; transition: scrollbar-color 0.3s ease; }
+    .tpx-nav:hover, .tpx-sub-col:hover { scrollbar-color: rgba(255,255,255,0.3) transparent; }
     .tpx-nav::-webkit-scrollbar, .tpx-sub-col::-webkit-scrollbar { width: 8px; }
-    .tpx-nav::-webkit-scrollbar-thumb, .tpx-sub-col::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
-    .tpx-nav::-webkit-scrollbar-thumb:hover, .tpx-sub-col::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+    .tpx-nav::-webkit-scrollbar-thumb, .tpx-sub-col::-webkit-scrollbar-thumb { background: transparent; border-radius: 4px; transition: background 0.3s ease; }
+    .tpx-nav:hover::-webkit-scrollbar-thumb, .tpx-sub-col:hover::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); }
+    .tpx-nav::-webkit-scrollbar-thumb:hover, .tpx-sub-col::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.45); }
 
     /* Header bar sits across the nav area */
     .tpx-head { grid-column: 1 / 3; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 28px clamp(20px, 3vw, 40px) 0; }
