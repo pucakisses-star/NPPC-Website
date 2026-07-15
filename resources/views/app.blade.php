@@ -140,6 +140,30 @@ $isHome = request()->segment(1) == ''
             .pet-banner, .events-page, .prisoner-page, .donate-page { padding-left: max(16px, env(safe-area-inset-left)) !important; padding-right: max(16px, env(safe-area-inset-right)) !important; }
         }
 
+        /* Content hyperlink hover: CodyHouse-style text-background fill.
+           A translucent accent highlight grows from the left to cover the
+           whole link on hover (the "scale-x" effect from CodyHouse's
+           text-background-effects set), themed to --accent. Scoped to prose
+           links inside article/page bodies so navigation, buttons, and cards
+           keep their own styles. */
+        .page-content a {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 1px 0;
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 0% 100%;
+            /* rgba fallback for browsers without color-mix() */
+            background-image: linear-gradient(rgba(86, 96, 254, 0.22), rgba(86, 96, 254, 0.22));
+            background-image: linear-gradient(color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent) 22%, transparent));
+            will-change: background-size;
+            transition: background-size 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .page-content a:hover,
+        .page-content a:focus-visible {
+            background-size: 100% 100%;
+        }
+
         /* Respect the user's reduced-motion preference (iOS / Android /
            macOS / Windows accessibility setting) — disable the page-
            transition fade and any non-essential CSS transitions. */
