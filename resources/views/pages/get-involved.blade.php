@@ -215,6 +215,39 @@
         .gi-aw-desc { font-size: 1.5rem; }
         .gi-aw-imgwrap { flex-basis: auto; clip-path: none; margin-left: 0; min-height: 240px; }
     }
+
+    /* ===== Projects slideshow (Manhattan Institute-style, dark theme) ===== */
+    .gi-proj { margin: 84px 0; --gi-proj-dur: 6s; }
+    .gi-proj-head { display: flex; align-items: baseline; justify-content: space-between; }
+    .gi-proj-head h2 { font-size: 1.9rem; font-weight: 900; color: var(--fg); margin: 0; letter-spacing: -0.01em; }
+    .gi-proj-rule { height: 2px; background: rgba(var(--fg-rgb),0.16); margin-top: 14px; position: relative; }
+    .gi-proj-rule::before { content: ''; position: absolute; left: 0; top: 0; height: 2px; width: 70px; background: var(--accent); }
+    .gi-proj-stage { display: grid; grid-template-columns: 46% 1fr; gap: 56px; align-items: center; margin-top: 44px; }
+    .gi-proj-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #0c0c1e; }
+    .gi-proj-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.03); opacity: 0; transition: opacity 0.6s ease; }
+    .gi-proj-media img.active { opacity: 1; }
+    .gi-proj-content { position: relative; }
+    .gi-proj-bars { display: flex; gap: 7px; height: 30px; margin-bottom: 28px; }
+    .gi-proj-bar { width: 5px; height: 30px; padding: 0; border: 0; background: rgba(var(--fg-rgb),0.18); cursor: pointer; position: relative; overflow: hidden; border-radius: 1px; }
+    .gi-proj-bar-fill { position: absolute; left: 0; right: 0; top: 0; height: 0; background: var(--accent); }
+    .gi-proj-bar.done .gi-proj-bar-fill { height: 100%; }
+    .gi-proj-bar.active .gi-proj-bar-fill { animation: giProjFill var(--gi-proj-dur) linear forwards; }
+    .gi-proj:hover .gi-proj-bar.active .gi-proj-bar-fill { animation-play-state: paused; }
+    @keyframes giProjFill { from { height: 0; } to { height: 100%; } }
+    @@media (prefers-reduced-motion: reduce) { .gi-proj-bar.active .gi-proj-bar-fill { animation: none; height: 100%; } }
+    .gi-proj-slides { position: relative; min-height: 300px; }
+    .gi-proj-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease; }
+    .gi-proj-slide.active { opacity: 1; visibility: visible; }
+    .gi-proj-title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 2.6rem; font-weight: 700; color: var(--fg); line-height: 1.1; margin: 0 0 18px; }
+    .gi-proj-desc { font-size: 17px; color: rgba(var(--fg-rgb),0.62); line-height: 1.65; max-width: 470px; margin: 0 0 34px; }
+    .gi-proj-more { display: inline-block; color: var(--fg); font-size: 15px; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color 0.15s, border-color 0.15s; }
+    .gi-proj-more:hover { color: var(--accent-2); border-bottom-color: var(--accent-2); }
+    @@media (max-width: 900px) {
+        .gi-proj { margin: 56px 0; }
+        .gi-proj-stage { grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
+        .gi-proj-title { font-size: 2rem; }
+        .gi-proj-slides { min-height: 260px; }
+    }
 </style>
 @include('partials.scribble-assets')
 @endsection
@@ -344,6 +377,85 @@
                         imgs.forEach(function (im) { im.classList.toggle('active', im.dataset.i === btn.dataset.i); });
                     });
                 });
+            })();
+        </script>
+    </section>
+
+    {{-- ===== Projects slideshow ===== --}}
+    @php
+        $giProjects = [
+            ['name' => 'The Political Prisoner Database', 'href' => '/database', 'img' => 'section_1.jpg',
+             'desc' => 'The most comprehensive, freely searchable record of U.S. political prisoners ever built — hundreds of cases spanning more than a century.'],
+            ['name' => 'Letter-Writing Network', 'href' => '/volunteer', 'img' => 'envelope.jpg',
+             'desc' => 'Volunteer-run letter-writing nights that keep imprisoned organizers connected to the outside world.'],
+            ['name' => 'Court Support Program', 'href' => '/events', 'img' => 'fence.jpg',
+             'desc' => 'Packing courtrooms, tracking cases, and standing with defendants so no one faces the state alone.'],
+            ['name' => 'Amnesty &amp; Pardon Research', 'href' => '/archive', 'img' => 'freedom.jpg',
+             'desc' => 'Recovering the histories of WWI-era and Red Scare political prisoners and returning their records to the public.'],
+            ['name' => 'Prisoner Birthday Campaign', 'href' => '/birthdays', 'img' => 'candles.jpg',
+             'desc' => 'Cards, calls, and solidarity so incarcerated activists are never forgotten on their birthdays.'],
+        ];
+    @endphp
+    <section class="gi-proj" id="gi-proj">
+        <div class="gi-proj-head"><h2>Our Projects</h2></div>
+        <div class="gi-proj-rule"></div>
+        <div class="gi-proj-stage">
+            <div class="gi-proj-media">
+                @foreach($giProjects as $i => $p)
+                    <img class="@if($i === 0) active @endif" data-i="{{ $i }}" src="{{ asset('images/'.$p['img']) }}" alt="{{ strip_tags($p['name']) }}" loading="lazy">
+                @endforeach
+            </div>
+            <div class="gi-proj-content">
+                <div class="gi-proj-bars">
+                    @foreach($giProjects as $i => $p)
+                        <button type="button" class="gi-proj-bar @if($i === 0) active @endif" data-i="{{ $i }}" aria-label="Show project {{ $i + 1 }}"><span class="gi-proj-bar-fill"></span></button>
+                    @endforeach
+                </div>
+                <div class="gi-proj-slides">
+                    @foreach($giProjects as $i => $p)
+                        <div class="gi-proj-slide @if($i === 0) active @endif" data-i="{{ $i }}">
+                            <h3 class="gi-proj-title">{!! $p['name'] !!}</h3>
+                            <p class="gi-proj-desc">{{ $p['desc'] }}</p>
+                            <a class="gi-proj-more" href="{{ $p['href'] }}">View this project</a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                var root = document.getElementById('gi-proj');
+                if (!root) return;
+                var bars = root.querySelectorAll('.gi-proj-bar');
+                var slides = root.querySelectorAll('.gi-proj-slide');
+                var imgs = root.querySelectorAll('.gi-proj-media img');
+                var n = slides.length, cur = 0, timer = null;
+                var DUR = 6000; // keep in sync with --gi-proj-dur
+
+                function show(i) {
+                    cur = (i + n) % n;
+                    slides.forEach(function (s, k) { s.classList.toggle('active', k === cur); });
+                    imgs.forEach(function (im, k) { im.classList.toggle('active', k === cur); });
+                    bars.forEach(function (b, k) {
+                        b.classList.remove('active', 'done');
+                        if (k < cur) b.classList.add('done');
+                    });
+                    // restart the active bar's fill animation
+                    var active = bars[cur];
+                    void active.offsetWidth;
+                    active.classList.add('active');
+                }
+                function next() { show(cur + 1); }
+                function start() { stop(); timer = window.setInterval(next, DUR); }
+                function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
+
+                bars.forEach(function (b, k) {
+                    b.addEventListener('click', function () { show(k); start(); });
+                });
+                root.addEventListener('mouseenter', stop);
+                root.addEventListener('mouseleave', start);
+                show(0);
+                start();
             })();
         </script>
     </section>
