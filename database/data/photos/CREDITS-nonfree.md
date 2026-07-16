@@ -140,3 +140,9 @@ have no photo and never overwrites an existing image.
 | `farrell-dobbs.jpg` | Farrell Dobbs (Teamster and SWP leader convicted under the Smith Act, 1941) | Portrait via Wikimedia Commons. **Public domain**. |
 | `oscar-coover.jpg` | Oscar Coover (Minneapolis Teamster convicted in the 1941 Smith Act trial) | Photograph via Wikimedia Commons. **Public domain**. |
 | `grace-carlson.jpg` | Grace Carlson (SWP organizer convicted in the 1941 Smith Act trial) | Portrait via Wikimedia Commons. **Public domain**. |
+| `daisy-bates.jpg` | Daisy Bates (Arkansas NAACP leader; jailed during the 1957 Little Rock desegregation crisis) | Portrait via Wikipedia. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `septima-clark.jpg` | Septima Poinsette Clark (Citizenship Schools founder; arrested in the civil-rights movement) | Portrait via Wikipedia. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `anna-mae-aquash.jpg` | Anna Mae Aquash (Mi'kmaq AIM activist; jailed and later murdered, 1975–76) | Portrait via Wikipedia. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `anne-braden.jpg` | Anne Braden (Southern civil-rights organizer charged with sedition in the 1954 Wade case) | Portrait via Wikipedia. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `gene-sharp.jpg` | Gene Sharp (nonviolent-resistance theorist) | Portrait via Wikipedia. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `rosa-lee-ingram.jpg` | Rosa Lee Ingram (sharecropper convicted with her sons in a 1948 self-defense case, Georgia) | Portrait drawing, via Wikimedia Commons. **Public domain**. |

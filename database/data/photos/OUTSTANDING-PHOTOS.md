@@ -15,13 +15,8 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | Person | Given source | Why it failed |
 |---|---|---|
 | Euel Lee / Orphan Jones | Salisbury libguide | JS-rendered; no direct image |
-| Daisy Bates (Little Rock) | LOC 97516161 | LOC viewer JS; Wikimedia "Daisy Bates" is the unrelated Australian anthropologist |
-| Septima Poinsette Clark | SNCC Digital | resolved to a two-person scene, not a portrait |
 | Calvin Woods | Alabama Power | download failed / news-header image |
-| Rosa Lee Ingram | Georgia Encyclopedia | postcard graphic, not a portrait |
 | Paul Nakadate | Heart Mountain | resolved to a crowd/meeting scene |
-| Gene Sharp | Albert Einstein Institution | JS; no image |
-| Anne Braden | TEVA/ContentDM | JS viewer |
 | Mitsuye Endo | Densho catalyst | JS |
 | George Houser | MSU African Activist | JS |
 | Hazel Wolf | UW Pressbooks | chapter image not exposed |
@@ -33,7 +28,6 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | James Peck (CORE) | Alabama archives ContentDM | JS viewer |
 | Corbett Bishop | eBay listing | listing image / expiring |
 | Caleb Foote | UMass finding aid | archival finding aid, likely no portrait |
-| Anna Mae Aquash | Smithsonian NMAI | JS viewer |
 | Leonard Crow Dog | Smithsonian SOVA | JS viewer |
 | Ellen Moves Camp | Facing Freedom | JS |
 | Gladys Bissonette | Fine Art Storehouse (Bettmann) | paywalled / watermarked stock |
