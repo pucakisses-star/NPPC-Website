@@ -53,6 +53,14 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | Sam Day Jr. | WRMEA | JS |
 | Fernando González Llort / Rubén Campa | Wikimedia "Cuban Five" category | no portrait file in the category |
 | Alberto Rodríguez | LA Times archive | link returned the LAT logo |
+| Brian Terrell | catholicworker.org author page | author page lists articles only, no portrait |
+| Mary Anne Grady-Flores | NCR (ncronline.org) | site returns an anti-bot challenge page to scripts |
+| Gregory Boertje-Obed | NCR "Transform Now Plowshares" review | NCR challenge-blocked; no free image found |
+| Michael Walli | NCR "Transform Now Plowshares" review | NCR challenge-blocked (Commons "Michael Wallis" is a different person) |
+| Allen Bullock | ABHM (abhmuseum.org) | lead image is the car-window action scene, not a portrait |
+| Jasmine Richards / Abdullah | Pasadena Now | JS-rendered; no direct image |
+| Stanley Cohen (attorney) | istanleycohen.org/photos | JS photo gallery; no direct image |
+| Yang Yoon-Mo | apjjf.org | article body not exposed to scripts (challenge/minimal) |
 
 ## Needs a higher-resolution scan
 
