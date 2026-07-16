@@ -61,6 +61,26 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | Jasmine Richards / Abdullah | Pasadena Now | JS-rendered; no direct image |
 | Stanley Cohen (attorney) | istanleycohen.org/photos | JS photo gallery; no direct image |
 | Yang Yoon-Mo | apjjf.org | article body not exposed to scripts (challenge/minimal) |
+| Mike Forcia | Smithsonian Magazine | lead images are the Columbus-statue toppling scene, not a portrait |
+| Marlon Kautz | WABE (Atlanta Solidarity Fund) | JS-rendered; booking-photo trio not exposed to scripts |
+| Adele MacLean | WABE (Atlanta Solidarity Fund) | JS-rendered; booking-photo trio not exposed to scripts |
+| Savannah Patterson | WABE (Atlanta Solidarity Fund) | JS-rendered; booking-photo trio not exposed to scripts |
+| Priscilla Grim | AP (Cop City RICO article) | single article image is a construction-site scene, not a portrait |
+| Julia Dupuis | AP (Cop City RICO article) | single article image is a construction-site scene, not a portrait |
+| James "Jamie" Marsicano | AP | article image is a masked protest march, no identifiable face |
+| Noah Grigni | Main Line (mainlineatl.com) | article images are graffiti/banners, not a portrait |
+| Alfredo "Lelo" Juarez Zeferino | The Guardian | portrait-orientation image is behind the Guardian's signed CDN (og image is a landscape) |
+| Sophie Ross | WMUR | only a courtroom video still; all three faces turned away/masked |
+| Calla Walsh | WMUR | only a courtroom video still; all three faces turned away/masked |
+| Bridget Shergalis | WMUR | only a courtroom video still; all three faces turned away/masked |
+| Paige Belanger | WHDH | JS-rendered; no direct image |
+| Victor Puertas | Unicorn Riot | article image is a "#FreeVictor" rally scene, not a portrait |
+| Nancy Beaulieu | Star Tribune | paywalled; no image exposed to scripts |
+| Heather Idoni | WUSA9 | JS-rendered; no direct image |
+| Roman Storm | Reuters | Reuters blocks scripts; no free/defense-site image found |
+| Morpheus Titania / Thomas Costanzo | justice.gov press release | DOJ release carries no photo |
+| Father Fidelis Moscinski | Catholic Review | lead image is a courthouse group scene; the friar can't be isolated |
+| Tyshawn Ford | KVAL | article images are generic 2020 protest scenes by another subject |
 
 ## Needs a higher-resolution scan
 
