@@ -90,6 +90,21 @@ final class MergeDuplicatePrisoners extends Command
         // (which holds the sentenced case); the duplicate's stub case is dropped.
         ['cameron-arnold',               ['autumn-hill']],
         ['daniel-sanchez-estrada',       ['daniel-rolando-sanchez-estrada']],
+        // Duplicates surfaced by the confirmed-identity photo-research pass —
+        // each is one person entered twice (a legal/alternate name and the
+        // name they go by). The canonical keeps the photographed record; the
+        // duplicate's name is folded into aka and, where it holds a redundant
+        // copy of the same arrest, its case is dropped (see $dropDupCasesFor).
+        ['daniel-alan-baker',            ['dan-baker']],
+        ['cara-mitrano',                 ['cara-tobe']],
+        ['celeste-legere',               ['celeste-friend']],
+        ['anthony-smith',                ['anthony-david-ale-smith']],
+        ['branden-wolfe',                ['branden-michael-wolfe']],
+        ['carlos-matchett',              ['carlos-a-matchett']],
+        ['charles-pittman',              ['charles-anthony-pittman']],
+        ['christopher-rojas',            ['christopher-isidro-rojas']],
+        ['cyan-bass',                    ['cyan-waters-bass']],
+        ['dakotah-horton',               ['dakotah-ray-horton']],
     ];
 
     /**
@@ -107,6 +122,13 @@ final class MergeDuplicatePrisoners extends Command
         // sentenced case already held by the canonical, so drop it.
         'cameron-arnold',
         'daniel-sanchez-estrada',
+        // Photo-research duplicates whose dup carries a redundant copy of the
+        // same arrest already held by the canonical — drop the dup's case
+        // rather than leave the merged record with two near-identical rows.
+        'daniel-alan-baker',
+        'cara-mitrano',
+        'celeste-legere',
+        'christopher-rojas',
     ];
 
     public function handle(): int
@@ -176,6 +198,18 @@ final class MergeDuplicatePrisoners extends Command
                         $dv = $dup->{$f};
                         if (($cv === null || $cv === '') && $dv !== null && $dv !== '') {
                             $canonical->{$f} = $dv;
+                            // Partial dates carry a per-field precision; copy it
+                            // across too so a backfilled birthdate/death_date
+                            // still renders (the API only shows day-precision).
+                            if (in_array($f, ['birthdate', 'death_date'], true)) {
+                                $dupPrecision = $dup->date_precision[$f] ?? null;
+                                if ($dupPrecision !== null) {
+                                    $canonical->date_precision = array_merge(
+                                        $canonical->date_precision ?? [],
+                                        [$f => $dupPrecision],
+                                    );
+                                }
+                            }
                             $dirty = true;
                         }
                     }
