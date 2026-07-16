@@ -2,10 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 
 class AddPrisoner extends Command {
     protected $signature = 'prisoner:add {json}';
@@ -104,6 +106,10 @@ class AddPrisoner extends Command {
             $charges = $cleanCaseData['charges'] ?? 'no charges listed';
             $this->info("  Case #{$num}: {$charges}");
         }
+
+        // The /database dashboard reads the cached /api/prisoners payload;
+        // clear it so the new prisoner shows up immediately.
+        Cache::forget(PrisonerApiController::cacheKey());
 
         $caseCount = count($cases);
         $this->info("\nDone! {$prisoner->name} added with {$caseCount} case(s).");
