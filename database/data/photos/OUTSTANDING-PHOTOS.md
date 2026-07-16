@@ -14,14 +14,12 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 
 | Person | Given source | Why it failed |
 |---|---|---|
-| Alexander Howat | commons `File:Howat-Alexander-1921.jpg` | file 404s; no Wikimedia alternative |
 | Euel Lee / Orphan Jones | Salisbury libguide | JS-rendered; no direct image |
 | Daisy Bates (Little Rock) | LOC 97516161 | LOC viewer JS; Wikimedia "Daisy Bates" is the unrelated Australian anthropologist |
 | Septima Poinsette Clark | SNCC Digital | resolved to a two-person scene, not a portrait |
 | Calvin Woods | Alabama Power | download failed / news-header image |
 | Rosa Lee Ingram | Georgia Encyclopedia | postcard graphic, not a portrait |
 | Paul Nakadate | Heart Mountain | resolved to a crowd/meeting scene |
-| Harry Van Arsdale Jr. | Flickr (Kheel Center) | 3-person handshake scene; couldn't isolate him |
 | Gene Sharp | Albert Einstein Institution | JS; no image |
 | Anne Braden | TEVA/ContentDM | JS viewer |
 | Mitsuye Endo | Densho catalyst | JS |
@@ -67,4 +65,4 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 
 | Group photo | People | Note |
 |---|---|---|
-| 1941 Minneapolis Smith Act defendants (MNHS `J1.6 r13_0.jpg`) | Farrell Dobbs, Edward Palmquist, Clarence Hamel, Emil Hansen, Oscar Coover, Jake Cooper, Max Geldman, Felix Morrow, Grace Carlson | source is only 540 px wide with the Trotsky bust occluding the middle row — too low-res to reliably crop nine faces |
+| 1941 Minneapolis Smith Act defendants (MNHS `J1.6 r13_0.jpg`) | Edward Palmquist, Clarence Hamel, Emil Hansen, Jake Cooper, Max Geldman, Felix Morrow | source is only 540 px wide with the Trotsky bust occluding the middle row — too low-res to reliably crop faces. (Farrell Dobbs, Oscar Coover, and Grace Carlson were recovered from their own Wikipedia articles.) |

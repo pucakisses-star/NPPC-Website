@@ -135,3 +135,8 @@ have no photo and never overwrites an existing image.
 | `sharon-day.jpg` | Sharon Day (Ojibwe water-walker and activist) | Photograph via Spectrum News 1 (`spectrumnews1.com`). Copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
 | `mary-dann.jpg` | Mary Dann (Western Shoshone land-rights elder) | Cropped (front/left figure) from a 1993 photograph via Right Livelihood (`rightlivelihood.org`). Copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
 | `carrie-dann.jpg` | Carrie Dann (Western Shoshone land-rights elder) | Cropped (behind/right figure) from a 1993 photograph via Right Livelihood (`rightlivelihood.org`). Copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `alexander-howat.jpg` | Alexander Howat (Kansas miners' union leader jailed under the Industrial Court Act, 1920s) | Photograph, 1921, via English Wikipedia (`Howat-Alexander-1921.jpg`). **Public domain**. |
+| `harry-van-arsdale.jpg` | Harry Van Arsdale Jr. (NYC labor leader arrested in union organizing) | Labor Day Parade photograph (cropped), via Wikimedia Commons. **Public domain**. |
+| `farrell-dobbs.jpg` | Farrell Dobbs (Teamster and SWP leader convicted under the Smith Act, 1941) | Portrait via Wikimedia Commons. **Public domain**. |
+| `oscar-coover.jpg` | Oscar Coover (Minneapolis Teamster convicted in the 1941 Smith Act trial) | Photograph via Wikimedia Commons. **Public domain**. |
+| `grace-carlson.jpg` | Grace Carlson (SWP organizer convicted in the 1941 Smith Act trial) | Portrait via Wikimedia Commons. **Public domain**. |
