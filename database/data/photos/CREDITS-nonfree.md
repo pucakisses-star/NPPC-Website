@@ -219,3 +219,5 @@ have no photo and never overwrites an existing image.
 | `thomas-mooney.jpg` | Thomas Mooney | Portrait via a 1933 San Quentin portrait via the Getty Museum. Getty Museum image; used at low resolution. |
 | `tom-tracy.jpg` | Tom Tracy | Portrait via the University of Washington IWW History Project (1916 Everett booking photo). **Public domain**. |
 | `wenzel-francik.jpg` | Wenzel Francik | Portrait via a 1919 Leavenworth booking photograph (via weneverforget.org). **Public domain**. |
+| `blanca-canales.jpg` | Blanca Canales (Leader of the 1950 Jayuya uprising) | Via English Wikipedia (`en.wikipedia.org/wiki/File:Blanca_Canales.JPG`), carried there under a non-free / fair-use rationale; copyrighted. Used at low resolution under a non-commercial fair-use / political-prisoner memorial rationale. |
+| `george-jackson.jpg` | George Jackson (Black Panther Field Marshal, Soledad Brother) | Via English Wikipedia (`en.wikipedia.org/wiki/File:George_Jackson.png`), carried there under a non-free / fair-use rationale; copyrighted. Used at low resolution under a non-commercial fair-use / political-prisoner memorial rationale. |
