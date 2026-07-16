@@ -195,3 +195,27 @@ have no photo and never overwrites an existing image.
 | `vanessa-carrasco.jpg` | Vanessa Carrasco | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
 | `wendy-lujan.jpg` | Wendy Lujan | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
 | `tia-pugh.jpg` | Tia Pugh | Mobile County Metro Jail booking photograph via FOX10 (`fox10tv.com`); public record. Used at low resolution. |
+| `adolph-frank-germer.jpg` | Adolph Frank Germer | Portrait via the "Socialist-defendants-1919" labeled portrait plate (Wikimedia Commons). **Public domain**. |
+| `agnes-smedley.jpg` | Agnes Smedley | Portrait via Wikimedia Commons. **Public domain**. |
+| `arturo-giovannitti.jpg` | Arturo Giovannitti | Portrait via a Library of Congress group portrait (Ettor–Giovannitti–Caruso), cropped to Giovannitti. **Public domain**. |
+| `ben-reitman.jpg` | Ben Reitman | Portrait via a standing portrait via Wikimedia Commons. **Public domain**. |
+| `benjamin-gitlow.jpg` | Benjamin Gitlow | Portrait via a 1928 Workers Party campaign photograph via Wikimedia Commons. **Public domain**. |
+| `clayton-j-woodworth.jpg` | Clayton J. Woodworth | Portrait via a circa-1913 portrait via Wikimedia Commons. **Public domain**. |
+| `dora-kelly-lewis.jpg` | Dora Kelly Lewis | Portrait via the Historical Society of Pennsylvania (via inherownright.org). **Public domain**. |
+| `f-j-gallagher.jpg` | F. J. Gallagher | Portrait via a 1919 Leavenworth booking photograph (via weneverforget.org). **Public domain**. |
+| `harrison-george.jpg` | Harrison George | Portrait via Wikimedia Commons. **Public domain**. |
+| `harry-wicks.jpg` | Harry Wicks | Portrait via a 1928 portrait via Wikimedia Commons. **Public domain**. |
+| `irwin-st-john-tucker.jpg` | Irwin St. John Tucker | Portrait via the "Socialist-defendants-1919" labeled portrait plate (Wikimedia Commons). **Public domain**. |
+| `isaac-e-ferguson.jpg` | Isaac E. Ferguson | Portrait via the 1910 University of Chicago yearbook portrait via Wikimedia Commons. **Public domain**. |
+| `jack-johnson.jpg` | Jack Johnson | Portrait via the Library of Congress. **Public domain**. |
+| `jacob-abrams.jpg` | Jacob Abrams | Portrait via a biographical page at libcom.org. **Public domain**. |
+| `katherine-morey.jpg` | Katherine Morey | Portrait via a formal portrait via Wikimedia Commons. **Public domain**. |
+| `marcus-mosiah-garvey-jr.jpg` | Marcus Mosiah Garvey Jr. | Portrait via the Library of Congress. **Public domain**. |
+| `matthew-schmidt.jpg` | Matthew Schmidt | Portrait via Calisphere / Huntington Library. **Public domain**. |
+| `michael-sapper.jpg` | Michael Sapper | Portrait via a 1919 Leavenworth booking photograph (via weneverforget.org). **Public domain**. |
+| `phineas-eastman.jpg` | Phineas Eastman | Portrait via a 1919 Leavenworth booking photograph (via weneverforget.org). **Public domain**. |
+| `ralph-hosea-chaplin.jpg` | Ralph Hosea Chaplin | Portrait via Wikimedia Commons. **Public domain**. |
+| `taraknath-das.jpg` | Taraknath Das | Portrait via Clara Sipprell’s portrait via the Amon Carter Museum. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `thomas-mooney.jpg` | Thomas Mooney | Portrait via a 1933 San Quentin portrait via the Getty Museum. Getty Museum image; used at low resolution. |
+| `tom-tracy.jpg` | Tom Tracy | Portrait via the University of Washington IWW History Project (1916 Everett booking photo). **Public domain**. |
+| `wenzel-francik.jpg` | Wenzel Francik | Portrait via a 1919 Leavenworth booking photograph (via weneverforget.org). **Public domain**. |

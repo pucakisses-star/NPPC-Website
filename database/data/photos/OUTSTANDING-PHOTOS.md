@@ -129,3 +129,62 @@ These have a confirmed source in the research CSV but could not be downloaded au
 | Chris Zelle | ipmnewsroom.org | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
 | Daithí O'Corrain | chuffed.org | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
 | Damian Smith-Birge | coffeeordie.com | page is JavaScript-rendered |
+
+## Historical (IWW / early-labor) research pass — source known, not auto-fetchable
+
+Confirmed sources from the historical photo-research file that could not be downloaded automatically: NARA catalog inmate files (JavaScript SPA), the 1921 *Messenger* group photograph (subjects only croppable by row/position), Everett defendants absent from the digitized UW booking-portrait page, and a few crowd/scene/collection images. Each needs a direct image URL or a manual crop.
+
+| Person | Source | Why it failed |
+|---|---|---|
+| Dennis Batt | en.wikipedia.org | no photograph (source describes a caricature/likeness) |
+| Evan Thomas | firstamendment.mtsu.edu | source is the Roger Baldwin article; og image is not reliably Evan Thomas |
+| Alexander Cournos | catalog.archives.gov | NARA catalog is a JS SPA; inmate mugshot not directly downloadable |
+| Charles Ashleigh | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Edward F. Doree | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| G. J. Bourg | catalog.archives.gov | NARA catalog is a JS SPA; inmate mugshot not directly downloadable |
+| George O'Connell | catalog.archives.gov | NARA catalog is a JS SPA; inmate mugshot not directly downloadable |
+| Jack Law | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| James P. Thompson | catalog.archives.gov | NARA catalog is a JS SPA; inmate mugshot not directly downloadable |
+| Joe Graber | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| John M. Foss | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Joseph Ettor | loc.gov | LOC image is a crowd/arrest scene, subject not isolable |
+| Pietro Nigra | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Robert Connellan | catalog.archives.gov | NARA catalog is a JS SPA; inmate mugshot not directly downloadable |
+| Sam Scarlett | catalog.archives.gov | NARA catalog is a JS SPA; inmate mugshot not directly downloadable |
+| W. H. Lewis | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Walter T. Nef | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Walter T. Neff | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| William Weyh | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Adolph Ersson | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Ben Legg | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Carl Newman | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Charles Black | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Clarence Cyphert | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| E. F. Hollingsworth | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| E. J. Shapeero | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Earl Osborne | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Ed Miller | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Ed Roth | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Edwart Truitt | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| H. Shebeck | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| H. Sokol | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| James Whiteford | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| John Nugent | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| John Rawlings | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| John W. Bowdoin | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Joseph Manning | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Laurence Manning | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Louis Morgan | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Michael J. Reilly | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Theodore Lauer | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Thomas Savage | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| William Lawson | depts.washington.edu | not present in the UW IWW booking-portrait page (only 19 of the Everett defendants are digitized there) |
+| Becky Edelsohn | loc.gov | LOC image is a crowd/arrest scene, subject not isolable |
+| Charles Plunkett | files.libcom.org | PDF/files.libcom.org — no single portrait extracted |
+| James B. McNamara | calisphere.org | source image is a group/scene, subject not isolable |
+| John J. McNamara | latimes.com | source resolved to the 1910 bombing scene, not a portrait |
+| John R. Lawson | history.denverlibrary.org | history.denverlibrary.org — not auto-fetchable |
+| David Eichel | www1.swarthmore.edu | archival family/collection page; no single labeled portrait exposed |
+| John Walsh | weneverforget.org | appears only in the 1921 Messenger group photograph — not individually croppable |
+| Julius Eichel | www1.swarthmore.edu | archival family/collection page; no single labeled portrait exposed |
+| Maurice Becker | si.edu | SOVA collection description carries no exposed image |
