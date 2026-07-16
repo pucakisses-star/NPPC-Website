@@ -104,6 +104,16 @@ final class BackfillPrisonerDates extends Command
         ['slug' => 'claude-c-williams', 'names' => ['Claude Clossey Williams', 'Claude C. Williams', 'Claude Williams'], 'b' => [1895], 'd' => [1979, 6, 28], 'note' => 'The Walter P. Reuther Library finding aid gives a death date of June 28, 1979; other references give June 29. No reliable exact birth month/day is established.', 'fb' => false, 'fd' => false],
         ['slug' => 'anni-rainbow', 'names' => ['Anni Rainbow'], 'b' => null, 'd' => [2022, 6, 24], 'note' => 'Her exact birth date was not located — born circa 1948–1949 (obituary reported age 73 at death). Death date per the Menwith Hill campaign newsletter.', 'fb' => false, 'fd' => true],
         ['slug' => 'aunt-molly-jackson', 'names' => ['Aunt Molly Jackson', 'Mary Magdalene Garland'], 'b' => [1880], 'd' => [1960, 9, 1], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'bayard-rustin', 'names' => ['Bayard Rustin'], 'b' => [1912, 3, 17], 'd' => [1987, 8, 24], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'benjamin-j-davis-jr', 'names' => ['Benjamin J. Davis Jr.', 'Benjamin J. Davis'], 'b' => [1903, 9, 8], 'd' => [1964, 8, 22], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'howard-fast', 'names' => ['Howard Fast'], 'b' => [1914, 11, 11], 'd' => [2003, 3, 12], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'claudia-jones', 'names' => ['Claudia Vera Jones', 'Claudia Jones'], 'b' => [1915, 2, 21], 'd' => [1964, 12, 24], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'john-gates', 'names' => ['John Gates', 'Solomon Regenstreif'], 'b' => [1913, 9, 28], 'd' => [1992, 5, 23], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'pettis-perry', 'names' => ['Pettis Perry'], 'b' => [1897, 1, 4], 'd' => [1965, 7, 24], 'note' => null, 'fb' => false, 'fd' => true],
+        ['slug' => 'lawrence-ferlinghetti', 'names' => ['Lawrence Ferlinghetti'], 'b' => [1919, 3, 24], 'd' => [2021, 2, 22], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'shigeyoshi-murao', 'names' => ['Shigeyoshi Murao', 'Shig Murao'], 'b' => [1926, 12, 8], 'd' => [1999, 10, 18], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'frederick-vanderbilt-field', 'names' => ['Frederick Vanderbilt Field', 'Frederick V. Field'], 'b' => [1905, 4, 13], 'd' => [2000, 2, 1], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'barrows-dunham', 'names' => ['Barrows Dunham'], 'b' => [1905, 10, 10], 'd' => [1995, 11, 14], 'note' => 'Several online authority records display November 19, 1995; this record uses November 14 (contemporary Philadelphia Inquirer obituary).', 'fb' => false, 'fd' => false],
     ];
 
     private const RANK = ['year' => 1, 'month' => 2, 'day' => 3];
