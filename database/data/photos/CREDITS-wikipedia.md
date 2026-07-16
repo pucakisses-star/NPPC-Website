@@ -86,3 +86,19 @@ require. Each links to the Commons File: page (full author/license details).
 | `muhammad-abdul-aziz.jpg` | Muhammad Abdul Aziz / Norman 3X Butler (wrongly convicted in the Malcolm X assassination; exonerated 2021) | Wikimedia Commons `File:Muhammad_Abdul_Aziz_(Norman_3X_Butler)_1965_press_photo.jpg` — a 1965 Associated Press police-station press photo, public domain in the United States. Downscaled to 900 px. |
 | `edgar-timmons-jr.jpg` | Rev. Edgar Timmons Jr. (Harris Neck land-reclamation protester; In re Timmons, 607 F.2d 120) | Cropped (second person from the left) from a U.S. Fish & Wildlife Service photograph, "Gullah Geechee community descendants at Harris Neck Refuge" (`fws.gov/media/gullah-geechee-community-descendants-harris-neck-refuge`, Monica Harris/USFWS, 2021). A federal-government work in the public domain. |
 | `otto-janson.jpg` | Otto Janson (Oakland businessman convicted of sedition, 1918; McNeil Island Penitentiary no. 3149) | A c.1910s studio portrait from the Janson family-history archive (`jansonfamilyhistory.blogspot.com`, "Otto Janson b 19 Aug 1890"). Over 100 years old — public domain. Small scan, modestly upscaled. |
+| Akua Njeri | akua-njeri.jpg | CC BY-SA 2.5 | Wikipedia user Willie D Live | [File](https://commons.wikimedia.org/wiki/File:Deborah_Johnson--Akua_Njeri.png) |
+| Andrew Mickel | andrew-mickel.jpg | Public domain | <a href="https://en.wikipedia.org/wiki/San_Quentin_State_Prison" class="extiw" t | [File](https://commons.wikimedia.org/wiki/File:Andrew_Mickel_CDCR_2010.jpg) |
+| Anne Timpson | anne-timpson.jpg | Public domain | Communist Party USA | [File](https://commons.wikimedia.org/wiki/File:Ann_Burlak_1959.jpg) |
+| Calla Walsh | calla-walsh.jpg | Public domain | Merrimack, Massachusetts Police Department | [File](https://commons.wikimedia.org/wiki/File:Calla_Walsh_mugshot%2C_October_2023.jpg) |
+| Cleveland Sellers | cleveland-sellers.jpg | Public domain | Lance Cheung | [File](https://commons.wikimedia.org/wiki/File:Cleveland_Sellers_speaks_at_Voorhees_College.jpg) |
+| Ellen Moves Camp | ellen-moves-camp.jpg | Public domain | Seize the Time | [File](https://commons.wikimedia.org/wiki/File:Ellen_Moves_Camp.jpg) |
+| Filiberto Ojeda Rios | filiberto-ojeda-rios.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Filiberto_ojeda_rios_fbi_photograph_02_with_black_border.jpg) |
+| Joan Little | joan-little.jpg | Public domain | United Press International | [File](https://commons.wikimedia.org/wiki/File:Joan_Little_1978.jpg) |
+| John Boncore Hill | john-boncore-hill.jpg | CC-BY-SA-2.5 | — | [File](https://en.wikipedia.org/wiki/File:Splitting_the_Sky-video_screen_shot.jpg) |
+| Kim Dae Jung | kim-dae-jung.jpg | KOGL Type 1 | <a rel="nofollow" class="external text" href="https://www.archives.go.kr/next/vi | [File](https://commons.wikimedia.org/wiki/File:Kim_Dae-jung_presidential_portrait.jpg) |
+| LaMonica McIver | lamonica-mciver.jpg | Public domain | Clerk of the US house of representatives | [File](https://commons.wikimedia.org/wiki/File:Representative_LaMonica_McIver_119th_congress.jpg) |
+| Max Stanford | max-stanford.jpg | CC BY 3.0 | Freedom Archives | [File](https://commons.wikimedia.org/wiki/File:Muhammad_Ahamd.jpg) |
+| Rodolfo Gonzales | rodolfo-gonzales.jpg | Public domain | Unknown authorUnknown author | [File](https://commons.wikimedia.org/wiki/File:Corky_Gonzales_1952.jpg) |
+| Thomas James Reddy | thomas-james-reddy.jpg | CC BY-SA 4.0 | Heath | [File](https://commons.wikimedia.org/wiki/File:TJ_Reddy.jpg) |
+| Walter Edward Fauntroy | walter-edward-fauntroy.jpg | Public domain | U.S. Congress | [File](https://commons.wikimedia.org/wiki/File:Walter_Fauntroy.jpg) |
+| Wendy Yoshimura | wendy-yoshimura.jpg | CC BY-SA 4.0 | <a href="//commons.wikimedia.org/wiki/User:Edmunddantes" title="User:Edmunddante | [File](https://commons.wikimedia.org/wiki/File:Wendy_yoshimura_in_1976_%28cropped%29.jpg) |
