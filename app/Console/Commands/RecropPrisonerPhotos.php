@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Storage;
  *     subject's face was tiny or off-centre.
  *
  * Five entries were re-sourced from Wikimedia Commons (Dreiser, Lolita Lebrón,
- * Yuri Kochiyama, Elaine Black Yoneda, Marissa Alexander); the rest were
- * re-cropped from the existing source. See CREDITS-nonfree.md for provenance.
+ * Yuri Kochiyama, Elaine Black Yoneda, Marissa Alexander); four tight crops
+ * were re-fetched from their original source articles and re-cropped with the
+ * full head visible (Edin Enamorado, Yorie von Kahl, Linwood Kaine, Thomas
+ * Jurgens); the rest were re-cropped from the existing source. See
+ * CREDITS-nonfree.md for provenance.
  *
  * Unlike the fill-if-empty attach commands, this command DELIBERATELY
  * OVERWRITES the existing photo — that is the whole point of a re-crop. It only
@@ -34,6 +37,10 @@ final class RecropPrisonerPhotos extends Command
 
     /** @var array<int,array{file:string,slugs:string[],names:string[]}> */
     private const ENTRIES = [
+        ['file' => 'edin-enamorado.jpg', 'slugs' => ['edin-alex-enamorado', 'edin-enamorado'], 'names' => ['Edin Alex Enamorado', 'Edin Enamorado']],
+        ['file' => 'yorie-von-kahl.jpg', 'slugs' => ['yorie-von-kahl'], 'names' => ['Yorie von Kahl', 'Yorie Von Kahl', 'Yorie Kahl']],
+        ['file' => 'linwood-kaine.jpg', 'slugs' => ['linwood-kaine'], 'names' => ['Linwood Kaine', 'Linwood "Woody" Kaine']],
+        ['file' => 'thomas-jurgens.jpg', 'slugs' => ['thomas-jurgens'], 'names' => ['Thomas Jurgens', 'Thomas Webb Jurgens']],
         ['file' => 'edwin-pena.jpg', 'slugs' => ['edwin-pena'], 'names' => ['Edwin Pena', 'Edwin Peña']],
         ['file' => 'elaine-black-yoneda.jpg', 'slugs' => ['elaine-black-yoneda'], 'names' => ['Elaine Black Yoneda']],
         ['file' => 'fernando-lopez.jpg', 'slugs' => ['fernando-lopez'], 'names' => ['Fernando Lopez', 'Fernando López']],
