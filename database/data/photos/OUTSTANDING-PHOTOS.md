@@ -38,7 +38,6 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | Connie Matthews | Harun Farocki Institut | JS |
 | Nelson Johnson | NC A&T | JS |
 | Charlotte Hill O'Neal / Mama C | Media Sanctuary | JS |
-| Father Frank Cordaro | Catholic Worker / DM Catholic Worker | JS |
 | Father Bill "Bix" Bichsel | NCR / UW antiwar oral histories | JS |
 | Father Jerry Zawada | NCR / No More Deaths | JS |
 | John Patrick Liteky | last-memories.com | JS |
