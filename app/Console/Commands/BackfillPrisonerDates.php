@@ -114,6 +114,14 @@ final class BackfillPrisonerDates extends Command
         ['slug' => 'shigeyoshi-murao', 'names' => ['Shigeyoshi Murao', 'Shig Murao'], 'b' => [1926, 12, 8], 'd' => [1999, 10, 18], 'note' => null, 'fb' => false, 'fd' => false],
         ['slug' => 'frederick-vanderbilt-field', 'names' => ['Frederick Vanderbilt Field', 'Frederick V. Field'], 'b' => [1905, 4, 13], 'd' => [2000, 2, 1], 'note' => null, 'fb' => false, 'fd' => false],
         ['slug' => 'barrows-dunham', 'names' => ['Barrows Dunham'], 'b' => [1905, 10, 10], 'd' => [1995, 11, 14], 'note' => 'Several online authority records display November 19, 1995; this record uses November 14 (contemporary Philadelphia Inquirer obituary).', 'fb' => false, 'fd' => false],
+        ['slug' => 'theodore-parker', 'names' => ['Theodore Parker'], 'b' => [1810, 8, 24], 'd' => [1860, 5, 10], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'thomas-wentworth-higginson', 'names' => ['Thomas Wentworth Higginson'], 'b' => [1823, 12, 22], 'd' => [1911, 5, 9], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'wendell-phillips', 'names' => ['Wendell Phillips'], 'b' => [1811, 11, 29], 'd' => [1884, 2, 2], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'thomas-garrett', 'names' => ['Thomas Garrett'], 'b' => [1789, 8, 21], 'd' => [1871, 1, 25], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'samuel-d-burris', 'names' => ['Samuel D. Burris', 'Samuel Burris'], 'b' => [1813, 10, 14], 'd' => [1863, 12, 3], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'john-hunn', 'names' => ['John Hunn Sr.', 'John Hunn'], 'b' => [1818, 6, 25], 'd' => [1894, 7, 6], 'note' => null, 'fb' => false, 'fd' => false],
+        ['slug' => 'richard-eells', 'names' => ['Dr. Richard Eells', 'Richard Eells'], 'b' => [1800, 2, 23], 'd' => [1846, 10, 4], 'note' => 'The February 23, 1800 birth date appears in cemetery and genealogical records; institutional histories give only 1800. Death (October 4, 1846) is firmly documented.', 'fb' => false, 'fd' => false],
+        ['slug' => 'castner-hanway', 'names' => ['Castner Hanway'], 'b' => [1821], 'd' => [1893, 5, 26], 'note' => 'No exact birth month/day is established (birth year 1821); death date May 26, 1893 per an early historical account.', 'fb' => false, 'fd' => false],
     ];
 
     private const RANK = ['year' => 1, 'month' => 2, 'day' => 3];
