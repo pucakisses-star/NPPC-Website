@@ -55,7 +55,7 @@ final class MergeDuplicatePrisoners extends Command
      */
     private array $groups = [
         ['eugene-debs',                  ['eugene-victor-debs']],
-        ['william-dudley-haywood',       ['bill-haywood', 'william-d-big-bill-haywood']],
+        ['william-dudley-haywood',       ['bill-haywood', 'william-d-big-bill-haywood', 'w-d-haywood']],
         ['ricardo-flores-magon',         ['ricardo-flores-magon-2']],
         ['thomas-mooney',                ['tom-mooney']],
         ['jacob-stachel',                ['jack-stachel']],
@@ -105,6 +105,20 @@ final class MergeDuplicatePrisoners extends Command
         ['christopher-rojas',            ['christopher-isidro-rojas']],
         ['cyan-bass',                    ['cyan-waters-bass']],
         ['dakotah-horton',               ['dakotah-ray-horton']],
+        // Name-variant duplicates surfaced by the historical (IWW / early-labor
+        // / Socialist-era) photo-research pass. Canonical keeps the photographed
+        // record; the variant name folds into aka.
+        ['burt-lorton',                  ['bert-lorton']],
+        ['marie-equi',                   ['dr-marie-d-equi']],
+        ['louis-parenti',                ['luigi-parenti']],
+        ['victor-berger',                ['victor-l-berger']],
+        ['annie-arniel',                 ['annie-melvin-arniel']],
+        ['ben-salmon',                   ['benjamin-j-salmon']],
+        ['hulet-m-wells',                ['hiulet-m-wells']],
+        ['j-h-beyer',                    ['j-h-byers']],
+        ['james-franklin-melton',        ['jas-franklin-melton']],
+        ['otto-janson',                  ['otto-jansen']],
+        ['william-ehrhard',              ['william-ehrhardt']],
     ];
 
     /**
@@ -129,6 +143,21 @@ final class MergeDuplicatePrisoners extends Command
         'cara-mitrano',
         'celeste-legere',
         'christopher-rojas',
+        // Historical name-variant duplicates: the variant's case (where any) is
+        // a redundant copy of the same Espionage-Act / IWW conviction already on
+        // the canonical, so drop it instead of duplicating the row.
+        'william-dudley-haywood',
+        'burt-lorton',
+        'marie-equi',
+        'louis-parenti',
+        'victor-berger',
+        'annie-arniel',
+        'ben-salmon',
+        'hulet-m-wells',
+        'j-h-beyer',
+        'james-franklin-melton',
+        'otto-janson',
+        'william-ehrhard',
     ];
 
     public function handle(): int
