@@ -87,3 +87,45 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | Group photo | People | Note |
 |---|---|---|
 | 1941 Minneapolis Smith Act defendants (MNHS `J1.6 r13_0.jpg`) | Edward Palmquist, Clarence Hamel, Emil Hansen, Jake Cooper, Max Geldman, Felix Morrow | source is only 540 px wide with the Trotsky bust occluding the middle row — too low-res to reliably crop faces. (Farrell Dobbs, Oscar Coover, and Grace Carlson were recovered from their own Wikipedia articles.) |
+
+## Confirmed-identity research pass — source known, not auto-fetchable
+
+These have a confirmed source in the research CSV but could not be downloaded automatically (JavaScript-rendered pages, login-walled social media, Getty, or the link resolved to a scene / group / masked or unlabeled image). Each needs the direct image URL or a manual save.
+
+| Person | Source | Why it failed |
+|---|---|---|
+| Sofia "Candle" de Ferrari | instagram.com | social media (login-walled) |
+| Nikki | newsweek.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Adele MacLean | wabe.org | WABE booking composite is JavaScript-rendered |
+| Marlon Kautz | wabe.org | WABE booking composite is JavaScript-rendered |
+| Savannah Patterson | wabe.org | WABE booking composite is JavaScript-rendered |
+| Ellie Brett | ajc.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Jesse Shackelford | thejerichomovement.com | only the site banner is exposed |
+| Kyree Lee Robertson | wzzm13.com | TEGNA page is JavaScript-rendered |
+| Tyshawn Ford | kval.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Priscilla Grim | atlpresscollective.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Victor Puertas | unicornriot.ninja | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Aditya Aswani | linkedin.com | social media (login-walled) |
+| Dean Wyrzykowski | facebook.com | social media (login-walled) |
+| Michelle Lunsky | 12news.com | TEGNA page is JavaScript-rendered |
+| Lelo | cascadiadaily.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Gabriela Saldana | instagram.com | social media (login-walled) |
+| Father Fidelis Moscinski | catholicreview.org | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Andrew Duncan-Augustyniak | cbsnews.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Justin Keezer | newrepublic.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Nancy Beaulieu | truthout.org | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Paige Belanger | patch.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Frits ter Kuile | instagram.com | social media (login-walled) |
+| Susan van der Hijden | catholicworker.substack.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Bridget Shergalis | patch.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Calla Walsh | patch.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Sophie Ross | patch.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Roman Storm | gettyimages.com | Getty blocks scripts (watermarked comp only) |
+| Alvin Joseph | 11alive.com | TEGNA page is JavaScript-rendered |
+| Andrew Augustyniak-Duncan | cbsnews.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| X-Ray Ultra | abc7ny.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Briana Boston | people.com | People.com is JavaScript-rendered |
+| Chioke Auden Fugate | wlos.com | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Chris Zelle | ipmnewsroom.org | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Daithí O'Corrain | chuffed.org | source resolved to a scene / group / masked or unlabeled image, not a usable portrait |
+| Damian Smith-Birge | coffeeordie.com | page is JavaScript-rendered |

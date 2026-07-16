@@ -172,3 +172,26 @@ have no photo and never overwrites an existing image.
 | `mylene-vialard.jpg` | Mylène Vialard (pipeline protester convicted in the U.S.) | Photograph via The Guardian (`theguardian.com`). Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
 | `joan-andrews-bell.jpg` | Joan Andrews Bell (veteran anti-abortion rescuer convicted under the FACE Act) | Photograph via Flickr. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
 | `thomas-jurgens.jpg` | Thomas Jurgens (Southern Poverty Law Center lawyer charged with domestic terrorism at Cop City) | Photograph via Police Magazine (`policemag.com`). Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `aditya-wahyu-harsono.jpg` | Aditya Wahyu Harsono | Photo via theguardian.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `alejandro-orellana.jpg` | Alejandro Orellana | Photo via enewspaper.latimes.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `alireza-doroudi.jpg` | Alireza Doroudi | Photo via abcnews.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `arden-wells.jpg` | Arden Wells | Photo via fox8live.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `ashton-l-howard.jpg` | Ashton L. Howard | Photo via fox11online.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `brian-jordan-bartels.jpg` | Brian Jordan Bartels | Photo via wtae.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `christopher-alan-west.jpg` | Christopher Alan West | Photo via policemag.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `cortez-lamont-edwards.jpg` | Cortez Lamont Edwards | Photo via foxnews.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `dajon-lengyel.jpg` | Da'Jon Lengyel | Photo via policemag.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `daniel-jongyon-park.jpg` | Daniel Jongyon Park | Photo via kvcrnews.org. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `david-chavez.jpg` | David Chavez | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
+| `edwin-pena.jpg` | Edwin Pena | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
+| `fernando-lopez.jpg` | Fernando Lopez | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
+| `gabriel-agard-berryhill.jpg` | Gabriel Agard-Berryhill | Photo via katu.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `holger-isabelle-janicke.jpg` | Holger Isabelle Jänicke | Photograph via Flickr, documenting them reporting to Billwerder prison (17 Aug 2022). **Public domain**. |
+| `jack-mazurek.jpg` | Jack Mazurek | Photo via freejack.co. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `jonathan-zou.jpg` | Jonathan Zou | Photo via aclumich.org. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `keonne-rodriguez.jpg` | Keonne Rodriguez | Photo via reason.com. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `mike-forcia.jpg` | Mike Forcia | Photo via img.apmcdn.org. Non-free / copyrighted; used at low resolution under a non-commercial fair-use / documentation rationale. |
+| `stephanie-amesquita.jpg` | Stephanie Amesquita | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
+| `vanessa-carrasco.jpg` | Vanessa Carrasco | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
+| `wendy-lujan.jpg` | Wendy Lujan | San Bernardino County Sheriff / City of Victorville booking release ("Operation Accountability"); public record. Used at low resolution. |
+| `tia-pugh.jpg` | Tia Pugh | Mobile County Metro Jail booking photograph via FOX10 (`fox10tv.com`); public record. Used at low resolution. |
