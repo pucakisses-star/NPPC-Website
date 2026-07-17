@@ -102,3 +102,9 @@ require. Each links to the Commons File: page (full author/license details).
 | Thomas James Reddy | thomas-james-reddy.jpg | CC BY-SA 4.0 | Heath | [File](https://commons.wikimedia.org/wiki/File:TJ_Reddy.jpg) |
 | Walter Edward Fauntroy | walter-edward-fauntroy.jpg | Public domain | U.S. Congress | [File](https://commons.wikimedia.org/wiki/File:Walter_Fauntroy.jpg) |
 | Wendy Yoshimura | wendy-yoshimura.jpg | CC BY-SA 4.0 | <a href="//commons.wikimedia.org/wiki/User:Edmunddantes" title="User:Edmunddante | [File](https://commons.wikimedia.org/wiki/File:Wendy_yoshimura_in_1976_%28cropped%29.jpg) |
+| Harry Gold | harry-gold.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:U.S._vs._Julius_%26_Ethel_Rosenberg_and_Martin_Sobell%2C_Government_Exhibit_5%2C_photograph_of_Harry_Gold_-_NARA_-_278750.jpg) |
+| James E. Jackson | james-e-jackson.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:James_E._Jackson._Apr_1968_Slide_6.png) |
+| Morton Sobell | morton-sobell.jpg | CC BY-SA 3.0 | — | [File](https://commons.wikimedia.org/wiki/File:Morton_Sobell_cropped.jpg) |
+| Oscar Collazo | oscar-collazo.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Oscar_Collazo.jpg) |
+| Rosa Cortez Collazo | rosa-cortez-collazo.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Rosa_Collazo.jpg) |
+| Steve Nelson | steve-nelson.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Steve_Nelson_1948_Alt_2_Edit_Touchup.jpg) |
