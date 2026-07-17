@@ -73,6 +73,10 @@ final class MergeDuplicatePrisoners extends Command
         // Prairieland defendant duplicated under her birth name; canonical is
         // the name she goes by (photo and sentencing details backfill in).
         ['meagan-morris',                ['bradford-morris']],
+        // Found in the 1950s-era photo deep dive: 1954 Capitol-attack
+        // Nationalists duplicated under name variants.
+        ['lolita-lebron',                ['lolita-lebron-2']],
+        ['irvin-flores-rodriguez',       ['irvin-flores', 'irving-flores']],
         ['eugene-debs',                  ['eugene-victor-debs']],
         ['william-dudley-haywood',       ['bill-haywood', 'william-d-big-bill-haywood', 'w-d-haywood']],
         ['ricardo-flores-magon',         ['ricardo-flores-magon-2']],
@@ -333,6 +337,10 @@ final class MergeDuplicatePrisoners extends Command
         'jamil-abdullah-al-amin',
         // Both Oso Blanco records describe the same 1998-99 bank-robbery spree.
         'byron-chubbuck',
+        // The 1954 Capitol-attack duplicates each carry a redundant copy of
+        // the same case already on the canonical.
+        'lolita-lebron',
+        'irvin-flores-rodriguez',
         'anna-mae-pictou-aquash',
         'robert-robideau',
         'darrelle-dean-butler',
