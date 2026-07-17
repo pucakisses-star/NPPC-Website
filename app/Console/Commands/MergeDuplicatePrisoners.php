@@ -64,6 +64,15 @@ final class MergeDuplicatePrisoners extends Command
         ['george-andreytchine',          ['george-andreychine']],
         ['martin-luther-king-jr',        ['martin-luther-king']],
         ['joan-little',                  ['joanne-little']],
+        // Found via the support-website audit: name-variant duplicates of the
+        // same person (H. Rap Brown / Imam Jamil Al-Amin; Xinachtli; Oso
+        // Blanco). Canonicals are the records with the photo and richer data.
+        ['jamil-abdullah-al-amin',       ['imam-jamil-al-amin', 'h-rap-brown']],
+        ['alvaro-hernandez',             ['alvaro-luna-hernandez']],
+        ['byron-chubbuck',               ['oso-blanco-byron-shane-chubbuck']],
+        // Prairieland defendant duplicated under her birth name; canonical is
+        // the name she goes by (photo and sentencing details backfill in).
+        ['meagan-morris',                ['bradford-morris']],
         ['eugene-debs',                  ['eugene-victor-debs']],
         ['william-dudley-haywood',       ['bill-haywood', 'william-d-big-bill-haywood', 'w-d-haywood']],
         ['ricardo-flores-magon',         ['ricardo-flores-magon-2']],
@@ -319,6 +328,11 @@ final class MergeDuplicatePrisoners extends Command
         // The Andreychine spelling-variant's case is a redundant copy of the
         // same 1918 Chicago IWW mass-trial conviction already on the canonical.
         'george-andreytchine',
+        // The canonical already carries both Al-Amin cases (1971 NY robbery and
+        // 2000 Fulton County); the two variants each hold a redundant copy.
+        'jamil-abdullah-al-amin',
+        // Both Oso Blanco records describe the same 1998-99 bank-robbery spree.
+        'byron-chubbuck',
         'anna-mae-pictou-aquash',
         'robert-robideau',
         'darrelle-dean-butler',
