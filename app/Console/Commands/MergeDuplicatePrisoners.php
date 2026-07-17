@@ -322,6 +322,10 @@ final class MergeDuplicatePrisoners extends Command
         // Bertie Bland; "O.C." Bland is Oliver Charles Bland (his brother).
         ['bert-bland', ['james-bertie-bland']],
         ['oc-bland', ['oliver-charles-bland']],
+        // Same man twice: the Maryland-D.C. Communist Party chairman jailed
+        // in the 1952 Baltimore Smith Act case. Canonical keeps the name he
+        // went by; the full-name record's description folds in.
+        ['phil-frankfeld', ['philip-frankfeld']],
     ];
 
     /**
@@ -381,6 +385,9 @@ final class MergeDuplicatePrisoners extends Command
         // the canonical, so drop them.
         'bert-bland',
         'oc-bland',
+        // Both Frankfeld records carry the same 1952 Baltimore Smith Act
+        // conviction; the duplicate's copy is dropped.
+        'phil-frankfeld',
     ];
 
     public function handle(): int
