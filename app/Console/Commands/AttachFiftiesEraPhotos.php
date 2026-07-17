@@ -36,6 +36,16 @@ final class AttachFiftiesEraPhotos extends Command
         ['file' => 'steve-nelson.jpg', 'slugs' => ['steve-nelson'], 'names' => ['Steve Nelson']],
         ['file' => 'nonfree/hanover-thompson.jpg', 'slugs' => ['hanover-thompson'], 'names' => ['Hanover Thompson', 'James Hanover Thompson']],
         ['file' => 'nonfree/david-simpson.jpg', 'slugs' => ['david-simpson'], 'names' => ['David Simpson', 'David "Fuzzy" Simpson']],
+        // Second pass (news/archive layer). The Groveland jail photograph is
+        // the Library of Congress image whose catalog title names all three
+        // surviving defendants; it is cropped to the three young men and
+        // deliberately shared across their profiles rather than risking a
+        // left-to-right misidentification of individual crops.
+        ['file' => 'walter-irvin.jpg', 'slugs' => ['walter-irvin'], 'names' => ['Walter Irvin', 'Walter Lee Irvin']],
+        ['file' => 'charles-greenlee.jpg', 'slugs' => ['charles-greenlee'], 'names' => ['Charles Greenlee']],
+        ['file' => 'samuel-shepherd.jpg', 'slugs' => ['samuel-shepherd'], 'names' => ['Samuel Shepherd', 'Samuel Shephard']],
+        ['file' => 'nonfree/willie-mcgee.jpg', 'slugs' => ['willie-mcgee'], 'names' => ['Willie McGee']],
+        ['file' => 'nonfree/junius-scales.jpg', 'slugs' => ['junius-scales'], 'names' => ['Junius Scales', 'Junius Irving Scales']],
     ];
 
     public function handle(): int
