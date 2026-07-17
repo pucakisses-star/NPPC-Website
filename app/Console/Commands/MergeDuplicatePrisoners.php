@@ -316,6 +316,12 @@ final class MergeDuplicatePrisoners extends Command
         ['william-rodgers', ['william-c-rodgers']],
         ['william-weinstone', ['william-w-weinstone']],
         ['zachary-karas', ['zachary-alexander-karas']],
+        // Centralia (1919) defendants entered twice: once under the names the
+        // campaign and the trial record used (canonical) and once under full
+        // legal names by a bulk import. Same men — "Bert" Bland is James
+        // Bertie Bland; "O.C." Bland is Oliver Charles Bland (his brother).
+        ['bert-bland', ['james-bertie-bland']],
+        ['oc-bland', ['oliver-charles-bland']],
     ];
 
     /**
@@ -370,6 +376,11 @@ final class MergeDuplicatePrisoners extends Command
         'james-franklin-melton',
         'otto-janson',
         'william-ehrhard',
+        // The Centralia full-name duplicates each carry a redundant copy of
+        // the same 1920 Montesano second-degree-murder conviction already on
+        // the canonical, so drop them.
+        'bert-bland',
+        'oc-bland',
     ];
 
     public function handle(): int
