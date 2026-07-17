@@ -17,6 +17,13 @@ $sites = [
     "priscilla-grim"    => "https://supportpriscilla.org/",
     "brian-willson"     => "https://www.brianwillson.com/",
     "marissa-alexander" => "https://www.freemarissanow.org/",
+    // Defense/support pages that photo batches were sourced from (each URL
+    // verified live): Jericho Movement per-prisoner profiles and the Free
+    // Zulu campaign.
+    "robert-seth-hayes"   => "https://www.thejerichomovement.com/profile/robert-seth-hayes",
+    "kazi-toure"          => "https://www.thejerichomovement.com/profile/kazi-toure",
+    "masai-ehehosi"       => "https://www.thejerichomovement.com/profile/masai-ehehosi",
+    "kenneth-whitmore"    => "https://freezulu.org/",
 ];
 $set = 0;
 foreach ($sites as $slug => $url) {
