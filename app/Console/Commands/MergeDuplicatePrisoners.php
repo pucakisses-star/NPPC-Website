@@ -54,6 +54,11 @@ final class MergeDuplicatePrisoners extends Command
      * Canonical chosen as the better-known / more-canonical URL.
      */
     private array $groups = [
+        // Joseph Waller is Omali Yeshitela's birth name — found during the
+        // July 2026 photo audit. The Waller record's only "case" is OCR bleed
+        // from the WWI register import (a conscientious-objector case that
+        // cannot be his; he was born in 1941), so it is dropped, not moved.
+        ['omali-yeshitela',              ['joseph-waller']],
         ['eugene-debs',                  ['eugene-victor-debs']],
         ['william-dudley-haywood',       ['bill-haywood', 'william-d-big-bill-haywood', 'w-d-haywood']],
         ['ricardo-flores-magon',         ['ricardo-flores-magon-2']],
@@ -303,6 +308,9 @@ final class MergeDuplicatePrisoners extends Command
      * event. Verified individually against production for each listed pair.
      */
     private array $dropDupCasesFor = [
+        // Waller's sole case is a WWI conscientious-objector row that bled in
+        // from the register OCR — impossible for a man born in 1941. Drop it.
+        'omali-yeshitela',
         'anna-mae-pictou-aquash',
         'robert-robideau',
         'darrelle-dean-butler',
