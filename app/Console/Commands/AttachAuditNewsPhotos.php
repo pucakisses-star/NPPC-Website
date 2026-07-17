@@ -46,6 +46,7 @@ final class AttachAuditNewsPhotos extends Command
         ['file' => 'juan-segarra-palmer.jpg', 'slugs' => ['juan-segarra-palmer'], 'names' => ['Juan Segarra-Palmer', 'Juan Enrique Segarra-Palmer', 'Juan Segarra Palmer']],
         ['file' => 'mary-anne-grady-flores.jpg', 'slugs' => ['mary-anne-grady-flores'], 'names' => ['Mary Anne Grady-Flores', 'Mary Anne Grady Flores']],
         ['file' => 'priscilla-grim.jpg', 'slugs' => ['priscilla-grim'], 'names' => ['Priscilla Grim']],
+        ['file' => 'james-timothy-turner.jpg', 'slugs' => ['james-timothy-turner'], 'names' => ['James Timothy Turner', 'Tim Turner']],
     ];
 
     public function handle(): int
