@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# FBI most-wanted radicals audit (July 2026). Of the politically motivated
+# FBI Top Ten / Domestic Terrorism / Most Wanted Terrorists listees, 24 were
+# already in the database (including fugitives Gerena, Duke and Abiodun,
+# whose records establish the convention for never-captured listees).
+# This script adds the six missing:
+#
+#   Leo Frederick Burt (New Year's Gang, never captured), Twymon Ford Myers
+#   (BLA, killed 1973), Arthur Lee Washington Jr. (BLA association,
+#   fugitive), Donna Joan Borup (May 19th, bail-jumped 1982), Catherine
+#   Marie Kerkow (1972 hijacking, asylum in Algeria then France), and
+#   Josephine Sunshine Overaker (ELF/ALF Operation Backfire, fugitive).
+#
+# Idempotent: prisoner:add refuses duplicates (|| true keeps going).
+#
+# Run from the repo root:  bash database/data/add-fbi-wanted-radicals.sh
+
+set -euo pipefail
+cd "$(dirname "$0")/../.."
+
+php artisan prisoner:add '{"name":"Leo Frederick Burt","first_name":"Leo","middle_name":"Frederick","last_name":"Burt","description":"Leo Frederick Burt was a University of Wisconsin student and rowing crew member alleged to be the fourth conspirator in the August 24, 1970 Sterling Hall bombing at UW-Madison, an anti-war attack on the Army Mathematics Research Center that killed researcher Robert Fassnacht. Added to the FBI Ten Most Wanted list (No. 313) on September 4, 1970 and removed April 7, 1976, he remains on the FBI Domestic Terrorism wanted list — the only Sterling Hall defendant never captured. His whereabouts have been unknown for more than five decades.","state":"Wisconsin","race":"White","gender":"Male","birthdate":"1948-04-18","ideologies":["Anti-war"],"affiliation":["New Year'"'"'s Gang"],"era":"1970s","released":false,"cases":[{"charges":"Federal indictment for the August 24, 1970 Sterling Hall bombing (destruction of government property, conspiracy); FBI Ten Most Wanted fugitive No. 313","convicted":"No — never apprehended"}]}' || true
+
+php artisan prisoner:add '{"name":"Twymon Ford Myers","first_name":"Twymon","middle_name":"Ford","last_name":"Myers","description":"Twymon Ford Myers was a Black Liberation Army member from New York sought in connection with police shootings, armed robberies and other BLA actions. Added to the FBI Ten Most Wanted list (No. 319) on September 28, 1973, he was killed on November 14, 1973 at age 23 in a shootout with FBI agents and New York police in the Bronx — he was never arrested, tried or convicted.","state":"New York","race":"Black","gender":"Male","death_date":"1973-11-14","ideologies":["Black liberation"],"affiliation":["Black Liberation Army"],"era":"1970s","released":false,"cases":[{"charges":"Sought on federal and state warrants in connection with police shootings and BLA armed actions; FBI Ten Most Wanted fugitive No. 319","convicted":"No — killed by police before any arrest or trial"}]}' || true
+
+php artisan prisoner:add '{"name":"Arthur Lee Washington Jr.","first_name":"Arthur","middle_name":"Lee","last_name":"Washington","description":"Arthur Lee Washington Jr. was a Black Liberation Army-associated activist wanted for allegedly shooting at and attempting to murder a New Jersey state trooper during a January 1989 traffic stop. Added to the FBI Ten Most Wanted list (No. 427) on October 18, 1989, he was removed on December 27, 2000 when he no longer met the list criteria. He was never captured, and his fate is unknown.","state":"New Jersey","race":"Black","gender":"Male","ideologies":["Black liberation"],"affiliation":["Black Liberation Army"],"era":"1980s","released":false,"cases":[{"charges":"Attempted murder of a New Jersey state trooper (January 1989); unlawful flight to avoid prosecution; FBI Ten Most Wanted fugitive No. 427","convicted":"No — never apprehended"}]}' || true
+
+php artisan prisoner:add '{"name":"Donna Joan Borup","first_name":"Donna","middle_name":"Joan","last_name":"Borup","description":"Donna Joan Borup was a member of the May 19th Communist Organization arrested at the September 26, 1981 anti-apartheid demonstration against the touring South African Springboks rugby team at JFK Airport, accused of throwing a caustic substance that partially blinded a Port Authority police officer. Released on bail, she went underground in 1982 before trial and has been a fugitive ever since; she remains on the FBI Domestic Terrorism wanted list with a reward of up to $100,000.","state":"New York","race":"White","gender":"Female","ideologies":["Anti-imperialism","Anti-apartheid"],"affiliation":["May 19th Communist Organization"],"era":"1980s","released":false,"cases":[{"charges":"Assault on a police officer at the September 26, 1981 JFK Airport anti-apartheid demonstration; bail jumping","arrest_date":"1981-09-26","convicted":"No — fled while free on bail"}]}' || true
+
+php artisan prisoner:add '{"name":"Catherine Marie Kerkow","first_name":"Catherine","middle_name":"Marie","last_name":"Kerkow","description":"Catherine Marie Kerkow, from Coos Bay, Oregon, hijacked Western Airlines Flight 701 on June 2, 1972 with her companion Willie Roger Holder, a Black Panther-affiliated Vietnam veteran, in an action Holder framed as a protest demanding freedom for Angela Davis. The pair collected a $500,000 ransom and flew to Algeria, where they received political asylum. Kerkow later moved to France, was briefly detained in Paris in 1975 when the U.S. sought extradition (the French courts refused), and disappeared around 1978. The FBI, which describes her as a Black Panther member, still lists her on its Domestic Terrorism wanted list; her whereabouts remain unknown.","state":"Oregon","race":"White","gender":"Female","currently_in_exile":true,"in_exile":true,"ideologies":["Black liberation solidarity"],"affiliation":["Black Panther Party"],"era":"1970s","released":false,"cases":[{"charges":"Air piracy — the June 2, 1972 hijacking of Western Airlines Flight 701","convicted":"No — granted asylum in Algeria; France refused extradition"}]}' || true
+
+php artisan prisoner:add '{"name":"Josephine Sunshine Overaker","first_name":"Josephine","middle_name":"Sunshine","last_name":"Overaker","description":"Josephine Sunshine Overaker was a member of the Earth Liberation Front / Animal Liberation Front cell prosecuted in Operation Backfire, indicted for her alleged role in a string of 17 arsons and sabotage actions across the western United States beginning in 1996, including conspiracy, five arson counts, attempted arson and destruction of an energy facility. She fled before the 2005-2006 arrests of her co-defendants and is believed to be living abroad; she remains on the FBI Domestic Terrorism wanted list with a reward of up to $50,000.","state":"Oregon","gender":"Female","ideologies":["Environmentalism","Animal liberation"],"affiliation":["Earth Liberation Front","Animal Liberation Front"],"era":"2000s","released":false,"cases":[{"charges":"Operation Backfire indictment — conspiracy, five counts of arson, attempted arson, and destruction of an energy facility (17 incidents, 1996-2001)","convicted":"No — never apprehended"}]}' || true
+
+echo
+echo "Done. FBI wanted-list additions applied."
