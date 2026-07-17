@@ -39,6 +39,9 @@ final class AttachAuditNewsPhotos extends Command
         ['file' => 'adele-maclean.jpg', 'slugs' => ['adele-maclean'], 'names' => ['Adele MacLean', 'Adele Maclean']],
         ['file' => 'savannah-patterson.jpg', 'slugs' => ['savannah-patterson'], 'names' => ['Savannah Patterson', 'Savannah D. Patterson']],
         ['file' => 'stanley-grant-phanor.jpg', 'slugs' => ['stanley-grant-phanor'], 'names' => ['Stanley Grant Phanor', 'Stanley Phanor']],
+        ['file' => 'nelson-johnson.jpg', 'slugs' => ['nelson-johnson'], 'names' => ['Nelson Johnson', 'Rev. Nelson Johnson']],
+        ['file' => 'ardeth-platte.jpg', 'slugs' => ['ardeth-platte'], 'names' => ['Ardeth Platte', 'Sister Ardeth Platte']],
+        ['file' => 'bill-bichsel.jpg', 'slugs' => ['bill-bichsel'], 'names' => ['Bill Bichsel', 'William J. Bichsel', 'William Bichsel']],
     ];
 
     public function handle(): int
