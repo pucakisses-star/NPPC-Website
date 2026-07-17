@@ -35,8 +35,42 @@ foreach ($sites as $slug => $url) {
     $set++;
     echo "SET  {$slug} -> {$url}\n";
 }
+// --- Social accounts (fill-if-empty; campaign accounts verified via the
+// --- campaigns own materials during the July 2026 audit) -----------------
+$socials = [
+    "keith-lamar" => [
+        "twitter"   => "https://twitter.com/FREEKeithLaMar",
+        "facebook"  => "https://www.facebook.com/justiceforkeithlamar/",
+        "instagram" => "https://www.instagram.com/justiceforkeithlamar/",
+    ],
+    "victor-puertas" => [
+        "instagram" => "https://www.instagram.com/victordoors/",
+    ],
+];
+foreach ($socials as $slug => $fields) {
+    $p = \App\Models\Prisoner::withoutGlobalScopes()->where("slug", $slug)->first();
+    if (! $p) { echo "MISS {$slug}\n"; continue; }
+    foreach ($fields as $f => $url) {
+        if (! empty($p->{$f})) { continue; }
+        $p->{$f} = $url;
+        $set++;
+        echo "SET  {$slug}.{$f} -> {$url}\n";
+    }
+    $p->save();
+}
+
+// Edward Snowden: his X account was stored in the facebook field — move it.
+$p = \App\Models\Prisoner::withoutGlobalScopes()->where("slug", "edward-snowden")->first();
+if ($p && str_contains((string) $p->facebook, "x.com/Snowden") && empty($p->twitter)) {
+    $p->twitter = $p->facebook;
+    $p->facebook = null;
+    $p->save();
+    $set++;
+    echo "MOVED edward-snowden facebook -> twitter ({$p->twitter})\n";
+}
+
 if ($set > 0) {
     \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
 }
-echo "Done. {$set} website(s) set.\n";
+echo "Done. {$set} link(s) set.\n";
 '
