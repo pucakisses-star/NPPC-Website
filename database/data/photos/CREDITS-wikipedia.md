@@ -108,3 +108,6 @@ require. Each links to the Commons File: page (full author/license details).
 | Oscar Collazo | oscar-collazo.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Oscar_Collazo.jpg) |
 | Rosa Cortez Collazo | rosa-cortez-collazo.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Rosa_Collazo.jpg) |
 | Steve Nelson | steve-nelson.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Steve_Nelson_1948_Alt_2_Edit_Touchup.jpg) |
+| Walter Irvin | walter-irvin.jpg | LOC — no known restrictions | New York World-Telegram & Sun collection | [LOC item](https://www.loc.gov/pictures/item/2002713006/) — 1949 jail photograph naming all three surviving Groveland defendants; cropped to the three men and shared across their profiles |
+| Charles Greenlee | charles-greenlee.jpg | LOC — no known restrictions | same photograph | [LOC item](https://www.loc.gov/pictures/item/2002713006/) |
+| Samuel Shepherd | samuel-shepherd.jpg | LOC — no known restrictions | same photograph | [LOC item](https://www.loc.gov/pictures/item/2002713006/) |
