@@ -124,3 +124,4 @@ require. Each links to the Commons File: page (full author/license details).
 | Vera Buch | vera-buch.jpg | Public domain | — | [File](https://commons.wikimedia.org/wiki/File:Vera_Buch_1929_Edit.jpg) — cropped to head and shoulders |
 | Calogero Greco | calogero-greco.jpg | Public domain (published Jan 1928) | Labor Defender v3n1 p4 | [marxists.org scan](https://www.marxists.org/history/usa/pubs/labordefender/1928/v03n01-jan-1928-LD.pdf) — individually captioned "Grego [sic] in the uniform on the Italian Army" |
 | Donato Carrillo | donato-carrillo.jpg | Public domain (published Jan 1928) | Labor Defender v3n1 p4 | [marxists.org scan](https://www.marxists.org/history/usa/pubs/labordefender/1928/v03n01-jan-1928-LD.pdf) — individually captioned "Carillo in the uniform of the Italian Army" |
+| Mark Lane | mark-lane.jpg | Public domain | Michiganensian yearbook photograph, 1967 | [File](https://commons.wikimedia.org/wiki/File:Mark_Lane_in_Ann_Arbor_(cropped).png) |
