@@ -59,6 +59,11 @@ final class MergeDuplicatePrisoners extends Command
         // from the WWI register import (a conscientious-objector case that
         // cannot be his; he was born in 1941), so it is dropped, not moved.
         ['omali-yeshitela',              ['joseph-waller']],
+        // Found via the duplicate-photo audit (identical image bytes on two
+        // records): spelling-variant and name-variant duplicates.
+        ['george-andreytchine',          ['george-andreychine']],
+        ['martin-luther-king-jr',        ['martin-luther-king']],
+        ['joan-little',                  ['joanne-little']],
         ['eugene-debs',                  ['eugene-victor-debs']],
         ['william-dudley-haywood',       ['bill-haywood', 'william-d-big-bill-haywood', 'w-d-haywood']],
         ['ricardo-flores-magon',         ['ricardo-flores-magon-2']],
@@ -311,6 +316,9 @@ final class MergeDuplicatePrisoners extends Command
         // Waller's sole case is a WWI conscientious-objector row that bled in
         // from the register OCR — impossible for a man born in 1941. Drop it.
         'omali-yeshitela',
+        // The Andreychine spelling-variant's case is a redundant copy of the
+        // same 1918 Chicago IWW mass-trial conviction already on the canonical.
+        'george-andreytchine',
         'anna-mae-pictou-aquash',
         'robert-robideau',
         'darrelle-dean-butler',
