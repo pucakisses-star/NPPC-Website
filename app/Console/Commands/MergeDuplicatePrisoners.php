@@ -326,6 +326,9 @@ final class MergeDuplicatePrisoners extends Command
         // in the 1952 Baltimore Smith Act case. Canonical keeps the name he
         // went by; the full-name record's description folds in.
         ['phil-frankfeld', ['philip-frankfeld']],
+        // The 1969 hijacker-anarchist entered twice: the full record (photo,
+        // case) and a Black Panther roster stub with no case. Same man.
+        ['lorenzo-komboa-ervin', ['lorenzo-komboa-ervin-2']],
     ];
 
     /**
