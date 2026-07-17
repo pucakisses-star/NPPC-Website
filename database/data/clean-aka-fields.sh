@@ -1,20 +1,24 @@
 #!/usr/bin/env bash
 #
 # AKA-field cleanup (July 2026). Hundreds of records carry an aka that is
-# just the person's own name repeated — exactly ("Christina L. Reid (Christina
-# Reid)"), with a middle name/initial added or removed, with diacritics or
-# punctuation varied, or with a title prefixed ("Father ..."). Most bled in
-# from duplicate-record merges that folded the dup's near-identical name into
-# aka. This pass drops every such trivial variant while keeping real aliases:
+# just the person's own name repeated — exactly ("Christina L. Reid /
+# Christina Reid"), with a middle name/initial added or removed, with
+# diacritics or punctuation varied, or with a title/rank prefixed ("Father
+# ...", "Sgt. ..."). Most bled in from duplicate-record merges that folded
+# the dup's near-identical name into aka.
 #
-#   - kept:   nicknames ("Ant", "Tortuguita"), different names ("H. Rap
-#             Brown" on Jamil al-Amin), goes-by middle names ("Dawn"),
-#             hyphenated compound surnames absent from the display name
-#             ("Joan Andrews-Bell"), social handles.
-#   - dropped: aliases whose tokens are a subsequence of the name (or vice
-#             versa) allowing initial-to-name matching and title stripping,
-#             single tokens that merely repeat the first or last name, and
-#             exact duplicates within the same field.
+# LOSSLESS: before an alias is dropped, any name material it carries that the
+# display name lacks is preserved —
+#   - an extra middle name or initial moves into the middle_name field when
+#     that field is empty ("Branden Michael Wolfe" -> middle_name "Michael");
+#   - the full form of an initial does the same ("Christina Lee Reid" on
+#     "Christina L. Reid" -> middle_name "Lee");
+#   - if middle_name is already occupied by something different, the alias is
+#     KEPT rather than lost.
+# Aliases carrying a leading given name ("Fred Ahmed Evans"), a trailing
+# surname ("Blanca Canales Torresola"), a hyphenated compound surname the
+# name lacks ("Joan Andrews-Bell"), nicknames, goes-by middle names ("Dawn")
+# and social handles are all kept.
 #
 # Prints every change. Idempotent — a second run changes nothing.
 #
@@ -24,18 +28,28 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 
 php artisan tinker --execute='
-$TITLES = ["father","fr","rev","reverend","dr","sister","imam","mr","mrs","ms","miss"];
+$TITLES = ["father","fr","rev","reverend","dr","sister","imam","mr","mrs","ms","miss","sgt","spc","pfc","cpl","capt","lt","col","maj","pvt"];
 $SUFFIX = ["jr","sr","ii","iii","iv"];
 
-$norm = function (string $s, bool $stripTitles = false) use ($TITLES): array {
-    $s = mb_strtolower(\Illuminate\Support\Str::ascii($s));
-    $s = preg_replace("/[^a-z0-9]+/", " ", $s);
-    $t = array_values(array_filter(explode(" ", $s), fn ($x) => $x !== ""));
-    if ($stripTitles) {
-        while ($t && in_array($t[0], $TITLES, true)) { array_shift($t); }
+// One normalized token per word: ascii, lowercase, alphanumerics only.
+$nw = fn (string $w): string => preg_replace("/[^a-z0-9]+/", "", mb_strtolower(\Illuminate\Support\Str::ascii($w)));
+
+// Original-cased words, split on whitespace, hyphens and periods so that
+// "C.E." becomes two initials and "Espinosa-Villegas" aligns with the name.
+$words = function (string $s, bool $stripTitles = false) use ($nw, $TITLES): array {
+    $out = [];
+    foreach (preg_split("/\s+/", trim($s)) as $chunk) {
+        foreach (preg_split("/[-.]/", $chunk) as $w) {
+            $w = trim($w, "\"\x27()“”‘’[],");
+            if ($w !== "" && $nw($w) !== "") { $out[] = $w; }
+        }
     }
-    return $t;
+    if ($stripTitles) {
+        while ($out && in_array($nw($out[0]), $TITLES, true)) { array_shift($out); }
+    }
+    return $out;
 };
+$toks = fn (array $ws): array => array_map($nw, $ws);
 
 $tokMatch = fn (string $a, string $b): bool =>
     $a === $b
@@ -50,13 +64,11 @@ $subseq = function (array $small, array $big) use ($tokMatch): bool {
     return $i === count($small);
 };
 
-// Split an aka string into candidate aliases; "Jr."-style fragments produced
-// by comma-splitting are rejoined to the alias before them.
-$splitAka = function (string $aka) use ($norm, $SUFFIX): array {
+$splitAka = function (string $aka) use ($words, $toks, $SUFFIX): array {
     $parts = array_values(array_filter(array_map("trim", preg_split("/\s*[\/;,]\s*/", $aka)), fn ($p) => $p !== ""));
     $out = [];
     foreach ($parts as $p) {
-        $t = $norm($p);
+        $t = $toks($words($p));
         if ($out && $t && ! array_diff($t, $SUFFIX)) {
             $out[count($out) - 1] .= ", " . $p;
         } else {
@@ -66,53 +78,135 @@ $splitAka = function (string $aka) use ($norm, $SUFFIX): array {
     return $out;
 };
 
-$trivial = function (string $alias, string $name) use ($norm, $tokMatch, $subseq): bool {
-    $a = $norm($alias, true);
-    $n = $norm($name);
-    if (! $a) { return true; }
+// A single-letter gain is stored as an initial with its period.
+$dressGain = function (string $gain): string {
+    $ws = array_map(fn ($w) => strlen($w) === 1 ? mb_strtoupper($w) . "." : $w, array_filter(explode(" ", $gain)));
+    return implode(" ", $ws);
+};
+
+/**
+ * Classify one alias against the display name.
+ * Returns [action, gain]: action "keep" | "drop" | "keepfull"; gain is the
+ * original-cased name material the alias carries that the name lacks and
+ * that must be preserved for a lossless drop ("" when nothing).
+ */
+$classify = function (string $alias, string $name) use ($words, $toks, $nw, $tokMatch, $subseq, $SUFFIX) {
+    $aw = $words($alias, true);
+    $nwds = $words($name);
+    $a = $toks($aw);
+    $n = $toks($nwds);
+    if (! $a) { return ["drop", ""]; }
     if (count($a) === 1) {
-        // A lone token is noise only when it repeats the first or last name;
-        // a goes-by middle name or fresh nickname is kept.
-        return $n && ($tokMatch($a[0], $n[0]) || (count($n) > 1 && $tokMatch($a[0], end($n))));
+        if ($n && ($tokMatch($a[0], $n[0]) || (count($n) > 1 && $tokMatch($a[0], end($n))))) {
+            foreach ($n as $t) {
+                if (strlen($t) === 1 && strlen($a[0]) > 1 && str_starts_with($a[0], $t)) {
+                    return ["keepfull", $aw[0]];   // lone full form of a name initial
+                }
+            }
+            return ["drop", ""];
+        }
+        return ["keep", ""];
     }
-    if ($subseq($a, $n)) { return true; }          // alias adds nothing
-    if ($subseq($n, $a)) {
-        // Fuller variant of the same name. Keep it only if it contributes a
-        // hyphenated compound surname the display name lacks.
-        preg_match_all("/\p{L}+-\p{L}+/u", $alias, $m);
-        $nameAscii = mb_strtolower(\Illuminate\Support\Str::ascii($name));
-        foreach ($m[0] as $compound) {
-            if (! str_contains($nameAscii, mb_strtolower(\Illuminate\Support\Str::ascii($compound)))) {
-                return false;
+    $ais = $subseq($a, $n);
+    $nis = $subseq($n, $a);
+    if (! $ais && ! $nis) { return ["keep", ""]; }
+    if ($ais) {
+        // The alias adds nothing beyond, possibly, full forms of initials.
+        $gain = []; $i = 0;
+        foreach ($n as $t) {
+            if ($i < count($a) && $tokMatch($a[$i], $t)) {
+                if (strlen($a[$i]) > 1 && strlen($t) === 1) { $gain[] = $aw[$i]; }
+                $i++;
             }
         }
-        return true;
+        return ["drop", implode(" ", $gain)];
     }
+    // name ⊆ alias: a fuller variant. Hyphenated compound surnames the name
+    // lacks stay as aliases (they matter for search).
+    preg_match_all("/\p{L}+-\p{L}+/u", $alias, $m);
+    $nameSquash = $nw(str_replace(" ", "", $name));
+    foreach ($m[0] as $compound) {
+        if (! str_contains($nameSquash, $nw($compound))) { return ["keep", ""]; }
+    }
+    $gain = []; $i = 0; $matched = []; $extras = [];
+    foreach ($aw as $idx => $w) {
+        $t = $nw($w);
+        if ($i < count($n) && $tokMatch($t, $n[$i])) {
+            if (strlen($t) > 1 && strlen($n[$i]) === 1) { $gain[$idx] = $w; }
+            $matched[] = $idx;
+            $i++;
+        } elseif (in_array($t, $SUFFIX, true)) {
+            // droppable suffix (Jr./Sr./III)
+        } else {
+            $extras[$idx] = $w;
+        }
+    }
+    if ($i < count($n)) { return ["keep", ""]; }   // reordered name — keep
+    if ($extras) {
+        // Only extras strictly INSIDE the matched span are middle names; a
+        // leading given name or trailing surname keeps the alias instead.
+        $first = $matched ? min($matched) : 0;
+        $last  = $matched ? max($matched) : 0;
+        foreach ($extras as $idx => $w) {
+            if ($idx <= $first || $idx >= $last) { return ["keep", ""]; }
+            $gain[$idx] = $w;
+        }
+    }
+    ksort($gain);
+    return ["drop", implode(" ", $gain)];
+};
+
+$compatMiddle = function (string $existing, string $gain) use ($words, $toks, $tokMatch): bool {
+    $e = $toks($words($existing));
+    $g = $toks($words($gain));
+    if ($e === $g) { return true; }
+    if (count($e) === 1 && count($g) === 1) { return $tokMatch($e[0], $g[0]); }
     return false;
 };
 
-$changed = 0; $dropped = 0; $cleared = 0;
+$changed = 0; $droppedTotal = 0; $cleared = 0; $midSet = 0; $keptForInfo = 0;
 foreach (\App\Models\Prisoner::withoutGlobalScopes()->whereNotNull("aka")->where("aka", "!=", "")->orderBy("slug")->get() as $p) {
     $parts = $splitAka($p->aka);
-    $kept = []; $seen = [];
+    $kept = []; $seen = []; $drops = 0; $newMiddle = null;
     foreach ($parts as $part) {
-        $key = implode(" ", $norm($part));
-        if ($trivial($part, $p->name) || isset($seen[$key])) { $dropped++; continue; }
+        $key = implode(" ", $toks($words($part)));
+        if (isset($seen[$key])) { $drops++; continue; }
+        [$action, $gain] = $classify($part, $p->name);
+        if ($action === "keepfull") {
+            if (empty($p->middle_name) && $newMiddle === null) { $newMiddle = $gain; $action = "drop"; }
+            else { $action = "keep"; }
+            $gain = "";
+        }
+        if ($action === "drop" && $gain !== "") {
+            $dressed = $dressGain($gain);
+            if (empty($p->middle_name) && $newMiddle === null) {
+                $newMiddle = $dressed;
+            } elseif (! $compatMiddle($newMiddle ?? $p->middle_name, $dressed)) {
+                $action = "keep";   // cannot store the extra material — keep the alias
+                $keptForInfo++;
+            }
+        }
+        if ($action === "drop") { $drops++; continue; }
         $kept[] = $part;
         $seen[$key] = true;
     }
-    // Only rewrite when something was actually dropped — do not churn
-    // records purely to normalise separators.
-    if (count($kept) === count($parts)) { continue; }
+    if ($drops === 0) { continue; }
     $new = $kept ? implode(" / ", $kept) : null;
-    echo "{$p->slug}: \"{$p->aka}\"  ->  " . ($new === null ? "(cleared)" : "\"{$new}\"") . "\n";
+    echo "{$p->slug}: \"{$p->aka}\"  ->  " . ($new === null ? "(cleared)" : "\"{$new}\"");
     $p->aka = $new;
+    if ($newMiddle !== null) {
+        $p->middle_name = $newMiddle;
+        $midSet++;
+        echo "   [middle_name <- \"{$newMiddle}\"]";
+    }
+    echo "\n";
     $p->save();
     $changed++;
+    $droppedTotal += $drops;
     if ($new === null) { $cleared++; }
 }
 if ($changed > 0) {
     \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
 }
-echo "\nDone. {$changed} record(s) cleaned ({$cleared} aka fields cleared entirely, {$dropped} trivial alias(es) dropped).\n";
+echo "\nDone. {$changed} record(s) cleaned, {$droppedTotal} trivial alias(es) dropped, {$cleared} aka fields cleared, {$midSet} middle_name(s) backfilled, {$keptForInfo} alias(es) kept because their extra name material could not be stored.\n";
 '
