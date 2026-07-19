@@ -370,6 +370,18 @@ final class MergeDuplicatePrisoners extends Command
         // Panther sourcing, with and without the accent; the canonical
         // carries the case row, the dup is a caseless stub.
         ['inez-garcia', ['inez-garcia-2']],
+        // The Charlotte Three poet entered under both name forms; the
+        // canonical carries the case row, the dup (caseless) contributes
+        // his birthdate via the fill-if-empty backfill.
+        ['thomas-james-reddy', ['tj-reddy']],
+        // The only white and only female Wilmington Ten defendant, entered
+        // under both surname forms; the canonical carries the full case row,
+        // the caseless dup contributes her photo.
+        ['anne-sheppard-turner', ['anne-sheppard-shepard']],
+        // The Atmore-Holman Brothers leader entered three times from Black
+        // Panther sourcing; the canonical carries the photo and the full
+        // case row, the two caseless stubs' descriptions fold in.
+        ['johnny-imani-harris', ['johnnie-harris', 'johnny-imani-harris-2']],
     ];
 
     /**
