@@ -8,32 +8,11 @@
     .gi-page { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .gi-divider { height: 1px; background: rgba(var(--fg-rgb),0.1); margin: 72px 0; }
 
-    /* ==================== PHOTO HERO (full-bleed image + overlap panel) ====================
-       Full-width event photograph with a solid panel overlapping its lower-left,
-       carrying a two-tone headline and the Join / Support actions. The panel's
-       slanted top-left corner echoes the site's parallelogram motif. */
-    .gi-ph { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
-    .gi-ph-media { position: relative; height: min(64vh, 640px); min-height: 380px; overflow: hidden; background: #0c0c1e; }
-    .gi-ph-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
-    .gi-ph-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
-    .gi-ph-panel { position: relative; z-index: 2; margin-top: -190px; max-width: 730px; background: var(--surface-2); padding: 48px 56px 52px; clip-path: polygon(56px 0, 100% 0, 100% 100%, 0 100%); box-shadow: 0 24px 60px rgba(0,0,0,0.18); }
-    .gi-ph-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 14px; }
-    .gi-ph-title { font-size: 3.4rem; font-weight: 900; line-height: 1.05; margin: 0 0 20px; color: var(--fg); }
-    .gi-ph-title .hl { color: var(--accent); }
-    .gi-ph-text { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; line-height: 1.65; color: rgba(var(--fg-rgb),0.78); margin: 0 0 34px; max-width: 58ch; }
-    .gi-ph-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-    .gi-ph-btn { display: inline-block; min-width: 170px; text-align: center; padding: 16px 36px; font-size: 15px; font-weight: 700; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s, background 0.2s; }
-    .gi-ph-btn-dark { background: #14141c; color: #fff; border: 1px solid rgba(var(--fg-rgb),0.35); }
-    .gi-ph-btn-dark:hover { opacity: 0.85; }
-    .gi-ph-btn-accent { background: var(--accent); color: var(--on-accent, #fff); }
-    .gi-ph-btn-accent:hover { background: var(--accent-hover); }
-    @@media (max-width: 900px) {
-        .gi-ph-media { height: 44vh; min-height: 260px; }
-        .gi-ph-panel { margin-top: -90px; padding: 32px 28px 36px; clip-path: polygon(36px 0, 100% 0, 100% 100%, 0 100%); }
-        .gi-ph-title { font-size: 2.3rem; }
-        .gi-ph-text { font-size: 1.05rem; }
-        .gi-ph-btn { flex: 1 1 auto; min-width: 0; }
-    }
+    /* Hero */
+    .gi-hero { padding: 80px 0 0; max-width: 800px; }
+    .gi-hero-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 16px; }
+    .gi-hero-title { font-size: 5rem; font-weight: 900; color: var(--fg); line-height: 1.02; margin-bottom: 28px; }
+    .gi-hero-sub { font-size: 1.35rem; font-weight: 600; color: rgba(var(--fg-rgb),0.6); line-height: 1.65; }
 
     /* Action Cards */
     .gi-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -267,26 +246,19 @@
         .gi-proj-slides { min-height: 260px; }
     }
 </style>
+@include('partials.scribble-assets')
 @endsection
 
 @section('body')
-{{-- ==================== PHOTO HERO ==================== --}}
-<section class="gi-ph">
-    <div class="gi-ph-media">
-        <img src="{{ asset('images/events-hero.jpg') }}" alt="An NPPC outreach table at a community event" fetchpriority="high">
+<div class="gi-page">
+
+    {{-- ==================== HERO ==================== --}}
+    <div class="gi-hero">
+        <div class="gi-hero-label">Get Involved</div>
+        <h1 class="gi-hero-title">Your Voice Can @include('partials.scribble', ['word' => 'Free']) a Prisoner</h1>
+        <p class="gi-hero-sub">Political prisoners need more than thoughts and prayers. They need people willing to write letters, make calls, spread awareness, donate resources, and show up. Here's how you can help.</p>
     </div>
-    <div class="gi-ph-wrap">
-        <div class="gi-ph-panel">
-            <div class="gi-ph-label">Get Involved</div>
-            <h1 class="gi-ph-title"><span class="hl">Your Voice</span> Can Free a Prisoner</h1>
-            <p class="gi-ph-text">The National Political Prisoner Coalition brings together volunteers, advocates, and researchers to document political imprisonment in the United States — and to write the letters, pack the courtrooms, and build the pressure that brings prisoners home.</p>
-            <div class="gi-ph-btns">
-                <a href="/volunteer" class="gi-ph-btn gi-ph-btn-dark">Join</a>
-                <a href="/donate" class="gi-ph-btn gi-ph-btn-accent">Support</a>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
 {{-- ==================== IMPACT STATS (full-width) ==================== --}}
 @include('sections.impact-stats')
