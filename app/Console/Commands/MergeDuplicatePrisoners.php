@@ -336,6 +336,14 @@ final class MergeDuplicatePrisoners extends Command
         // entered under both one-l and two-l spellings. Court records use
         // "Gabriella".
         ['gabriella-oropesa', ['gabriela-oropesa']],
+        // The Little Rock 2020 arson defendant entered twice — once under her
+        // "Ángel" goes-by name; the canonical carries both cases and the full
+        // alias set, and the dup's richer biography folds in.
+        ['aline-espinosa-villegas', ['angel-espinosa-villegas']],
+        // The Pittsburgh May 30, 2020 defendant with his hyphenated surname in
+        // both orders. DOJ filings use Augustyniak-Duncan; the dup's state-case
+        // row reassigns to the canonical, which had none.
+        ['andrew-augustyniak-duncan', ['andrew-duncan-augustyniak']],
     ];
 
     /**
@@ -402,6 +410,9 @@ final class MergeDuplicatePrisoners extends Command
         'mohammad-el-mezain',
         // Both Oropesa records carry the same federal FACE Act prosecution.
         'gabriella-oropesa',
+        // The Ángel dup's single case is a redundant copy of the Little Rock
+        // arson already on the canonical (which holds two case rows).
+        'aline-espinosa-villegas',
     ];
 
     public function handle(): int
