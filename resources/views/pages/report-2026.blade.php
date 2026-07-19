@@ -474,6 +474,61 @@ included, scoped to the band.
 @media (prefers-reduced-motion: reduce) {
   .card-v12, .card-v12__figure, .card-v12__figure img, .card-v12 .card-v12__icon, .card-v12__icon .icon-group > * { transition: none; }
 }
+
+/* --------------------------------
+File#: _1_svg-image-clip
+Title: Svg Image Clip
+Usage: codyhouse.co/license
+Adapted to the r26 theme as the closing "join the work" band; the
+CodyHouse global reset is omitted and only the utilities the section
+uses are included, scoped to the band ("@md" class names renamed
+"-md" to stay Blade-safe).
+-------------------------------- */
+.r26-join { background: var(--navy); padding: 20px 0 0; }
+.r26-join {
+  --sj0-color-primary-hsl: 236, 99%, 67%;
+  --sj0-color-primary-darker-hsl: 236, 60%, 38%;
+  --sj0-color-primary-light-hsl: 236, 100%, 73%;
+  --sj0-color-white-hsl: 0, 0%, 100%;
+  --sj0-color-bg-hsl: 240, 29%, 8%;
+  --sj0-color-bg-dark-hsl: 240, 22%, 16%;
+  --sj0-color-contrast-higher-hsl: 240, 21%, 94%;
+  --sj0-color-contrast-medium-hsl: 237, 12%, 68%;
+  --sj0-space-2xs: 0.5625rem; --sj0-space-xs: 0.75rem; --sj0-space-sm: 1.125rem;
+  --sj0-space-md: 2rem; --sj0-space-xl: 5.125rem;
+  --sj0-text-sm: 1rem;
+  color: hsl(var(--sj0-color-contrast-higher-hsl));
+}
+.r26-join .sj0-text-component h2 { color: hsl(var(--sj0-color-contrast-higher-hsl)); font-weight: 900; font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: -.015em; }
+.r26-join svg image { width: 100%; height: auto; }
+
+.sj0-btn { position: relative; display: inline-flex; justify-content: center; align-items: center; font-size: 1em; white-space: nowrap; text-decoration: none; background: hsl(var(--sj0-color-bg-dark-hsl)); color: hsl(var(--sj0-color-contrast-higher-hsl)); cursor: pointer; line-height: 1.2; -webkit-font-smoothing: antialiased; transition: all 0.2s ease; will-change: transform; padding: var(--sj0-space-2xs) var(--sj0-space-sm); border-radius: 0.25em; }
+.sj0-btn:focus-visible { box-shadow: 0px 0px 0px 2px hsl(var(--sj0-color-bg-hsl)), 0px 0px 0px 4px hsla(var(--sj0-color-contrast-higher-hsl), 0.15); outline: none; }
+.sj0-btn:active { transform: translateY(2px); }
+.sj0-btn--primary { background: hsl(var(--sj0-color-primary-hsl)); color: hsl(var(--sj0-color-white-hsl)); box-shadow: inset 0px 1px 0px hsla(var(--sj0-color-white-hsl), 0.15), 0px 1px 3px hsla(var(--sj0-color-primary-darker-hsl), 0.25), 0px 2px 6px hsla(var(--sj0-color-primary-darker-hsl), 0.1), 0px 6px 10px -2px hsla(var(--sj0-color-primary-darker-hsl), 0.25); }
+.sj0-btn--primary:hover { background: hsl(var(--sj0-color-primary-light-hsl)); }
+
+.sj0-color-inherit { color: inherit; }
+.sj0-items-center { align-items: center; }
+.sj0-gap-sm { gap: var(--sj0-space-sm); }
+.sj0-gap-md { gap: var(--sj0-space-md); }
+.sj0-flex-wrap { flex-wrap: wrap; }
+.sj0-flex { display: flex; }
+.sj0-margin-top-sm { margin-top: var(--sj0-space-sm); }
+.sj0-color-contrast-medium { color: hsla(var(--sj0-color-contrast-medium-hsl), 1); }
+.sj0-text-sm { font-size: var(--sj0-text-sm); }
+.sj0-text-component :where(h1, h2, h3, h4) { line-height: 1.2; margin-top: var(--sj0-space-md); margin-bottom: var(--sj0-space-sm); }
+.sj0-text-component :where(p, blockquote, ul li, ol li) { line-height: 1.58; }
+.sj0-text-component :where(ul, ol, p, blockquote) { margin-bottom: var(--sj0-space-sm); }
+.sj0-text-component > *:first-child { margin-top: 0; }
+.sj0-text-component > *:last-child { margin-bottom: 0; }
+.sj0-grid { display: grid; grid-template-columns: repeat(12, 1fr); }
+.sj0-grid > * { min-width: 0; grid-column-end: span 12; }
+.sj0-container { width: calc(100% - 2*var(--sj0-space-md)); margin-left: auto; margin-right: auto; max-width: 1180px; }
+.sj0-padding-y-xl { padding-top: var(--sj0-space-xl); padding-bottom: var(--sj0-space-xl); }
+.sj0-z-index-1 { z-index: 1; }
+.sj0-position-relative { position: relative; }
+@media (min-width: 64rem) { .sj0-col-6-md { grid-column-end: span 6; } }
 </style>
 @endsection
 
@@ -1365,6 +1420,36 @@ included, scoped to the band.
                     </div>
                 </a>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- JOIN THE WORK — svg image clip (CodyHouse _1_svg-image-clip, adapted) --}}
+    <section class="r26-join sj0-position-relative sj0-z-index-1 sj0-padding-y-xl" id="join-the-work">
+        <div class="sj0-container">
+            <div class="sj0-grid sj0-gap-md sj0-items-center">
+                <div class="sj0-col-6-md">
+                    <svg viewBox="0 0 600 600" aria-hidden="true">
+                        <defs>
+                            <clipPath id="sj0-image-clip-path">
+                                <path d="M300,527.5 C424.3,527.5,564,463.7,564,339.4 C564,215.1,482.3,72.5,358,72.5 C233.7,72.5,36,141.1,36,265.4 C36,389.7,175.7,527.5,300,527.5 Z" />
+                            </clipPath>
+                        </defs>
+                        <image height="600" width="600" href="{{ asset('images/donate.jpg') }}" clip-path="url(#sj0-image-clip-path)" preserveAspectRatio="xMidYMid slice"></image>
+                    </svg>
+                </div>
+
+                <div class="sj0-col-6-md sj0-text-component">
+                    <h2>Year Five Starts Now</h2>
+                    <p class="sj0-color-contrast-medium">The census, the archive, the tracker, and every report on this
+                    page run on the people who decide the record must be kept. Fund the fifth year of the work — or
+                    join the volunteers who write the letters, verify the cases, and keep 7,391 names from being
+                    forgotten.</p>
+                    <div class="sj0-flex sj0-flex-wrap sj0-gap-sm sj0-items-center sj0-margin-top-sm">
+                        <a href="/donate" class="sj0-btn sj0-btn--primary">Donate</a>
+                        <a href="/get-involved" class="sj0-color-inherit sj0-text-sm">Get involved &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
