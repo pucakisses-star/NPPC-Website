@@ -14,13 +14,13 @@
            crimson "Take the Quiz" box expands to fill the screen.
            ============================================================ */
         .cph-hero, .cph-overview, .cph-mosaic-area, .cph-quiz {
-            --cph-bg: #fefdff;
-            --cph-ink: #1e2122;
-            --cph-grid: #eff6f8;
-            --cph-gold: #e4a524;
-            --cph-crimson: #98002e;
-            --cph-cta: #8b1a3a;
-            --cph-teal: #2a6d81;
+            --cph-bg: #fbfbfe;
+            --cph-ink: #16181f;
+            --cph-grid: #ececf6;
+            --cph-gold: #f25c54;
+            --cph-crimson: #5660fe;
+            --cph-cta: #4049d6;
+            --cph-teal: #1a1a2e;
             --cph-gray: #686868;
         }
         .cph-hero *, .cph-overview *, .cph-mosaic-area *, .cph-quiz * { box-sizing: border-box; }
@@ -188,17 +188,17 @@
         /* ---------- Quiz ---------- */
         .cph-quiz { padding: 1px 0; }
         .cp {
-            --cp-accent: #98002e;
-            --cp-accent-dark: #7a0025;
-            --cp-gold: #e4a524;
-            --cp-teal: #2a6d81;
-            --cp-ink: #1e2122;
+            --cp-accent: #5660fe;
+            --cp-accent-dark: #4049d6;
+            --cp-gold: #f25c54;
+            --cp-teal: #1a1a2e;
+            --cp-ink: #16181f;
             --cp-muted: #686868;
             --cp-line: #e5ebee;
-            --cp-bg: #fefdff;
+            --cp-bg: #fbfbfe;
             --cp-card: #ffffff;
-            --cp-good: #2a6d81;
-            --cp-bad: #d3445b;
+            --cp-good: #1a1a2e;
+            --cp-bad: #f25c54;
             position: relative; z-index: 1;
             max-width: 760px;
             margin: 0 auto;
@@ -246,11 +246,11 @@
         .cp-progress-fill { height: 100%; background: var(--cp-accent); border-radius: 999px; transition: width .35s cubic-bezier(.4,0,.2,1); }
 
         /* Question stage */
-        .cp-stage { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 18px; padding: 32px 28px; box-shadow: 0 12px 40px -28px rgba(30,33,34,.5); }
+        .cp-stage { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 18px; padding: 32px 28px; box-shadow: 0 12px 40px -28px rgba(22,24,31,.5); }
         .cp-part-badge { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
-        .cp-part-badge--values { color: #8a6210; background: rgba(228,165,36,.16); }
-        .cp-part-badge--engagement { color: var(--cp-accent); background: rgba(152,0,46,.1); }
-        .cp-part-badge--knowledge { color: var(--cp-teal); background: rgba(42,109,129,.12); }
+        .cp-part-badge--values { color: #c03e37; background: rgba(242,92,84,.14); }
+        .cp-part-badge--engagement { color: var(--cp-accent); background: rgba(86,96,254,.12); }
+        .cp-part-badge--knowledge { color: var(--cp-teal); background: rgba(26,26,46,.1); }
         .cp-q { font-size: clamp(20px, 3.2vw, 26px); font-weight: 800; line-height: 1.25; margin: 0 0 24px; letter-spacing: -0.01em; }
         .cp-scale-hint { font-size: 13px; color: var(--cp-muted); margin: -14px 0 18px; }
 
@@ -261,9 +261,9 @@
             padding: 16px 18px; font-size: 16px; font-weight: 600; color: var(--cp-ink);
             transition: border-color .12s ease, background .12s ease, transform .05s ease;
         }
-        .cp-opt:hover { border-color: var(--cp-accent); background: #fffbfc; }
+        .cp-opt:hover { border-color: var(--cp-accent); background: #fafaff; }
         .cp-opt:active { transform: scale(.995); }
-        .cp-opt.is-selected { border-color: var(--cp-accent); background: rgba(152,0,46,.06); }
+        .cp-opt.is-selected { border-color: var(--cp-accent); background: rgba(86,96,254,.06); }
         .cp-opt-key {
             flex: 0 0 auto; width: 30px; height: 30px; border-radius: 8px; background: var(--cp-bg);
             border: 1px solid var(--cp-line); display: inline-flex; align-items: center; justify-content: center;
@@ -272,18 +272,18 @@
         .cp-opt.is-selected .cp-opt-key { background: var(--cp-accent); border-color: var(--cp-accent); color: #fff; }
 
         /* Perception-check slider question (guess the percentage) */
-        .cp-part-badge--perceptions { color: #31425c; background: rgba(49,66,92,.1); }
-        .cp-progress-meta .part--perceptions { color: #31425c; }
+        .cp-part-badge--perceptions { color: #2a2a4a; background: rgba(42,42,74,.1); }
+        .cp-progress-meta .part--perceptions { color: #2a2a4a; }
         .cp-guess-q { text-align: center; }
         .cp-guess-ctarow { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 2px 0 40px; }
         .cp-guess-ctarow[hidden] { display: none; }
         .cp-guess-hint { margin: 0; color: var(--cp-bad); font-size: 17px; font-weight: 600; }
         .cp-guess-submit {
-            background: var(--cp-teal); color: #fff; font-weight: 700; font-size: 16px;
+            background: var(--cp-accent); color: #fff; font-weight: 700; font-size: 16px;
             border: none; border-radius: 10px; padding: 10px 24px;
-            box-shadow: 0 4px 12px -5px rgba(42,109,129,.8); transition: background .15s;
+            box-shadow: 0 4px 12px -5px rgba(86,96,254,.75); transition: background .15s;
         }
-        .cp-guess-submit:hover { background: #235a6b; }
+        .cp-guess-submit:hover { background: var(--cp-accent-dark); }
         .cp-slider { position: relative; padding-top: 46px; margin: 0 6px; }
         .cp-slider-val {
             position: absolute; top: 0; transform: translateX(-50%);
@@ -317,7 +317,7 @@
         .cp-guess-feedback { margin-top: 30px; text-align: center; }
         .cp-guess-feedback p { font-size: 17px; line-height: 1.55; margin: 0 0 20px; }
         .cp-guess-feedback .you { color: var(--cp-accent); font-weight: 800; }
-        .cp-guess-feedback .act { color: #8a6210; font-weight: 800; }
+        .cp-guess-feedback .act { color: #c03e37; font-weight: 800; }
         .cp-guess-rows { display: flex; flex-direction: column; gap: 14px; }
         .cp-guess-row .top { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
         .cp-guess-row .top .v { color: var(--cp-muted); font-weight: 600; }
@@ -355,7 +355,7 @@
         .cp-bar .bar-top .v { color: var(--cp-muted); }
         .cp-bar.is-top .bar-top { color: var(--cp-accent); }
         .cp-bar-track { height: 12px; background: var(--cp-line); border-radius: 999px; overflow: hidden; }
-        .cp-bar-fill { height: 100%; border-radius: 999px; background: #dcb4c1; transition: width .8s cubic-bezier(.4,0,.2,1); }
+        .cp-bar-fill { height: 100%; border-radius: 999px; background: #c6cafc; transition: width .8s cubic-bezier(.4,0,.2,1); }
         .cp-bar.is-top .cp-bar-fill { background: var(--cp-accent); }
 
         .cp-score-row { display: flex; align-items: center; gap: 22px; }
@@ -445,11 +445,11 @@
 
         <div class="cph-logo" aria-hidden="true">
             <svg class="cph-logo-mark" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-                <rect width="96" height="96" rx="16" fill="#e4a524"/>
-                <path d="M48 18A30 30 0 0 1 78 48L48 48Z" fill="#98002e"/>
-                <path d="M78 48A30 30 0 0 1 48 78L48 48Z" fill="#2a6d81"/>
-                <path d="M48 78A30 30 0 0 1 18 48L48 48Z" fill="#fefdff"/>
-                <path d="M18 48A30 30 0 0 1 48 18L48 48Z" fill="#1e2122"/>
+                <rect width="96" height="96" rx="16" fill="#f25c54"/>
+                <path d="M48 18A30 30 0 0 1 78 48L48 48Z" fill="#5660fe"/>
+                <path d="M78 48A30 30 0 0 1 48 78L48 48Z" fill="#1a1a2e"/>
+                <path d="M48 78A30 30 0 0 1 18 48L48 48Z" fill="#fbfbfe"/>
+                <path d="M18 48A30 30 0 0 1 48 18L48 48Z" fill="#16181f"/>
             </svg>
             <div class="cph-logo-text">
                 <strong>Civic<br>Profile</strong>
@@ -475,33 +475,33 @@
             <div class="cph-ov-inner">
                 <p class="cph-ov-eyebrow">Part One</p>
                 <div class="cph-ov-icon">
-                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 42C10 32 4 24.5 4 16.5 4 10 9 5 15.2 5 19 5 22.2 6.9 24 9.8 25.8 6.9 29 5 32.8 5 39 5 44 10 44 16.5 44 24.5 38 32 24 42Z" fill="#e4a524"/></svg>
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 42C10 32 4 24.5 4 16.5 4 10 9 5 15.2 5 19 5 22.2 6.9 24 9.8 25.8 6.9 29 5 32.8 5 39 5 44 10 44 16.5 44 24.5 38 32 24 42Z" fill="#f25c54"/></svg>
                 </div>
                 <h2>Values</h2>
                 <p>Civic values are the beliefs that people hold about what makes for a good society, a good government, and how individuals and groups should interact.</p>
-                <a class="cph-ov-link" style="--acc:#e4a524" href="#cp-app">More About Values</a>
+                <a class="cph-ov-link" style="--acc:#f25c54" href="#cp-app">More About Values</a>
             </div>
         </div>
         <div class="cph-ov-col">
             <div class="cph-ov-inner">
                 <p class="cph-ov-eyebrow">Part Two</p>
                 <div class="cph-ov-icon">
-                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 20v8c0 1.7 1.3 3 3 3h3v8c0 1.7 1.3 3 3 3h4c1.1 0 2-.9 2-2v-9l16.2 7.6c1.3.6 2.8-.3 2.8-1.8V11.2c0-1.5-1.5-2.4-2.8-1.8L21 17H9c-1.7 0-3 1.3-3 3Z" fill="#98002e"/></svg>
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 20v8c0 1.7 1.3 3 3 3h3v8c0 1.7 1.3 3 3 3h4c1.1 0 2-.9 2-2v-9l16.2 7.6c1.3.6 2.8-.3 2.8-1.8V11.2c0-1.5-1.5-2.4-2.8-1.8L21 17H9c-1.7 0-3 1.3-3 3Z" fill="#5660fe"/></svg>
                 </div>
                 <h2>Engagement</h2>
                 <p>Civic engagement refers to the actions and behaviors people take to make a positive contribution to society.</p>
-                <a class="cph-ov-link" style="--acc:#98002e" href="#cp-app">More about Engagement</a>
+                <a class="cph-ov-link" style="--acc:#5660fe" href="#cp-app">More about Engagement</a>
             </div>
         </div>
         <div class="cph-ov-col">
             <div class="cph-ov-inner">
                 <p class="cph-ov-eyebrow">Part Three</p>
                 <div class="cph-ov-icon">
-                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12C20 8.7 14.6 7 8 7c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2 6.6 0 12 1.7 16 5 4-3.3 9.4-5 16-5 1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2-6.6 0-12 1.7-16 5Zm0 0v32" fill="none" stroke="#2a6d81" stroke-width="3" stroke-linejoin="round"/></svg>
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12C20 8.7 14.6 7 8 7c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2 6.6 0 12 1.7 16 5 4-3.3 9.4-5 16-5 1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2-6.6 0-12 1.7-16 5Zm0 0v32" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linejoin="round"/></svg>
                 </div>
                 <h2>Knowledge</h2>
                 <p>Civic knowledge is an understanding of how our political system is structured, the rights and responsibilities of citizens, and key events, movements, and figures from our history.</p>
-                <a class="cph-ov-link" style="--acc:#2a6d81" href="#cp-app">More about Knowledge</a>
+                <a class="cph-ov-link" style="--acc:#1a1a2e" href="#cp-app">More about Knowledge</a>
             </div>
         </div>
     </section>
@@ -941,9 +941,9 @@
                 + '<p class="cp-lede">An interactive quiz that measures your civic <strong>values</strong>, your <strong>engagement</strong>, and your <strong>knowledge</strong> of the rights, due process, and freedom to dissent that the NPPC defends.</p>'
                 + '</div>'
                 + '<div class="cp-parts">'
-                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.', '#e4a524')
-                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.', '#98002e')
-                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.', '#2a6d81')
+                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.', '#f25c54')
+                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.', '#5660fe')
+                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.', '#1a1a2e')
                 + '</div>'
                 + '<div style="text-align:center">'
                 + '<button class="cp-btn" id="cp-start">Let’s Get Started</button>'
@@ -975,7 +975,7 @@
             const q = QUIZ.perceptions;
             root.innerHTML =
                 '<div class="cp-partintro">'
-                + '<div class="step" style="color:#31425c">Interlude</div>'
+                + '<div class="step" style="color:#2a2a4a">Interlude</div>'
                 + '<h2>' + esc(q.title) + '</h2>'
                 + '<p>' + esc(q.definition) + '</p>'
                 + '<button class="cp-btn" id="cp-continue">Start Guessing</button>'
@@ -1179,7 +1179,7 @@
             const R = 46, C = 2 * Math.PI * R, off = C * (1 - k.pct / 100);
             const ring = '<div class="cp-ring"><svg width="104" height="104" viewBox="0 0 104 104">'
                 + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" stroke-width="9"></circle>'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#98002e" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#5660fe" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>'
                 + '</svg><div class="pct"><span class="num">' + k.pct + '%</span><span class="den">' + k.correct + ' / ' + k.total + '</span></div></div>';
 
             let missedHtml = '';
@@ -1210,7 +1210,7 @@
                 + '<div class="cp-score-row">'
                 + '<div class="cp-ring"><svg width="104" height="104" viewBox="0 0 104 104">'
                 + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" stroke-width="9"></circle>'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#98002e" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - e.sum / e.max)).toFixed(1) + '"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#5660fe" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - e.sum / e.max)).toFixed(1) + '"></circle>'
                 + '</svg><div class="pct"><span class="num">' + e.sum + '</span><span class="den">of ' + e.max + '</span></div></div>'
                 + '<div><div class="cp-score-tier">' + esc(e.level.name) + '</div><p style="margin:0;color:var(--cp-muted)">' + esc(e.level.desc) + '</p></div>'
                 + '</div></div>'
