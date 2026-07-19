@@ -344,6 +344,11 @@ final class MergeDuplicatePrisoners extends Command
         // both orders. DOJ filings use Augustyniak-Duncan; the dup's state-case
         // row reassigns to the canonical, which had none.
         ['andrew-augustyniak-duncan', ['andrew-duncan-augustyniak']],
+        // The Minneapolis Third Precinct arson defendant entered under both
+        // "De-Andre" and "DeAndre" spellings. The hyphenated canonical carries
+        // the birthdate; the dup's sole federal-arson case reassigns to it,
+        // since the canonical had none.
+        ['davon-de-andre-turner', ['davon-deandre-turner']],
     ];
 
     /**
