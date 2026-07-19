@@ -382,6 +382,13 @@ final class MergeDuplicatePrisoners extends Command
         // Panther sourcing; the canonical carries the photo and the full
         // case row, the two caseless stubs' descriptions fold in.
         ['johnny-imani-harris', ['johnnie-harris', 'johnny-imani-harris-2']],
+        // Spelling-variant pair; the canonical carries the case row and the
+        // photo, the dup is a caseless stub whose description folds in.
+        ['malik-fard-muhammad', ['malik-fard-muhammed']],
+        // The 1947 cuspidor death-sentence cause celebre entered again as a
+        // caseless 1970s stub from Black Panther mining ("Bob Wells", Charles
+        // Garry's client, paroled from Vacaville July 1, 1974 after 47 years).
+        ['wesley-robert-wells', ['robert-wesley-wells']],
     ];
 
     /**
