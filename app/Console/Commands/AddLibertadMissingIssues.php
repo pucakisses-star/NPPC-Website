@@ -6,7 +6,7 @@ use App\Models\ArchiveRecord;
 use Illuminate\Console\Command;
 
 /**
- * Backfill 33 missing issues of *Libertad*, the newspaper of the
+ * Backfill 35 missing issues of *Libertad*, the newspaper of the
  * Movimiento de Liberación Nacional Puertorriqueño (MLN-PR), filling
  * gaps in the Freedom Archives C25 collection coverage already in the
  * database. Issues sourced from archive.org and self-hosted under
@@ -16,7 +16,7 @@ use Illuminate\Console\Command;
  */
 final class AddLibertadMissingIssues extends Command {
     protected $signature = 'archive:add-libertad-missing';
-    protected $description = 'Backfill 33 missing Libertad newspaper issues (MLN-PR, 1979–1990)';
+    protected $description = 'Backfill 35 missing Libertad newspaper issues (MLN-PR, 1979–1990)';
 
     public function handle(): int {
         $issues = [
@@ -30,6 +30,11 @@ final class AddLibertadMissingIssues extends Command {
             ['1984-fall-winter',       '1984-09-01', '',              'Fall/Winter 1984',              1984],
             ['1985-01',                '1985-01-01', '',              'January 1985',                  1985],
             ['1985-02',                '1985-02-01', '',              'February 1985',                 1985],
+            // May and June 1985 fill the last gap in the 1985 run — from the
+            // Freedom Archives DOC26 scans (Lederer/Bisson grand-jury wave,
+            // Berkman/Duke capture coverage).
+            ['1985-05',                '1985-05-01', '',              'May 1985',                      1985],
+            ['1985-06',                '1985-06-01', '',              'June 1985',                     1985],
             ['1985-08',                '1985-08-01', '',              'August 1985',                   1985],
             ['1985-10',                '1985-10-01', '',              'October 1985',                  1985],
             ['1985-12',                '1985-12-01', '',              'December 1985',                 1985],
@@ -80,7 +85,7 @@ final class AddLibertadMissingIssues extends Command {
         foreach ($issues as [$ref, $date, $vol, $period, $year]) {
             $slug = 'libertad-ia-'.$ref;
             $title = $vol !== '' ? "Libertad ({$vol}, {$period})" : "Libertad — {$period}";
-            $description = "Issue of *Libertad*, the newspaper of the Movimiento de Liberación Nacional Puertorriqueño (MLN-PR). Libertad was the primary U.S.-based organ of the Puerto Rican independence movement aligned with the FALN (Fuerzas Armadas de Liberación Nacional Puertorriqueña) and the support work for the Puerto Rican political prisoners and prisoners of war — including Oscar López Rivera, Alejandrina Torres, Dylcia Pagan, Carlos Alberto Torres, Edwin Cortés, and the other independentistas captured in the FBI's Chicago / New York investigations of the 1980s. The newspaper coordinated independence-movement organizing, U.S. solidarity work, and the long-running campaign for the unconditional release of the prisoners. {$period}. Mirrored from Internet Archive.";
+            $description = "Issue of *Libertad*, the newspaper of the Movimiento de Liberación Nacional Puertorriqueño (MLN-PR). Libertad was the primary U.S.-based organ of the Puerto Rican independence movement aligned with the FALN (Fuerzas Armadas de Liberación Nacional Puertorriqueña) and the support work for the Puerto Rican political prisoners and prisoners of war — including Oscar López Rivera, Alejandrina Torres, Dylcia Pagan, Carlos Alberto Torres, Edwin Cortés, and the other independentistas captured in the FBI's Chicago / New York investigations of the 1980s. The newspaper coordinated independence-movement organizing, U.S. solidarity work, and the long-running campaign for the unconditional release of the prisoners. {$period}. Digitized scan mirrored into the site library (Internet Archive / Freedom Archives DOC26).";
             $payload = $base + [
                 'title' => $title,
                 'description' => $description,
