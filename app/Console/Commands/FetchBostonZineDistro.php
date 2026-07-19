@@ -30,7 +30,6 @@ final class FetchBostonZineDistro extends Command {
         'https://ia600906.us.archive.org/20/items/AnonymitySecurity/anonymity_security.pdf',
         'https://ia600906.us.archive.org/6/items/BountyHuntersChildPredators/bounty_hunters_child_predators.pdf',
         'https://ia800101.us.archive.org/28/items/HowToSurviveAFelonyTrialKeepingYourHeadUpThroughTheWorstOfIt/felony-print.pdf',
-        'https://ia800107.us.archive.org/23/items/SurvivingAGrandJury/surviving-a-grand-jury.pdf',
         'https://ia800200.us.archive.org/32/items/SevenYearsAgainstPrison/seven_years_against_prison.pdf',
         'https://ia800307.us.archive.org/24/items/SecurityCounter-surveillance/security-countersurveillance.pdf',
         'https://ia800506.us.archive.org/25/items/AfterWeHaveBurntEverything/after_we_have_burnt-IMPOSED.pdf',

@@ -99,17 +99,6 @@
     "relevance": "Black liberation PPs"
   },
   {
-    "slug": "jericho-us-political-prisoners-joint-report-upr-usa-2010-annex-23",
-    "title": "US Political Prisoners Joint Report - UPR USA 2010 (Annex 23)",
-    "description": "Joint UPR shadow report on US political prisoners submitted to UN Human Rights Council.",
-    "pdf_url": "https://upr-info.org/sites/default/files/documents/2013-10/ushrn_upr_usa_s09_2010_annex23_us_political_prisoners_joint_report_usa.pdf",
-    "source": "USHRN UPR / Jericho coalition",
-    "collection": "Jericho Movement",
-    "public_dir": "pdfs/jericho",
-    "year": 2010,
-    "relevance": "All US PPs"
-  },
-  {
     "slug": "cldc-nyc-abc-us-political-prisoner-and-pow-listing-nov-2014-booklet",
     "title": "NYC ABC US Political Prisoner and POW Listing (Nov 2014 booklet)",
     "description": "Booklet listing US PPs/POWs with profiles, charges, and contact addresses.",
@@ -636,17 +625,6 @@
     "public_dir": "pdfs/fam",
     "year": 2014,
     "relevance": "FAM organizers (Melvin Ray, Kinetik Justice, Robert Earl Council)"
-  },
-  {
-    "slug": "sprout-prairie-fire-the-politics-of-revolutionary-anti-imperialism-1974-scan-via-social",
-    "title": "Prairie Fire: The Politics of Revolutionary Anti-Imperialism (1974, scan via Social History Portal)",
-    "description": "Weather Underground's political statement including section on US PPs.",
-    "pdf_url": "https://socialhistoryportal.org/sites/default/files/raf/0419740509_0.pdf",
-    "source": "Weather Underground / Social History Portal",
-    "collection": "Weather Underground (Sprout)",
-    "public_dir": "pdfs/sprout",
-    "year": 1974,
-    "relevance": "Weather Underground PPs"
   },
   {
     "slug": "sds-prairie-fire-reprint-sds",
