@@ -13,8 +13,11 @@ $isHome = request()->segment(1) == ''
         // Page title with a site-wide default so no page ships an empty
         // <title>. Sections may end in " | NPPC" etc.; the raw yield is
         // also reused for the social tags below.
-        $pageTitle = trim($__env->yieldContent('title')) ?: 'National Political Prisoner Coalition';
-        $pageDesc = trim($__env->yieldContent('meta_description'))
+        // Inline @section('title', '...') values arrive HTML-escaped by
+        // Blade, and {{ }} escapes again — so "&" would render as a literal
+        // "&amp;" in the tab. Decode once here; {{ }} below re-escapes.
+        $pageTitle = html_entity_decode(trim($__env->yieldContent('title')), ENT_QUOTES | ENT_HTML5) ?: 'National Political Prisoner Coalition';
+        $pageDesc = html_entity_decode(trim($__env->yieldContent('meta_description')), ENT_QUOTES | ENT_HTML5)
             ?: 'The National Political Prisoner Coalition documents, supports, and advocates for U.S. political prisoners — a live database, case files, news, and history from the nineteenth century to the present.';
     @endphp
     <title>{{ $pageTitle }}</title>
@@ -32,7 +35,7 @@ $isHome = request()->segment(1) == ''
         // Pages with a subject image (prisoner photo, article cover) override
         // via @section('og_image', ...); crawlers use the first og:image, so
         // the override must land here rather than in the page's head section.
-        $ogImage = trim($__env->yieldContent('og_image'))
+        $ogImage = html_entity_decode(trim($__env->yieldContent('og_image')), ENT_QUOTES | ENT_HTML5)
             ?: asset('images/og-default.jpg').'?v='.@filemtime(public_path('images/og-default.jpg'));
     @endphp
     <meta property="og:image" content="{{ $ogImage }}">
