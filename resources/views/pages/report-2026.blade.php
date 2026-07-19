@@ -296,6 +296,60 @@ body.page-report-2026 { background: #0a0a12; }
 .r26-thanks h2 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; color: #fff; margin: 0 0 24px; }
 .r26-thanks p { color: var(--dim); max-width: 60ch; margin: 0 auto 34px; }
 .r26-credits { margin-top: 80px; font-size: 12px; color: rgba(236,236,242,.4); max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8; text-align: left; }
+
+/* --------------------------------
+File#: _2_tabbed-features
+Title: Tabbed Features
+Descr: A list of features filterable using a tabbed navigation
+Usage: codyhouse.co/license
+Adapted to the r26 dark theme; the CodyHouse global reset is omitted
+(the site provides its own), and the component is scoped to the
+"keep exploring" band at the foot of the report.
+-------------------------------- */
+.r26-explore { background: var(--deep); padding: 100px 0 120px; }
+.r26-explore {
+  --tx9-color-primary-hsl: 236, 99%, 67%;
+  --tx9-color-contrast-low-hsl: 237, 10%, 62%;
+  --tx9-color-contrast-high-hsl: 240, 21%, 94%;
+  --tx9-color-contrast-higher-hsl: 240, 21%, 94%;
+  --tx9-space-xs: 0.5rem; --tx9-space-sm: 0.75rem; --tx9-space-md: 1.25rem; --tx9-space-xl: 3.25rem;
+  --tx9-text-xs: 0.694rem; --tx9-text-sm: 0.833rem;
+}
+@media (min-width: 64rem) {
+  .r26-explore {
+    --tx9-space-xs: 0.75rem; --tx9-space-sm: 1.125rem; --tx9-space-md: 2rem; --tx9-space-xl: 5.125rem;
+    --tx9-text-xs: 0.8rem; --tx9-text-sm: 1rem;
+  }
+}
+
+.tab-features__controls-list { position: relative; display: flex; align-items: center; overflow: auto; counter-reset: tab-features-list; }
+.tab-features__controls-list::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: hsla(var(--tx9-color-contrast-higher-hsl), 0.1); }
+.tab-features__control-wrapper { counter-increment: tab-features-list; }
+.tab-features__control { position: relative; display: block; padding: var(--tx9-space-sm) var(--tx9-space-xl) var(--tx9-space-sm) var(--tx9-space-sm); color: hsl(var(--tx9-color-contrast-higher-hsl)); text-decoration: none; font-weight: 500; white-space: nowrap; transition: background 0.2s; }
+.tab-features__control::before { content: "0" counter(tab-features-list); font-size: var(--tx9-text-xs); display: block; color: hsl(var(--tx9-color-contrast-low-hsl)); margin-bottom: 4px; }
+.tab-features__control::after { content: ""; position: absolute; bottom: 0px; left: 0; height: 1px; width: 100%; }
+.tab-features__control:hover { background-color: hsla(var(--tx9-color-contrast-higher-hsl), 0.045); }
+.tab-features__control[aria-selected=true]::before { color: hsl(var(--tx9-color-primary-hsl)); }
+.tab-features__control[aria-selected=true]::after { background-color: hsl(var(--tx9-color-primary-hsl)); }
+.tab-features__panels { position: relative; }
+.tab-features__panel { opacity: 0; padding-top: var(--tx9-space-md); }
+.tabs--no-interaction .tab-features__panel { animation-duration: 0s; animation-delay: 0s; }
+.tab-features__img { display: block; width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 10px; filter: grayscale(35%) contrast(1.04); }
+.tab-features__caption { font-size: var(--tx9-text-sm); color: hsla(var(--tx9-color-contrast-low-hsl), 1); margin-top: var(--tx9-space-xs); }
+.tab-features__caption a { color: var(--acc2); }
+.tab-features__panel--display { opacity: 0; animation: tab-features-panel-entry-anim 0.5s 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards; }
+.tab-features__panel--hide { position: absolute; visibility: hidden; top: 0; width: 100%; transition: position 0s 0.5s, visibility 0s 0.5s; animation: tab-features-panel-exit-anim 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); }
+@keyframes tab-features-panel-entry-anim {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes tab-features-panel-exit-anim {
+  0% { opacity: 1; transform: translateY(0px); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tab-features__panel--display, .tab-features__panel--hide { animation-duration: 0s; animation-delay: 0s; }
+}
 </style>
 @endsection
 
@@ -1071,6 +1125,58 @@ body.page-report-2026 { background: #0a0a12; }
         </div>
     </section>
 
+    {{-- KEEP EXPLORING — tabbed features (CodyHouse _2_tabbed-features, adapted) --}}
+    <section class="r26-explore" id="keep-exploring">
+        <div class="r26-wrap">
+            <span class="r26-label rv">Where the work lives</span>
+            <h2 class="r26-title rv" style="font-size: clamp(1.7rem, 3vw, 2.4rem);">Keep Exploring</h2>
+
+            <div class="tab-features js-tab-features" id="r26-explore-tabs">
+                <ul class="tab-features__controls-list" role="tablist">
+                    <li class="tab-features__control-wrapper" role="presentation">
+                        <a href="#explore-database" class="tab-features__control" role="tab" aria-selected="true" id="explore-tab-1" aria-controls="explore-database">The Census</a>
+                    </li>
+                    <li class="tab-features__control-wrapper" role="presentation">
+                        <a href="#explore-archive" class="tab-features__control" role="tab" aria-selected="false" id="explore-tab-2" aria-controls="explore-archive">Archive &amp; Records</a>
+                    </li>
+                    <li class="tab-features__control-wrapper" role="presentation">
+                        <a href="#explore-tracker" class="tab-features__control" role="tab" aria-selected="false" id="explore-tab-3" aria-controls="explore-tracker">The Tracker</a>
+                    </li>
+                    <li class="tab-features__control-wrapper" role="presentation">
+                        <a href="#explore-calendar" class="tab-features__control" role="tab" aria-selected="false" id="explore-tab-4" aria-controls="explore-calendar">Days of Remembrance</a>
+                    </li>
+                </ul>
+
+                <div class="tab-features__panels">
+                    <div class="tab-features__panel tab-features__panel--display" role="tabpanel" id="explore-database" aria-labelledby="explore-tab-1">
+                        <img class="tab-features__img" src="{{ asset('images/data-center-hero.jpg') }}" alt="The political prisoner database">
+                        <p class="tab-features__caption">7,391 cases and counting &mdash; the most comprehensive census of U.S. political
+                        prisoners ever assembled, searchable by era, movement, charge, and institution.
+                        <a href="/database">Explore the database</a>.</p>
+                    </div>
+                    <div class="tab-features__panel" role="tabpanel" id="explore-archive" aria-labelledby="explore-tab-2" hidden>
+                        <img class="tab-features__img" src="{{ asset('images/topics-eras.jpg') }}" alt="The archive and records library">
+                        <p class="tab-features__caption">Newspapers, zines, trial documents, and FOIA files &mdash; thousands of digitized
+                        primary sources, from the first issue of The Black Panther to this year&rsquo;s prisoner lists.
+                        <a href="/archive">Browse the archive</a>.</p>
+                    </div>
+                    <div class="tab-features__panel" role="tabpanel" id="explore-tracker" aria-labelledby="explore-tab-3" hidden>
+                        <img class="tab-features__img" src="{{ asset('images/news-header.jpg') }}" alt="The political prisoner tracker">
+                        <p class="tab-features__caption">The live newswire and map behind this report &mdash; arrests, prosecutions, and
+                        protests logged as they happen, every pin a story the census is watching.
+                        <a href="/dashboard">Open the tracker</a>.</p>
+                    </div>
+                    <div class="tab-features__panel" role="tabpanel" id="explore-calendar" aria-labelledby="explore-tab-4" hidden>
+                        <img class="tab-features__img" src="{{ asset('images/candles.jpg') }}" alt="Days of remembrance calendar">
+                        <p class="tab-features__caption">Anniversaries, birthdays behind bars, and the days the movement does not let
+                        pass unmarked &mdash; a year of remembrance, one date at a time.
+                        <a href="/calendar">See the calendar</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 <script>
@@ -1199,6 +1305,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, { threshold: 0.3 });
     document.querySelectorAll('.r26-fin-col').forEach(function (el) { bio.observe(el); });
+
+    // keep-exploring tabbed features (CodyHouse _2_tabbed-features behavior)
+    (function () {
+        var root = document.getElementById('r26-explore-tabs');
+        if (!root) return;
+        var tabs = root.querySelectorAll('.tab-features__control');
+        var panels = root.querySelectorAll('.tab-features__panel');
+        if (reduced) root.classList.add('tabs--no-interaction');
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function (event) {
+                event.preventDefault();
+                if (tab.getAttribute('aria-selected') === 'true') return;
+                var targetId = tab.getAttribute('aria-controls');
+                tabs.forEach(function (t) { t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
+                panels.forEach(function (p) {
+                    if (p.id === targetId) {
+                        p.removeAttribute('hidden');
+                        p.classList.remove('tab-features__panel--hide');
+                        p.classList.add('tab-features__panel--display');
+                    } else if (!p.hasAttribute('hidden')) {
+                        p.classList.remove('tab-features__panel--display');
+                        p.classList.add('tab-features__panel--hide');
+                        window.setTimeout(function () {
+                            p.setAttribute('hidden', '');
+                            p.classList.remove('tab-features__panel--hide');
+                        }, reduced ? 0 : 500);
+                    }
+                });
+            });
+        });
+    })();
 });
 </script>
 @endsection
