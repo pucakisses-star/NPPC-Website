@@ -268,6 +268,62 @@
         }
         .cp-opt.is-selected .cp-opt-key { background: var(--cp-accent); border-color: var(--cp-accent); color: #fff; }
 
+        /* Perception-check slider question (guess the percentage) */
+        .cp-part-badge--perceptions { color: #31425c; background: rgba(49,66,92,.1); }
+        .cp-progress-meta .part--perceptions { color: #31425c; }
+        .cp-guess-q { text-align: center; }
+        .cp-guess-ctarow { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 2px 0 40px; }
+        .cp-guess-ctarow[hidden] { display: none; }
+        .cp-guess-hint { margin: 0; color: var(--cp-bad); font-size: 17px; font-weight: 600; }
+        .cp-guess-submit {
+            background: var(--cp-teal); color: #fff; font-weight: 700; font-size: 16px;
+            border: none; border-radius: 10px; padding: 10px 24px;
+            box-shadow: 0 4px 12px -5px rgba(42,109,129,.8); transition: background .15s;
+        }
+        .cp-guess-submit:hover { background: #235a6b; }
+        .cp-slider { position: relative; padding-top: 46px; margin: 0 6px; }
+        .cp-slider-val {
+            position: absolute; top: 0; transform: translateX(-50%);
+            font-size: 28px; font-weight: 900; color: var(--cp-ink); white-space: nowrap;
+        }
+        .cp-range { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 24px; margin: 0; background: transparent; }
+        .cp-range:focus { outline: none; }
+        .cp-range:focus-visible { outline: 2px solid var(--cp-teal); outline-offset: 4px; border-radius: 6px; }
+        .cp-range::-webkit-slider-runnable-track { height: 2px; background: #7d8288; border-radius: 2px; }
+        .cp-range::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; margin-top: -10px;
+            background: var(--cp-accent); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--cp-ink); cursor: grab;
+        }
+        .cp-range::-moz-range-track { height: 2px; background: #7d8288; border-radius: 2px; }
+        .cp-range::-moz-range-thumb {
+            width: 16px; height: 16px; border-radius: 50%;
+            background: var(--cp-accent); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--cp-ink); cursor: grab;
+        }
+        .cp-range[disabled]::-webkit-slider-thumb { cursor: default; }
+        .cp-range[disabled]::-moz-range-thumb { cursor: default; }
+        .cp-guess-actual {
+            position: absolute; top: 51px; width: 14px; height: 14px; border-radius: 50%;
+            background: var(--cp-gold); box-shadow: 0 0 0 2px #fff; transform: translateX(-50%); pointer-events: none;
+        }
+        .cp-axis { margin-top: 26px; }
+        .cp-axis-line { position: relative; height: 36px; }
+        .cp-axis-line::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: #cfd6da; }
+        .cp-tick { position: absolute; top: 0; transform: translateX(-50%); text-align: center; color: #9aa1a7; font-weight: 700; font-size: 15px; }
+        .cp-tick::before { content: ""; display: block; width: 1px; height: 8px; background: #cfd6da; margin: 0 auto 6px; }
+        .cp-axis-caption { text-align: center; color: #9aa1a7; font-size: 13px; margin-top: 10px; }
+        .cp-guess-feedback { margin-top: 30px; text-align: center; }
+        .cp-guess-feedback p { font-size: 17px; line-height: 1.55; margin: 0 0 20px; }
+        .cp-guess-feedback .you { color: var(--cp-accent); font-weight: 800; }
+        .cp-guess-feedback .act { color: #8a6210; font-weight: 800; }
+        .cp-guess-rows { display: flex; flex-direction: column; gap: 14px; }
+        .cp-guess-row .top { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+        .cp-guess-row .top .v { color: var(--cp-muted); font-weight: 600; }
+        .cp-guess-track { position: relative; height: 12px; background: var(--cp-line); border-radius: 999px; }
+        .cp-gdot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px #fff; }
+        .cp-gdot--you { background: var(--cp-accent); }
+        .cp-gdot--act { background: var(--cp-gold); }
+        .cp-guess-legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: baseline; }
+
         .cp-stage-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 26px; }
         .cp-back { background: none; border: none; color: var(--cp-muted); font-weight: 700; font-size: 15px; padding: 8px 4px; }
         .cp-back:hover { color: var(--cp-ink); }
@@ -757,6 +813,22 @@
                     { min: 24, max: 30, name: 'Civic Leader', desc: 'You live civic engagement. Few forms of participation are foreign to you: you organize, show up, give, and bring others with you.' }
                 ]
             },
+            perceptions: {
+                title: 'Perception Check',
+                definition: 'In 2025, More in Common surveyed 5,000 Americans from all 50 states and asked: what are the responsibilities of being an American? Before Part 3, guess how your fellow Americans answered. Drag the dot to your guess, then submit — there is no penalty for being wrong.',
+                questions: [
+                    { label: 'Defending freedom', term: 'defending freedom', actual: 87, note: 'The vast majority of Americans see defending freedom as a civic responsibility.' },
+                    { label: 'Voting', term: 'voting', actual: 86, note: 'About 9 in 10 Americans also put “following the Constitution” (91%) and “paying your taxes” (89%) in the same near-universal tier.' },
+                    { label: 'Protesting unfairness', term: 'protesting unfairness', actual: 56, note: 'Only a little over half of Americans see protesting unfairness as a civic responsibility — a gap the NPPC works to close.' },
+                    { label: 'Welcoming refugees', term: 'welcoming refugees', actual: 47, note: 'Less than half of Americans see welcoming refugees as a civic responsibility, alongside “joining the military” (40%) and “donating to charity” (36%).' }
+                ],
+                tiers: [
+                    { max: 7, name: 'Finger on the Pulse', desc: 'Your sense of where your fellow Americans stand is remarkably accurate.' },
+                    { max: 15, name: 'Well Calibrated', desc: 'Your guesses tracked closely with what Americans actually said.' },
+                    { max: 25, name: 'Broadly Aware', desc: 'You have the general shape right, though a few answers likely surprised you.' },
+                    { max: 101, name: 'Ready to Recalibrate', desc: 'Americans’ actual views differ a good deal from your guesses — which is exactly why measuring them matters.' }
+                ]
+            },
             knowledge: {
                 title: 'Knowledge',
                 definition: 'Civic knowledge is an understanding of how our political system works, the rights and responsibilities of people within it, and the key events, movements, and figures that shaped it. Each question has one correct answer.',
@@ -794,19 +866,25 @@
         const PARTS = ['values', 'engagement', 'knowledge'];
         const steps = [{ type: 'intro' }];
         PARTS.forEach(function (p) {
+            if (p === 'knowledge') {
+                // Perception-check interlude sits between Part 2 and Part 3.
+                steps.push({ type: 'guessintro' });
+                QUIZ.perceptions.questions.forEach(function (_, i) { steps.push({ type: 'guess', i: i }); });
+            }
             steps.push({ type: 'part', part: p });
             QUIZ[p].questions.forEach(function (_, i) { steps.push({ type: 'q', part: p, i: i }); });
         });
         steps.push({ type: 'results' });
 
-        const answers = { values: [], engagement: [], knowledge: [] };
+        const answers = { values: [], engagement: [], knowledge: [], perceptions: [] };
+        const guessDraft = {};
         let cur = 0;
         let locked = false;
         const root = document.getElementById('cp-app');
 
-        const totalQ = QUIZ.values.questions.length + QUIZ.engagement.questions.length + QUIZ.knowledge.questions.length;
+        const totalQ = QUIZ.values.questions.length + QUIZ.engagement.questions.length + QUIZ.knowledge.questions.length + QUIZ.perceptions.questions.length;
         function answeredCount() {
-            return PARTS.reduce(function (n, p) {
+            return PARTS.concat(['perceptions']).reduce(function (n, p) {
                 return n + answers[p].filter(function (x) { return x != null; }).length;
             }, 0);
         }
@@ -834,7 +912,7 @@
         }
 
         function partProgress(part, i) {
-            const labels = { values: 'Part 1 · Values', engagement: 'Part 2 · Engagement', knowledge: 'Part 3 · Knowledge' };
+            const labels = { values: 'Part 1 · Values', engagement: 'Part 2 · Engagement', perceptions: 'Interlude · Perception Check', knowledge: 'Part 3 · Knowledge' };
             return '<div class="cp-progress">'
                 + '<div class="cp-progress-meta"><span class="part part--' + part + '">' + labels[part] + '</span>'
                 + '<span>Question ' + (i + 1) + ' of ' + QUIZ[part].questions.length + '</span></div>'
@@ -847,6 +925,8 @@
             if (s.type === 'intro') return renderIntro();
             if (s.type === 'part') return renderPartIntro(s.part);
             if (s.type === 'q') return renderQuestion(s.part, s.i);
+            if (s.type === 'guessintro') return renderGuessIntro();
+            if (s.type === 'guess') return renderGuess(s.i);
             if (s.type === 'results') return renderResults();
         }
 
@@ -885,6 +965,94 @@
                 + '</div>'
                 + '<div style="text-align:center;margin-top:18px"><button class="cp-back" id="cp-back">← Back</button></div>';
             document.getElementById('cp-continue').addEventListener('click', function () { go(cur + 1); });
+            document.getElementById('cp-back').addEventListener('click', function () { go(cur - 1); });
+        }
+
+        function renderGuessIntro() {
+            const q = QUIZ.perceptions;
+            root.innerHTML =
+                '<div class="cp-partintro">'
+                + '<div class="step" style="color:#31425c">Interlude</div>'
+                + '<h2>' + esc(q.title) + '</h2>'
+                + '<p>' + esc(q.definition) + '</p>'
+                + '<button class="cp-btn" id="cp-continue">Start Guessing</button>'
+                + '</div>'
+                + '<div style="text-align:center;margin-top:18px"><button class="cp-back" id="cp-back">← Back</button></div>';
+            document.getElementById('cp-continue').addEventListener('click', function () { go(cur + 1); });
+            document.getElementById('cp-back').addEventListener('click', function () { go(cur - 1); });
+        }
+
+        function renderGuess(i) {
+            const q = QUIZ.perceptions.questions[i];
+            const submitted = answers.perceptions[i] != null;
+            const val = submitted ? answers.perceptions[i] : (guessDraft[i] != null ? guessDraft[i] : 50);
+
+            const ticks = [0, 25, 50, 75, 100].map(function (t) {
+                return '<span class="cp-tick" style="left:' + t + '%">' + t + '%</span>';
+            }).join('');
+
+            let ctaOrFeedback;
+            if (submitted) {
+                const diff = Math.abs(val - q.actual);
+                const lead = diff <= 5 ? 'Impressively close.' : diff <= 15 ? 'Not far off.' : 'Most people are surprised.';
+                ctaOrFeedback =
+                    '<div class="cp-guess-feedback">'
+                    + '<p>You said <span class="you">' + val + '%</span>. The actual answer is <span class="act">' + q.actual + '%</span>. '
+                    + esc(lead) + ' ' + esc(q.note) + '</p>'
+                    + '<button class="cp-btn" id="cp-guess-continue">Continue</button>'
+                    + '<p class="cp-note">Source: More in Common’s 2025 survey of 5,000 Americans.</p>'
+                    + '</div>';
+            } else {
+                ctaOrFeedback = '';
+            }
+
+            root.innerHTML =
+                partProgress('perceptions', i)
+                + '<div class="cp-stage">'
+                + '<span class="cp-part-badge cp-part-badge--perceptions">Perception Check</span>'
+                + '<p class="cp-q cp-guess-q">What percent of Americans do you think view <strong>&ldquo;' + esc(q.term) + '&rdquo;</strong> as a civic responsibility?</p>'
+                + '<div class="cp-guess-ctarow"' + (submitted ? ' hidden' : '') + '>'
+                + '<p class="cp-guess-hint">Drag the dot to your guess.</p>'
+                + '<button class="cp-guess-submit" id="cp-guess-submit">Submit</button>'
+                + '</div>'
+                + '<div class="cp-slider">'
+                + '<div class="cp-slider-val" id="cp-slider-val"></div>'
+                + '<input class="cp-range" id="cp-range" type="range" min="0" max="100" step="1" value="' + val + '"'
+                + (submitted ? ' disabled' : '') + ' aria-label="Your guess, as a percent of Americans">'
+                + (submitted ? '<span class="cp-guess-actual" style="left:' + q.actual + '%" aria-hidden="true"></span>' : '')
+                + '</div>'
+                + '<div class="cp-axis" aria-hidden="true">'
+                + '<div class="cp-axis-line">' + ticks + '</div>'
+                + '<div class="cp-axis-caption">% selecting behavior</div>'
+                + '</div>'
+                + ctaOrFeedback
+                + '<div class="cp-stage-foot">'
+                + '<button class="cp-back" id="cp-back">← Back</button>'
+                + '<span class="cp-tap-hint">' + (submitted ? 'Tap Continue to move on' : 'Drag the dot, then tap Submit') + '</span>'
+                + '</div>'
+                + '</div>';
+
+            const range = document.getElementById('cp-range');
+            const label = document.getElementById('cp-slider-val');
+            function place() {
+                const v = parseInt(range.value, 10);
+                label.textContent = v + '%';
+                // Track the thumb center: the thumb (22px) travels the track minus its own width.
+                label.style.left = 'calc(' + v + '% + ' + ((0.5 - v / 100) * 22).toFixed(1) + 'px)';
+            }
+            place();
+            if (!submitted) {
+                range.addEventListener('input', function () {
+                    guessDraft[i] = parseInt(range.value, 10);
+                    place();
+                });
+                document.getElementById('cp-guess-submit').addEventListener('click', function () {
+                    answers.perceptions[i] = parseInt(range.value, 10);
+                    render();
+                });
+            } else {
+                document.getElementById('cp-guess-continue').addEventListener('click', function () { go(cur + 1); });
+            }
             document.getElementById('cp-back').addEventListener('click', function () { go(cur - 1); });
         }
 
@@ -967,6 +1135,16 @@
             return { sum: sum, max: QUIZ.engagement.questions.length * 3, level: level };
         }
 
+        function scorePerceptions() {
+            const rows = QUIZ.perceptions.questions.map(function (q, i) {
+                return { q: q, guess: answers.perceptions[i] };
+            }).filter(function (r) { return r.guess != null; });
+            if (!rows.length) return null;
+            const avg = Math.round(rows.reduce(function (a, r) { return a + Math.abs(r.guess - r.q.actual); }, 0) / rows.length);
+            const tier = QUIZ.perceptions.tiers.find(function (t) { return avg <= t.max; });
+            return { rows: rows, avg: avg, tier: tier };
+        }
+
         function scoreKnowledge() {
             let correct = 0;
             const missed = [];
@@ -1034,6 +1212,8 @@
                 + '<div><div class="cp-score-tier">' + esc(e.level.name) + '</div><p style="margin:0;color:var(--cp-muted)">' + esc(e.level.desc) + '</p></div>'
                 + '</div></div>'
 
+                + perceptionCard()
+
                 + '<div class="cp-res-card">'
                 + '<div class="label">Part 3 · Civic Knowledge</div>'
                 + '<div class="cp-score-row">' + ring
@@ -1060,9 +1240,31 @@
                 + '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.412c0-3.027 1.792-4.7 4.533-4.7 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073"/></svg></a>';
 
             document.getElementById('cp-retake').addEventListener('click', function () {
-                answers.values = []; answers.engagement = []; answers.knowledge = [];
+                answers.values = []; answers.engagement = []; answers.knowledge = []; answers.perceptions = [];
+                Object.keys(guessDraft).forEach(function (k) { delete guessDraft[k]; });
                 go(0);
             });
+        }
+
+        function perceptionCard() {
+            const p = scorePerceptions();
+            if (!p) return '';
+            const rows = p.rows.map(function (r) {
+                return '<div class="cp-guess-row">'
+                    + '<div class="top"><span>' + esc(r.q.label) + '</span>'
+                    + '<span class="v">you ' + r.guess + '% · actual ' + r.q.actual + '%</span></div>'
+                    + '<div class="cp-guess-track">'
+                    + '<span class="cp-gdot cp-gdot--you" style="left:' + r.guess + '%"></span>'
+                    + '<span class="cp-gdot cp-gdot--act" style="left:' + r.q.actual + '%"></span>'
+                    + '</div></div>';
+            }).join('');
+            return '<div class="cp-res-card">'
+                + '<div class="label">Interlude · Perception Check</div>'
+                + '<h2>' + esc(p.tier.name) + '</h2>'
+                + '<p>' + esc(p.tier.desc) + ' On average, your guesses were within <strong>' + p.avg + ' points</strong> of what 5,000 Americans actually told More in Common.</p>'
+                + '<div class="cp-guess-rows">' + rows + '</div>'
+                + '<p class="cp-note cp-guess-legend" style="text-align:left"><span class="sw" style="background:var(--cp-accent)"></span>your guess &nbsp; <span class="sw" style="background:var(--cp-gold)"></span>actual</p>'
+                + '</div>';
         }
 
         function actionCard(href, ic, title, desc) {
