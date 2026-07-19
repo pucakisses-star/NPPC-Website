@@ -366,6 +366,10 @@ final class MergeDuplicatePrisoners extends Command
         // 1983-84 criminal-contempt grand-jury resister: same name, same
         // Puerto Rican independence/labor left.
         ['federico-cintron-fiallo', ['federico-cintron-fiallo-3']],
+        // The 1974 Soledad self-defense defendant entered twice from Black
+        // Panther sourcing, with and without the accent; the canonical
+        // carries the case row, the dup is a caseless stub.
+        ['inez-garcia', ['inez-garcia-2']],
     ];
 
     /**
