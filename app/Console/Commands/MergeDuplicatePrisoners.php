@@ -329,6 +329,9 @@ final class MergeDuplicatePrisoners extends Command
         // The 1969 hijacker-anarchist entered twice: the full record (photo,
         // case) and a Black Panther roster stub with no case. Same man.
         ['lorenzo-komboa-ervin', ['lorenzo-komboa-ervin-2']],
+        // The Holy Land Foundation chairman entered under both transliterations
+        // of his given name; same man, same 2008 conviction.
+        ['mohammad-el-mezain', ['mohamed-el-mezain']],
     ];
 
     /**
@@ -391,6 +394,8 @@ final class MergeDuplicatePrisoners extends Command
         // Both Frankfeld records carry the same 1952 Baltimore Smith Act
         // conviction; the duplicate's copy is dropped.
         'phil-frankfeld',
+        // Both el-Mezain records carry the same HLF conviction.
+        'mohammad-el-mezain',
     ];
 
     public function handle(): int
