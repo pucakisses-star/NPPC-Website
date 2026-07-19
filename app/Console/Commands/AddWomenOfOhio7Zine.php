@@ -19,11 +19,13 @@ final class AddWomenOfOhio7Zine extends Command {
         $slug = 'women-of-the-ohio-7';
         $payload = [
             'title' => 'The Women of the Ohio 7',
-            'description' => 'Zine of statements and autobiographical writings by Patricia Gros Levasseur, Carol Saucier Manning, and Barbara Curzi-Laaman — the three women among the seven United Freedom Front / Ohio 7 defendants tried in 1989 in Springfield, Massachusetts on federal sedition and RICO charges. The zine reproduces their pre-trial statements (including Manning\'s account of being held in the political prisoners\' Control Unit at Lexington, Kentucky before trial) and Pat Gros Levasseur\'s autobiographical narrative tracing her path from a working-class Maryland childhood through Civil Rights and anti-Vietnam organizing to the clandestine struggle. Opens with the labor hymn "Hearts starve as well as bodies, give us bread but give us roses too."',
+            'description' => 'Zine of statements and autobiographical writings by Patricia Gros Levasseur, Carol Saucier Manning, and Barbara Curzi-Laaman — the three women among the seven United Freedom Front / Ohio 7 defendants tried in 1989 in Springfield, Massachusetts on federal sedition and RICO charges. The zine reproduces their pre-trial statements (including Manning\'s account of being held in the political prisoners\' Control Unit at Lexington, Kentucky before trial) and Pat Gros Levasseur\'s autobiographical narrative tracing her path from a working-class Maryland childhood through Civil Rights and anti-Vietnam organizing to the clandestine struggle. Opens with the labor hymn "Hearts starve as well as bodies, give us bread but give us roses too." Published as a feature in Bulldozer (the Toronto prison-abolition magazine that became Prison News Service); scanned by the Freedom Archives (DOC510, Bulldozer collection).',
             'record_type' => 'document',
             'source_format' => 'zine',
             'file' => '/pdfs/zines/women-of-ohio-7.pdf',
+            'thumbnail' => '/thumbnails/women-of-ohio-7.jpg',
             'collection' => 'Movement Zines',
+            'publisher' => 'Bulldozer',
             'authors' => 'Patricia Gros Levasseur, Carol Saucier Manning, Barbara Curzi-Laaman',
             'subjects' => ['United Freedom Front', 'Ohio 7', 'Anti-imperialism', 'Political Prisoners', 'Women Political Prisoners'],
             'is_digitized' => true,
