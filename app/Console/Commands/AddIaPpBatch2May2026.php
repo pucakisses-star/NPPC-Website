@@ -62,18 +62,6 @@ final class AddIaPpBatch2May2026 extends Command {
                 'subjects' => ['Weather Underground', 'WUO', 'Bernardine Dohrn', 'Bill Ayers', 'Anti-Imperialism', 'New Left'],
             ],
             [
-                'slug' => 'collected-works-of-bla-vol-1',
-                'title' => "Collected Works of the Black Liberation Army, Volume 1",
-                'description' => "Anthology of communiques, theoretical statements, prison writings, and historical documents of the Black Liberation Army (BLA) — the armed Black liberation formation active in the United States from roughly 1971 through the early 1980s, which counted Assata Shakur, Mutulu Shakur, Sundiata Acoli, Sekou Odinga, Russell Maroon Shoatz, Dhoruba bin-Wahad, Jalil Muntaqim, and others among its named participants and political prisoners. Compiled by movement editors; circulating among prisoner-support and Black-radical-press networks. Volume 1.",
-                'record_type' => 'book',
-                'source_format' => 'anthology',
-                'file' => '/pdfs/ia-pp-may-2026-batch2/collected-works-of-bla-vol-1.pdf',
-                'collection' => 'Movement Reference',
-                'authors' => 'Black Liberation Army (collected)',
-                'publisher' => 'movement-distribution edition',
-                'subjects' => ['Black Liberation Army', 'BLA', 'Black Liberation', 'Assata Shakur', 'Mutulu Shakur', 'Sundiata Acoli', 'Political Prisoners'],
-            ],
-            [
                 'slug' => 'imprisoned-intellectuals-james-2003',
                 'title' => "Imprisoned Intellectuals: America's Political Prisoners Write on Life, Liberation, and Rebellion",
                 'description' => "2003 anthology (Rowman & Littlefield) edited by political philosopher Joy James. Collects essays, letters, and theoretical writings from incarcerated U.S. political prisoners across the Black liberation, Puerto Rican independence, American Indian Movement, white anti-imperialist, and Black-feminist generations — including Mumia Abu-Jamal, Angela Davis, George Jackson, Assata Shakur, Leonard Peltier, Marilyn Buck, Dhoruba bin-Wahad, Susan Rosenberg, and others. One of the most cited academic-context anthologies of incarcerated political writing.",

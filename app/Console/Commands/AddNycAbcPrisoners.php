@@ -67,31 +67,6 @@ final class AddNycAbcPrisoners extends Command {
             $this->warn('UPDATE skipped — Brian DiPippa not found.');
         }
 
-        // Register the April 2026 PP/POW listing PDF
-        $slug = 'nyc-abc-pppow-listing-april-2026';
-        $payload = [
-            'title' => 'NYC ABC Political Prisoner / POW Listing — April 2026',
-            'description' => 'Monthly compendium of United States political prisoners and prisoners of war, edition 19.3 (April 2026), compiled by the New York City Anarchist Black Cross. Includes contact addresses, inmate numbers, charges, and case histories for currently imprisoned long-term political prisoners across federal and state systems.',
-            'record_type' => 'document',
-            'source_format' => 'newsletter',
-            'file' => '/pdfs/nyc-abc/nycabc_polprislisting_april-2026_legal.pdf',
-            'collection' => 'NYC Anarchist Black Cross',
-            'publisher' => 'NYC ABC',
-            'year' => 2026,
-            'date' => '2026-04-01',
-            'subjects' => ['Anarchist Black Cross', 'Political Prisoners', 'Prisoners of War'],
-            'is_digitized' => true,
-            'published' => true,
-        ];
-        $existing = ArchiveRecord::where('slug', $slug)->first();
-        if ($existing) {
-            $existing->update($payload);
-            $this->info('RECORD updated: NYC ABC April 2026 listing.');
-        } else {
-            ArchiveRecord::create(['slug' => $slug] + $payload);
-            $this->info('RECORD added: NYC ABC April 2026 listing.');
-        }
-
         $this->info("\nDone. Added={$added} SkippedAdds={$skippedAdds}");
 
         return self::SUCCESS;
