@@ -128,3 +128,4 @@ require. Each links to the Commons File: page (full author/license details).
 | Arthur C. Townley | arthur-c-townley.jpg | Public domain (1922 portrait) | — | [File](https://commons.wikimedia.org/wiki/File:Portrait_of_A._C._Townley,_1922.jpg) |
 | Rod Coronado | `rodney-coronado.jpg` | CC BY 3.0 | Wolf Patrol (YouTube still), "Rod Coronado speaking in 2014" | https://commons.wikimedia.org/wiki/File:Rod_Coronado,_2014.jpg |
 | Bobby Hutton | `bobby-hutton.jpg` | Public domain | Black Panther Party posthumous memorial portrait, via archive.org "1960s leaflets" | https://commons.wikimedia.org/wiki/File:Bobby_Hutton_Posthumous.jpg |
+| Rubin "Hurricane" Carter | `rubin-carter.jpg` | CC BY-SA 2.0 | Michael Borkson (Flickr), Carter speaking at Bunker Hill Community College — Commons description identifies the subject | https://commons.wikimedia.org/wiki/File:Rubin_Carter.jpg |
