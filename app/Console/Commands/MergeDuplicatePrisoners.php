@@ -332,6 +332,10 @@ final class MergeDuplicatePrisoners extends Command
         // The Holy Land Foundation chairman entered under both transliterations
         // of his given name; same man, same 2008 conviction.
         ['mohammad-el-mezain', ['mohamed-el-mezain']],
+        // The Florida 4 Jane's Revenge defendant who took her case to trial,
+        // entered under both one-l and two-l spellings. Court records use
+        // "Gabriella".
+        ['gabriella-oropesa', ['gabriela-oropesa']],
     ];
 
     /**
@@ -396,6 +400,8 @@ final class MergeDuplicatePrisoners extends Command
         'phil-frankfeld',
         // Both el-Mezain records carry the same HLF conviction.
         'mohammad-el-mezain',
+        // Both Oropesa records carry the same federal FACE Act prosecution.
+        'gabriella-oropesa',
     ];
 
     public function handle(): int
