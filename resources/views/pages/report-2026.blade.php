@@ -404,6 +404,76 @@ the component is scoped to the "year in frames" band.
 @media (pointer: fine) { .tilted-slideshow__touch-hint { display: none; } }
 .tilted-slideshow--interacted .tilted-slideshow__touch-hint { display: none; }
 @media (prefers-reduced-motion: reduce) { .tilted-slideshow__item { transition: none; } }
+
+/* --------------------------------
+File#: _1_card-v12
+Title: Card v12
+Descr: Container of information used as teaser for further content exploration
+Usage: codyhouse.co/license
+Adapted to the r26 theme as the "past reports" band; the CodyHouse
+global reset is omitted and only the utilities the card uses are
+included, scoped to the band.
+-------------------------------- */
+.r26-pastreports { background: var(--deep); padding: 100px 0 130px; }
+.r26-pastreports {
+  --cf5-color-primary-hsl: 236, 99%, 67%;
+  --cf5-color-contrast-high-hsl: 230, 7%, 23%;
+  --cf5-color-contrast-higher-hsl: 230, 13%, 9%;
+  --cf5-color-bg-light-hsl: 240, 21%, 96%;
+  --cf5-color-contrast-lower-hsl: 240, 6%, 78%;
+  --cf5-space-xs: 0.75rem; --cf5-space-sm: 1.125rem; --cf5-space-md: 2rem;
+  --cf5-text-md: 1.4rem; --cf5-text-xs: 0.8rem;
+}
+.r26-pastreports .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 44px; }
+@media (max-width: 980px) { .r26-pastreports .grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
+
+.card-v12 {
+  --card-v12-transition-duration: .4s;
+  position: relative; z-index: 1; text-decoration: none; color: hsl(var(--cf5-color-contrast-higher-hsl));
+  display: block; background-color: hsla(var(--cf5-color-bg-light-hsl), 0.95);
+  will-change: transform; transition: box-shadow, transform; transition-duration: var(--card-v12-transition-duration);
+}
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .card-v12 { background-color: hsla(var(--cf5-color-bg-light-hsl), 0.8); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+}
+.card-v12::after { content: ""; position: absolute; z-index: 3; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: inherit; box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075); }
+.card-v12:hover { box-shadow: 0 0.9px 1.5px rgba(0,0,0,0.03), 0 3.1px 5.5px rgba(0,0,0,0.08), 0 14px 25px rgba(0,0,0,0.35); transform: translateY(-2px); }
+.card-v12__figure { margin: 0; position: relative; z-index: 2; clip-path: inset(0% var(--cf5-space-sm) 0% 0% round 0% 0.25em 0.25em 0%); will-change: clip-path; transition: clip-path var(--card-v12-transition-duration); }
+.card-v12__figure img { will-change: transform; transition: transform var(--card-v12-transition-duration); aspect-ratio: 16 / 10; object-fit: cover; filter: grayscale(30%) contrast(1.03); }
+.card-v12:hover .card-v12__figure { clip-path: inset(0% calc(var(--cf5-space-sm) + 80px) 0% 0% round 0% 0.25em 0.25em 0%); }
+.card-v12:hover .card-v12__figure img { transform: translateX(-40px); }
+.card-v12__separator { display: block; width: 32px; }
+.card-v12 .card-v12__icon { position: absolute; z-index: 1; right: var(--cf5-space-sm); top: calc(50% - 30px); height: 60px; width: 60px; opacity: 0; transform: translateX(-20px); will-change: transform; transition: transform, opacity; transition-duration: var(--card-v12-transition-duration); color: hsl(var(--cf5-color-contrast-higher-hsl)); }
+.card-v12__icon .icon-group > * { transform-origin: 57px 30px; will-change: transform; transition: transform var(--card-v12-transition-duration); }
+.card-v12__icon .icon-group > *:nth-child(2) { transform: rotate(35deg); }
+.card-v12__icon .icon-group > *:nth-child(3) { transform: rotate(-35deg); }
+.card-v12:hover .card-v12__icon { opacity: 1; transform: translateX(0); }
+.card-v12:hover .card-v12__icon .icon-group > *:nth-child(2),
+.card-v12:hover .card-v12__icon .icon-group > *:nth-child(3) { transform: rotate(0); }
+
+.cf5-letter-spacing-lg { letter-spacing: 0.1em; }
+.cf5-text-uppercase { text-transform: uppercase; }
+.cf5-color-contrast-higher { --cf5-color-o: 1; color: hsla(var(--cf5-color-contrast-higher-hsl), var(--cf5-color-o, 1)); }
+.cf5-text-xs { font-size: var(--cf5-text-xs); }
+.cf5-margin-y-xs { margin-top: var(--cf5-space-xs); margin-bottom: var(--cf5-space-xs); }
+.cf5-margin-x-auto { margin-left: auto; margin-right: auto; }
+.cf5-border-top { --cf5-border-o: 1; border-top: var(--cf5-border-width, 1px) var(--cf5-border-style, solid) hsla(var(--cf5-color-contrast-lower-hsl), var(--cf5-border-o, 1)); }
+.cf5-text-md { font-size: var(--cf5-text-md); font-weight: 800; line-height: 1.2; }
+.cf5-padding-md { padding: var(--cf5-space-md); }
+.cf5-text-center { text-align: center; }
+.cf5-width-100pc { width: 100%; }
+.cf5-block { display: block; }
+.cf5-radius-sm { border-radius: 0.125em; }
+.cf5-position-relative { position: relative; }
+.cf5-shadow-sm { box-shadow: 0 0.3px 0.4px rgba(0,0,0,0.025), 0 0.9px 1.5px rgba(0,0,0,0.05), 0 3.5px 6px rgba(0,0,0,0.1); }
+.cf5-radius-lg { border-radius: 0.5em; }
+.cf5-padding-top-sm { padding-top: var(--cf5-space-sm); }
+.cf5-border-contrast-higher { border-color: hsla(var(--cf5-color-contrast-higher-hsl), var(--cf5-border-o, 1)); }
+.cf5-border-opacity-10pc { --cf5-border-o: 0.1; }
+.cf5-color-opacity-50pc { --cf5-color-o: 0.5; }
+@media (prefers-reduced-motion: reduce) {
+  .card-v12, .card-v12__figure, .card-v12__figure img, .card-v12 .card-v12__icon, .card-v12__icon .icon-group > * { transition: none; }
+}
 </style>
 @endsection
 
@@ -1256,6 +1326,45 @@ the component is scoped to the "year in frames" band.
                         <a href="/calendar">See the calendar</a>.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- PAST REPORTS — teaser cards (CodyHouse _1_card-v12, adapted) --}}
+    <section class="r26-pastreports" id="past-reports">
+        <div class="r26-wrap">
+            <span class="r26-label rv">The record so far</span>
+            <h2 class="r26-title rv" style="font-size: clamp(1.7rem, 3vw, 2.4rem);">Past Reports</h2>
+
+            <div class="grid">
+                @foreach ([
+                    ['href' => '/report-2025', 'year' => 'Fiscal Year 2025', 'title' => 'While There Is a Soul in Prison', 'img' => 'freedom.jpg', 'alt' => 'Hands raised at a demonstration', 'desc' => 'The year the census went public — and the tracker began watching in real time.'],
+                    ['href' => '/report-2024', 'year' => 'Fiscal Year 2024', 'title' => 'Every Name Counted', 'img' => 'fence.jpg', 'alt' => 'A prison fence at dusk', 'desc' => 'Building the most complete record of U.S. political imprisonment ever assembled.'],
+                    ['href' => '/report-2023', 'year' => 'Fiscal Year 2023', 'title' => 'Documenting the Record', 'img' => 'candle.jpg', 'alt' => 'A single lit candle', 'desc' => 'Where it started: the first year of the coalition and the first thousand case files.'],
+                ] as $card)
+                <a href="{{ $card['href'] }}" class="card-v12 cf5-radius-lg cf5-shadow-sm">
+                    <div class="cf5-padding-md">
+                        <div class="cf5-text-center cf5-margin-y-xs">
+                            <span class="cf5-text-xs cf5-text-uppercase cf5-letter-spacing-lg cf5-color-contrast-higher cf5-color-opacity-50pc">{{ $card['year'] }}</span>
+                            <span class="card-v12__separator cf5-border-top cf5-border-contrast-higher cf5-border-opacity-10pc cf5-margin-x-auto cf5-margin-y-xs"></span>
+                            <h3 class="cf5-text-md cf5-color-contrast-higher">{{ $card['title'] }}</h3>
+                        </div>
+                        <div class="cf5-position-relative">
+                            <figure class="card-v12__figure">
+                                <img class="cf5-block cf5-width-100pc cf5-radius-sm" src="{{ asset('images/'.$card['img']) }}" alt="{{ $card['alt'] }}">
+                            </figure>
+                            <svg class="card-v12__icon" viewBox="0 0 64 60" aria-hidden="true">
+                                <g class="icon-group" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="9" y1="30" x2="57" y2="30" />
+                                    <line x1="57" y1="30" x2="42" y2="15" />
+                                    <line x1="57" y1="30" x2="42" y2="45" />
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="cf5-text-center cf5-padding-top-sm cf5-border-top cf5-border-contrast-higher cf5-border-opacity-10pc cf5-color-contrast-higher cf5-color-opacity-50pc" style="font-size: 0.95rem; margin-top: var(--cf5-space-sm);">{{ $card['desc'] }}</p>
+                    </div>
+                </a>
+                @endforeach
             </div>
         </div>
     </section>
