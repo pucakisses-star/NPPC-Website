@@ -13,13 +13,22 @@
            three-part overview band, and a sticky photo mosaic whose
            crimson "Take the Quiz" box expands to fill the screen.
            ============================================================ */
+        /* Dark is the site default; html[data-theme="light"] flips to light. */
         .cph-hero, .cph-overview, .cph-mosaic-area, .cph-quiz {
-            --cph-bg: #fbfbfe;
-            --cph-ink: #16181f;
-            --cph-grid: #ececf6;
+            --cph-bg: #000000;
+            --cph-ink: #ffffff;
+            --cph-grid: #15171f;
             --cph-gold: #f25c54;
             --cph-crimson: #5660fe;
             --cph-cta: #4049d6;
+            --cph-teal: #8b93ff;
+            --cph-gray: #a3a9b6;
+        }
+        html[data-theme="light"] .cph-hero, html[data-theme="light"] .cph-overview,
+        html[data-theme="light"] .cph-mosaic-area, html[data-theme="light"] .cph-quiz {
+            --cph-bg: #fbfbfe;
+            --cph-ink: #16181f;
+            --cph-grid: #ececf6;
             --cph-teal: #1a1a2e;
             --cph-gray: #686868;
         }
@@ -155,7 +164,8 @@
             font-size: clamp(1.5rem, 3.5vw, 3.125rem); white-space: nowrap;
         }
         .cph-cta-btn {
-            display: inline-block; margin-top: 2rem; background: #fff; color: var(--cph-ink);
+            /* Sits on the constant-indigo CTA box — colors stay fixed in both themes. */
+            display: inline-block; margin-top: 2rem; background: #fff; color: #16181f;
             border: 2px solid transparent; border-radius: 3.125rem; padding: 1rem 2.25rem;
             font-size: 1.25rem; font-weight: 600; text-decoration: none;
             transition: background .2s, color .2s, border-color .2s;
@@ -191,14 +201,24 @@
             --cp-accent: #5660fe;
             --cp-accent-dark: #4049d6;
             --cp-gold: #f25c54;
-            --cp-teal: #1a1a2e;
-            --cp-ink: #16181f;
-            --cp-muted: #686868;
-            --cp-line: #e5ebee;
-            --cp-bg: #fbfbfe;
-            --cp-card: #ffffff;
-            --cp-good: #1a1a2e;
+            --cp-teal: #8b93ff;
+            --cp-ink: #ffffff;
+            --cp-muted: #a3a9b6;
+            --cp-line: #262b38;
+            --cp-bg: #000000;
+            --cp-card: #16181f;
+            --cp-good: #8b93ff;
             --cp-bad: #f25c54;
+            --cp-coral-deep: #ff8a80;
+            --cp-perc-fg: #b9bdd8;
+            --cp-perc-bg: rgba(185,189,216,.12);
+            --cp-know-bg: rgba(139,147,255,.14);
+            --cp-eng-fg: #8b93ff;
+            --cp-axis-line: #333947;
+            --cp-axis-fg: #8f96a3;
+            --cp-track: #4a5060;
+            --cp-opt-hover: #1b1e29;
+            --cp-sel-bg: rgba(86,96,254,.16);
             position: relative; z-index: 1;
             max-width: 760px;
             margin: 0 auto;
@@ -207,6 +227,25 @@
             line-height: 1.5;
             scroll-margin-top: 84px;
         }
+        html[data-theme="light"] .cp {
+            --cp-teal: #1a1a2e;
+            --cp-ink: #16181f;
+            --cp-muted: #686868;
+            --cp-line: #e5ebee;
+            --cp-bg: #fbfbfe;
+            --cp-card: #ffffff;
+            --cp-good: #1a1a2e;
+            --cp-coral-deep: #c03e37;
+            --cp-perc-fg: #2a2a4a;
+            --cp-perc-bg: rgba(42,42,74,.1);
+            --cp-know-bg: rgba(26,26,46,.1);
+            --cp-eng-fg: #5660fe;
+            --cp-axis-line: #cfd6da;
+            --cp-axis-fg: #9aa1a7;
+            --cp-track: #7d8288;
+            --cp-opt-hover: #fafaff;
+            --cp-sel-bg: rgba(86,96,254,.06);
+        }
         .cp *, .cp *::before, .cp *::after { box-sizing: border-box; }
         .cp button { font-family: inherit; cursor: pointer; }
 
@@ -214,7 +253,7 @@
         .cp-hero { text-align: center; padding: 24px 0 8px; }
         .cp-eyebrow {
             text-transform: uppercase; letter-spacing: .14em; font-size: 13px;
-            font-weight: 700; color: var(--cp-accent); margin: 0 0 14px;
+            font-weight: 700; color: var(--cp-eng-fg); margin: 0 0 14px;
         }
         .cp-hero h1 {
             font-size: clamp(32px, 6vw, 52px); line-height: 1.04; margin: 0 0 16px;
@@ -240,7 +279,7 @@
         .cp-progress-meta { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--cp-muted); margin-bottom: 8px; }
         .cp-progress-meta .part { text-transform: uppercase; letter-spacing: .1em; }
         .cp-progress-meta .part--values { color: var(--cp-gold); }
-        .cp-progress-meta .part--engagement { color: var(--cp-accent); }
+        .cp-progress-meta .part--engagement { color: var(--cp-eng-fg); }
         .cp-progress-meta .part--knowledge { color: var(--cp-teal); }
         .cp-progress-track { height: 8px; background: var(--cp-line); border-radius: 999px; overflow: hidden; }
         .cp-progress-fill { height: 100%; background: var(--cp-accent); border-radius: 999px; transition: width .35s cubic-bezier(.4,0,.2,1); }
@@ -248,22 +287,22 @@
         /* Question stage */
         .cp-stage { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 18px; padding: 32px 28px; box-shadow: 0 12px 40px -28px rgba(22,24,31,.5); }
         .cp-part-badge { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
-        .cp-part-badge--values { color: #c03e37; background: rgba(242,92,84,.14); }
-        .cp-part-badge--engagement { color: var(--cp-accent); background: rgba(86,96,254,.12); }
-        .cp-part-badge--knowledge { color: var(--cp-teal); background: rgba(26,26,46,.1); }
+        .cp-part-badge--values { color: var(--cp-coral-deep); background: rgba(242,92,84,.14); }
+        .cp-part-badge--engagement { color: var(--cp-eng-fg); background: rgba(86,96,254,.12); }
+        .cp-part-badge--knowledge { color: var(--cp-teal); background: var(--cp-know-bg); }
         .cp-q { font-size: clamp(20px, 3.2vw, 26px); font-weight: 800; line-height: 1.25; margin: 0 0 24px; letter-spacing: -0.01em; }
         .cp-scale-hint { font-size: 13px; color: var(--cp-muted); margin: -14px 0 18px; }
 
         .cp-opts { display: flex; flex-direction: column; gap: 12px; }
         .cp-opt {
             display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
-            background: #fff; border: 2px solid var(--cp-line); border-radius: 12px;
+            background: var(--cp-card); border: 2px solid var(--cp-line); border-radius: 12px;
             padding: 16px 18px; font-size: 16px; font-weight: 600; color: var(--cp-ink);
             transition: border-color .12s ease, background .12s ease, transform .05s ease;
         }
-        .cp-opt:hover { border-color: var(--cp-accent); background: #fafaff; }
+        .cp-opt:hover { border-color: var(--cp-accent); background: var(--cp-opt-hover); }
         .cp-opt:active { transform: scale(.995); }
-        .cp-opt.is-selected { border-color: var(--cp-accent); background: rgba(86,96,254,.06); }
+        .cp-opt.is-selected { border-color: var(--cp-accent); background: var(--cp-sel-bg); }
         .cp-opt-key {
             flex: 0 0 auto; width: 30px; height: 30px; border-radius: 8px; background: var(--cp-bg);
             border: 1px solid var(--cp-line); display: inline-flex; align-items: center; justify-content: center;
@@ -272,8 +311,8 @@
         .cp-opt.is-selected .cp-opt-key { background: var(--cp-accent); border-color: var(--cp-accent); color: #fff; }
 
         /* Perception-check slider question (guess the percentage) */
-        .cp-part-badge--perceptions { color: #2a2a4a; background: rgba(42,42,74,.1); }
-        .cp-progress-meta .part--perceptions { color: #2a2a4a; }
+        .cp-part-badge--perceptions { color: var(--cp-perc-fg); background: var(--cp-perc-bg); }
+        .cp-progress-meta .part--perceptions { color: var(--cp-perc-fg); }
         .cp-guess-q { text-align: center; }
         .cp-guess-ctarow { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; margin: 2px 0 40px; }
         .cp-guess-ctarow[hidden] { display: none; }
@@ -292,37 +331,37 @@
         .cp-range { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 24px; margin: 0; background: transparent; }
         .cp-range:focus { outline: none; }
         .cp-range:focus-visible { outline: 2px solid var(--cp-teal); outline-offset: 4px; border-radius: 6px; }
-        .cp-range::-webkit-slider-runnable-track { height: 2px; background: #7d8288; border-radius: 2px; }
+        .cp-range::-webkit-slider-runnable-track { height: 2px; background: var(--cp-track); border-radius: 2px; }
         .cp-range::-webkit-slider-thumb {
             -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; margin-top: -10px;
-            background: var(--cp-accent); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--cp-ink); cursor: grab;
+            background: var(--cp-accent); border: 3px solid var(--cp-card); box-shadow: 0 0 0 2px var(--cp-ink); cursor: grab;
         }
-        .cp-range::-moz-range-track { height: 2px; background: #7d8288; border-radius: 2px; }
+        .cp-range::-moz-range-track { height: 2px; background: var(--cp-track); border-radius: 2px; }
         .cp-range::-moz-range-thumb {
             width: 16px; height: 16px; border-radius: 50%;
-            background: var(--cp-accent); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--cp-ink); cursor: grab;
+            background: var(--cp-accent); border: 3px solid var(--cp-card); box-shadow: 0 0 0 2px var(--cp-ink); cursor: grab;
         }
         .cp-range[disabled]::-webkit-slider-thumb { cursor: default; }
         .cp-range[disabled]::-moz-range-thumb { cursor: default; }
         .cp-guess-actual {
             position: absolute; top: 51px; width: 14px; height: 14px; border-radius: 50%;
-            background: var(--cp-gold); box-shadow: 0 0 0 2px #fff; transform: translateX(-50%); pointer-events: none;
+            background: var(--cp-gold); box-shadow: 0 0 0 2px var(--cp-card); transform: translateX(-50%); pointer-events: none;
         }
         .cp-axis { margin-top: 26px; }
         .cp-axis-line { position: relative; height: 36px; }
-        .cp-axis-line::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: #cfd6da; }
-        .cp-tick { position: absolute; top: 0; transform: translateX(-50%); text-align: center; color: #9aa1a7; font-weight: 700; font-size: 15px; }
-        .cp-tick::before { content: ""; display: block; width: 1px; height: 8px; background: #cfd6da; margin: 0 auto 6px; }
-        .cp-axis-caption { text-align: center; color: #9aa1a7; font-size: 13px; margin-top: 10px; }
+        .cp-axis-line::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--cp-axis-line); }
+        .cp-tick { position: absolute; top: 0; transform: translateX(-50%); text-align: center; color: var(--cp-axis-fg); font-weight: 700; font-size: 15px; }
+        .cp-tick::before { content: ""; display: block; width: 1px; height: 8px; background: var(--cp-axis-line); margin: 0 auto 6px; }
+        .cp-axis-caption { text-align: center; color: var(--cp-axis-fg); font-size: 13px; margin-top: 10px; }
         .cp-guess-feedback { margin-top: 30px; text-align: center; }
         .cp-guess-feedback p { font-size: 17px; line-height: 1.55; margin: 0 0 20px; }
-        .cp-guess-feedback .you { color: var(--cp-accent); font-weight: 800; }
-        .cp-guess-feedback .act { color: #c03e37; font-weight: 800; }
+        .cp-guess-feedback .you { color: var(--cp-eng-fg); font-weight: 800; }
+        .cp-guess-feedback .act { color: var(--cp-coral-deep); font-weight: 800; }
         .cp-guess-rows { display: flex; flex-direction: column; gap: 14px; }
         .cp-guess-row .top { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
         .cp-guess-row .top .v { color: var(--cp-muted); font-weight: 600; }
         .cp-guess-track { position: relative; height: 12px; background: var(--cp-line); border-radius: 999px; }
-        .cp-gdot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px #fff; }
+        .cp-gdot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--cp-card); }
         .cp-gdot--you { background: var(--cp-accent); }
         .cp-gdot--act { background: var(--cp-gold); }
         .cp-guess-legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: baseline; }
@@ -335,28 +374,28 @@
 
         /* Part intro card */
         .cp-partintro { text-align: center; padding: 18px 4px 6px; }
-        .cp-partintro .step { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--cp-accent); margin-bottom: 14px; }
+        .cp-partintro .step { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--cp-eng-fg); margin-bottom: 14px; }
         .cp-partintro h2 { font-size: clamp(26px, 4.5vw, 38px); font-weight: 900; margin: 0 0 16px; letter-spacing: -0.02em; }
         .cp-partintro p { font-size: 17px; color: var(--cp-muted); max-width: 520px; margin: 0 auto 28px; }
 
         /* Results */
         .cp-results-head { text-align: center; margin-bottom: 8px; }
-        .cp-results-head .eyebrow { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--cp-accent); }
+        .cp-results-head .eyebrow { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--cp-eng-fg); }
         .cp-results-head h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 900; margin: 10px 0 6px; letter-spacing: -0.02em; }
         .cp-summary { text-align: center; font-size: 17px; color: var(--cp-muted); max-width: 560px; margin: 0 auto 32px; }
 
         .cp-res-card { background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 18px; padding: 28px 26px; margin-bottom: 20px; }
         .cp-res-card .label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--cp-muted); margin-bottom: 8px; }
-        .cp-res-card h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 900; margin: 0 0 12px; color: var(--cp-accent); letter-spacing: -0.01em; }
+        .cp-res-card h2 { font-size: clamp(22px, 3.6vw, 30px); font-weight: 900; margin: 0 0 12px; color: var(--cp-eng-fg); letter-spacing: -0.01em; }
         .cp-res-card p { margin: 0 0 18px; font-size: 16px; color: var(--cp-ink); }
 
         .cp-bars { display: flex; flex-direction: column; gap: 14px; }
         .cp-bar .bar-top { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
         .cp-bar .bar-top .v { color: var(--cp-muted); }
-        .cp-bar.is-top .bar-top { color: var(--cp-accent); }
+        .cp-bar.is-top .bar-top { color: var(--cp-eng-fg); }
         .cp-bar-track { height: 12px; background: var(--cp-line); border-radius: 999px; overflow: hidden; }
-        .cp-bar-fill { height: 100%; border-radius: 999px; background: #c6cafc; transition: width .8s cubic-bezier(.4,0,.2,1); }
-        .cp-bar.is-top .cp-bar-fill { background: var(--cp-accent); }
+        .cp-bar-fill { height: 100%; border-radius: 999px; background: var(--cp-eng-fg); opacity: .45; transition: width .8s cubic-bezier(.4,0,.2,1); }
+        .cp-bar.is-top .cp-bar-fill { background: var(--cp-accent); opacity: 1; }
 
         .cp-score-row { display: flex; align-items: center; gap: 22px; }
         .cp-ring { flex: 0 0 auto; position: relative; width: 104px; height: 104px; }
@@ -378,7 +417,7 @@
         .cp-action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
         .cp-action { display: block; background: var(--cp-card); border: 1px solid var(--cp-line); border-radius: 14px; padding: 20px 18px; text-decoration: none; color: var(--cp-ink); transition: border-color .12s ease, transform .08s ease; }
         .cp-action:hover { border-color: var(--cp-accent); transform: translateY(-2px); }
-        .cp-action .ic { font-size: 22px; margin-bottom: 10px; color: var(--cp-accent); }
+        .cp-action .ic { font-size: 22px; margin-bottom: 10px; color: var(--cp-eng-fg); }
         .cp-action strong { display: block; font-size: 16px; margin-bottom: 4px; }
         .cp-action span { font-size: 13px; color: var(--cp-muted); }
 
@@ -497,11 +536,11 @@
             <div class="cph-ov-inner">
                 <p class="cph-ov-eyebrow">Part Three</p>
                 <div class="cph-ov-icon">
-                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12C20 8.7 14.6 7 8 7c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2 6.6 0 12 1.7 16 5 4-3.3 9.4-5 16-5 1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2-6.6 0-12 1.7-16 5Zm0 0v32" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linejoin="round"/></svg>
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12C20 8.7 14.6 7 8 7c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2 6.6 0 12 1.7 16 5 4-3.3 9.4-5 16-5 1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2-6.6 0-12 1.7-16 5Zm0 0v32" fill="none" stroke="#1a1a2e" style="stroke:var(--cph-teal)" stroke-width="3" stroke-linejoin="round"/></svg>
                 </div>
                 <h2>Knowledge</h2>
                 <p>Civic knowledge is an understanding of how our political system is structured, the rights and responsibilities of citizens, and key events, movements, and figures from our history.</p>
-                <a class="cph-ov-link" style="--acc:#1a1a2e" href="#cp-app">More about Knowledge</a>
+                <a class="cph-ov-link" style="--acc:var(--cph-teal)" href="#cp-app">More about Knowledge</a>
             </div>
         </div>
     </section>
@@ -941,9 +980,9 @@
                 + '<p class="cp-lede">An interactive quiz that measures your civic <strong>values</strong>, your <strong>engagement</strong>, and your <strong>knowledge</strong> of the rights, due process, and freedom to dissent that the NPPC defends.</p>'
                 + '</div>'
                 + '<div class="cp-parts">'
-                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.', '#f25c54')
-                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.', '#5660fe')
-                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.', '#1a1a2e')
+                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.', 'var(--cp-gold)')
+                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.', 'var(--cp-accent)')
+                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.', 'var(--cp-teal)')
                 + '</div>'
                 + '<div style="text-align:center">'
                 + '<button class="cp-btn" id="cp-start">Let’s Get Started</button>'
@@ -975,7 +1014,7 @@
             const q = QUIZ.perceptions;
             root.innerHTML =
                 '<div class="cp-partintro">'
-                + '<div class="step" style="color:#2a2a4a">Interlude</div>'
+                + '<div class="step" style="color:var(--cp-perc-fg)">Interlude</div>'
                 + '<h2>' + esc(q.title) + '</h2>'
                 + '<p>' + esc(q.definition) + '</p>'
                 + '<button class="cp-btn" id="cp-continue">Start Guessing</button>'
@@ -1178,7 +1217,7 @@
             // knowledge ring
             const R = 46, C = 2 * Math.PI * R, off = C * (1 - k.pct / 100);
             const ring = '<div class="cp-ring"><svg width="104" height="104" viewBox="0 0 104 104">'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" stroke-width="9"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" style="stroke:var(--cp-line)" stroke-width="9"></circle>'
                 + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#5660fe" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>'
                 + '</svg><div class="pct"><span class="num">' + k.pct + '%</span><span class="den">' + k.correct + ' / ' + k.total + '</span></div></div>';
 
@@ -1209,7 +1248,7 @@
                 + '<div class="label">Part 2 · Civic Engagement</div>'
                 + '<div class="cp-score-row">'
                 + '<div class="cp-ring"><svg width="104" height="104" viewBox="0 0 104 104">'
-                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" stroke-width="9"></circle>'
+                + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#e5ebee" style="stroke:var(--cp-line)" stroke-width="9"></circle>'
                 + '<circle cx="52" cy="52" r="' + R + '" fill="none" stroke="#5660fe" stroke-width="9" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - e.sum / e.max)).toFixed(1) + '"></circle>'
                 + '</svg><div class="pct"><span class="num">' + e.sum + '</span><span class="den">of ' + e.max + '</span></div></div>'
                 + '<div><div class="cp-score-tier">' + esc(e.level.name) + '</div><p style="margin:0;color:var(--cp-muted)">' + esc(e.level.desc) + '</p></div>'
