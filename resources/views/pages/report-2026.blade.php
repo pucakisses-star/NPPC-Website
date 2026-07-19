@@ -419,27 +419,28 @@ included, scoped to the band.
   --cf5-color-primary-hsl: 236, 99%, 67%;
   --cf5-color-contrast-high-hsl: 230, 7%, 23%;
   --cf5-color-contrast-higher-hsl: 230, 13%, 9%;
-  --cf5-color-bg-light-hsl: 240, 21%, 96%;
+  --cf5-color-bg-light-hsl: 0, 0%, 100%;
   --cf5-color-contrast-lower-hsl: 240, 6%, 78%;
   --cf5-space-xs: 0.75rem; --cf5-space-sm: 1.125rem; --cf5-space-md: 2rem;
   --cf5-text-md: 1.4rem; --cf5-text-xs: 0.8rem;
 }
-.r26-pastreports .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 44px; }
+.r26-pastreports .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 44px; }
 @media (max-width: 980px) { .r26-pastreports .grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
 
 .card-v12 {
   --card-v12-transition-duration: .4s;
+  font-family: system-ui, -apple-system, sans-serif;
   position: relative; z-index: 1; text-decoration: none; color: hsl(var(--cf5-color-contrast-higher-hsl));
   display: block; background-color: hsla(var(--cf5-color-bg-light-hsl), 0.95);
   will-change: transform; transition: box-shadow, transform; transition-duration: var(--card-v12-transition-duration);
 }
 @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-  .card-v12 { background-color: hsla(var(--cf5-color-bg-light-hsl), 0.8); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .card-v12 { background-color: hsla(var(--cf5-color-bg-light-hsl), 0.97); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 }
 .card-v12::after { content: ""; position: absolute; z-index: 3; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: inherit; box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075); }
 .card-v12:hover { box-shadow: 0 0.9px 1.5px rgba(0,0,0,0.03), 0 3.1px 5.5px rgba(0,0,0,0.08), 0 14px 25px rgba(0,0,0,0.35); transform: translateY(-2px); }
 .card-v12__figure { margin: 0; position: relative; z-index: 2; clip-path: inset(0% var(--cf5-space-sm) 0% 0% round 0% 0.25em 0.25em 0%); will-change: clip-path; transition: clip-path var(--card-v12-transition-duration); }
-.card-v12__figure img { will-change: transform; transition: transform var(--card-v12-transition-duration); aspect-ratio: 16 / 10; object-fit: cover; filter: grayscale(30%) contrast(1.03); }
+.card-v12__figure img { will-change: transform; transition: transform var(--card-v12-transition-duration); aspect-ratio: 4 / 5; object-fit: cover; }
 .card-v12:hover .card-v12__figure { clip-path: inset(0% calc(var(--cf5-space-sm) + 80px) 0% 0% round 0% 0.25em 0.25em 0%); }
 .card-v12:hover .card-v12__figure img { transform: translateX(-40px); }
 .card-v12__separator { display: block; width: 32px; }
@@ -458,7 +459,7 @@ included, scoped to the band.
 .cf5-margin-y-xs { margin-top: var(--cf5-space-xs); margin-bottom: var(--cf5-space-xs); }
 .cf5-margin-x-auto { margin-left: auto; margin-right: auto; }
 .cf5-border-top { --cf5-border-o: 1; border-top: var(--cf5-border-width, 1px) var(--cf5-border-style, solid) hsla(var(--cf5-color-contrast-lower-hsl), var(--cf5-border-o, 1)); }
-.cf5-text-md { font-size: var(--cf5-text-md); font-weight: 800; line-height: 1.2; }
+.cf5-text-md { font-size: var(--cf5-text-md); font-weight: 700; line-height: 1.2; }
 .cf5-padding-md { padding: var(--cf5-space-md); }
 .cf5-text-center { text-align: center; }
 .cf5-width-100pc { width: 100%; }
@@ -1399,11 +1400,6 @@ uses are included, scoped to the band ("@md" class names renamed
                 ] as $card)
                 <a href="{{ $card['href'] }}" class="card-v12 cf5-radius-lg cf5-shadow-sm">
                     <div class="cf5-padding-md">
-                        <div class="cf5-text-center cf5-margin-y-xs">
-                            <span class="cf5-text-xs cf5-text-uppercase cf5-letter-spacing-lg cf5-color-contrast-higher cf5-color-opacity-50pc">{{ $card['year'] }}</span>
-                            <span class="card-v12__separator cf5-border-top cf5-border-contrast-higher cf5-border-opacity-10pc cf5-margin-x-auto cf5-margin-y-xs"></span>
-                            <h3 class="cf5-text-md cf5-color-contrast-higher">{{ $card['title'] }}</h3>
-                        </div>
                         <div class="cf5-position-relative">
                             <figure class="card-v12__figure">
                                 <img class="cf5-block cf5-width-100pc cf5-radius-sm" src="{{ asset('images/'.$card['img']) }}" alt="{{ $card['alt'] }}">
@@ -1416,7 +1412,11 @@ uses are included, scoped to the band ("@md" class names renamed
                                 </g>
                             </svg>
                         </div>
-                        <p class="cf5-text-center cf5-padding-top-sm cf5-border-top cf5-border-contrast-higher cf5-border-opacity-10pc cf5-color-contrast-higher cf5-color-opacity-50pc" style="font-size: 0.95rem; margin-top: var(--cf5-space-sm);">{{ $card['desc'] }}</p>
+                        <div class="cf5-text-center cf5-margin-y-xs">
+                            <h3 class="cf5-text-md cf5-color-contrast-higher">{{ $card['title'] }}</h3>
+                            <span class="card-v12__separator cf5-border-top cf5-border-contrast-higher cf5-border-opacity-10pc cf5-margin-x-auto cf5-margin-y-xs cf5-block"></span>
+                            <span class="cf5-text-xs cf5-text-uppercase cf5-letter-spacing-lg cf5-color-contrast-higher cf5-color-opacity-50pc cf5-block">{{ $card['year'] }}</span>
+                        </div>
                     </div>
                 </a>
                 @endforeach
