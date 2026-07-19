@@ -118,6 +118,9 @@
             padding: 4rem 1.5rem; min-height: 100%;
         }
         .cph-ov-inner { max-width: 400px; display: flex; flex-direction: column; align-items: center; }
+        /* Equalize the three inner blocks so eyebrows, icons, and headings
+           align across columns despite different text lengths. */
+        @media (min-width: 901px) { .cph-ov-inner { min-height: 400px; } }
         .cph-ov-eyebrow {
             margin: 0 0 1.75rem; font-size: 1rem; font-weight: 500; color: var(--cph-ink); opacity: .75;
         }
@@ -1019,7 +1022,7 @@
                 + '<div class="cp-slider-val" id="cp-slider-val"></div>'
                 + '<input class="cp-range" id="cp-range" type="range" min="0" max="100" step="1" value="' + val + '"'
                 + (submitted ? ' disabled' : '') + ' aria-label="Your guess, as a percent of Americans">'
-                + (submitted ? '<span class="cp-guess-actual" style="left:' + q.actual + '%" aria-hidden="true"></span>' : '')
+                + (submitted ? '<span class="cp-guess-actual" style="left:calc(' + q.actual + '% + ' + ((0.5 - q.actual / 100) * 22).toFixed(1) + 'px)" aria-hidden="true"></span>' : '')
                 + '</div>'
                 + '<div class="cp-axis" aria-hidden="true">'
                 + '<div class="cp-axis-line">' + ticks + '</div>'
