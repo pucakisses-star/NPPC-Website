@@ -349,6 +349,23 @@ final class MergeDuplicatePrisoners extends Command
         // the birthdate; the dup's sole federal-arson case reassigns to it,
         // since the canonical had none.
         ['davon-de-andre-turner', ['davon-deandre-turner']],
+        // Geronimo Pratt entered twice; the canonical carries the birthdate,
+        // photo and all three case rows, the dup (from a Black Panther
+        // newspaper listing) has none.
+        ['elmer-geronimo-pratt', ['elmer-pratt']],
+        // Patricia Gros (Levasseur), United Freedom Front — same woman, same
+        // harboring conviction, entered under both name forms. The canonical
+        // carries the birthdate and the fuller case row (judge, dates).
+        ['patricia-gros-levasseur', ['pat-gros']],
+        // Both records say "born Cynthia Boston in New Rochelle in 1948" —
+        // the RNA Minister of Information jailed for Brink's grand-jury
+        // contempt. The canonical carries the birthdate, photo and aka.
+        ['iya-fulani-sunni-ali', ['fulani-sunni-ali']],
+        // The MOU labor leader arrested in 1975 (a Black Panther newspaper
+        // stub with no case) is the same Federico Cintrón Fiallo as the
+        // 1983-84 criminal-contempt grand-jury resister: same name, same
+        // Puerto Rican independence/labor left.
+        ['federico-cintron-fiallo', ['federico-cintron-fiallo-3']],
     ];
 
     /**
@@ -418,6 +435,12 @@ final class MergeDuplicatePrisoners extends Command
         // The Ángel dup's single case is a redundant copy of the Little Rock
         // arson already on the canonical (which holds two case rows).
         'aline-espinosa-villegas',
+        // The pat-gros dup's case is a less-complete copy of the harboring
+        // conviction already on the canonical (which carries judge and dates).
+        'patricia-gros-levasseur',
+        // Both Sunni-Ali records carry the same Brink's grand-jury contempt
+        // jailing (released October 1983); the dup's copy is dropped.
+        'iya-fulani-sunni-ali',
     ];
 
     public function handle(): int
