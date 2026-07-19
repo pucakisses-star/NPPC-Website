@@ -46,8 +46,6 @@ final class SelfHostRemainingIaRecords extends Command {
             'archive.org/details/lavenderredliber0000hobs'                              => 'lavender-and-red-hobson.pdf',
             'archive.org/details/lns-755'                                               => 'liberation-news-service-755-1976.pdf',
             'archive.org/details/libertad-update-january-251986'                        => 'libertad-update-january-25-1986.pdf',
-            'archive.org/details/libertad-july-august-1987'                             => 'libertad-july-august-1987-pfoc-alt.pdf',
-            'archive.org/details/libertad-may-1985'                                     => 'libertad-may-1985-pfoc-alt.pdf',
             'archive.org/details/Libertad_7_May1985_3325'                               => 'libertad-no-7-may-1985-alt-scan.pdf',
             'archive.org/details/Libertad_8_July-August1987_6597'                       => 'libertad-no-8-july-august-1987-alt-scan.pdf',
             'archive.org/details/nofascistusajohn0000moor'                              => 'no-fascist-usa-john-brown-anti-klan-committee.pdf',
