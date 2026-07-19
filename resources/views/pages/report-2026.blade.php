@@ -350,6 +350,60 @@ Adapted to the r26 dark theme; the CodyHouse global reset is omitted
 @media (prefers-reduced-motion: reduce) {
   .tab-features__panel--display, .tab-features__panel--hide { animation-duration: 0s; animation-delay: 0s; }
 }
+
+/* --------------------------------
+File#: _1_tilted-img-slideshow
+Title: Tilted Image Slideshow
+Descr: A slideshow plugin to loop through a list of 3 tilted images
+Usage: codyhouse.co/license
+Adapted to the r26 theme; the CodyHouse global reset is omitted and
+the component is scoped to the "year in frames" band.
+-------------------------------- */
+.r26-frames { background: var(--navy); padding: 100px 0; overflow: hidden; }
+.r26-frames {
+  --tm0-color-black-hsl: 240, 29%, 8%;
+  --tm0-color-white-hsl: 240, 21%, 94%;
+  --tm0-space-2xs: 0.5625rem; --tm0-space-sm: 1.125rem; --tm0-space-md: 2rem;
+  --tm0-text-sm: 1rem;
+  --tilted-slideshow-translate-x: 0px;
+  --tilted-slideshow-translate-z: 0px;
+  --tilted-slideshow-rotate-z: 0deg;
+}
+.r26-frames .grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: center; }
+@media (max-width: 900px) { .r26-frames .grid { grid-template-columns: 1fr; gap: 44px; } }
+.r26-frames-caption { font-size: 14px; color: var(--dim); margin-top: 34px; min-height: 1.5em; position: relative; z-index: 6; }
+
+.tm0-perspective-xs { perspective: 250px; }
+.tm0-position-relative { position: relative; }
+.tm0-sr-only { position: absolute; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; padding: 0; border: 0; white-space: nowrap; }
+
+.tilted-slideshow__item {
+  position: absolute; top: 0; left: 0;
+  transform: translateX(var(--tilted-slideshow-translate-x)) translateZ(var(--tilted-slideshow-translate-z)) rotateZ(var(--tilted-slideshow-rotate-z));
+  transition: transform 0.35s, opacity 0.35s;
+}
+.tilted-slideshow__item img { border-radius: 10px; box-shadow: 0 26px 70px rgba(0,0,0,.5); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.tilted-slideshow__item--top { position: relative; z-index: 3; }
+.tilted-slideshow__item--middle { z-index: 2; }
+.tilted-slideshow__item--bottom { z-index: 1; }
+.tilted-slideshow__item:nth-of-type(2) { --tilted-slideshow-rotate-z: -10deg; }
+.tilted-slideshow__item:nth-of-type(3) { --tilted-slideshow-rotate-z: 10deg; }
+.tilted-slideshow__item--middle { --tilted-slideshow-translate-z: -10px; }
+.tilted-slideshow__item--bottom { --tilted-slideshow-translate-z: -20px; }
+.tilted-slideshow__item--move-out { position: absolute; z-index: 4; opacity: 0; --tilted-slideshow-translate-x: 50px; }
+.tilted-slideshow__item--move-in { opacity: 0; --tilted-slideshow-translate-x: -50px; }
+.tilted-slideshow__item {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' opacity='0.9'/%3E%3Cline x1='15' y1='31' x2='47' y2='31' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cpolyline points='37 21 47 31 37 41' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E") 32 32, pointer;
+}
+.tilted-slideshow__touch-hint {
+  position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: 5;
+  font-size: var(--tm0-text-sm); background-color: hsla(var(--tm0-color-black-hsl), 0.9); color: hsl(var(--tm0-color-white-hsl));
+  padding: var(--tm0-space-2xs) var(--tm0-space-sm); border-radius: 50em;
+  -webkit-font-smoothing: antialiased; cursor: default;
+}
+@media (pointer: fine) { .tilted-slideshow__touch-hint { display: none; } }
+.tilted-slideshow--interacted .tilted-slideshow__touch-hint { display: none; }
+@media (prefers-reduced-motion: reduce) { .tilted-slideshow__item { transition: none; } }
 </style>
 @endsection
 
@@ -1125,6 +1179,35 @@ Adapted to the r26 dark theme; the CodyHouse global reset is omitted
         </div>
     </section>
 
+    {{-- THE YEAR IN FRAMES — tilted image slideshow (CodyHouse _1_tilted-img-slideshow, adapted) --}}
+    <section class="r26-frames" id="year-in-frames">
+        <div class="r26-wrap grid">
+            <div>
+                <span class="r26-label rv">One more look</span>
+                <h2 class="r26-title rv" style="font-size: clamp(1.7rem, 3vw, 2.4rem);">The Year in Frames</h2>
+                <p class="rv d2" style="color: var(--dim); max-width: 46ch;">Three images from the movement the census
+                spent fiscal year 2026 watching &mdash; the streets, the tables, and the hands that keep the work
+                going. Click or tap the stack to shuffle through.</p>
+            </div>
+            <div>
+                <div class="tilted-slideshow js-tilted-slideshow tm0-perspective-xs tm0-position-relative" id="r26-frames-stack">
+                    <figure class="tilted-slideshow__item tilted-slideshow__item--top" data-caption="A speaker rallies the crowd — the year the streets refused to go quiet.">
+                        <img src="{{ asset('images/become-a-partner.jpg') }}" alt="A speaker with a megaphone addresses a rally">
+                    </figure>
+                    <figure class="tilted-slideshow__item tilted-slideshow__item--middle" aria-hidden="true" data-caption="An NPPC outreach table — where the census meets the community.">
+                        <img src="{{ asset('images/events-hero.jpg') }}" alt="An NPPC outreach table at a community event">
+                    </figure>
+                    <figure class="tilted-slideshow__item tilted-slideshow__item--bottom" aria-hidden="true" data-caption="Many hands, one heart — the volunteers behind every case file.">
+                        <img src="{{ asset('images/volunteer.jpg') }}" alt="Hands painted red forming a heart">
+                    </figure>
+                    <p class="tilted-slideshow__touch-hint">Tap to see more</p>
+                    <p class="tm0-sr-only" aria-live="polite" id="r26-frames-live"></p>
+                </div>
+                <p class="r26-frames-caption" id="r26-frames-caption"></p>
+            </div>
+        </div>
+    </section>
+
     {{-- KEEP EXPLORING — tabbed features (CodyHouse _2_tabbed-features, adapted) --}}
     <section class="r26-explore" id="keep-exploring">
         <div class="r26-wrap">
@@ -1305,6 +1388,49 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, { threshold: 0.3 });
     document.querySelectorAll('.r26-fin-col').forEach(function (el) { bio.observe(el); });
+
+    // year-in-frames tilted slideshow (CodyHouse _1_tilted-img-slideshow behavior)
+    (function () {
+        var stack = document.getElementById('r26-frames-stack');
+        if (!stack) return;
+        var caption = document.getElementById('r26-frames-caption');
+        var live = document.getElementById('r26-frames-live');
+        var busy = false;
+        function items() { return stack.querySelectorAll('.tilted-slideshow__item'); }
+        function byRole(role) { return stack.querySelector('.tilted-slideshow__item--' + role); }
+        function paintCaption() {
+            var top = byRole('top');
+            if (top && caption) caption.textContent = top.getAttribute('data-caption') || '';
+            if (top && live) live.textContent = top.querySelector('img').alt;
+        }
+        function setRoles() {
+            var roles = ['top', 'middle', 'bottom'];
+            items().forEach(function (item, i) {
+                item.classList.remove('tilted-slideshow__item--top', 'tilted-slideshow__item--middle', 'tilted-slideshow__item--bottom');
+                item.classList.add('tilted-slideshow__item--' + roles[i]);
+                if (i === 0) { item.removeAttribute('aria-hidden'); } else { item.setAttribute('aria-hidden', 'true'); }
+            });
+        }
+        function advance() {
+            if (busy) return;
+            busy = true;
+            stack.classList.add('tilted-slideshow--interacted');
+            var top = byRole('top');
+            top.classList.add('tilted-slideshow__item--move-out');
+            window.setTimeout(function () {
+                top.classList.remove('tilted-slideshow__item--move-out');
+                stack.appendChild(top);
+                setRoles();
+                top.classList.add('tilted-slideshow__item--move-in');
+                void top.offsetWidth;
+                top.classList.remove('tilted-slideshow__item--move-in');
+                paintCaption();
+                busy = false;
+            }, reduced ? 0 : 350);
+        }
+        items().forEach(function (item) { item.addEventListener('click', advance); });
+        paintCaption();
+    })();
 
     // keep-exploring tabbed features (CodyHouse _2_tabbed-features behavior)
     (function () {
