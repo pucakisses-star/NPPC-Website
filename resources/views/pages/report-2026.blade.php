@@ -530,6 +530,82 @@ uses are included, scoped to the band ("@md" class names renamed
 .sj0-z-index-1 { z-index: 1; }
 .sj0-position-relative { position: relative; }
 @media (min-width: 64rem) { .sj0-col-6-md { grid-column-end: span 6; } }
+
+/* --------------------------------
+File#: _1_sticky-hero
+Title: Sticky Hero
+Descr: A sticky hero section that reveals its content on scroll
+Usage: codyhouse.co/license
+Adapted to the r26 theme; global reset omitted, utilities scoped.
+-------------------------------- */
+.r26-sticky {
+  --sy8-color-bg-hsl: 240, 29%, 8%;
+  --sy8-space-md: 2rem; --sy8-space-sm: 1.125rem;
+}
+.sticky-hero { position: relative; z-index: 1; }
+.sticky-hero__media {
+  position: relative; position: sticky; z-index: 1; top: 0; width: 100%; height: 100vh; overflow: hidden;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translateZ(0);
+}
+.sticky-hero--overlay-layer .sticky-hero__media::after {
+  content: ""; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;
+  background-color: hsl(var(--sy8-color-bg-hsl)); transition: opacity 1s;
+}
+.sticky-hero--media-is-fixed.sticky-hero--overlay-layer .sticky-hero__media::after { opacity: 0.65; }
+.sticky-hero--media-is-fixed.sticky-hero--scale .sticky-hero__media { transform: scale(0.9); }
+.sticky-hero__content { position: relative; z-index: 2; height: 100vh; display: flex; justify-content: center; align-items: center; transform: translateZ(0); }
+.sy8-text-component :where(h1, h2, h3, h4) { line-height: 1.2; margin-top: var(--sy8-space-md); margin-bottom: var(--sy8-space-sm); }
+.sy8-text-component :where(p) { line-height: 1.58; margin-bottom: var(--sy8-space-sm); }
+.sy8-text-component > *:first-child { margin-top: 0; }
+.sy8-text-component > *:last-child { margin-bottom: 0; }
+.sy8-max-width-sm { max-width: 48rem; }
+.sy8-container { width: calc(100% - 2*var(--sy8-space-md)); margin-left: auto; margin-right: auto; }
+.sy8-text-center { text-align: center; }
+.r26-sticky .sticky-hero__content h2 { color: #fff; font-weight: 900; font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -.02em; text-shadow: 0 4px 30px rgba(0,0,0,.5); }
+.r26-sticky .sticky-hero__content p { color: rgba(255,255,255,.85); font-size: clamp(1.05rem, 1.6vw, 1.3rem); text-shadow: 0 2px 18px rgba(0,0,0,.5); }
+@media (prefers-reduced-motion: reduce) { .sticky-hero__media, .sticky-hero--overlay-layer .sticky-hero__media::after { transition: none; } }
+
+/* --------------------------------
+File#: _1_diamond-grid
+Title: Diamond Grid
+Descr: Diamond shaped image gallery
+Usage: codyhouse.co/license
+Adapted to the r26 theme (links variant); global reset omitted,
+utilities scoped.
+-------------------------------- */
+.r26-diamonds { background: var(--deep); padding: 40px 0 140px; overflow: hidden; }
+.r26-diamonds {
+  --dd6-color-bg-hsl: 0, 0%, 100%;
+  --dd6-color-contrast-higher-hsl: 240, 29%, 8%;
+  --dd6-color-contrast-lower-hsl: 240, 22%, 16%;
+  --diamond-grid-gap: 10px;
+}
+.r26-diamonds .stage { max-width: 620px; margin: 0 auto; }
+.dd6-icon { height: var(--dd6-size, 1em); width: var(--dd6-size, 1em); display: inline-block; color: inherit; fill: currentColor; line-height: 1; flex-shrink: 0; max-width: initial; }
+.dd6-icon--xl { --dd6-size: 64px; }
+.diamond-grid { position: relative; z-index: 1; }
+.diamond-grid__inner { display: flex; flex-wrap: wrap; transform: scale(0.71) rotate(-45deg); }
+.diamond-grid__item { position: relative; display: block; width: calc(50% - var(--diamond-grid-gap)/2); padding-bottom: calc(50% - var(--diamond-grid-gap)/2); overflow: hidden; }
+.diamond-grid__item:nth-child(1), .diamond-grid__item:nth-child(3) { margin-right: var(--diamond-grid-gap); }
+.diamond-grid__item:nth-child(1), .diamond-grid__item:nth-child(2) { margin-bottom: var(--diamond-grid-gap); }
+.diamond-grid__img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.414) rotate(45deg); }
+.diamond-grid__item--link { text-decoration: none; }
+.diamond-grid__item--link::after { content: ""; position: absolute; z-index: 1; top: 0; left: 0; width: 100%; height: 100%; background-color: hsla(var(--dd6-color-contrast-higher-hsl), 0); transition: 0.3s; }
+.diamond-grid__item--link:hover::after { background-color: hsla(var(--dd6-color-contrast-higher-hsl), 0.85); }
+.diamond-grid__item--link:hover .diamond-grid__icon :nth-child(1),
+.diamond-grid__item--link:hover .diamond-grid__icon :nth-child(2) { opacity: 1; }
+.diamond-grid__item--link:hover .diamond-grid__icon :nth-child(1) { transform: scaleY(1); }
+.diamond-grid__item--link:hover .diamond-grid__icon :nth-child(2) { transform: scale(1); }
+.diamond-grid__icon { position: absolute; z-index: 2; font-size: var(--dd6-size); top: calc(50% - 0.5em); left: calc(50% - 0.5em); transform: scale(1.4) rotate(45deg); }
+.diamond-grid__icon :nth-child(1), .diamond-grid__icon :nth-child(2) { transform-origin: 50% 50%; opacity: 0; transition: opacity 0.3s, transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); }
+.diamond-grid__icon :nth-child(1) { transform: scaleY(0.5); }
+.diamond-grid__icon :nth-child(2) { transform: scale(0.5); }
+.dd6-bg-contrast-lower { background-color: hsla(var(--dd6-color-contrast-lower-hsl), 1); }
+.dd6-color-bg { color: hsla(var(--dd6-color-bg-hsl), 1); }
+.dd6-sr-only { position: absolute; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; padding: 0; border: 0; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .diamond-grid__item--link::after, .diamond-grid__icon :nth-child(1), .diamond-grid__icon :nth-child(2) { transition: none; } }
 </style>
 @endsection
 
@@ -1454,6 +1530,49 @@ uses are included, scoped to the band ("@md" class names renamed
         </div>
     </section>
 
+    {{-- STICKY HERO — (CodyHouse _1_sticky-hero, adapted) --}}
+    <div class="r26-sticky">
+        <div class="sticky-hero sticky-hero--overlay-layer sticky-hero--scale js-sticky-hero" id="r26-sticky-hero">
+            <div class="sticky-hero__media" role="img" aria-label="Bonus Army encampment at the United States Capitol, 1932" style="background-image: url('/storage/history/bonus-army.jpg');"></div>
+            <div class="sticky-hero__content">
+                <div class="sy8-container sy8-max-width-sm sy8-text-center sy8-text-component">
+                    <h2>The Whole World<br>Is Still Watching</h2>
+                    <p>Ninety-four years separate the Bonus Army's tents from this year's docket.
+                    The record keeps them on the same page &mdash; and the watching doesn't stop
+                    when the fiscal year does.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- DIAMOND GRID (LINKS) — (CodyHouse _1_diamond-grid, adapted) --}}
+    <section class="r26-diamonds" id="four-doors">
+        <div class="r26-wrap" style="text-align: center; margin-bottom: 10px;">
+            <span class="r26-label rv">Four doors in</span>
+        </div>
+        <div class="stage">
+            <div class="diamond-grid">
+                <div class="diamond-grid__inner">
+                    @foreach ([
+                        ['href' => '/history', 'img' => 'topics-movements.jpg', 'label' => 'Explore the history section'],
+                        ['href' => '/museum', 'img' => 'topics-organizations.jpg', 'label' => 'Walk the virtual museum'],
+                        ['href' => '/podcast', 'img' => 'public-phone.jpg', 'label' => 'Listen to the podcast'],
+                        ['href' => '/map', 'img' => 'topics-index.jpg', 'label' => 'Open the prisoner map'],
+                    ] as $d)
+                    <a class="diamond-grid__item diamond-grid__item--link dd6-bg-contrast-lower" href="{{ $d['href'] }}">
+                        <img class="diamond-grid__img" src="{{ asset('images/'.$d['img']) }}" alt="">
+                        <svg class="diamond-grid__icon dd6-icon dd6-icon--xl dd6-color-bg" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="45" x2="45" y2="19" />
+                            <polyline points="26 19 45 19 45 38" />
+                        </svg>
+                        <span class="dd6-sr-only">{{ $d['label'] }}</span>
+                    </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 <script>
@@ -1582,6 +1701,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, { threshold: 0.3 });
     document.querySelectorAll('.r26-fin-col').forEach(function (el) { bio.observe(el); });
+
+    // sticky hero (CodyHouse _1_sticky-hero behavior): pin state drives overlay + scale
+    (function () {
+        var hero = document.getElementById('r26-sticky-hero');
+        if (!hero) return;
+        var ticking = false;
+        function update() {
+            ticking = false;
+            var rect = hero.getBoundingClientRect();
+            var pinned = rect.top <= 0 && rect.bottom >= window.innerHeight;
+            hero.classList.toggle('sticky-hero--media-is-fixed', pinned);
+        }
+        window.addEventListener('scroll', function () {
+            if (!ticking) { ticking = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        update();
+    })();
 
     // year-in-frames tilted slideshow (CodyHouse _1_tilted-img-slideshow behavior)
     (function () {
