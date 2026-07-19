@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
  * Attaches profile photos to the AntifaWatch 600-663 backfill prisoners (the
  * same cohort handled by prisoner:backfill-antifawatch-cases) who had no photo.
  * Each image was pulled from that person's antifawatch.net database entry and
- * committed under public/images/prisoners/<file>. Every image was visually
+ * committed under database/data/photos/legacy/<file>. Every image was visually
  * verified to be an identifiable photo of the person.
  *
  * Nine of the searched names had no usable person-photo on antifawatch (their
@@ -83,9 +83,9 @@ final class SetAntifawatchBackfillPhotos extends Command
         $set = $skipped = $notFound = $missingFile = 0;
 
         foreach ($this->rows as [$name, $file]) {
-            $source = public_path("images/prisoners/{$file}");
+            $source = database_path("data/photos/legacy/{$file}");
             if (! is_file($source)) {
-                $this->warn("  source image missing: public/images/prisoners/{$file}");
+                $this->warn("  source image missing: database/data/photos/legacy/{$file}");
                 $missingFile++;
 
                 continue;

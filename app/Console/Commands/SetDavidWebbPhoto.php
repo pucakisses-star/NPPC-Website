@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Sets David Webb's prisoner photo from the committed, pre-cropped portrait at
- * public/images/prisoners/david-webb.jpg (a 3:4 crop of the original news photo),
+ * database/data/photos/legacy/david-webb.jpg (a 3:4 crop of the original news photo),
  * copying it onto the public disk where prisoner photos are served from.
  * Idempotent; only updates the prisoner if it exists.
  */
@@ -18,15 +18,15 @@ final class SetDavidWebbPhoto extends Command
 
     protected $description = 'Set David Webb\'s profile photo from the committed cropped image';
 
-    private const SOURCE = 'images/prisoners/david-webb.jpg';
+    private const SOURCE = 'data/photos/legacy/david-webb.jpg';
 
     private const PHOTO = 'prisoners/david-webb.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

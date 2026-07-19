@@ -17,15 +17,15 @@ final class SetMafiPhoto extends Command
 
     protected $description = "Set Shamim Mafi's profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/shamim-mafi.jpg';
+    private const SOURCE = 'data/photos/legacy/shamim-mafi.jpg';
 
     private const PHOTO = 'prisoners/shamim-mafi.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

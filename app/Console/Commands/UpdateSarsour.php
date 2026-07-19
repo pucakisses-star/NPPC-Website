@@ -19,15 +19,15 @@ final class UpdateSarsour extends Command
 
     protected $description = "Set Salah Sarsour's photo and add his ICE-detention case (released June 18, 2026)";
 
-    private const SOURCE = 'images/prisoners/salah-sarsour.jpg';
+    private const SOURCE = 'data/photos/legacy/salah-sarsour.jpg';
 
     private const PHOTO = 'prisoners/salah-sarsour.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

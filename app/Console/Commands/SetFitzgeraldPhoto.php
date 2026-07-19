@@ -21,8 +21,8 @@ final class SetFitzgeraldPhoto extends Command
 
     /** slug => committed source image under public/ */
     private const PHOTOS = [
-        'romaine-fitzgerald' => 'images/prisoners/romaine-fitzgerald.jpg',
-        'romaine-chip-fitzgerald' => 'images/prisoners/romaine-chip-fitzgerald.jpg',
+        'romaine-fitzgerald' => 'data/photos/legacy/romaine-fitzgerald.jpg',
+        'romaine-chip-fitzgerald' => 'data/photos/legacy/romaine-chip-fitzgerald.jpg',
     ];
 
     public function handle(): int
@@ -32,7 +32,7 @@ final class SetFitzgeraldPhoto extends Command
         foreach (self::PHOTOS as $slug => $source) {
             $sourcePath = public_path($source);
             if (! is_file($sourcePath)) {
-                $this->error('Source image not found: public/'.$source);
+                $this->error('Source image not found: database/'.$source);
 
                 continue;
             }

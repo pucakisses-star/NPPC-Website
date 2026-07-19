@@ -25,9 +25,9 @@ final class SetDegasProtestPhotos extends Command
         $set = 0;
 
         foreach (self::SLUGS as $slug) {
-            $source = public_path("images/prisoners/{$slug}.jpg");
+            $source = database_path("data/photos/legacy/{$slug}.jpg");
             if (! is_file($source)) {
-                $this->warn("Source image missing: public/images/prisoners/{$slug}.jpg");
+                $this->warn("Source image missing: database/data/photos/legacy/{$slug}.jpg");
 
                 continue;
             }

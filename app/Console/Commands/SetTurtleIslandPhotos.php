@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
  * assets carry a blurred-fill border that has been trimmed off); Micah Legnon,
  * arrested separately in Louisiana, comes from a WWLTV booking-photo graphic
  * (the "suspect in custody" panel cropped away). All were cropped to clean 3:4
- * portraits and committed under public/images/prisoners/. This command copies
+ * portraits and committed under database/data/photos/legacy/. This command copies
  * each onto the public disk (where prisoner photos are served from) and points
  * the record at it. Identities were verified individually against labeled
  * portraits before mapping each photo to a defendant. Idempotent; only updates
@@ -27,11 +27,11 @@ final class SetTurtleIslandPhotos extends Command
 
     /** slug => committed source image under public/ */
     private const PHOTOS = [
-        'zachary-page' => 'images/prisoners/zachary-page.jpg',
-        'audrey-carroll' => 'images/prisoners/audrey-carroll.jpg',
-        'tina-lai' => 'images/prisoners/tina-lai.jpg',
-        'dante-gaffield' => 'images/prisoners/dante-gaffield.jpg',
-        'micah-legnon' => 'images/prisoners/micah-legnon.jpg',
+        'zachary-page' => 'data/photos/legacy/zachary-page.jpg',
+        'audrey-carroll' => 'data/photos/legacy/audrey-carroll.jpg',
+        'tina-lai' => 'data/photos/legacy/tina-lai.jpg',
+        'dante-gaffield' => 'data/photos/legacy/dante-gaffield.jpg',
+        'micah-legnon' => 'data/photos/legacy/micah-legnon.jpg',
     ];
 
     public function handle(): int
@@ -42,7 +42,7 @@ final class SetTurtleIslandPhotos extends Command
         foreach (self::PHOTOS as $slug => $source) {
             $sourcePath = public_path($source);
             if (! is_file($sourcePath)) {
-                $this->error('Source image not found: public/'.$source);
+                $this->error('Source image not found: database/'.$source);
 
                 continue;
             }

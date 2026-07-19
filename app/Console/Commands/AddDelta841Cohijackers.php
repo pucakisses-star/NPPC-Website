@@ -26,7 +26,7 @@ final class AddDelta841Cohijackers extends Command
 
     protected $description = "Set Melvin McNair's photo and add the missing Delta 841 co-hijackers";
 
-    private const MCNAIR_SOURCE = 'images/prisoners/melvin-mcnair.jpg';
+    private const MCNAIR_SOURCE = 'data/photos/legacy/melvin-mcnair.jpg';
 
     private const MCNAIR_PHOTO = 'prisoners/melvin-mcnair.jpg';
 

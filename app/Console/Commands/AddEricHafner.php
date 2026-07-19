@@ -20,7 +20,7 @@ final class AddEricHafner extends Command
 
     protected $description = 'Add Eric Hafner (incarcerated congressional candidate, FCI Otisville) with photo';
 
-    private const PHOTO_SOURCE = 'images/prisoners/eric-hafner.jpg';
+    private const PHOTO_SOURCE = 'data/photos/legacy/eric-hafner.jpg';
 
     private const PHOTO = 'prisoners/eric-hafner.jpg';
 

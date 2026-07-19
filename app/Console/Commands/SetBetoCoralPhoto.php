@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Sets Beto Coral's prisoner photo. The image was downloaded from Facebook
  * (whose CDN URLs are signed and expire) and committed to
- * public/images/prisoners/beto-coral.jpg; this command copies it onto the public
+ * database/data/photos/legacy/beto-coral.jpg; this command copies it onto the public
  * disk (where prisoner photos are served from) and points the record at it.
  * Idempotent; only updates the prisoner if it exists.
  */
@@ -19,15 +19,15 @@ final class SetBetoCoralPhoto extends Command
 
     protected $description = 'Set Beto Coral\'s profile photo from the committed image';
 
-    private const SOURCE = 'images/prisoners/beto-coral.jpg';
+    private const SOURCE = 'data/photos/legacy/beto-coral.jpg';
 
     private const PHOTO = 'prisoners/beto-coral.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

@@ -19,8 +19,8 @@ final class SetKarasevHillPhotos extends Command
 
     /** match fragment => [source under public/, public-disk path, label] */
     private const PHOTOS = [
-        'Karasev' => ['images/prisoners/peter-karasev.jpg', 'prisoners/peter-karasev.jpg', 'Peter Karasev'],
-        'Autumn Hill' => ['images/prisoners/autumn-hill.jpg', 'prisoners/autumn-hill.jpg', 'Autumn Hill'],
+        'Karasev' => ['data/photos/legacy/peter-karasev.jpg', 'prisoners/peter-karasev.jpg', 'Peter Karasev'],
+        'Autumn Hill' => ['data/photos/legacy/autumn-hill.jpg', 'prisoners/autumn-hill.jpg', 'Autumn Hill'],
     ];
 
     public function handle(): int

@@ -19,15 +19,15 @@ final class UpdateHugoCarvajal extends Command
 
     protected $description = 'Set Hugo Carvajal\'s photo, shorten his name, and clear the El Pollo AKA';
 
-    private const SOURCE = 'images/prisoners/hugo-carvajal.jpg';
+    private const SOURCE = 'data/photos/legacy/hugo-carvajal.jpg';
 
     private const PHOTO = 'prisoners/hugo-carvajal.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

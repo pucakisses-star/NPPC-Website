@@ -20,7 +20,7 @@ final class AddTrentenBarker extends Command
 
     protected $description = 'Add Trenten Edward Barker (BOP details, FCI Lompoc II case, photo)';
 
-    private const SOURCE = 'images/prisoners/trenten-barker.jpg';
+    private const SOURCE = 'data/photos/legacy/trenten-barker.jpg';
 
     private const PHOTO = 'prisoners/trenten-barker.jpg';
 
@@ -56,12 +56,12 @@ final class AddTrentenBarker extends Command
         }
 
         // Copy the committed photo onto the public disk where photos are served.
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (is_file($source)) {
             Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
             $this->info('Photo copied to public disk: '.self::PHOTO);
         } else {
-            $this->warn('Source image not found: public/'.self::SOURCE);
+            $this->warn('Source image not found: database/'.self::SOURCE);
         }
 
         // Ensure his case at FCI Lompoc II carries the incarceration date

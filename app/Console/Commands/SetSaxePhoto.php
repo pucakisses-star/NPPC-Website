@@ -17,15 +17,15 @@ final class SetSaxePhoto extends Command
 
     protected $description = "Set Susan Saxe's profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/susan-saxe.jpg';
+    private const SOURCE = 'data/photos/legacy/susan-saxe.jpg';
 
     private const PHOTO = 'prisoners/susan-saxe.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Sets Clíver Alcalá Cordones's profile photo from the committed, pre-processed
- * portrait at public/images/prisoners/cliver-alcala-cordones.jpg — a news photo
+ * portrait at database/data/photos/legacy/cliver-alcala-cordones.jpg — a news photo
  * rotated +18° so his head is upright and cropped to 3:4. Copies it onto the
  * public disk (where prisoner photos are served from) and points the record at
  * it. Idempotent; only updates the prisoner if it exists.
@@ -19,15 +19,15 @@ final class SetCliverAlcalaPhoto extends Command
 
     protected $description = 'Set Clíver Alcalá Cordones\'s profile photo from the committed cropped image';
 
-    private const SOURCE = 'images/prisoners/cliver-alcala-cordones.jpg';
+    private const SOURCE = 'data/photos/legacy/cliver-alcala-cordones.jpg';
 
     private const PHOTO = 'prisoners/cliver-alcala-cordones.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }
