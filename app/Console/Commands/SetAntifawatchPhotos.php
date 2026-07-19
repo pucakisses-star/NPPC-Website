@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Attaches profile photos to 53 prisoners who had none, sourced from
  * antifawatch.net's database entries for each person (mugshots, arrest photos,
- * and incident images), committed under public/images/prisoners/<slug>.jpg.
+ * and incident images), committed under database/data/photos/legacy/<slug>.jpg.
  * Each image was visually verified; composites were cropped to the person
  * (Carlos Matchett, Quinn McCormic, William Pierce).
  *
@@ -88,9 +88,9 @@ final class SetAntifawatchPhotos extends Command
         $set = 0;
 
         foreach (self::SLUGS as $slug) {
-            $source = public_path("images/prisoners/{$slug}.jpg");
+            $source = database_path("data/photos/legacy/{$slug}.jpg");
             if (! is_file($source)) {
-                $this->warn("  source image missing: public/images/prisoners/{$slug}.jpg");
+                $this->warn("  source image missing: database/data/photos/legacy/{$slug}.jpg");
 
                 continue;
             }

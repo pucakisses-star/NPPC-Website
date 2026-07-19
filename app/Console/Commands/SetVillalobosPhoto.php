@@ -17,15 +17,15 @@ final class SetVillalobosPhoto extends Command
 
     protected $description = "Set Nervis Villalobos Cárdenas's profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/nervis-villalobos-cardenas.jpg';
+    private const SOURCE = 'data/photos/legacy/nervis-villalobos-cardenas.jpg';
 
     private const PHOTO = 'prisoners/nervis-villalobos-cardenas.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

@@ -18,15 +18,15 @@ final class SetRockenhausPhoto extends Command
 
     protected $description = "Set Conrad Rockenhaus's profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/conrad-rockenhaus.jpg';
+    private const SOURCE = 'data/photos/legacy/conrad-rockenhaus.jpg';
 
     private const PHOTO = 'prisoners/conrad-rockenhaus.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

@@ -21,15 +21,15 @@ final class UpdateAubreyCottle extends Command
 
     protected $description = 'Update Aubrey Cottle: DOB, photo, and case incarceration date';
 
-    private const SOURCE = 'images/prisoners/aubrey-cottle.jpg';
+    private const SOURCE = 'data/photos/legacy/aubrey-cottle.jpg';
 
     private const PHOTO = 'prisoners/aubrey-cottle.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

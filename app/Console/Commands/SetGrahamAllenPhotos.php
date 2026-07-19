@@ -60,14 +60,14 @@ final class SetGrahamAllenPhotos extends Command
         $graham->slug = 'ernest-graham';
         $graham->aka = 'Shujaa Graham';
 
-        $source = public_path('images/prisoners/ernest-graham.jpg');
+        $source = database_path('data/photos/legacy/ernest-graham.jpg');
         if (is_file($source)) {
             Storage::disk('public')->put('prisoners/ernest-graham.jpg', file_get_contents($source));
             $graham->photo = 'prisoners/ernest-graham.jpg';
             // Remove the old, mis-slugged image file if it is still around.
             Storage::disk('public')->delete('prisoners/eugene-graham.jpg');
         } else {
-            $this->error('Source image not found: public/images/prisoners/ernest-graham.jpg');
+            $this->error('Source image not found: database/data/photos/legacy/ernest-graham.jpg');
         }
 
         $graham->save();
@@ -79,9 +79,9 @@ final class SetGrahamAllenPhotos extends Command
     /** Copy a committed image to the public disk and attach it to the record by slug. Returns the prisoner. */
     private function setPhoto(string $slug, string $nameLike, string $file): ?Prisoner
     {
-        $source = public_path('images/prisoners/'.$file);
+        $source = database_path('data/photos/legacy/'.$file);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/images/prisoners/'.$file);
+            $this->error('Source image not found: database/data/photos/legacy/'.$file);
 
             return null;
         }

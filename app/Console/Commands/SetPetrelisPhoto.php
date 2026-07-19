@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Sets Michael Petrelis's profile photo from the committed source image
- * (public/images/prisoners/michael-petrelis.jpg, a CC BY-SA 3.0 photo from
+ * (database/data/photos/legacy/michael-petrelis.jpg, a CC BY-SA 3.0 photo from
  * Wikimedia Commons). Copies it to the public disk and sets only the photo.
  * Matches the live record by slug, then surname. Idempotent.
  */
@@ -18,15 +18,15 @@ final class SetPetrelisPhoto extends Command
 
     protected $description = "Set Michael Petrelis's profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/michael-petrelis.jpg';
+    private const SOURCE = 'data/photos/legacy/michael-petrelis.jpg';
 
     private const PHOTO = 'prisoners/michael-petrelis.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

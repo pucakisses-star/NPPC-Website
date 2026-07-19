@@ -22,7 +22,7 @@ final class AddElijahGantt extends Command
 
     protected $description = 'Add Elijah Gantt (Ferguson 10th-anniversary protest arrest)';
 
-    private const SOURCE = 'images/prisoners/elijah-gantt.jpg';
+    private const SOURCE = 'data/photos/legacy/elijah-gantt.jpg';
 
     private const PHOTO = 'prisoners/elijah-gantt.jpg';
 
@@ -63,7 +63,7 @@ final class AddElijahGantt extends Command
         $prisoner->released = false;
         $prisoner->awaiting_trial = true;
 
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (is_file($source)) {
             Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
             $prisoner->photo = self::PHOTO;

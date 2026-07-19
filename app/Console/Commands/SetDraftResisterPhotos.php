@@ -41,9 +41,9 @@ final class SetDraftResisterPhotos extends Command
 
         $set = 0;
         foreach ($people as [$slug, $nameFragment, $file]) {
-            $source = public_path('images/prisoners/'.$file);
+            $source = database_path('data/photos/legacy/'.$file);
             if (! is_file($source)) {
-                $this->error("Source image not found: public/images/prisoners/{$file}");
+                $this->error("Source image not found: database/data/photos/legacy/{$file}");
 
                 continue;
             }

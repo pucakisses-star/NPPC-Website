@@ -22,7 +22,7 @@ final class AddJenniferRose extends Command
 
     protected $description = 'Create/update the Jennifer Rose (Jennifer Gann) prisoner page from her support page';
 
-    private const SOURCE = 'images/prisoners/jennifer-rose.jpg';
+    private const SOURCE = 'data/photos/legacy/jennifer-rose.jpg';
 
     private const PHOTO = 'prisoners/jennifer-rose.jpg';
 
@@ -76,12 +76,12 @@ final class AddJenniferRose extends Command
         }
 
         // Copy the committed photo onto the public disk where photos are served.
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (is_file($source)) {
             Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
             $this->info('Photo copied to public disk: '.self::PHOTO);
         } else {
-            $this->warn('Source image not found: public/'.self::SOURCE);
+            $this->warn('Source image not found: database/'.self::SOURCE);
         }
 
         // Attach a case at Salinas Valley State Prison, only if she has none yet

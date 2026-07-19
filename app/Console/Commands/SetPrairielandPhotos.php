@@ -35,7 +35,7 @@ final class SetPrairielandPhotos extends Command
 
     protected $description = 'Set profile photos for Prairieland Detention Center case defendants';
 
-    /** slug => committed source filename under public/images/prisoners/ */
+    /** slug => committed source filename under database/data/photos/legacy/ */
     private const PHOTOS = [
         'benjamin-song' => 'benjamin-song.jpg',
         'maricela-rueda' => 'maricela-rueda.jpg',
@@ -53,10 +53,10 @@ final class SetPrairielandPhotos extends Command
         $missingRecords = [];
 
         foreach (self::PHOTOS as $slug => $file) {
-            $source = public_path('images/prisoners/'.$file);
+            $source = database_path('data/photos/legacy/'.$file);
             if (! is_file($source)) {
                 $missingFiles[] = $file;
-                $this->error("Source image not found: public/images/prisoners/{$file}");
+                $this->error("Source image not found: database/data/photos/legacy/{$file}");
 
                 continue;
             }

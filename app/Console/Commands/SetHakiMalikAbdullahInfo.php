@@ -20,15 +20,15 @@ final class SetHakiMalikAbdullahInfo extends Command
 
     protected $description = 'Add Haki Malik Abdullah photo + BOP/CDCR details (C56123, Folsom State Prison)';
 
-    private const SOURCE = 'images/prisoners/haki-malik-abdullah.jpg';
+    private const SOURCE = 'data/photos/legacy/haki-malik-abdullah.jpg';
 
     private const PHOTO = 'prisoners/haki-malik-abdullah.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

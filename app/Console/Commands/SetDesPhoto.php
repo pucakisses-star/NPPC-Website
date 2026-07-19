@@ -20,15 +20,15 @@ final class SetDesPhoto extends Command
 
     protected $description = "Set Daniel Sanchez Estrada's (Des) profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/daniel-sanchez-estrada.jpg';
+    private const SOURCE = 'data/photos/legacy/daniel-sanchez-estrada.jpg';
 
     private const PHOTO = 'prisoners/daniel-sanchez-estrada.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

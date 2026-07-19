@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Sets Alexander Pridgen's profile photo from the committed booking photo at
- * public/images/prisoners/alexander-pridgen.jpg (cropped to 3:4). Copies it to
+ * database/data/photos/legacy/alexander-pridgen.jpg (cropped to 3:4). Copies it to
  * the public disk and points the record at it. Idempotent; matches the live
  * record by slug/name (it may not be present in a local snapshot).
  */
@@ -18,15 +18,15 @@ final class SetPridgenPhoto extends Command
 
     protected $description = 'Set Alexander Pridgen\'s profile photo from the committed cropped image';
 
-    private const SOURCE = 'images/prisoners/alexander-pridgen.jpg';
+    private const SOURCE = 'data/photos/legacy/alexander-pridgen.jpg';
 
     private const PHOTO = 'prisoners/alexander-pridgen.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

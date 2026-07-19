@@ -22,7 +22,7 @@ final class AddIsaacHandy extends Command
 
     protected $description = 'Add Rev. Isaac W. K. Handy (Civil War political prisoner, Fort Delaware) with photo';
 
-    private const SOURCE = 'images/prisoners/isaac-handy.jpg';
+    private const SOURCE = 'data/photos/legacy/isaac-handy.jpg';
 
     private const PHOTO = 'prisoners/isaac-handy.jpg';
 
@@ -71,13 +71,13 @@ final class AddIsaacHandy extends Command
         $prisoner->released = true;
 
         // Attach the committed photo via the public disk.
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (is_file($source)) {
             Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
             $prisoner->photo = self::PHOTO;
             $this->info('Copied photo to public disk: '.self::PHOTO);
         } else {
-            $this->warn('Source image not found: public/'.self::SOURCE);
+            $this->warn('Source image not found: database/'.self::SOURCE);
         }
         $prisoner->save();
 

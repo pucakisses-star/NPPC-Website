@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
  * Attaches the 1934 Multnomah County (Portland, Oregon) booking photograph of
  * Dirk DeJonge — of the landmark De Jonge v. Oregon (1937) — to his prisoner
  * record. The source is a dual front/profile mugshot; the committed image
- * (public/images/prisoners/dirk-dejonge.jpg) has been cropped to the
+ * (database/data/photos/legacy/dirk-dejonge.jpg) has been cropped to the
  * front-facing portrait. Only fills an empty photo field; idempotent.
  */
 final class SetDeJongePhoto extends Command
@@ -23,10 +23,10 @@ final class SetDeJongePhoto extends Command
     {
         $dry = (bool) $this->option('dry-run');
         $file = 'dirk-dejonge.jpg';
-        $source = public_path("images/prisoners/{$file}");
+        $source = database_path("data/photos/legacy/{$file}");
 
         if (! is_file($source)) {
-            $this->error("source image missing: public/images/prisoners/{$file}");
+            $this->error("source image missing: database/data/photos/legacy/{$file}");
 
             return self::FAILURE;
         }

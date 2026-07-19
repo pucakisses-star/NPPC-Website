@@ -24,7 +24,7 @@ final class AddEdwardSharpe extends Command
 
     protected $description = 'Add Dr. Edward S. Sharpe (anti-war Democrat, Fort Delaware political prisoner) with photo';
 
-    private const SOURCE = 'images/prisoners/edward-sharpe.jpg';
+    private const SOURCE = 'data/photos/legacy/edward-sharpe.jpg';
 
     private const PHOTO = 'prisoners/edward-sharpe.jpg';
 
@@ -70,13 +70,13 @@ final class AddEdwardSharpe extends Command
         $prisoner->in_custody = false;
         $prisoner->released = true;
 
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (is_file($source)) {
             Storage::disk('public')->put(self::PHOTO, file_get_contents($source));
             $prisoner->photo = self::PHOTO;
             $this->info('Copied photo to public disk: '.self::PHOTO);
         } else {
-            $this->warn('Source image not found: public/'.self::SOURCE);
+            $this->warn('Source image not found: database/'.self::SOURCE);
         }
         $prisoner->save();
 

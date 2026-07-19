@@ -17,15 +17,15 @@ final class SetWagnerPhoto extends Command
 
     protected $description = "Set Kyle Wagner's profile photo from the committed image";
 
-    private const SOURCE = 'images/prisoners/kyle-wagner.jpg';
+    private const SOURCE = 'data/photos/legacy/kyle-wagner.jpg';
 
     private const PHOTO = 'prisoners/kyle-wagner.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

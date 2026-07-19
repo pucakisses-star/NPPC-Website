@@ -25,15 +25,15 @@ final class UpdateSchumann extends Command
 
     protected $description = 'Set Wilhelm Schumann incarceration date (Jul 11, 1918) and replace his photo with his Leavenworth mugshot';
 
-    private const SOURCE = 'images/prisoners/wilhelm-schumann.jpg';
+    private const SOURCE = 'data/photos/legacy/wilhelm-schumann.jpg';
 
     private const PHOTO = 'prisoners/wilhelm-schumann.jpg';
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }

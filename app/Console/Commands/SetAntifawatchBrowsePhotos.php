@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
  * Attaches profile photos to the supplemental antifawatch Browse cohort (the
  * prisoners surfaced in PRs #1578/#1579) who had no photo. Each image was pulled
  * from that person's antifawatch.net database entry and committed under
- * public/images/prisoners/<file>. Every image was visually verified to be an
+ * database/data/photos/legacy/<file>. Every image was visually verified to be an
  * identifiable photo of the person; Tyler Maple's composite was cropped to his
  * mugshot.
  *
@@ -55,9 +55,9 @@ final class SetAntifawatchBrowsePhotos extends Command
         $set = $skipped = $notFound = $missingFile = 0;
 
         foreach ($this->rows as [$name, $file]) {
-            $source = public_path("images/prisoners/{$file}");
+            $source = database_path("data/photos/legacy/{$file}");
             if (! is_file($source)) {
-                $this->warn("  source image missing: public/images/prisoners/{$file}");
+                $this->warn("  source image missing: database/data/photos/legacy/{$file}");
                 $missingFile++;
 
                 continue;

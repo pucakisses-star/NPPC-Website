@@ -18,7 +18,7 @@ final class UpdateHunsinger extends Command
 
     protected $description = "Set Richard Hunsinger's photo and X/Twitter link";
 
-    private const SOURCE = 'images/prisoners/richard-hunsinger.jpg';
+    private const SOURCE = 'data/photos/legacy/richard-hunsinger.jpg';
 
     private const PHOTO = 'prisoners/richard-hunsinger.jpg';
 
@@ -26,9 +26,9 @@ final class UpdateHunsinger extends Command
 
     public function handle(): int
     {
-        $source = public_path(self::SOURCE);
+        $source = database_path(self::SOURCE);
         if (! is_file($source)) {
-            $this->error('Source image not found: public/'.self::SOURCE);
+            $this->error('Source image not found: database/'.self::SOURCE);
 
             return self::FAILURE;
         }
