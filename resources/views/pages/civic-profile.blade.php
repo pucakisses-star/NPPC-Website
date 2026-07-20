@@ -3,7 +3,7 @@
 @section('title', 'Civic Profile — National Political Prisoner Coalition')
 
 @section('head')
-    <meta name="description" content="Discover your unique Civic Profile. An interactive quiz from the National Political Prisoner Coalition that measures your civic values, engagement, and knowledge of rights, due process, and the right to dissent.">
+    <meta name="description" content="Discover your unique Civic Profile. An interactive quiz from the National Political Prisoner Coalition on political repression in America: where you stand on dissent and state power, what you do for the imprisoned, and how well you know the history.">
     @verbatim
     <style>
         /* ============================================================
@@ -498,7 +498,7 @@
 
         <div class="cph-content">
             <h1>Discover your <br>unique Civic Profile</h1>
-            <p class="cph-lede">The Civic Profile is an interactive quiz from the National Political Prisoner Coalition that measures your civic values, engagement, and knowledge.</p>
+            <p class="cph-lede">The Civic Profile is an interactive quiz from the National Political Prisoner Coalition about political repression in America — where you stand, how you show up, and how much of the history you know.</p>
             <div class="cph-cta-row">
                 <a href="#cp-app" class="cph-btn">Take the Quiz</a>
             </div>
@@ -517,7 +517,7 @@
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 42C10 32 4 24.5 4 16.5 4 10 9 5 15.2 5 19 5 22.2 6.9 24 9.8 25.8 6.9 29 5 32.8 5 39 5 44 10 44 16.5 44 24.5 38 32 24 42Z" fill="#f25c54"/></svg>
                 </div>
                 <h2>Values</h2>
-                <p>Civic values are the beliefs that people hold about what makes for a good society, a good government, and how individuals and groups should interact.</p>
+                <p>Where do you stand when the state turns on dissent? This section maps your beliefs about free expression, due process, solidarity with the imprisoned, and the risks worth taking to resist repression.</p>
                 <a class="cph-ov-link" style="--acc:#f25c54" href="#cp-app">More About Values</a>
             </div>
         </div>
@@ -528,7 +528,7 @@
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 20v8c0 1.7 1.3 3 3 3h3v8c0 1.7 1.3 3 3 3h4c1.1 0 2-.9 2-2v-9l16.2 7.6c1.3.6 2.8-.3 2.8-1.8V11.2c0-1.5-1.5-2.4-2.8-1.8L21 17H9c-1.7 0-3 1.3-3 3Z" fill="#5660fe"/></svg>
                 </div>
                 <h2>Engagement</h2>
-                <p>Civic engagement refers to the actions and behaviors people take to make a positive contribution to society.</p>
+                <p>Political prisoners survive on outside support. This section measures what you actually do — from letters and commissary to court support, defense funds, and campaigns for release.</p>
                 <a class="cph-ov-link" style="--acc:#5660fe" href="#cp-app">More about Engagement</a>
             </div>
         </div>
@@ -539,7 +539,7 @@
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12C20 8.7 14.6 7 8 7c-1.1 0-2 .9-2 2v28c0 1.1.9 2 2 2 6.6 0 12 1.7 16 5 4-3.3 9.4-5 16-5 1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2-6.6 0-12 1.7-16 5Zm0 0v32" fill="none" stroke="#1a1a2e" style="stroke:var(--cph-teal)" stroke-width="3" stroke-linejoin="round"/></svg>
                 </div>
                 <h2>Knowledge</h2>
-                <p>Civic knowledge is an understanding of how our political system is structured, the rights and responsibilities of citizens, and key events, movements, and figures from our history.</p>
+                <p>From the Espionage Act to COINTELPRO to today, the United States has a long record of jailing dissenters. This section tests how well you know that history.</p>
                 <a class="cph-ov-link" style="--acc:var(--cph-teal)" href="#cp-app">More about Knowledge</a>
             </div>
         </div>
@@ -813,93 +813,93 @@
         const QUIZ = {
             values: {
                 title: 'Values',
-                definition: 'Civic values are the beliefs people hold about what makes a good society, a good government, and how individuals and groups should treat one another. This section has no right or wrong answers — it maps what you care about most.',
+                definition: 'These statements probe your beliefs about dissent, state power, and the people the state locks up. There are no right or wrong answers — this section maps where you stand.',
                 scale: ['Strongly disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly agree'],
                 // dim: which civic value the item measures; reverse: high agreement counts against the dimension
                 questions: [
-                    { text: 'People have the right to express political opinions even when most of society finds them offensive.', dim: 'liberty', reverse: false },
-                    { text: 'The government should be able to monitor private communications without a warrant whenever it claims national security.', dim: 'liberty', reverse: true },
-                    { text: 'Protecting individual privacy from government surveillance is essential to a free society.', dim: 'liberty', reverse: false },
-                    { text: 'We have a responsibility to help members of our community even when it costs us something personally.', dim: 'solidarity', reverse: false },
-                    { text: 'Social problems are best solved by individuals acting alone rather than by people organizing together.', dim: 'solidarity', reverse: true },
-                    { text: 'Standing in solidarity with people who are being mistreated is a basic civic duty.', dim: 'solidarity', reverse: false },
-                    { text: 'Everyone accused of a crime deserves a fair trial and a lawyer, no matter what the charge is.', dim: 'justice', reverse: false },
-                    { text: 'It is acceptable to deny some people due process if the accusations against them are serious enough.', dim: 'justice', reverse: true },
-                    { text: 'The same laws should apply equally to the powerful and the powerless.', dim: 'justice', reverse: false },
-                    { text: 'Peaceful protest is a legitimate and important way to influence the government.', dim: 'participation', reverse: false },
-                    { text: 'Ordinary people have little reason to get involved in politics.', dim: 'participation', reverse: true },
-                    { text: 'Speaking out against injustice is worth the personal risk it can carry.', dim: 'participation', reverse: false }
+                    { text: 'No one should ever be imprisoned for their political beliefs, speech, or associations.', dim: 'liberty', reverse: false },
+                    { text: 'The government should be able to jail members of political movements it labels dangerous, even without proving any crime.', dim: 'liberty', reverse: true },
+                    { text: 'Radical ideas — even calls to fundamentally change our system of government — deserve full legal protection.', dim: 'liberty', reverse: false },
+                    { text: 'People imprisoned for their politics deserve material support — letters, funds, and advocacy — from those of us outside.', dim: 'solidarity', reverse: false },
+                    { text: 'Once someone is convicted, whatever happens to them in prison is no longer the public’s concern.', dim: 'solidarity', reverse: true },
+                    { text: 'Standing with prisoners and their families is part of standing against repression.', dim: 'solidarity', reverse: false },
+                    { text: 'Everyone deserves a fair trial and a real defense, even when the charge is terrorism or violence against the state.', dim: 'justice', reverse: false },
+                    { text: 'It is acceptable to hold people in jail for years awaiting trial if the charges against them are serious enough.', dim: 'justice', reverse: true },
+                    { text: 'Protesters and dissidents must face the same laws as everyone else — never harsher ones.', dim: 'justice', reverse: false },
+                    { text: 'Civil disobedience is justified when the laws themselves are unjust.', dim: 'participation', reverse: false },
+                    { text: 'Defending political prisoners is too risky for ordinary people to get involved in.', dim: 'participation', reverse: true },
+                    { text: 'Speaking out against political imprisonment is worth the personal risk it can carry.', dim: 'participation', reverse: false }
                 ]
             },
             engagement: {
                 title: 'Engagement',
-                definition: 'Civic engagement is the set of actions and behaviors people take to make a positive contribution to society. Think back over the past year as you answer.',
+                definition: 'Political prisoners survive on outside support. Think back over the past year as you answer — there is no shame in “never”; every organizer started there.',
                 scale: ['Never', 'Rarely', 'Sometimes', 'Often'],
                 prompt: 'In the past year, how often have you…',
                 questions: [
-                    { text: 'Voted in an election you were eligible for (local, state, or national)?' },
-                    { text: 'Contacted an elected official or government agency about an issue?' },
-                    { text: 'Attended a protest, march, rally, or demonstration?' },
-                    { text: 'Signed a petition, online or in person?' },
-                    { text: 'Donated to a cause, campaign, or nonprofit?' },
-                    { text: 'Volunteered your time for a community organization or cause?' },
-                    { text: 'Attended a public meeting such as a city council, school board, or town hall?' },
-                    { text: 'Shared news or reliable information about a civic or political issue with others?' },
-                    { text: 'Supported someone who is incarcerated — through letters, commissary, or advocacy?' },
-                    { text: 'Boycotted or deliberately chose a product for political or ethical reasons?' }
+                    { text: 'Written a letter or card to an incarcerated person?' },
+                    { text: 'Sent money for commissary, books, or phone calls to someone inside?' },
+                    { text: 'Attended a protest, rally, or vigil for someone imprisoned or facing charges?' },
+                    { text: 'Shown up for court support at a hearing or trial of an activist?' },
+                    { text: 'Signed a petition for someone’s clemency, parole, or release?' },
+                    { text: 'Donated to a bail fund or a legal defense fund?' },
+                    { text: 'Contacted an official about a prisoner’s case or about prison conditions?' },
+                    { text: 'Shared a political prisoner’s story or case with people around you?' },
+                    { text: 'Joined a call-in, phone zap, or email campaign for someone inside?' },
+                    { text: 'Volunteered with a prisoner-support or legal-support organization?' }
                 ],
                 levels: [
-                    { min: 0, max: 7, name: 'Civic Observer', desc: 'You are paying attention, mostly from the sidelines for now. Small, concrete steps — signing a petition, writing a single letter to a prisoner — are an easy place to begin.' },
-                    { min: 8, max: 15, name: 'Civic Participant', desc: 'You take part when it counts. You vote, you speak up, and you lend support to the causes you believe in.' },
-                    { min: 16, max: 23, name: 'Civic Advocate', desc: 'You are consistently active across many forms of civic life — from the ballot box to the streets to direct support for people in need.' },
-                    { min: 24, max: 30, name: 'Civic Leader', desc: 'You live civic engagement. Few forms of participation are foreign to you: you organize, show up, give, and bring others with you.' }
+                    { min: 0, max: 7, name: 'Witness', desc: 'You are paying attention, and that matters. The first concrete step is smaller than you think — one letter, one signature, one story shared.' },
+                    { min: 8, max: 15, name: 'Supporter', desc: 'You show up when it counts — signing, sharing, giving. People inside feel exactly this kind of steady support.' },
+                    { min: 16, max: 23, name: 'Advocate', desc: 'Prisoner support is a regular part of your life, from the mailbox to the courtroom to the streets.' },
+                    { min: 24, max: 30, name: 'Organizer', desc: 'You are the infrastructure. You write, give, show up, and bring others with you — movements run on people like you.' }
                 ]
             },
             perceptions: {
-                title: 'Perception Check',
-                definition: 'In 2025, More in Common surveyed 5,000 Americans from all 50 states and asked: what are the responsibilities of being an American? Before Part 3, guess how your fellow Americans answered. Drag the dot to your guess, then submit — there is no penalty for being wrong.',
+                title: 'The Numbers',
+                definition: 'Before Part 3, test your sense of the scale of repression and incarceration in the United States. Drag the dot to your guess, then submit — the real numbers surprise almost everyone.',
                 questions: [
-                    { label: 'Defending freedom', term: 'defending freedom', actual: 87, note: 'The vast majority of Americans see defending freedom as a civic responsibility.' },
-                    { label: 'Voting', term: 'voting', actual: 86, note: 'About 9 in 10 Americans also put “following the Constitution” (91%) and “paying your taxes” (89%) in the same near-universal tier.' },
-                    { label: 'Protesting unfairness', term: 'protesting unfairness', actual: 56, note: 'Only a little over half of Americans see protesting unfairness as a civic responsibility — a gap the NPPC works to close.' },
-                    { label: 'Welcoming refugees', term: 'welcoming refugees', actual: 47, note: 'Less than half of Americans see welcoming refugees as a civic responsibility, alongside “joining the military” (40%) and “donating to charity” (36%).' }
+                    { label: 'World’s prisoners held in the U.S.', text: 'What percent of the <strong>world’s prisoners</strong> do you think are held in the United States?', actual: 20, caption: '% of the world’s incarcerated', note: 'With roughly 4% of the world’s population, the U.S. holds about 1 in 5 of its prisoners — the largest incarceration system on earth.', source: 'Prison Policy Initiative / World Prison Brief' },
+                    { label: 'Jailed without a conviction', text: 'What percent of people held in <strong>local jails</strong> do you think have not been convicted of any crime?', actual: 70, caption: '% held pretrial', note: 'About 7 in 10 people in local jails are legally innocent — held pretrial, most because they cannot afford bail.', source: 'Bureau of Justice Statistics' },
+                    { label: 'Convictions by plea deal', text: 'What percent of <strong>federal convictions</strong> do you think come from guilty pleas rather than trials?', actual: 98, caption: '% resolved by plea', note: 'Nearly all federal convictions are plea bargains — the government’s evidence is almost never tested before a jury, and the “trial penalty” keeps it that way.', source: 'U.S. Sentencing Commission' },
+                    { label: 'Guantánamo detainees charged', text: 'What percent of the roughly 780 men held at <strong>Guantánamo Bay</strong> do you think were ever charged with a crime?', actual: 2, caption: '% ever charged', note: 'Of some 780 men held at Guantánamo, only about 16 were ever charged with anything — indefinite detention without charge, in plain sight.', source: 'ACLU' }
                 ],
                 tiers: [
                     { max: 7, name: 'Finger on the Pulse', desc: 'Your sense of where your fellow Americans stand is remarkably accurate.' },
                     { max: 15, name: 'Well Calibrated', desc: 'Your guesses tracked closely with what Americans actually said.' },
                     { max: 25, name: 'Broadly Aware', desc: 'You have the general shape right, though a few answers likely surprised you.' },
-                    { max: 101, name: 'Ready to Recalibrate', desc: 'Americans’ actual views differ a good deal from your guesses — which is exactly why measuring them matters.' }
+                    { max: 101, name: 'Ready to Recalibrate', desc: 'The real numbers differ a good deal from your guesses — which is exactly why the NPPC keeps counting.' }
                 ]
             },
             knowledge: {
                 title: 'Knowledge',
-                definition: 'Civic knowledge is an understanding of how our political system works, the rights and responsibilities of people within it, and the key events, movements, and figures that shaped it. Each question has one correct answer.',
+                definition: 'From the Espionage Act to COINTELPRO to today, the United States has a long record of jailing dissenters. Each question has one correct answer.',
                 questions: [
-                    { text: 'Which amendment to the U.S. Constitution protects freedom of speech, the press, assembly, and the right to petition the government?', options: ['The First Amendment', 'The Fourth Amendment', 'The Fifth Amendment', 'The Tenth Amendment'], answer: 0 },
-                    { text: 'The legal principle of "habeas corpus" protects a person from:', options: ['Being forced to testify against themselves', 'Unlawful or indefinite detention without being brought before a court', 'Cruel and unusual punishment', 'Being tried twice for the same crime'], answer: 1 },
-                    { text: 'Which amendment protects against unreasonable searches and seizures?', options: ['The First Amendment', 'The Second Amendment', 'The Fourth Amendment', 'The Sixth Amendment'], answer: 2 },
-                    { text: 'The requirement that police inform you of your right to remain silent and to an attorney comes from which landmark Supreme Court decision?', options: ['Brown v. Board of Education', 'Miranda v. Arizona', 'Marbury v. Madison', 'Plessy v. Ferguson'], answer: 1 },
-                    { text: 'A "political prisoner" is generally understood to be someone imprisoned primarily because of:', options: ['Violent crimes against individuals', 'Their political beliefs, activism, or association', 'Financial fraud', 'Repeated traffic violations'], answer: 1 },
-                    { text: 'Which of these is NOT one of the three branches of the U.S. federal government?', options: ['Legislative', 'Executive', 'Judicial', 'Administrative'], answer: 3 },
-                    { text: 'The Sixth Amendment guarantees which right to people accused of crimes?', options: ['A speedy and public trial by an impartial jury', 'The right to bear arms', 'Protection from quartering soldiers', 'The right to vote at age 18'], answer: 0 },
-                    { text: 'Which 1948 document sets out fundamental human rights, including freedom from arbitrary arrest and detention?', options: ['The Geneva Conventions', 'The Universal Declaration of Human Rights', 'The Magna Carta', 'The Treaty of Versailles'], answer: 1 },
-                    { text: 'At the federal level, the power to grant clemency — including pardons and commutations — belongs to:', options: ['The Supreme Court', 'Congress', 'The President', 'The Attorney General'], answer: 2 },
+                    { text: 'Under which law was Eugene V. Debs imprisoned for a 1918 anti-war speech — a law still used against whistleblowers today?', options: ['The Espionage Act', 'The Alien Enemies Act', 'The Patriot Act', 'The Volstead Act'], answer: 0 },
+                    { text: 'While serving that sentence in Atlanta Federal Penitentiary, Debs did what in 1920?', options: ['Escaped to Mexico', 'Ran for President and received nearly a million votes', 'Renounced socialism', 'Went on the first recorded prison hunger strike'], answer: 1 },
+                    { text: 'The Palmer Raids of 1919–1920 rounded up thousands of people for deportation because of:', options: ['Tax evasion', 'Their anarchist or communist politics, targeting immigrants especially', 'Bootlegging', 'Bank robbery'], answer: 1 },
+                    { text: 'The Smith Act of 1940 was used in the late 1940s and 1950s to imprison:', options: ['Nazi saboteurs only', 'Leaders of the Communist Party USA for their political advocacy', 'War profiteers', 'Union-busting employers'], answer: 1 },
+                    { text: 'The Hollywood Ten went to federal prison in 1950 for:', options: ['Espionage for the Soviet Union', 'Refusing to answer HUAC’s questions about their political beliefs and associations', 'Tax fraud', 'Violating the Production Code'], answer: 1 },
+                    { text: 'COINTELPRO — exposed when activists burgled an FBI office in Media, Pennsylvania in 1971 — was:', options: ['A prison education initiative', 'A covert FBI program to surveil, infiltrate, and disrupt political movements', 'A Cold War radio station', 'A federal witness-protection program'], answer: 1 },
+                    { text: 'Executive Order 9066, signed in 1942, led to:', options: ['The incarceration of some 120,000 people of Japanese ancestry, most of them U.S. citizens', 'The desegregation of the armed forces', 'The internment of German POWs', 'The creation of the CIA'], answer: 0 },
+                    { text: 'The 1971 Attica prison uprising — whose retaking left 39 people dead — began as a demand for:', options: ['Shorter sentences for all', 'Humane conditions, political rights, and an end to brutality', 'Televisions in every cell', 'The warden’s resignation'], answer: 1 },
+                    { text: 'Leonard Peltier, imprisoned for nearly half a century until his sentence was commuted in 2025, was a leader in:', options: ['The American Indian Movement', 'The Weather Underground', 'The Young Lords', 'The IWW'], answer: 0 },
                     { text: 'Which civil rights leader wrote "Letter from Birmingham Jail" while jailed for nonviolent protest?', options: ['Malcolm X', 'Martin Luther King Jr.', 'Thurgood Marshall', 'Medgar Evers'], answer: 1 },
-                    { text: 'The First Amendment’s protection of the right "peaceably to assemble" most directly protects:', options: ['Owning firearms', 'Public protests and demonstrations', 'The right to a jury trial', 'Freedom from taxation'], answer: 1 },
-                    { text: 'Being held in jail before trial can often be avoided through:', options: ['Bail or pretrial release', 'An appeal', 'A pardon', 'Jury nullification'], answer: 0 }
+                    { text: 'The legal principle of "habeas corpus" protects a person from:', options: ['Being forced to testify against themselves', 'Unlawful or indefinite detention without being brought before a court', 'Cruel and unusual punishment', 'Being tried twice for the same crime'], answer: 1 },
+                    { text: 'A "political prisoner" is generally understood to be someone imprisoned primarily because of:', options: ['Violent crimes against individuals', 'Their political beliefs, activism, or association', 'Financial fraud', 'Repeated traffic violations'], answer: 1 }
                 ]
             },
             profiles: {
-                liberty: { name: 'The Civil Libertarian', desc: 'You place individual freedom at the center of your civic worldview — free expression, privacy, and firm limits on the power of the state. You are the kind of person who defends the right to dissent even when the speech is unpopular.' },
-                solidarity: { name: 'The Community Builder', desc: 'You believe a just society is built together. Mutual aid, collective responsibility, and standing with people who are mistreated are, to you, the heart of civic life.' },
-                justice: { name: 'The Justice Seeker', desc: 'Fairness and due process anchor your values. You believe the law must apply equally to the powerful and the powerless, and that everyone — whatever the accusation — deserves a fair hearing.' },
-                participation: { name: 'The Engaged Citizen', desc: 'To you, democracy is a verb. Showing up, speaking out, and accepting some personal risk to challenge injustice are basic civic duties.' }
+                liberty: { name: 'The Dissent Defender', desc: 'You put the right to dissent first. To you, no one should ever sit in a cell for their beliefs, speech, or associations — and the surest measure of a free society is how it treats its radicals.' },
+                solidarity: { name: 'The Prisoner’s Ally', desc: 'You believe no one inside should be forgotten. Letters, commissary, family support, and advocacy are, to you, the backbone of resisting repression — your solidarity does not stop at the wall.' },
+                justice: { name: 'The Due Process Guardian', desc: 'Fair trials anchor your worldview. The state must prove its case against everyone — dissident or not — and pretrial detention, secret evidence, and show trials corrode everything they touch.' },
+                participation: { name: 'The Resister', desc: 'To you, repression is answered by showing up. Court support, protest, civil disobedience — you accept that resisting injustice carries risk, and you take it anyway.' }
             },
-            dimLabels: { liberty: 'Liberty', solidarity: 'Solidarity', justice: 'Justice & Due Process', participation: 'Participation' },
+            dimLabels: { liberty: 'Right to Dissent', solidarity: 'Prisoner Solidarity', justice: 'Due Process', participation: 'Resistance' },
             knowledgeTiers: [
-                { min: 90, name: 'Civic Scholar' },
-                { min: 70, name: 'Well Informed' },
-                { min: 50, name: 'Building Knowledge' },
+                { min: 90, name: 'Movement Historian' },
+                { min: 70, name: 'Well Versed' },
+                { min: 50, name: 'Learning the History' },
                 { min: 0, name: 'Just Getting Started' }
             ]
         };
@@ -954,7 +954,7 @@
         }
 
         function partProgress(part, i) {
-            const labels = { values: 'Part 1 · Values', engagement: 'Part 2 · Engagement', perceptions: 'Interlude · Perception Check', knowledge: 'Part 3 · Knowledge' };
+            const labels = { values: 'Part 1 · Values', engagement: 'Part 2 · Engagement', perceptions: 'Interlude · The Numbers', knowledge: 'Part 3 · Knowledge' };
             return '<div class="cp-progress">'
                 + '<div class="cp-progress-meta"><span class="part part--' + part + '">' + labels[part] + '</span>'
                 + '<span>Question ' + (i + 1) + ' of ' + QUIZ[part].questions.length + '</span></div>'
@@ -977,12 +977,12 @@
                 '<div class="cp-hero">'
                 + '<p class="cp-eyebrow">National Political Prisoner Coalition</p>'
                 + '<h1>Discover your Civic Profile</h1>'
-                + '<p class="cp-lede">An interactive quiz that measures your civic <strong>values</strong>, your <strong>engagement</strong>, and your <strong>knowledge</strong> of the rights, due process, and freedom to dissent that the NPPC defends.</p>'
+                + '<p class="cp-lede">An interactive quiz that measures your <strong>values</strong> on dissent and state power, your <strong>engagement</strong> with the imprisoned, and your <strong>knowledge</strong> of America&rsquo;s history of political repression.</p>'
                 + '</div>'
                 + '<div class="cp-parts">'
-                + partCard('1', 'Values', 'What you believe makes for a good society and a fair government.', 'var(--cp-gold)')
-                + partCard('2', 'Engagement', 'The actions you take to contribute to your community and the world.', 'var(--cp-accent)')
-                + partCard('3', 'Knowledge', 'How well you know your rights, the system, and the history of dissent.', 'var(--cp-teal)')
+                + partCard('1', 'Values', 'Where you stand on dissent, due process, and the power of the state.', 'var(--cp-gold)')
+                + partCard('2', 'Engagement', 'What you do to support political prisoners and resist repression.', 'var(--cp-accent)')
+                + partCard('3', 'Knowledge', 'How well you know America’s history of political imprisonment.', 'var(--cp-teal)')
                 + '</div>'
                 + '<div style="text-align:center">'
                 + '<button class="cp-btn" id="cp-start">Let’s Get Started</button>'
@@ -1042,7 +1042,7 @@
                     + '<p>You said <span class="you">' + val + '%</span>. The actual answer is <span class="act">' + q.actual + '%</span>. '
                     + esc(lead) + ' ' + esc(q.note) + '</p>'
                     + '<button class="cp-btn" id="cp-guess-continue">Continue</button>'
-                    + '<p class="cp-note">Source: More in Common’s 2025 survey of 5,000 Americans.</p>'
+                    + '<p class="cp-note">Source: ' + esc(q.source) + '.</p>'
                     + '</div>';
             } else {
                 ctaOrFeedback = '';
@@ -1051,8 +1051,8 @@
             root.innerHTML =
                 partProgress('perceptions', i)
                 + '<div class="cp-stage">'
-                + '<span class="cp-part-badge cp-part-badge--perceptions">Perception Check</span>'
-                + '<p class="cp-q cp-guess-q">What percent of Americans do you think view <strong>&ldquo;' + esc(q.term) + '&rdquo;</strong> as a civic responsibility?</p>'
+                + '<span class="cp-part-badge cp-part-badge--perceptions">The Numbers</span>'
+                + '<p class="cp-q cp-guess-q">' + q.text + '</p>'
                 + '<div class="cp-guess-ctarow"' + (submitted ? ' hidden' : '') + '>'
                 + '<p class="cp-guess-hint">Drag the dot to your guess.</p>'
                 + '<button class="cp-guess-submit" id="cp-guess-submit">Submit</button>'
@@ -1065,7 +1065,7 @@
                 + '</div>'
                 + '<div class="cp-axis" aria-hidden="true">'
                 + '<div class="cp-axis-line">' + ticks + '</div>'
-                + '<div class="cp-axis-caption">% selecting behavior</div>'
+                + '<div class="cp-axis-caption">' + esc(q.caption) + '</div>'
                 + '</div>'
                 + ctaOrFeedback
                 + '<div class="cp-stage-foot">'
@@ -1275,7 +1275,7 @@
 
             // share buttons (built in JS so they reflect the live URL)
             const url = window.location.origin + window.location.pathname;
-            const text = 'I just discovered my Civic Profile: ' + profile.name + '. Find yours from the National Political Prisoner Coalition.';
+            const text = 'I just discovered my Civic Profile: ' + profile.name + '. Take the National Political Prisoner Coalition’s quiz on political repression in America.';
             const share = document.getElementById('cp-share');
             share.innerHTML =
                 '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>'
@@ -1301,9 +1301,9 @@
                     + '</div></div>';
             }).join('');
             return '<div class="cp-res-card">'
-                + '<div class="label">Interlude · Perception Check</div>'
+                + '<div class="label">Interlude · The Numbers</div>'
                 + '<h2>' + esc(p.tier.name) + '</h2>'
-                + '<p>' + esc(p.tier.desc) + ' On average, your guesses were within <strong>' + p.avg + ' points</strong> of what 5,000 Americans actually told More in Common.</p>'
+                + '<p>' + esc(p.tier.desc) + ' On average, your guesses were within <strong>' + p.avg + ' points</strong> of the real numbers.</p>'
                 + '<div class="cp-guess-rows">' + rows + '</div>'
                 + '<p class="cp-note cp-guess-legend" style="text-align:left"><span class="sw" style="background:var(--cp-accent)"></span>your guess &nbsp; <span class="sw" style="background:var(--cp-gold)"></span>actual</p>'
                 + '</div>';
