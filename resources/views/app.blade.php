@@ -136,6 +136,13 @@ $isHome = request()->segment(1) == ''
            no scroll container, so position: sticky keeps working. */
         html { overflow-x: clip; }
         @supports not (overflow: clip) { html { overflow-x: hidden; } }
+        /* The Vue gallery's .carousel wrapper carries an overflow-hidden
+           utility class that was purged from vue/app.css, so its multi-
+           thousand-pixel slide track lays out unclipped and expands the
+           mobile layout viewport before the root clip can apply (fixed
+           elements then track the widened viewport — clipped nav logo,
+           sideways pan). Clip the track at its wrapper. */
+        .carousel { overflow: hidden !important; }
 
         @media (max-width: 768px) {
             /* iOS Safari zooms inputs whose font-size is below 16px on
