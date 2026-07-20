@@ -7,6 +7,27 @@
 
 @section('title', 'Timeline | NPPC')
 
+@section('head')
+    <style>
+        @@media (max-width: 768px) {
+            .timeline-menu {
+                top: 96px;
+            }
+
+            .timeline-menu .container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .timeline-menu .container::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+@endsection
+
 @section('body')
     <div class="timeline-menu">
         <div class="container flex justify-center">
@@ -29,7 +50,10 @@
         <div class="timeline">
             @foreach($timelines as $timeline)
                 <div class="timeline-item" data-year="{{$timeline->year}}" id="timeline-year-{{$timeline->year}}" data-text="{{$timeline->title}}">
-                    <div class="timeline__content"><img class="timeline__img" src="/storage/{{$timeline->image}}" alt="" loading="lazy" decoding="async"/>
+                    <div class="timeline__content">
+                        @if($timeline->image)
+                            <img class="timeline__img" src="/storage/{{$timeline->image}}" alt="" loading="lazy" decoding="async"/>
+                        @endif
                         <h2 class="timeline__content-title">{{$timeline->year}}</h2>
                         <p class="timeline__content-desc">{{$timeline->text}}</p>
                     </div>

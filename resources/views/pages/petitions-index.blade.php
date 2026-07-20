@@ -72,6 +72,24 @@
 @section('body')
 <main class="pix-wrap">
     @php $activeTotal = $petitions->total() + (!empty($featured) ? 1 : 0); @endphp
+    {{--
+        Display tuning only: per-petition vertical background-position for the 16:9
+        card crops, hand-tuned per image so faces stay in view (lower % shows more
+        of the top of the image). Slugs not listed fall back to the 38% default.
+        No data/model impact — safe to tweak if a petition image changes.
+    --}}
+    @php
+        $cropY = [
+            'free-oso-blanco-byron-chubbuck' => '12%', // tall portrait, head at very top — default cut the top of his head
+            'full-pardon-chelsea-manning'    => '25%', // square headshot — keep hair through chin in frame
+            'pardon-julian-assange'          => '20%', // tall portrait — default cropped the face at the bottom
+            'pardon-daniel-hale'             => '25%', // tall portrait — lift crop to keep eyes-to-chin visible
+            'medical-clemency-kamau-sadiki'  => '15%', // square photo, face upper-center — avoid cutting the hair/forehead
+            'free-veronza-bowers'            => '30%', // two faces (Veronza + child) — split the difference between both
+            'pardon-steven-donziger'         => '40%', // portrait — nudge up to keep hair and chin both in frame
+            'free-mumia-abu-jamal'           => '5%',  // face sits in the top quarter of the photo — crop near the top
+        ];
+    @endphp
     <div class="pix-hero">
         <h1>Active Petitions</h1>
         <p>Add your name to the campaigns demanding clemency, dropping charges, and accountability for U.S. political prisoners. Every signature is delivered to the named recipients.</p>
@@ -81,7 +99,7 @@
     @if (!empty($featured))
         <div class="pfx">
             <div class="pfx-img {{ $featured->image ? '' : 'pfx-img-empty' }}"
-                 @if($featured->image) style="background-image: url('{{ $featured->image_url }}');" @endif>
+                 @if($featured->image) style="background-image: url('{{ $featured->image_url }}'); background-position: center {{ $cropY[$featured->slug] ?? '38%' }};" @endif>
                 @unless($featured->image) Petition @endunless
             </div>
             <div class="pfx-body">
@@ -128,7 +146,7 @@
                 @endphp
                 <a class="pix-card" href="/petition/{{ $petition->slug }}">
                     <div class="pix-img-box {{ $petition->image ? '' : 'pix-img-empty' }}"
-                         @if($petition->image) style="background-image: url('{{ $petition->image_url }}');" @endif>
+                         @if($petition->image) style="background-image: url('{{ $petition->image_url }}'); background-position: center {{ $cropY[$petition->slug] ?? '38%' }};" @endif>
                         @unless($petition->image) Petition @endunless
                     </div>
                     <div class="pix-card-body">
