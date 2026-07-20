@@ -1426,6 +1426,17 @@ final class SiteController extends Controller {
     }
 
     public function museum() {
+        // The payload build below scans every prisoner with a photo, matches 16
+        // group haystacks, and gathers timeline/archive/reading/shop data — far
+        // too heavy to run per request. Content changes only on admin edits, so
+        // the whole thing is cached (same tradeoff as tracker()); run
+        // `php artisan cache:clear` to refresh immediately.
+        $museum = Cache::remember('museum:payload:v2', now()->addHours(6), fn () => $this->computeMuseumPayload());
+
+        return view('pages.museum', compact('museum'));
+    }
+
+    private function computeMuseumPayload(): array {
         // Walkable 3D museum (/museum). Curates prisoners who have photos into
         // named galleries by the specific movement/organization they belonged to
         // (the Black Panther Party, Plowshares, the American Indian Movement …),
@@ -1554,11 +1565,13 @@ final class SiteController extends Controller {
             }
         }
 
-        // Photo-mosaic wall + face corridors: every remaining portrait, so the
-        // hall's long wall tiles with hundreds of faces.
+        // Face corridors + memorial ring: museum.js consumes fixed slices up to
+        // index 21 plus a modulo-cycled ring, so anything past ~24 entries is
+        // dead payload weight (embedding all ~1,300 leftover portraits was ~900KB
+        // of the inline JSON). The dense mosaic walls use $mosaic below instead.
         $faces = collect($people)->reject(fn ($p) => isset($used[$p->id]))
             ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
-            ->values()->map($item)->all();
+            ->take(24)->values()->map($item)->all();
         $mosaic = collect($people)
             ->sortByDesc(fn ($p) => mb_strlen((string) $p->description))
             ->take(180)->values()
@@ -1669,6 +1682,60 @@ final class SiteController extends Controller {
             'video' => is_file(public_path('videos/museum-reel.mp4')) ? '/videos/museum-reel.mp4' : null,
         ];
 
-        return view('pages.museum', compact('museum'));
+        return $museum;
+    }
+
+    /**
+     * Downscaled variants of public-disk images for the museum's progressive
+     * art loader: /thumb/{w}/{path}. Widths are whitelisted; results are
+     * written to storage/app/public/thumbs so repeat requests are cheap. Falls
+     * back to redirecting to the original whenever GD or the decode fails, so
+     * a bad image can never break the museum.
+     */
+    public function imageThumb(int $w, string $path) {
+        if (! in_array($w, [64, 512, 1024], true)) {
+            abort(404);
+        }
+        $path = str_replace('\\', '/', $path);
+        if (str_contains($path, '..') || ! preg_match('#^[A-Za-z0-9_/\.\-]+\.(jpe?g|png|webp)$#i', $path)) {
+            abort(404);
+        }
+
+        $disk = \Illuminate\Support\Facades\Storage::disk('public');
+        if (! $disk->exists($path)) {
+            abort(404);
+        }
+
+        $thumbRel = 'thumbs/'.$w.'/'.sha1($path).'.jpg';
+        $thumbAbs = $disk->path($thumbRel);
+        if (! is_file($thumbAbs)) {
+            try {
+                if (! function_exists('imagecreatefromstring')) {
+                    throw new \RuntimeException('GD unavailable');
+                }
+                $src = imagecreatefromstring($disk->get($path));
+                if (! $src) {
+                    throw new \RuntimeException('decode failed');
+                }
+                $sw = imagesx($src);
+                $sh = imagesy($src);
+                if ($sw > $w) {
+                    $dst = imagescale($src, $w, (int) round($sh * $w / $sw), IMG_BICUBIC);
+                    imagedestroy($src);
+                } else {
+                    $dst = $src;   // already small enough — just re-encode
+                }
+                @mkdir(dirname($thumbAbs), 0775, true);
+                imagejpeg($dst, $thumbAbs, $w <= 64 ? 70 : 82);
+                imagedestroy($dst);
+            } catch (\Throwable $e) {
+                return redirect($disk->url($path));
+            }
+        }
+
+        return response()->file($thumbAbs, [
+            'Content-Type' => 'image/jpeg',
+            'Cache-Control' => 'public, max-age=604800',
+        ]);
     }
 }

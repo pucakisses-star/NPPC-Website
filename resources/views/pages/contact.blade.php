@@ -59,7 +59,10 @@
     }
     .ct-card-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        /* minmax(0, 1fr): plain 1fr tracks have min-width auto, so the
+           unbreakable email address in some cards forces those columns
+           wide and squeezes the others. Zero the floor for equal columns. */
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1px;
         background: rgba(var(--fg-rgb),0.1);
         border: 1px solid rgba(var(--fg-rgb),0.1);
@@ -68,6 +71,7 @@
         background: var(--surface);
         padding: 32px 28px;
         transition: background 0.15s;
+        min-width: 0;
     }
     .ct-card:hover { background: var(--surface-2); }
     .ct-card-title {
@@ -90,6 +94,9 @@
         letter-spacing: 0.04em;
         text-decoration: none;
         text-transform: uppercase;
+        /* Long unbreakable strings (email addresses) must wrap within the
+           card instead of dictating the column width. */
+        overflow-wrap: anywhere;
     }
     .ct-card-link:hover { text-decoration: underline; }
 
@@ -210,11 +217,14 @@
         .ct-hero { padding: 56px 24px 32px; }
         .ct-hero-title { font-size: 3rem; }
         .ct-hero-lede { font-size: 18px; }
-        .ct-card-grid { grid-template-columns: 1fr; }
+        .ct-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .ct-form-grid { grid-template-columns: 1fr; gap: 40px; }
         .ct-grid-2 { grid-template-columns: 1fr; }
         .ct-section-heading { font-size: 2rem; }
         .ct-form-side h2 { font-size: 1.8rem; }
+    }
+    @@media (max-width: 768px) {
+        .ct-card-grid { grid-template-columns: minmax(0, 1fr); }
     }
     @@media (max-width: 480px) {
         .ct-hero { padding: 32px 16px 24px; }

@@ -148,6 +148,20 @@
         .page-content .lead { font-size: 1.25em; }
         .page-content small, .page-content .small { font-size: 0.875em; }
         .page-content img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5em 0; }
+        /* Images with captions: the figure owns the vertical rhythm; the
+           figcaption renders as a small, centered, muted attribution line
+           (links inherit that styling instead of the accent link color).
+           .img-caption is a fallback class for caption <p>s not wrapped in a figure. */
+        .page-content figure { margin: 1.5em 0; }
+        .page-content figure img { display: block; margin: 0 auto; }
+        .page-content figcaption, .page-content .img-caption {
+            text-align: center; font-size: 13px; font-style: italic;
+            color: rgba(var(--fg-rgb),0.55); line-height: 1.5; margin-top: 10px;
+        }
+        .page-content figcaption a, .page-content .img-caption a {
+            color: inherit; font-size: inherit;
+            text-decoration: underline; text-decoration-color: rgba(var(--fg-rgb),0.35);
+        }
         .page-content iframe, .page-content embed, .page-content object, .page-content video { max-width: 100%; width: 100%; border-radius: 8px; margin: 1.5em 0; }
         .page-content table { width: 100%; border-collapse: collapse; margin: 1.5em 0; display: block; overflow-x: auto; }
         .page-content th, .page-content td { border: 1px solid rgba(var(--fg-rgb),0.15); padding: 8px 12px; text-align: left; }

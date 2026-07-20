@@ -25,6 +25,24 @@ const DATA = Object.assign(
     window.MUSEUM || {}
 );
 
+/* Downscaled variants served by /thumb/{w}/... (SiteController@imageThumb);
+   anything not on the public disk passes through untouched. The server falls
+   back to a redirect to the original if it can't resize, so this is safe. */
+function thumbUrl(url, w) {
+    if (!url) return url;
+    // photo URLs arrive APP_URL-absolute (Storage::url), so match anywhere and
+    // emit a relative same-origin /thumb/ URL
+    const i = url.indexOf('/storage/');
+    return i === -1 ? url : '/thumb/' + w + '/' + url.slice(i + 9);
+}
+/* Mosaic atlases batch their canvas repaints: cells draw as thumbs arrive, and
+   the (expensive) GPU re-upload happens at most once per pump interval. */
+const atlasDirty = new Set();
+function flushAtlases() {
+    atlasDirty.forEach((t) => { t.needsUpdate = true; });
+    atlasDirty.clear();
+}
+
 /* ---------------------------------------------------------------- palette */
 const INK = '#1e2122';
 const PAPER = '#f4f1ea';
@@ -67,15 +85,36 @@ window.addEventListener('resize', () => {
 });
 
 /* ------------------------------------------------------------- texture lib */
+THREE.Cache.enabled = true;          // collapse duplicate in-flight image fetches
 const texLoader = new THREE.TextureLoader();
+// Anisotropy claims real GPU bandwidth — clamp to the hardware max and use a
+// lower tier for small props (placards, mosaic tiles) that never fill the view.
+const ANISO = Math.min(8, renderer.capabilities.getMaxAnisotropy() || 8);
+const ANISO_LOW = Math.min(2, ANISO);
+/* The 21 PBR files are referenced from ~33 pbr() call sites; memoize so each
+   file is fetched and uploaded to the GPU once — clones share the .source, so
+   per-use wrap/repeat stays free. */
+const pbrMemo = new Map();
 function pbr(base, { repeat = [1, 1], color = true, normal = true, rough = true, ao = false, metal = false } = {}) {
     const out = {};
     const load = (suffix, isColor) => {
-        const t = texLoader.load(`/images/museum/textures/${base}_${suffix}.jpg`);
-        t.wrapS = t.wrapT = THREE.RepeatWrapping;
-        t.repeat.set(repeat[0], repeat[1]);
-        t.anisotropy = 8;
-        if (isColor) t.colorSpace = THREE.SRGBColorSpace;
+        const key = base + '_' + suffix;
+        let entry = pbrMemo.get(key);
+        if (!entry) {
+            entry = { clones: [] };
+            entry.master = texLoader.load(`/images/museum/textures/${key}.jpg`,
+                // a clone made before the image arrived stays at version 0 and
+                // would never reach the GPU — bump every clone on arrival
+                () => entry.clones.forEach((c) => { c.needsUpdate = true; }));
+            entry.master.wrapS = entry.master.wrapT = THREE.RepeatWrapping;
+            entry.master.anisotropy = ANISO;
+            if (isColor) entry.master.colorSpace = THREE.SRGBColorSpace;
+            pbrMemo.set(key, entry);
+        }
+        const t = entry.master.clone();           // shares .source → one GPU upload
+        t.repeat.set(repeat[0], repeat[1]);       // repeat set on the clone only
+        if (entry.master.image) t.needsUpdate = true;
+        else entry.clones.push(t);
         return t;
     };
     if (color) out.map = load('col', true);
@@ -114,7 +153,7 @@ function canvasTexture(w, h, draw) {
     c.width = w; c.height = h;
     draw(c.getContext('2d'), w, h);
     const t = new THREE.CanvasTexture(c);
-    t.anisotropy = 8;
+    t.anisotropy = ANISO_LOW;
     t.colorSpace = THREE.SRGBColorSpace;
     return t;
 }
@@ -363,12 +402,18 @@ function hangArt(item, pos, normal, {
     if (item.img) {
         artQueue.push({
             url: item.img, pos: pos.clone(), apply: (tex) => {
-                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = ANISO;
                 const a = tex.image.width / tex.image.height, target = artW / artH;
                 photoMat.map = tex; photoMat.emissiveMap = tex; photoMat.needsUpdate = true;
                 if (a > target) photo.scale.set(1, target / a, 1);
                 else photo.scale.set(a / target, 1, 1);
-            }
+            },
+            // evictable: far-away gallery art can release its VRAM and reload
+            // from the HTTP cache when the player returns
+            reset: () => {
+                photoMat.map = placeholderArt; photoMat.emissiveMap = placeholderArt;
+                photoMat.needsUpdate = true;
+            },
         });
     }
     if (wash) {
@@ -436,7 +481,7 @@ function standee(item, x, z, ry, band = null) {
     if (item.img) {
         artQueue.push({
             url: item.img, pos: new THREE.Vector3(x, 1.4, z), apply: (tex) => {
-                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = ANISO;
                 boardMat.map = tex; boardMat.emissiveMap = tex; boardMat.needsUpdate = true;
                 const a = tex.image.width / tex.image.height, target = W / H;
                 if (a > target) photo.scale.set(1, target / a, 1); else photo.scale.set(a / target, 1, 1);
@@ -505,7 +550,7 @@ function vitrine(item, x, z, ry = 0, band = null) {
     if (item.img) {
         artQueue.push({
             url: item.img, pos: new THREE.Vector3(x, 1.1, z), apply: (tex) => {
-                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = ANISO;
                 docMat.map = tex; docMat.emissiveMap = tex; docMat.needsUpdate = true;
                 const a = tex.image.width / tex.image.height, target = 0.52 / 0.68;
                 if (a > target) doc.scale.set(1, target / a, 1); else doc.scale.set(a / target, 1, 1);
@@ -577,6 +622,22 @@ function brokenChain(x, z) {
     return g;
 }
 
+/* Videos keep decoding even when their screen is culled — register them so
+   room changes and tab visibility can pause/resume the decode. */
+const videoScreens = [];
+function chainVisible(o) {
+    for (let n = o; n; n = n.parent) if (n.visible === false) return false;
+    return true;
+}
+function syncVideos() {
+    for (const v of videoScreens) {
+        const on = !document.hidden && chainVisible(v.mesh);
+        if (on && v.el.paused) v.el.play().catch(() => { });
+        else if (!on && !v.el.paused) v.el.pause();
+    }
+}
+document.addEventListener('visibilitychange', syncVideos);
+
 /* Slideshow screen (theater + projection wall). */
 function slideshowScreen(slides, videoUrl, pos, normal, w, h, { caption = true, speed = 7 } = {}) {
     if (videoUrl) {
@@ -589,6 +650,7 @@ function slideshowScreen(slides, videoUrl, pos, normal, w, h, { caption = true, 
             new THREE.MeshBasicMaterial({ map: vt, toneMapped: true }));
         m.position.copy(pos); m.lookAt(pos.clone().add(normal));
         worldGroup.add(m);
+        videoScreens.push({ el: video, mesh: m });
         return m;
     }
     const cw = 1280, ch = Math.round(1280 * h / w);
@@ -609,6 +671,7 @@ function slideshowScreen(slides, videoUrl, pos, normal, w, h, { caption = true, 
         im.src = s.img;
     });
     slideshows.push({
+        mesh: m,
         ctx: g, tex, cw, ch, slides, imgs, caption, speed, t: 0, idx: 0, frame: 0,
         draw(dt) {
             this.t += dt; this.frame++;
@@ -765,8 +828,8 @@ function monolith(item, x, z, ry, color = 0x2a6d81) {
 
     if (item.img) {
         artQueue.push({
-            url: item.img, pos: new THREE.Vector3(x, 1.8, z), apply: (tex) => {
-                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+            url: item.img, hero: true, pos: new THREE.Vector3(x, 1.8, z), apply: (tex) => {
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = ANISO;
                 pmat.map = tex; pmat.emissiveMap = tex; pmat.needsUpdate = true;
                 const a = tex.image.width / tex.image.height, target = (W - 0.04) / portH;
                 if (a > target) port.scale.set(1, target / a, 1); else port.scale.set(a / target, 1, 1);
@@ -787,30 +850,52 @@ function mosaicWall(items, cx, cy, cz, width, height, normal, link) {
     const backer = new THREE.Mesh(new THREE.PlaneGeometry(width, height),
         new THREE.MeshStandardMaterial({ color: 0x14151a, roughness: 0.9 }));
     backer.position.z = -0.02; g.add(backer);
-    const tile = 0.34, gap = 0.02;
+    /* One mesh + one canvas atlas per panel instead of a mesh/material/texture
+       per tile: a 25x9 panel went from ~225 draw calls and up to 225 retained
+       full-size textures to 1 draw call and 1 canvas. Tiles render at ~10px on
+       screen, so cells are painted from 64px server thumbs. */
+    const tile = 0.34, gap = 0.02, CELL = 64, PAD = 2;
     const cols = Math.max(1, Math.floor(width / (tile + gap)));
     const rows = Math.max(1, Math.floor(height / (tile + gap)));
-    const x0 = -((cols - 1) * (tile + gap)) / 2, y0 = -((rows - 1) * (tile + gap)) / 2;
+    const canvasEl = document.createElement('canvas');
+    canvasEl.width = cols * CELL; canvasEl.height = rows * CELL;
+    const ctx = canvasEl.getContext('2d');
+    ctx.fillStyle = '#101116'; ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
+    ctx.fillStyle = '#1a1c22';
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++)
+        ctx.fillRect(c * CELL + PAD, r * CELL + PAD, CELL - PAD * 2, CELL - PAD * 2);
+    const tex = new THREE.CanvasTexture(canvasEl);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = ANISO_LOW;
+    tex.generateMipmaps = false;                 // NPOT canvas: skip per-flush mip rebuilds
+    tex.minFilter = THREE.LinearFilter;
+    const pw = cols * (tile + gap) - gap, ph = rows * (tile + gap) - gap;
+    const panel = new THREE.Mesh(new THREE.PlaneGeometry(pw, ph),
+        new THREE.MeshStandardMaterial({ map: tex, roughness: 0.8, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.34 }));
+    g.add(panel);
+    g.updateMatrixWorld(true);
+    const wallPos = g.localToWorld(new THREE.Vector3(0, 0, 0));
     let idx = 0;
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             const rec = items[idx % items.length]; idx++;
             if (!rec || !rec.img) continue;
-            const m = new THREE.Mesh(new THREE.PlaneGeometry(tile, tile),
-                new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.8, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.34 }));
-            m.position.set(x0 + c * (tile + gap), y0 + r * (tile + gap), 0);
-            g.add(m);
-            const worldPos = g.localToWorld(m.position.clone());
-            const mat = m.material;
+            const cellX = c * CELL, cellY = (rows - 1 - r) * CELL;   // canvas y runs top-down
             artQueue.push({
-                url: rec.img, pos: worldPos, apply: (tex) => {
-                    tex.colorSpace = THREE.SRGBColorSpace;
-                    mat.map = tex; mat.emissiveMap = tex; mat.needsUpdate = true;
-                }, low: true,
+                img: true, url: thumbUrl(rec.img, 64), pos: wallPos, low: true,
+                apply: (im) => {
+                    const w = CELL - PAD * 2;
+                    const sc = Math.max(w / im.width, w / im.height);
+                    const dw = im.width * sc, dh = im.height * sc;
+                    ctx.save();
+                    ctx.beginPath(); ctx.rect(cellX + PAD, cellY + PAD, w, w); ctx.clip();
+                    ctx.drawImage(im, cellX + PAD + (w - dw) / 2, cellY + PAD + (w - dh) / 2, dw, dh);
+                    ctx.restore();
+                    atlasDirty.add(tex);
+                },
             });
         }
     }
-    g.updateMatrixWorld(true);
     // one interactable slab over the whole wall
     const hit = new THREE.Mesh(new THREE.PlaneGeometry(width, height),
         new THREE.MeshBasicMaterial({ visible: false }));
@@ -839,8 +924,8 @@ function hangingBanner(item, x, topY, z, w, h, normal, { emissive = 0.5 } = {}) 
     panel.position.set(0, cy, 0); panel.castShadow = true; g.add(panel);
     if (item.img) {
         artQueue.push({
-            url: item.img, pos: new THREE.Vector3(x, cy, z), apply: (tex) => {
-                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+            url: item.img, hero: true, pos: new THREE.Vector3(x, cy, z), apply: (tex) => {
+                tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = ANISO;
                 mat.map = tex; mat.emissiveMap = tex; mat.needsUpdate = true;
                 const a = tex.image.width / tex.image.height, target = w / h;
                 if (a > target) panel.scale.set(1, target / a, 1); else panel.scale.set(a / target, 1, 1);
@@ -952,7 +1037,7 @@ function goldLettering(title, x, y, z, normal, size = 1.7) {
     grd.addColorStop(0, '#f0d488'); grd.addColorStop(0.5, '#c9a23c'); grd.addColorStop(1, '#8f6f1e');
     g.fillStyle = grd;
     lines.forEach((l, i) => g.fillText(l, 20, 20 + i * 150));
-    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = ANISO;
     const scale = size / lines.length / 1.3;
     const mesh = new THREE.Mesh(new THREE.PlaneGeometry(c.width * scale * 0.01, c.height * scale * 0.01),
         new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.35, metalness: 0.7, emissive: 0x3a2c0a, emissiveMap: tex, emissiveIntensity: 0.25, side: THREE.DoubleSide }));
@@ -1221,11 +1306,11 @@ const GRANITE_TEX = canvasTexture(1024, 1024, (g, w, h) => {
         const x = Math.random() * w, y = Math.random() * h, r = 5 + Math.random() * 30;
         g.beginPath(); g.ellipse(x, y, r, r * (0.45 + Math.random() * 0.6), Math.random() * 3, 0, TAU); g.fill();
     }
-    for (let i = 0; i < 11000; i++) {
+    for (let i = 0; i < 2800; i++) {
         g.globalAlpha = 0.5 + Math.random() * 0.5;
         const c = Math.random();
         g.fillStyle = c < 0.5 ? '#efeae1' : (c < 0.8 ? '#48453f' : '#c7a78d');
-        const s = 0.6 + Math.random() * 1.9;
+        const s = 0.8 + Math.random() * 2.2;
         g.fillRect(Math.random() * w, Math.random() * h, s, s);
     }
     g.globalAlpha = 1;
@@ -2477,20 +2562,20 @@ function waterfall(x, z, w = 2.0, h = 2.7) {
     glow.rotation.x = -Math.PI / 2; glow.position.set(CX, H - 0.02, CZ); worldGroup.add(glow);
 
     // ---- raked-gravel karesansui on a low stone platform ----
-    const SAND_TEX = canvasTexture(2048, 2048, (g, w, h) => {
+    const SAND_TEX = canvasTexture(1024, 1024, (g, w, h) => {
         g.fillStyle = '#e9e2d2'; g.fillRect(0, 0, w, h);
         const cx = w / 2, cy = h / 2;
         g.strokeStyle = 'rgba(120,110,90,0.32)'; g.lineWidth = 2.6;
-        for (let r = 46; r < w * 0.74; r += 27) {
+        for (let r = 23; r < w * 0.74; r += 14) {
             g.beginPath();
-            for (let a = 0; a <= TAU + 0.06; a += 0.03) {
-                const rr = r + Math.sin(a * 6) * 3.5;
+            for (let a = 0; a <= TAU + 0.06; a += 0.045) {
+                const rr = r + Math.sin(a * 6) * 1.8;
                 const x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr;
                 a === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
             }
             g.stroke();
         }
-        for (let i = 0; i < 26000; i++) {
+        for (let i = 0; i < 6500; i++) {
             g.globalAlpha = 0.05 + Math.random() * 0.09;
             g.fillStyle = Math.random() < 0.5 ? '#ffffff' : '#b6ab92';
             g.fillRect(Math.random() * w, Math.random() * h, 1.6, 1.6);
@@ -2840,6 +2925,9 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
     const shelfWood = new THREE.MeshStandardMaterial({ ...pbr('wood', { repeat: [1, 1] }), color: 0x6b4a2e, roughness: 0.6, envMapIntensity: 0.5 });
     const clothColors = [0x7a3b2e, 0x2e4a5c, 0x51402a, 0x3c5a3a, 0x5a2e3c, 0x2f3a55, 0x6e5a2f, 0x4a2f55];
     const fillerGeo = new THREE.BoxGeometry(1, 1, 1);
+    // hundreds of filler spines share these eight materials instead of
+    // allocating (and compiling state for) one material per spine
+    const fillerMats = clothColors.map((c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.8 }));
     const pagesMat = new THREE.MeshStandardMaterial({ color: 0xefe8d4, roughness: 0.95 });
     let bi = 0;
     /* Cloth spine with the title stamped in gilt, reading top-to-bottom —
@@ -2886,7 +2974,7 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
                     const bw = 0.24, bh = 0.335;
                     const book = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, 0.035), [clothMat, clothMat, pagesMat, clothMat, coverMat, clothMat]);
                     book.position.set(cx + bw / 2, rowY + 0.02 + bh / 2, 0.05); book.rotation.y = Math.PI; book.castShadow = true; g.add(book);
-                    if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
+                    if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = ANISO; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
                     interactables.push({ mesh: book, data: { kind: 'book', gallery: 'Reading Room', coverAxis: [0, 0, 1], ...rec } });
                     cx += bw + 0.04;
                 } else if (wantReal) {
@@ -2905,14 +2993,14 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
                         [coverMat, clothMat, pagesMat, clothMat, spineMat, clothMat]);
                     book.position.set(cx + st / 2, rowY + 0.02 + bh / 2, 0.02);
                     book.castShadow = true; g.add(book);
-                    if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
+                    if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(book.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = ANISO; coverMat.map = t; coverMat.emissiveMap = t; coverMat.needsUpdate = true; } });
                     interactables.push({ mesh: book, data: { kind: 'book', gallery: 'Reading Room', coverAxis: [1, 0, 0], ...rec } });
                     cx += st + 0.006;
                 } else {
                     const n = 2 + Math.floor(Math.random() * 4);
                     for (let k = 0; k < n && cx < usable / 2 - 0.05; k++) {
                         const sw = 0.03 + Math.random() * 0.035, sh = 0.26 + Math.random() * 0.075;
-                        const spine2 = new THREE.Mesh(fillerGeo, new THREE.MeshStandardMaterial({ color: clothColors[Math.floor(Math.random() * clothColors.length)], roughness: 0.8 }));
+                        const spine2 = new THREE.Mesh(fillerGeo, fillerMats[Math.floor(Math.random() * fillerMats.length)]);
                         spine2.scale.set(sw, sh, 0.22); spine2.position.set(cx + sw / 2, rowY + 0.02 + sh / 2, 0); g.add(spine2); cx += sw + 0.006;
                     }
                 }
@@ -2935,7 +3023,7 @@ const archHiZ = spineEnd, archLoZ = spineEnd - 16;
             const covMat = new THREE.MeshStandardMaterial({ map: placeholderArt, roughness: 0.85, emissive: 0xffffff, emissiveMap: placeholderArt, emissiveIntensity: 0.26 });
             const cov = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 0.56), covMat); cov.position.set(-0.93 + col * 0.62, 2.05 - row * 0.85, 0.05); cov.rotation.x = -0.09; g.add(cov);
             const lip = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.025, 0.07), MAT.frameBlack); lip.position.set(-0.93 + col * 0.62, 1.74 - row * 0.85, 0.05); g.add(lip);
-            if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(cov.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; covMat.map = t; covMat.emissiveMap = t; covMat.needsUpdate = true; const a = t.image.width / t.image.height, tg = 0.42 / 0.56; if (a > tg) cov.scale.set(1, tg / a, 1); else cov.scale.set(a / tg, 1, 1); } });
+            if (rec.img) artQueue.push({ url: rec.img, pos: g.localToWorld(cov.position.clone()), apply: t => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = ANISO; covMat.map = t; covMat.emissiveMap = t; covMat.needsUpdate = true; const a = t.image.width / t.image.height, tg = 0.42 / 0.56; if (a > tg) cov.scale.set(1, tg / a, 1); else cov.scale.set(a / tg, 1, 1); } });
             interactables.push({ mesh: cov, data: { kind: 'book', gallery: 'Reading Room', ...rec } });
         });
     }
@@ -3097,6 +3185,11 @@ function applyRig(light, rig) {
     light.color.set(rig.key.c || 0xfff1da);
 }
 let curRoom = null, prevRoom = null;
+/* The pond reflector re-renders the whole scene — only pay for it while
+   actually standing in the atrium (and never on a floored-out GPU). */
+function updateReflector() {
+    if (window.__reflector) window.__reflector.visible = !!curRoom && curRoom.name === 'Grand Atrium' && curDPR > 0.75;
+}
 function roomAt(x, z) {
     for (const r of rooms) if (x >= r.minX && x <= r.maxX && z >= r.minZ && z <= r.maxZ) return r;
     return null;
@@ -3164,6 +3257,8 @@ function setRoom(r) {
     }
     toast(r.name);
     updateRegionVisibility();
+    syncVideos();
+    updateReflector();
     renderer.shadowMap.needsUpdate = true;
 }
 
@@ -3212,7 +3307,12 @@ document.addEventListener('mousemove', (e) => {
     player.yaw -= e.movementX * 0.0021;
     player.pitch = Math.max(-1.45, Math.min(1.45, player.pitch - e.movementY * 0.0021));
 });
-document.getElementById('museum-enter').addEventListener('click', lock);
+const enterBtn = document.getElementById('museum-enter');
+enterBtn.addEventListener('click', lock);
+// the blade renders the button disabled ("Loading the museum…") so slow
+// connections see an honest state; the engine is live now
+enterBtn.disabled = false;
+enterBtn.textContent = 'Enter the museum';
 document.getElementById('museum-resume').addEventListener('click', lock);
 canvas.addEventListener('click', () => {
     if (!locked && !overlayOpen && !started) lock();
@@ -3343,6 +3443,12 @@ function pickUpBook(entry) {
     worldGroup.attach(m);                                   // keep world transform
     held.worldHomePos = m.position.clone();
     held.worldHomeQuat = m.quaternion.clone();
+    // a carried item stops casting: its shadow would need a re-render every
+    // frame; one refresh removes the stale silhouette. castShadow is per-object
+    // (not inherited), so toggle every caster in the grabbed subtree.
+    held.shadowMeshes = [];
+    m.traverse((o) => { if (o.castShadow) { held.shadowMeshes.push(o); o.castShadow = false; } });
+    renderer.shadowMap.needsUpdate = true;
     if (bookbar) {
         bbTitle.textContent = entry.data.n || 'Untitled';
         bbMeta.textContent = [entry.data.l1, entry.data.l2].filter(Boolean).join('  ·  ');
@@ -3389,7 +3495,9 @@ function updateHeld(dt) {
             held.homeParent.attach(m);
             m.position.copy(held.homePos);
             m.quaternion.copy(held.homeQuat);
+            (held.shadowMeshes || []).forEach((o) => { o.castShadow = true; });
             held = null;
+            renderer.shadowMap.needsUpdate = true;
         }
     }
 }
@@ -3477,42 +3585,107 @@ function toast(text) {
 }
 
 /* ------------------------------------------------- progressive art loading */
-let loading = 0;
-const texCache = new Map();          // url → THREE.Texture (shared)
-function pumpArtQueue() {
-    if (!artQueue.length || loading >= 4) return;
-    // portraits/frames (not low) load before the mosaic-tile swarm; then by distance
-    artQueue.sort((a, b) =>
-        (a.low ? 1 : 0) - (b.low ? 1 : 0) ||
-        a.pos.distanceToSquared(player.pos) - b.pos.distanceToSquared(player.pos));
-    while (loading < 4 && artQueue.length) {
-        const job = artQueue.shift();
-        if (texCache.has(job.url)) {
-            const t = texCache.get(job.url);
-            if (t.image) { job.apply(t); continue; }
-        }
-        loading++;
-        texLoader.load(job.url,
-            (tex) => {
-                loading--;
-                let final = tex;
-                const im = tex.image;
-                if (im && (im.width > 1024 || im.height > 1024)) {
-                    const s = 1024 / Math.max(im.width, im.height);
-                    const c = document.createElement('canvas');
-                    c.width = Math.round(im.width * s); c.height = Math.round(im.height * s);
-                    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
-                    final = new THREE.CanvasTexture(c);
-                    final.colorSpace = THREE.SRGBColorSpace;
-                    final.anisotropy = 8;
-                    tex.dispose();
-                }
-                texCache.set(job.url, final);
-                job.apply(final);
-            },
-            undefined,
-            () => { loading--; });
+let loading = 0;                     // in-flight full art textures (cap 4)
+let loadingImg = 0;                  // in-flight 64px atlas thumbs (cap 6)
+const imgShare = new Map();          // thumb url → apply callbacks awaiting one fetch
+const texCache = new Map();          // final url → {tex, jobs, stamp}
+let texStamp = 0;
+/* VRAM budget: beyond this many cached art textures, the least-recently-used
+   far-away ones are disposed and their jobs re-queued (browser HTTP cache
+   makes the re-fetch cheap when the player comes back). */
+const TEX_BUDGET = 140;
+const NEAR2 = 45 * 45, NEAR2_LOW = 26 * 26;   // proximity gates (m²)
+function startTexJob(job) {
+    const url = thumbUrl(job.url, job.hero ? 1024 : 512);
+    const hit = texCache.get(url);
+    if (hit && hit.tex.image) {
+        hit.stamp = ++texStamp;
+        hit.jobs.push(job);
+        job.apply(hit.tex);
+        return;
     }
+    loading++;
+    texLoader.load(url,
+        (tex) => {
+            loading--;
+            let final = tex;
+            const im = tex.image;
+            // belt-and-braces: the server thumb route can redirect to the
+            // original if it can't resize, so keep the client-side cap
+            if (im && (im.width > 1024 || im.height > 1024)) {
+                const sc = 1024 / Math.max(im.width, im.height);
+                const c = document.createElement('canvas');
+                c.width = Math.round(im.width * sc); c.height = Math.round(im.height * sc);
+                c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+                final = new THREE.CanvasTexture(c);
+                final.colorSpace = THREE.SRGBColorSpace;
+                final.anisotropy = ANISO;
+                tex.dispose();
+            }
+            texCache.set(url, { tex: final, jobs: [job], stamp: ++texStamp });
+            THREE.Cache.remove(url);   // keep the texture, release the raw Image
+            job.apply(final);
+            evictTextures();
+        },
+        undefined,
+        () => { loading--; });
+}
+function evictTextures() {
+    if (texCache.size <= TEX_BUDGET) return;
+    const entries = [...texCache.entries()].sort((a, b) => a[1].stamp - b[1].stamp);
+    for (const [url, e] of entries) {
+        if (texCache.size <= TEX_BUDGET) break;
+        // only evict entries whose EVERY consumer registered a reset AND is far
+        if (!e.jobs.length || e.jobs.some(j => !j.reset)) continue;
+        if (e.jobs.some(j => j.pos.distanceToSquared(player.pos) < NEAR2 * 2)) continue;
+        e.jobs.forEach((j) => { j.reset(); artQueue.push(j); });
+        e.tex.dispose();
+        texCache.delete(url);
+    }
+}
+let pumpIdlePos = null;
+function pumpArtQueue() {
+    if (document.hidden) return;
+    if (artQueue.length && (loading < 4 || loadingImg < 6)) {
+        // after a pass that dispatched nothing, sleep until the player moves
+        if (pumpIdlePos && pumpIdlePos.distanceToSquared(player.pos) < 2.25) { flushAtlases(); return; }
+        const px = player.pos;
+        for (const j of artQueue) {
+            j._d2 = j.pos.distanceToSquared(px);
+            j._k = (j.low ? 1e12 : 0) + j._d2;   // portraits before the tile swarm
+        }
+        artQueue.sort((a, b) => a._k - b._k);
+        // proximity-gated: far jobs stay queued instead of downloading the whole
+        // museum while the player stands in the plaza
+        let i = 0, dispatched = false;
+        while ((loading < 4 || loadingImg < 6) && i < artQueue.length && i < 600) {
+            const job = artQueue[i];
+            const gated = job._d2 > (job.low ? NEAR2_LOW : NEAR2);
+            const budget = job.img ? loadingImg < 6 : loading < 4;
+            if (!gated && budget) {
+                dispatched = true;
+                artQueue.splice(i, 1);
+                if (job.img) {
+                    const inflight = imgShare.get(job.url);
+                    if (inflight) { inflight.push(job.apply); }
+                    else {
+                        loadingImg++;
+                        const waiters = [job.apply];
+                        imgShare.set(job.url, waiters);
+                        const im = new Image();
+                        im.crossOrigin = 'anonymous';
+                        im.onload = () => { loadingImg--; imgShare.delete(job.url); waiters.forEach((fn) => fn(im)); };
+                        im.onerror = () => { loadingImg--; imgShare.delete(job.url); };
+                        im.src = job.url;
+                    }
+                } else {
+                    startTexJob(job);
+                }
+            } else i++;
+        }
+        pumpIdlePos = dispatched ? null : player.pos.clone();
+    }
+    flushAtlases();
 }
 setInterval(pumpArtQueue, 250);      // decoupled from the render loop
 
@@ -3523,29 +3696,30 @@ function tick() {
     requestAnimationFrame(tick);
     const dt = Math.min(clock.getDelta(), 0.05);
     frame++;
+    // splash and pause overlays don't need 60fps behind them: render a frame
+    // every so often so resumes are instant, and skip the rest
+    const idleDiv = !started ? 5 : (!locked && !overlayOpen && !isTouch ? 15 : 0);
+    if (idleDiv && frame % idleDiv !== 0) return;
     // adaptive resolution: nudge the pixel ratio toward the frame-time budget
     emaMs = emaMs * 0.92 + Math.min(dt * 1000, 60) * 0.08;
     if (frame % 30 === 0) {
         let t = curDPR;
         if (emaMs > 24 && curDPR > DPR_FLOOR) t = Math.max(DPR_FLOOR, +(curDPR - 0.1).toFixed(2));
         else if (emaMs < 15 && curDPR < DPR_CAP) t = Math.min(DPR_CAP, +(curDPR + 0.08).toFixed(2));
-        if (t !== curDPR) { curDPR = t; renderer.setPixelRatio(curDPR); }
+        if (t !== curDPR) { curDPR = t; renderer.setPixelRatio(curDPR); updateReflector(); }
     }
     updatePlayer(dt);      // camera always follows player state (input is gated inside)
     if (frame % 6 === 0) updateHover();
     if (frame % 20 === 0) {
         setRoom(roomAt(player.pos.x, player.pos.z));
         pumpArtQueue();
-        // the pond reflector re-renders the whole scene — only pay for it while
-        // actually standing in the atrium (and never on a floored-out GPU)
-        if (window.__reflector) window.__reflector.visible = !!curRoom && curRoom.name === 'Grand Atrium' && curDPR > 0.75;
     }
-    for (const s of slideshows) s.draw(dt);
+    for (const s of slideshows) { if (s.mesh && !chainVisible(s.mesh)) continue; s.draw(dt); }
     for (const a of animatedTex) a(dt);
     updateHeld(dt);
-    // shadows are static except a carried book and region reveals (handled by
-    // setRoom); refresh while holding, plus a rare safety net — not every frame
-    if (held || frame % 240 === 0) renderer.shadowMap.needsUpdate = true;
+    // shadows are static: room changes and pickup/putdown trigger single
+    // refreshes (the held item stops casting while carried, so no per-frame
+    // shadow re-render is ever needed)
     if (window.__dust) window.__dust.rotation.y = Math.sin(clock.elapsedTime * 0.05) * 0.02;
     if (cellLight) cellLight.intensity = 16 + Math.sin(clock.elapsedTime * 17) * 0.9 + Math.sin(clock.elapsedTime * 3.1) * 0.7;
     renderer.render(scene, camera);
@@ -3561,7 +3735,7 @@ pumpArtQueue();
 
 /* debug/test hook: teleport the player without pointer lock */
 window.__museumDebug = {
-    player, rooms,
+    player, rooms, renderer,
     teleport(x, z, yaw = Math.PI, pitch = 0) {
         player.pos.set(x, 0, z);
         player.yaw = yaw; player.pitch = pitch;

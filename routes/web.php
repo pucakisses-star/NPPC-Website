@@ -35,6 +35,7 @@ Route::controller(SiteController::class)
         Route::get('topics/{slug?}', 'topics');
         Route::get('memorial', 'memorial');
         Route::get('museum', 'museum');
+        Route::get('thumb/{w}/{path}', 'imageThumb')->where(['w' => '[0-9]+', 'path' => '.*']);
         Route::get('calendar', 'calendar');
         Route::get('birthdays', 'birthdays');
         Route::get('map', 'map');
