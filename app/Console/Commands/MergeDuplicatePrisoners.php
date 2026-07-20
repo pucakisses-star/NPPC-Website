@@ -389,6 +389,56 @@ final class MergeDuplicatePrisoners extends Command
         // caseless 1970s stub from Black Panther mining ("Bob Wells", Charles
         // Garry's client, paroled from Vacaville July 1, 1974 after 47 years).
         ['wesley-robert-wells', ['robert-wesley-wells']],
+        // Second full-database duplicate audit (exact-name pairs that are the
+        // same person, plus movement-name pairs where a record's own AKA names
+        // the other record). Jr./Sr. father-son pairs, same-name mass-trial
+        // co-defendants, and the William E./M. Martin shared-birthdate pair
+        // were reviewed and excluded as genuinely distinct people. Canonical
+        // keeps the fuller/photographed record; the alternate name folds into
+        // aka. Where both records carry a redundant copy of the same single
+        // event, the dup's case is dropped (see $dropDupCasesFor).
+        ['alan-berkman',                 ['dr-alan-berkman']],
+        ['andres-figueroa-cordero',      ['andres-figueroa-cordero-2']],
+        ['rev-carl-kabat',               ['carl-kabat']],
+        ['curtis-jones-jr',              ['curtis-jones']],
+        ['george-merritt-jr',            ['george-merritt']],
+        ['henry-howe',                   ['henry-howe-jr']],
+        ['larry-cloud-morgan',           ['larry-cloud-morgan-2']],
+        ['larry-morlan',                 ['father-larry-morlan']],
+        ['rev-paul-kabat',               ['paul-kabat']],
+        ['dr-rafil-dhafir',              ['rafil-dhafir']],
+        ['ricardo-chavez-ortiz',         ['ricardo-chavez-ortiz-2']],
+        ['william-houston',              ['william-houston-jr']],
+        ['william-wright-jr',            ['william-wright']],
+        ['david-sohappy',                ['david-sohappy-sr']],
+        ['philip-raymond',               ['phil-raymond']],
+        ['maddy-pfeiffer',               ['matthew-pfeiffer']],
+        ['jeffrey-luers',                ['jeff-free-luers']],
+        ['luis-medina',                  ['ramon-labanino-salazar']],
+        ['peg-millett',                  ['margaret-millett']],
+        ['ida-luz-rodriguez',            ['lucy-rodriguez']],
+        ['tim-quinn',                    ['timothy-quinn']],
+        ['vernon-joseph-rossman',        ['vern-rossman']],
+        ['art-laffin',                   ['arthur-j-laffin']],
+        ['cathy-wilkerson',              ['cathlyn-wilkerson']],
+        ['abdullah-malik-kabah',         ['jeff-fort']],
+        ['haki-malik-abdullah',          ['michael-green']],
+        ['sababu-na-uhuru',              ['william-stoner']],
+        ['robert-hugh-wilson',           ['standing-deer']],
+        ['richard-marshall',             ['dick-marshall']],
+        ['eric-thompson',                ['jomo-joka-omowale']],
+        ['david-rice',                   ['mondo-we-langa']],
+        ['james-earl-grant',             ['jim-grant']],
+        ['oscar-johnson',                ['gamba-mani']],
+        ['william-phillips-africa',      ['phil-africa']],
+        ['larry-jackson',                ['karim-njabafudi']],
+        ['hanif-shabazz-bey',            ['beaumont-gereau']],
+        ['abdul-azeez',                  ['warren-ballentine']],
+        ['shango-bahati-kakawana',       ['bernard-stroble']],
+        ['ahmed-evans',                  ['fred-ahmed-evans']],
+        ['philip-wigle',                 ['philip-vigol']],
+        ['adolfo-matos-antogiorgi',      ['adolfo-matos']],
+        ['jerome-zawada',                ['jerry-zawada']],
     ];
 
     /**
@@ -464,6 +514,38 @@ final class MergeDuplicatePrisoners extends Command
         // Both Sunni-Ali records carry the same Brink's grand-jury contempt
         // jailing (released October 1983); the dup's copy is dropped.
         'iya-fulani-sunni-ali',
+        // Second full-database audit: canonicals whose dup carries a redundant
+        // copy of the same single event already on the canonical (Plowshares
+        // silo actions, FALN seditious conspiracy, Fountain Valley, Attica,
+        // Plainfield, the MOVE Ramp killing, the Whiskey Rebellion treason
+        // count, etc.). robert-hugh-wilson, larry-jackson and abdul-azeez are
+        // intentionally NOT listed — their dups hold a distinct or fuller case
+        // that should be reassigned, not dropped.
+        'rev-carl-kabat',
+        'george-merritt-jr',
+        'henry-howe',
+        'larry-cloud-morgan',
+        'larry-morlan',
+        'rev-paul-kabat',
+        'dr-rafil-dhafir',
+        'david-sohappy',
+        'philip-raymond',
+        'maddy-pfeiffer',
+        'jeffrey-luers',
+        'peg-millett',
+        'ida-luz-rodriguez',
+        'tim-quinn',
+        'vernon-joseph-rossman',
+        'art-laffin',
+        'cathy-wilkerson',
+        'abdullah-malik-kabah',
+        'richard-marshall',
+        'eric-thompson',
+        'david-rice',
+        'william-phillips-africa',
+        'hanif-shabazz-bey',
+        'philip-wigle',
+        'adolfo-matos-antogiorgi',
     ];
 
     public function handle(): int
