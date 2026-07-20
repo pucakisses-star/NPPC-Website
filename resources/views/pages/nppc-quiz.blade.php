@@ -1,13 +1,13 @@
 @extends('app')
 
-@section('title', 'Dissent Profile — National Political Prisoner Coalition')
+@section('title', 'NPPC Quiz — National Political Prisoner Coalition')
 
 @section('head')
-    <meta name="description" content="Discover your unique Dissent Profile. An interactive quiz from the National Political Prisoner Coalition on political repression in America: where you stand on dissent and state power, what you do for the imprisoned, and how well you know the history.">
+    <meta name="description" content="Take the NPPC Quiz. An interactive quiz from the National Political Prisoner Coalition on political repression in America: where you stand on dissent and state power, what you do for the imprisoned, and how well you know the history.">
     @verbatim
     <style>
         /* ============================================================
-           Dissent Profile — layout & presentation modeled on
+           NPPC Quiz — layout & presentation modeled on
            civicprofile.org: off-white "grid paper" background, gold /
            crimson / teal accents, an animated photo-wall intro, a
            three-part overview band, and a sticky photo mosaic whose
@@ -491,14 +491,14 @@
                 <path d="M18 48A30 30 0 0 1 48 18L48 48Z" fill="#16181f"/>
             </svg>
             <div class="cph-logo-text">
-                <strong>Dissent<br>Profile</strong>
+                <strong>NPPC<br>Quiz</strong>
                 <span>National Political<br>Prisoner Coalition</span>
             </div>
         </div>
 
         <div class="cph-content">
-            <h1>Discover your <br>unique Dissent Profile</h1>
-            <p class="cph-lede">The Dissent Profile is an interactive quiz from the National Political Prisoner Coalition about political repression in America — where you stand, how you show up, and how much of the history you know.</p>
+            <h1>Take the <br>NPPC Quiz</h1>
+            <p class="cph-lede">The NPPC Quiz is an interactive look at political repression in America — where you stand, how you show up, and how much of the history you know.</p>
             <div class="cph-cta-row">
                 <a href="#cp-app" class="cph-btn">Take the Quiz</a>
             </div>
@@ -929,7 +929,7 @@
             if (resultPosted) return;
             resultPosted = true;
             try {
-                fetch('/dissent-profile/result', {
+                fetch('/nppc-quiz/result', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1007,7 +1007,7 @@
             root.innerHTML =
                 '<div class="cp-hero">'
                 + '<p class="cp-eyebrow">National Political Prisoner Coalition</p>'
-                + '<h1>Discover your Dissent Profile</h1>'
+                + '<h1>The NPPC Quiz</h1>'
                 + '<p class="cp-lede">An interactive quiz that measures your <strong>values</strong> on dissent and state power, your <strong>engagement</strong> with the imprisoned, and your <strong>knowledge</strong> of America&rsquo;s history of political repression.</p>'
                 + '</div>'
                 + '<div class="cp-parts">'
@@ -1266,7 +1266,7 @@
             const summary = 'Your profile: <strong>' + esc(profile.name) + '</strong> · ' + esc(e.level.name) + ' · ' + k.pct + '% on civic knowledge.';
 
             root.innerHTML =
-                '<div class="cp-results-head"><span class="eyebrow">Your results</span><h1>Your Dissent Profile</h1></div>'
+                '<div class="cp-results-head"><span class="eyebrow">Your results</span><h1>Your NPPC Quiz Results</h1></div>'
                 + '<p class="cp-summary">' + summary + '</p>'
 
                 + '<div class="cp-res-card">'
@@ -1307,7 +1307,7 @@
 
             // share buttons (built in JS so they reflect the live URL)
             const url = window.location.origin + window.location.pathname;
-            const text = 'I just discovered my Dissent Profile: ' + profile.name + '. Take the National Political Prisoner Coalition’s quiz on political repression in America.';
+            const text = 'I just took the NPPC Quiz — my profile: ' + profile.name + '. Take the National Political Prisoner Coalition’s quiz on political repression in America.';
             const share = document.getElementById('cp-share');
             share.innerHTML =
                 '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>'

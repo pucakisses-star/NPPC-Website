@@ -57,11 +57,13 @@ Route::controller(SiteController::class)
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
         Route::get('about', 'about');
-        Route::get('dissent-profile', 'dissentProfile');
-        Route::redirect('civic-profile', '/dissent-profile', 301);
-        Route::post('dissent-profile/result', 'dissentProfileResult');
-        // Alias: pages cached before the rename still post here.
-        Route::post('civic-profile/result', 'dissentProfileResult');
+        Route::get('nppc-quiz', 'nppcQuiz');
+        Route::redirect('civic-profile', '/nppc-quiz', 301);
+        Route::redirect('dissent-profile', '/nppc-quiz', 301);
+        Route::post('nppc-quiz/result', 'nppcQuizResult');
+        // Aliases: pages cached before the renames still post here.
+        Route::post('dissent-profile/result', 'nppcQuizResult');
+        Route::post('civic-profile/result', 'nppcQuizResult');
         Route::post('/sign-up', 'signUp');
         // Category-prefixed article URLs: /{category}/{slug} (e.g. /report/...,
         // /policy-brief/...). Kept after the specific two-segment routes above
