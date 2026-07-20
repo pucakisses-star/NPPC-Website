@@ -314,8 +314,8 @@ $isHome = request()->segment(1) == ''
     <div id="main-content">
         @yield('body')
     </div>
-@elseif(request()->is('civic-profile'))
-    {{-- Civic Profile is a full-bleed landing page: the hero spans the full
+@elseif(request()->is('dissent-profile'))
+    {{-- Dissent Profile is a full-bleed landing page: the hero spans the full
          viewport width and its quiz self-constrains to 760px, so it renders
          outside the width-limiting .container wrapper (like the home page). --}}
     <main id="main-content">
