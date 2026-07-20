@@ -253,11 +253,23 @@
                  grid-template-columns: minmax(0, 420px) 1fr; gap: 56px; align-items: center; }
     .gil-title { font-size: 2.6rem; font-weight: 900; color: var(--fg); line-height: 1.06; margin: 0 0 20px; }
     .gil-desc { font-size: 15px; color: rgba(var(--fg-rgb),0.6); line-height: 1.7; margin: 0 0 28px; max-width: 380px; }
-    .gil-link { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800;
-                color: var(--fg); text-decoration: none; }
-    .gil-link .gil-arrow { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
-                border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); transition: background 0.15s, color 0.15s; }
-    .gil-link:hover .gil-arrow { background: var(--accent); color: var(--on-accent); }
+    /* "Find a chapter" link — CodyHouse link-fx-1 effect: the underline
+       wipes away while the circled arrow icon draws in and spins on hover. */
+    .gil-link { position: relative; display: inline-flex; align-items: center; height: 32px; padding: 0 44px 0 4px;
+                font-size: 15px; font-weight: 800; color: var(--fg); text-decoration: none; -webkit-font-smoothing: antialiased; }
+    .gil-link .gil-icon { position: absolute; right: 4px; bottom: 0; width: 32px; height: 32px; color: var(--accent); transform: rotate(90deg); }
+    .gil-link .gil-icon circle { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 0.2s; }
+    .gil-link .gil-icon line { transition: transform 0.4s; transform-origin: 13px 15px; }
+    .gil-link .gil-icon line:last-child { transform-origin: 19px 15px; }
+    .gil-link::before { content: ""; position: absolute; bottom: 0; left: 0; width: calc(100% - 44px); height: 1px;
+                background-color: currentColor; transform-origin: right center; transition: transform 0.2s 0.1s; }
+    .gil-link:hover .gil-icon circle { stroke-dashoffset: 200; transition: stroke-dashoffset 0.2s 0.1s; }
+    .gil-link:hover .gil-icon line { transform: rotate(-180deg); }
+    .gil-link:hover .gil-icon line:last-child { transform: rotate(180deg); }
+    .gil-link:hover::before { transform: scaleX(0); transition: transform 0.2s; }
+    @@media (prefers-reduced-motion: reduce) {
+        .gil-link .gil-icon circle, .gil-link .gil-icon line, .gil-link::before { transition: none; }
+    }
     .gil-map { width: 100%; }
     .gil-map .ch-usmap { width: 100%; height: auto; display: block; }
     .gil-map .ch-usmap path { fill: rgba(var(--fg-rgb),0.09); stroke: rgba(var(--fg-rgb),0.04); stroke-width: 1; cursor: default; }
@@ -720,7 +732,7 @@
         <div class="gil-copy">
             <h2 class="gil-title">Find your local chapter</h2>
             <p class="gil-desc">Anarchist Black Cross and Jericho Movement chapters across the country write letters, pack courtrooms, and organize for the people inside. Find one near you — or start your own.</p>
-            <a class="gil-link" href="/chapters"><span>Find a chapter</span><span class="gil-arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="gil-link" href="/chapters">Find a chapter<svg class="gil-icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><circle cx="16" cy="16" r="15"/><line x1="10" y1="18" x2="16" y2="12"/><line x1="16" y1="12" x2="22" y2="18"/></g></svg></a>
         </div>
         <div class="gil-map">
             @include('partials.us-chapters-map')
