@@ -569,6 +569,7 @@
 
     <script src="/js/gsap.min.js"></script>
     <script src="/js/ScrollTrigger.min.js"></script>
+    <script>window.cpCsrfToken = '{{ csrf_token() }}';</script>
 
     @verbatim
     <script>
@@ -920,6 +921,36 @@
 
         const answers = { values: [], engagement: [], knowledge: [], perceptions: [] };
         const guessDraft = {};
+        let resultPosted = false;
+
+        // Fire-and-forget: save an anonymous copy of the results for the
+        // admin dashboard. Never blocks or breaks the results screen.
+        function postResult(v, e, k, perc, profile) {
+            if (resultPosted) return;
+            resultPosted = true;
+            try {
+                fetch('/civic-profile/result', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': window.cpCsrfToken || '',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        profile: profile.name,
+                        values_scores: v.pct,
+                        engagement_score: e.sum,
+                        engagement_tier: e.level.name,
+                        perception_avg_error: perc ? perc.avg : null,
+                        knowledge_correct: k.correct,
+                        knowledge_total: k.total,
+                        knowledge_pct: k.pct,
+                        knowledge_tier: k.tier,
+                        answers: answers
+                    })
+                }).catch(function () {});
+            } catch (err) { /* saving is best-effort */ }
+        }
         let cur = 0;
         let locked = false;
         const root = document.getElementById('cp-app');
@@ -1205,6 +1236,7 @@
             const e = scoreEngagement();
             const k = scoreKnowledge();
             const profile = QUIZ.profiles[v.top];
+            postResult(v, e, k, scorePerceptions(), profile);
 
             const bars = Object.keys(QUIZ.dimLabels).map(function (d) {
                 const isTop = d === v.top;
@@ -1284,6 +1316,7 @@
             document.getElementById('cp-retake').addEventListener('click', function () {
                 answers.values = []; answers.engagement = []; answers.knowledge = []; answers.perceptions = [];
                 Object.keys(guessDraft).forEach(function (k) { delete guessDraft[k]; });
+                resultPosted = false;
                 go(0);
             });
         }
