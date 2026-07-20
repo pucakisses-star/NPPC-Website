@@ -128,6 +128,15 @@ $isHome = request()->segment(1) == ''
         }
         .skip-to-content:focus { left: 8px; }
 
+        /* Assorted widgets (e.g. the Vue gallery carousel) and elements
+           styled with utility classes missing from the purged Tailwind
+           build can extend past the right edge and widen the mobile
+           layout viewport, making every page pannable sideways. Clip the
+           viewport at the root: unlike overflow-x hidden, 'clip' creates
+           no scroll container, so position: sticky keeps working. */
+        html { overflow-x: clip; }
+        @supports not (overflow: clip) { html { overflow-x: hidden; } }
+
         @media (max-width: 768px) {
             /* iOS Safari zooms inputs whose font-size is below 16px on
                focus. Force a 16px floor on form fields so input focus
