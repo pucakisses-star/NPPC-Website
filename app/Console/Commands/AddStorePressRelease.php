@@ -10,7 +10,7 @@ use Illuminate\Support\Carbon;
 
 /**
  * Publishes the press release announcing the launch of the NPPC store,
- * dated November 20, 2025 per editorial direction. Keyed by slug,
+ * dated November 20, 2024 per editorial direction. Keyed by slug,
  * idempotent (re-runs update in place).
  */
 final class AddStorePressRelease extends Command {
@@ -53,7 +53,7 @@ BODY;
             'body'         => $body,
             'category_id'  => $category->id,
             'author_id'    => $author->id,
-            'published_at' => Carbon::parse('2025-11-20 10:00:00'),
+            'published_at' => Carbon::parse('2024-11-20 10:00:00'),
         ];
 
         $existing = Article::where('slug', $slug)->first();
