@@ -245,6 +245,28 @@
         .gi-proj-title { font-size: 2rem; }
         .gi-proj-slides { min-height: 260px; }
     }
+
+    /* ===== Find your local chapter (map band) ===== */
+    .gil { position: relative; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+           background: rgba(var(--fg-rgb),0.025); border-top: 1px solid rgba(var(--fg-rgb),0.08); }
+    .gil-inner { max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: grid;
+                 grid-template-columns: minmax(0, 420px) 1fr; gap: 56px; align-items: center; }
+    .gil-title { font-size: 2.6rem; font-weight: 900; color: var(--fg); line-height: 1.06; margin: 0 0 20px; }
+    .gil-desc { font-size: 15px; color: rgba(var(--fg-rgb),0.6); line-height: 1.7; margin: 0 0 28px; max-width: 380px; }
+    .gil-link { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800;
+                color: var(--fg); text-decoration: none; }
+    .gil-link .gil-arrow { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
+                border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); transition: background 0.15s, color 0.15s; }
+    .gil-link:hover .gil-arrow { background: var(--accent); color: var(--on-accent); }
+    .gil-map { width: 100%; }
+    .gil-map .ch-usmap { width: 100%; height: auto; display: block; }
+    .gil-map .ch-usmap path { fill: rgba(var(--fg-rgb),0.09); stroke: rgba(var(--fg-rgb),0.04); stroke-width: 1; cursor: default; }
+    .gil-map .ch-usmap .gil-dot { fill: var(--accent); stroke: rgba(255,255,255,0.85); stroke-width: 1.2; }
+    @@media (max-width: 860px) {
+        .gil-inner { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px; }
+        .gil-title { font-size: 2rem; }
+        .gil-desc { max-width: none; }
+    }
 </style>
 @include('partials.scribble-assets')
 @endsection
@@ -677,4 +699,48 @@
         </a>
     </div>
 </section>
+
+{{-- ==================== FIND YOUR LOCAL CHAPTER ====================
+     Layout modeled on the Innocence Network "find your local group" band
+     (headline + blurb + arrow link beside a dotted US map), rebuilt with
+     our own copy and our own chapter map/dots. --}}
+@php
+    // Chapter-city dot positions — same projection used on /chapters.
+    $gilDots = [
+        ['x' => 129.5, 'y' => 319.7], ['x' => 146.4, 'y' => 352.2], ['x' => 136.0, 'y' => 350.8],
+        ['x' => 140.9, 'y' => 358.7], ['x' => 89.2, 'y' => 254.3], ['x' => 128.9, 'y' => 91.9],
+        ['x' => 659.1, 'y' => 220.8], ['x' => 730.2, 'y' => 202.9], ['x' => 845.4, 'y' => 233.3],
+        ['x' => 864.0, 'y' => 231.2], ['x' => 838.6, 'y' => 259.8], ['x' => 731.9, 'y' => 390.6],
+        ['x' => 834.1, 'y' => 549.4], ['x' => 879.8, 'y' => 211.4], ['x' => 811.5, 'y' => 171.2],
+        ['x' => 915.7, 'y' => 164.7], ['x' => 910.2, 'y' => 160.1], ['x' => 913.2, 'y' => 177.4],
+    ];
+@endphp
+<section class="gil">
+    <div class="gil-inner">
+        <div class="gil-copy">
+            <h2 class="gil-title">Find your local chapter</h2>
+            <p class="gil-desc">Anarchist Black Cross and Jericho Movement chapters across the country write letters, pack courtrooms, and organize for the people inside. Find one near you — or start your own.</p>
+            <a class="gil-link" href="/chapters"><span>Find a chapter</span><span class="gil-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="gil-map">
+            @include('partials.us-chapters-map')
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        var svg = document.querySelector('.gil-map .ch-usmap');
+        if (!svg) return;
+        var NS = 'http://www.w3.org/2000/svg';
+        var g = document.createElementNS(NS, 'g');
+        @json($gilDots).forEach(function (d) {
+            var c = document.createElementNS(NS, 'circle');
+            c.setAttribute('class', 'gil-dot');
+            c.setAttribute('cx', d.x); c.setAttribute('cy', d.y); c.setAttribute('r', 5);
+            g.appendChild(c);
+        });
+        svg.appendChild(g);
+    })();
+</script>
 @endsection
