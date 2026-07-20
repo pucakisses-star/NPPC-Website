@@ -77,6 +77,12 @@
     .cal-day-nav-btn:hover { border-color: var(--accent); }
 
     @media (max-width: 900px) { .cal-grid { grid-template-columns: repeat(2, 1fr); } .cal-day-view { flex-direction: column; } .cal-day-left { flex: auto; padding: 32px; position: static; max-height: none; overflow: visible; align-self: auto; } .cal-day-right { padding: 32px 24px; } }
+    @media (max-width: 700px) {
+        /* header squeezes into colliding columns on narrow screens — stack it */
+        .cal-header { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 0 24px; margin-bottom: 28px; }
+        .cal-header-left { width: 100%; justify-content: space-between; }
+        .cal-month-select { width: 100%; justify-content: space-between; }
+    }
     @media (max-width: 500px) {
         .cal-page { padding: 0 16px; }
         .cal-grid { grid-template-columns: 1fr; gap: 16px; }

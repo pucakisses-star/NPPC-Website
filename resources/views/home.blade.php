@@ -23,7 +23,8 @@
             <source src="{{ $heroVideoWebm ? asset('storage/' . $heroVideoWebm) : '/videos/home/video.webm' }}" type="video/webm">
         </video>
         <div class="video-bg-fade"></div>
-        <div class="absolute inset-0 bg-black" style="opacity: {{ (int)$heroOverlay / 100 }};"></div>
+        {{-- bg-black isn't in the compiled CSS (purged build); paint it inline --}}
+        <div class="absolute inset-0" style="background:#000; opacity: {{ (int)$heroOverlay / 100 }};"></div>
         <div class="absolute inset-0 flex items-end hero-text-wrap" style="z-index: 2; padding: 0 40px 40px;">
             <div class="text-white font-bold">
                 <span class="hero-headline hero-reveal" style="--hero-headline-size: {{ $heroHeadlineSize }}rem; font-size: var(--hero-headline-size); line-height: 1.1;">{{ $heroHeadline }}</span>

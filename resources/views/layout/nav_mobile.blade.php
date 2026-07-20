@@ -2,7 +2,11 @@
 @php
 $menuItems = ViewSupport::getMenuItems();
 @endphp
-<nav class="fixed top-0 w-full bg-black md:bg-black-500 lg:bg-opacity-40 md:backdrop-filter backdrop-blur  z-[99999] md:hidden">
+{{-- Inline position/z-index/background: the arbitrary Tailwind classes this
+     bar relied on (z-[99999], bg-black, h-[120px]) were never compiled into
+     app.css, leaving the bar transparent with no stacking order — page
+     heroes painted over it. --}}
+<nav class="md:hidden" style="position:fixed; top:0; left:0; right:0; z-index:100000; background:rgba(0,0,0,0.92); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);">
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex h-16 justify-between">
@@ -78,7 +82,7 @@ $menuItems = ViewSupport::getMenuItems();
 
 </nav>
 
-<div class="w-full h-[120px] md:hidden"></div>
+<div class="w-full md:hidden" style="height:96px;"></div>
 
 
 <script>

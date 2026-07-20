@@ -459,7 +459,10 @@ $topicCoords = [
 @endsection
 
 @section('body')
-<div class="bg-black">
+{{-- This page is a fixed dark design (white/rgba-white text throughout).
+     bg-black isn't in the compiled CSS, so paint the ground inline — without
+     it the page renders white-on-white in light theme. --}}
+<div style="background:#000;">
     <div class="progress-bar" id="progressBar"></div>
 
     <!-- Era Nav -->

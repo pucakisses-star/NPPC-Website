@@ -7,7 +7,7 @@
     @php $featured = $episodes->first(); @endphp
 
     {{-- Featured Episode Player --}}
-    <div style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 24px; margin-bottom: 16px;">
+    <div style="border: 1px solid rgba(var(--fg-rgb),0.12); border-radius: 8px; padding: 24px; margin-bottom: 16px;">
         <div style="display: flex; gap: 20px; align-items: flex-start;">
             @if($featured->cover_image)
                 <img src="{{ Storage::url($featured->cover_image) }}" alt="{{ $featured->title }}" style="width: 120px; height: 120px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
@@ -17,11 +17,11 @@
                 </div>
             @endif
             <div style="flex: 1;">
-                <div style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px;">
+                <div style="font-size: 20px; font-weight: 800; color: var(--fg); margin-bottom: 4px;">
                     {{ $featured->episode_number ? 'Episode '.$featured->episode_number.': ' : '' }}{{ $featured->title }}
                 </div>
                 @if($featured->show_name)
-                    <div style="font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 12px;">{{ $featured->show_name }}</div>
+                    <div style="font-size: 14px; color: rgba(var(--fg-rgb),0.55); margin-bottom: 12px;">{{ $featured->show_name }}</div>
                 @endif
 
                 @if($featured->embed_code)
@@ -33,7 +33,7 @@
                 @endif
 
                 @if($featured->duration)
-                    <div style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 8px; text-align: right;">{{ $featured->duration }}</div>
+                    <div style="font-size: 13px; color: rgba(var(--fg-rgb),0.45); margin-top: 8px; text-align: right;">{{ $featured->duration }}</div>
                 @endif
             </div>
         </div>
@@ -42,16 +42,16 @@
     {{-- Episode List --}}
     @if($episodes->count() > 1)
         @foreach($episodes->skip(1) as $episode)
-            <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer; transition: background 0.15s;" onmouseenter="this.style.background='rgba(255,255,255,0.03)'" onmouseleave="this.style.background='transparent'">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgba(var(--fg-rgb),0.08); cursor: pointer; transition: background 0.15s;" onmouseenter="this.style.background='rgba(var(--fg-rgb),0.04)'" onmouseleave="this.style.background='transparent'">
                 @if($episode->cover_image)
                     <img src="{{ Storage::url($episode->cover_image) }}" alt="{{ $episode->title }}" style="width: 36px; height: 36px; border-radius: 4px; object-fit: cover; flex-shrink: 0;">
                 @else
                     <div style="width: 36px; height: 36px; border-radius: 4px; background: #1a1a2e; flex-shrink: 0;"></div>
                 @endif
-                <div style="flex: 1; font-size: 14px; color: rgba(255,255,255,0.7);">
+                <div style="flex: 1; font-size: 14px; color: rgba(var(--fg-rgb),0.75);">
                     {{ $episode->episode_number ? 'Episode '.$episode->episode_number.': ' : '' }}{{ $episode->title }}
                 </div>
-                <div style="font-size: 13px; color: rgba(255,255,255,0.35); flex-shrink: 0;">{{ $episode->duration }}</div>
+                <div style="font-size: 13px; color: rgba(var(--fg-rgb),0.4); flex-shrink: 0;">{{ $episode->duration }}</div>
             </div>
         @endforeach
     @endif
