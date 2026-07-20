@@ -6,11 +6,11 @@
     <meta name="description" content="Too young to vote, old enough to be a target. The NPPC's youth page: the young people America has jailed for their politics — from Scottsboro to the Freedom Rides to today — and what you can do about it.">
     @verbatim
     <style>
-        /* NPPC Youth — light editorial style: white ground, heavy black
+        /* NPPC Youth — editorial style on a black ground: heavy white
            grotesque type, floating snapshot portraits, cream sign-up band,
-           black merch band, copper donate band. Fixed palette in both themes
-           (like the report pages). */
-        .yp { background: #ffffff; color: #111114; font-family: 'Helvetica Neue', Avenir, Helvetica, Arial, sans-serif; }
+           photo-strip merch band, copper donate band. Fixed palette in both
+           themes (like the report pages). */
+        .yp { background: #000; color: #fff; font-family: 'Helvetica Neue', Avenir, Helvetica, Arial, sans-serif; }
         .yp * { box-sizing: border-box; }
         .yp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
         .yp-label { font-size: 14px; font-weight: 700; margin: 0 0 26px; }
@@ -20,7 +20,7 @@
             transition: background .15s;
         }
         .yp a.yp-btn:hover { background: #4049d6; }
-        .yp a.yp-link { color: #111114; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+        .yp a.yp-link { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
         .yp a.yp-link:hover { opacity: .65; }
 
         /* ---- statement hero: centered bold text, floating snapshots ---- */
@@ -29,18 +29,18 @@
             position: relative; z-index: 2; max-width: 760px; margin: 0 auto; padding: 0 24px;
             text-align: center; font-size: clamp(22px, 3.4vw, 32px); font-weight: 800; line-height: 1.32; letter-spacing: -0.01em;
         }
-        .yp-intro .statement .accent { color: #5660fe; }
+        .yp-intro .statement .accent { color: #8b93ff; }
         .yp-snap {
             position: absolute; width: clamp(70px, 9vw, 120px); aspect-ratio: 1/1.15; object-fit: cover; object-position: top;
-            box-shadow: 0 6px 22px rgba(0,0,0,.14); will-change: transform;
+            box-shadow: 0 8px 26px rgba(0,0,0,.6); will-change: transform;
         }
-        .yp-intro .cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #9a9aa2; }
+        .yp-intro .cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.45); }
 
         /* ---- giant campaign headline ---- */
         .yp-campaign { padding: 110px 0 90px; }
         .yp-campaign h1 { margin: 0 0 28px; font-weight: 800; letter-spacing: -0.02em; font-size: clamp(44px, 7.6vw, 96px); line-height: 1.0; }
         .yp-campaign h1 .c { color: #f25c54; }
-        .yp-campaign p { max-width: 680px; font-size: 18px; line-height: 1.65; color: #4a4a52; margin: 0 0 30px; }
+        .yp-campaign p { max-width: 680px; font-size: 18px; line-height: 1.65; color: rgba(255,255,255,.65); margin: 0 0 30px; }
 
         /* ---- arrested-young carousel ---- */
         .yp-stories { padding: 40px 0 90px; }
@@ -48,24 +48,24 @@
         .yp-stories h2 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; letter-spacing: -0.015em; margin: 0 0 30px; }
         .yp-rail { display: grid; grid-auto-flow: column; grid-auto-columns: 250px; gap: 20px; overflow-x: auto; padding: 4px 4px 10px; scroll-snap-type: x mandatory; scrollbar-width: none; }
         .yp-rail::-webkit-scrollbar { display: none; }
-        .yp-card { scroll-snap-align: start; text-decoration: none; color: #111114; }
+        .yp-card { scroll-snap-align: start; text-decoration: none; color: #fff; }
         .yp-card img { width: 100%; height: 270px; object-fit: cover; object-position: top; display: block; border-radius: 6px; }
-        .yp-age { display: inline-block; margin: 12px 0 8px; background: #111114; color: #fff; font-weight: 800; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; }
+        .yp-age { display: inline-block; margin: 12px 0 8px; background: #fff; color: #111114; font-weight: 800; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; }
         .yp-card h3 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
-        .yp-card p { margin: 0; font-size: 13.5px; line-height: 1.5; color: #5a5a62; }
+        .yp-card p { margin: 0; font-size: 13.5px; line-height: 1.5; color: rgba(255,255,255,.6); }
         .yp-dots { display: flex; gap: 9px; justify-content: center; margin-top: 22px; }
-        .yp-dots button { width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; background: #d5d5dc; cursor: pointer; }
-        .yp-dots button.on { background: #5660fe; }
+        .yp-dots button { width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; background: #3a3a44; cursor: pointer; }
+        .yp-dots button.on { background: #8b93ff; }
 
         /* ---- explainer questions (thin-ruled, light) ---- */
         .yp-qa { padding: 60px 0 90px; }
         .yp-qa h2 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; letter-spacing: -0.015em; margin: 0 0 8px; }
-        .yp-qa .item { border-bottom: 1px solid #e7e7ea; padding: 30px 0; }
+        .yp-qa .item { border-bottom: 1px solid rgba(255,255,255,.16); padding: 30px 0; }
         .yp-qa .item h3 { margin: 0 0 12px; font-size: clamp(20px, 2.6vw, 26px); font-weight: 800; }
-        .yp-qa .item p { margin: 0; max-width: 780px; font-size: 16.5px; line-height: 1.7; color: #4a4a52; }
+        .yp-qa .item p { margin: 0; max-width: 780px; font-size: 16.5px; line-height: 1.7; color: rgba(255,255,255,.65); }
 
         /* ---- sign-up band (cream) ---- */
-        .yp-join { background: #efe9e1; padding: 100px 0; text-align: center; }
+        .yp-join { background: #efe9e1; color: #111114; padding: 100px 0; text-align: center; }
         .yp-join h2 { font-size: clamp(38px, 6vw, 72px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 44px; }
         .yp-signup { display: flex; gap: 14px; max-width: 640px; margin: 0 auto 14px; }
         .yp-signup input {
@@ -83,29 +83,28 @@
         /* ---- actions row ---- */
         .yp-acts { padding: 90px 0 70px; }
         .yp-acts-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
-        .yp-act { border: 1px solid #e2e2e6; border-radius: 8px; padding: 24px 22px; text-decoration: none; color: #111114; transition: border-color .12s, transform .12s; }
-        .yp-act:hover { border-color: #5660fe; transform: translateY(-2px); }
+        .yp-act { border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 24px 22px; text-decoration: none; color: #fff; transition: border-color .12s, transform .12s; }
+        .yp-act:hover { border-color: #8b93ff; transform: translateY(-2px); }
         .yp-act strong { display: block; font-size: 16.5px; font-weight: 800; margin-bottom: 8px; }
-        .yp-act span { font-size: 13.5px; color: #5a5a62; line-height: 1.5; }
+        .yp-act span { font-size: 13.5px; color: rgba(255,255,255,.6); line-height: 1.5; }
         @media (max-width: 900px) { .yp-acts-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
         @media (max-width: 560px) { .yp-acts-grid { grid-template-columns: 1fr; } }
 
         /* ---- FAQ (big bold questions, thin rules) ---- */
         .yp-faq { padding: 30px 0 100px; }
-        .yp-faq .yp-label { color: #111114; }
-        .yp-faq details { border-bottom: 1px solid #e7e7ea; }
+        .yp-faq details { border-bottom: 1px solid rgba(255,255,255,.16); }
         .yp-faq summary {
             cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
             gap: 18px; padding: 26px 0; font-size: clamp(19px, 2.6vw, 26px); font-weight: 800;
         }
         .yp-faq summary::-webkit-details-marker { display: none; }
-        .yp-faq summary::after { content: '+'; color: #5660fe; font-size: 28px; font-weight: 400; flex: 0 0 auto; }
+        .yp-faq summary::after { content: '+'; color: #8b93ff; font-size: 28px; font-weight: 400; flex: 0 0 auto; }
         .yp-faq details[open] summary::after { content: '–'; }
-        .yp-faq .a { padding: 0 0 26px; max-width: 820px; color: #4a4a52; font-size: 16.5px; line-height: 1.7; }
-        .yp-faq .a a { color: #111114; font-weight: 700; }
+        .yp-faq .a { padding: 0 0 26px; max-width: 820px; color: rgba(255,255,255,.65); font-size: 16.5px; line-height: 1.7; }
+        .yp-faq .a a { color: #fff; font-weight: 700; }
 
-        /* ---- black merch/history band with B&W photo strip ---- */
-        .yp-history { background: #000; color: #fff; }
+        /* ---- merch/history band with B&W photo strip ---- */
+        .yp-history { background: #0c0c10; color: #fff; border-top: 1px solid rgba(255,255,255,.08); }
         .yp-history .strip { display: grid; grid-template-columns: repeat(6, 1fr); }
         .yp-history .strip img { width: 100%; height: clamp(110px, 16vw, 190px); object-fit: cover; object-position: top; filter: grayscale(100%); display: block; }
         .yp-history .inner { text-align: center; padding: 80px 24px 90px; }
