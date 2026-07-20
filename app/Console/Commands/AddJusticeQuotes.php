@@ -33,7 +33,17 @@ final class AddJusticeQuotes extends Command
     ];
 
     /** Their portrait files on the public disk, no longer used. */
-    private const REMOVE_IMAGES = ['quotes/douglass.jpg', 'quotes/luxemburg.jpg', 'quotes/jones.jpg'];
+    private const REMOVE_IMAGES = [
+        'quotes/douglass.jpg',
+        'quotes/luxemburg.jpg',
+        'quotes/jones.jpg',
+        // Old rectangular portraits, replaced by transparent PNG cutouts.
+        'quotes/thoreau.jpg',
+        'quotes/debs.jpg',
+        'quotes/gandhi.jpg',
+        'quotes/vanzetti.jpg',
+        'quotes/solzhenitsyn.jpg',
+    ];
 
     /** @var list<array{key:string,text:string,author:string}> */
     private const QUOTES = [
@@ -82,12 +92,12 @@ final class AddJusticeQuotes extends Command
         $created = 0;
         $updated = 0;
         foreach (self::QUOTES as $q) {
-            $source = public_path('images/quote-authors/'.$q['key'].'.jpg');
-            $stored = 'quotes/'.$q['key'].'.jpg';
+            $source = public_path('images/quote-authors/'.$q['key'].'.png');
+            $stored = 'quotes/'.$q['key'].'.png';
             if (is_file($source)) {
                 Storage::disk('public')->put($stored, file_get_contents($source));
             } else {
-                $this->warn('Portrait missing: public/images/quote-authors/'.$q['key'].'.jpg');
+                $this->warn('Portrait missing: public/images/quote-authors/'.$q['key'].'.png');
             }
 
             $attributes = ['author_name' => $q['author'], 'author_image' => $stored];

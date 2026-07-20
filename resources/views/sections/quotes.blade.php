@@ -3,7 +3,7 @@
 <style>
     .quote-row { display:flex; align-items:flex-end; gap:24px; }
     .quote-img-box { flex:0 0 auto; height:400px; }
-    .quote-img { height:100%; width:auto; max-width:none; display:block; filter:grayscale(100%); }
+    .quote-img { height:100%; width:auto; max-width:none; display:block; filter:grayscale(100%) drop-shadow(0 12px 28px rgba(0,0,0,.55)); }
     .quote-text { font-size:1.85rem; }
     .quote-mark { width:56px; height:56px; }
     @media (max-width: 768px) {

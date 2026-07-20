@@ -4,6 +4,21 @@
 
 @section('head')
     <meta name="description" content="A walkable 3D museum of American political imprisonment — galleries, a timeline hall, an archive room, a theater, and a full-scale solitary cell, built from the NPPC database.">
+    {{-- The importmap must be parsed before any module executes; putting it in
+         head plus modulepreload hints collapses the module waterfall (museum.js
+         had to finish downloading before three.js was even discovered). --}}
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "/js/three/three.module.min.js",
+            "three/addons/": "/js/three/addons/"
+        }
+    }
+    </script>
+    <link rel="modulepreload" href="/js/museum.min.js">
+    <link rel="modulepreload" href="/js/three/three.module.min.js">
+    <link rel="modulepreload" href="/js/three/addons/objects/Reflector.js">
+    <link rel="modulepreload" href="/js/three/addons/environments/RoomEnvironment.js">
     @verbatim
     <style>
         #museum-wrap { position: fixed; inset: 0; z-index: 500000; background: #0c0d10; }
@@ -155,7 +170,7 @@
             <p class="mu-eyebrow">NATIONAL POLITICAL PRISONER COALITION</p>
             <h1 class="mu-title">The Museum of<br>Political Imprisonment</h1>
             <p class="mu-sub">A walkable gallery built live from the NPPC database — six themed halls, a timeline corridor, an archive of original documents, a theater, and a full-scale replica of a solitary cell.</p>
-            <button class="mu-btn" id="museum-enter">Enter the museum</button>
+            <button class="mu-btn" id="museum-enter" disabled>Loading the museum…</button>
             <div class="mu-keys">
                 <span><b>W A S D</b> walk</span>
                 <span><b>Mouse</b> look</span>
@@ -204,14 +219,6 @@
     </div>
 
     <script>window.MUSEUM = @json($museum);</script>
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "/js/three/three.module.min.js",
-            "three/addons/": "/js/three/addons/"
-        }
-    }
-    </script>
     <script>
         (function () {
             try {
@@ -225,5 +232,9 @@
             }
         })();
     </script>
-    <script type="module" src="/js/museum.js"></script>
+    {{-- museum.min.js is generated from public/js/museum.js (the readable
+         source of truth) with: npx -y esbuild public/js/museum.js --minify
+         --format=esm --target=es2020 --outfile=public/js/museum.min.js
+         Re-run that after any museum.js edit. --}}
+    <script type="module" src="/js/museum.min.js"></script>
 @endsection
