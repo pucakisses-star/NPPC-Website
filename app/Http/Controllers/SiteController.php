@@ -1220,7 +1220,7 @@ final class SiteController extends Controller {
                 'type'  => 'Article',
                 'title' => $article->title,
                 'url'   => $article->url,
-                'excerpt' => substr(strip_tags($article->body ?? ''), 0, 200),
+                'excerpt' => mb_substr(html_entity_decode(strip_tags($article->body ?? ''), ENT_QUOTES), 0, 200),
             ];
         }
 
@@ -1235,7 +1235,7 @@ final class SiteController extends Controller {
                 'type'  => 'Page',
                 'title' => $page->title,
                 'url'   => $page->url,
-                'excerpt' => substr(strip_tags($page->body ?? ''), 0, 200),
+                'excerpt' => mb_substr(html_entity_decode(strip_tags($page->body ?? ''), ENT_QUOTES), 0, 200),
             ];
         }
 
@@ -1251,7 +1251,7 @@ final class SiteController extends Controller {
                 'type'  => 'Prisoner',
                 'title' => $prisoner->name,
                 'url'   => '/prisoner/'.($prisoner->slug ?: $prisoner->id),
-                'excerpt' => substr($prisoner->description ?? '', 0, 200),
+                'excerpt' => mb_substr($prisoner->description ?? '', 0, 200),
             ];
         }
 
@@ -1266,7 +1266,7 @@ final class SiteController extends Controller {
                 'type'  => 'FAQ',
                 'title' => $faq->question,
                 'url'   => '/faq',
-                'excerpt' => substr(strip_tags($faq->answer ?? ''), 0, 200),
+                'excerpt' => mb_substr(html_entity_decode(strip_tags($faq->answer ?? ''), ENT_QUOTES), 0, 200),
             ];
         }
 

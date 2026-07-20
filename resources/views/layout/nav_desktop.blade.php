@@ -11,6 +11,11 @@
     #search-overlay { transform: translateY(-100%); visibility: hidden; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.3s; will-change: transform; }
     #search-overlay.is-open { transform: translateY(0); visibility: visible; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s; }
     @@media (prefers-reduced-motion: reduce) { #search-overlay { transition: none; } }
+    /* These overlays belong to the desktop nav only. On mobile the closed
+       hamburger panel sits translated off-screen right, which expands the
+       mobile layout viewport ~40px and makes every page horizontally
+       pannable — remove them from layout below the md breakpoint. */
+    @@media (max-width: 767px) { #search-overlay, #hamburger-panel, #hamburger-backdrop { display: none !important; } }
 </style>
 <div id="search-overlay" style="position:fixed; top:0; left:0; right:0; z-index:100001; background:#fff; padding:24px 40px; box-shadow:0 4px 30px rgba(0,0,0,0.3);">
     <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; gap:16px;">

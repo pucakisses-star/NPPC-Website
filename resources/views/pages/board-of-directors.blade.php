@@ -48,8 +48,8 @@
     <!-- Modal Template -->
     <div
             id="modal-overlay"
-            class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center"
-            style="z-index: 10000;"
+            class="fixed inset-0 hidden items-center justify-center"
+            style="z-index: 10000; background:rgba(0,0,0,0.75);"
             onclick="closeModal()"
     >
         <div
