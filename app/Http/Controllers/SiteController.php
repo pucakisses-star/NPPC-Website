@@ -563,11 +563,11 @@ final class SiteController extends Controller {
         return view('pages.map');
     }
 
-    public function civicProfile() {
-        return view('pages.civic-profile');
+    public function dissentProfile() {
+        return view('pages.dissent-profile');
     }
 
-    public function civicProfileResult(Request $request) {
+    public function dissentProfileResult(Request $request) {
         $data = $request->validate([
             'profile'              => ['required', 'string', 'max:80'],
             'values_scores'        => ['required', 'array'],

@@ -57,8 +57,11 @@ Route::controller(SiteController::class)
         Route::get('board-of-directors', 'boardOfDirectors');
         Route::get('partners', 'partners');
         Route::get('about', 'about');
-        Route::get('civic-profile', 'civicProfile');
-        Route::post('civic-profile/result', 'civicProfileResult');
+        Route::get('dissent-profile', 'dissentProfile');
+        Route::redirect('civic-profile', '/dissent-profile', 301);
+        Route::post('dissent-profile/result', 'dissentProfileResult');
+        // Alias: pages cached before the rename still post here.
+        Route::post('civic-profile/result', 'dissentProfileResult');
         Route::post('/sign-up', 'signUp');
         // Category-prefixed article URLs: /{category}/{slug} (e.g. /report/...,
         // /policy-brief/...). Kept after the specific two-segment routes above
