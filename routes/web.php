@@ -58,6 +58,7 @@ Route::controller(SiteController::class)
         Route::get('partners', 'partners');
         Route::get('about', 'about');
         Route::get('civic-profile', 'civicProfile');
+        Route::post('civic-profile/result', 'civicProfileResult');
         Route::post('/sign-up', 'signUp');
         // Category-prefixed article URLs: /{category}/{slug} (e.g. /report/...,
         // /policy-brief/...). Kept after the specific two-segment routes above

@@ -17,6 +17,7 @@ use App\Models\PrisonerCase;
 use App\Support\IncarcerationCostRates;
 use Carbon\Carbon;
 use App\Models\Product;
+use App\Models\QuizResult;
 use App\Models\Staff;
 use App\Models\Timeline;
 use App\Models\Topic;
@@ -564,6 +565,26 @@ final class SiteController extends Controller {
 
     public function civicProfile() {
         return view('pages.civic-profile');
+    }
+
+    public function civicProfileResult(Request $request) {
+        $data = $request->validate([
+            'profile'              => ['required', 'string', 'max:80'],
+            'values_scores'        => ['required', 'array'],
+            'values_scores.*'      => ['integer', 'between:0,100'],
+            'engagement_score'     => ['required', 'integer', 'between:0,30'],
+            'engagement_tier'      => ['required', 'string', 'max:40'],
+            'perception_avg_error' => ['nullable', 'integer', 'between:0,100'],
+            'knowledge_correct'    => ['required', 'integer', 'between:0,50'],
+            'knowledge_total'      => ['required', 'integer', 'between:1,50'],
+            'knowledge_pct'        => ['required', 'integer', 'between:0,100'],
+            'knowledge_tier'       => ['required', 'string', 'max:40'],
+            'answers'              => ['nullable', 'array'],
+        ]);
+
+        QuizResult::create($data);
+
+        return response()->json(['ok' => true]);
     }
 
     public function tracker() {
