@@ -314,10 +314,10 @@ $isHome = request()->segment(1) == ''
     <div id="main-content">
         @yield('body')
     </div>
-@elseif(request()->is('nppc-quiz'))
-    {{-- The NPPC Quiz is a full-bleed landing page: the hero spans the full
-         viewport width and its quiz self-constrains to 760px, so it renders
-         outside the width-limiting .container wrapper (like the home page). --}}
+@elseif(request()->is('nppc-quiz', 'youth', 'repression-in-america', 'repression-videos'))
+    {{-- Full-bleed landing pages: their heroes/bands span the full viewport
+         width and each page self-constrains its own text columns, so they
+         render outside the width-limiting .container wrapper (like home). --}}
     <main id="main-content">
         @yield('body')
     </main>
