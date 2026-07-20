@@ -41,6 +41,10 @@
        it, for both mouse and keyboard users. */
     .ch-usmap path:focus,
     .ch-usmap path:focus-visible { outline: none; fill: var(--accent); }
+    /* City dots for chapter locations (injected by JS; clicks fall through
+       to the state path underneath). */
+    .ch-usmap .ch-dot { fill: var(--accent-2); stroke: rgba(255,255,255,0.9); stroke-width: 1.4; pointer-events: none; }
+    .ch-usmap path.is-selected + g .ch-dot { fill: #fff; }
     .ch-tip { position: fixed; z-index: 60; background: var(--gi-ev-gold, #f5b400); color: #15171c; font-size: 13px; font-weight: 800; letter-spacing: 0.02em; padding: 5px 9px; border-radius: 3px; pointer-events: none; transform: translate(-50%, -145%); display: none; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
 
     .ch-all-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(var(--fg-rgb),0.14); padding-top: 22px; margin-top: 48px; }
@@ -184,6 +188,30 @@
         $chapters[] = ['st' => $ic['code'], 'org' => $ic['org'], 'url' => $ic['url'], 'loc' => $ic['loc'], 'city' => $ic['city'], 'desc' => $ic['desc']];
     }
 
+    // Chapter-city dot positions on the map, projected with the same
+    // d3.geoAlbersUsa/960x600 fit the map partial was generated with and
+    // verified to fall inside each state's path bounds.
+    $chDots = [
+        ['x' => 129.5, 'y' => 319.7, 'city' => 'Bakersfield'],
+        ['x' => 146.4, 'y' => 352.2, 'city' => 'Upland'],
+        ['x' => 136.0, 'y' => 350.8, 'city' => 'Los Angeles'],
+        ['x' => 140.9, 'y' => 358.7, 'city' => 'Santa Ana'],
+        ['x' => 89.2, 'y' => 254.3, 'city' => 'Oakland'],
+        ['x' => 128.9, 'y' => 91.9, 'city' => 'Portland'],
+        ['x' => 659.1, 'y' => 220.8, 'city' => 'Chicago'],
+        ['x' => 730.2, 'y' => 202.9, 'city' => 'Detroit'],
+        ['x' => 845.4, 'y' => 233.3, 'city' => 'Lancaster'],
+        ['x' => 864.0, 'y' => 231.2, 'city' => 'Philadelphia'],
+        ['x' => 838.6, 'y' => 259.8, 'city' => 'Washington'],
+        ['x' => 731.9, 'y' => 390.6, 'city' => 'Atlanta'],
+        ['x' => 834.1, 'y' => 549.4, 'city' => 'Miami'],
+        ['x' => 879.8, 'y' => 211.4, 'city' => 'New York'],
+        ['x' => 811.5, 'y' => 171.2, 'city' => 'Rochester'],
+        ['x' => 915.7, 'y' => 164.7, 'city' => 'Boston'],
+        ['x' => 910.2, 'y' => 160.1, 'city' => 'Lowell'],
+        ['x' => 913.2, 'y' => 177.4, 'city' => 'Providence'],
+    ];
+
     // Every selectable place -> display name (US states + countries) and the set that has chapters.
     $chPlaceNames = $allStateNames + collect($chIntl)->pluck('name', 'code')->all();
     $chapterCodes = array_merge(array_keys($chStateNames), array_column($chIntl, 'code'));
@@ -296,6 +324,19 @@
             grid.style.display = '';
             grid.querySelectorAll('.ch-ccard').forEach(function (c) { c.style.display = ''; });
         }
+
+        // City dots for each chapter location.
+        var NS = 'http://www.w3.org/2000/svg';
+        var dotsG = document.createElementNS(NS, 'g');
+        @json($chDots).forEach(function (d) {
+            var c = document.createElementNS(NS, 'circle');
+            c.setAttribute('class', 'ch-dot');
+            c.setAttribute('cx', d.x);
+            c.setAttribute('cy', d.y);
+            c.setAttribute('r', 5);
+            dotsG.appendChild(c);
+        });
+        svg.appendChild(dotsG);
 
         svg.querySelectorAll('path[data-state]').forEach(function (p) {
             var code = p.getAttribute('data-state');
