@@ -71,7 +71,8 @@
     .ch-intl-h { font-size: 1.3rem; font-weight: 800; color: var(--accent-2); line-height: 1.15; padding-bottom: 12px; border-bottom: 2px solid var(--accent); margin: 4px 0 20px; }
     .ch-intl-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 18px; }
     .ch-intl-box { display: flex; flex-direction: column; align-items: center; gap: 11px; width: 100%; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; }
-    .ch-intl-sq { width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(var(--fg-rgb),0.14); border-radius: 8px; font-size: 44px; line-height: 1; transition: border-color 0.15s, background 0.15s; }
+    .ch-intl-sq { width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(var(--fg-rgb),0.14); border-radius: 8px; transition: border-color 0.15s, background 0.15s; }
+    .ch-intl-flag { width: 56%; height: auto; display: block; border-radius: 4px; }
     .ch-intl-box:hover .ch-intl-sq,
     .ch-intl-box.is-selected .ch-intl-sq { border-color: var(--accent); background: rgba(86,96,254,0.08); }
     .ch-intl-name { font-size: 14px; font-weight: 700; color: var(--fg); text-align: center; }
@@ -176,12 +177,12 @@
     // network plus the Certain Days collective, each linking to its own
     // public site.
     $chIntl = [
-        ['code' => 'GBR', 'flag' => '🇬🇧', 'name' => 'United Kingdom', 'org' => 'Anarchist Black Cross', 'url' => 'https://bristolabc.org/', 'city' => 'Bristol ABC', 'loc' => 'Bristol, UK', 'desc' => 'Prisoner-support group in the international ABC network; a major focus is people imprisoned after the 2021 Kill the Bill protests.'],
-        ['code' => 'DEU', 'flag' => '🇩🇪', 'name' => 'Germany', 'org' => 'Anarchist Black Cross', 'url' => 'https://abcdd.org/en/home/', 'city' => 'ABC Dresden', 'loc' => 'Dresden, Germany', 'desc' => 'Letter-writing evenings, fundraising, and international prisoner solidarity since 2014.'],
-        ['code' => 'AUT', 'flag' => '🇦🇹', 'name' => 'Austria', 'org' => 'Anarchist Black Cross', 'url' => 'https://www.abc-wien.net/', 'city' => 'ABC Wien', 'loc' => 'Vienna, Austria', 'desc' => 'Anti-repression work and the annual ABC Solidarity Festival, supporting prisoners worldwide since 2008.'],
-        ['code' => 'BLR', 'flag' => '🇧🇾', 'name' => 'Belarus', 'org' => 'Anarchist Black Cross', 'url' => 'https://abc-belarus.org/en/main-page/', 'city' => 'ABC Belarus', 'loc' => 'Belarus (in exile)', 'desc' => 'Legal defense and family support for anarchists and anti-fascists imprisoned by the Lukashenko regime, since 2009.'],
-        ['code' => 'MEX', 'flag' => '🇲🇽', 'name' => 'Mexico', 'org' => 'Cruz Negra Anarquista', 'url' => 'https://abajolosmuros.wordpress.com/', 'city' => 'Cruz Negra Anarquista México', 'loc' => 'Mexico City, Mexico', 'desc' => 'Coordinates support for imprisoned compañerxs across Mexico; organizing since 2004.'],
-        ['code' => 'CAN', 'flag' => '🇨🇦', 'name' => 'Canada', 'org' => 'Certain Days Collective', 'url' => 'https://certaindays.org/', 'city' => 'Certain Days', 'loc' => 'Montreal, Canada', 'desc' => 'Cross-border collective producing the Certain Days: Freedom for Political Prisoners calendar with imprisoned members.'],
+        ['code' => 'GBR', 'iso' => 'gb', 'flag' => '🇬🇧', 'name' => 'United Kingdom', 'org' => 'Anarchist Black Cross', 'url' => 'https://bristolabc.org/', 'city' => 'Bristol ABC', 'loc' => 'Bristol, UK', 'desc' => 'Prisoner-support group in the international ABC network; a major focus is people imprisoned after the 2021 Kill the Bill protests.'],
+        ['code' => 'DEU', 'iso' => 'de', 'flag' => '🇩🇪', 'name' => 'Germany', 'org' => 'Anarchist Black Cross', 'url' => 'https://abcdd.org/en/home/', 'city' => 'ABC Dresden', 'loc' => 'Dresden, Germany', 'desc' => 'Letter-writing evenings, fundraising, and international prisoner solidarity since 2014.'],
+        ['code' => 'AUT', 'iso' => 'at', 'flag' => '🇦🇹', 'name' => 'Austria', 'org' => 'Anarchist Black Cross', 'url' => 'https://www.abc-wien.net/', 'city' => 'ABC Wien', 'loc' => 'Vienna, Austria', 'desc' => 'Anti-repression work and the annual ABC Solidarity Festival, supporting prisoners worldwide since 2008.'],
+        ['code' => 'BLR', 'iso' => 'by', 'flag' => '🇧🇾', 'name' => 'Belarus', 'org' => 'Anarchist Black Cross', 'url' => 'https://abc-belarus.org/en/main-page/', 'city' => 'ABC Belarus', 'loc' => 'Belarus (in exile)', 'desc' => 'Legal defense and family support for anarchists and anti-fascists imprisoned by the Lukashenko regime, since 2009.'],
+        ['code' => 'MEX', 'iso' => 'mx', 'flag' => '🇲🇽', 'name' => 'Mexico', 'org' => 'Cruz Negra Anarquista', 'url' => 'https://abajolosmuros.wordpress.com/', 'city' => 'Cruz Negra Anarquista México', 'loc' => 'Mexico City, Mexico', 'desc' => 'Coordinates support for imprisoned compañerxs across Mexico; organizing since 2004.'],
+        ['code' => 'CAN', 'iso' => 'ca', 'flag' => '🇨🇦', 'name' => 'Canada', 'org' => 'Certain Days Collective', 'url' => 'https://certaindays.org/', 'city' => 'Certain Days', 'loc' => 'Montreal, Canada', 'desc' => 'Cross-border collective producing the Certain Days: Freedom for Political Prisoners calendar with imprisoned members.'],
     ];
     // Fold the international groups into the "All Chapters" list (tagged by country code).
     foreach ($chIntl as $ic) {
@@ -256,7 +257,8 @@
                 <div class="ch-intl-list">
                     @foreach($chIntl as $ic)
                         <button type="button" class="ch-intl-box" data-state="{{ $ic['code'] }}">
-                            <span class="ch-intl-sq" aria-hidden="true">{{ $ic['flag'] }}</span>
+                            {{-- Vendored Twemoji flag SVGs (CC-BY 4.0) — emoji flags don't render on Windows --}}
+                            <span class="ch-intl-sq" aria-hidden="true"><img class="ch-intl-flag" src="/images/flags/{{ $ic['iso'] }}.svg" alt=""></span>
                             <span class="ch-intl-name">{{ $ic['name'] }}</span>
                         </button>
                     @endforeach
