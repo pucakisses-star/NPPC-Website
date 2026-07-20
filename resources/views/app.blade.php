@@ -143,6 +143,16 @@ $isHome = request()->segment(1) == ''
            elements then track the widened viewport — clipped nav logo,
            sideways pan). Clip the track at its wrapper. */
         .carousel { overflow: hidden !important; }
+        /* Two more layout-viewport wideners found by live probing:
+           - the Vue graph section's tab row lays out wider than the
+             screen — let it scroll horizontally instead;
+           - the footer's unbreakable email address forces its 1fr grid
+             column past the viewport — allow grid items to shrink and
+             long strings to wrap. */
+        #graph-component nav .container { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        #graph-component nav .container::-webkit-scrollbar { display: none; }
+        #app-footer-v2 .f2-top > * { min-width: 0; }
+        #app-footer-v2 a, #app-footer-v2 p { overflow-wrap: anywhere; }
 
         @media (max-width: 768px) {
             /* iOS Safari zooms inputs whose font-size is below 16px on
