@@ -1,0 +1,626 @@
+[
+    {
+        "slug": "alexander-beltran-herrera",
+        "dob": "1976",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/archives\/opa\/pr\/member-farc-terrorist-organization-sentenced-27-years-prison-hostage-taking-charges-2003 ; https:\/\/www.cnn.com\/2012\/03\/12\/us\/colombia-farc-extradition\/index.html",
+        "note": "Correct person: FARC commander, DC federal case, 2003 hostage-taking of 3 US citizens, sentenced 27 yrs. Reported ages: 35 at March 2012 extradition, ~38 at July 2014 sentencing -> birth year ~1976 (could be 1975-1977). Aliases Jhon Alexander Beltrain Herrera \/ Rodrigo Pirinolo."
+    },
+    {
+        "slug": "aline-espinosa-villegas",
+        "dob": "1994",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.kark.com\/crime\/five-sentenced-in-case-of-2020-firebombing-vandalism-targeting-asp-lrpd-nlrpd\/ ; https:\/\/www.justice.gov\/usao-edar\/pr\/four-defendants-facing-federal-charges-after-fire-bombings-police-vehicles",
+        "note": "Correct person: Little Rock, AR; 2020 Molotov\/firebombing of police vehicles; pleaded guilty to possession of unregistered destructive device. Reported age 27 at sentencing on Sept 23, 2021 -> born ~1993-1994."
+    },
+    {
+        "slug": "audrey-carroll",
+        "dob": "1995",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.cnn.com\/2025\/12\/15\/politics\/fbi-los-angeles-turtle-island-bomb-plot ; https:\/\/www.timesofisrael.com\/ringleader-of-us-leftist-group-charged-in-bomb-plot-called-herself-a-hamas-fangirl\/",
+        "note": "Correct person: Audrey Ilene Carroll ('Asiginaak'\/'Black Moon'), South Los Angeles; Turtle Island Liberation Front NYE bomb plot; arrested Dec 12, 2025, indicted Dec 23, 2025. Reported age 30 at arrest -> born ~1994-1995."
+    },
+    {
+        "slug": "aurelio-luis-perez-lugones",
+        "dob": "1964",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.wmar2news.com\/local\/maryland-u-s-navy-vet-turned-contractor-accused-of-stealing-secret-national-defense-information ; https:\/\/www.cnn.com\/2026\/01\/23\/politics\/ex-government-contractor-charged-leaking-washington-post",
+        "note": "Correct person: Maryland, Navy vet\/IT contractor at Annapolis Junction, indicted Jan 2026 for transmitting classified info to a Washington Post reporter. Reported age 61 at Jan 2026 indictment -> born ~1964-1965."
+    },
+    {
+        "slug": "benjamin-song",
+        "dob": "1993-03-22",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/www.fbi.gov\/wanted\/additional\/benjamin-hanil-song ; https:\/\/www.dps.texas.gov\/texas10mostwanted\/mostwanted\/fugitiveDetails?id=1867",
+        "note": "Correct person: Benjamin Hanil Song, July 4, 2025 Prairieland\/Alvarado TX ICE facility attack; FBI Wanted and Texas 10 Most Wanted both list DOB March 22, 1993."
+    },
+    {
+        "slug": "brandon-pack",
+        "dob": "1995",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.10tv.com\/article\/news\/local\/man-sentenced-least-8-years-prison-for-shooting-fireworks-at-police-during-protests\/530-910ef2c2-5d92-4e02-b7ad-e455911237b4 ; https:\/\/www.pressreader.com\/usa\/the-columbus-dispatch\/20211202\/281827172047954",
+        "note": "Correct person: Brandon L. Pack, Columbus OH South Side; fired commercial fireworks at police during May 2020 George Floyd protests; sentenced ~8 yrs on Nov\/Dec 2021. Reported age 26 at Dec 2021 sentencing -> born ~1994-1995. (Ohio DRC offender page was unreachable to confirm exact DOB.)"
+    },
+    {
+        "slug": "cameron-arnold",
+        "dob": "1996",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/opa\/pr\/antifa-cell-members-convicted-prairieland-ice-detention-center-shooting ; https:\/\/www.foxnews.com\/us\/doj-brings-first-antifa-related-terrorism-charges-texas-ice-attack",
+        "note": "Correct person: Cameron Arnold, a.k.a. 'Autumn Hill', Dallas TX; July 4, 2025 Prairieland ICE attack, indicted Oct 15, 2025. Reported as a 29-year-old at indictment -> born ~1995-1996. Age figure came from secondary reporting, hence medium confidence."
+    },
+    {
+        "slug": "cameron-monte-smith",
+        "dob": "1974",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/opa\/pr\/canadian-man-sentenced-25-years-destruction-energy-facilities-north-and-south-dakota ; https:\/\/www.cbsnews.com\/minnesota\/news\/canadian-man-shoot-electrical-substations-north-dakota-south-dakota\/",
+        "note": "Correct person: Cameron Monte Smith, Canadian national, shot up Wheelock Substation (ND, 2023) and Keystone infrastructure (SD); DAPL graffiti. Reported age 50 at March 2025 sentencing -> born ~1974-1975."
+    },
+    {
+        "slug": "charles-damien-darden",
+        "dob": "1976",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.washingtonpost.com\/archive\/politics\/1996\/01\/13\/two-black-teenagers-guilty-in-confederate-flag-slaying\/dcfa8704-72cc-4025-8e1e-e85ea5bb73e8\/ ; https:\/\/www.deseret.com\/1996\/1\/13\/19219033\/2-convicted-of-killing-man-because-of-rebel-flag\/",
+        "note": "Best match in TN: Charles Damien Darden, convicted with Freddie Morrow in the Jan 14, 1995 killing of Michael Westerman (Confederate-flag case), sentenced to life. Both defendants reported as 18 in Jan 1995 -> born ~1976-1977. Identity is the only prominent TN match; DOB is an age-derived estimate."
+    },
+    {
+        "slug": "christian-frazee",
+        "dob": "1995-04-06",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/www.bobberlin.com\/news\/lombard-man-sentenced-terrorism",
+        "note": "DuPage County (IL) State's Attorney press release lists 'Christian Frazee (d.o.b. 4\/6\/1995)' of Lombard, sentenced to 10 yrs for Conspiracy to Commit Terrorism + child pornography. Matches the Illinois Molotov\/attempted-terrorism defendant."
+    },
+    {
+        "slug": "christopher-trotter",
+        "dob": "1962",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/truthout.org\/articles\/these-men-fought-white-supremacists-and-got-sentenced-to-over-200-years\/",
+        "note": "Correct person (Pendleton Two, Indiana Reformatory 1985 rebellion, Indianapolis). Reported as 23 years old at the Feb 1, 1985 incident: 1985-23=1962 (could be 1961 if birthday not yet reached). Birth year only."
+    },
+    {
+        "slug": "daniel-jongyon-park",
+        "dob": "1992",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.cnn.com\/2025\/06\/24\/us\/daniel-jongyon-park-death-washington",
+        "note": "Correct person (Kent WA man, supplied chemicals for Palm Springs fertility-clinic bombing, CDCA case 5:25-cr-00208, died in federal custody June 24 2025). Reported age 32 at June 2025 arrest per court records => born ~1992. Year only."
+    },
+    {
+        "slug": "daniel-sanchez-estrada",
+        "dob": "1987",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/newpol.org\/extreme-30-year-prison-sentence-for-artist-daniel-des-sanchez-estrada-in-the-prairieland-case-tx-highlights-federal-attack-on-freedom-to-dissent\/",
+        "note": "Correct person (Denton TX tattoo artist, Prairieland\/July 4 2025 case, 30-yr sentence). Described as '39-year-old' in mid-2026 coverage: 2026-39=1987 (could be 1986). Birth year only."
+    },
+    {
+        "slug": "dante-gaffield",
+        "dob": "2001",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-cdca\/pr\/four-defendants-arrested-alleged-anti-capitalist-and-anti-government-plot-bomb-us",
+        "note": "Correct person (aka 'Nomad', South LA, Turtle Island Liberation Front NYE bomb plot, CDCA case 2:25-mj-07759). Reported age 24 at Dec 2025 arrest: 2025-24=2001 (could be 2000). Court PDF was image-only, no DOB. Year only."
+    },
+    {
+        "slug": "david-annarelli",
+        "dob": "1974",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/roanoke.com\/news\/crime\/floyd-county-man-convicted-of-wounding-deputy\/article_33384839-b97d-54df-b6d9-06e74c7cd056.html",
+        "note": "Correct person (Floyd County VA, shot\/wounded sheriff's deputy Sept 2016, VADOC #1853637). Reported as 'Annarelli, 42' at ~2017 conviction => born ~1974 (possibly 1975). Birth year only."
+    },
+    {
+        "slug": "david-michael-ansberry",
+        "dob": "1952",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.cbsnews.com\/colorado\/news\/david-ansberry-nederland-bomb-resentence\/",
+        "note": "Correct person (Nederland CO police-station bomb Oct 2016, 'little person', D. Colo., 10th Cir. 19-1048). Reported born 1952; also 64 at Oct 2016 incident (=>1951\/1952), consistent. Year only."
+    },
+    {
+        "slug": "dawn-jeffrey",
+        "dob": "1999",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.fox16.com\/news\/local-news\/little-rock-community-activist-dawn-jeffrey-arrested\/",
+        "note": "Correct person (Brittany Dawn Jeffrey, Little Rock AR BLM organizer, Aug 2020 police-car firebombing case, ATF). Reported age 21 in Dec 2020: 2020-21=1999 (could be 1998). Birth year only."
+    },
+    {
+        "slug": "diego-alfonso-navarrete-beltran",
+        "dob": "1972",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/opa\/pr\/member-colombian-terrorist-organization-sentenced-27-years-prison-hostage-taking-us-citizens",
+        "note": "Correct person (FARC member, hostage-taking of 3 US citizens, US District Court DC, extradited Nov 2014, sentenced 27 yrs). Reported age 43 at Nov 2015 sentencing: 2015-43=1972 (could be 1971). Year only."
+    },
+    {
+        "slug": "donald-zepeda",
+        "dob": "1989",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.thebanner.com\/community\/criminal-justice\/donald-zepeda-climate-activist-constitution-red-powder-EMNM7HIIOZEF5PJK2WCYZHZ3LM\/",
+        "note": "Correct person (Maryland, Declare Emergency, red-powder attack on US Constitution at National Archives Feb 2024, DC federal case, 2-yr sentence Nov 2024). Reported age 35 at Nov 2024 sentencing: 2024-35=1989 (could be 1988). Year only."
+    },
+    {
+        "slug": "edin-alex-enamorado",
+        "dob": "1987",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/abc7.com\/victorville-protests-edin-alex-enamorado-activist-arrested\/14199416\/",
+        "note": "Street-vendor activist, Upland CA, arrested Dec 14 2023 by San Bernardino Sheriff. Reported age 36 at that time -> born 1986 or 1987 (year precision)."
+    },
+    {
+        "slug": "elias-rodriguez",
+        "dob": "1994",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/abc7chicago.com\/post\/chicago-man-elias-rodriguez-idd-suspect-washington-dc-shooting-2-israeli-embassy-staffers\/16503962\/",
+        "note": "Chicago man charged with May 21 2025 shooting of 2 Israeli embassy staff at Capital Jewish Museum. Reported age 31 at time of shooting -> born 1993 or 1994."
+    },
+    {
+        "slug": "eric-hafner",
+        "dob": "1992",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/fortune.com\/2024\/09\/04\/alaska-prisoner-20-years-ballot-us-house-seat-eric-hafner\/",
+        "note": "Eric G. Hafner, formerly Monmouth County NJ, 20-yr sentence for threatening NJ officials\/false bomb threats; held at FCI Otisville NY; ran for Congress from prison. Reported age 32 in Sept 2024 -> born 1991 or 1992."
+    },
+    {
+        "slug": "erich-louis-yach",
+        "dob": "1978",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.localcrimenews.com\/welcome\/detail\/58823922\/erich-louis-yach-arrest.html",
+        "note": "San Marcos CA, one of 11 charged in 2021 Pacific Beach\/San Diego antifa case; pleaded guilty, 56 months state prison. Arrest record lists age 42 on Oct 6 2020 -> born 1977 or 1978."
+    },
+    {
+        "slug": "floyd-lee-corkins-ii",
+        "dob": "1984",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.cnn.com\/2012\/08\/16\/justice\/dc-shooting-suspect\/index.html ; https:\/\/www.justice.gov\/usao-dc\/pr\/virginia-man-sentenced-25-years-prison-shooting-security-guard-family-research",
+        "note": "Herndon VA man who shot FRC security guard Aug 15 2012, 25-yr sentence. Reported age 28 in Aug 2012 (and 29 at Sept 2013 sentencing) -> born 1983 or 1984."
+    },
+    {
+        "slug": "freddie-morrow",
+        "dob": "1977",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.courtlistener.com\/opinion\/1081930\/state-v-freddie-morrow-damien-darden\/ ; Washington Post, Jan 13 1996",
+        "note": "Convicted with Damien Darden of Jan 14 1995 murder of Michael Westerman (Confederate-flag slaying, Robertson County TN), life sentence. Reported as 17 at the killing (and 18 at Jan 1996 conviction) -> born ~1977 (year precision)."
+    },
+    {
+        "slug": "gazi-ibrahim-abu-mezer",
+        "dob": "1973-10-02",
+        "precision": "day",
+        "confidence": "high",
+        "source": "DOJ OIG 'Bombs in Brooklyn' special report (oig.justice.gov\/sites\/default\/files\/archive\/special\/9803\/brbrp1.htm)",
+        "note": "Matched: 1997 Brooklyn\/NYC subway pipe-bomb plotter, tried in EDNY. OIG report states 'born on October 2, 1973, in Hebron.'"
+    },
+    {
+        "slug": "gilberto-castillo",
+        "dob": "1996",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "Muscatine Journal \/ KWQC (April-May 2021 sentencing coverage)",
+        "note": "Matched: Gilberto Daniel Castillo III, Muscatine IA, one of two men who drove a vehicle at the Muscatine Public Safety Building (2020). Reported age 25 at April 2021 sentencing -> born 1995 or 1996."
+    },
+    {
+        "slug": "hafiz-muhammad-sher-ali-khan",
+        "dob": "1935",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "NBC\/Miami New Times\/FBI (2011 arrest and 2013 sentencing coverage)",
+        "note": "Matched: Miami Flagler Mosque imam convicted of material support to Pakistani Taliban (SDFL). Age 76 at May 2011 arrest and 78 at 2013 sentencing -> born 1934 or 1935."
+    },
+    {
+        "slug": "hashem-younis-hashem-hnaihen",
+        "dob": "1981",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "DOJ press releases (justice.gov\/opa) on Orlando energy-facility attack case",
+        "note": "Matched: Jordanian national, Orlando; attacked Wedgefield FL solar facility, left 'Warning Letters'. Age 43 at July 2024 arrest -> born 1980 or 1981."
+    },
+    {
+        "slug": "hugo-carvajal",
+        "dob": "1960-04-01",
+        "precision": "day",
+        "confidence": "high",
+        "source": "Wikipedia (en.wikipedia.org\/wiki\/Hugo_Carvajal); corroborated by DOJ SDNY \/ US State Dept",
+        "note": "Matched: 'El Pollo', Venezuelan ex-intelligence chief, extradited to SDNY 2023, pleaded guilty 2025. Born 1 April 1960, Puerto La Cruz."
+    },
+    {
+        "slug": "ian-freeman",
+        "dob": "1979",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "NHBR \/ NBC Boston (Dec 2022 conviction coverage); Wikipedia has no DOB",
+        "note": "Matched: Ian Freeman (born Ian Bernard), Keene NH, Free Talk Live \/ 'Crypto Six', convicted Dec 2022. Reported age 43 at Dec 2022 conviction -> born 1978 or 1979 (Dec date favors 1979)."
+    },
+    {
+        "slug": "ines-soto",
+        "dob": "1983",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "CBS Texas \/ Al Jazeera \/ KERA (2026 Prairieland sentencing coverage)",
+        "note": "Matched: Prairieland ICE facility (Alvarado TX) July 4, 2025 shooting defendant, sentenced 50 years; husband of Elizabeth Soto. Age 42 at July 2025 arrest -> born 1982 or 1983."
+    },
+    {
+        "slug": "jacob-d-little",
+        "dob": "1996",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "DOJ WDWA \/ HeraldNet \/ KING5 (2020-2023 coverage)",
+        "note": "Matched: Everett WA man who stole SPD rifle during May 30, 2020 Seattle protest, later convicted of Renton murder. Age 24 when charged Sept 2020 -> born 1995 or 1996."
+    },
+    {
+        "slug": "jacob-greenburg",
+        "dob": "2001",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "Capitol Hill Seattle News (2022 sentencing coverage)",
+        "note": "Matched: Seattle 2020 protest defendant (baseball-bat assault on officer + East Precinct Molotov fires), stepson of a former WA state rep. Age 19 at Sept 2020 incident -> born 2000 or 2001. (Not a Jan 6 case.)"
+    },
+    {
+        "slug": "jacob-hoopes",
+        "dob": "2001",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "OPB \/ KGW \/ DOJ District of Oregon (2025-2026 coverage)",
+        "note": "Matched: Robert Jacob Hoopes, Portland anti-ICE protester (threw rock at ICE officer, June 2025), Reed College grad, sentenced 30 months. Age 24 at July 2025 arrest -> born 2000 or 2001."
+    },
+    {
+        "slug": "jamison-wagner",
+        "dob": "1984",
+        "precision": "year",
+        "confidence": "high",
+        "source": "US v. Wagner federal criminal complaint, District of New Mexico (justice.gov\/usao-nm)",
+        "note": "Matched: Albuquerque man charged with arson of Tesla showroom and NM GOP HQ. Complaint lists year of birth 1984 (age 40 at April 2025 arrest is consistent)."
+    },
+    {
+        "slug": "jeffrey-weinhaus",
+        "dob": "1966-10-06",
+        "precision": "day",
+        "confidence": "high",
+        "source": "Missouri DOC offender record (inmate #1261778); corroborated by multiple case writeups",
+        "note": "Matched: Jeffrey R. Weinhaus 'Bulletinman', St. Clair\/Franklin County MO, shot by trooper Sept 2012, convicted of assault on LEO. DOB October 6, 1966."
+    },
+    {
+        "slug": "john-j-ford",
+        "dob": "1948",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "AP\/news coverage of June 1996 arrest (via Deseret News, Baltimore Sun)",
+        "note": "Matched: LIUFON founder, Long Island NY, charged 1996 with radium\/toothpaste plot to poison officials, ruled unfit for trial, held in psychiatric custody. Reported age 48 at June 1996 arrest -> born 1947 or 1948."
+    },
+    {
+        "slug": "jorge-peter-cornell",
+        "dob": "1976",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/opa\/pr\/three-members-and-one-associate-violent-north-carolina-latin-kings-gang-sentenced-prison ; https:\/\/cornellforcouncil.wordpress.com\/about\/",
+        "note": "Jorge Peter Cornell aka 'King Jay', Greensboro NC Latin Kings leader. Listed as 36 at his Aug 14, 2013 federal sentencing (born ~Aug 1976-Aug 1977) and 35 in his 2011 city-council campaign bio; overlap = born 1976."
+    },
+    {
+        "slug": "joseph-shine-white-stewart",
+        "dob": "1986-01-14",
+        "precision": "day",
+        "confidence": "high",
+        "source": "NC DOC Offender Public Info, offender ID 0802041 (webapps.doc.state.nc.us\/opi) — STEWART, JOSEPH, Birth Date 01\/14\/1986",
+        "note": "Jericho Movement profile lists NC DOC #0802041 for Joseph 'Shine White' Stewart; NC DOC record for that exact ID is STEWART, JOSEPH, DOB 01\/14\/1986."
+    },
+    {
+        "slug": "julio-zuniga",
+        "dob": "1980",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "TDCJ Inmate Search, TDCJ #01961551 \/ SID 05732604 (inmate.tdcj.texas.gov) — ZUNIGA, JULIO, Hispanic male, Age 46, Connally Unit",
+        "note": "Julio 'Comrade Z' Zuniga, IWOC anarchist prisoner #1961551 at Connally Unit, TX. TDCJ lists Age 46 as of 2026-07-21, so born 1979 or 1980 (year-minus-age = 1980)."
+    },
+    {
+        "slug": "juvenal-ovidio-ricardo-palmera-pineda",
+        "dob": "1950-07-30",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/en.wikipedia.org\/wiki\/Sim%C3%B3n_Trinidad",
+        "note": "FARC commander alias 'Simon Trinidad', convicted in US federal court (Washington DC) and held at ADX Florence, Colorado. DOB July 30, 1950, Valledupar, Colombia."
+    },
+    {
+        "slug": "karrem-nasr",
+        "dob": "2000",
+        "precision": "year",
+        "confidence": "high",
+        "source": "Federal BOP Inmate Locator, reg. #12571-506 (age 25, FCI Elkton); SDNY reported age 23 at Dec 2023 arrest",
+        "note": "Karrem Nasr, al-Shabaab material-support case (SDNY). BOP age 25 as of 2026-07-21 and age 23 at ~Dec 28 2023 arrest both converge on birth year 2000."
+    },
+    {
+        "slug": "keonne-rodriguez",
+        "dob": "1988",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "Federal BOP Inmate Locator, reg. #11404-511 (age 37, FCI McKean, PA); reported age 35 at April 2024 arrest in Harmony, PA",
+        "note": "Samourai Wallet co-founder. BOP age 37 as of 2026-07-21 and age 35 at April 24, 2024 arrest give born 1988 or 1989; overlap favors 1988."
+    },
+    {
+        "slug": "kyle-benjamin-douglas-calvert",
+        "dob": "1998",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "Federal BOP Inmate Locator, reg. #08981-511 (KYLE BENJAMIN CALVERT, age 28, FCI Forrest City Medium); DOJ MDAL press release (age 27 at federal sentencing)",
+        "note": "Kyle Benjamin Douglas Calvert, Irondale AL, detonated explosive outside Alabama AG office. BOP age 28 as of 2026-07-21 (27 at federal sentencing) gives born 1997 or 1998."
+    },
+    {
+        "slug": "kyle-wagner",
+        "dob": "1988",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.washingtontimes.com\/news\/2026\/feb\/5\/kyle-wagner-minneapolis-activist-arrested-federal-threats-charges\/ (Kyle Wagner, 37, of Minneapolis)",
+        "note": "Kyle Wagner, Minneapolis anti-ICE activist charged Feb 2026 (cyberstalking\/threats). Reported age 37 as of Feb 5, 2026, so born 1988 or 1989."
+    },
+    {
+        "slug": "luigi-mangione",
+        "dob": "1998-05-06",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/en.wikipedia.org\/wiki\/Luigi_Mangione ; https:\/\/www.britannica.com\/biography\/Luigi-Mangione",
+        "note": "Luigi Nicholas Mangione, charged in NY with murder of UnitedHealthcare CEO Brian Thompson. DOB May 6, 1998, Towson, Maryland."
+    },
+    {
+        "slug": "luis-felipe-moreno-godoy",
+        "dob": "1948",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/archive\/usao\/nys\/pressreleases\/November08\/alkassarmorenoverdictpr%20.pdf (MORENO, 60, at Nov 20 2008 conviction)",
+        "note": "IMPORTANT namesake distinction: this is Monzer al-Kassar's associate convicted in SDNY (2008) for conspiring to arm the FARC — NOT 'King Blood' Luis Felipe the Latin Kings founder. Listed as age 60 on Nov 20, 2008, so born 1947 or 1948."
+    },
+    {
+        "slug": "luis-v-rodriguez",
+        "dob": "1956-04-14",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/www.thejerichomovement.com\/profile\/luis-v-rodriguez-1956-2016 ; https:\/\/sfbayview.com\/2016\/04\/political-prisoner-luis-v-rodriguez-aztlan-warrior-passes-to-the-spirit-world\/",
+        "note": "Matched: Luis Valenzuela Rodriguez, Chicano\/Brown Berets activist convicted of the Dec 22 1978 murders of two CA Highway Patrol officers (People v. Rodriguez, Cal. Supreme Court); Jericho Movement profile lists 'April 14, 1956'. Deceased 2016."
+    },
+    {
+        "slug": "marc-castillo",
+        "dob": "1998",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.radioiowa.com\/2020\/08\/10\/two-men-charged-with-terrorism-after-ramming-muscatine-city-building\/ ; https:\/\/www.kcrg.com\/2021\/05\/10\/second-man-sentenced-for-driving-car-toward-muscatine-police-building\/",
+        "note": "Matched: Marc Anthony Castillo, Muscatine IA, charged with terrorism for driving a vehicle at the Muscatine Public Safety Building on 2020-08-09; reported age 21 at arrest (Aug 2020) and 22 at March 2021 plea -> born ~late 1998\/early 1999. Year computed from age; could be 1998 or 1999."
+    },
+    {
+        "slug": "margaret-channon",
+        "dob": "1994",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.nbcnews.com\/news\/us-news\/tacoma-woman-charged-burning-5-seattle-police-vehicles-during-protests-n1230331 ; https:\/\/www.king5.com\/article\/news\/crime\/tacoma-woman-sentenced-five-years-prison-arson-2020-protests\/281-e1d6e490-2d57-478b-a481-2b1d40398f00",
+        "note": "Matched: Tacoma WA woman charged with arson of 5 Seattle police vehicles on 2020-05-30; reported age 25 when arrested 2020-06-11 -> born ~June 1994-June 1995. Year computed from age; could be 1994 or 1995."
+    },
+    {
+        "slug": "marquon-clark",
+        "dob": "1994",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.atf.gov\/news\/pr\/man-sentenced-7-years-arson-during-june-2020-civil-unrest-madison ; https:\/\/madison.com\/wsj\/news\/local\/crime-and-courts\/arson-attempt-during-protest-at-the-city-county-building-brings-7-year-prison-sentence\/",
+        "note": "Matched: Marquon M. Clark, Madison WI, attempted arson of the City-County Building 2020-06-24; reported age 26 at June 2021 sentencing -> born ~1994\/1995. Year computed from age."
+    },
+    {
+        "slug": "matthew-rupert",
+        "dob": "1991",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.startribune.com\/illinois-man-sentenced-to-nearly-nine-years-for-arson-during-minneapolis-riots\/600086709 ; https:\/\/us.cnn.com\/2020\/06\/01\/politics\/illinois-minneapolis-charges\/index.html",
+        "note": "Matched: Matthew Lee Rupert of Galesburg IL, arson of Minneapolis Sprint store during May 2020 unrest; age 28 at June 2020 complaint and 29 at Aug 2021 sentencing -> born ~Aug 1991-June 1992. Year computed from age; could be 1991 or 1992."
+    },
+    {
+        "slug": "micah-legnon",
+        "dob": "1996",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.nbcnews.com\/news\/us-news\/ex-marine-planned-attack-new-orleans-recreate-waco-officials-say-rcna249714 ; https:\/\/www.justice.gov\/usao-wdla\/pr\/member-anti-capitalist-and-anti-government-group-arrested-and-charged-threatening-ice",
+        "note": "Matched: Micah James Legnon, 28, of New Iberia LA (ex-Marine, TILF), charged Dec 2025 with threatening ICE officers. Age 28 as of Dec 2025 -> born ~Dec 1996-Dec 1997. Year computed from age; could be 1996 or 1997."
+    },
+    {
+        "slug": "michael-kimble",
+        "dob": "1965",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/bloomingtonabc.noblogs.org\/war-fund\/michael-kimble\/ ; https:\/\/itsgoingdown.org\/phone-zap-12-23-anarchist-prisoner-michael-kimble-thrown-in-lock-up-for-defending-fellow-prisoner\/",
+        "note": "Matched: Black queer anarchist held by Alabama DOC since 1987-11-12 on a life sentence for murder. Described as 60 years old in ~2026 support materials -> born ~1965\/1966. Year computed from age; approximate."
+    },
+    {
+        "slug": "mike-sun",
+        "dob": "1960",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/opa\/pr\/political-operative-sentenced-48-months-federal-prison-acting-covert-agent-peoples-republic ; https:\/\/www.foxla.com\/news\/yaoning-sun-sentenced-illegal-prc-agent-california",
+        "note": "Matched: Yaoning 'Mike' Sun, 65, of Chino Hills CA, sentenced 2026-02-10 for acting as a covert PRC agent. Age 65 as of Feb 2026 -> born ~Feb 1960-Feb 1961. Year computed from age; could be 1960 or 1961."
+    },
+    {
+        "slug": "mohammed-sabry-soliman",
+        "dob": "1979",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-co\/pr\/egyptian-national-charged-hate-crime-attack-boulder-gathering ; https:\/\/time.com\/7290425\/colorado-attack-suspect\/",
+        "note": "Matched: Mohamed Sabry Soliman, Egyptian national, Boulder CO Molotov attack 2025-06-01. Reported age 45 in June 2025 -> born ~June 1979-June 1980. Year computed from age; could be 1979 or 1980. No full DOB located in public sources."
+    },
+    {
+        "slug": "monsour-owolabi",
+        "dob": "1991-10-03",
+        "precision": "day",
+        "confidence": "medium",
+        "source": "https:\/\/www.insideprison.com\/state-inmate-search.asp?lnam=Owolabi&fnam=Monsour+G&county=runnels&st_abb=TX&id=904327 (TDCJ-derived record)",
+        "note": "Matched: Monsour G. Owolabi, TDCJ inmate at Allred Unit, capital murder conviction out of Harris County (matches Owolabi v. State, 14th Court of Appeals, Harris Co. 179th District Court). TDCJ-scraped record lists DOB 1991-10-03. Confidence medium: single (scraped) source, and an advocacy bio's 'nearly 20 years imprisoned' claim is inconsistent with a 1991 birth (likely an overstatement), but name\/county\/facility\/offense all align."
+    },
+    {
+        "slug": "montez-lee",
+        "dob": "1994",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-mn\/pr\/rochester-man-sentenced-10-years-prison-arson-minneapolis-pawn-shop-resulted-death-man ; https:\/\/kstp.com\/minnesota-news\/rochester-man-sentenced-to-decade-in-prison-for-deadly-pawn-shop-arson\/6358976\/",
+        "note": "Matched: Montez Terrial Lee Jr., Rochester MN, arson of Max It Pawn on Lake St, Minneapolis 2020-05-28. Age 26 at July 2021 plea and 30 in Aug 2025 -> born ~Aug 1994-July 1995. Year computed from age; could be 1994 or 1995."
+    },
+    {
+        "slug": "monzer-al-kassar",
+        "dob": "1945",
+        "precision": "year",
+        "confidence": "high",
+        "source": "https:\/\/en.wikipedia.org\/wiki\/Monzer_al-Kassar",
+        "note": "Matched: Monzer al-Kassar, Syrian arms dealer 'Prince of Marbella', born Hama, Syria; convicted SDNY 2008, 30-yr sentence. Wikipedia gives birth year 1945 only (no month\/day)."
+    },
+    {
+        "slug": "mufid-fawaz-alkhader",
+        "dob": "1995",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/opa\/pr\/new-york-man-sentenced-firearm-and-religious-hate-crimes-involving-firing-shots-outside ; https:\/\/www.washingtontimes.com\/news\/2025\/aug\/12\/mufid-alkhader-man-fired-shotgun-outside-new-york-synagogue-gets-10\/",
+        "note": "Matched: Mufid Fawaz Alkhader of Schenectady NY, fired shots outside Temple Israel in Albany Dec 2023. Age 28 at Dec 2023 charge and 29 at Aug 2025 sentencing -> intersecting range gives born 1995. Year computed from age."
+    },
+    {
+        "slug": "namir-abdul-mateen",
+        "dob": "1957-01-20",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/mycrimelibrary.com\/james-were-ohio-death-row\/ ; http:\/\/www.cncpunishment.com\/forums\/showthread.php?3152-James-Were-Ohio-Death-Row",
+        "note": "Namir Abdul Mateen = James Were, Ohio death row for 1993 Lucasville uprising (killing of CO Robert Vallandingham). Ohio inmate record lists DOB 01\/20\/1957; consistent with reported age ~66."
+    },
+    {
+        "slug": "pascale-cecile-veronique-ferrier",
+        "dob": "1967",
+        "precision": "year",
+        "confidence": "high",
+        "source": "https:\/\/justapedia.org\/wiki\/Pascale_Ferrier ; https:\/\/globalnews.ca\/news\/7348374\/quebec-woman-rv-loving-web-developer",
+        "note": "Correct person (ricin letters to Trump\/Texas officials, 2020; French-Canadian). Born 1967 per Wikipedia\/Justapedia; consistent with '53 years old' in Sept 2020 reports (2020-53=1967). Case actually prosecuted in DC, not NY, but same individual."
+    },
+    {
+        "slug": "peter-karasev",
+        "dob": "1986",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.kron4.com\/news\/bay-area\/san-jose-engineer-who-bombed-pge-transformers-sentenced\/ ; https:\/\/www.justice.gov\/opa\/pr\/engineer-sentenced-10-years-prison-bombings-pge-transformers-causing-property-damage-and",
+        "note": "Correct person (San Jose PG&E transformer bombings 2022-2023). Age 38 at guilty plea (Apr 2025) and 39 at sentencing (late 2025) => born 1986; birthday falls mid-year. Could be 1987 if arrest-era '35' figure is right, but multiple 2025 anchors favor 1986."
+    },
+    {
+        "slug": "ramiz-zijad-hodzic",
+        "dob": "1974",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.counterextremism.com\/extremists\/ramiz-zijad-hodzic ; https:\/\/www.justice.gov\/usao-edmo\/pr\/missouri-man-sentenced-providing-material-support-terrorists",
+        "note": "Correct person (Bosnian immigrant, St. Louis County MO, ISIS material support). Age 44 at guilty plea Apr 4 2019 and 45 at sentencing Nov 14 2019 => birthday between those dates => born 1974. CEP lists '1974 or 1975'; cross-dating resolves to 1974."
+    },
+    {
+        "slug": "rebecca-morgan",
+        "dob": "2003",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.keranews.org\/criminal-justice\/2026-07-01\/prairieland-ice-detention-center-shooting-trial-defendant-prison-sentence-guilty-pleas-antifa-texas",
+        "note": "Correct person (Prairieland ICE facility July 4 2025 attack, Texas; pleaded guilty, 15 yrs). Attorney said she was 23 at sentencing (~July 2026) => born 2002 or 2003."
+    },
+    {
+        "slug": "robert-hoopes",
+        "dob": "2000",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-or\/pr\/portland-man-sentenced-federal-prison-aggravated-assault",
+        "note": "Robert Jacob Hoopes, Portland OR, assault on federal officer at ICE facility (rock thrown, June 2025); pleaded guilty Feb 18 2026, 30 months. Reported age 25 at sentencing (~2026) => born 2000 or 2001."
+    },
+    {
+        "slug": "salem-seleiman",
+        "dob": "1995",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/manhattanda.org\/d-a-bragg-announces-sentencing-of-salem-seleiman-for-2021-antisemitic-hate-crime-in-times-square\/ ; https:\/\/www.jta.org\/2025\/12\/08\/united-states\/final-assailant-charged-in-2021-antisemitic-assault-of-joey-borgen-sentenced-to-2-years-in-prison",
+        "note": "Correct person (2021 Times Square assault of Joey Borgen, Manhattan NY; sentenced Dec 4 2025). Reported age 30 at sentencing => born 1994 or 1995."
+    },
+    {
+        "slug": "shabazz-akeem-isiah-watson",
+        "dob": "1996",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.postandcourier.com\/news\/st-stephens-man-pleads-guilty-to-arson-during-2020-unrest-in-downtown-charleston\/article_5d701e02-c756-11ed-b826-1bc434c6d3bd.html",
+        "note": "Correct person (St. Stephens SC \/ Charleston Family Dollar arson during 2020 George Floyd protests). Reported age 27 at conviction Mar 20 2023 => born 1995 or 1996."
+    },
+    {
+        "slug": "shamim-mafi",
+        "dob": "1982",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-cdca\/pr\/iranian-national-living-san-fernando-valley-arrested-federal-complaint-charging-her ; https:\/\/abc7.com\/post\/shamim-mafi-arrest-investigators-feared-woodland-hills-woman-would-flee-us-before-alleged-weapons-trafficking-iran\/18930991\/",
+        "note": "Correct person (Iranian national, Woodland Hills\/San Fernando Valley CA, IRGC arms-trafficking to Sudan; aka Raheleh Mafi). Reported age 44 at 2026 arrest => born 1981 or 1982."
+    },
+    {
+        "slug": "tareq-mousa-al-ghazi",
+        "dob": "1947",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/archive\/usao\/nys\/pressreleases\/March09\/alghaziverdictpr.pdf ; CBC News; steptoe.com US v. Al Kassar",
+        "note": "Co-defendant of arms dealer Monzer Al Kassar (SDNY, Judge Rakoff), convicted March 2009 in FARC weapons-conspiracy case, sentenced 25 yrs. Reported age 62 at March 2009 conviction => born ~1946-1947 (put 1947). Not an ISIS case despite task label. Age-derived only."
+    },
+    {
+        "slug": "tina-lai",
+        "dob": "1985",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.cbsnews.com\/losangeles\/news\/glendale-woman-pleads-not-guilty-alleged-southern-california-bomb-plot\/ ; DOJ CDCA press releases",
+        "note": "Glendale, CA; 'Turtle Island Liberation Front' New Year's Eve bomb plot (co-defendant of Zachary Page). Reported age 41 at Jan 2026 not-guilty plea => born ~1984-1985 (put 1985). Age-derived only."
+    },
+    {
+        "slug": "tony-alexander-hamilton",
+        "dob": "1941",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.deseret.com\/2002\/11\/5\/19686975\/s-utah-shooter-fights-conviction\/ ; Utah Supreme Court State v. Hamilton (2003)",
+        "note": "Utah 'Fraternity of Preparation' member; shot Beaver County deputy John Chambers at Vance Springs ranch on Sept 9, 1999. Reported as 'then 58' at the Sept 9, 1999 shooting => born ~1940-1941 (put 1941). Age-derived only."
+    },
+    {
+        "slug": "trenten-edward-barker",
+        "dob": "1991",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-or\/pr\/four-defendants-charged-various-offenses-including-arson-assaulting-federal-officer-and ; katu.com",
+        "note": "Portland, OR; pleaded guilty to arson of the ICE facility (June 11, 2025 protest). Reported age 34 in 2025 => born ~1990-1991 (put 1991). Age-derived only."
+    },
+    {
+        "slug": "tyler-robinson",
+        "dob": "2003-04-16",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/en.wikipedia.org\/wiki\/Tyler_James_Robinson",
+        "note": "Tyler James Robinson, Charlie Kirk assassination (Utah Valley University, Sept 10 2025); of Washington\/St. George, Utah. Wikipedia states born April 16, 2003 (consistent with reported age 22-23)."
+    },
+    {
+        "slug": "yorie-von-kahl",
+        "dob": "1959-08-12",
+        "precision": "day",
+        "confidence": "medium",
+        "source": "https:\/\/constitution.org\/abus\/gkahl\/chronology.html (Kahl chronology); consistent with InForum reporting 'Yorie Kahl, 63' at July 2022 parole hearing",
+        "note": "Son of Gordon Kahl; Posse Comitatus, 1983 Medina, ND shootout; serving life at FCI Pekin. Detailed Kahl chronology gives DOB Aug 12, 1959; consistent with age-63 reporting in 2022. Confidence medium (source is a chronology page, not an official record)."
+    },
+    {
+        "slug": "zachary-evetts",
+        "dob": "1989",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.keranews.org\/criminal-justice\/2025-11-07\/prairieland-detention-center-ice-shooting-federal-indictments-trial ; Johnson County TX booking (07\/05\/2025); Fort Worth Report sentencing",
+        "note": "Prairieland\/Alvarado TX ICE-facility July 4, 2025 shooting defendant, sentenced 50 yrs. Booking listed ~35 (July 2025) and news reported 36 (Nov 2025) => born ~1989. (A Radaris record showing 1994 is a namesake, inconsistent with case reporting.) Age-derived."
+    },
+    {
+        "slug": "zachary-page",
+        "dob": "1993",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.justice.gov\/usao-cdca\/pr\/four-defendants-arrested-alleged-anti-capitalist-and-anti-government-plot-bomb-us ; ABC7 Los Angeles",
+        "note": "Zachary Aaron Page, aka 'AK', of Torrance, CA; leader of 'Turtle Island Liberation Front' New Year's Eve bomb plot (co-defendant of Tina Lai). Reported age 32 at Dec 2025 arrest => born ~1992-1993 (put 1993). Age-derived only."
+    }
+]
