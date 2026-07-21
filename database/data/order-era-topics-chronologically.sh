@@ -1,17 +1,40 @@
 #!/usr/bin/env bash
 #
 # Reorder the "Eras" section tabs on the /topics explorer into chronological
-# order. The explorer lists a section's sub-topics by their sort_order; this
-# assigns sort_order to the Eras children according to the historical start
-# year of each era, so the tabs read oldest-to-newest.
+# order (oldest to newest). The explorer lists a section's sub-topics by
+# their sort_order; this rewrites sort_order on the Eras children to match the
+# explicit chronological sequence below.
 #
-# Each era title is matched (case-insensitive substring) against a table of
-# known eras and their start years. Any era tab that does not match a known
-# keyword is placed after the matched ones, keeping its existing relative
-# order, so nothing is ever dropped or hidden.
+# Each tab is matched by a distinctive keyword (case-insensitive substring),
+# so the date ranges in the titles — e.g. "(1850-1861)", with whatever dash
+# character — cannot break the match. Any era tab that does not match a known
+# keyword is placed after the ordered ones, keeping its existing order, so
+# nothing is dropped.
 #
-# Idempotent: it simply recomputes and rewrites sort_order each run. Run from
-# the repo root:
+# Target order:
+#    1. Abolitionism & the Slave Power (1850-1861)
+#    2. The Haymarket Affair & the Anti-Anarchist Era (1886-1903)
+#    3. The First Red Scare (1917-1920)
+#    4. World War II: Japanese Incarceration & the First Smith Act Trials (1941-1945)
+#    5. McCarthyism (1947-1957)
+#    6. Civil Rights & Black Power
+#    7. COINTELPRO (1956-1971)
+#    8. The Vietnam War Era (1964-1975)
+#    9. The American Indian Movement & Wounded Knee (1973-1977)
+#   10. The Reagan Era (1981-1989)
+#   11. The Anti-Globalization Movement (1999-2001)
+#   12. The War on Terror (2001-)
+#   13. The Green Scare (2005-2010)
+#   14. Occupy Wall Street (2011-2012)
+#   15. Ferguson & the Movement for Black Lives (2014-2016)
+#   16. Standing Rock & the #NoDAPL Water Protectors (2016-2017)
+#   17. J20: The Inauguration Day Prosecutions (2017)
+#   18. The George Floyd Uprising (2020)
+#   19. The Stop Cop City Era (2022-)
+#   20. The Trump-Era Crackdown on Palestine Solidarity (2024-)
+#
+# Idempotent: it recomputes and rewrites sort_order each run. Run from the
+# repo root:
 #   bash database/data/order-era-topics-chronologically.sh
 
 set -euo pipefail
@@ -21,48 +44,52 @@ php artisan tinker --execute='
 $eras = \App\Models\Topic::where("slug", "eras")->orWhere("title", "Eras")->whereNull("parent_id")->first();
 if (! $eras) { echo "No \"Eras\" section topic found; nothing to do.\n"; return; }
 
-// Ordered keyword => historical start year. First keyword contained in a
-// title wins, so more specific phrases are listed before broader ones.
-$chronology = [
-    "abolition" => 1850, "harpers ferry" => 1859, "john brown" => 1859, "civil war" => 1861,
-    "reconstruction" => 1865,
-    "haymarket" => 1886, "gilded age" => 1877, "anarchist" => 1886,
-    "first red scare" => 1917, "palmer" => 1919, "world war i" => 1917,
-    "great depression" => 1930, "labor" => 1934,
-    "second red scare" => 1947, "mccarthy" => 1950, "mccarran" => 1950, "red scare" => 1919,
-    "civil rights" => 1955, "black power" => 1955, "cointelpro" => 1956,
-    "vietnam" => 1964, "anti-war" => 1965, "anti war" => 1965, "draft" => 1965,
-    "puerto rican" => 1974,
-    "green scare" => 1998, "environmental" => 1998, "animal" => 1998,
-    "war on terror" => 2001, "post-9/11" => 2001, "material support" => 2001, "terror" => 2001,
-    "occupy" => 2011,
-    "ferguson" => 2014, "black lives matter" => 2014, "uprising" => 2020, "george floyd" => 2020, "floyd" => 2020,
-    "j20" => 2017, "inauguration" => 2017,
-    "cop city" => 2022, "stop cop city" => 2022,
-    "palestine" => 2023, "gaza" => 2023,
+// Ordered distinctive keywords — one per era tab, in chronological order.
+// The first keyword contained in a title determines that tab position.
+$order = [
+    "abolitionism",
+    "haymarket",
+    "first red scare",
+    "world war ii",
+    "mccarthy",
+    "civil rights",
+    "cointelpro",
+    "vietnam",
+    "american indian movement",
+    "reagan",
+    "globalization",
+    "war on terror",
+    "green scare",
+    "occupy",
+    "ferguson",
+    "standing rock",
+    "j20",
+    "floyd",
+    "cop city",
+    "palestine",
 ];
 
 $children = $eras->children()->get();
-$ranked = $children->map(function ($t, $i) use ($chronology) {
+$ranked = $children->map(function ($t, $i) use ($order) {
     $title = mb_strtolower($t->title);
-    $year = null;
-    foreach ($chronology as $kw => $y) {
-        if (str_contains($title, $kw)) { $year = $y; break; }
+    $rank = null;
+    foreach ($order as $pos => $kw) {
+        if (str_contains($title, $kw)) { $rank = $pos; break; }
     }
     return [
-        "topic"    => $t,
-        "year"     => $year ?? 99999,   // unmatched eras sort to the end
-        "orig"     => $t->sort_order ?? $i,
-        "matched"  => $year !== null,
+        "topic"   => $t,
+        "rank"    => $rank ?? 9999,       // unmatched tabs sort to the end
+        "orig"    => $t->sort_order ?? $i,
+        "matched" => $rank !== null,
     ];
-})->sortBy([["year", "asc"], ["orig", "asc"]])->values();
+})->sortBy([["rank", "asc"], ["orig", "asc"]])->values();
 
 echo "New order for the Eras tabs:\n";
 $i = 0;
 foreach ($ranked as $row) {
     $t = $row["topic"];
     if ($t->sort_order !== $i) { $t->sort_order = $i; $t->save(); }
-    $tag = $row["matched"] ? "~".$row["year"] : "unmatched (kept at end)";
+    $tag = $row["matched"] ? "ok" : "UNMATCHED (kept at end)";
     echo "  ".($i + 1).". ".$t->title."  [".$tag."]\n";
     $i++;
 }
