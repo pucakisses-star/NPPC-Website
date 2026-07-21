@@ -46,6 +46,7 @@ class NormalizeRaces extends Command
 
         // Middle Eastern
         'Arab' => 'Middle Eastern',
+        'Arab American' => 'Middle Eastern',
         'Yemeni-American' => 'Middle Eastern',
 
         // Native American
