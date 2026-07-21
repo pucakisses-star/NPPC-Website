@@ -439,6 +439,12 @@ final class MergeDuplicatePrisoners extends Command
         ['philip-wigle',                 ['philip-vigol']],
         ['adolfo-matos-antogiorgi',      ['adolfo-matos']],
         ['jerome-zawada',                ['jerry-zawada']],
+        // The Oregon 2020-uprising prisoner "Comrade Candle" entered twice: her
+        // legal / Oregon DOC name (DeFerrari, which carries the sentenced case)
+        // and the activist name her defense campaign uses ("Free Sofia Johnson").
+        // Same person; canonical keeps the legal-name slug and folds "Sofia
+        // Johnson" into aka.
+        ['sofia-deferrari',              ['sofia-johnson']],
     ];
 
     /**

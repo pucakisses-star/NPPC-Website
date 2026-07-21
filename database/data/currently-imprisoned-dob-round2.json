@@ -1,0 +1,194 @@
+[
+    {
+        "slug": "beto-coral",
+        "dob": "1986-05-11",
+        "precision": "day",
+        "confidence": "high",
+        "source": "https:\/\/www.tunota.com\/entretenimiento\/quien-es-beto-coral-wikipedia-biografia-origen-y-familia-del-politico-2026-05-13",
+        "note": "Beto Coral = Franklin Humberto Coral Garrido, Colombian activist detained by ICE in Arizona June 2026. Spanish-language bio states 'nacio en Medellin el 11 de mayo de 1986'. Consistent with 'age 40 as of June 2026' reported by Colombia One \/ El Espectador. Matches the ICE\/immigration case in the hint."
+    },
+    {
+        "slug": "christopher-tindal",
+        "dob": "1995-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.atf.gov\/news\/press-releases\/rochester-man-arrested-arson-charges-related-may-30-protests-rochester ; archive.org uprising-support-4-26",
+        "note": "Rochester NY George Floyd uprising arson defendant. ATF press release (2020-08-06) states 'Christopher Tindal, 25'. April 2026 uprising-support zine states he is 30. Age 25 on 2020-08-06 -> born Aug 1994-Aug 1995; age 30 in Apr 2026 -> born Apr 1995-Apr 1996. Intersection = born ~mid-1995. Birth year 1995; full DOB not published."
+    },
+    {
+        "slug": "daniel-barrera-barrera",
+        "dob": "1968-11-06",
+        "precision": "day",
+        "confidence": "high",
+        "source": "OFAC SDN \/ Kingpin Act designation (sanctionslaw.com; ofac.treasury.gov 20100225)",
+        "note": "'El Loco' Barrera, Colombian trafficker extradited to US (SDNY\/SDFL), sentenced 35 yrs 2016. OFAC SDN entry lists DOB 06 Nov 1968 (Cedula 18221599, Colombia) with a secondary alt-DOB 15 Sep 1967. Primary DOB used. Matches the extradition figure in the hint."
+    },
+    {
+        "slug": "dwight-parker",
+        "dob": "1981-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/cbs6albany.com\/news\/local\/two-arraigned-on-multiple-felony-counts-in-connection-with-albany-riots",
+        "note": "Dwight Parker, 39, of Troy NY, arraigned ~Sept 2020 on felony\/terrorism charges for throwing an incendiary device at mounted police and setting a tractor-trailer on fire during the May 30, 2020 Albany George Floyd riot. Age 39 in Sept 2020 => born ~1980-1981; reported 1981. Full DOB not published."
+    },
+    {
+        "slug": "erminso-cuevas-cabrera",
+        "dob": "1960-09-16",
+        "precision": "day",
+        "confidence": "high",
+        "source": "OFAC SDN List \/ Federal Register Vol. 86 No. 232 (2021-26484): 'CUEVAS CABRERA, Erminso (a.k.a. MINCHO); DOB 16 Sep 1960; POB El Paujil, Caqueta, Colombia; Cedula 96328518'",
+        "note": "Identity verified: FARC 14th Front chief of cocaine manufacturing 'Mincho', extradited to US, tried in D.C. (Judge Thomas F. Hogan), sentenced to 348 months (29 yrs) [US v. Juan Vega\/Cuevas Cabrera, D.C. Cir.]. Same man as the OFAC SDN entry. The Florida location is his BOP incarceration site, not a separate case — DOB drawn from the authoritative OFAC\/DOJ record for this individual."
+    },
+    {
+        "slug": "fabio-simon-younes-arboleda",
+        "dob": "1946-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.eltiempo.com\/justicia\/delitos\/fabio-younes-arboleda-capturado-con-santrich-pedira-extradicion-expres-204300 (El Tiempo, age 72 at April 9, 2018 capture)",
+        "note": "Colombian businessman, Santrich associate; captured April 9, 2018 at age 72, extradited to US (SDNY) Nov 17, 2020, sentenced 2023 (reported ~77). Age 72 in April 2018 => born ~1945-1946 (reported 1946). Full DOB not published."
+    },
+    {
+        "slug": "faouzi-jaber",
+        "dob": "1956-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/insightcrime.org\/news\/brief\/dea-agents-posed-farc-net-international-arms-trafficker\/ (published 26 Jul 2017; 'Faouzi Jaber, a 61-year-old Ivorian citizen')",
+        "note": "Ivorian arms\/drug trafficker a.k.a. 'Excellence', arrested Prague April 2014, pleaded guilty in SDNY on July 25, 2017 to arms\/material-support conspiracy tied to FARC and Hezbollah dealings. Age 61 in July 2017 => born ~1955-1956 (reported 1956). Full DOB not found; not located on OFAC SDN."
+    },
+    {
+        "slug": "francisco-joseph-arcila-ramirez",
+        "dob": "1984-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.elheraldo.co\/colombia\/colombiano-sentenciado-20-anos-de-carcel-en-eeuu-por-vender-armas-al-eln-697646 and impactolatino.com ('Arcila, 36')",
+        "note": "Colombian national \/ South Florida resident, sentenced Jan 2020 (SDFL, Judge Jose E. Martinez) to 20 yrs for selling firearms to the ELN. Reported age 36 at Jan 2020 sentencing => born ~1983-1984 (reported 1984). Full DOB not published."
+    },
+    {
+        "slug": "gerardo-aguilar-ramirez",
+        "dob": "1962-09-20",
+        "precision": "day",
+        "confidence": "high",
+        "source": "OFAC SDN List: 'AGUILAR RAMIREZ, Gerardo Antonio (a.k.a. CESAR); DOB 20 Sep 1962; POB Colombia' (Treasury\/Federal Register)",
+        "note": "FARC commander 'Cesar' (Eastern Bloc 1st Front), captured July 2, 2008 (Operation Jaque), extradited to US 2009, pleaded guilty (SDNY\/DC) to cocaine importation, sentenced ~27 yrs (BOP). Identity matches the OFAC SDN entry. Florida location is his BOP incarceration site. Full DOB from OFAC record."
+    },
+    {
+        "slug": "ignacio-leal-garcia",
+        "dob": "1969-07-26",
+        "precision": "day",
+        "confidence": "high",
+        "source": "OFAC SDN List \/ Federal Register 86 FR 69365 (2021-26484), govinfo FR-2021-12-07; DOJ SDNY press releases",
+        "note": "OFAC SDN entry 'LEAL GARCIA, Ignacio' (a.k.a. Camilo, a.k.a. Tuerto), Colombian cedula 96186610, DOB 26 Jul 1969 — matches the FARC 10th Front leader 'El Tuerto'\/'Camilo' from Arauca, captured 8 Apr 2009, extradited July 2010 (age 41, consistent), sentenced to 294 months. NPPC 'Florida' hint consistent with a Colombian FARC extraditee held in a FL federal prison."
+    },
+    {
+        "slug": "john-wade",
+        "dob": "1987-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.crimeonline.com\/2020\/07\/02\/protest-organizer-second-man-charged-with-wendys-fire-during-rayshard-brooks-protest-in-atlanta\/ ; https:\/\/www.gpb.org\/news\/2020\/07\/02\/2-arrested-in-wendys-fire-after-rayshard-brooks-shooting",
+        "note": "Atlanta 2020 uprising organizer (Wendy's arson \/ Rayshard Brooks protests, Fulton County). Reported as age 33 in early July 2020, so born ~1986-1987. This is the Georgia protest activist, not the Jan 6 defendant."
+    },
+    {
+        "slug": "joy-gibson",
+        "dob": "1995-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/dentonrc.com\/news\/state\/5-prairieland-ice-shooting-defendants-plead-guilty-to-federal-terrorism-related-charge\/ ; KERA News Prairieland coverage",
+        "note": "Joy 'Rowan' Gibson (Dallas), Prairieland\/Alvarado ICE-facility case, girlfriend of Benjamin Song; reported as 'Gibson, 30' in 2025-2026 case coverage, so born ~1995-1996. Pleaded guilty to material support; sentenced to 15 years."
+    },
+    {
+        "slug": "juan-jose-martinez-vega",
+        "dob": "1961-06-04",
+        "precision": "day",
+        "confidence": "high",
+        "source": "OFAC SDN List \/ Federal Register 86 FR 69365 (2021-26484), govinfo FR-2021-12-07",
+        "note": "OFAC SDN entry 'ALVIS PATINO, Gentil' (a.k.a. MARTINEZ VEGA, Juan Jose; a.k.a. 'CHIGUIRO'), DOB 04 Jun 1961, POB El Doncello, Caqueta, Colombia, cedula 17669391. Alias set matches DOJ's charging language exactly ('Gentil Alvis Patino ... Chiguiro'), FARC arms\/cocaine trafficker extradited 2008, sentenced to 330 months."
+    },
+    {
+        "slug": "julio-cesar-irungaray",
+        "dob": "1970-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.sltrib.com\/news\/2026\/06\/26\/utah-activist-detained-by-ice-has\/",
+        "note": "Salt Lake City activist\/father detained by ICE; his son gave his age as 56 in reporting dated 26 June 2026, so born ~1969-1970. 35-year Utah resident, diabetic, held in Evanston, WY."
+    },
+    {
+        "slug": "kenneth-whitmore",
+        "dob": "1954-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/sfbayview.com\/2022\/06\/almost-50-years-aint-enough-free-kenny-zulu-whitmore-2\/ ; nola.com 2015 coverage",
+        "note": "Kenny 'Zulu' Whitmore, Black Panther, Angola\/LSP. Reported as age 60 in a 2015 article; arrested Feb 1975 (for Aug 1973 killing), at Angola since Mar 1978, 'almost 50 years' incarcerated by 2022 — all consistent with birth ~1954. One automated summary gave a specific '14 Oct 1954' but that exact date could not be confirmed on a primary page, so precision kept to year."
+    },
+    {
+        "slug": "meagan-morris",
+        "dob": "1985-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/yournews.com\/2026\/01\/21\/6233321\/two-transgender-defendants-in-texas-ice-protest-case-describe-misgendering\/ ; Prairieland case coverage",
+        "note": "Bradford 'Meagan' Morris (Dallas), transgender woman, Prairieland\/Alvarado ICE-facility case, sentenced to 50 years. Described as a 41-year-old in 2026 reporting, so born ~1984-1985."
+    },
+    {
+        "slug": "muhammad-pahlawan",
+        "dob": "1975-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "https:\/\/www.stripes.com\/branches\/navy\/2025-10-17\/iran-weapons-sentence-pahlawan-navy-seals-19454580.html ; DOJ EDVA press releases",
+        "note": "Pakistani dhow captain, EDVA (Iranian-weapons\/Houthi case, Jan 2024 SEAL raid), convicted and sentenced to 40 years Oct 2025. Reported as age 49 around the Jan 2024 arrest\/2024 charging, so born ~1974-1975. Full DOB not disclosed in public filings\/press."
+    },
+    {
+        "slug": "nervis-villalobos-cardenas",
+        "dob": "1967-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "ICE.gov \/ DOJ USAO-SDTX press release 'Five Former Venezuelan Government Officials Charged...' — 'Nervis Gerardo Villalobos Cardenas, age 50' (20-count indictment returned Aug 23, 2017)",
+        "note": "Former Venezuela deputy energy minister, PDVSA bribery\/FCPA case, SDTX (Houston); arrested Spain Oct 2017. Age 50 as of the Aug 2017 indictment -> born ~1966-1967. No full DOB located; OFAC\/OCCRP\/Wikidata entries carry no birth date."
+    },
+    {
+        "slug": "russell-kilfoil",
+        "dob": "1987-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "greensboro.com \/ YES! Weekly \/ DOJ — 'Russell Lloyd Kilfoil, aka King Peaceful, 26, of Greensboro' at Aug 28, 2013 sentencing (convicted Nov 21, 2012)",
+        "note": "ALKQN (Latin Kings) Greensboro NC RICO case; half-brother of leader Jorge Cornell. Age 26 at mid-2013 sentencing -> born ~1986-1987. Distinct from co-defendant Randolph Kilfoil ('King Paul', acquitted)."
+    },
+    {
+        "slug": "salih-ali-abdullah",
+        "dob": "1946-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "Wikipedia '1973 Brooklyn hostage crisis' + AP\/Oxygen 'Hold Your Fire' coverage — 'Salih Ali Abdullah (26)' at the Jan 19, 1973 John & Al's Sports robbery; Jericho Movement profile (DOCCS DIN 74-A-2614)",
+        "note": "One of the 'Williamsburg 4', Bushwick Brooklyn NY. Age 26 at the Jan 19 1973 incident (consistent across sources) -> born ~1946-1947. Reportedly died Oct 2020 at his 14th parole hearing 'at 71 years old', which would instead imply ~1949 — minor inconsistency. No exact DOB published."
+    },
+    {
+        "slug": "sofia-deferrari",
+        "dob": "1997-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "freesofiajohnson.com \/ anarchistfederation.net support-site bios — 'non-binary trans woman and 25-year-old Egoist Anarchist' (site launched July 2022); Oregon DOC Coffee Creek, SID #23976151",
+        "note": "Sofia 'Candle' DeFerrari (legal name; aka Sofia Johnson). Oregon DOC prisoner — Portland riot Riot\/Criminal Mischief conviction plus Beaverton 7-Eleven Measure-11 armed robbery; release 2028-12-22. Age 25 as of ~2022 -> born ~1996-1997. NOT the Oct-2025 Portland ICE-protest 'Samuel Westcott' case (namesake red herring rejected)."
+    },
+    {
+        "slug": "thiruthanikan-thanigasalam",
+        "dob": "1969-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "Canada.ca RCMP release + CBC\/ABC7\/DOJ EDNY coverage — 'Thiruthanikan Thanigasalam, 37' at time of the August 2006 arrest",
+        "note": "LTTE (Tamil Tigers) weapons-procurement case, EDNY (Brooklyn); Tamil-Canadian, arrested Aug 2006, 25-yr sentence. Age 37 in Aug 2006 -> born ~1968-1969. No full DOB in accessible records."
+    },
+    {
+        "slug": "timothy-martin",
+        "dob": "1969-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "The Art Newspaper \/ Bloomberg Law \/ DOJ USAO-DC — 'Tim Martin, 54, of Raleigh NC' (April 2023 incident) and 'Timothy Martin, 55' (April 2025 guilty verdict)",
+        "note": "Declare Emergency climate activist; smeared paint on the case of Degas's 'Little Dancer' at the National Gallery of Art, Washington DC, Apr 27 2023 (co-defendant Joanna Smith); sentenced 18 months, Oct 31 2025. Ages 54 (2023) and 55 (2025) intersect at birth year ~1969. Not a J6\/Oath Keepers defendant (namesakes rejected)."
+    },
+    {
+        "slug": "william-lonergan-hill",
+        "dob": "1958-01-01",
+        "precision": "year",
+        "confidence": "medium",
+        "source": "The Block \/ Bitcoin Magazine \/ DOJ USAO-SDNY — Samourai Wallet co-founder\/CTO 'William Lonergan Hill... 67 years old', sentenced to 4 years on Nov 19 2025",
+        "note": "SDNY crypto (unlicensed money transmitting \/ money laundering) case, indicted Feb 2024, pleaded guilty July 30 2025. Age 67 at Nov 19 2025 sentencing -> born ~1957-1958. No full DOB published."
+    }
+]
