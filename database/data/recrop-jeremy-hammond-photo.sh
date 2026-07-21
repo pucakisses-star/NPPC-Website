@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # Replace Jeremy Hammond's portrait with a version cropped in from the left
-# and right (620x412 -> 480x412), trimming the dead grey space on either
-# side to tighten the framing. The photo field already points at
+# and right (620x412 -> 360x412), trimming the dead grey space on either
+# side to tighten the framing around him. The photo field already points at
 # prisoners/jeremy-hammond.webp, so this just overwrites the stored file.
 #
 # Run from the repo root:
