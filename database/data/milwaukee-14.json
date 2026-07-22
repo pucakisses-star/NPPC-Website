@@ -1,0 +1,95 @@
+[
+  {
+    "slug": "jim-forest",
+    "photo": "jim-forest.jpg",
+    "photo_source": "Jim & Nancy Forest family site (jimandnancyforest.com), cropped to Forest",
+    "note": "DOB/DOD already present and confirmed (1941-11-02 / 2022-01-13)"
+  },
+  {
+    "slug": "lawrence-rosebaugh",
+    "photo": "lawrence-rosebaugh.jpg",
+    "photo_source": "Wikimedia Commons, CC BY-SA 4.0 (Fr. Larry Rosebaugh, Guatemala ca. 2006)",
+    "note": "DOB/DOD already present and confirmed (1935-05-16 / 2009-05-18)"
+  },
+  {
+    "slug": "anthony-mullaney",
+    "photo": "anthony-mullaney.jpg",
+    "overwrite_if_contains": "b7d981f3",
+    "birth": [1929, 7, 24],
+    "death": [2023, 5, 31],
+    "photo_source": "UMass Amherst SCUA, Liberation News Service Records (MS 546), 1968 close-up portrait",
+    "note": "Replaces the misattributed namesake mugshot. DOB/DOD from Direct Cremation of Maine obituary + Bangor Daily News."
+  },
+  {
+    "slug": "james-harney",
+    "photo": "james-harney.jpg",
+    "birth": [1940, 2, 26],
+    "death": [2008, 12, 26],
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 close-up portrait of Fr. James Harney",
+    "note": "DOB from Bangor Daily News obituary; DOD from The Nation."
+  },
+  {
+    "slug": "robert-cunnane",
+    "photo": "robert-cunnane.jpg",
+    "birth": [1932, 7, 12],
+    "death": [2020, 12, 4],
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 close-up portrait of Fr. Robert Cunnane",
+    "note": "DOB/DOD from Nickerson Funeral Home / Dignity Memorial obituary."
+  },
+  {
+    "slug": "fred-ojile",
+    "photo": "fred-ojile.jpg",
+    "death": [2026, 2, 25],
+    "photo_source": "Star Tribune obituary portrait of Frederick J. Ojile",
+    "note": "DOD from Star Tribune obituary (age 80). No exact DOB published."
+  },
+  {
+    "slug": "doug-marvy",
+    "photo": "doug-marvy.jpg",
+    "death": [2024, 4],
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 group-of-four, cropped to Marvy (3rd from left)",
+    "note": "DOD April 2024 (Southside Pride tribute; exact day not published, month precision)."
+  },
+  {
+    "slug": "alfred-janicke",
+    "photo": "alfred-janicke.jpg",
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 pair photo, cropped to Janicke (left)",
+    "note": "No reliable DOB/DOD located."
+  },
+  {
+    "slug": "edmund-basil-oleary",
+    "photo": "edmund-basil-oleary.jpg",
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 pair photo, cropped to O'Leary (right)",
+    "note": "No reliable DOB/DOD located."
+  },
+  {
+    "slug": "don-cotton",
+    "photo": "don-cotton.jpg",
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 group-of-four, cropped to Cotton (far left)",
+    "note": "Deceased (movement memorial page), but no death date located."
+  },
+  {
+    "slug": "jerry-gardner",
+    "photo": "jerry-gardner.jpg",
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 group-of-four, cropped to Gardner (2nd from left)",
+    "note": "Presumed living; no exact DOB located."
+  },
+  {
+    "slug": "jon-higgenbotham",
+    "photo": "jon-higgenbotham.jpg",
+    "photo_source": "UMass Amherst SCUA (MS 546), 1968 group-of-four, cropped to Higgenbotham (far right)",
+    "note": "Deceased (movement memorial page), but no death date located."
+  },
+  {
+    "slug": "michael-cullen",
+    "birth": [1941],
+    "photo_source": null,
+    "note": "No freely-licensed solo photo found (appears only in the small all-14 group). DOB year-only from Marquette University Archives."
+  },
+  {
+    "slug": "bob-graf",
+    "birth": [1943],
+    "photo_source": null,
+    "note": "Living; no clear solo photo found. DOB year-only from his own biographical site."
+  }
+]
