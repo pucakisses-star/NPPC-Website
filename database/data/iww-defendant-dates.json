@@ -1,0 +1,7 @@
+[
+  {"match_slug":"william-dudley-haywood", "birthdate":"1869-02-04","birthdate_precision":"day", "death_date":"1928-05-18","death_date_precision":"day"},
+  {"match_slug":"j-h-beyer", "birthdate":"1858-01-01","birthdate_precision":"year", "death_date":"1922-01-01","death_date_precision":"year"},
+  {"match_name":"Laukki", "birthdate":"1880-11-22","birthdate_precision":"day", "death_date":"1938-09-15","death_date_precision":"day"},
+  {"match_name":"Jaakkola", "birthdate":"1886-08-05","birthdate_precision":"day"},
+  {"match_slug":"george-andreytchine", "birthdate":"1894-01-20","birthdate_precision":"day", "death_date":"1950-04-20","death_date_precision":"day"}
+]
