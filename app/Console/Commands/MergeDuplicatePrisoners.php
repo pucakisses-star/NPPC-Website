@@ -445,6 +445,27 @@ final class MergeDuplicatePrisoners extends Command
         // Same person; canonical keeps the legal-name slug and folds "Sofia
         // Johnson" into aka.
         ['sofia-deferrari',              ['sofia-johnson']],
+        // Surfaced by prisoners:audit-inmate-number-duplicates — pairs that
+        // share an inmate/DOC/BOP number, which is a near-certain same-person
+        // signal (the "surnames differ" ones only differ by compound-surname
+        // order or accents). Canonical keeps the fuller / more-specific name;
+        // the variant folds into aka and its case (if any) reassigns.
+        //   Fred "Muhammad" Burton — PA #AF-3896 (Fairmount Park case).
+        ['fred-burton',                  ['muhammad-burton']],
+        //   Luis Valenzuela Rodríguez — CDCR #C-33000.
+        ['luis-valenzuela-rodriguez',    ['luis-rodriguez']],
+        //   Abdul Maumin Khabir — BOP #09891-000.
+        ['abdul-maumin-khabir',          ['maumin-khabir']],
+        //   Martin Rutrell — #042600 (spelling variant "Rutrel").
+        ['martin-rutrell',               ['martin-rutrel']],
+        //   Aida McCray Robinson — BOP #03323-097.
+        ['aida-mccray-robinson',         ['aida-robinson']],
+        //   Luz María Berríos Berríos (FALN) — BOP #24582-004.
+        ['luz-maria-berrios',            ['luz-maria-berrios-berrios']],
+        //   Carmen Valentín Pérez (FALN) — BOP #88974-024.
+        ['carmen-valentin-perez',        ['carmen-valentin']],
+        //   Orlando González Claudio (Los Macheteros) — BOP #03173-069.
+        ['orlando-gonzalez-claudio',     ['orlando-claudio-gonzalez']],
     ];
 
     /**
