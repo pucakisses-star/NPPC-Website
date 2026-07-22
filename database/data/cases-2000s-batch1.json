@@ -1,0 +1,1237 @@
+[
+ {
+  "slug": "alyosha-witness",
+  "charges": "Trespass / civil disobedience at military or nuclear weapons facilities",
+  "convicted": "Yes"
+ },
+ {
+  "slug": "sean-donohue",
+  "charges": "Trespass / blockading Raytheon corporate offices",
+  "arrest_date": "1999-05-28",
+  "arrest_date_precision": "day",
+  "incarceration_date": "1999-10-14",
+  "incarceration_date_precision": "day",
+  "convicted": "Yes",
+  "sentence": "Sentenced October 14, 1999 to 30 days for a nonviolent blockade of Raytheon corporate offices (world's largest missile manufacturer) on May 28, 1999. Released after serving the full 30-day sentence.",
+  "imprisoned_for_days": 30
+ },
+ {
+  "slug": "eric-oseland",
+  "charges": "Conspiracy to riot / disrupt the 2008 Republican National Convention",
+  "arrest_date": "2008-08-30",
+  "arrest_date_precision": "day",
+  "sentence": "One of the 'RNC 8' preemptively arrested before the 2008 RNC in downtown St. Paul; homes raided under the Patriot Act despite lack of evidence of any planned violent act. Charged in response to political organizing; arrests condemned by the ACLU.",
+  "institution_name": "Ramsey County Jail",
+  "institution_city": "St. Paul",
+  "institution_state": "Minnesota"
+ },
+ {
+  "slug": "bill-odonell",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "arrest_date": "2002-09",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted for the SOA Watch nonviolent civil-disobedience action at Fort Benning, GA, protesting the WHINSEC (formerly School of the Americas). Defendants typically received 3 to 6 months in federal custody plus a fine.",
+  "institution_name": "Fort Benning",
+  "institution_city": "Columbus",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "eric-johnson",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "arrest_date": "2002-09",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted for the SOA Watch nonviolent civil-disobedience action at Fort Benning, GA, protesting the WHINSEC (formerly School of the Americas). Defendants typically received 3 to 6 months in federal custody plus a fine.",
+  "institution_name": "Fort Benning",
+  "institution_city": "Columbus",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "joanna-cohen",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "arrest_date": "2002-09",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted for the SOA Watch nonviolent civil-disobedience action at Fort Benning, GA, protesting the WHINSEC (formerly School of the Americas). Defendants typically received 3 to 6 months in federal custody plus a fine.",
+  "institution_name": "Fort Benning",
+  "institution_city": "Columbus",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "john-alfred-hunt-jr",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "arrest_date": "2000-11",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted for the SOA Watch nonviolent civil-disobedience action at Fort Benning, GA in November 2000, protesting the WHINSEC (formerly School of the Americas). Defendants typically received 3 to 6 months in federal custody.",
+  "institution_name": "Fort Benning",
+  "institution_city": "Columbus",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "nancy-gowen",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "arrest_date": "2002-09",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted for the SOA Watch nonviolent civil-disobedience action at Fort Benning, GA, protesting the WHINSEC (formerly School of the Americas). Defendants typically received 3 to 6 months in federal custody plus a fine.",
+  "institution_name": "Fort Benning",
+  "institution_city": "Columbus",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "adalberto-serrano",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "agustin-lebron",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "alberto-de-jesus",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Alberto de Jesús ('Tito Kayak'), one of the most prominent Vieques activists, arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility during the 1999-2003 campaign; known for repeatedly scaling Navy installations and federal landmarks (including the Statue of Liberty in 2000) to plant the Puerto Rican flag. Defendants typically served 30 to 90 days in federal custody.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "alberto-fuentes",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "alberto-vazquez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "alejandro-morales",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "alisandro-rodriguez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "amilcar-a-alicea",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "andres-miranda",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "anibal-jose-diaz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "arnaldo-jose-gonzalez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico during the 1999-2003 campaign to expel the Navy. Defendants typically served 30 to 90 days in federal custody. Navy ceased operations May 1, 2003.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "benjamin-ortiz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "bibiano-pizarro",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "carlos-a-frontera",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "carlos-a-navarro",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "carlos-alberto-escobales",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "carlos-colon",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "carlos-david-aviles",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "carlos-e-marrero",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "cruz-cecilia-lopez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "candido-de-jesus",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "cesar-eduardo-gutierrez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "edgardo-cordero",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "edgardo-hernandez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "edwin-j-figueroa",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "eliasio-velez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "elvin-rodriguez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "enrique-soto",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "ernesto-rodriguez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "felicita-cotto",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "francisco-javier-gonzalez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes — most Vieques defendants were convicted",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, and prosecuted in the U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382. Defendants in this mass campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "francisco-perez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "francisco-vega",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "froilan-cordero",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "gazir-sued-jimenez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "gilberto-rivera",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "hector-guillermo-diaz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "hector-m-otero",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "hector-xavier-otero",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "isaac-bennejo",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "isaias-agosto",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "ivan-alonso",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jaime-camacho",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jaime-francisco-diaz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jimmy-borrero",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "johny-alverio",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jorge-bascage",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-enrique-de-jesus",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-f-crespo",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-humberto-santos",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-juan-cora",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested between 1999 and 2003 for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico. Prosecuted in U.S. District Court for the District of Puerto Rico and served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-luis-nieves",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-rafael-bas",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-angel-chacon",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-angel-hernandez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "jose-angel-morot",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "juan-manuel-dalmau",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "juan-manuel-verges",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "juan-rafael-rosario",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "julio-m-ramos",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "luciano-colon",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "luis-agroni",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "luis-armando-rivera",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "luis-domenech",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "luis-ernesto-borges",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "luis-varela",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "manuel-antonio-diaz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "manuel-flores",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "maria-luisa-guzman",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "marta-vazquez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "miguel-angel-davila",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999-2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico; defendants in this campaign typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "miguel-angel-vilches",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "milagros-hernandez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "modesto-hernandez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "nylda-r-diaz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "oliverio-serrano",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "omar-jose-colon",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "oswaldo-cruz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "oswaldo-manuel-merced",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "othoniel-rosa",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "pedro-alicea",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "pedro-hernandez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "pedro-ivan-parrilla",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "pedro-juan-mendez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "rafael-lopez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "rafael-angel-rivera",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "raul-diaz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "reinaldo-ramos",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "reynaldo-acevedo",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "roberto-caraltini",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "roberto-ivan-aponte",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382; Vieques defendants typically served 30 to 90 days in federal custody, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "roberto-velazquez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "rodrigo-baez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "rosa-elena-sepulveda",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "ruben-lucena",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "ruben-lugo",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "ruben-ortiz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "salvador-gonzalez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "serafin-mendez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "teresa-pizarro",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "ubaldo-m-soto",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "venancio-velez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "victor-manuel-figueroa",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "wigberto-berrios",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "wilfredo-guzman",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "william-boria",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "william-candelario",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "william-perez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "wilmer-estrada",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "wilson-w-sanchez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "yahaira-enid-velazquez",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Arrested for nonviolent civil disobedience at the U.S. Navy's Atlantic Fleet Weapons Training Facility on Vieques, Puerto Rico, during the 1999–2003 campaign to expel the Navy. Prosecuted in U.S. District Court for the District of Puerto Rico under 18 U.S.C. § 1382 and served a federal sentence, typically 30 to 90 days, most often at MDC Guaynabo.",
+  "institution_name": "Metropolitan Detention Center (MDC) Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "zoraida-laboy",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Nonviolent civil disobedience at the Navy's Vieques bombing range; Vieques defendants were prosecuted in U.S. District Court for the District of Puerto Rico and typically served 30 to 90 days in federal custody.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "angel-berrios",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Nonviolent civil disobedience at the Navy's Vieques bombing range; Vieques defendants were prosecuted in U.S. District Court for the District of Puerto Rico and typically served 30 to 90 days in federal custody.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "angel-cruz",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Nonviolent civil disobedience at the Navy's Vieques bombing range; Vieques defendants were prosecuted in U.S. District Court for the District of Puerto Rico and typically served 30 to 90 days in federal custody.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "angel-emilio-rivera",
+  "charges": "Entering a military reservation (18 U.S.C. § 1382)",
+  "convicted": "Yes",
+  "sentence": "Nonviolent civil disobedience at the Navy's Vieques bombing range; Vieques defendants were prosecuted in U.S. District Court for the District of Puerto Rico and typically served 30 to 90 days in federal custody.",
+  "institution_name": "Metropolitan Detention Center Guaynabo",
+  "institution_city": "Guaynabo",
+  "institution_state": "Puerto Rico"
+ },
+ {
+  "slug": "babar-ahmad",
+  "charges": "Providing material support to terrorist organizations",
+  "incarceration_date": "2004",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — pleaded guilty",
+  "sentence": "Detained in the UK from 2004 pending a US extradition approved in 2005 and carried out in 2012; held roughly two years in a US Supermax in solitary confinement, then sentenced largely to time already served and released a few months later.",
+  "institution_state": "Connecticut"
+ },
+ {
+  "slug": "elliot-madison",
+  "charges": "Charges related to relaying police-scanner information to protesters via Twitter at the 2009 G-20",
+  "arrest_date": "2009-09-24",
+  "arrest_date_precision": "day",
+  "convicted": "Unknown",
+  "sentence": "Arrested at the 2009 G-20 in Pittsburgh for using a police scanner and Twitter to help protesters avoid police; his Queens home was raided by the FBI/Joint Terrorism Task Force on Oct. 1, 2009. Released shortly after.",
+  "institution_state": "Pennsylvania"
+ },
+ {
+  "slug": "francisco-torres",
+  "charges": "Conspiracy / murder in connection with the 1971 killing of an SFPD sergeant (San Francisco 8)",
+  "arrest_date": "2007",
+  "arrest_date_precision": "year",
+  "convicted": "No — charges dismissed",
+  "sentence": "As 'Cisco' Torres, a NYC-based former Black Panther and Vietnam veteran, he was among the San Francisco 8 charged in 2007 over the 1971 killing of SFPD Sgt. John Young; the case collapsed and charges against him were dismissed.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "gregory-curry",
+  "charges": "Two counts of aggravated murder",
+  "convicted": "Yes",
+  "sentence": "Scapegoated after the 1993 Lucasville (Southern Ohio Correctional Facility) uprising despite being in a different wing; refused a plea and was the first defendant tried on murder charges. Still incarcerated, with next parole eligibility reported as 2061.",
+  "institution_name": "Southern Ohio Correctional Facility (Lucasville)",
+  "institution_city": "Lucasville",
+  "institution_state": "Ohio"
+ },
+ {
+  "slug": "hank-jones",
+  "charges": "Conspiracy / murder in connection with the 1971 killing of an SFPD sergeant (San Francisco 8)",
+  "arrest_date": "2007",
+  "arrest_date_precision": "year",
+  "convicted": "No — charges dismissed (2009)",
+  "sentence": "Former Black Panther arrested in 2007 at his Altadena home as part of the San Francisco 8 case over the 1971 killing of an SFPD sergeant; an earlier 1970s prosecution had been thrown out over torture-obtained evidence, and after extensive pretrial litigation the charges against him were dismissed in 2009.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "harold-taylor",
+  "charges": "Conspiracy / murder in connection with the 1971 killing of an SFPD sergeant (San Francisco 8)",
+  "arrest_date": "2007-01",
+  "arrest_date_precision": "month",
+  "convicted": "No — charges dismissed (2009)",
+  "sentence": "Living in Panama City, Florida, he was one of the former Black Panthers arrested in January 2007 when the 1971 case was revived; after extended litigation and a narrowing of the prosecution, the charges against him were dismissed in 2009.",
+  "institution_state": "Florida"
+ },
+ {
+  "slug": "mohamed-albanna",
+  "charges": "Operating an unlicensed money-transmitting business",
+  "arrest_date": "2006",
+  "arrest_date_precision": "year",
+  "convicted": "Yes",
+  "sentence": "Convicted of illegally sending large sums abroad through an unlicensed company (alleged, but unproven, to fund terrorism) and given the maximum 5-year prison term. A leader in Lackawanna's Yemeni-American community; later elected to city council (2017) but barred from office over the crime of 'moral turpitude.'",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "nada-nadim-prouty",
+  "charges": "Immigration/marriage fraud; unauthorized access of an FBI computer",
+  "convicted": "Yes — pleaded guilty",
+  "sentence": "Former CIA/FBI employee who admitted in court to counts tied to a sham marriage used to obtain U.S. citizenship and to unauthorized use of an FBI computer; she later said she felt pressured into the plea by threats including deportation to Lebanon.",
+  "institution_state": "Michigan"
+ },
+ {
+  "slug": "sam-hochstetler",
+  "charges": "Trespass / civil disobedience at nuclear weapons facilities and military installations",
+  "convicted": "Unknown",
+  "sentence": "Mennonite peace activist in the Catholic Worker / Plowshares tradition, repeatedly arrested for civil disobedience at U.S. nuclear weapons facilities and military installations; his arrests appear in the Nuclear Resister's Inside & Out roster.",
+  "institution_state": "Wisconsin"
+ },
+ {
+  "slug": "scott-galindez",
+  "charges": "Trespass at Vandenberg Air Force Base",
+  "incarceration_date": "2001-05",
+  "incarceration_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted of trespass for a May 2001 backcountry occupation of Vandenberg AFB protesting U.S. 'Star Wars' (National Missile Defense) missile-defense tests; served approximately 3 months.",
+  "institution_name": "Metropolitan Detention Center Los Angeles",
+  "institution_city": "Los Angeles",
+  "institution_state": "California"
+ },
+ {
+  "slug": "steve-argue",
+  "charges": "Felony battery; resisting arrest",
+  "arrest_date": "2002-05-22",
+  "arrest_date_precision": "day",
+  "incarceration_date": "2002-11-23",
+  "incarceration_date_precision": "day",
+  "convicted": "Yes",
+  "sentence": "Arrested May 22, 2002 at an anti-Iraq-war demonstration in Santa Cruz targeting Rep. Sam Farr; charged with felony battery and resisting arrest after police sparked a melee. Sentenced to nine months in the Santa Cruz County Jail, plus 30 days added for refusing transfer to minimum security; began serving Nov. 23, 2002 in Unit K.",
+  "institution_name": "Santa Cruz County Jail",
+  "institution_city": "Santa Cruz",
+  "institution_state": "California"
+ },
+ {
+  "slug": "tarik-shah",
+  "charges": "Conspiracy to provide material support to al Qaeda",
+  "arrest_date": "2005",
+  "arrest_date_precision": "year",
+  "convicted": "Yes — pleaded guilty",
+  "sentence": "Bronx martial-arts instructor arrested in a post-9/11 undercover terrorism sting; pleaded guilty to conspiring to provide material support to al Qaeda, admitting he agreed to train fighters in hand-to-hand combat and pledged allegiance to Osama bin Laden. Sentenced in federal court (Manhattan) to 15 years.",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "trevor-miller",
+  "charges": "Attempted murder, assaulting a police officer, forcible confinement",
+  "arrest_date": "2006",
+  "arrest_date_precision": "year",
+  "convicted": "Unknown",
+  "sentence": "Mohawk activist of Six Nations of the Grand River named in the 2006 Caledonia land reclamation (occupation of Douglas Creek Estates); warrants were issued for him over confrontations tied to the dispute, with reported charges including attempted murder, assaulting a police officer, and forcible confinement.",
+  "institution_state": ""
+ }
+]
