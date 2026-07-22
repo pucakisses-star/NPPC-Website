@@ -1,0 +1,80 @@
+[
+ {
+  "slug": "emily-murphy",
+  "file": "emily-murphy.png",
+  "type": "mugshot",
+  "source": "https://www.fox5atlanta.com/news/downtown-atlanta-riot-names-photos-charges"
+ },
+ {
+  "slug": "francis-carroll",
+  "file": "francis-carroll.png",
+  "type": "mugshot",
+  "source": "https://www.fox6now.com/news/downtown-atlanta-riot-names-photos-charges"
+ },
+ {
+  "slug": "geoffrey-parsons",
+  "file": "geoffrey-parsons.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox5dc.com/news/cop-city-atlanta-georgia-state-patrol-trooper-injured-man-killed"
+ },
+ {
+  "slug": "graham-evatt",
+  "file": "graham-evatt.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox6now.com/news/downtown-atlanta-riot-names-photos-charges"
+ },
+ {
+  "slug": "ivan-ferguson",
+  "file": "ivan-ferguson.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox6now.com/news/downtown-atlanta-riot-names-photos-charges"
+ },
+ {
+  "slug": "nadja-geier",
+  "file": "nadja-geier.jpg",
+  "type": "mugshot",
+  "source": "https://www.newschannel5.com/news/nashville-woman-arrested-after-protests-in-atlanta"
+ },
+ {
+  "slug": "noah-grigni",
+  "file": "noah-grigni.jpg",
+  "type": "self_published",
+  "source": "https://www.noahgrigni.com/about"
+ },
+ {
+  "slug": "rukia-rogers",
+  "file": "rukia-rogers.jpg",
+  "type": "self_published",
+  "source": "https://thehighlanderschool.com/educators/rukia-rogers/"
+ },
+ {
+  "slug": "spencer-bernard-liberto",
+  "file": "spencer-bernard-liberto.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox5atlanta.com/news/cop-city-arrests-protest-dekalb-county-atlanta-police-shooting"
+ },
+ {
+  "slug": "teresa-yue-shen",
+  "file": "teresa-yue-shen.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox5atlanta.com/news/cop-city-arrests-protest-dekalb-county-atlanta-police-shooting"
+ },
+ {
+  "slug": "timothy-bilodeau",
+  "file": "timothy-bilodeau.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox5atlanta.com/news/cop-city-atlanta-protestors-arrests-court-appearance"
+ },
+ {
+  "slug": "timothy-murphy",
+  "file": "timothy-murphy.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox5atlanta.com/news/cop-city-arrests-protest-dekalb-county-atlanta-police-shooting"
+ },
+ {
+  "slug": "zoe-larmey",
+  "file": "zoe-larmey.jpg",
+  "type": "mugshot",
+  "source": "https://www.fox5atlanta.com/news/cop-city-atlanta-protestors-arrests-court-appearance"
+ }
+]
