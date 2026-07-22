@@ -108,6 +108,15 @@ final class AttachJerichoPhotos extends Command
         [['Marius Mason', 'Marie Mason'], 'marius-mason.jpg'],
         [['Joy Powell'], 'joy-powell.png'],
         [['Jessica Reznicek', 'Reznicek'], 'jessica-reznicek.jpg'],
+
+        // ---- Added from a re-scrape of the Jericho roster: profiles not yet
+        //      covered above whose page carries a clean, unbranded portrait.
+        [['Kevin Rashid Johnson', 'Rashid Johnson', 'Kevin Rashid'], 'kevin-rashid-johnson.jpg'],
+        [['Keith LaMar', 'Bomani Shakur'], 'keith-lamar-bomani-shakur.jpg'],
+        [['Frank Velgara', 'Velgara'], 'frank-velgara.jpg'],
+        [['Palmera', 'Simón Trinidad', 'Simon Trinidad'], 'simon-trinidad.jpg'],
+        [['Abduljabbar Caliph', 'Caliph'], 'abduljabbar-caliph.jpeg'],
+        [['Natividad Jáuregui', 'Natividad Jauregui', 'Jáuregui', 'Jauregui'], 'maria-natividad-jauregui.jpg'],
     ];
 
     public function handle(): int
