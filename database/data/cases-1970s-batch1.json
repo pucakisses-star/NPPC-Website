@@ -1,0 +1,1129 @@
+[
+ {
+  "slug": "bob-yellow-bird",
+  "charges": "Malicious destruction of property",
+  "convicted": "Unknown — released on $1,000 bail",
+  "sentence": "Nebraska AIM coordinator; after calling police having been choked and maced, officers instead beat and arrested him and his wife and charged them with malicious destruction of property. Released on $1,000 bail.",
+  "institution_state": "Nebraska"
+ },
+ {
+  "slug": "darrelle-butler",
+  "charges": "Murder of two FBI agents",
+  "convicted": "No — acquitted July 1976",
+  "sentence": "AIM member ('Dino') tried with Robert Robideau for the June 26, 1975 Pine Ridge shootout deaths of two FBI agents; jury accepted a self-defense argument and acquitted both in July 1976.",
+  "institution_name": "U.S. District Court, Cedar Rapids",
+  "institution_city": "Cedar Rapids",
+  "institution_state": "Iowa"
+ },
+ {
+  "slug": "jimmy-eagle",
+  "charges": "Murder of two FBI agents (indicted)",
+  "convicted": "No — charges dropped",
+  "sentence": "Young Oglala man indicted with Leonard Peltier in the June 1975 Pine Ridge FBI-agent deaths case; the charges against him were later dropped.",
+  "institution_state": "South Dakota"
+ },
+ {
+  "slug": "jo-an-yellow-bird",
+  "charges": "Malicious destruction of property",
+  "sentence": "Wife of Nebraska AIM coordinator Bob Yellow Bird; kicked in the stomach by an arresting officer, causing her to lose her unborn child, and charged with malicious destruction of property.",
+  "institution_state": "Nebraska"
+ },
+ {
+  "slug": "kamook-banks",
+  "charges": "Firearms and explosives ('Loud Hawk' case)",
+  "convicted": "No — cleared/acquitted",
+  "sentence": "AIM member (wife of Dennis Banks) cleared with the other 'Loud Hawk' defendants of the 1975 Oregon firearms/explosives charges.",
+  "institution_state": "Oregon"
+ },
+ {
+  "slug": "sarah-bad-heart-bull",
+  "charges": "Riot (Custer courthouse)",
+  "incarceration_date": "1974-06-01",
+  "incarceration_date_precision": "day",
+  "release_date": "1974-11-15",
+  "release_date_precision": "day",
+  "convicted": "Yes — sentenced one-to-three years",
+  "sentence": "Sentenced to one-to-three years for the 1973 Custer, S.D. courthouse disturbance (where a state trooper choked and beat her); confined at the South Dakota Women's Prison, Yankton from June 1, 1974 and released on parole November 15, 1974. Her son's white killer received probation.",
+  "imprisoned_for_days": 167,
+  "institution_name": "South Dakota Women's Prison",
+  "institution_city": "Yankton",
+  "institution_state": "South Dakota"
+ },
+ {
+  "slug": "pedro-bissonette",
+  "charges": "Federal charges (Wounded Knee occupation)",
+  "convicted": "No — killed before trial",
+  "sentence": "OSCRO co-founder and Wounded Knee organizer; after surrendering and facing federal charges arising from the 1973 occupation, he was shot and killed by BIA tribal police on the Pine Ridge Reservation on October 17, 1973, in disputed circumstances.",
+  "institution_state": "South Dakota"
+ },
+ {
+  "slug": "ahmad-rahman",
+  "charges": "Felony murder",
+  "arrest_date": "1971",
+  "arrest_date_precision": "year",
+  "release_date": "1992",
+  "release_date_precision": "year",
+  "convicted": "Yes — life without parole (commuted 1992)",
+  "sentence": "Convicted under Michigan's felony-murder doctrine for his role in the incident in which Wayne State student Franklin Abramson was killed; sentenced to life without parole though he maintained he did not fire the fatal shot. Sentence commuted by Gov. John Engler in 1992 and released after more than two decades.",
+  "institution_state": "Michigan"
+ },
+ {
+  "slug": "bob-duren",
+  "charges": "Resisting arrest; inciting a riot; marijuana",
+  "convicted": "Unknown — party calls charges false; marijuana charge later reduced",
+  "sentence": "Coordinator of the Southern California BPP chapter, subjected through 1977 to LAPD surveillance and repeated arrests on charges the paper calls false (resisting arrest, inciting a riot, a marijuana charge later reduced).",
+  "institution_city": "Los Angeles",
+  "institution_state": "California"
+ },
+ {
+  "slug": "donnell-moore",
+  "charges": "Murder (bar co-manager)",
+  "convicted": "Unknown — party says framed / self-defense; defense committee formed",
+  "sentence": "Former BPP member and UC Berkeley student who spent about four months in Rikers Island jail after being charged with the murder of a bar co-manager; the paper reports he acted in self-defense and was framed.",
+  "institution_name": "Rikers Island",
+  "institution_city": "New York",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "greg-franklin",
+  "charges": "Assault and battery on a peace officer",
+  "arrest_date": "1977-04",
+  "arrest_date_precision": "month",
+  "convicted": "Unknown — party calls charges false",
+  "sentence": "BPP member beaten and arrested with Robert Kendrick by LAPD in April 1977 on charges the paper calls false.",
+  "institution_city": "Los Angeles",
+  "institution_state": "California"
+ },
+ {
+  "slug": "joseph-waddell",
+  "charges": "Armed robbery",
+  "release_date": "1972-06-13",
+  "release_date_precision": "day",
+  "convicted": "Yes — 25-to-30 years",
+  "sentence": "BPP member known as 'Joe-Dell,' serving a 25-30 year sentence on armed-robbery charges the paper calls trumped-up when he died in custody at Central Prison, Raleigh on June 13, 1972 — ruled a heart attack but attributed by the paper to prison officials.",
+  "institution_name": "Central Prison",
+  "institution_city": "Raleigh",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "molly-dougherty",
+  "charges": "Contempt of court",
+  "convicted": "Yes — jailed for contempt (maximum penalty)",
+  "sentence": "BPP supporter jailed for contempt (the maximum penalty) after refusing to testify in what she called the frame-up of Huey P. Newton.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "morris-white",
+  "charges": "Solicitation; disorderly conduct; resisting arrest",
+  "convicted": "No — charges cleared on appeal",
+  "sentence": "Seattle BPP member arrested while selling The Black Panther and running the Free Breakfast program; charges cleared on appeal after an officer admitted arresting him to make him change his soliciting.",
+  "institution_city": "Seattle",
+  "institution_state": "Washington"
+ },
+ {
+  "slug": "randolph-jennings",
+  "charges": "Assault on an officer",
+  "arrest_date": "1971",
+  "arrest_date_precision": "year",
+  "convicted": "Yes — 7-to-10 years",
+  "sentence": "One of the 'High Point 4,' who ran a Free Breakfast program targeted by COINTELPRO before a 1971 police raid; released after serving more than six years of a 7-to-10-year sentence on a trumped-up assault-on-an-officer charge.",
+  "institution_city": "High Point",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "robert-kendrick",
+  "charges": "Assault on a peace officer; inciting a riot",
+  "arrest_date": "1977",
+  "arrest_date_precision": "year",
+  "convicted": "Unknown — party calls charges false",
+  "sentence": "BPP member ('Sharief') beaten and arrested by LAPD in 1977 on charges the paper calls false, including assault on a peace officer and inciting a riot.",
+  "institution_city": "Los Angeles",
+  "institution_state": "California"
+ },
+ {
+  "slug": "bobby-bishop",
+  "charges": "Military charges ('Camp Pendleton 14')",
+  "sentence": "Black Marine defendant among the 'Camp Pendleton 14' charged after an alleged confrontation with a suspected KKK gathering at Camp Pendleton in 1976.",
+  "institution_name": "Camp Pendleton",
+  "institution_state": "California"
+ },
+ {
+  "slug": "clarence-copens",
+  "charges": "Military charges (court-martial, 'Camp Pendleton 14')",
+  "sentence": "Black Marine co-defendant among the 'Camp Pendleton 14,' facing courts-martial over the 1976 confrontation with a suspected KKK meeting at Camp Pendleton.",
+  "institution_name": "Camp Pendleton",
+  "institution_state": "California"
+ },
+ {
+  "slug": "donald-hunter",
+  "charges": "Military charges (court-martial, 'Camp Pendleton 14')",
+  "sentence": "Black Marine defendant among the 'Camp Pendleton 14,' on trial in the courts-martial arising from Black Marines' resistance to KKK activity on base in 1976.",
+  "institution_name": "Camp Pendleton",
+  "institution_state": "California"
+ },
+ {
+  "slug": "eddie-page",
+  "charges": "Military charges ('Camp Pendleton 14')",
+  "incarceration_date": "1977-08",
+  "incarceration_date_precision": "month",
+  "release_date": "1978-01",
+  "release_date_precision": "month",
+  "convicted": "Yes — court-martialed August 1977",
+  "sentence": "Black Marine private given the harshest Pendleton 14 sentence — two years plus a bad-conduct discharge — at an August 1977 court-martial that drew national protest; released after five months with his sentence reduced.",
+  "institution_name": "Camp Pendleton",
+  "institution_state": "California"
+ },
+ {
+  "slug": "glen-white",
+  "charges": "Assault and conspiracy",
+  "convicted": "No — acquitted",
+  "sentence": "Sole member of the 'Camp Pendleton 14' acquitted of charges arising from Black Marines' 1976 resistance to KKK activity at Camp Pendleton.",
+  "institution_name": "Marine Corps Base Camp Pendleton",
+  "institution_city": "Oceanside",
+  "institution_state": "California"
+ },
+ {
+  "slug": "gregory-coffey",
+  "charges": "Assault and conspiracy",
+  "sentence": "Charged as one of the 'Camp Pendleton 14' after Black Marines organized against KKK activity on base in 1976.",
+  "institution_name": "Marine Corps Base Camp Pendleton",
+  "institution_city": "Oceanside",
+  "institution_state": "California"
+ },
+ {
+  "slug": "herman-fletcher",
+  "charges": "Assault and conspiracy",
+  "convicted": "Yes — pleaded guilty",
+  "sentence": "Marine sergeant among the 'Camp Pendleton 14' who pleaded guilty under pressure to charges stemming from the 1976 confrontation with a suspected KKK meeting at Camp Pendleton.",
+  "institution_name": "Marine Corps Base Camp Pendleton",
+  "institution_city": "Oceanside",
+  "institution_state": "California"
+ },
+ {
+  "slug": "ricky-mcgivery",
+  "charges": "Assault and conspiracy",
+  "incarceration_date": "1976-11-13",
+  "incarceration_date_precision": "day",
+  "sentence": "Charged over an alleged Nov. 13, 1976 confrontation with white Marines believed to be holding a KKK meeting; defendants faced up to 21–72 years while no Klan members were charged.",
+  "institution_name": "Marine Corps Base Camp Pendleton",
+  "institution_city": "Oceanside",
+  "institution_state": "California"
+ },
+ {
+  "slug": "charles-parker",
+  "charges": "Arson",
+  "arrest_date": "1971",
+  "arrest_date_precision": "year",
+  "incarceration_date": "1972",
+  "incarceration_date_precision": "year",
+  "release_date": "1979",
+  "release_date_precision": "year",
+  "convicted": "Yes",
+  "sentence": "One of the 'Charlotte Three'; convicted in 1972 for the 1968 arson that destroyed Lazy B Stables. Received 10 years, the shortest of the three. Gov. Hunt commuted the sentences in 1979 and Parker was released.",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "james-grant",
+  "charges": "Arson",
+  "arrest_date": "1971",
+  "arrest_date_precision": "year",
+  "incarceration_date": "1972",
+  "incarceration_date_precision": "year",
+  "release_date": "1979",
+  "release_date_precision": "year",
+  "convicted": "Yes",
+  "sentence": "One of the 'Charlotte Three'; convicted in 1972 for the 1968 arson at Lazy B Stables. Received the harshest sentence of the three — 25 years. After appeals failed (including to the U.S. Supreme Court), Gov. Hunt commuted the sentences in 1979 and Grant was released on parole.",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "ramon-chacon",
+  "charges": "Gun smuggling (alleged; called false)",
+  "convicted": "Not stated",
+  "sentence": "Chicano organizer for Mexican people's rights in the Rio Grande Valley arrested on what the source calls false gun-smuggling charges and detained at Topo Chico prison; described as a joint U.S.–Mexican effort to entrap him.",
+  "institution_name": "Topo Chico Prison",
+  "institution_state": "Nuevo León, Mexico"
+ },
+ {
+  "slug": "james-jackson-jr",
+  "charges": "Murder",
+  "convicted": "No — charges dismissed",
+  "sentence": "One of the 'Dawson Five' ('Junior' Jackson) charged with the 1976 murder of a white store customer in Dawson, Georgia; an officer testified a pistol was put between his eyes during interrogation. Charges against the Dawson Five were ultimately dismissed.",
+  "institution_city": "Dawson",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "johnny-jackson",
+  "charges": "Murder",
+  "convicted": "No — charges dismissed",
+  "sentence": "One of the 'Dawson Five' charged with the 1976 murder of a white store customer in Dawson, Georgia; defendants said they were miles away drawing water at the time. Charges against the Dawson Five were ultimately dismissed.",
+  "institution_city": "Dawson",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "charles-2x-beasley",
+  "charges": "Charges arising from 1974 Atmore-Holman prison rebellion",
+  "incarceration_date": "1974-01-18",
+  "incarceration_date_precision": "day",
+  "convicted": "Yes",
+  "sentence": "One of the Atmore-Holman Brothers (IFA), sentenced to 15 years in what the source calls a framed prosecution over the Jan. 18, 1974 Atmore-Holman prison rebellion.",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "earnest-ball",
+  "charges": "Murder of a police officer",
+  "convicted": "Yes",
+  "sentence": "Inmates For Action (IFA) activist convicted of murdering a policeman he says he shot in self-defense during a raid on his ex-wife's home; reportedly beaten, held in a refrigerated cell and denied medical care at Atmore-Holman; appealed to the U.S. Supreme Court.",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "frank-x-moore",
+  "charges": "Murder / prison rebellion (indicted)",
+  "incarceration_date": "1974-01-18",
+  "incarceration_date_precision": "day",
+  "convicted": "No — died before trial",
+  "sentence": "Indicted in the 1974 Atmore-Holman rebellion; 'found hanging' in the Escambia County jail before his 1975 trial. A fellow prisoner swore officials had planned his death. Deceased.",
+  "institution_name": "Escambia County Jail",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "glenn-diamond",
+  "charges": "Robbery",
+  "convicted": "Not stated (alleged frame-up)",
+  "sentence": "Mobile activist (also 'Casmarah Mani') and former IFA member; reportedly beaten in an attempted police lynching, then charged with robbery and held at Mt. Meigs Prison.",
+  "institution_name": "Mt. Meigs Prison",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "grover-mccorvey",
+  "charges": "Charges arising from 1974 Atmore-Holman prison rebellion",
+  "incarceration_date": "1974-01-18",
+  "incarceration_date_precision": "day",
+  "convicted": "Yes",
+  "sentence": "One of the Atmore-Holman Brothers (IFA), convicted in what the source calls a framed prosecution over the Jan. 18, 1974 Atmore-Holman prison rebellion. Name also rendered 'McGorvey' / 'Sitting Bull.'",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "james-jones",
+  "charges": "Robbery",
+  "convicted": "Not stated (called a frame-up)",
+  "sentence": "Mobile activist (also 'Sekou Lumpen'), former IFA member and leader of the People's Community Hall; beaten by police alongside Glenn Diamond and accused of a robbery the source calls a frame-up.",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "jesse-tuba-clancy",
+  "charges": "Charges arising from 1974 Atmore-Holman prison rebellion",
+  "incarceration_date": "1974-01-18",
+  "incarceration_date_precision": "day",
+  "convicted": "Yes",
+  "sentence": "One of the Atmore-Holman Brothers (IFA), convicted in what the source calls a framed prosecution over the 1974 Atmore-Holman prison rebellion. Name also spelled 'Claney.'",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "lincoln-heard",
+  "charges": "Murder of a prison guard (indicted)",
+  "incarceration_date": "1974-01-18",
+  "incarceration_date_precision": "day",
+  "convicted": "Not stated",
+  "sentence": "Named among the Atmore prisoners falsely indicted alongside Johnny Imani Harris in the killing of a guard during the 1974 Atmore-Holman prison rebellion.",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "oscar-gamba-johnson",
+  "charges": "Charges arising from 1974 Atmore-Holman prison rebellion",
+  "incarceration_date": "1974-01-18",
+  "incarceration_date_precision": "day",
+  "convicted": "Yes",
+  "sentence": "One of the Atmore-Holman Brothers (IFA), sentenced to 50 years in what the source calls a framed prosecution over the 1974 Atmore-Holman prison rebellion.",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "richard-lake",
+  "charges": "Marijuana and firearm charges (alleged frame-up)",
+  "convicted": "Not stated",
+  "sentence": "Founder/leader of the Atmore-Holman prison group Inmates For Action ('Mafundi'); held in solitary confinement over 62 days for his political beliefs and targeted with frame-up marijuana and gun charges. (Earlier framed for a $34 robbery — 14 years hard labor; in 1983 convicted of rape and, as a habitual offender, sentenced to life.)",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "tommy-dotson",
+  "charges": "Murder",
+  "convicted": "On death row (facing electrocution)",
+  "sentence": "Death by electrocution; one of the Atmore-Holman Brothers, said by the Party to have no connection to the murder charge. Beaten by four guards in March 1974.",
+  "institution_name": "Holman Prison",
+  "institution_city": "Atmore",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "alex-poindexter",
+  "charges": "Murder (bombing death of a policeman)",
+  "arrest_date": "1970",
+  "arrest_date_precision": "year",
+  "convicted": "Yes (jury)",
+  "sentence": "Life. Convicted with David Rice of the 1970 bombing death of an Omaha policeman on the testimony of a 15-year-old who admitted planting the bomb; one of the 'Omaha Two,' remained imprisoned for decades.",
+  "institution_name": "Nebraska State Penitentiary",
+  "institution_state": "Nebraska"
+ },
+ {
+  "slug": "nate-saunsoci",
+  "charges": "Burglary ($600, allegedly committed at age 10)",
+  "convicted": "Never tried",
+  "sentence": "Spent seven years in Nebraska juvenile and adult institutions without ever being tried; the ACLU sued on his behalf.",
+  "institution_state": "Nebraska"
+ },
+ {
+  "slug": "herman-bell",
+  "charges": "Murder (two NYC police officers)",
+  "arrest_date": "1973-09",
+  "arrest_date_precision": "month",
+  "convicted": "Yes (second trial; first ended in hung jury)",
+  "sentence": "25 years to life. Former Black Panther and Black Liberation Army member captured Sept. 1973 and extradited to New York for the killing of two NYPD officers. Later indicted as one of the San Francisco 8; pled guilty to a lesser offense with no additional time.",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "carl-bass",
+  "charges": "Escape (from Draper prison); serving a life term",
+  "release_date": "1979",
+  "release_date_precision": "year",
+  "convicted": "Serving a life term",
+  "sentence": "Lost both legs to gangrene after being denied medical care in custody. Escaped Draper prison, recaptured in 1979, fought extradition from Oregon with ACLU help, and sued Alabama corrections officials.",
+  "institution_name": "Draper Correctional Center",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "donald-thigpen",
+  "charges": "Capital murder (death row)",
+  "convicted": "On death row",
+  "sentence": "Death; faced a March 10, 1978 execution date alongside Johnny Imani Harris. At Harris's request the same defense lawyers took his case.",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "james-mcclain",
+  "charges": "Assaulting a prison guard",
+  "release_date": "1970-08-07",
+  "release_date_precision": "day",
+  "convicted": "Died before verdict (killed Aug. 7, 1970)",
+  "sentence": "San Quentin prisoner on trial for allegedly assaulting a guard; killed in the shootout with guards when Jonathan Jackson entered the Marin County courtroom on Aug. 7, 1970.",
+  "institution_name": "San Quentin State Prison",
+  "institution_state": "California"
+ },
+ {
+  "slug": "robert-earl-may-jr",
+  "charges": "Armed robbery",
+  "convicted": "Yes (forced guilty plea)",
+  "sentence": "48 years (four consecutive 12-year terms) with no parole eligibility, imposed at age 14 after he and three friends were forced to plead guilty.",
+  "institution_name": "Mississippi State Penitentiary (Parchman)",
+  "institution_state": "Mississippi"
+ },
+ {
+  "slug": "stephen-bingham",
+  "charges": "Conspiracy / smuggling a gun to George Jackson (murder)",
+  "release_date": "1986",
+  "release_date_precision": "year",
+  "convicted": "Acquitted (1986)",
+  "sentence": "Attorney for George Jackson, accused under the prosecution's 'gun-in-a-wig' theory of smuggling a pistol to Jackson at San Quentin on Aug. 21, 1971. Surfaced after years underground and was acquitted in 1986.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "warren-e-sumlin-sr",
+  "charges": "First-degree murder",
+  "convicted": "Yes (jury of 11 whites and one Black)",
+  "sentence": "Death (won a stay of execution). Bay Area Black man on death row who said he did not commit the murder, calling himself a victim of a local political struggle.",
+  "institution_name": "Cummins Unit",
+  "institution_state": "Arkansas"
+ },
+ {
+  "slug": "case-johnson",
+  "charges": "Murder (during prison rebellion)",
+  "incarceration_date": "1978-07-23",
+  "incarceration_date_precision": "day",
+  "convicted": "Awaiting trial (facing the death penalty)",
+  "sentence": "One of the six 'Reidsville Brothers' facing the death penalty over the July 23, 1978 Reidsville prison rebellion.",
+  "institution_name": "Georgia State Prison",
+  "institution_city": "Reidsville",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "forest-jordan",
+  "charges": "Murder (during prison rebellion)",
+  "incarceration_date": "1978-07-23",
+  "incarceration_date_precision": "day",
+  "convicted": "Awaiting trial (facing the death penalty)",
+  "sentence": "One of the six 'Reidsville Brothers' facing the death penalty over the July 23, 1978 Reidsville prison rebellion.",
+  "institution_name": "Georgia State Prison",
+  "institution_city": "Reidsville",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "james-collins",
+  "charges": "Murder (a guard and two inmates during prison rebellion)",
+  "incarceration_date": "1978-07-23",
+  "incarceration_date_precision": "day",
+  "convicted": "Awaiting trial (facing the death penalty)",
+  "sentence": "One of the six 'Reidsville Brothers,' charged with killing a guard and two inmates during the July 23, 1978 Reidsville rebellion and facing the death penalty; stabbed by white inmates amid alleged official collusion.",
+  "institution_name": "Georgia State Prison",
+  "institution_city": "Reidsville",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "jessie-whitaker",
+  "charges": "Murder (during prison rebellion)",
+  "incarceration_date": "1978-07-23",
+  "incarceration_date_precision": "day",
+  "convicted": "Awaiting trial (first of the six brought to trial; facing the death penalty)",
+  "sentence": "One of the six 'Reidsville Brothers' facing the death penalty over the July 23, 1978 Reidsville prison rebellion; the first of the six brought to trial.",
+  "institution_name": "Georgia State Prison",
+  "institution_city": "Reidsville",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "moses-evans",
+  "charges": "Murder (during prison rebellion)",
+  "incarceration_date": "1978-07-23",
+  "incarceration_date_precision": "day",
+  "convicted": "Awaiting trial (facing the death penalty)",
+  "sentence": "One of the six 'Reidsville Brothers,' selectively prosecuted and facing the death penalty over the July 23, 1978 Reidsville prison rebellion.",
+  "institution_name": "Georgia State Prison",
+  "institution_city": "Reidsville",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "hosea-williams",
+  "charges": "Felony charge arising from an alleged traffic violation",
+  "institution_city": "Atlanta",
+  "institution_state": "Georgia",
+  "sentence": "Fulton County DA sought to imprison him and remove him from the Georgia legislature via a felony charge over an alleged traffic violation; a National Defense Committee (Ralph Abernathy, Julian Bond, Dick Gregory) formed in response."
+ },
+ {
+  "slug": "lehman-brightman",
+  "charges": "Harboring a fugitive (AIM leader Dennis Banks)",
+  "convicted": "No — charges later dropped",
+  "institution_city": "El Cerrito",
+  "institution_state": "California",
+  "sentence": "Charged with harboring Dennis Banks after 40 FBI agents armed with shotguns and M-16s surrounded his El Cerrito home; charges were later dropped."
+ },
+ {
+  "slug": "johnson-cole",
+  "charges": "Distribution of marijuana",
+  "convicted": "Yes",
+  "sentence": "Sentenced to 9.5–10 years for giving two marijuana cigarettes to an undercover officer; attorney Sheldon Otis called it a bust to stifle his political activities.",
+  "institution_city": "Detroit",
+  "institution_state": "Michigan"
+ },
+ {
+  "slug": "terry-phillips",
+  "charges": "Assault with a deadly weapon (July 1974 police raid)",
+  "arrest_date": "1974-07",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Convicted with Tom Stevens and sentenced to 5½ years-to-life over the July 1974 police raid on the White Panther Party's San Francisco food-program office; a 5,000-signature petition demanded an appeal bond.",
+  "institution_city": "San Francisco",
+  "institution_state": "California"
+ },
+ {
+  "slug": "tom-stevens",
+  "charges": "Assault with a deadly weapon",
+  "arrest_date": "1974-07",
+  "arrest_date_precision": "month",
+  "convicted": "Yes",
+  "sentence": "Sentenced to 5½ years-to-life for assault with a deadly weapon after firing warning shots during a July 1974 San Francisco police raid on the party's Page Street food-program office (which police then set afire); denied bail pending appeal.",
+  "institution_city": "San Francisco",
+  "institution_state": "California"
+ },
+ {
+  "slug": "ann-shepard-turner",
+  "charges": "Firebombing and conspiracy (Wilmington Ten)",
+  "convicted": "Yes (1972); paroled ~1977",
+  "release_date": "1977",
+  "release_date_precision": "year",
+  "sentence": "The only white member of the Wilmington Ten, convicted in the trumped-up 1971 Wilmington firebombing/conspiracy case; paroled around 1977.",
+  "institution_city": "Wilmington",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "james-mccoy",
+  "charges": "Firebombing and conspiracy (Wilmington Ten)",
+  "convicted": "Yes — convictions overturned 1980; group pardoned 2012",
+  "sentence": "One of the Wilmington Ten, convicted on trumped-up firebombing/conspiracy charges from the 1971 Wilmington unrest; convictions overturned in 1980, the group pardoned in 2012.",
+  "institution_city": "Wilmington",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "al-mcsurely",
+  "charges": "Sedition",
+  "convicted": "No — Kentucky sedition statute ruled unconstitutional",
+  "sentence": "Arrested with his wife Margaret on sedition charges; home raided, papers seized by Sen. John McClellan's subcommittee, house later bombed. The decade-long case reached the U.S. Supreme Court.",
+  "institution_state": "Kentucky"
+ },
+ {
+  "slug": "alfonso-ross",
+  "charges": "Kidnapping and unlawful imprisonment (Attica rebellion)",
+  "convicted": "No — New York dropped charges for lack of evidence",
+  "institution_city": "Attica",
+  "institution_state": "New York",
+  "sentence": "One of the 'Attica Brothers' charged with kidnapping and unlawful imprisonment for allegedly taking hostages in the 1971 Attica rebellion; the state dropped the charges for lack of evidence."
+ },
+ {
+  "slug": "andre-evans",
+  "charges": "Conspiracy to murder police officers",
+  "convicted": "Presented as a false, retaliatory prosecution; co-defendants' charges were dropped",
+  "institution_city": "Los Angeles",
+  "institution_state": "California",
+  "sentence": "Brother of a 17-year-old fatally shot by LAPD officers, arrested and charged with conspiring to kill the officers in what The Black Panther presented as a false, retaliatory prosecution; his friends' charges were dropped."
+ },
+ {
+  "slug": "bob-avakian",
+  "charges": "Felony charges from clashes with police (1979 anti-Deng Xiaoping protest)",
+  "arrest_date": "1979",
+  "arrest_date_precision": "year",
+  "convicted": "No — lived in France while case played out; ultimately resolved",
+  "institution_city": "Washington",
+  "institution_state": "District of Columbia",
+  "sentence": "Arrested during a 1979 Washington, D.C. protest against Deng Xiaoping's White House visit and faced felony charges connected to clashes with police; lived in France for a period before the matter was resolved.",
+  "institution_name": "U.S. District Court for the District of Columbia"
+ },
+ {
+  "slug": "carl-vincent-henry",
+  "charges": "Escape-related charges (Smyrna 7)",
+  "convicted": "Yes — found guilty Sept 1976",
+  "incarceration_date": "1976-09",
+  "incarceration_date_precision": "month",
+  "institution_name": "Delaware Correctional Center",
+  "institution_city": "Smyrna",
+  "institution_state": "Delaware",
+  "sentence": "One of the 'Smyrna 7' found guilty in September 1976 of escape-related charges at the Delaware Correctional Center; the defense committee charged guard brutality, isolation and denial of an adequate defense."
+ },
+ {
+  "slug": "cheryl-todd",
+  "charges": "Charge arising from the Ronnie Horne assault (Dessie Woods case)",
+  "convicted": "Yes — given a suspended sentence",
+  "sentence": "With Dessie Woods, was the target of an attempted rape by Ronnie Horne on June 16, 1975; charged in the case and given a suspended sentence.",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "connie-wilson",
+  "charges": "Felony voter-registration fraud",
+  "institution_city": "San Francisco",
+  "institution_state": "California",
+  "sentence": "A 19-year-old Black high-school student in San Francisco's Hunters Point put on trial for felony voter-registration fraud in what her attorney called a discriminatory frame-up, singled out by the DA as the first target of a 'voter fraud crackdown.'"
+ },
+ {
+  "slug": "craemen-gethers",
+  "charges": "Armed robbery (1974 McDonald's robbery)",
+  "convicted": "Yes — bid for new trial denied",
+  "sentence": "Black UMass-Amherst student convicted of a 1974 McDonald's robbery and sentenced to 8-12 years despite witnesses placing him on crutches at the time; his bid for a new trial was denied.",
+  "institution_name": "MCI-Norfolk",
+  "institution_city": "Norfolk",
+  "institution_state": "Massachusetts"
+ },
+ {
+  "slug": "curtis-jordan",
+  "charges": "Escape charges (Smyrna 7)",
+  "convicted": "Yes — guilty plea",
+  "institution_name": "Delaware Correctional Center",
+  "institution_city": "Smyrna",
+  "institution_state": "Delaware",
+  "sentence": "One of the 'Smyrna 7' who, per the defense committee, were forced to plead guilty to escape charges after being denied the right to present their defense."
+ },
+ {
+  "slug": "darryl-king",
+  "charges": "Murder of a New York police officer (during a robbery)",
+  "arrest_date": "1970",
+  "arrest_date_precision": "year",
+  "convicted": "Yes",
+  "sentence": "Black ex-serviceman arrested in 1970 and convicted of killing a New York policeman during a robbery, sentenced to 25 years to life; reported to have been beaten and identified through suggestive lineups, with a recanting witness admitting he lied; defense committee sought a new trial.",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "delia-gonzalez",
+  "charges": "Federal immigration violations (13 counts; inducing Mexican nationals to enter the U.S.)",
+  "convicted": "Unknown — under federal indictment, facing up to 65 years",
+  "sentence": "13-count federal indictment carrying up to 65 years; described by supporters as a trumped-up prosecution",
+  "institution_city": "Del Rio",
+  "institution_state": "Texas"
+ },
+ {
+  "slug": "dennis-goodwin",
+  "charges": "Second-degree murder",
+  "arrest_date": "1977-03-07",
+  "arrest_date_precision": "day",
+  "convicted": "Yes — convicted by an all-white jury",
+  "sentence": "Convicted of second-degree murder; described as a frame-up with negative forensics and discredited paid witnesses",
+  "institution_city": "Elmira",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "dewayne-williams",
+  "charges": "Interfering with a police officer",
+  "convicted": "Yes — convicted by an 11-white jury",
+  "sentence": "Faced up to one year in jail; set up an appeal fund. Beaten by LAPD officers before arrest, which supporters called a racist frame-up",
+  "institution_state": "California"
+ },
+ {
+  "slug": "earl-brown",
+  "charges": "Robbery",
+  "convicted": "Yes — convicted in the 1974 Amherst robbery case",
+  "sentence": "Community defense movement won a reduced 3-5 year sentence with work-release; described as a frame-up (same case as Craemen Gethers)",
+  "institution_city": "Amherst",
+  "institution_state": "Massachusetts"
+ },
+ {
+  "slug": "edgar-timmons-jr",
+  "charges": "Occupation/trespass (Harris Neck land-reclamation protest)",
+  "convicted": "Released on recognizance",
+  "sentence": "One of four Black protesters arrested by U.S. marshals for occupying Harris Neck land taken from Black families in 1942; released on recognizance",
+  "institution_city": "Harris Neck",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "edwin-goodman",
+  "charges": "Contempt (refusing to turn over WBAI interview tapes to prosecutors)",
+  "incarceration_date": "1972",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — jailed for contempt",
+  "sentence": "WBAI general radio manager jailed 30 days in 1972 for refusing to surrender tapes of phone interviews with rioting Manhattan House of Detention inmates",
+  "imprisoned_for_days": 30,
+  "institution_state": "New York"
+ },
+ {
+  "slug": "eldson-mcghee",
+  "charges": "Armed bank robbery; kidnapping",
+  "convicted": "Yes",
+  "sentence": "Life plus five years, despite no victim identifying him and no prior record; Eldson McGhee Support Committee sought his release",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "elton-rankin",
+  "charges": "Attempted capital murder of a police officer (5 counts)",
+  "convicted": "Unknown — charged; presented as a frame-up",
+  "sentence": "Grazed by a bullet and beaten by police after a car chase, then charged with five counts of attempted capital murder though he fired no shots",
+  "institution_city": "Houston",
+  "institution_state": "Texas"
+ },
+ {
+  "slug": "eva-kutas",
+  "charges": "Conspiracy; harboring an escaped federal prisoner",
+  "convicted": "Yes",
+  "sentence": "Serving a two-year term; listed by Amnesty International among U.S. political-prisoner cases",
+  "institution_state": "California"
+ },
+ {
+  "slug": "faye-brown",
+  "charges": "Murder (killing of a state trooper)",
+  "convicted": "Yes — sentenced to death",
+  "sentence": "22-year-old Black woman condemned to North Carolina's death row along with co-defendants though only one shot was fired",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "frank-gaskins",
+  "charges": "Assaulting four prison guards",
+  "arrest_date": "1975-09",
+  "arrest_date_precision": "month",
+  "convicted": "Unknown — arraigned; supporters called it a frame-up",
+  "sentence": "Held 2.5 years in Marion penitentiary's behavior-modification unit; taken to St. Louis in Sept. 1975 to be arraigned on charges of assaulting four guards, which supporters said was impossible for a handcuffed prisoner",
+  "institution_name": "United States Penitentiary, Marion",
+  "institution_city": "Marion",
+  "institution_state": "Illinois"
+ },
+ {
+  "slug": "frank-shuford",
+  "charges": "Shooting/assault of two market clerks",
+  "convicted": "Yes — first trial hung, convicted on retrial",
+  "sentence": "30-year sentence and appeal; 1972 police frame-up after organizing against alcohol sales to minors; his own attorney reportedly testified against him",
+  "institution_city": "Santa Ana",
+  "institution_state": "California"
+ },
+ {
+  "slug": "gerald-bernard-best",
+  "charges": "Attempted capital murder of a police officer (5 counts)",
+  "convicted": "Unknown — charged; presented as a frame-up",
+  "sentence": "18-year-old wounded when Houston police riddled a car with bullets, then charged with five counts of attempted capital murder despite firing no shots (gun thrown from car before the chase)",
+  "institution_city": "Houston",
+  "institution_state": "Texas"
+ },
+ {
+  "slug": "gregory-felix",
+  "charges": "Arrested in connection with the Melvin Black police-killing case (specific charges not stated)",
+  "convicted": "Unknown",
+  "sentence": "Arrested by Oakland Police vice-squad officers inside the NAACP office in connection with the Melvin Black police-killing case",
+  "institution_city": "Oakland",
+  "institution_state": "California"
+ },
+ {
+  "slug": "hayward-brown",
+  "charges": "Assault/shooting of police (armed clashes with Detroit STRESS unit)",
+  "convicted": "No — acquitted",
+  "sentence": "Detroit youth who with two friends fought the STRESS police unit; captured after a massive manhunt and acquitted after attorney Ken Cockrel put the police on trial",
+  "institution_city": "Detroit",
+  "institution_state": "Michigan"
+ },
+ {
+  "slug": "henry-dee",
+  "charges": "Murder",
+  "incarceration_date": "1972-05",
+  "incarceration_date_precision": "month",
+  "convicted": "Yes — convicted with James Sayles",
+  "sentence": "Sentenced to death May 1972, then resentenced to two consecutive 220-to-440-year terms for a murder he says he did not commit",
+  "institution_city": "Chicago",
+  "institution_state": "Illinois"
+ },
+ {
+  "slug": "hercules-anderson",
+  "charges": "Occupation/trespass (Harris Neck land-reclamation protest)",
+  "convicted": "Released on recognizance",
+  "sentence": "One of four Black protesters arrested at the Harris Neck land-reclamation protest; released on recognizance",
+  "institution_city": "Harris Neck",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "herman-blyden",
+  "charges": "Kidnapping and murder of hostages (1971 Attica uprising)",
+  "convicted": "No — indictments dismissed for insufficient evidence",
+  "sentence": "'Attica Brothers' rebellion leader charged over the 1971 Attica uprising; indictments dismissed for insufficient evidence",
+  "institution_city": "Attica",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "howard-ay-gibbs",
+  "charges": "Murder",
+  "convicted": "Yes — convicted by an all-white jury",
+  "sentence": "Maximum 80-year sentence at Trenton State Prison for murdering a white man; defense committee charged the conviction rested on forged testimony and destroyed transcripts",
+  "institution_name": "Trenton State Prison",
+  "institution_city": "Trenton",
+  "institution_state": "New Jersey"
+ },
+ {
+  "slug": "howard-mechanic",
+  "charges": "Federal anti-riot (throwing firecracker at police); violating anti-protest injunction",
+  "arrest_date": "1970-05",
+  "arrest_date_precision": "month",
+  "convicted": "Yes — convicted on both counts",
+  "sentence": "Sentenced to six months in county jail for violating the injunction banning campus protests (served in solitary confinement); separately convicted on the federal firecracker charge on the testimony of a single witness and sentenced to five years. Went into hiding under an alias for three decades before being arrested.",
+  "institution_city": "St. Louis",
+  "institution_state": "Missouri"
+ },
+ {
+  "slug": "jb-johnson",
+  "charges": "Murder of a police officer (during 1970 robbery)",
+  "incarceration_date": "1970",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — facing a life term; supporters/attorney William Kunstler called it a frame-up built on suppressed evidence",
+  "sentence": "Life term",
+  "institution_city": "St. Louis",
+  "institution_state": "Missouri"
+ },
+ {
+  "slug": "james-dixon",
+  "charges": "Attempted murder of a police sergeant",
+  "release_date": "1976-08",
+  "release_date_precision": "month",
+  "convicted": "Convicted, then charges dropped Aug. 1976 after an anonymous tip (sergeant had shot himself with an illegal 'pen gun')",
+  "sentence": "Convicted of attempted murder; conviction unraveled and charges dropped after evidence showed the sergeant shot himself.",
+  "imprisoned_for_days": 362,
+  "institution_name": "Cook County Jail",
+  "institution_city": "Chicago",
+  "institution_state": "Illinois"
+ },
+ {
+  "slug": "james-edward-garrett",
+  "charges": "Armed robbery",
+  "incarceration_date": "1975",
+  "incarceration_date_precision": "year",
+  "convicted": "Unknown — held on the charge; found dead (hands and feet bound) in his cell on Jan. 21, 1978, ruled a suicide (disputed by the United League of Marshall County)",
+  "sentence": "Died in custody Jan. 21, 1978; officials ruled suicide, United League demanded a federal probe.",
+  "institution_city": "Holly Springs",
+  "institution_state": "Mississippi"
+ },
+ {
+  "slug": "james-sayles",
+  "charges": "Murder (capital)",
+  "incarceration_date": "1972",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — convicted with Henry Dee; sentenced to death May 1972, then to two consecutive 220-to-440-year terms; supporters called it a wrongful conviction",
+  "sentence": "Sentenced to death (May 1972), later to two consecutive 220-to-440-year terms.",
+  "institution_state": "Illinois"
+ },
+ {
+  "slug": "jerome-singleton",
+  "charges": "Felonious assault (slashing an undercover 'decoy' policeman)",
+  "arrest_date": "1979",
+  "arrest_date_precision": "year",
+  "convicted": "Pretrial — Judge Bruce Wright released him without bail citing lack of record and community ties, sparking political controversy",
+  "sentence": "Released without bail pending case; outcome not stated.",
+  "institution_city": "New York",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "johnny-mcrea",
+  "charges": "Military charges from the July 1971 uprising of Black GIs in South Korea (court-martial)",
+  "incarceration_date": "1971",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — court-martialed",
+  "sentence": "Three years and a bad-conduct discharge."
+ },
+ {
+  "slug": "johnny-ross",
+  "charges": "Rape",
+  "convicted": "Yes — sentenced to death at age 16",
+  "sentence": "Death sentence, later reduced to 20 years after the U.S. Supreme Court struck down the death penalty for rape; SPLC attorneys pursued a new trial.",
+  "institution_state": "Louisiana"
+ },
+ {
+  "slug": "jose-medina",
+  "charges": "Deportation proceedings (fighting deportation to Mexico)",
+  "convicted": "N/A — immigration/deportation matter",
+  "sentence": "Fighting deportation to Mexico while supporting the Camp Pendleton 14.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "lucious-amerson",
+  "charges": "Indicted (charges the paper calls trumped-up)",
+  "incarceration_date": "1977",
+  "incarceration_date_precision": "year",
+  "convicted": "Unknown from desc — indicted",
+  "sentence": "Indicted as a Black elected official; the paper called it a framing.",
+  "institution_city": "Tuskegee",
+  "institution_state": "Alabama"
+ },
+ {
+  "slug": "madelyn-fletcher",
+  "charges": "Charges arising from an armed confrontation (attributed to threats by white officers)",
+  "incarceration_date": "1978",
+  "incarceration_date_precision": "year",
+  "convicted": "No — prosecution collapsed after attorney Ken Cockrel exposed the department's racism and sexism",
+  "sentence": "Prosecution collapsed/dismissed.",
+  "institution_city": "Flint",
+  "institution_state": "Michigan"
+ },
+ {
+  "slug": "mark-knops",
+  "charges": "Contempt (refusing to answer grand jury questions about a UW Madison bombing story he published)",
+  "incarceration_date": "1970",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — held for contempt",
+  "sentence": "Six-month sentence; served four and a half months.",
+  "imprisoned_for_days": 137,
+  "institution_state": "Wisconsin"
+ },
+ {
+  "slug": "marty-dixon",
+  "charges": "Military charges as a 'ring leader' of the July 1971 uprising of Black GIs in South Korea (court-martial)",
+  "incarceration_date": "1971",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — court-martialed",
+  "sentence": "Four years hard labor at Fort Leavenworth and a dishonorable discharge; later fought to upgrade the discharge.",
+  "institution_name": "United States Disciplinary Barracks, Fort Leavenworth",
+  "institution_city": "Fort Leavenworth",
+  "institution_state": "Kansas"
+ },
+ {
+  "slug": "michael-zinzun",
+  "charges": "Assault (the paper calls the charges trumped-up)",
+  "incarceration_date": "1975",
+  "incarceration_date_precision": "year",
+  "convicted": "Unknown from desc — facing charges amid a conference exposing police repression",
+  "sentence": "Facing assault charges; outcome not stated.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "norma-jean-croy",
+  "charges": "Conspiracy to commit murder (1978 pursuit/shootout in which a police officer was killed)",
+  "incarceration_date": "1978",
+  "incarceration_date_precision": "year",
+  "release_date": "1997-02-07",
+  "release_date_precision": "day",
+  "convicted": "Convicted 1979; conviction vacated 1997 on ineffective-assistance-of-counsel grounds",
+  "sentence": "Life sentence; served roughly 18 years before a federal court vacated the conviction and she was released Feb. 7, 1997.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "ola-mae-davis",
+  "charges": "Perjury and welfare fraud (the paper calls it a frame-up)",
+  "incarceration_date": "1977",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — imprisoned; alleged retaliation for testifying she saw a white Milwaukee officer shoot 16-year-old Jerry Brookshire in the back (1974)",
+  "sentence": "Imprisoned on perjury and welfare-fraud charges.",
+  "institution_state": "Wisconsin"
+ },
+ {
+  "slug": "ormistan-spencer",
+  "charges": "Reckless endangerment and weapons offenses (after defending his home from a racist firebombing mob)",
+  "arrest_date": "1975",
+  "arrest_date_precision": "year",
+  "convicted": "Unknown from desc — a rally demanded the charges be dropped",
+  "sentence": "Charged after defending his family's repeatedly firebombed home; outcome not stated.",
+  "institution_city": "Rosedale, Queens",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "oscar-jordan",
+  "charges": "Escape",
+  "incarceration_date": "1976",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — the defense committee says the 'Smyrna 7' were forced to plead guilty to escape charges amid racist and inhumane treatment",
+  "sentence": "Pleaded guilty to escape charges.",
+  "institution_name": "Delaware Correctional Center",
+  "institution_city": "Smyrna",
+  "institution_state": "Delaware"
+ },
+ {
+  "slug": "otis-johnson",
+  "charges": "Theft (allegedly stealing $17 and a TV set)",
+  "incarceration_date": "1977",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — listed by Amnesty International among U.S. prisoners jailed for their beliefs or political-group involvement",
+  "sentence": "Sentenced to 17 years.",
+  "institution_state": "Texas"
+ },
+ {
+  "slug": "peter-bridge",
+  "charges": "Contempt of court",
+  "incarceration_date": "1972",
+  "incarceration_date_precision": "year",
+  "convicted": "Yes — jailed for civil/criminal contempt",
+  "sentence": "Jailed 21 days for refusing to answer grand-jury questions about the sources for his story on a bribery case.",
+  "imprisoned_for_days": 21,
+  "institution_state": "New Jersey"
+ },
+ {
+  "slug": "philip-allen",
+  "charges": "Murder (killing of a police officer)",
+  "convicted": "Yes — convicted (described as a frame-up); appeal pending",
+  "sentence": "Convicted in an alleged police-murder frame-up; appeal-bond revoked after he spoke at rallies for himself and the San Quentin 6. ACLU entered the case.",
+  "institution_state": "California"
+ },
+ {
+  "slug": "raymond-sumter",
+  "charges": "Kidnapping; unlawful imprisonment",
+  "incarceration_date": "1971",
+  "incarceration_date_precision": "year",
+  "convicted": "No — charges dropped by New York State",
+  "sentence": "One of the 'Attica Brothers'; kidnapping/unlawful-imprisonment charges arising from the 1971 Attica rebellion were dropped.",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "robert-malecki",
+  "charges": "Destruction of draft cards; conspiracy to bomb public buildings and power plants",
+  "convicted": "Yes — served prison time for destroying draft cards; later charged with bomb conspiracy",
+  "sentence": "Served time for destroying tens of thousands of draft cards (1968-1972) and for sabotaging Dow Chemical's computer network; after release, charged with conspiracy to bomb public buildings and power plants, then fled into exile in Sweden."
+ },
+ {
+  "slug": "rommie-loudd",
+  "charges": "Drug charges; embezzlement",
+  "convicted": "Held pretrial on unaffordable bond; outcome not stated in source",
+  "sentence": "Jailed in Orlando on drug and embezzlement charges under a bond he could not pay; his lawyer and Black Sports magazine called it a racist plot to drive him out of pro football.",
+  "institution_city": "Orlando",
+  "institution_state": "Florida"
+ },
+ {
+  "slug": "ronald-lyons",
+  "charges": "Kidnapping; unlawful imprisonment",
+  "incarceration_date": "1971",
+  "incarceration_date_precision": "year",
+  "convicted": "No — charges dismissed before trial",
+  "sentence": "One of the 'Attica Brothers'; kidnapping/unlawful-imprisonment charges from the 1971 Attica rebellion were dismissed before trial.",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "ronald-payne",
+  "charges": "Escape / escape attempt",
+  "incarceration_date": "1976-05",
+  "incarceration_date_precision": "month",
+  "convicted": "Prosecuted; defense committee alleged racist convictions",
+  "sentence": "One of the 'Smyrna 7' prosecuted over a May 1976 escape attempt at the Delaware Correctional Center; defense committee charged guard brutality, racist convictions, and denial of a defense allowed to a white co-defendant.",
+  "institution_name": "Delaware Correctional Center",
+  "institution_city": "Smyrna",
+  "institution_state": "Delaware"
+ },
+ {
+  "slug": "roy-lee-patterson",
+  "charges": "Murder (shooting deaths of a state trooper and a policeman)",
+  "convicted": "Yes — convicted by a majority-white jury",
+  "sentence": "Sentenced to natural life for the shooting deaths of a state trooper and a policeman after a trooper attacked him, his wife and baby; denied defense funds. Southern Poverty Law Center appealing.",
+  "institution_city": "Cordele",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "sam-bell",
+  "charges": "Charge arising from defending his family during racist attacks (self-defense)",
+  "convicted": "Imprisoned",
+  "sentence": "Imprisoned at the Deer Island House of Correction for defending himself and his baby daughter during a wave of white racist attacks on Black families in East Boston; paper reports police jailed the Black victims rather than their attackers.",
+  "institution_name": "Deer Island House of Correction",
+  "institution_city": "Boston",
+  "institution_state": "Massachusetts"
+ },
+ {
+  "slug": "shirley-herlth",
+  "charges": "Assault",
+  "convicted": "Charged; outcome not stated",
+  "sentence": "Charged with assault after defending a fellow Black prisoner against a racist attack by white inmates, who were not charged.",
+  "institution_name": "North Carolina Women's Prison",
+  "institution_state": "North Carolina"
+ },
+ {
+  "slug": "sterling-hobbs-fatir",
+  "charges": "Escape",
+  "convicted": "Yes — pleaded guilty (defense committee says under duress)",
+  "sentence": "One of the 'Smyrna 7'; per the defense committee, forced to plead guilty to escape charges after being denied the right to present a defense.",
+  "institution_name": "Delaware Correctional Center",
+  "institution_city": "Smyrna",
+  "institution_state": "Delaware"
+ },
+ {
+  "slug": "ted-clark",
+  "charges": "Protest-related arrest at land-reclamation demonstration",
+  "arrest_date": "1979",
+  "arrest_date_precision": "year",
+  "convicted": "Released on own recognizance",
+  "sentence": "Atlanta civil-rights minister, one of four Black protesters arrested at the Harris Neck, Georgia land-reclamation protest; released on recognizance.",
+  "institution_city": "Harris Neck",
+  "institution_state": "Georgia"
+ },
+ {
+  "slug": "tenola-gamble",
+  "charges": "Burglary",
+  "convicted": "Yes — convicted of a 1977 burglary; appeal pending",
+  "sentence": "Convicted of a 1977 burglary despite his half-brother's confession and alibi witnesses; a judge denied a new trial and he appealed.",
+  "institution_city": "Oakland",
+  "institution_state": "California"
+ },
+ {
+  "slug": "wilbur-shabazz",
+  "charges": "Escape-related charges",
+  "convicted": "Yes — convicted",
+  "sentence": "One of the 'Smyrna 7' convicted of escape-related charges; defense committee charged that the attacks on him were tied to his ideology and politics.",
+  "institution_name": "Delaware Correctional Center",
+  "institution_city": "Smyrna",
+  "institution_state": "Delaware"
+ },
+ {
+  "slug": "william-ortiz",
+  "charges": "Kidnapping; unlawful imprisonment",
+  "incarceration_date": "1971",
+  "incarceration_date_precision": "year",
+  "convicted": "No — charges dismissed for insufficient evidence",
+  "sentence": "One of the 'Attica Brothers'; kidnapping and unlawful-imprisonment charges from the 1971 Attica rebellion were dismissed as prosecutors conceded insufficient evidence.",
+  "institution_state": "New York"
+ },
+ {
+  "slug": "willie-burnett",
+  "charges": "Rape",
+  "incarceration_date": "1974",
+  "incarceration_date_precision": "year",
+  "convicted": "Convicted 1974; overturned on appeal for insufficient evidence",
+  "sentence": "Convicted in 1974 and sentenced to life without parole for the rape of a white woman he says he did not commit; the state appeals court overturned the conviction for insufficient evidence and freed him on bond. He refused to plea-bargain.",
+  "institution_state": "Kentucky"
+ }
+]
