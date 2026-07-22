@@ -257,7 +257,7 @@ final class MergeDuplicatePrisoners extends Command
         ['manna-c-woodworth', ['manna-clay-woodworth']],
         ['marcus-garvey', ['marcus-mosiah-garvey-jr']],
         ['marjorie-melville', ['marjorie-bradford-melville']],
-        ['marshall-conway', ['marshall-eddie-conway']],
+        ['marshall-conway', ['marshall-eddie-conway', 'eddie-conway']],
         ['martin-quigley', ['martin-p-quigley']],
         ['martino-andrews', ['martino-jamel-andrews']],
         ['mary-anne-grady-flores', ['mary-anne-grady-flores-2']],
@@ -452,8 +452,9 @@ final class MergeDuplicatePrisoners extends Command
         // the variant folds into aka and its case (if any) reassigns.
         //   Fred "Muhammad" Burton — PA #AF-3896 (Fairmount Park case).
         ['fred-burton',                  ['muhammad-burton']],
-        //   Luis Valenzuela Rodríguez — CDCR #C-33000.
-        ['luis-valenzuela-rodriguez',    ['luis-rodriguez']],
+        //   Luis V. Rodríguez — CDCR #C-33000. Three records for one man; the
+        //   canonical keeps the record carrying his photo and birthdate.
+        ['luis-v-rodriguez',             ['luis-valenzuela-rodriguez']],
         //   Abdul Maumin Khabir — BOP #09891-000.
         ['abdul-maumin-khabir',          ['maumin-khabir']],
         //   Martin Rutrell — #042600 (spelling variant "Rutrel").
@@ -466,6 +467,37 @@ final class MergeDuplicatePrisoners extends Command
         ['carmen-valentin-perez',        ['carmen-valentin']],
         //   Orlando González Claudio (Los Macheteros) — BOP #03173-069.
         ['orlando-gonzalez-claudio',     ['orlando-claudio-gonzalez']],
+
+        // Surfaced by a full re-audit of the live database. The 1900-1910
+        // roster's 43 Guam-deportee additions collided with pre-existing
+        // Philippine-revolution records for the same men (accent/spelling
+        // variants of the same 1901 deportation). Canonical keeps the
+        // established Philippine slug; the Guam duplicate (its redundant
+        // deportation case dropped, see $dropDupCasesFor) folds in.
+        ['mariano-trias',            ['mariano-trias-2']],
+        ['hermogenes-plata',         ['hermogenes-plata-2']],
+        ['bartolome-de-la-rosa',     ['bartolome-de-la-rosa-2']],
+        ['leon-flores',              ['leon-flores-2']],
+        ['lucino-almeida',           ['luciano-almeida']],
+        ['pedro-cubarrubias',        ['pedro-cabarrubias']],
+        ['marcelo-quintas',          ['marcelo-quintos']],
+        ['gavino-domingo',           ['gabino-domingo']],
+        ['jayme-morales',            ['jaime-morales']],
+        ['pedro-erando',             ['pedro-hernando']],
+        ['igmidio-de-jesus',         ['emigdio-de-jesus']],
+        ['antonio-reyes',            ['antonio-prisco-reyes']],
+        ['juan-villarino',           ['juan-leandro-villarino']],
+        // Enrique Flores Magón entered twice: the 1918 Kansas "non-mailable
+        // matter" conviction (canonical, has the inmate number) and a 1904
+        // San Antonio arrest added by the 1900-1910 roster. Same man, distinct
+        // custody events — the dup's case is reassigned, not dropped.
+        ['enrique-flores-magon',     ['enrique-flores-magon-2']],
+        // Mohaman Koti, "formerly known as James Carter Johnson" — the
+        // james-johnson (NC) record is the same man (matching birthdate).
+        ['mohaman-koti',             ['james-johnson']],
+        // Daniel J. Schmidt — the Kansas Mennonite WWI conscientious objector
+        // entered twice under a tentative-middle-initial name.
+        ['daniel-j-schmidt',         ['daniel-j-dan-a-schmidt']],
     ];
 
     /**
@@ -573,6 +605,25 @@ final class MergeDuplicatePrisoners extends Command
         'hanif-shabazz-bey',
         'philip-wigle',
         'adolfo-matos-antogiorgi',
+        // Guam-deportee duplicates: the pre-existing Philippine record already
+        // carries the same 1901 deportation case, so the Guam duplicate's copy
+        // is dropped rather than reassigned.
+        'mariano-trias',
+        'hermogenes-plata',
+        'bartolome-de-la-rosa',
+        'leon-flores',
+        'lucino-almeida',
+        'pedro-cubarrubias',
+        'marcelo-quintas',
+        'gavino-domingo',
+        'jayme-morales',
+        'pedro-erando',
+        'igmidio-de-jesus',
+        'antonio-reyes',
+        'juan-villarino',
+        // Marshall Conway already holds his Baltimore BPP framing case; the
+        // eddie-conway duplicate's copy is redundant.
+        'marshall-conway',
     ];
 
     public function handle(): int
