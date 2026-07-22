@@ -1,0 +1,5672 @@
+[
+{
+"slug": "ernest-gellert",
+"race": "White",
+"confidence": "high",
+"basis": "Stated Hungarian-American socialist/CO"
+},
+{
+"slug": "arthur-c-townley",
+"race": "White",
+"confidence": "medium",
+"basis": "Well-documented Nonpartisan League founder, European-descent Midwest farmer-organizer"
+},
+{
+"slug": "john-schrag",
+"race": "White",
+"confidence": "high",
+"basis": "Stated Swiss-Mennonite farmer"
+},
+{
+"slug": "emanuel-baltzer",
+"race": "White",
+"confidence": "high",
+"basis": "Stated German-Russian socialist farmer"
+},
+{
+"slug": "claus-gunderson",
+"race": "White",
+"confidence": "medium",
+"basis": "Scandinavian name, WWI-era ND Espionage Act defendant"
+},
+{
+"slug": "manuel-magana",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Fully Spanish name (Manuel Magaña) in Spain-refugee-aid context"
+},
+{
+"slug": "josephine-sunshine-overaker",
+"race": "White",
+"confidence": "high",
+"basis": "FBI wanted-poster describes her as white; European name, eco-radical"
+},
+{
+"slug": "jean-pierre-charette",
+"race": "White",
+"confidence": "high",
+"basis": "French-Canadian FLQ member"
+},
+{
+"slug": "alain-allard",
+"race": "White",
+"confidence": "high",
+"basis": "French-Canadian FLQ member"
+},
+{
+"slug": "william-white-graham",
+"race": "White",
+"confidence": "medium",
+"basis": "Member of the white Tuller radical group"
+},
+{
+"slug": "stefan-cojerean",
+"race": "White",
+"confidence": "medium",
+"basis": "Romanian immigrant Detroit worker"
+},
+{
+"slug": "george-powers",
+"race": "White",
+"confidence": "medium",
+"basis": "Boston-born 1892 labor organizer, Anglo name, documented"
+},
+{
+"slug": "d-d-foley",
+"race": "White",
+"confidence": "medium",
+"basis": "1861 Washington attorney, Irish name"
+},
+{
+"slug": "mohammed-sabry-soliman",
+"race": "Middle Eastern",
+"confidence": "high",
+"basis": "Stated Egyptian national"
+},
+{
+"slug": "dario-sanchez",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Fully Spanish name (Dario Sanchez)"
+},
+{
+"slug": "janette-goering",
+"race": "White",
+"confidence": "medium",
+"basis": "German/Anglo name, Texas"
+},
+{
+"slug": "lucy-fowlkes",
+"race": "White",
+"confidence": "medium",
+"basis": "English surname, Weatherford TX resident"
+},
+{
+"slug": "alberto-de-jesus-berrios",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican independence activist"
+},
+{
+"slug": "susan-marie-parker",
+"race": "White",
+"confidence": "medium",
+"basis": "SDS Colorado, Anglo name, 1969"
+},
+{
+"slug": "juan-galloza-acevedo",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Machetero militant"
+},
+{
+"slug": "bob-lederer",
+"race": "White",
+"confidence": "medium",
+"basis": "North American (solidarity) supporter of PR independence; European/Jewish name"
+},
+{
+"slug": "norma-burgos",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican senator"
+},
+{
+"slug": "ozie-washington",
+"race": "Black",
+"confidence": "medium",
+"basis": "African-American name; anti-racism Midway protest by Third World sailors"
+},
+{
+"slug": "margaret-butler",
+"race": "White",
+"confidence": "medium",
+"basis": "Portland-born 1957 labor organizer, Anglo name, documented"
+},
+{
+"slug": "rick-ball",
+"race": "White",
+"confidence": "medium",
+"basis": "SEIU Local 49 organizer, Anglo name"
+},
+{
+"slug": "henry-podolski",
+"race": "White",
+"confidence": "high",
+"basis": "Polish-born socialist journalist"
+},
+{
+"slug": "george-pirinsky",
+"race": "White",
+"confidence": "high",
+"basis": "Bulgarian immigrant, Macedonian/Slav movement leader"
+},
+{
+"slug": "constance-webb",
+"race": "Black",
+"confidence": "medium",
+"basis": "Black Panther Party member arrested in Oakland BPP raids"
+},
+{
+"slug": "annette-roper",
+"race": "Black",
+"confidence": "medium",
+"basis": "Black Panther Party member arrested in Oakland BPP raids"
+},
+{
+"slug": "lintonia-sheppard",
+"race": "Black",
+"confidence": "medium",
+"basis": "BPP Youth Institute health staff; African-American name"
+},
+{
+"slug": "ross-colby",
+"race": "White",
+"confidence": "medium",
+"basis": "Anglo name, no contradicting evidence"
+},
+{
+"slug": "cody-andrew-kretsinger",
+"race": "White",
+"confidence": "medium",
+"basis": "Anglo/German name, no contradicting evidence"
+},
+{
+"slug": "raynaldo-rivera",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Fully Spanish name (Raynaldo Rivera)"
+},
+{
+"slug": "john-watson",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated Black grocer, Oberlin"
+},
+{
+"slug": "wilson-bruce-evans",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated free Black cabinetmaker"
+},
+{
+"slug": "david-watson",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated Black Oberlin resident"
+},
+{
+"slug": "eli-boies",
+"race": "White",
+"confidence": "medium",
+"basis": "White Wellington abolitionist townsman, English name"
+},
+{
+"slug": "loring-wadsworth",
+"race": "White",
+"confidence": "medium",
+"basis": "White Wellington townsman, English name"
+},
+{
+"slug": "richard-winsor",
+"race": "White",
+"confidence": "medium",
+"basis": "White Oberlin College student"
+},
+{
+"slug": "jacob-r-shipherd",
+"race": "White",
+"confidence": "medium",
+"basis": "Of the white Oberlin-founding Shipherd family"
+},
+{
+"slug": "john-h-scott",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated Black harness-maker"
+},
+{
+"slug": "ansel-w-lyman",
+"race": "White",
+"confidence": "medium",
+"basis": "White Oberlin student"
+},
+{
+"slug": "william-e-lincoln",
+"race": "White",
+"confidence": "high",
+"basis": "Stated English-born Oberlin student"
+},
+{
+"slug": "henry-evans",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated free Black cabinetmaker"
+},
+{
+"slug": "matthew-gillett",
+"race": "White",
+"confidence": "medium",
+"basis": "Elderly white Wellington farmer"
+},
+{
+"slug": "orindatus-simon-bolivar-wall",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated Black shoemaker, Langston in-law"
+},
+{
+"slug": "daniel-williams",
+"race": "Black",
+"confidence": "high",
+"basis": "Stated Black Oberlin resident"
+},
+{
+"slug": "henry-e-peck",
+"race": "White",
+"confidence": "medium",
+"basis": "White Oberlin professor, later US minister to Haiti"
+},
+{
+"slug": "james-m-fitch",
+"race": "White",
+"confidence": "medium",
+"basis": "White Oberlin bookseller"
+},
+{
+"slug": "ralph-plumb",
+"race": "White",
+"confidence": "medium",
+"basis": "White Oberlin lawyer, later US Congressman"
+},
+{
+"slug": "abner-loveland",
+"race": "White",
+"confidence": "medium",
+"basis": "White Wellington townsman, English name"
+},
+{
+"slug": "samuel-austin-worcester",
+"race": "White",
+"confidence": "high",
+"basis": "Convicted under Georgia law barring white persons in Cherokee Nation"
+},
+{
+"slug": "elizur-butler",
+"race": "White",
+"confidence": "high",
+"basis": "White ABCFM missionary convicted under Georgia white-persons law"
+},
+{
+"slug": "james-j-trott",
+"race": "White",
+"confidence": "high",
+"basis": "Convicted under Georgia white-persons-in-Cherokee-Nation law"
+},
+{
+"slug": "samuel-mays",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "edward-delosier",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "surry-eaton",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "thomas-gann",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "austin-copeland",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "benjamin-f-thompson",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "james-a-thompson",
+"race": "White",
+"confidence": "high",
+"basis": "Stated white resident"
+},
+{
+"slug": "john-f-wheeler",
+"race": "White",
+"confidence": "high",
+"basis": "Convicted under Georgia white-persons law"
+},
+{
+"slug": "john-thompson",
+"race": "White",
+"confidence": "high",
+"basis": "White ABCFM missionary in Cherokee Nation"
+},
+{
+"slug": "william-mcleod",
+"race": "White",
+"confidence": "high",
+"basis": "White Methodist mission superintendent"
+},
+{
+"slug": "mariano-trias-2",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary (Filipino->Asian)"
+},
+{
+"slug": "pedro-cabarrubias",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "hermogenes-plata-2",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "juan-leandro-villarino",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "emigdio-de-jesus",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "luciano-almeida",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "bartolome-de-la-rosa-2",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "antonio-prisco-reyes",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "marcelo-quintos",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "jaime-morales",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "leon-flores-2",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "gabino-domingo",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "pedro-hernando",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino revolutionary"
+},
+{
+"slug": "isabelo-de-los-reyes",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino labor/nationalist leader"
+},
+{
+"slug": "dominador-gomez",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino labor/nationalist organizer"
+},
+{
+"slug": "aurelio-tolentino",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino playwright/nationalist"
+},
+{
+"slug": "lucio-de-vega",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino, Sakay movement"
+},
+{
+"slug": "francisco-carreon",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino, Sakay movement"
+},
+{
+"slug": "julian-montalan",
+"race": "Asian",
+"confidence": "high",
+"basis": "Filipino, Sakay movement"
+},
+{
+"slug": "lazaro-gutierrez-de-lara",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM figure"
+},
+{
+"slug": "manuel-sarabia",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Partido Liberal Mexicano militant"
+},
+{
+"slug": "antonio-de-pio-araujo",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM figure"
+},
+{
+"slug": "modesto-diaz",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM press, Mexican"
+},
+{
+"slug": "federico-arizmendez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM press, Mexican"
+},
+{
+"slug": "ulibarri",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM-associated Mexican defendant"
+},
+{
+"slug": "enrique-flores-magon-2",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM leader (Flores Magón)"
+},
+{
+"slug": "john-murray",
+"race": "White",
+"confidence": "medium",
+"basis": "US socialist supporter (solidarity) of PLM, not Mexican"
+},
+{
+"slug": "lazaro-puente",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM refugee"
+},
+{
+"slug": "abraham-salcido",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM refugee"
+},
+{
+"slug": "gabriel-rubio",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM refugee"
+},
+{
+"slug": "bruno-trevino",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM refugee"
+},
+{
+"slug": "carlos-humbert",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM refugee"
+},
+{
+"slug": "leonardo-villarreal",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican PLM refugee"
+},
+{
+"slug": "pedro-gonzales",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "crescencio-villarreal",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "trinidad-garcia",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "demetrio-castro",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "patricio-guerra",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "lauro-aguirre",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "tomas-de-espinosa",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "jose-m-rangel",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "casimiro-h-regalado",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "raymundo-cano",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "amado-hernandez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "tomas-morales",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "encarnacion-diaz-guerra",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "juan-castro",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "prisciliano-silva",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "jose-maria-martinez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "benjamin-silva",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "leocadio-trevino",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "jose-ruiz",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "benito-solis",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "tomas-sarabia",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "praxedis-g-guerrero",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM (Práxedis Guerrero)"
+},
+{
+"slug": "sirvando-t-agis",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "calixto-guerra",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "guillermo-adan",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "e-davila",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "ramon-torres-delgado",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican revolutionary, PLM"
+},
+{
+"slug": "amendo-morantes",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM (Partido Liberal Mexicano) Mexican revolutionary"
+},
+{
+"slug": "francisco-sainz",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM Mexican revolutionary"
+},
+{
+"slug": "marcelino-ibarra",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM Mexican revolutionary"
+},
+{
+"slug": "ines-ruiz",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "PLM Mexican revolutionary"
+},
+{
+"slug": "charles-h-moyer",
+"race": "White",
+"confidence": "high",
+"basis": "WFM president, European-descent labor leader"
+},
+{
+"slug": "william-d-haywood",
+"race": "White",
+"confidence": "high",
+"basis": "'Big Bill' Haywood, WFM/IWW leader, white"
+},
+{
+"slug": "george-a-pettibone",
+"race": "White",
+"confidence": "high",
+"basis": "WFM figure, white labor leader"
+},
+{
+"slug": "annie-adams",
+"race": "White",
+"confidence": "medium",
+"basis": "wife of white WFM miner Steve Adams, Idaho mining context"
+},
+{
+"slug": "vincent-st-john",
+"race": "White",
+"confidence": "high",
+"basis": "Vincent St. John, notable white WFM/IWW leader"
+},
+{
+"slug": "joseph-william-smith",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW Goldfield/Preston-Smith case, European-descent labor"
+},
+{
+"slug": "frank-little",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW organizer; European-descent (Native-heritage claim unverified)"
+},
+{
+"slug": "sam-t-crane",
+"race": "White",
+"confidence": "medium",
+"basis": "Spokane IWW free-speech fighter, European-descent labor"
+},
+{
+"slug": "e-cousins",
+"race": "White",
+"confidence": "medium",
+"basis": "Spokane IWW leader, European-descent labor"
+},
+{
+"slug": "c-l-filigno",
+"race": "White",
+"confidence": "medium",
+"basis": "Spokane IWW (Italian-American name Filigno), European-descent"
+},
+{
+"slug": "james-p-wilson",
+"race": "White",
+"confidence": "medium",
+"basis": "Spokane IWW leader, European-descent labor"
+},
+{
+"slug": "e-j-foote",
+"race": "White",
+"confidence": "medium",
+"basis": "Spokane IWW leader, European-descent labor"
+},
+{
+"slug": "james-doyle",
+"race": "White",
+"confidence": "medium",
+"basis": "Fresno IWW free-speech fight, European-descent labor"
+},
+{
+"slug": "leon-czolgosz",
+"race": "White",
+"confidence": "high",
+"basis": "Leon Czolgosz, Polish-American anarchist"
+},
+{
+"slug": "clara-lemlich",
+"race": "White",
+"confidence": "high",
+"basis": "Ukrainian-Jewish immigrant labor organizer"
+},
+{
+"slug": "abraham-isaak",
+"race": "White",
+"confidence": "medium",
+"basis": "Russian Mennonite anarchist publisher, European-descent"
+},
+{
+"slug": "mary-isaak",
+"race": "White",
+"confidence": "medium",
+"basis": "anarchist, European-descent (Isaak family)"
+},
+{
+"slug": "hippolyte-havel",
+"race": "White",
+"confidence": "medium",
+"basis": "Hippolyte Havel, Czech anarchist"
+},
+{
+"slug": "william-macqueen",
+"race": "White",
+"confidence": "medium",
+"basis": "British anarchist editor"
+},
+{
+"slug": "rudolf-grossmann",
+"race": "White",
+"confidence": "medium",
+"basis": "Austrian anarchist (Pierre Ramus)"
+},
+{
+"slug": "william-monroe-trotter",
+"race": "Black",
+"confidence": "high",
+"basis": "Black civil-rights editor challenging Booker T. Washington (1903 Boston Riot)"
+},
+{
+"slug": "granville-martin",
+"race": "Black",
+"confidence": "medium",
+"basis": "co-defendant with Trotter in Black civil-rights Boston Riot"
+},
+{
+"slug": "chitto-harjo",
+"race": "Native American",
+"confidence": "high",
+"basis": "Muscogee (Creek) leader"
+},
+{
+"slug": "edin-alex-enamorado",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Latino street-vendor-rights activist, undocumented, self/community Latino"
+},
+{
+"slug": "sofia-deferrari",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "stated half-Venezuelan"
+},
+{
+"slug": "fergie-chambers",
+"race": "White",
+"confidence": "high",
+"basis": "Cox family (Cox Enterprises) heir, white American"
+},
+{
+"slug": "amin-chaoui",
+"race": "Middle Eastern",
+"confidence": "medium",
+"basis": "full Maghrebi/Arabic name (Amin Chaoui; Chaoui=Algerian Berber)"
+},
+{
+"slug": "beto-coral",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Colombian lawyer, born Medellin"
+},
+{
+"slug": "dimitri-leny",
+"race": "White",
+"confidence": "medium",
+"basis": "French national, European"
+},
+{
+"slug": "frederique-robert-paul",
+"race": "White",
+"confidence": "medium",
+"basis": "Canadian from Montreal, French-Canadian European"
+},
+{
+"slug": "gilberto-castillo",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "full Hispanic name Gilberto Castillo"
+},
+{
+"slug": "hashim-ali",
+"race": "Black",
+"confidence": "high",
+"basis": "described as 'young Black activist'"
+},
+{
+"slug": "isael-ortiz",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "full Hispanic name Isael Antonio Ortiz"
+},
+{
+"slug": "jacob-greenburg",
+"race": "White",
+"confidence": "medium",
+"basis": "Greenburg family, stepmother WA legislator Laura Ruderman; white/Jewish-American"
+},
+{
+"slug": "julio-cesar-irungaray",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "stated originally from Mexico"
+},
+{
+"slug": "marc-castillo",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "sibling of Gilberto Castillo; Hispanic surname"
+},
+{
+"slug": "mattia-luini",
+"race": "White",
+"confidence": "medium",
+"basis": "stated dual Italian-American citizen, European"
+},
+{
+"slug": "muhammad-pahlawan",
+"race": "Asian",
+"confidence": "high",
+"basis": "Pakistani national (South Asian -> Asian)"
+},
+{
+"slug": "sami-hamdi",
+"race": "Middle Eastern",
+"confidence": "medium",
+"basis": "British-Arab commentator of Arab/North African background"
+},
+{
+"slug": "sedina-unkic-hodzic",
+"race": "White",
+"confidence": "medium",
+"basis": "Bosnian immigrant, European"
+},
+{
+"slug": "teresa-yue-shen",
+"race": "Asian",
+"confidence": "medium",
+"basis": "full Chinese name Teresa Yue Shen"
+},
+{
+"slug": "tyler-robinson",
+"race": "White",
+"confidence": "high",
+"basis": "Tyler Robinson, widely reported white, Washington Utah"
+},
+{
+"slug": "victor-a-sanchez-santa",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "double Spanish surname Sanchez-Santa"
+},
+{
+"slug": "frances-crowe",
+"race": "White",
+"confidence": "high",
+"basis": "American Quaker peace/anti-nuclear organizer, documented"
+},
+{
+"slug": "daniel-burgevin",
+"race": "White",
+"confidence": "medium",
+"basis": "Upstate Drone Action / Catholic-style peace CD milieu (predominantly white)"
+},
+{
+"slug": "james-ricks",
+"race": "White",
+"confidence": "medium",
+"basis": "Hancock drone-protest peace activist group (predominantly white)"
+},
+{
+"slug": "judy-bello",
+"race": "White",
+"confidence": "medium",
+"basis": "Upstate Drone Action peace activist"
+},
+{
+"slug": "kathy-kelly",
+"race": "White",
+"confidence": "high",
+"basis": "Irish-Catholic Chicago Catholic Worker peace activist, documented"
+},
+{
+"slug": "mark-scibilia-carver",
+"race": "White",
+"confidence": "medium",
+"basis": "Hancock drone-protest peace activist group"
+},
+{
+"slug": "nervis-villalobos-cardenas",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Venezuelan government minister (Latino)"
+},
+{
+"slug": "patricia-weiland",
+"race": "White",
+"confidence": "medium",
+"basis": "Hancock drone-protest peace activist group"
+},
+{
+"slug": "rakem-balogun",
+"race": "Black",
+"confidence": "high",
+"basis": "targeted as Black activist; explicit in sources"
+},
+{
+"slug": "ramiz-zijad-hodzic",
+"race": "White",
+"confidence": "medium",
+"basis": "Bosnian immigrant (European/Slavic -> White)"
+},
+{
+"slug": "sebastian-senakiewicz",
+"race": "White",
+"confidence": "high",
+"basis": "Polish national"
+},
+{
+"slug": "stanley-cohen",
+"race": "White",
+"confidence": "high",
+"basis": "American Jewish radical attorney, documented"
+},
+{
+"slug": "charles-hoke",
+"race": "White",
+"confidence": "medium",
+"basis": "rural anarchist acting for farmers displaced by developers (white rural context)"
+},
+{
+"slug": "jerome-white-bey",
+"race": "Black",
+"confidence": "medium",
+"basis": "'Bey' (Moorish Science) name; founded Missouri Prison Labor Union"
+},
+{
+"slug": "adam-blackwell",
+"race": "White",
+"confidence": "medium",
+"basis": "ELF, suburban Richmond majority-white HS environmental milieu"
+},
+{
+"slug": "joanna-cohen",
+"race": "White",
+"confidence": "medium",
+"basis": "SOA Watch faith-based CD (predominantly white)"
+},
+{
+"slug": "ulla-roder",
+"race": "White",
+"confidence": "high",
+"basis": "Danish Trident Ploughshares activist"
+},
+{
+"slug": "ali-rehman",
+"race": "Asian",
+"confidence": "high",
+"basis": "Pakistani, in Pakistan (South Asian -> Asian)"
+},
+{
+"slug": "andy-riendeau",
+"race": "Native American",
+"confidence": "high",
+"basis": "described as longtime Native American activist"
+},
+{
+"slug": "david-scalera",
+"race": "Native American",
+"confidence": "medium",
+"basis": "Native rights advocate, name 'Looks Away', with Native co-defendants"
+},
+{
+"slug": "tewahnee-sahme",
+"race": "Native American",
+"confidence": "high",
+"basis": "Native rights advocate, Native name (Warm Springs)"
+},
+{
+"slug": "turi-vaccaro",
+"race": "White",
+"confidence": "high",
+"basis": "Italian/European Plowshares activist"
+},
+{
+"slug": "eric-wildcat-hall",
+"race": "Native American",
+"confidence": "medium",
+"basis": "Indigenous-rights activist, name 'Wildcat'"
+},
+{
+"slug": "cecilia-ferguson",
+"race": "Black",
+"confidence": "high",
+"basis": "former Black Panther"
+},
+{
+"slug": "stacey-merkt",
+"race": "White",
+"confidence": "high",
+"basis": "white Methodist Sanctuary Movement volunteer, documented"
+},
+{
+"slug": "isaac-camacho-negron",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Los Macheteros, Puerto Rican independence"
+},
+{
+"slug": "alberta-wicker-africa",
+"race": "Black",
+"confidence": "high",
+"basis": "MOVE Organization (Black liberation commune)"
+},
+{
+"slug": "carlos-perez-africa",
+"race": "Black",
+"confidence": "high",
+"basis": "MOVE Organization"
+},
+{
+"slug": "consuella-dotson-africa",
+"race": "Black",
+"confidence": "high",
+"basis": "MOVE Organization"
+},
+{
+"slug": "michael-hill-africa",
+"race": "Black",
+"confidence": "high",
+"basis": "MOVE Organization"
+},
+{
+"slug": "sue-leon-africa",
+"race": "Black",
+"confidence": "high",
+"basis": "MOVE Organization"
+},
+{
+"slug": "yorie-von-kahl",
+"race": "White",
+"confidence": "high",
+"basis": "Posse Comitatus far-right movement"
+},
+{
+"slug": "brian-willson",
+"race": "White",
+"confidence": "high",
+"basis": "American anti-war Vietnam vet/attorney, documented"
+},
+{
+"slug": "bob-yellow-bird",
+"race": "Native American",
+"confidence": "high",
+"basis": "Nebraska AIM coordinator, Yellow Bird"
+},
+{
+"slug": "darrelle-butler",
+"race": "Native American",
+"confidence": "high",
+"basis": "American Indian Movement member, Pine Ridge"
+},
+{
+"slug": "jimmy-eagle",
+"race": "Native American",
+"confidence": "high",
+"basis": "young Oglala man"
+},
+{
+"slug": "jo-an-yellow-bird",
+"race": "Native American",
+"confidence": "high",
+"basis": "AIM, wife of Bob Yellow Bird"
+},
+{
+"slug": "kamook-banks",
+"race": "Native American",
+"confidence": "high",
+"basis": "AIM (Oglala), wife of Dennis Banks"
+},
+{
+"slug": "sarah-bad-heart-bull",
+"race": "Native American",
+"confidence": "high",
+"basis": "Sioux; mother of slain Sioux youth"
+},
+{
+"slug": "phil-shinnick",
+"race": "White",
+"confidence": "high",
+"basis": "Olympic long jumper/anti-war activist, documented white"
+},
+{
+"slug": "george-brown",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Liberation Army member"
+},
+{
+"slug": "joyce-tillerson",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Liberation Army member"
+},
+{
+"slug": "bob-duren",
+"race": "Black",
+"confidence": "high",
+"basis": "Southern California BPP coordinator"
+},
+{
+"slug": "donnell-moore",
+"race": "Black",
+"confidence": "high",
+"basis": "former Black Panther Party member"
+},
+{
+"slug": "greg-franklin",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Panther Party member"
+},
+{
+"slug": "joseph-waddell",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Panther Party member"
+},
+{
+"slug": "morris-white",
+"race": "Black",
+"confidence": "high",
+"basis": "Seattle Black Panther Party member"
+},
+{
+"slug": "randolph-jennings",
+"race": "Black",
+"confidence": "high",
+"basis": "BPP member, High Point 4"
+},
+{
+"slug": "robert-heard",
+"race": "Black",
+"confidence": "high",
+"basis": "BPP member, Newton co-defendant"
+},
+{
+"slug": "robert-kendrick",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Panther Party member"
+},
+{
+"slug": "bobby-bishop",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "clarence-copens",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "donald-hunter",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "eddie-page",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "glen-white",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "gregory-coffey",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "herman-fletcher",
+"race": "Black",
+"confidence": "high",
+"basis": "Camp Pendleton 14 Black Marine"
+},
+{
+"slug": "ricky-mcgivery",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Marine, Camp Pendleton 14"
+},
+{
+"slug": "ramon-chacon",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Chicano activist"
+},
+{
+"slug": "james-jackson-jr",
+"race": "Black",
+"confidence": "high",
+"basis": "Dawson Five, Black youth"
+},
+{
+"slug": "johnny-jackson",
+"race": "Black",
+"confidence": "high",
+"basis": "Dawson Five, Black youth"
+},
+{
+"slug": "charles-2x-beasley",
+"race": "Black",
+"confidence": "high",
+"basis": "'2X' Nation of Islam name; Atmore-Holman Brothers"
+},
+{
+"slug": "earnest-ball",
+"race": "Black",
+"confidence": "medium",
+"basis": "IFA Atmore-Holman Black prison movement"
+},
+{
+"slug": "frank-x-moore",
+"race": "Black",
+"confidence": "high",
+"basis": "'X' Nation of Islam name; Atmore rebellion"
+},
+{
+"slug": "george-chagina-dobbins",
+"race": "Black",
+"confidence": "high",
+"basis": "Black inmate activist, IFA"
+},
+{
+"slug": "glenn-diamond",
+"race": "Black",
+"confidence": "high",
+"basis": "Mobile activist, attempted police lynching (hanging from tree)"
+},
+{
+"slug": "grover-mccorvey",
+"race": "Black",
+"confidence": "medium",
+"basis": "IFA Atmore-Holman Brothers"
+},
+{
+"slug": "james-jones",
+"race": "Black",
+"confidence": "medium",
+"basis": "Mobile IFA activist beaten with Glenn Diamond"
+},
+{
+"slug": "jesse-tuba-clancy",
+"race": "Black",
+"confidence": "medium",
+"basis": "IFA Atmore-Holman Brothers"
+},
+{
+"slug": "lincoln-heard",
+"race": "Black",
+"confidence": "medium",
+"basis": "Atmore prisoner with Johnny Imani Harris"
+},
+{
+"slug": "oscar-gamba-johnson",
+"race": "Black",
+"confidence": "medium",
+"basis": "IFA Atmore-Holman Brothers"
+},
+{
+"slug": "tommy-dotson",
+"race": "Black",
+"confidence": "medium",
+"basis": "Atmore-Holman Brothers"
+},
+{
+"slug": "victor-martinez",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Puerto Rican name, NYC Tombs rebellion"
+},
+{
+"slug": "alex-poindexter",
+"race": "Black",
+"confidence": "high",
+"basis": "Omaha Two, NCCF (BPP affiliate)"
+},
+{
+"slug": "nate-saunsoci",
+"race": "Native American",
+"confidence": "high",
+"basis": "described as Native American (Omaha)"
+},
+{
+"slug": "mara-youngdahl",
+"race": "White",
+"confidence": "medium",
+"basis": "Moody Park Three, white RCP-aligned co-defendant"
+},
+{
+"slug": "thomas-hirschi",
+"race": "White",
+"confidence": "medium",
+"basis": "Moody Park Three, white RCP-aligned co-defendant"
+},
+{
+"slug": "gordon-wendell-kahl",
+"race": "White",
+"confidence": "high",
+"basis": "Posse Comitatus, ND farmer/WWII vet"
+},
+{
+"slug": "carl-bass",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Alabama prisoner"
+},
+{
+"slug": "donald-thigpen",
+"race": "Black",
+"confidence": "medium",
+"basis": "Alabama death row with Johnny Imani Harris"
+},
+{
+"slug": "earl-gaither",
+"race": "Black",
+"confidence": "high",
+"basis": "Nation of Islam inmate, Marion"
+},
+{
+"slug": "james-mcclain",
+"race": "Black",
+"confidence": "high",
+"basis": "San Quentin prisoner, Marin courthouse (Jonathan Jackson)"
+},
+{
+"slug": "robert-earl-may-jr",
+"race": "Black",
+"confidence": "high",
+"basis": "14-year-old Black youth"
+},
+{
+"slug": "robert-houchens",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Culture Society organizer, Marion"
+},
+{
+"slug": "stephen-bingham",
+"race": "White",
+"confidence": "high",
+"basis": "white radical attorney for George Jackson (Bingham family)"
+},
+{
+"slug": "warren-e-sumlin-sr",
+"race": "Black",
+"confidence": "high",
+"basis": "Bay Area Black man on death row"
+},
+{
+"slug": "william-christmas",
+"race": "Black",
+"confidence": "high",
+"basis": "San Quentin prisoner, Marin courthouse shootout"
+},
+{
+"slug": "alfredo-lopez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Socialist Party"
+},
+{
+"slug": "case-johnson",
+"race": "Black",
+"confidence": "medium",
+"basis": "Reidsville Brothers (Black Georgia prisoners)"
+},
+{
+"slug": "forest-jordan",
+"race": "Black",
+"confidence": "medium",
+"basis": "Reidsville Brothers (Black Georgia prisoners)"
+},
+{
+"slug": "james-collins",
+"race": "Black",
+"confidence": "high",
+"basis": "one of six Reidsville Brothers, Black Georgia prisoners"
+},
+{
+"slug": "jessie-whitaker",
+"race": "Black",
+"confidence": "medium",
+"basis": "Reidsville Brothers (Black Georgia prisoners)"
+},
+{
+"slug": "moses-evans",
+"race": "Black",
+"confidence": "high",
+"basis": "Reidsville Brothers, Black Georgia prisoners"
+},
+{
+"slug": "david-hofstetter",
+"race": "White",
+"confidence": "medium",
+"basis": "UW-Madison RHSLO strike activist"
+},
+{
+"slug": "judy-greenspan",
+"race": "White",
+"confidence": "medium",
+"basis": "UW-Madison RHSLO strike activist"
+},
+{
+"slug": "ellen-r-budow",
+"race": "White",
+"confidence": "medium",
+"basis": "UW-Madison anti-Vietnam art student, born 1952"
+},
+{
+"slug": "gary-watson",
+"race": "Black",
+"confidence": "high",
+"basis": "radical Black prisoner, Smyrna Five"
+},
+{
+"slug": "hosea-williams",
+"race": "Black",
+"confidence": "high",
+"basis": "SCLC civil rights leader"
+},
+{
+"slug": "alex-markley",
+"race": "White",
+"confidence": "medium",
+"basis": "UE union field organizer, Holyoke MA"
+},
+{
+"slug": "lehman-brightman",
+"race": "Native American",
+"confidence": "high",
+"basis": "leader of United Native Americans (Lakota/Creek)"
+},
+{
+"slug": "malik-smith",
+"race": "Black",
+"confidence": "high",
+"basis": "Fountain Valley Five, anti-colonial St. Croix (Afro-Caribbean)"
+},
+{
+"slug": "johnson-cole",
+"race": "White",
+"confidence": "high",
+"basis": "head of Detroit White Panther Party"
+},
+{
+"slug": "terry-phillips",
+"race": "White",
+"confidence": "high",
+"basis": "White Panther Party member"
+},
+{
+"slug": "tom-stevens",
+"race": "White",
+"confidence": "high",
+"basis": "White Panther Party member"
+},
+{
+"slug": "ann-shepard-turner",
+"race": "White",
+"confidence": "high",
+"basis": "described as only white member of Wilmington Ten"
+},
+{
+"slug": "james-mccoy",
+"race": "Black",
+"confidence": "high",
+"basis": "Wilmington Ten (the nine besides Ann Shepard were Black)"
+},
+{
+"slug": "al-mcsurely",
+"race": "White",
+"confidence": "high",
+"basis": "white civil-rights organizer in eastern KY, documented"
+},
+{
+"slug": "alfonso-ross",
+"race": "Black",
+"confidence": "medium",
+"basis": "Attica Brothers (predominantly Black rebellion)"
+},
+{
+"slug": "ali-shokri",
+"race": "Middle Eastern",
+"confidence": "high",
+"basis": "Iranian former Air Force member"
+},
+{
+"slug": "andre-evans",
+"race": "Black",
+"confidence": "medium",
+"basis": "LA police-brutality frame-up, BPP-covered racialized case"
+},
+{
+"slug": "arthur-barber",
+"race": "Black",
+"confidence": "medium",
+"basis": "Bronx police-beaten-confession frame-up, BPP-covered"
+},
+{
+"slug": "carl-vincent-henry",
+"race": "Black",
+"confidence": "medium",
+"basis": "Smyrna 7 Black radical prisoners"
+},
+{
+"slug": "cheryl-todd",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black woman (with Dessie Woods)"
+},
+{
+"slug": "connie-wilson",
+"race": "Black",
+"confidence": "high",
+"basis": "19-year-old Black high-school student"
+},
+{
+"slug": "craemen-gethers",
+"race": "Black",
+"confidence": "high",
+"basis": "Black UMass-Amherst student"
+},
+{
+"slug": "curtis-jordan",
+"race": "Black",
+"confidence": "medium",
+"basis": "Smyrna 7 Black radical prisoners"
+},
+{
+"slug": "darryl-king",
+"race": "Black",
+"confidence": "high",
+"basis": "Black ex-serviceman"
+},
+{
+"slug": "delia-gonzalez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Chicana activist"
+},
+{
+"slug": "dennis-goodwin",
+"race": "Black",
+"confidence": "high",
+"basis": "Black man convicted by all-white jury"
+},
+{
+"slug": "dewayne-williams",
+"race": "Black",
+"confidence": "medium",
+"basis": "LAPD beating, 11-white jury, racist frame-up in Black Panther paper"
+},
+{
+"slug": "earl-brown",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black UMass football player"
+},
+{
+"slug": "edgar-timmons-jr",
+"race": "Black",
+"confidence": "high",
+"basis": "one of four Black Harris Neck protesters"
+},
+{
+"slug": "eldson-mcghee",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black Vietnam veteran"
+},
+{
+"slug": "elton-rankin",
+"race": "Black",
+"confidence": "medium",
+"basis": "Houston youth, police frame-up in Black Panther coverage of police repression"
+},
+{
+"slug": "faye-brown",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black woman on death row"
+},
+{
+"slug": "frank-gaskins",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black prisoner"
+},
+{
+"slug": "frank-shuford",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black community activist"
+},
+{
+"slug": "gerald-bernard-best",
+"race": "Black",
+"confidence": "medium",
+"basis": "same Houston police-shooting case, Black Panther coverage of police repression"
+},
+{
+"slug": "gregory-felix",
+"race": "Black",
+"confidence": "medium",
+"basis": "arrested in NAACP office re Melvin Black police-killing case"
+},
+{
+"slug": "hayward-brown",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Detroit Black youth"
+},
+{
+"slug": "henry-dee",
+"race": "Black",
+"confidence": "medium",
+"basis": "co-convicted with New Afrikan theorist James Sayles/Yaki Yakubu"
+},
+{
+"slug": "hercules-anderson",
+"race": "Black",
+"confidence": "high",
+"basis": "one of four Black Harris Neck protesters"
+},
+{
+"slug": "herman-blyden",
+"race": "Black",
+"confidence": "medium",
+"basis": "Attica Brothers rebellion leader"
+},
+{
+"slug": "howard-ay-gibbs",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black anti-drug organizer, all-white jury"
+},
+{
+"slug": "jb-johnson",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black St. Louis man"
+},
+{
+"slug": "james-dixon",
+"race": "Black",
+"confidence": "medium",
+"basis": "Chicago police frame-up in Black Panther coverage"
+},
+{
+"slug": "james-edward-garrett",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black man"
+},
+{
+"slug": "james-sayles",
+"race": "Black",
+"confidence": "high",
+"basis": "New Afrikan liberation theorist (Yaki Yakubu)"
+},
+{
+"slug": "jerome-singleton",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black student"
+},
+{
+"slug": "johnny-mcrea",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black Army veteran, Black GI uprising"
+},
+{
+"slug": "johnny-ross",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black youth"
+},
+{
+"slug": "jose-medina",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Chicano activist facing deportation to Mexico"
+},
+{
+"slug": "lucious-amerson",
+"race": "Black",
+"confidence": "high",
+"basis": "first Black sheriff in Alabama since Reconstruction"
+},
+{
+"slug": "madelyn-fletcher",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black policewoman"
+},
+{
+"slug": "margaret-mcsurely",
+"race": "White",
+"confidence": "medium",
+"basis": "white SCEF civil-rights field organizer; solidarity work, not her ethnicity"
+},
+{
+"slug": "marty-dixon",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black Army veteran, Black GI uprising"
+},
+{
+"slug": "michael-zinzun",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black community activist, co-founded CAPA"
+},
+{
+"slug": "ola-mae-davis",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black woman"
+},
+{
+"slug": "ormistan-spencer",
+"race": "Black",
+"confidence": "medium",
+"basis": "Black family home firebombed by racist mob, he was arrested for defending it"
+},
+{
+"slug": "oscar-jordan",
+"race": "Black",
+"confidence": "medium",
+"basis": "Smyrna 7, described as Black prisoners facing racist treatment"
+},
+{
+"slug": "philip-allen",
+"race": "Black",
+"confidence": "high",
+"basis": "described as young Black college student"
+},
+{
+"slug": "raymond-sumter",
+"race": "Black",
+"confidence": "medium",
+"basis": "Attica Brother"
+},
+{
+"slug": "rommie-loudd",
+"race": "Black",
+"confidence": "high",
+"basis": "pro football's first Black owner"
+},
+{
+"slug": "ronald-humphrey",
+"race": "White",
+"confidence": "medium",
+"basis": "white USIA foreign-service officer in Truong-Humphrey case"
+},
+{
+"slug": "ronald-lyons",
+"race": "Black",
+"confidence": "medium",
+"basis": "Attica Brother"
+},
+{
+"slug": "ronald-payne",
+"race": "Black",
+"confidence": "high",
+"basis": "Smyrna 7, described as Black prisoners"
+},
+{
+"slug": "roy-lee-patterson",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black Marine sergeant"
+},
+{
+"slug": "sam-bell",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black man, victim of white racist attacks"
+},
+{
+"slug": "shirley-herlth",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black prisoner"
+},
+{
+"slug": "sterling-hobbs-fatir",
+"race": "Black",
+"confidence": "medium",
+"basis": "Smyrna 7 Black prisoners; Muslim adopted name"
+},
+{
+"slug": "ted-clark",
+"race": "Black",
+"confidence": "high",
+"basis": "one of four Black Harris Neck protesters"
+},
+{
+"slug": "tenola-gamble",
+"race": "Black",
+"confidence": "high",
+"basis": "described as young Black Oakland man"
+},
+{
+"slug": "terrence-johnson",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black youth"
+},
+{
+"slug": "wilbur-shabazz",
+"race": "Black",
+"confidence": "medium",
+"basis": "Smyrna 7 Black prisoners; Muslim adopted name"
+},
+{
+"slug": "william-ortiz",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Attica Brother; Puerto Rican surname, Attica held many PR prisoners"
+},
+{
+"slug": "willie-burnett",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black Kentucky man, rape-of-white-woman conviction"
+},
+{
+"slug": "blair-anderson",
+"race": "Black",
+"confidence": "medium",
+"basis": "survivor of raid on Fred Hampton apartment (BPP)"
+},
+{
+"slug": "bobby-hutton",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Panther Party first recruit/treasurer"
+},
+{
+"slug": "bobby-seale",
+"race": "Black",
+"confidence": "high",
+"basis": "Black Panther Party co-founder/chairman"
+},
+{
+"slug": "eldridge-cleaver",
+"race": "Black",
+"confidence": "high",
+"basis": "BPP Minister of Information, Soul on Ice"
+},
+{
+"slug": "huey-p-newton",
+"race": "Black",
+"confidence": "high",
+"basis": "BPP co-founder"
+},
+{
+"slug": "larry-roberson",
+"race": "Black",
+"confidence": "high",
+"basis": "Chicago Black Panther Party member"
+},
+{
+"slug": "ronald-satchel",
+"race": "Black",
+"confidence": "high",
+"basis": "Illinois Black Panther Party member"
+},
+{
+"slug": "verlina-brewer",
+"race": "Black",
+"confidence": "high",
+"basis": "BPP survivor of Fred Hampton raid"
+},
+{
+"slug": "khalil-islam",
+"race": "Black",
+"confidence": "high",
+"basis": "Nation of Islam member (Thomas 15X Johnson), Malcolm X case"
+},
+{
+"slug": "muhammad-abdul-aziz",
+"race": "Black",
+"confidence": "high",
+"basis": "Nation of Islam member (Norman 3X Butler), Malcolm X case"
+},
+{
+"slug": "darwin-lance-brown",
+"race": "Black",
+"confidence": "medium",
+"basis": "Detroit frame-up in Black Panther coverage, coerced witnesses"
+},
+{
+"slug": "james-thornwell",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black Army private (Operation Third Chance LSD case)"
+},
+{
+"slug": "tom-hayden",
+"race": "White",
+"confidence": "high",
+"basis": "white SDS founder, Chicago Seven, later CA legislator"
+},
+{
+"slug": "john-w-powell",
+"race": "White",
+"confidence": "medium",
+"basis": "white American editor/publisher of China Monthly Review"
+},
+{
+"slug": "julian-schuman",
+"race": "White",
+"confidence": "medium",
+"basis": "white American correspondent, China Monthly Review"
+},
+{
+"slug": "sylvia-powell",
+"race": "White",
+"confidence": "medium",
+"basis": "white American, wife/co-defendant of John W. Powell"
+},
+{
+"slug": "anna-bary",
+"race": "White",
+"confidence": "medium",
+"basis": "Denver Communist; Mexican-rights work is solidarity, European-descent activist"
+},
+{
+"slug": "charles-nusser",
+"race": "White",
+"confidence": "medium",
+"basis": "NJ Communist Party secretary, European-descent CP official"
+},
+{
+"slug": "emanuel-blum",
+"race": "White",
+"confidence": "medium",
+"basis": "Smith Act CP defendant, European/Jewish surname"
+},
+{
+"slug": "paul-brown",
+"race": "White",
+"confidence": "medium",
+"basis": "born Samuel Horowitz, Jewish CP official"
+},
+{
+"slug": "william-norman",
+"race": "White",
+"confidence": "medium",
+"basis": "Smith Act CP defendant, European-descent CP milieu"
+},
+{
+"slug": "benjamin-cruz",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Guatemalan-born union officer"
+},
+{
+"slug": "william-lynch",
+"race": "White",
+"confidence": "medium",
+"basis": "NY longshoreman, ILA strike; Irish-American dockworker milieu"
+},
+{
+"slug": "clinton-jencks",
+"race": "White",
+"confidence": "medium",
+"basis": "white Mine-Mill organizer leading Mexican-American miners (Salt of the Earth)"
+},
+{
+"slug": "lolita-lebron",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party leader"
+},
+{
+"slug": "tom-quinn",
+"race": "White",
+"confidence": "medium",
+"basis": "UE Pittsburgh union officer, European-descent labor milieu"
+},
+{
+"slug": "abdel-mohsen-hamouda",
+"race": "Middle Eastern",
+"confidence": "high",
+"basis": "Egyptian, anti-colonial arrest"
+},
+{
+"slug": "anna-rosenblatt",
+"race": "White",
+"confidence": "medium",
+"basis": "Johns Committee contempt witness, Jewish/European surname"
+},
+{
+"slug": "arthur-springer",
+"race": "White",
+"confidence": "medium",
+"basis": "Brooklyn pacifist, anti-missile protest milieu"
+},
+{
+"slug": "bertha-teplow",
+"race": "White",
+"confidence": "medium",
+"basis": "Johns Committee contempt witness, European surname"
+},
+{
+"slug": "camille-derose",
+"race": "White",
+"confidence": "medium",
+"basis": "white Cicero landlord who rented to a Black family, triggering white riot"
+},
+{
+"slug": "david-e-scull",
+"race": "White",
+"confidence": "medium",
+"basis": "white Quaker printer, Virginia massive-resistance contempt case"
+},
+{
+"slug": "eleanor-calkins",
+"race": "White",
+"confidence": "medium",
+"basis": "pacifist anti-missile protester, European-descent milieu"
+},
+{
+"slug": "erica-enzer",
+"race": "White",
+"confidence": "medium",
+"basis": "Chicago pacifist anti-missile protester"
+},
+{
+"slug": "fyke-farmer",
+"race": "White",
+"confidence": "medium",
+"basis": "Tennessee war-tax resister, European-descent milieu"
+},
+{
+"slug": "giles-cooper",
+"race": "White",
+"confidence": "medium",
+"basis": "Louisville sedition milieu; refused to testify against white Braden defendants"
+},
+{
+"slug": "i-o-ford",
+"race": "White",
+"confidence": "medium",
+"basis": "white Louisville sedition defendant (Braden/Wade case support network)"
+},
+{
+"slug": "jacob-daniel-webster-greene",
+"race": "White",
+"confidence": "medium",
+"basis": "Indiana antiwar criminal-libel defendant, European-descent"
+},
+{
+"slug": "jo-ann-santiago",
+"race": "White",
+"confidence": "medium",
+"basis": "Canadian-born (1922); marriage to Puerto Rican not her own ethnicity"
+},
+{
+"slug": "jose-carbonell",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Dade County subversive probe; Cuban name in Florida Cuban community"
+},
+{
+"slug": "kenneth-calkins",
+"race": "White",
+"confidence": "medium",
+"basis": "pacifist anti-missile protester, University of Chicago grad"
+},
+{
+"slug": "larue-spiker",
+"race": "White",
+"confidence": "medium",
+"basis": "white Louisville sedition defendant (Braden/Wade case)"
+},
+{
+"slug": "louis-lubka",
+"race": "White",
+"confidence": "medium",
+"basis": "white Louisville sedition defendant, GE union steward"
+},
+{
+"slug": "mary-louise-gilbert",
+"race": "White",
+"confidence": "medium",
+"basis": "white Louisville sedition defendant (Braden/Wade case)"
+},
+{
+"slug": "max-shlafrock",
+"race": "White",
+"confidence": "medium",
+"basis": "Dade County subversive probe, Jewish/European surname"
+},
+{
+"slug": "mugo-gatheru",
+"race": "Black",
+"confidence": "high",
+"basis": "Kenyan anti-colonial African student"
+},
+{
+"slug": "norman-silverman",
+"race": "White",
+"confidence": "medium",
+"basis": "Cicero anti-mob-rule leafleter, Jewish/European surname"
+},
+{
+"slug": "robert-d-walsh",
+"race": "White",
+"confidence": "medium",
+"basis": "Michigan Korean War induction refuser, European-descent CO milieu"
+},
+{
+"slug": "stanley-dale-sydow",
+"race": "White",
+"confidence": "medium",
+"basis": "Omaha Korean War objector, European-descent"
+},
+{
+"slug": "vernon-bown",
+"race": "White",
+"confidence": "medium",
+"basis": "Lincoln Brigade veteran, white Louisville sedition/Wade-case defendant"
+},
+{
+"slug": "vincent-hallinan",
+"race": "White",
+"confidence": "medium",
+"basis": "Irish-American SF lawyer, Progressive Party presidential candidate"
+},
+{
+"slug": "william-a-price",
+"race": "White",
+"confidence": "medium",
+"basis": "NY Daily News reporter, contempt-of-Congress press probe"
+},
+{
+"slug": "william-daley",
+"race": "White",
+"confidence": "medium",
+"basis": "anti-Arbenz-coup protester; Irish-American, European-descent"
+},
+{
+"slug": "caleb-foote",
+"race": "White",
+"confidence": "medium",
+"basis": "white FOR pacifist/CO, later law professor"
+},
+{
+"slug": "eduardo-herrera",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican agricultural worker"
+},
+{
+"slug": "todor-antonoff",
+"race": "White",
+"confidence": "medium",
+"basis": "Bulgarian-immigrant AWU organizer facing deportation"
+},
+{
+"slug": "rosenbaum",
+"race": "White",
+"confidence": "medium",
+"basis": "CAWIU organizer, Jewish/European surname"
+},
+{
+"slug": "salas",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "CAWIU Mexican farmworker organizer, Riverside"
+},
+{
+"slug": "lorenzo-puentes",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Cigar Makers' local president, deportation to Cuba"
+},
+{
+"slug": "wilfredo-puentes",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "son of Lorenzo Puentes, deportation to Cuba"
+},
+{
+"slug": "bob-carson",
+"race": "White",
+"confidence": "medium",
+"basis": "Iowa CP state secretary (Sioux City six), European-descent"
+},
+{
+"slug": "carl-martin",
+"race": "White",
+"confidence": "medium",
+"basis": "Sioux City six CP organizer, European-descent Iowa milieu"
+},
+{
+"slug": "dozier-will-graham",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black worker, Communist Senate candidate"
+},
+{
+"slug": "henry-storey",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black WWI veteran, ANLC chair (Atlanta Six)"
+},
+{
+"slug": "herbert-newton",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black ANLC national organizer (Atlanta Six)"
+},
+{
+"slug": "joe-carr",
+"race": "White",
+"confidence": "medium",
+"basis": "West Virginia coal miner, YCL organizer; white of the Atlanta Six"
+},
+{
+"slug": "m-h-powers",
+"race": "White",
+"confidence": "medium",
+"basis": "TUUL/CP organizer from St. Paul; white of the Atlanta Six"
+},
+{
+"slug": "mary-dalton",
+"race": "White",
+"confidence": "medium",
+"basis": "NTWU organizer; white of the Atlanta Six"
+},
+{
+"slug": "ted-baer",
+"race": "White",
+"confidence": "medium",
+"basis": "Sioux City CP section organizer, European-descent"
+},
+{
+"slug": "william-felix",
+"race": "White",
+"confidence": "medium",
+"basis": "Milwaukee unemployment-demo leader, European-descent CP milieu"
+},
+{
+"slug": "william-trajer",
+"race": "White",
+"confidence": "medium",
+"basis": "NY marine worker frame-up, European surname/milieu"
+},
+{
+"slug": "warren-beavert",
+"race": "White",
+"confidence": "medium",
+"basis": "Juneau Alaska hardrock miner (Mine-Mill), predominantly white workforce"
+},
+{
+"slug": "pete-jugrine",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black miner"
+},
+{
+"slug": "steve-vargo",
+"race": "White",
+"confidence": "medium",
+"basis": "Western PA coal striker, Slavic-immigrant miner"
+},
+{
+"slug": "tom-borich",
+"race": "White",
+"confidence": "medium",
+"basis": "Western PA class-war prisoner, Slavic-immigrant miner"
+},
+{
+"slug": "w-m-burnett",
+"race": "White",
+"confidence": "medium",
+"basis": "Harlan County KY miner, predominantly white workforce"
+},
+{
+"slug": "will-macqueen",
+"race": "Black",
+"confidence": "high",
+"basis": "described as Black miner"
+},
+{
+"slug": "william-duncan",
+"race": "White",
+"confidence": "medium",
+"basis": "Harlan County KY miner/NMU organizer, predominantly white workforce"
+},
+{
+"slug": "donegian",
+"race": "White",
+"confidence": "medium",
+"basis": "Soviet Armenian; Armenians classified White in US"
+},
+{
+"slug": "krasevich",
+"race": "White",
+"confidence": "medium",
+"basis": "Lawrence textile strike organizer, Slavic-immigrant, deportation"
+},
+{
+"slug": "gilbert-lewis",
+"race": "Black",
+"confidence": "high",
+"basis": "described as a Black TUUL organizer"
+},
+{
+"slug": "casimiro-berenguer",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "elifaz-escobar",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "julio-pinto-gandia",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party leader"
+},
+{
+"slug": "lorenzo-pinero",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party leader"
+},
+{
+"slug": "luis-castro-quesada",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "luis-angel-correa",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "martin-gonzalez-ruiz",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "plinio-graciani",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "santiago-gonzalez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "tomas-lopez-de-victoria",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Puerto Rican Nationalist Party member"
+},
+{
+"slug": "julio-canales",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Hispanic name; SF Ship Scalers (largely Latino) union"
+},
+{
+"slug": "caroline-drew",
+"race": "White",
+"confidence": "medium",
+"basis": "outside white sympathizer, distinguished from Black striker in STFU case"
+},
+{
+"slug": "comas",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Spanish surname; Tampa Cuban/Spanish cigar-worker milieu"
+},
+{
+"slug": "alfred-hjelm",
+"race": "White",
+"confidence": "medium",
+"basis": "Scandinavian-immigrant Dakota/Montana farmer, United Farmers' League"
+},
+{
+"slug": "bert-hanson",
+"race": "White",
+"confidence": "medium",
+"basis": "Scandinavian-name Dakota anti-eviction farmer"
+},
+{
+"slug": "carl-christofferson",
+"race": "White",
+"confidence": "medium",
+"basis": "Scandinavian-immigrant Dakota farmer, United Farmers' League"
+},
+{
+"slug": "ed-ferguson",
+"race": "White",
+"confidence": "medium",
+"basis": "Dakota farmer, United Farmers' League, Anglo name"
+},
+{
+"slug": "elmer-dodin",
+"race": "White",
+"confidence": "medium",
+"basis": "Dakota farmer, United Farmers' League"
+},
+{
+"slug": "julius-walstadt",
+"race": "White",
+"confidence": "medium",
+"basis": "Scandinavian-name Dakota anti-eviction farmer"
+},
+{
+"slug": "louis-rieck",
+"race": "White",
+"confidence": "medium",
+"basis": "German-name Dakota anti-eviction farmer"
+},
+{
+"slug": "nile-cochran",
+"race": "White",
+"confidence": "medium",
+"basis": "Iowa farmer/milk-strike picket, Anglo name"
+},
+{
+"slug": "simon-swanson",
+"race": "White",
+"confidence": "medium",
+"basis": "Scandinavian-immigrant Montana farmer, United Farmers' League"
+},
+{
+"slug": "thorvald-nielsen",
+"race": "White",
+"confidence": "medium",
+"basis": "Danish immigrant Dakota farmer"
+},
+{
+"slug": "victor-nielsen",
+"race": "White",
+"confidence": "medium",
+"basis": "Danish immigrant Dakota farmer"
+},
+{
+"slug": "william-rieck",
+"race": "White",
+"confidence": "medium",
+"basis": "German-name Dakota anti-eviction farmer"
+},
+{
+"slug": "eicker",
+"race": "White",
+"confidence": "medium",
+"basis": "German-name Bonus March (WWI veterans) committee secretary"
+},
+{
+"slug": "alexander-racolin",
+"race": "White",
+"confidence": "medium",
+"basis": "white communist organizer in GA insurrection case"
+},
+{
+"slug": "annie-mae-leathers",
+"race": "White",
+"confidence": "high",
+"basis": "described as a white Southern textile striker"
+},
+{
+"slug": "arthur-jackson",
+"race": "White",
+"confidence": "high",
+"basis": "described as a white Communist"
+},
+{
+"slug": "august-yokinen",
+"race": "White",
+"confidence": "high",
+"basis": "Finnish worker"
+},
+{
+"slug": "clarence-weaver",
+"race": "White",
+"confidence": "medium",
+"basis": "GA insurrection textile-strike group (white mill workforce)"
+},
+{
+"slug": "ed-wing",
+"race": "Asian",
+"confidence": "high",
+"basis": "Chinese worker"
+},
+{
+"slug": "eduardo-machado",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Venezuelan"
+},
+{
+"slug": "elaine-black",
+"race": "White",
+"confidence": "high",
+"basis": "ILD organizer, daughter of Russian-Jewish immigrants"
+},
+{
+"slug": "fannie-aderhold",
+"race": "White",
+"confidence": "medium",
+"basis": "GA insurrection textile-strike group (white mill workforce)"
+},
+{
+"slug": "j-a-moreland",
+"race": "White",
+"confidence": "medium",
+"basis": "GA insurrection textile-strike group (white mill workforce)"
+},
+{
+"slug": "jesus-pallares",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican, Liga Obrera de Habla Espanola, deported to Mexico"
+},
+{
+"slug": "jose-sepulveda",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Chilean-born"
+},
+{
+"slug": "julia-weaver",
+"race": "White",
+"confidence": "medium",
+"basis": "GA insurrection textile-strike group (white mill workforce)"
+},
+{
+"slug": "leah-young",
+"race": "White",
+"confidence": "high",
+"basis": "described as a white Southern textile striker"
+},
+{
+"slug": "lucille-lawrence",
+"race": "White",
+"confidence": "medium",
+"basis": "GA insurrection textile-strike group (white mill workforce)"
+},
+{
+"slug": "maximo-penaherrera",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Ecuadorean-born"
+},
+{
+"slug": "nathan-yagol",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish communist organizer, GA insurrection case"
+},
+{
+"slug": "naum-acheff",
+"race": "White",
+"confidence": "medium",
+"basis": "Slavic/Bulgarian immigrant name, eviction-defense case"
+},
+{
+"slug": "rade-radekovitch",
+"race": "White",
+"confidence": "medium",
+"basis": "deported to Yugoslavia, Serbian/Yugoslav"
+},
+{
+"slug": "tony-krizon",
+"race": "White",
+"confidence": "medium",
+"basis": "Slovenian/Croatian immigrant Montana miner"
+},
+{
+"slug": "vincent-kamenovich",
+"race": "White",
+"confidence": "medium",
+"basis": "Slavic immigrant miners' union organizer"
+},
+{
+"slug": "vladamir-wolck",
+"race": "White",
+"confidence": "high",
+"basis": "Russian-born militant"
+},
+{
+"slug": "y-fukunaga",
+"race": "Asian",
+"confidence": "medium",
+"basis": "distinctly Japanese name, LA 1932"
+},
+{
+"slug": "max-shachtman",
+"race": "White",
+"confidence": "high",
+"basis": "Jewish communist writer, born in Warsaw"
+},
+{
+"slug": "rebecca-grecht",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish communist organizer"
+},
+{
+"slug": "robert-minor",
+"race": "White",
+"confidence": "high",
+"basis": "white American cartoonist/communist (from Texas)"
+},
+{
+"slug": "robert-wolf",
+"race": "White",
+"confidence": "medium",
+"basis": "writer, European-descent name"
+},
+{
+"slug": "steve-bratich",
+"race": "White",
+"confidence": "medium",
+"basis": "Croatian/Serbian immigrant, PA steel-organizer sedition case"
+},
+{
+"slug": "frank-godlasky",
+"race": "White",
+"confidence": "medium",
+"basis": "Slavic-name IWW criminal-syndicalism prisoner"
+},
+{
+"slug": "thomas-harty",
+"race": "White",
+"confidence": "medium",
+"basis": "Irish-name IWW marine transport worker"
+},
+{
+"slug": "w-m-mcginnis",
+"race": "White",
+"confidence": "medium",
+"basis": "Gastonia Loray mill striker (white textile workforce)"
+},
+{
+"slug": "tony-stafford",
+"race": "White",
+"confidence": "high",
+"basis": "Italian-born coal miner"
+},
+{
+"slug": "yetta-stromberg",
+"race": "White",
+"confidence": "high",
+"basis": "Jewish American YCL member"
+},
+{
+"slug": "calogero-greco",
+"race": "White",
+"confidence": "high",
+"basis": "Sicilian-born Italian anti-fascist"
+},
+{
+"slug": "donato-carrillo",
+"race": "White",
+"confidence": "high",
+"basis": "born in Foggia, Italy; Italian-American anti-fascist"
+},
+{
+"slug": "mario-giletti",
+"race": "White",
+"confidence": "high",
+"basis": "Italian-American anti-fascist"
+},
+{
+"slug": "nathan-kaplan",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish name, NYC communist demo defendant"
+},
+{
+"slug": "roberto-elia",
+"race": "White",
+"confidence": "high",
+"basis": "Italian anarchist"
+},
+{
+"slug": "steve-domagalsky",
+"race": "White",
+"confidence": "medium",
+"basis": "Polish-name soldier, former Red Army"
+},
+{
+"slug": "v-gaudenzi",
+"race": "White",
+"confidence": "high",
+"basis": "Italian-American anti-fascist"
+},
+{
+"slug": "w-rutherford",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW criminal-syndicalism prisoner, European-descent name"
+},
+{
+"slug": "walter-trumbull",
+"race": "White",
+"confidence": "medium",
+"basis": "US Army soldier communist organizer, Anglo name"
+},
+{
+"slug": "michael-j-mandel",
+"race": "White",
+"confidence": "high",
+"basis": "Hutterite (ethnic German Anabaptist) CO"
+},
+{
+"slug": "paul-kleinsasser",
+"race": "White",
+"confidence": "high",
+"basis": "Hutterite (ethnic German Anabaptist) CO"
+},
+{
+"slug": "samuel-kleinsasser",
+"race": "White",
+"confidence": "high",
+"basis": "Hutterite (ethnic German Anabaptist) CO"
+},
+{
+"slug": "a-e-soper",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "albert-whitehead",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "alex-cournos",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "aurelio-v-azuara",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Spanish name, WWI conspiracy case (magonista-era)"
+},
+{
+"slug": "basil-saffores",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act conspiracy defendant, European-descent"
+},
+{
+"slug": "c-h-mckinnon",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Scottish name"
+},
+{
+"slug": "charles-jacobs",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "charles-jacobsen",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Scandinavian name"
+},
+{
+"slug": "charles-koenig",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, German name"
+},
+{
+"slug": "charles-mcwhirt",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "charles-plahn",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, German name"
+},
+{
+"slug": "charles-rothfisher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, German/Jewish name"
+},
+{
+"slug": "chris-luber",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, German name"
+},
+{
+"slug": "felix-cedino",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Italian name"
+},
+{
+"slug": "fred-jakkola",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Finnish name"
+},
+{
+"slug": "fred-nelson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Scandinavian name"
+},
+{
+"slug": "gabe-brewer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "george-hardy",
+"race": "White",
+"confidence": "medium",
+"basis": "British-born IWW leader"
+},
+{
+"slug": "george-speed",
+"race": "White",
+"confidence": "medium",
+"basis": "veteran white IWW/AFL organizer"
+},
+{
+"slug": "glen-roberts",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "h-donovan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "h-f-kane",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "harrison-george",
+"race": "White",
+"confidence": "medium",
+"basis": "white American communist/IWW figure"
+},
+{
+"slug": "harry-murphy",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "henry-farner",
+"race": "White",
+"confidence": "medium",
+"basis": "criminal-syndicalism defendant, European-descent name"
+},
+{
+"slug": "herb-mccosham",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "j-baldazzi",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Italian name"
+},
+{
+"slug": "j-l-obrien",
+"race": "White",
+"confidence": "medium",
+"basis": "criminal-syndicalism defendant, Irish name"
+},
+{
+"slug": "j-r-baskett",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "joe-mccarty",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "john-avilla",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI/IWW defendant, Portuguese name"
+},
+{
+"slug": "joseph-selzer",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW organizer, German/Jewish name"
+},
+{
+"slug": "louis-tori",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Italian name"
+},
+{
+"slug": "meyer-friedkin",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Jewish name"
+},
+{
+"slug": "peter-mcevoy",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "r-j-bobba",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "ragnar-johanson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Scandinavian name"
+},
+{
+"slug": "ray-corder",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "ray-s-fanning",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "robert-feehan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "roy-a-brown",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "roy-recker",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, German name"
+},
+{
+"slug": "sig-stenberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Scandinavian name"
+},
+{
+"slug": "v-v-ohair",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Irish name"
+},
+{
+"slug": "vincent-santelli",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, Italian name"
+},
+{
+"slug": "w-d-haywood",
+"race": "White",
+"confidence": "high",
+"basis": "William D. 'Big Bill' Haywood, IWW leader"
+},
+{
+"slug": "w-h-faust",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, German name"
+},
+{
+"slug": "walter-smith",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI Espionage Act defendant, European-descent name"
+},
+{
+"slug": "allan-s-broms",
+"race": "White",
+"confidence": "medium",
+"basis": "Socialist from St. Paul, Scandinavian name"
+},
+{
+"slug": "edward-hamilton",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW mass-trial prisoner, European-descent name"
+},
+{
+"slug": "frank-geizler",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW member, German name"
+},
+{
+"slug": "george-f-voetter",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW blacksmith from Pittsburgh, German name"
+},
+{
+"slug": "j-b-childs",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW prisoner, European-descent name"
+},
+{
+"slug": "mary-harris-jones",
+"race": "White",
+"confidence": "high",
+"basis": "Irish-born (Cork), Mother Jones"
+},
+{
+"slug": "richard-blackie-ford",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW spokesman (Wheatland), Anglo name"
+},
+{
+"slug": "thomas-a-jenkins",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW roundup prisoner, Welsh/Anglo name"
+},
+{
+"slug": "tom-connors",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW officer, Irish name"
+},
+{
+"slug": "walter-t-neff",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW Marine Transport union officer (white; Fletcher was the Black co-defendant)"
+},
+{
+"slug": "william-baker",
+"race": "White",
+"confidence": "medium",
+"basis": "IWW member, Anglo name"
+},
+{
+"slug": "jesse-lee-tally",
+"race": "White",
+"confidence": "medium",
+"basis": "Israelite House of David (white religious commune) CO"
+},
+{
+"slug": "walter-l-hake",
+"race": "White",
+"confidence": "medium",
+"basis": "Jehovah's Witness CO, German name"
+},
+{
+"slug": "jacob-m-hofer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "jacob-m-walter",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "john-j-becker",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "joseph-m-walter",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "peter-m-waldner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "william-j-jantz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "andrew-anna-hofer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "g-d-brewer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "n-s-randall",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "abraham-cisneros",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "jesus-gonzalez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "jesus-m-rangel",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "leonardo-vasquez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "pedro-perales",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "eddie-clemens",
+"race": "Black",
+"confidence": "high",
+"basis": "Record explicitly notes African-American"
+},
+{
+"slug": "thomas-j-taylor",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "william-schulz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "roby-lee-barnes",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "vernis-kitterman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "william-j-dodge",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "alexander-horr",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "alfred-levitt",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-c-stemler",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "casper-oberstadt",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "emil-yanyar",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "fred-baker",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "george-l-glison",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "henry-jager",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "hyman-levinson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "i-t-boutell",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "j-m-beck",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "jacob-frachter",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "john-j-ballam",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "myra-dunton",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "nathan-levine",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "stanley-lindenberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "stephen-kerr",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "bruce-rogers",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "h-e-kirchner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "william-g-head",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "walking-elliott",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-c-braucher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-frost",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-hildebrand",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-m-lawson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-moore",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-paolicchi",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-svartberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "a-wessensel",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "aaron-smith",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "abraham-bieber",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "abraham-heller",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "adolph-l-yanyar",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "alfred-weider",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "allen-mathews",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "alton-chureh",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "andrew-gust-prince",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "andy-e-nichols",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "anton-jacobinson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "arthur-wilson",
+"race": "Black",
+"confidence": "high",
+"basis": "Record explicitly notes African-American"
+},
+{
+"slug": "august-schewing",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "august-welssensel",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "b-f-burns",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "b-m-murphy",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "b-pumerantz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "bawin-riete",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "bernard-clark",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-e-menke",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-e-michaels",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-h-kammann",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-m-o-eines",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-o-young",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "c-spinner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "carl-a-wold",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "carl-de-sehell",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "carl-gleeser",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "carl-henry-ritter",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "charles-e-olson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "charles-sabrbacher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "charles-sahrbacher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "charles-sauer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "charles-spillner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "charlie-henry-newkirk",
+"race": "Black",
+"confidence": "high",
+"basis": "Record explicitly notes African-American"
+},
+{
+"slug": "chris-ammer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "christian-schunck",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "clure-isenhouer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "conrad-kornmann",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "curt-schneider",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "curt-schrelder",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "curt-voneinem",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "d-hadley",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "d-m-carr",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "d-windmueller",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "dan-braucher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "dan-hamilton",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "daniel-byron",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "david-wagner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "demetrios-g-corcoran",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "desco-h-walker",
+"race": "Black",
+"confidence": "high",
+"basis": "Record explicitly notes African-American"
+},
+{
+"slug": "e-a-trumble",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "e-douglass",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "e-f",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "e-g-dickson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "e-scarpelli",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "earl-huckelberry",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "early-whitehesd",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "ed-mcnalley",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "edgecomb-pinchon",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "edmund-speckman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "eduardo-herera",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "edward-a-kolbe",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "edward-hofstede",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "edward-j-heath",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "edwin-firth",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "edwin-s-reitz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "elias-clayton",
+"race": "Black",
+"confidence": "high",
+"basis": "Record explicitly notes African-American"
+},
+{
+"slug": "emil-keifer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "emil-schiller",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "emma-goldman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "eno-r-larson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "enrique-flores-magon",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "erle-blokel",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "ernest-meier",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "everett-g-engelin",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "f-c-myer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "f-j-mielke",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "f-m-darby",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "f-nuergard",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "filippo-salamone",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "fleming-jordan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "fleming-mize",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/Socialist defendant of European descent"
+},
+{
+"slug": "florencio-romero",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Mexican/Puerto Rican revolutionary or activist (Rangel-Cline/PLM/Imperial Valley/San Juan)"
+},
+{
+"slug": "frank-a-feldman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frank-a-feldnutn",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frank-gerney",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frank-hockbarth",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frank-knapp",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frank-strand",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-bergeman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-bisdorf",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-bockman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-cammer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-esser",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-j-mccord",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-j-muhlke",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-masson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-mindinger",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-penick",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "fred-povik",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frederick-o-balcom",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "frederick-wm-maier",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "g-c-henry",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "g-kowalski",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "g-n-ernest",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "g-woods",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "george-fleming",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "george-kowalsky",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "george-peterson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "george-simpson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "george-weiershauser",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "gerald-decessa",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "gus-schader",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "gus-swift",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "gustav-salty",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "gustav-sigwalt",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "h-klabo",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "h-l-trelease",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "h-m-hendricksen",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "h-s-buckingham",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "harrison-heyward",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note explicitly states African-American"
+},
+{
+"slug": "harry-fadel",
+"race": "Middle Eastern",
+"confidence": "medium",
+"basis": "Fadel is a Lebanese/Arab surname; PA Syrian-Lebanese immigrant milieu"
+},
+{
+"slug": "harry-i-curtis",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "harry-lee",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "harry-luckey",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "haynes-jones",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-a-keller",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-anbelsen",
+"race": "White",
+"confidence": "medium",
+"basis": "Identified in record as a Danish sailor"
+},
+{
+"slug": "henry-andrich",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-brinkman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-fadel",
+"race": "Middle Eastern",
+"confidence": "medium",
+"basis": "Fadel is a Lebanese/Arab surname; likely Syrian-Lebanese immigrant"
+},
+{
+"slug": "henry-jones",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-lowe",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-moehle",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-purcell",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "henry-stock",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "herman-bausch",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "herman-elsmer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "herman-singer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "hubert-vowells",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "hugo-steidel",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "hyman-roransky",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish immigrant radical (anti-intervention pamphlet)"
+},
+{
+"slug": "hyman-rozansky",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish immigrant radical (anti-intervention pamphlet)"
+},
+{
+"slug": "ira-hardy",
+"race": "Black",
+"confidence": "high",
+"basis": "Described as an African-American farmer"
+},
+{
+"slug": "ira-thrap",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "isidor-bach",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish given name; WWI CO of European descent"
+},
+{
+"slug": "j-c-weers",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-corbin",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-cronan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-d-manus",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-g-shellenberger",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-h-shintz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-henry-albers",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-l-german",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-mcnichols",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-moes",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-pilato",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "j-w-murray",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "jacob-fabulich",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "jacob-schwartz",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish immigrant anarchist (co-defendant of Abrams/Steimer)"
+},
+{
+"slug": "james-ag-perry",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note explicitly states African-American"
+},
+{
+"slug": "james-b-mcdonald",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note explicitly states African-American"
+},
+{
+"slug": "james-cully",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "james-hanaman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "james-ross",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "jesus-monge",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Fully Spanish given name and surname (Jesus Monge)"
+},
+{
+"slug": "jim-swindle",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joe-murphy",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joe-white",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-a-tolishus",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-bosses",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-c-guggolz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-d-mamis",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-dickson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-ferlan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-george",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-h-frantz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-h-wolf",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-karral",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-kas",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-katkus",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-kiderowski",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-kolar",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-letbig",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-malich",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-meyers",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-pacheta",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-petters",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-seaford",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-trumble",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "john-w-rabus",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "jos-balogh",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-a-schur",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish/German name; WWI Espionage Act defendant"
+},
+{
+"slug": "joseph-carhoie",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-davenport",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note explicitly states African-American"
+},
+{
+"slug": "joseph-e-hamberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-e-hanberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-h-quinn",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-hamburg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-nichols",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "joseph-reik",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "k-holmberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "karl-kochendorfer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-barnett",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-bornstein",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-jerkins",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-lloyd",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-manna",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-n-lagendre",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-nashenwing",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-roth",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "l-w-boehner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "lawrence-goldman",
+"race": "White",
+"confidence": "medium",
+"basis": "Jewish surname; WWI-era radical defendant"
+},
+{
+"slug": "lee-roberts",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "linn-a-e-gale",
+"race": "White",
+"confidence": "medium",
+"basis": "American socialist publisher; his activism in Mexico does not make him Hispanic"
+},
+{
+"slug": "lndwelk-evanickl",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition Act, CO, or draft defendant; European-descent population default"
+},
+{
+"slug": "louis-b-nagler",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "louis-h-blumenthal",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "louis-smith",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "ludwig-evanicki",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "luis-galaraza",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Unambiguously Spanish given+surname"
+},
+{
+"slug": "m-keller",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "mack-denny",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "margaret-davis",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "martin-johnson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "mary-tekah",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "maurice-l-snitken",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "max-machner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "michael-legoth",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "monserrate-sanchez",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "From Rio Piedras, Puerto Rico"
+},
+{
+"slug": "monserrate-sencher",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "Same man as Monserrate Sanchez, Puerto Rican (Espionage, July 25 1918)"
+},
+{
+"slug": "morris-bloch",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "moses-chrisitan-joseph",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "moyer-l-nebring",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "mrs-minnie-geibel",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "n-pumerantz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "nick-barno",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "nickolaus-ungar",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "nicola-lacasale",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "obe-isenhouer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "ole-olson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "onufray-makarenko",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "orville-anderson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "otto-bruno-rechelt",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "otto-wallschleger",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "p-gutsshalk",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "p-l-bernhard",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "p-shape",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "patricia-silver",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "perley-j-burns",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "peter-grimm",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "peter-holzmacher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "peter-thompson",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "peter-wimmer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "philip-b-grossner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "phillip-caplowitz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "poppo-janssen",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "q-hahn",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "r-f-lahnemann",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "reinholdt-frank-lah",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "richard-schell",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "robert-f-norbe",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "robert-golistein",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "robert-simmons",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "robert-w-franke",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "ronda-m-hendricks",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "roscoe-claney",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "roy-horlacher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "russell-r-wood",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "s-drewfuss",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "s-hamilton",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "s-r-carlson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "sam-jacobs",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "sam-jesky",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "samuel-m-sanders",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "samuel-nikition",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "simon-engle",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "stafford-sylis-rev-winn",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "stanley-rabitz",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "stephen-binder",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "sucszar-michaelvich",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "sydney-mader",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "tetsuji-horiuchi",
+"race": "Asian",
+"confidence": "high",
+"basis": "Japanese; leader of Japanese workers, Japanese name"
+},
+{
+"slug": "theodore-bailey",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "theodore-buessel",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "theodore-huebner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "thomas-f-reed",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "thomas-hammerschmidt",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "thomas-keegan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "thomas-morgan",
+"race": "Black",
+"confidence": "high",
+"basis": "Archival note: African-American"
+},
+{
+"slug": "tillman-h-soldner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "tom-morgan",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "tomas-martinez",
+"race": "Hispanic",
+"confidence": "medium",
+"basis": "Unambiguously Spanish given+surname"
+},
+{
+"slug": "trofin-nicolaieff",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "troy-desson",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "troy-willard",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "ury-j-odell",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "v-v-obare",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "van-skedine",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "verner-siro",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "vietor-privat",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "vincente-balbas-capo",
+"race": "Hispanic",
+"confidence": "high",
+"basis": "From San Juan, Puerto Rico"
+},
+{
+"slug": "w-a-easman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-a-fidler",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-f-altenheim",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-h-butler",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-h-kaufman",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-j-vaughn",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-p-beard",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "w-t-walker",
+"race": "Native American",
+"confidence": "high",
+"basis": "Choctaw Indian from Taft, New Mexico"
+},
+{
+"slug": "w-theo-woodward",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walait-shah",
+"race": "Asian",
+"confidence": "medium",
+"basis": "South Asian (Punjabi/Muslim) name Shah"
+},
+{
+"slug": "waldemar-czapanski",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "waldemar-j-adams",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "waldo-c-lea",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walfred-e-maher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walter-f-parker",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walter-heynacher",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walter-l-hirshberg",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walter-phillips",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "walter-schols",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "wask-jowchalk",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "wassili-krjworuk",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "wasyl-jowchalk",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "wenzel-francik",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-bago",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-brandon",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-briedert",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-e-martin",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-ehrhard",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-eliason",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-gavin",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-h-treseler",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-isensee",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-j-swinbourne",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-o-myers",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-p-elmer",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-powell",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "william-raymond",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "wm-brunner",
+"race": "White",
+"confidence": "medium",
+"basis": "WWI-era Espionage/Sedition/CO/draft political prisoner of European descent"
+},
+{
+"slug": "timothy-webster",
+"race": "White",
+"confidence": "high",
+"basis": "English-born Pinkerton agent"
+},
+{
+"slug": "aaron-stevens",
+"race": "White",
+"confidence": "high",
+"basis": "Mexican-American War veteran, John Brown lieutenant; documented White abolitionist"
+},
+{
+"slug": "dougherty",
+"race": "White",
+"confidence": "medium",
+"basis": "Civil War civilian Southern-sympathizer political prisoner at Fort Delaware, European descent"
+},
+{
+"slug": "noel",
+"race": "White",
+"confidence": "medium",
+"basis": "Civil War civilian Southern-sympathizer prisoner at Fort Delaware, European descent"
+},
+{
+"slug": "richards",
+"race": "White",
+"confidence": "medium",
+"basis": "Young Delawarean Southern sympathizer, Fort Delaware civilian prisoner"
+},
+{
+"slug": "william-bright",
+"race": "White",
+"confidence": "medium",
+"basis": "Wilmington Methodist held for Southern sympathies, Fort Delaware"
+}
+]
