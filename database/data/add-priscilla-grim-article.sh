@@ -46,22 +46,23 @@ $arel = "authors/priscilla-grim.jpg";
 copy($src, storage_path("app/public/" . $arel));
 $author = \App\Models\Author::firstOrNew(["name" => "Priscilla Grim"]);
 $author->avatar = $arel;
-$author->about = file_get_contents(base_path("database/data/articles/priscilla-grim.about.html"));
+$author->about = trim(file_get_contents(base_path("database/data/articles/priscilla-grim.about.txt")));
 $author->save();
 echo "Author saved: /author/{$author->slug}\n";
 
 // --- 3. Article ---
 @mkdir(storage_path("app/public/articles"), 0775, true);
+$heroSrc = base_path("database/data/articles/priscilla-grim-31-days.hero.jpg");
 $irel = "articles/priscilla-grim-31-days.jpg";
-copy($src, storage_path("app/public/" . $irel));
+copy(is_file($heroSrc) ? $heroSrc : $src, storage_path("app/public/" . $irel));
 $article = \App\Models\Article::firstOrNew(["slug" => "31-days-in-dekalb-county-hell"]);
 $article->title = "31 Days in DeKalb County Hell";
 $article->author_id = $author->id;
 $article->intro = trim(file_get_contents(base_path("database/data/articles/priscilla-grim-31-days.intro.txt")));
 $article->body = file_get_contents(base_path("database/data/articles/priscilla-grim-31-days.body.html"));
 $article->image = $irel;
-$article->image_caption = "Priscilla Grim. Portrait via priscillagrim.com.";
-if (empty($article->published_at)) { $article->published_at = "2023-05-01"; }
+$article->image_caption = "Artwork by Scalawag Magazine (Zaire Love), for the Stop Cop City Week of Writing.";
+if (empty($article->published_at)) { $article->published_at = "2024-07-01"; }
 $article->save();
 echo "Article saved: {$article->url}\n";
 
