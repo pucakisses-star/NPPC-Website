@@ -42,8 +42,9 @@ if ($p) {
 
 // --- 2. Author page ---
 @mkdir(storage_path("app/public/authors"), 0775, true);
+$avatarSrc = base_path("database/data/articles/priscilla-grim.avatar.jpg");
 $arel = "authors/priscilla-grim.jpg";
-copy($src, storage_path("app/public/" . $arel));
+copy(is_file($avatarSrc) ? $avatarSrc : $src, storage_path("app/public/" . $arel));
 $author = \App\Models\Author::firstOrNew(["name" => "Priscilla Grim"]);
 $author->avatar = $arel;
 $author->about = trim(file_get_contents(base_path("database/data/articles/priscilla-grim.about.txt")));
