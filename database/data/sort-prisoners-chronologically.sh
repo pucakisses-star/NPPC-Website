@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 #
 # Re-rank the prisoner database sort_order so the /database list reads
-# chronologically by era (oldest first).
+# reverse-chronologically by era (NEWEST first).
 #
 # The public list (and the /api/prisoners payload it is built from) is ordered
-# purely by sort_order. New records default to sort_order 0, so recent
-# additions that belong to earlier eras (e.g. the 1960s-70s draft-resistance
-# defendants) surfaced in the wrong place instead of alongside their era.
+# purely by sort_order. New records default to sort_order 0, so additions
+# surfaced out of place instead of alongside their era.
 #
 # This assigns a fresh sort_order to every prisoner: primary key is the era
-# decade taken from the era string ("1970s" -> 1970, "1800s" -> 1800), and
-# within a decade the existing relative order is preserved (a stable sort), so
-# only cross-era placement changes. Records with no era are parked at the end,
-# keeping their current order.
+# decade taken from the era string ("2020s" -> 2020, "1970s" -> 1970), ordered
+# newest-to-oldest. Within a decade the existing relative order is preserved (a
+# stable sort), so only cross-era placement changes. Records with no era are
+# parked at the very end, keeping their current order.
 #
 # Idempotent: re-running produces the same ranking. Run from the repo root:
 #   bash database/data/sort-prisoners-chronologically.sh
@@ -28,16 +27,23 @@ $rows = \App\Models\Prisoner::withoutGlobalScopes()
 // Build sortable entries; preserve current order as the within-decade tiebreak.
 $items = [];
 foreach ($rows as $i => $p) {
-    $dec = 99999999; // no-era records sort last
+    $dec = null;
     if ($p->era && preg_match("/(1[6-9]\d\d|20\d\d)/", (string) $p->era, $m)) {
         $dec = ((int) floor(((int) $m[1]) / 10)) * 10;
     }
-    $items[] = ["id" => $p->id, "dec" => $dec, "so" => (int) $p->sort_order, "idx" => $i];
+    $items[] = [
+        "id" => $p->id,
+        "noEra" => $dec === null ? 1 : 0,   // no-era records sort last
+        "dec" => $dec ?? 0,
+        "so" => (int) $p->sort_order,
+        "idx" => $i,
+    ];
 }
 
-// PHP 8 usort is stable; the idx tiebreak makes the within-decade order explicit.
+// No-era last; then decade DESCENDING (newest first); then preserve current
+// within-decade order via idx.
 usort($items, function ($a, $b) {
-    return [$a["dec"], $a["idx"]] <=> [$b["dec"], $b["idx"]];
+    return [$a["noEra"], -$a["dec"], $a["idx"]] <=> [$b["noEra"], -$b["dec"], $b["idx"]];
 });
 
 $i = 0; $changed = 0; $decadeCounts = [];
@@ -46,12 +52,12 @@ foreach ($items as $it) {
         \App\Models\Prisoner::withoutGlobalScopes()->where("id", $it["id"])->update(["sort_order" => $i]);
         $changed++;
     }
-    $label = $it["dec"] === 99999999 ? "(no era)" : ($it["dec"] . "s");
+    $label = $it["noEra"] ? "(no era)" : ($it["dec"] . "s");
     $decadeCounts[$label] = ($decadeCounts[$label] ?? 0) + 1;
     $i++;
 }
 
-echo "Ranked " . count($items) . " prisoners chronologically; {$changed} sort_order value(s) changed.\n\n";
+echo "Ranked " . count($items) . " prisoners newest-first; {$changed} sort_order value(s) changed.\n\n";
 echo "Order now runs:\n";
 foreach ($decadeCounts as $label => $n) { echo "  {$label}: {$n}\n"; }
 
@@ -60,4 +66,4 @@ echo "\nDone.\n";
 '
 
 echo
-echo "Done. Prisoner database re-sorted chronologically by era."
+echo "Done. Prisoner database re-sorted newest-first by era."
