@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+# Re-rank the prisoner database sort_order so the /database list reads
+# chronologically by era (oldest first).
+#
+# The public list (and the /api/prisoners payload it is built from) is ordered
+# purely by sort_order. New records default to sort_order 0, so recent
+# additions that belong to earlier eras (e.g. the 1960s-70s draft-resistance
+# defendants) surfaced in the wrong place instead of alongside their era.
+#
+# This assigns a fresh sort_order to every prisoner: primary key is the era
+# decade taken from the era string ("1970s" -> 1970, "1800s" -> 1800), and
+# within a decade the existing relative order is preserved (a stable sort), so
+# only cross-era placement changes. Records with no era are parked at the end,
+# keeping their current order.
+#
+# Idempotent: re-running produces the same ranking. Run from the repo root:
+#   bash database/data/sort-prisoners-chronologically.sh
+
+set -euo pipefail
+cd "$(dirname "$0")/../.."
+
+php artisan tinker --execute='
+$rows = \App\Models\Prisoner::withoutGlobalScopes()
+    ->select("id", "era", "sort_order")
+    ->orderBy("sort_order")->orderBy("id")->get();
+
+// Build sortable entries; preserve current order as the within-decade tiebreak.
+$items = [];
+foreach ($rows as $i => $p) {
+    $dec = 99999999; // no-era records sort last
+    if ($p->era && preg_match("/(1[6-9]\d\d|20\d\d)/", (string) $p->era, $m)) {
+        $dec = ((int) floor(((int) $m[1]) / 10)) * 10;
+    }
+    $items[] = ["id" => $p->id, "dec" => $dec, "so" => (int) $p->sort_order, "idx" => $i];
+}
+
+// PHP 8 usort is stable; the idx tiebreak makes the within-decade order explicit.
+usort($items, function ($a, $b) {
+    return [$a["dec"], $a["idx"]] <=> [$b["dec"], $b["idx"]];
+});
+
+$i = 0; $changed = 0; $decadeCounts = [];
+foreach ($items as $it) {
+    if ($it["so"] !== $i) {
+        \App\Models\Prisoner::withoutGlobalScopes()->where("id", $it["id"])->update(["sort_order" => $i]);
+        $changed++;
+    }
+    $label = $it["dec"] === 99999999 ? "(no era)" : ($it["dec"] . "s");
+    $decadeCounts[$label] = ($decadeCounts[$label] ?? 0) + 1;
+    $i++;
+}
+
+echo "Ranked " . count($items) . " prisoners chronologically; {$changed} sort_order value(s) changed.\n\n";
+echo "Order now runs:\n";
+foreach ($decadeCounts as $label => $n) { echo "  {$label}: {$n}\n"; }
+
+\Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
+echo "\nDone.\n";
+'
+
+echo
+echo "Done. Prisoner database re-sorted chronologically by era."
