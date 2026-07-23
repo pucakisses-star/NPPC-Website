@@ -45,6 +45,10 @@ final class AttachWikipediaPhotos extends Command
         'Clemente Soto Vélez' => 'photos/clemente-soto-velez.jpg',
         'Lyda Conley' => 'photos/lyda-conley.jpg',
         'Voltairine de Cleyre' => 'photos/voltairine-de-cleyre.jpg',
+        'Herman Suhr' => 'photos/herman-suhr.jpg',
+        'Richard "Blackie" Ford' => 'photos/richard-blackie-ford.jpg',
+        'A. S. Embree' => 'photos/a-s-embree.png',
+        'Leo Laukki' => 'photos/leo-laukki.jpg',
     ];
 
     public function handle(): int
