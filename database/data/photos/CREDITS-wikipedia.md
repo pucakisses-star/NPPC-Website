@@ -129,3 +129,7 @@ require. Each links to the Commons File: page (full author/license details).
 | Rod Coronado | `rodney-coronado.jpg` | CC BY 3.0 | Wolf Patrol (YouTube still), "Rod Coronado speaking in 2014" | https://commons.wikimedia.org/wiki/File:Rod_Coronado,_2014.jpg |
 | Bobby Hutton | `bobby-hutton.jpg` | Public domain | Black Panther Party posthumous memorial portrait, via archive.org "1960s leaflets" | https://commons.wikimedia.org/wiki/File:Bobby_Hutton_Posthumous.jpg |
 | Rubin "Hurricane" Carter | `rubin-carter.jpg` | CC BY-SA 2.0 | Michael Borkson (Flickr), Carter speaking at Bunker Hill Community College — Commons description identifies the subject | https://commons.wikimedia.org/wiki/File:Rubin_Carter.jpg |
+| Herman Suhr | `herman-suhr.jpg` | Public domain | 1914 California prison mugshot (inmate 9266) of the Wheatland hop-riot defendant | https://commons.wikimedia.org/wiki/File:Suhr-Herman-D-1914.jpg |
+| Richard "Blackie" Ford | `richard-blackie-ford.jpg` | Public domain | 1914 California prison mugshot (inmate 9267) of the Wheatland hop-riot defendant | https://commons.wikimedia.org/wiki/File:Ford-Richard-Blackie-1914.jpg |
+| A. S. Embree | `a-s-embree.png` | Public domain | Newspaper halftone portrait, Daily Worker, December 31, 1927 | https://commons.wikimedia.org/wiki/File:A.S._Embree_Daily_Worker_December_31,_1927.png |
+| Leo Laukki | `leo-laukki.jpg` | Public domain | Portrait of the Finnish-American IWW/Work People's College organizer | https://commons.wikimedia.org/wiki/File:Leo_Laukki.jpeg |
