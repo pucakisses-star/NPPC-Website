@@ -37,6 +37,7 @@ final class AttachNonfreePhotos extends Command
         [['Bethany Terrill', 'Bethany Abigail Terrill'], 'bethany-terrill.jpg'],
         [['Saul Wellman'], 'saul-wellman.jpg'],
         [['David Gordon'], 'david-gordon.jpg'],
+        [['John Berry'], 'john-berry.jpg'],
     ];
 
     public function handle(): int
