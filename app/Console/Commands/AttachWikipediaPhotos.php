@@ -49,6 +49,7 @@ final class AttachWikipediaPhotos extends Command
         'Richard "Blackie" Ford' => 'photos/richard-blackie-ford.jpg',
         'A. S. Embree' => 'photos/a-s-embree.png',
         'Leo Laukki' => 'photos/leo-laukki.jpg',
+        'Dorothy Ray Healey' => 'photos/dorothy-ray-healey.jpg',
     ];
 
     public function handle(): int
