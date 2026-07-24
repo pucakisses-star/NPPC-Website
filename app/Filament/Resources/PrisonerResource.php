@@ -107,6 +107,9 @@ class PrisonerResource extends Resource
                         Forms\Components\Toggle::make('under_review')
                             ->label('Under review (hide from public site)')
                             ->helperText('When on, this prisoner is hidden from the public database, search, map, and calendar. Still visible in the admin.'),
+                        Forms\Components\Toggle::make('minor_case')
+                            ->label('Minor case')
+                            ->helperText('Flag brief or minor detentions (short holds, dismissed charges, pretrial-only) so they can be filtered.'),
                     ])
                     ->columns(3),
 
@@ -285,6 +288,8 @@ class PrisonerResource extends Resource
                     ->label('Released'),
                 Tables\Filters\TernaryFilter::make('awaiting_trial')
                     ->label('Awaiting Trial'),
+                Tables\Filters\TernaryFilter::make('minor_case')
+                    ->label('Minor Case'),
 
                 // Dropdown filters matching Airtable's multi-select filters
                 Tables\Filters\SelectFilter::make('gender')
