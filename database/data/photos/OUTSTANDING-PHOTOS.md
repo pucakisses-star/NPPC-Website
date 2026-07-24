@@ -15,7 +15,6 @@ the `prisoners:attach-*` commands; see `CREDITS-nonfree.md` for provenance.
 | Person | Given source | Why it failed |
 |---|---|---|
 | Euel Lee / Orphan Jones | Salisbury libguide | JS-rendered; no direct image |
-| Calvin Woods | Alabama Power | download failed / news-header image |
 | Paul Nakadate | Heart Mountain | resolved to a crowd/meeting scene |
 | Mitsuye Endo | Densho catalyst | JS |
 | George Houser | MSU African Activist | JS |
