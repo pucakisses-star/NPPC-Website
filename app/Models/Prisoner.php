@@ -43,6 +43,7 @@ use Illuminate\Support\Str;
  * @property string|null $instagram
  * @property string|null $inmate_number
  * @property bool $awaiting_trial
+ * @property bool $minor_case
  */
 final class Prisoner extends Model
 {
@@ -63,6 +64,7 @@ final class Prisoner extends Model
         'imprisoned_or_exiled' => 'boolean',
         'awaiting_trial' => 'boolean',
         'under_review' => 'boolean',
+        'minor_case' => 'boolean',
     ];
 
     public function partialDateFields(): array
