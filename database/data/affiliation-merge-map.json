@@ -1,0 +1,8 @@
+{
+ "rename": {
+  "industrial workers of the world": "Industrial Workers of the World (IWW)",
+  "plowshares": "Plowshares Movement",
+  "anarchism": "Anarchist Movement"
+ },
+ "remove": ["Prison Movement"]
+}
