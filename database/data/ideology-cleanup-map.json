@@ -1,0 +1,29 @@
+{
+ "remove": [
+  "Unemployed Movement",
+  "Street Vendor Rights",
+  "States' Rights",
+  "Salafi/Jihadist/Islamist",
+  "Revolutionary Nationalism",
+  "Occupy Movement",
+  "Loyalism",
+  "Lesbian Feminism",
+  "Liberation Theology",
+  "Libertarianism",
+  "Islam",
+  "Industrial Unionism",
+  "Greenback-Labor",
+  "Feminism",
+  "Financial Privacy",
+  "Free Software",
+  "Farm Organizing",
+  "Direct Action",
+  "Christian Pacifism",
+  "Christian Right",
+  "Civil Disobedience"
+ ],
+ "rename": {
+  "lgbtq liberation": "LGBT Activism",
+  "catholic": "Catholic Worker Movement"
+ }
+}
