@@ -70,7 +70,7 @@ $episodes = [
    "Arrested in St. Augustine, spent one night in the St. Johns County Jail, and was released the following day.",[1964,6,11],[1964,6,12]],
   ["Selma City Jail","Selma","Alabama","Parading without a permit — voting-rights march toward the Dallas County courthouse",null,
    "Arrested with hundreds of voting-rights demonstrators in Selma; contemporary reports and photographs document his release on February 5, 1965.",[1965,2,1],[1965,2,5]],
-  ["Jefferson County Jail","Birmingham","Alabama","Criminal contempt — for the 1963 Birmingham marches in defiance of the anti-demonstration injunction (Walker v. City of Birmingham)","Yes — affirmed by the U.S. Supreme Court, 5-4 (1967)",
+  ["Jefferson County Jail (Birmingham)","Birmingham","Alabama","Criminal contempt — for the 1963 Birmingham marches in defiance of the anti-demonstration injunction (Walker v. City of Birmingham)","Yes — affirmed by the U.S. Supreme Court, 5-4 (1967)",
    "King and Abernathy returned to serve five-day contempt sentences after their Supreme Court appeal failed; admitted October 30, 1967. The five-day term is confirmed; the November 4 release is calculated from the sentence (no original discharge record located).",[1967,10,30],[1967,11,4]],
 ];
 
