@@ -1,0 +1,92 @@
+[
+ {
+  "name": "Terrence McGuckin", "first": "Terrence", "last": "McGuckin",
+  "state": "Pennsylvania", "era": "2000s",
+  "affiliation": ["ACT UP"],
+  "description": "Terrence McGuckin was an ACT UP/Philadelphia activist arrested during the protests surrounding the 2000 Republican National Convention in Philadelphia. Arrested around August 2, 2000, he was initially held on $500,000 bail, reportedly on misdemeanor charges. After nearly a week in custody, his bail was reduced to $100,000 and he was released at about 10 p.m. on August 8, 2000 — approximately six days jailed.",
+  "charges": "Misdemeanor charges arising from the 2000 Republican National Convention protests (Philadelphia); held on $500,000 bail, later reduced to $100,000",
+  "convicted": "Protest arrest; held pretrial on bail",
+  "arrest": [2000,8,2], "incarceration": [2000,8,2], "release": [2000,8,8], "days": 6,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Kate Sorensen", "first": "Kate", "last": "Sorensen",
+  "state": "Pennsylvania", "era": "2000s",
+  "affiliation": ["ACT UP"],
+  "description": "Kate Sorensen was an activist with ACT UP/Philadelphia and the Philadelphia Direct Action Group, arrested around August 2, 2000 during the 2000 Republican National Convention protests. She was given an extraordinary $1,000,000 bail. Contemporary reports still described her as jailed several days later; an August 11 update said her bail had been reduced to $100,000 and that supporters expected her release that night or the following day. Estimated custody: about nine to ten days, roughly August 2 to 11 or 12, 2000.",
+  "charges": "Charges arising from the 2000 Republican National Convention protests (Philadelphia); held on $1,000,000 bail, later reduced to $100,000",
+  "convicted": "Protest arrest; held pretrial on bail",
+  "arrest": [2000,8,2], "incarceration": [2000,8,2], "release": [2000,8,11], "days": 9,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Paul Davis", "first": "Paul", "last": "Davis",
+  "state": "Pennsylvania", "era": "2000s",
+  "affiliation": ["ACT UP"],
+  "description": "Paul Davis, identified in contemporary reports as an ACT UP/Philadelphia leader, was arrested during the August 2000 Republican National Convention protests and held on approximately $450,000 to $500,000 bail. Reports said he remained in jail alongside Kate Sorensen. He spent at least several days in custody; a dependable release date has not been found, so the total duration is presently undetermined.",
+  "charges": "Charges arising from the 2000 Republican National Convention protests (Philadelphia); held on approximately $450,000 to $500,000 bail",
+  "convicted": "Protest arrest; held pretrial on bail (release date undetermined)",
+  "arrest": [2000,8,2], "incarceration": null, "release": null, "days": null,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Richard Racklin", "first": "Richard", "last": "Racklin", "aka": "Richard \"Doe\" Racklin",
+  "state": "Texas", "era": "1990s",
+  "affiliation": ["ACT UP"],
+  "description": "Richard \"Doe\" Racklin was an ACT UP/Los Angeles activist who disrupted President George H. W. Bush's address at the 1992 Republican National Convention in Houston. Entering with press credentials, he shouted \"What about AIDS?\" and threw condoms. He was arrested and held in harsh Harris County jail conditions for several days. The surviving account does not give a precise release date; the action occurred during the convention of August 17 to 20, 1992, probably during Bush's August 20 speech.",
+  "charges": "Arrested for disrupting the 1992 Republican National Convention (Houston); held in the Harris County Jail",
+  "convicted": "Protest arrest; held several days (exact release unconfirmed)",
+  "arrest": [1992,8,20], "incarceration": null, "release": null, "days": null,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Jeff Schuerholz", "first": "Jeff", "last": "Schuerholz", "aka": "Jeff Scheurholz",
+  "state": "Texas", "era": "1990s",
+  "affiliation": ["ACT UP"],
+  "description": "Jeff Schuerholz (sometimes spelled Scheurholz) was an ACT UP/Los Angeles activist who disrupted a Jerry Falwell event during the 1992 Republican National Convention in Houston. Police dragged him from the event, placed a knee on his neck, and took him to the Harris County jail, where he described being confined in an overcrowded cell under deliberately uncomfortable conditions. His incarceration is confirmed, though the source does not state his individual release date; the Houston protesters were generally held through part or all of the convention (August 17 to 20, 1992).",
+  "charges": "Arrested for disrupting a 1992 Republican National Convention event (Houston); held in the Harris County Jail",
+  "convicted": "Protest arrest; held several days (exact release unconfirmed)",
+  "arrest": [1992,8,17], "incarceration": null, "release": null, "days": null,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Karl Soehnlein", "first": "Karl", "last": "Soehnlein",
+  "state": "New York", "era": "1990s",
+  "affiliation": ["ACT UP"],
+  "description": "Karl Soehnlein was an ACT UP/New York activist arrested during a sit-in outside the chamber of the New York State Legislature in Albany, demanding adequate state AIDS funding. He spent the night in jail together with approximately twenty other activists and was released the following morning. His oral history places the action in the 1990 Albany AIDS-budget campaign; a large related arrest occurred on March 28, 1990.",
+  "charges": "Arrested in a sit-in outside the New York State Legislature (Albany) during the 1990 state AIDS-budget campaign",
+  "convicted": "Protest arrest; held overnight",
+  "arrest": [1990,3,28], "incarceration": [1990,3,28], "release": [1990,3,29], "days": 1,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Luis Salazar", "first": "Luis", "last": "Salazar",
+  "state": "New York", "era": "1990s",
+  "affiliation": ["ACT UP"],
+  "description": "Luis Salazar was an ACT UP activist arrested in the same 1990 Albany state AIDS-budget action, identified by Karl Soehnlein as his jail-cell companion. He appears to have been held overnight and released the following morning; this currently rests on Soehnlein's firsthand recollection rather than Salazar's own arrest record.",
+  "charges": "Arrested in the 1990 Albany state AIDS-budget action (New York State Legislature sit-in)",
+  "convicted": "Protest arrest; held overnight (per a co-defendant's recollection)",
+  "arrest": [1990,3,28], "incarceration": [1990,3,28], "release": [1990,3,29], "days": 1,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Walter Armstrong", "first": "Walter", "last": "Armstrong",
+  "state": "New York", "era": "1990s",
+  "affiliation": ["ACT UP"],
+  "description": "Walter Armstrong was an ACT UP/New York activist. During the July 14, 1992 AIDS march in New York City he reportedly picked up a police barricade and threw it toward an officer. He was arrested and spent the night in jail, apparently being released on July 15, 1992.",
+  "charges": "Arrested during the July 14, 1992 New York City AIDS march",
+  "convicted": "Protest arrest; held overnight",
+  "arrest": [1992,7,14], "incarceration": [1992,7,14], "release": [1992,7,15], "days": 1,
+  "in_custody": false, "released": true
+ },
+ {
+  "name": "Charles King", "first": "Charles", "last": "King",
+  "state": "New York", "era": "1990s",
+  "affiliation": ["Housing Works", "ACT UP"],
+  "description": "Charles King, of Housing Works and formerly of ACT UP/New York's Housing Committee, was among AIDS-housing activists repeatedly held overnight in jail after arrests for minor protest offenses, according to an ACLU account. A lawsuit challenged the New York Police Department's practice of deliberately holding AIDS activists overnight rather than issuing appearance tickets; a settlement ending the policy was announced in July 2001. His individual arrest dates still need reconstruction.",
+  "charges": "Repeated arrests for minor protest offenses; held overnight under an NYPD practice later ended by a July 2001 settlement",
+  "convicted": "Protest arrests; repeatedly held overnight (individual dates to be reconstructed)",
+  "arrest": null, "incarceration": null, "release": null, "days": null,
+  "in_custody": false, "released": true
+ }
+]
