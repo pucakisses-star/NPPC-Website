@@ -20,9 +20,14 @@ const visibleCount = ref(20);
 const loadMoreTrigger = ref<HTMLElement | null>(null);
 let observer: IntersectionObserver | null = null;
 
+// Minor cases (brief detentions, low-significance arrests) are hidden by
+// default; the checkbox beside the results count includes them.
+const includeMinor = ref(false);
+
 // Computed property to generate filtered records
 const filteredRecords = computed(() => {
   return records.value.filter((record) => {
+    if (!includeMinor.value && record['Minor Case']) return false;
     return checkPrisonerFilter(record, buttonFilter, cleanFilterObject, nameSearch)
   });
 });
@@ -36,7 +41,7 @@ const hasMore = computed(() => {
 });
 
 // Reset visible count when filters change
-watch([buttonFilter, cleanFilterObject, nameSearch], () => {
+watch([buttonFilter, cleanFilterObject, nameSearch, includeMinor], () => {
   visibleCount.value = 20;
 });
 
@@ -113,7 +118,13 @@ watch(filterObject, (newValue, oldValue) => {
         <FiltersComponent class="flex-1" :key="filterKey" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
         <button v-if="hasActiveFilters" @click="clearFilters" class="clear-filters-btn">Clear Filters</button>
       </div>
-      <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
+      <div class="results-row">
+        <label class="include-minor">
+          <input type="checkbox" v-model="includeMinor" />
+          <span>Include minor cases</span>
+        </label>
+        <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
+      </div>
       <template v-for="record in visibleRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
@@ -142,10 +153,30 @@ watch(filterObject, (newValue, oldValue) => {
   border-color: #fff;
   background: rgba(255,255,255,0.1);
 }
+.results-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.include-minor {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  user-select: none;
+}
+.include-minor input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent, #4f46e5);
+  cursor: pointer;
+}
 .results-count {
   font-size: 14px;
   color: rgba(255,255,255,0.4);
-  margin-bottom: 16px;
 }
 .load-more-indicator {
   display: flex;
