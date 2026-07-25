@@ -1,0 +1,582 @@
+[
+ {
+  "name": "John Waller",
+  "first_name": "John",
+  "last_name": "Waller",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "John Waller, known before his conversion as Swearing Jack, became a leading Separate Baptist preacher who was jailed repeatedly in several Virginia county jails for unlicensed preaching, accumulating roughly 113 days of imprisonment. He was first confined at the Spotsylvania County jail in Fredericksburg in June 1768 alongside Lewis Craig and others.",
+  "fate": "released",
+  "institution": [
+   "Spotsylvania County jail",
+   "Fredericksburg",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "About 43 days confinement in Spotsylvania, part of roughly 113 days total across several jails",
+  "incarceration_iso": "1768-06",
+  "end_iso": "1768-07"
+ },
+ {
+  "name": "James Childs",
+  "first_name": "James",
+  "last_name": "Childs",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "James Childs, also recorded as Chiles, was a Separate Baptist preacher seized with John Waller and Lewis Craig for unlicensed preaching in Spotsylvania County. He was jailed at Fredericksburg in June 1768 and held with the group for about six weeks.",
+  "fate": "released",
+  "institution": [
+   "Spotsylvania County jail",
+   "Fredericksburg",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "About 43 days confinement",
+  "incarceration_iso": "1768-06",
+  "end_iso": "1768-07"
+ },
+ {
+  "name": "William Marsh",
+  "first_name": "William",
+  "last_name": "Marsh",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "William Marsh, whose name also appears as Mash, was among the Separate Baptist preachers arrested for unlicensed preaching in Spotsylvania County in 1768. He was confined at the Fredericksburg jail with John Waller and the others for roughly six weeks.",
+  "fate": "released",
+  "institution": [
+   "Spotsylvania County jail",
+   "Fredericksburg",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "About 43 days confinement",
+  "incarceration_iso": "1768-06",
+  "end_iso": "1768-07"
+ },
+ {
+  "name": "Joseph Craig",
+  "first_name": "Joseph",
+  "last_name": "Craig",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "Joseph Craig, brother of the preachers Lewis and Elijah Craig, was a Separate Baptist repeatedly harassed and jailed for unlicensed preaching. He was confined in the Caroline County jail in the early 1770s before being released.",
+  "fate": "released",
+  "institution": [
+   "Caroline County jail",
+   "Bowling Green",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "Imprisonment, duration not documented",
+  "incarceration_iso": "1771",
+  "end_iso": null
+ },
+ {
+  "name": "John Weatherford",
+  "first_name": "John",
+  "last_name": "Weatherford",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "John Weatherford was a Baptist preacher held in the Chesterfield County jail for about five months in 1773 and 1774 for unlicensed preaching. Patrick Henry is traditionally credited with aiding his release.",
+  "fate": "released",
+  "institution": [
+   "Chesterfield County jail",
+   "Chesterfield",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "About five months confinement",
+  "incarceration_iso": "1773",
+  "end_iso": "1774"
+ },
+ {
+  "name": "John Shackelford",
+  "first_name": "John",
+  "last_name": "Shackelford",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "John Shackelford was a Separate Baptist preacher jailed for unlicensed preaching during the Middlesex County prosecutions around 1771. He was confined at the Urbanna jail before being released.",
+  "fate": "released",
+  "institution": [
+   "Middlesex County jail",
+   "Urbanna",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "Imprisonment, duration not documented",
+  "incarceration_iso": "1771",
+  "end_iso": null
+ },
+ {
+  "name": "William Webber",
+  "first_name": "William",
+  "last_name": "Webber",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "William Webber was a Separate Baptist preacher imprisoned for unlicensed preaching in Chesterfield and Middlesex counties. He was among the ministers confined for the offense in 1768 and later at Urbanna.",
+  "fate": "released",
+  "institution": [
+   "Chesterfield County jail",
+   "Chesterfield",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "Imprisonment, duration not documented",
+  "incarceration_iso": "1768",
+  "end_iso": null
+ },
+ {
+  "name": "Joseph Anthony",
+  "first_name": "Joseph",
+  "last_name": "Anthony",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "Joseph Anthony was a Baptist preacher confined in the Chesterfield County jail for unlicensed preaching in 1768. He was released after his term of confinement.",
+  "fate": "released",
+  "institution": [
+   "Chesterfield County jail",
+   "Chesterfield",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "Imprisonment, duration not documented",
+  "incarceration_iso": "1768",
+  "end_iso": null
+ },
+ {
+  "name": "David Tinsley",
+  "first_name": "David",
+  "last_name": "Tinsley",
+  "race": "White",
+  "gender": "Male",
+  "state": "Virginia",
+  "era": "Colonial America",
+  "description": "David Tinsley was a Baptist preacher confined in the Chesterfield County jail in 1774 for unlicensed preaching, where he was held for several months. He continued to preach to gathered crowds through the jail window before his release.",
+  "fate": "released",
+  "institution": [
+   "Chesterfield County jail",
+   "Chesterfield",
+   "Virginia"
+  ],
+  "charges": "Preaching without a license and disturbing the peace",
+  "sentence": "Several months confinement",
+  "incarceration_iso": "1774",
+  "end_iso": null
+ },
+ {
+  "name": "Caesar (John Vaarck)",
+  "first_name": "Caesar (John Vaarck)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by John Vaarck, jailed in early 1741 after the Hogg robbery and held in the City Hall jail; the court treated him as a principal in the alleged plot and hanged him first.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Burglary in the Hogg robbery and alleged conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741-03",
+  "end_iso": "1741-05-11"
+ },
+ {
+  "name": "Prince (John Auboyneau)",
+  "first_name": "Prince (John Auboyneau)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by John Auboyneau, jailed alongside Caesar over the same robbery and hanged as an alleged ringleader of the plot.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Burglary in the Hogg robbery and alleged conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741-03",
+  "end_iso": "1741-05-11"
+ },
+ {
+  "name": "Quack (John Roosevelt)",
+  "first_name": "Quack (John Roosevelt)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by John Roosevelt, accused of setting the fire at Fort George and burned at the stake despite an alibi given by his owner.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Arson at Fort George and conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-05-30"
+ },
+ {
+  "name": "Cuffee (Adolph Philipse)",
+  "first_name": "Cuffee (Adolph Philipse)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by Adolph Philipse, convicted of conspiracy and burned at the stake alongside Quack before a large crowd.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City and murder its inhabitants",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-05-30"
+ },
+ {
+  "name": "Cato (John Cowley)",
+  "first_name": "Cato (John Cowley)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by John Cowley, condemned as one of the so-called inferior agents of the alleged plot and burned at the stake.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-06-16"
+ },
+ {
+  "name": "Fortune (Vanderspiegle)",
+  "first_name": "Fortune (Vanderspiegle)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by Vanderspiegle, burned at the stake as one of five agents executed together in mid June.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-06-16"
+ },
+ {
+  "name": "Cato (Provoost)",
+  "first_name": "Cato (Provoost)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by Provoost, also known as Toby, burned at the stake as an alleged conspirator among the five agents.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-06-16"
+ },
+ {
+  "name": "Ben (Captain Marshall)",
+  "first_name": "Ben (Captain Marshall)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by Captain Marshall, burned at the stake among the five agents executed together in June.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-06-16"
+ },
+ {
+  "name": "Quash (Rutgers)",
+  "first_name": "Quash (Rutgers)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by Rutgers, burned at the stake as an alleged conspirator among the five agents.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-06-16"
+ },
+ {
+  "name": "Othello (Chief Justice)",
+  "first_name": "Othello (Chief Justice)",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man owned by Chief Justice James De Lancey, hanged for alleged participation in the plot after refusing to plead guilty.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "Quack",
+  "first_name": "Quack",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man hanged as an alleged conspirator among the group executed on the same day as Doctor Harry; distinct from the Quack burned in May.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "Venture",
+  "first_name": "Venture",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man hanged as an alleged conspirator in the July group executed with Othello.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "Frank",
+  "first_name": "Frank",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man hanged as an alleged conspirator on the same day as Othello and Doctor Harry.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "Fortune",
+  "first_name": "Fortune",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man hanged as an alleged conspirator in the July group; distinct from the Fortune burned at the stake in June.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "Galloway",
+  "first_name": "Galloway",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved man hanged as an alleged conspirator in the July group executed alongside Othello.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "Harry",
+  "first_name": "Harry",
+  "last_name": "",
+  "race": "Black",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Enslaved healer known as Doctor Harry who had earlier been banished from the city; burned at the stake as an alleged conspirator on the same day as the July hangings.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy to burn New York City",
+  "sentence": "Death by burning at the stake",
+  "incarceration_iso": "1741",
+  "end_iso": "1741-07-18"
+ },
+ {
+  "name": "John Hughson",
+  "first_name": "John",
+  "last_name": "Hughson",
+  "race": "White",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "White tavern keeper whose alehouse was named as the meeting place of the alleged plot; held in the City Hall jail and hanged, with his body later left in chains.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy and receiving stolen goods in the alleged plot to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741-03",
+  "end_iso": "1741-06-12"
+ },
+ {
+  "name": "Sarah Hughson",
+  "first_name": "Sarah",
+  "last_name": "Hughson",
+  "race": "White",
+  "gender": "Female",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Wife of tavern keeper John Hughson, convicted as a conspirator and hanged with him on the same day.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy in the alleged plot to burn New York City",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741-03",
+  "end_iso": "1741-06-12"
+ },
+ {
+  "name": "Margaret Kerry",
+  "first_name": "Margaret",
+  "last_name": "Kerry",
+  "race": "White",
+  "gender": "Female",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Irish woman known as Peggy Kerry or Sorubiero who lodged at the Hughson tavern; hanged as an alleged conspirator alongside the Hughsons.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy and receiving stolen goods in the alleged plot",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741-03",
+  "end_iso": "1741-06-12"
+ },
+ {
+  "name": "John Ury",
+  "first_name": "John",
+  "last_name": "Ury",
+  "race": "White",
+  "gender": "Male",
+  "state": "New York",
+  "era": "Colonial America",
+  "description": "Schoolmaster accused of being a Catholic priest and a leader of the plot; held in the City Hall jail and hanged in late August, the last person executed.",
+  "fate": "executed",
+  "institution": [
+   "New York City Hall",
+   "New York",
+   "New York"
+  ],
+  "charges": "Conspiracy and being a Catholic priest inciting the alleged plot",
+  "sentence": "Death by hanging",
+  "incarceration_iso": "1741-06",
+  "end_iso": "1741-08-29"
+ }
+]
