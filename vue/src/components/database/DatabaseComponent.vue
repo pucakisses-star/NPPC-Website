@@ -118,13 +118,11 @@ watch(filterObject, (newValue, oldValue) => {
         <FiltersComponent class="flex-1" :key="filterKey" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
         <button v-if="hasActiveFilters" @click="clearFilters" class="clear-filters-btn">Clear Filters</button>
       </div>
-      <div class="results-row">
-        <label class="include-minor">
-          <input type="checkbox" v-model="includeMinor" />
-          <span>Include minor cases</span>
-        </label>
-        <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
-      </div>
+      <label class="include-minor">
+        <input type="checkbox" v-model="includeMinor" />
+        <span>Include minor cases</span>
+      </label>
+      <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
       <template v-for="record in visibleRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
@@ -153,12 +151,6 @@ watch(filterObject, (newValue, oldValue) => {
   border-color: #fff;
   background: rgba(255,255,255,0.1);
 }
-.results-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
 .include-minor {
   display: inline-flex;
   align-items: center;
@@ -167,6 +159,7 @@ watch(filterObject, (newValue, oldValue) => {
   color: rgba(255,255,255,0.6);
   cursor: pointer;
   user-select: none;
+  margin-bottom: 8px;
 }
 .include-minor input {
   width: 15px;
@@ -177,6 +170,8 @@ watch(filterObject, (newValue, oldValue) => {
 .results-count {
   font-size: 14px;
   color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+  text-align: center;
 }
 .load-more-indicator {
   display: flex;
