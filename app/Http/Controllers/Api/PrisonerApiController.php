@@ -142,6 +142,7 @@ class PrisonerApiController extends Controller
                     'imprisonedFor' => $daysImprisoned,
                     'inExileFor' => $daysInExile,
                     'calculatedPunishment' => $this->calculatePunishment($daysImprisoned, $daysInExile, $imprisonStart, $exileStart),
+                    'Minor Case' => (bool) $prisoner->minor_case,
                     // Convenience boolean aliases used by Vue filter system
                     'inCustody' => $prisoner->in_custody,
                     'released' => $prisoner->released,

@@ -265,6 +265,96 @@ class PlaceAllZeroSortPrisoners extends Command
         ['marlon-kautz',               'priscilla-grim'],
         ['adele-maclean',              'marlon-kautz'],
         ['savannah-patterson',         'adele-maclean'],
+
+        // ══ Colonial / Revolutionary / Early-Republic additions ══
+        // A single chronological early-American block placed at the head of
+        // the antebellum cluster (immediately after joseph-palmer, before
+        // reuben-crandall). Each group's head anchors independently to
+        // joseph-palmer and members chain within the group, so the groups
+        // stay correctly ordered even if the pre-1776 groups (1741 roster,
+        // Baptists, Regulators) are later removed/unpublished. Groups are
+        // listed latest-first here so the final order comes out ascending:
+        // palmer → 1741 → Baptists → Regulators → Fort Randolph →
+        // St. Augustine → Shays → Whiskey → crandall.
+
+        // ── Whiskey Rebellion (1794) ──
+        ['john-hamilton'                   , 'joseph-palmer'],
+        ['william-crawford'                , 'john-hamilton'],
+        ['john-powers'                     , 'william-crawford'],
+        ['john-corbly'                     , 'john-powers'],
+        ['thomas-sedgwick'                 , 'john-corbly'],
+        ['james-kerr'                      , 'thomas-sedgwick'],
+        ['john-laughery'                   , 'james-kerr'],
+        ['david-lock'                      , 'john-laughery'],
+        ['john-munn'                       , 'david-lock'],
+        ['robert-porter'                   , 'john-munn'],
+        ['john-flanagan'                   , 'robert-porter'],
+        ['john-crawford'                   , 'john-flanagan'],
+        ['john-gaston'                     , 'john-crawford'],
+        ['john-husy'                       , 'john-gaston'],
+        ['john-mcgill'                     , 'john-husy'],
+        ['robert-martin'                   , 'john-mcgill'],
+        ['nathaniel-martin'                , 'robert-martin'],
+        ['thomas-mccomb'                   , 'nathaniel-martin'],
+        ['james-robinson'                  , 'thomas-mccomb'],
+        ['william-johnson'                 , 'james-robinson'],
+
+        // ── Shays Rebellion (1787) ──
+        ['henry-mcculloch'                 , 'joseph-palmer'],
+        ['jason-parmenter'                 , 'henry-mcculloch'],
+        ['daniel-ludington'                , 'jason-parmenter'],
+        ['alpheus-colton'                  , 'daniel-ludington'],
+        ['james-white'                     , 'alpheus-colton'],
+        ['john-wheeler'                    , 'james-white'],
+
+        // ── St. Augustine detainees (1780-1781) ──
+        ['christopher-gadsden'             , 'joseph-palmer'],
+        ['thomas-heyward-jr'               , 'christopher-gadsden'],
+        ['arthur-middleton'                , 'thomas-heyward-jr'],
+        ['edward-rutledge'                 , 'arthur-middleton'],
+
+        // ── Fort Randolph hostages (1777) ──
+        ['cornstalk'                       , 'joseph-palmer'],
+        ['elinipsico'                      , 'cornstalk'],
+        ['red-hawk'                        , 'elinipsico'],
+
+        // ── North Carolina Regulators (1771) ──
+        ['robert-messer'                   , 'joseph-palmer'],
+        ['robert-matear'                   , 'robert-messer'],
+        ['james-pugh'                      , 'robert-matear'],
+
+        // ── Virginia Baptist ministers, unlicensed preaching (1768-1774) ──
+        ['john-waller'                     , 'joseph-palmer'],
+        ['james-childs'                    , 'john-waller'],
+        ['william-marsh'                   , 'james-childs'],
+        ['joseph-craig'                    , 'william-marsh'],
+        ['john-weatherford'                , 'joseph-craig'],
+        ['john-shackelford'                , 'john-weatherford'],
+        ['william-webber'                  , 'john-shackelford'],
+        ['joseph-anthony'                  , 'william-webber'],
+        ['david-tinsley'                   , 'joseph-anthony'],
+
+        // ── 1741 New York conspiracy — executed (chained block) ──
+        ['caesar-john-vaarck'              , 'joseph-palmer'],
+        ['prince-john-auboyneau'           , 'caesar-john-vaarck'],
+        ['quack-john-roosevelt'            , 'prince-john-auboyneau'],
+        ['cuffee-adolph-philipse'          , 'quack-john-roosevelt'],
+        ['cato-john-cowley'                , 'cuffee-adolph-philipse'],
+        ['fortune-vanderspiegle'           , 'cato-john-cowley'],
+        ['cato-provoost'                   , 'fortune-vanderspiegle'],
+        ['ben-captain-marshall'            , 'cato-provoost'],
+        ['quash-rutgers'                   , 'ben-captain-marshall'],
+        ['othello-chief-justice'           , 'quash-rutgers'],
+        ['quack'                           , 'othello-chief-justice'],
+        ['venture'                         , 'quack'],
+        ['frank'                           , 'venture'],
+        ['fortune'                         , 'frank'],
+        ['galloway'                        , 'fortune'],
+        ['harry'                           , 'galloway'],
+        ['john-hughson'                    , 'harry'],
+        ['sarah-hughson'                   , 'john-hughson'],
+        ['margaret-kerry'                  , 'sarah-hughson'],
+        ['john-ury'                        , 'margaret-kerry'],
     ];
 
     public function handle(): int
