@@ -3,10 +3,13 @@
 namespace App\Filament\Resources\PrisonerResource\Pages;
 
 use App\Filament\Resources\PrisonerResource;
+use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Prisoner;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Support\Enums\MaxWidth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ListPrisoners extends ListRecords {
@@ -14,6 +17,70 @@ class ListPrisoners extends ListRecords {
 
     public function getMaxContentWidth(): MaxWidth {
         return MaxWidth::Full;
+    }
+
+    /**
+     * Drag-and-drop reordering with GLOBAL positional numbering.
+     *
+     * Filament's stock implementation renumbers only the dragged page as
+     * 1..N, so page 2 would collide with page 1. This override instead
+     * splices the page's new arrangement back into the full sequence (after
+     * the record preceding the page in the current — possibly filtered —
+     * view) and renumbers every prisoner 1..N, so sort_order always equals
+     * list position and duplicates self-heal on any drag.
+     */
+    public function reorderTable(array $order): void {
+        if (! $this->getTable()->isReorderable()) {
+            return;
+        }
+
+        $order = array_values($order);
+
+        // Where the dragged page sits within the current (filtered) view.
+        $perPage = $this->getTableRecordsPerPage();
+        $pageOffset = is_numeric($perPage)
+            ? (max(1, $this->getTablePage()) - 1) * (int) $perPage
+            : 0;
+
+        // The visible record just before the page — unchanged by a
+        // within-page drag — anchors where the block re-enters globally.
+        $prevId = null;
+        if ($pageOffset > 0) {
+            $prevId = $this->getFilteredSortedTableQuery()
+                ->reorder()
+                ->orderBy('sort_order')
+                ->orderBy('name')
+                ->offset($pageOffset - 1)
+                ->limit(1)
+                ->value('id');
+        }
+
+        // Full sequence (including filtered-out / under-review records)
+        // minus the dragged block, block spliced back after its anchor.
+        $ids = Prisoner::withoutGlobalScopes()
+            ->whereNotIn('id', $order)
+            ->orderBy('sort_order')
+            ->orderBy('name')
+            ->pluck('id')
+            ->all();
+        $at = 0;
+        if ($prevId !== null) {
+            $pos = array_search($prevId, $ids, true);
+            $at = $pos === false ? 0 : $pos + 1;
+        }
+        array_splice($ids, $at, 0, $order);
+
+        // Renumber 1..N, writing only rows whose position changed.
+        $current = Prisoner::withoutGlobalScopes()->pluck('sort_order', 'id');
+        DB::transaction(function () use ($ids, $current) {
+            foreach ($ids as $index => $id) {
+                if ((int) ($current[$id] ?? -1) !== $index + 1) {
+                    Prisoner::withoutGlobalScopes()->whereKey($id)->update(['sort_order' => $index + 1]);
+                }
+            }
+        });
+
+        Cache::forget(PrisonerApiController::cacheKey());
     }
 
     protected function getHeaderActions(): array {
