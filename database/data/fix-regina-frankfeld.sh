@@ -44,8 +44,19 @@ $c->setPartialDate("incarceration_date", 1953, 1, 26);
 $c->setPartialDate("release_date", 1954, 10, 5);
 $c->save();
 
+// Separate earlier detention: held about five days after sentencing until the
+// appeal bond was furnished (April 4-9, 1952).
+$hold = $p->cases()->where("charges", "like", "%appeal recognizance%")->first();
+if (! $hold) { $hold = $p->cases()->make(); $hold->prisoner_id = $p->id; }
+$hold->charges = "Held for about five days after sentencing in the Maryland Smith Act case, from April 4, 1952 until her appeal recognizance was filed on April 9, 1952 (appeal bail set at 10,000 dollars on April 7).";
+$hold->convicted = "Held after sentencing pending appeal bond, April 1952";
+$hold->sentence = "Held about five days until the 10,000-dollar appeal bond was furnished.";
+$hold->setPartialDate("incarceration_date", 1952, 4, 4);
+$hold->setPartialDate("release_date", 1952, 4, 9);
+$hold->save();
+
 \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
-echo "Regina Frankfeld updated: arrest 1951-08-08, imprisoned_for_days={$c->imprisoned_for_days}.\n";
+echo "Regina Frankfeld updated: sentence-custody days={$c->imprisoned_for_days}, 1952 hold days={$hold->imprisoned_for_days}.\n";
 echo "Done.\n";
 '
 
