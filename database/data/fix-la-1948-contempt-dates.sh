@@ -33,18 +33,19 @@ $ensureContempt = function (Prisoner $p) {
 $targets = [
     ["Ben Dobbs",  fn () => Prisoner::withoutGlobalScopes()->whereRaw("LOWER(name) = ?", ["ben dobbs"])->first(), [1912, 2, 23], [1993, 3, 21]],
     ["Henry Steinberg", fn () => Prisoner::withoutGlobalScopes()->whereRaw("LOWER(name) = ?", ["henry steinberg"])->first(), [1912, 8, 12], [1979, 9, 15]],
-    ["Samuel H. Kashinowitz", fn () => Prisoner::withoutGlobalScopes()->whereRaw("LOWER(name) LIKE ?", ["%nowitz%"])->first(), [1914, 1, 14], [2011, 8, 23]],
+    ["Samuel Harry Kasinowitz", fn () => Prisoner::withoutGlobalScopes()->whereRaw("LOWER(name) LIKE ?", ["%nowitz%"])->first(), [1914, 1, 14], [2011, 8, 23]],
 ];
 
 foreach ($targets as [$label, $finder, $b, $d]) {
     $p = $finder();
-    if (! $p && $label === "Samuel H. Kashinowitz") {
+    if (! $p && $label === "Samuel Harry Kasinowitz") {
         $p = Prisoner::create([
-            "name" => "Samuel H. Kashinowitz", "first_name" => "Samuel", "last_name" => "Kashinowitz",
+            "name" => "Samuel Harry Kasinowitz", "first_name" => "Samuel", "last_name" => "Kasinowitz",
+            "aka" => "Samuel H. Kashinowitz",
             "gender" => "Male", "state" => "California", "era" => "1940s",
             "ideologies" => ["Communism"], "affiliation" => ["Communist Party USA"],
             "in_custody" => false, "released" => true,
-            "description" => "Samuel H. Kashinowitz was a Los Angeles Communist who, with Ben Dobbs and Henry Steinberg, was jailed for contempt after refusing to answer a federal grand jury investigating Communism in Los Angeles.",
+            "description" => "Samuel Harry Kasinowitz was a Los Angeles Communist who, with Ben Dobbs and Henry Steinberg, was jailed for contempt after refusing to answer a federal grand jury investigating Communism in Los Angeles.",
         ]);
         echo "created {$p->name}\n";
     }

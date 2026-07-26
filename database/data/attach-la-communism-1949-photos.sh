@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\File;
 $map = [
     "ben-dobbs"           => "Ben Dobbs",
     "henry-steinberg"     => "Henry Steinberg",
-    "samuel-kashinowitz"  => "Samuel H. Kashinowitz",
+    "samuel-kashinowitz"  => "Samuel Harry Kasinowitz",
 ];
 $set=0;$skipHas=0;$skipMiss=0;
 foreach ($map as $key => $name) {
