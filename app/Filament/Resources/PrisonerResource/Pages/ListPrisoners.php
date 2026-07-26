@@ -6,10 +6,15 @@ use App\Filament\Resources\PrisonerResource;
 use App\Models\Prisoner;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Support\Enums\MaxWidth;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ListPrisoners extends ListRecords {
     protected static string $resource = PrisonerResource::class;
+
+    public function getMaxContentWidth(): MaxWidth {
+        return MaxWidth::Full;
+    }
 
     protected function getHeaderActions(): array {
         return [
