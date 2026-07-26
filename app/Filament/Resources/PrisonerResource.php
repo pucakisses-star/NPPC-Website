@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Forms\PartialDate;
 use App\Filament\Resources\PrisonerResource\Pages;
 use App\Filament\Resources\PrisonerResource\RelationManagers;
+use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Prisoner;
 use App\Models\Scopes\NotUnderReviewScope;
 use Filament\Forms;
@@ -16,6 +17,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class PrisonerResource extends Resource
 {
@@ -357,6 +361,46 @@ class PrisonerResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
+                Tables\Actions\BulkAction::make('moveToPosition')
+                    ->label('Move to position…')
+                    ->icon('heroicon-o-arrows-up-down')
+                    ->form([
+                        Forms\Components\TextInput::make('position')
+                            ->label('New position (Sort #)')
+                            ->numeric()
+                            ->minValue(1)
+                            ->required()
+                            ->helperText('The selected entries are inserted as one block starting at this position, keeping their current relative order. Everything else renumbers around them.'),
+                    ])
+                    ->action(function (Collection $records, array $data): void {
+                        // Selected block, preserving its current relative order.
+                        $selected = $records->sortBy('sort_order')->pluck('id')->all();
+
+                        // Full sequence (under-review included) minus the block,
+                        // block spliced in so its first entry lands at the
+                        // requested Sort #, then renumber 1..N.
+                        $ids = Prisoner::withoutGlobalScopes()
+                            ->whereNotIn('id', $selected)
+                            ->orderBy('sort_order')
+                            ->orderBy('name')
+                            ->pluck('id')
+                            ->all();
+                        $at = max(0, min((int) $data['position'] - 1, count($ids)));
+                        array_splice($ids, $at, 0, $selected);
+
+                        $current = Prisoner::withoutGlobalScopes()->pluck('sort_order', 'id');
+                        DB::transaction(function () use ($ids, $current) {
+                            foreach ($ids as $index => $id) {
+                                if ((int) ($current[$id] ?? -1) !== $index + 1) {
+                                    Prisoner::withoutGlobalScopes()->whereKey($id)->update(['sort_order' => $index + 1]);
+                                }
+                            }
+                        });
+
+                        Cache::forget(PrisonerApiController::cacheKey());
+                    })
+                    ->deselectRecordsAfterCompletion()
+                    ->successNotificationTitle('Entries moved'),
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
