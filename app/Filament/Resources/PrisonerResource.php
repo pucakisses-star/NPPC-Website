@@ -265,6 +265,12 @@ class PrisonerResource extends Resource
             ])
             ->defaultSort('sort_order')
             ->reorderable('sort_order')
+            ->reorderRecordsTriggerAction(
+                fn (Tables\Actions\Action $action, bool $isReordering) => $action
+                    ->button()
+                    ->color($isReordering ? 'success' : 'gray')
+                    ->label($isReordering ? 'Done reordering' : 'Reorder list'),
+            )
             ->paginatedWhileReordering()
             ->paginationPageOptions([25, 50, 100, 250, 'all'])
             ->defaultPaginationPageOption(50)
