@@ -164,6 +164,11 @@ class PrisonerResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('sort_order')
+                    ->label('Sort #')
+                    ->sortable()
+                    ->alignCenter()
+                    ->color('gray'),
                 Tables\Columns\ImageColumn::make('photo')
                     ->circular()
                     ->disk('public')
