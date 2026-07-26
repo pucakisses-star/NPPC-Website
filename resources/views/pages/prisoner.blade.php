@@ -279,6 +279,7 @@
                         @if($case->sentence)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Sentence: </span><span class="prisoner-case-field-value">{{ $case->sentence }}</span></div>@endif
                         @if($case->prosecutor)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Prosecutor: </span><span class="prisoner-case-field-value">{{ $case->prosecutor }}</span></div>@endif
                         @if($case->judge)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Judge: </span><span class="prisoner-case-field-value">{{ $case->judge }}</span></div>@endif
+                        @if($case->indicted)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Indicted: </span><span class="prisoner-case-field-value">{{ $case->indicted }}</span></div>@endif
                         @if($case->convicted)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Convicted: </span><span class="prisoner-case-field-value">{{ $case->convicted }}</span></div>@endif
                         @if($case->plead)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Plead: </span><span class="prisoner-case-field-value">{{ $case->plead }}</span></div>@endif
                         @if($case->institution && $case->institution->state)<div class="prisoner-case-field"><span class="prisoner-case-field-label">Institution State: </span><span class="prisoner-case-field-value">{{ $case->institution->state }}</span></div>@endif
