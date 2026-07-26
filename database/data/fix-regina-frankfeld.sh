@@ -2,8 +2,8 @@
 #
 # Enrich Regina Frankfeld's record with her documented biography and the
 # Maryland Smith Act case: arrested August 8, 1951; convicted 1952; two-year
-# sentence and a 1,000-dollar fine (Judge Chestnut); reported to prison in
-# early 1953 (released ~1955 on the two-year term, approximate).
+# sentence and a 1,000-dollar fine (Judge Chestnut); entered sentence custody
+# about January 26, 1953 and released October 5, 1954.
 #
 # Idempotent. Run from the repo root:
 #   bash database/data/fix-regina-frankfeld.sh
@@ -38,10 +38,10 @@ $c = $p->cases()->first();
 if (! $c) { $c = $p->cases()->make(); $c->prisoner_id = $p->id; }
 $c->charges = "Charged under the Smith Act on August 8, 1951 with advocating the violent overthrow of the United States government through membership in the Communist Party (the Maryland second string reds case).";
 $c->convicted = "Convicted under the Smith Act, 1952";
-$c->sentence = "Two years in prison and a 1,000-dollar fine (Judge Chestnut). Reported to prison in early 1953; released about 1955 on the two-year term (exact release date not documented).";
+$c->sentence = "Two years in prison and a 1,000-dollar fine (Judge Chestnut). Entered sentence custody about January 26, 1953 and released October 5, 1954.";
 $c->setPartialDate("arrest_date", 1951, 8, 8);
-$c->setPartialDate("incarceration_date", 1953, 1, null);
-$c->setPartialDate("release_date", 1955, 1, null);
+$c->setPartialDate("incarceration_date", 1953, 1, 26);
+$c->setPartialDate("release_date", 1954, 10, 5);
 $c->save();
 
 \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
