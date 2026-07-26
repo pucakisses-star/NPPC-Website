@@ -118,11 +118,13 @@ watch(filterObject, (newValue, oldValue) => {
         <FiltersComponent class="flex-1" :key="filterKey" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
         <button v-if="hasActiveFilters" @click="clearFilters" class="clear-filters-btn">Clear Filters</button>
       </div>
-      <label class="include-minor">
-        <input type="checkbox" v-model="includeMinor" />
-        <span>Include minor cases</span>
-      </label>
-      <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
+      <div class="results-row">
+        <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
+        <label class="include-minor">
+          <input type="checkbox" v-model="includeMinor" />
+          <span>Include minor cases</span>
+        </label>
+      </div>
       <template v-for="record in visibleRecords" >
         <CardComponent v-if="!record['Status Under Review']" :record="record" :key="record.id" />
       </template>
@@ -151,7 +153,22 @@ watch(filterObject, (newValue, oldValue) => {
   border-color: #fff;
   background: rgba(255,255,255,0.1);
 }
+.results-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+.results-count {
+  grid-column: 2;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
 .include-minor {
+  grid-column: 3;
+  justify-self: end;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -159,7 +176,6 @@ watch(filterObject, (newValue, oldValue) => {
   color: rgba(255,255,255,0.6);
   cursor: pointer;
   user-select: none;
-  margin-bottom: 8px;
 }
 .include-minor input {
   width: 15px;
@@ -167,11 +183,10 @@ watch(filterObject, (newValue, oldValue) => {
   accent-color: var(--accent, #4f46e5);
   cursor: pointer;
 }
-.results-count {
-  font-size: 14px;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 16px;
-  text-align: center;
+@media (max-width: 600px) {
+  .results-row { grid-template-columns: 1fr auto; }
+  .results-count { grid-column: 1; text-align: left; }
+  .include-minor { grid-column: 2; }
 }
 .load-more-indicator {
   display: flex;
