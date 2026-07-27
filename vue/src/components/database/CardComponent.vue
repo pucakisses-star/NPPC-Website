@@ -115,10 +115,10 @@ const mainCase = props.record.cases[0]
           <template v-for="field in prisonerCardFields" :key="field.title">
             <div v-if="record[field.fieldKey] != null && record[field.fieldKey] !== '' && !(Array.isArray(record[field.fieldKey]) && record[field.fieldKey].length === 0)" class="mb-4">
               <div :class="heading5">{{field.title}}</div>
-              <div :class="textValue">{{parseValueForOutput(record[field.fieldKey], field.fieldKey) ?? ''}}</div>
-              <div v-if="field.title === 'Age'">
-                <span v-if="record['Death date']" class="text-sm relative deceased-indicator" style="top: -25px;left: 22px;">†<span class="deceased-label"> Deceased</span></span>
-              </div>
+              <div :class="textValue">{{parseValueForOutput(record[field.fieldKey], field.fieldKey) ?? ''}}<sup
+                v-if="field.title === 'Age' && record['Death date']"
+                class="deceased-indicator"
+              >&dagger;<span class="deceased-label"> Deceased</span></sup></div>
             </div>
           </template>
         </div>
@@ -216,5 +216,17 @@ const mainCase = props.record.cases[0]
 
   .deceased-label { display: none; }
   &:hover .deceased-label { display: inline; }
+}
+
+/* Raised dagger next to the age, instead of the old absolutely-nudged span
+   that overlapped the number. Explicit values so a CSS reset cannot flatten
+   it back onto the baseline. */
+sup.deceased-indicator {
+  font-size: 0.65em;
+  line-height: 0;
+  position: relative;
+  top: -0.45em;
+  vertical-align: baseline;
+  margin-left: 0.15em;
 }
 </style>
