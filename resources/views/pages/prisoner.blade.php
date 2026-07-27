@@ -125,13 +125,14 @@
                 @php
                     // Assembled from the name parts, so it carries the middle
                     // name the display name usually leaves out (Robert Francis
-                    // Kennedy vs Robert F. Kennedy Jr.). Hidden when it adds
-                    // nothing over the heading.
+                    // Kennedy vs Robert F. Kennedy Jr.). Falls back to the
+                    // display name where no parts are stored, so the row is
+                    // always present.
                     $fullName = trim(implode(' ', array_filter([
                         $prisoner->first_name, $prisoner->middle_name, $prisoner->last_name,
-                    ])));
+                    ]))) ?: trim($prisoner->name);
                 @endphp
-                @if($fullName && $fullName !== trim($prisoner->name))
+                @if($fullName)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Full name:</span><span class="prisoner-meta-value">{{ $fullName }}</span></div>
                 @endif
                 @if($prisoner->birthdate)
