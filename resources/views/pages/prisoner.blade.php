@@ -122,6 +122,18 @@
 
             {{-- Meta info --}}
             <div class="prisoner-meta">
+                @php
+                    // Assembled from the name parts, so it carries the middle
+                    // name the display name usually leaves out (Robert Francis
+                    // Kennedy vs Robert F. Kennedy Jr.). Hidden when it adds
+                    // nothing over the heading.
+                    $fullName = trim(implode(' ', array_filter([
+                        $prisoner->first_name, $prisoner->middle_name, $prisoner->last_name,
+                    ])));
+                @endphp
+                @if($fullName && $fullName !== trim($prisoner->name))
+                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Full name:</span><span class="prisoner-meta-value">{{ $fullName }}</span></div>
+                @endif
                 @if($prisoner->birthdate)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Date of birth:</span><span class="prisoner-meta-value">{{ $prisoner->formatPartialDate('birthdate', 'd. m. Y') }}</span></div>
                 @endif
