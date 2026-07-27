@@ -113,16 +113,12 @@ class AddUndergroundRailroadPrisoners extends Command
                 'sentence' => 'Sentenced to a total of forty years in the Virginia penitentiary; he served about six years before being pardoned in March 1865 and returning home to Wilmington, Delaware.',
                 'incarceration' => [1858], 'release' => [1865, 3],
             ],
-            [
-                'name' => 'Thomas Garrett', 'first' => 'Thomas', 'last' => 'Garrett',
-                'race' => 'White', 'state' => 'Delaware', 'era' => '1840s',
-                'ideologies' => ['Abolitionism', 'Quaker'],
-                'bio' => 'Thomas Garrett was a Quaker stationmaster in Wilmington, Delaware who by his own account helped more than 2,700 freedom seekers, working closely with Harriet Tubman. In 1848 he and fellow stationmaster John Hunn were tried and convicted in federal court at New Castle for violating the fugitive-slave laws by aiding the escape of an enslaved family. The ruinous fines nearly bankrupted him; he reportedly told the court he would help any freedom seeker who came to him.',
-                'charges' => 'Violating the fugitive-slave laws — for illegally assisting six enslaved people (the Hawkins family) to escape.',
-                'convicted' => 'Yes — tried and convicted in federal court at the New Castle Court House (1848).',
-                'sentence' => 'Convicted of illegally assisting six enslaved people to escape and fined $1,500 — penalties that nearly bankrupted him; he told the court he would help any freedom seeker who came to him.',
-                'incarceration' => [1848],
-            ],
+            // Thomas Garrett is deliberately absent. The 1848 New Castle
+            // prosecution he shared with John Hunn ended in ruinous fines, not
+            // imprisonment — the entry that used to sit here carried an 1848
+            // incarceration date its own sentence text contradicted. Removed
+            // at the site owner's direction; do not re-add him without a
+            // source for actual custody.
             [
                 'name' => 'John Hunn', 'first' => 'John', 'last' => 'Hunn',
                 'race' => 'White', 'state' => 'Delaware', 'era' => '1840s',
