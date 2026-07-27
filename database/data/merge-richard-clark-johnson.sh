@@ -15,8 +15,9 @@
 # Johnson" with the middle name Clark in its own field (matching how Joseph W.
 # Smith is handled), keeping "Richard Clark Johnson" as an aka.
 #
-# Everything only the duplicate had is folded across first -- BOP number,
-# affiliation, ideologies, bio, photo, socials -- and its cases are moved to
+# The portrait from the "Richard Johnson" card is kept regardless of which
+# record survives. Everything only the duplicate had is folded across first --
+# BOP number, affiliation, ideologies, bio, socials -- and its cases are moved to
 # the survivor rather than deleted, so no case data is lost.
 #
 # Idempotent. Run from the repo root:
@@ -60,6 +61,13 @@ $score = function (Prisoner $x) {
 $keep = $matches->sortByDesc($score)->first();
 $dupes = $matches->reject(fn ($m) => $m->id === $keep->id);
 echo "\nsurvivor: {$keep->name} [{$keep->slug}]\n";
+
+// The portrait on the "Richard Johnson" card is the one to keep, whichever
+// record survives the merge. Captured before anything is deleted.
+$preferred = $matches->first(fn ($m) => $m->slug === "richard-johnson")
+    ?? $matches->first(fn ($m) => strtolower($m->name) === "richard johnson");
+$preferredPhoto = $preferred && $preferred->photo ? $preferred->photo : null;
+if ($preferredPhoto) { echo "  photo to keep: {$preferredPhoto} (from {$preferred->slug})\n"; }
 
 // --- Birthdate: keep the most precise; flag a genuine year disagreement ---
 $rank = ["day" => 3, "month" => 2, "year" => 1];
@@ -110,7 +118,7 @@ foreach ($dupes as $d) {
         $merged = array_values(array_unique(array_merge($a, $b)));
         if ($merged !== $a) { $keep->{$f} = $merged; echo "  {$f}: ".implode(", ", $merged)."\n"; }
     }
-    if ($d->photo && empty($keep->photo)) { $keep->photo = $d->photo; echo "  photo taken from {$d->slug}\n"; }
+    if (! $preferredPhoto && $d->photo && empty($keep->photo)) { $keep->photo = $d->photo; echo "  photo taken from {$d->slug}\n"; }
 
     // Move cases rather than dropping them -- overlapping copies are collapsed
     // afterwards by prisoners:dedupe-cases.
@@ -141,6 +149,22 @@ echo "  born:      ".($keep->birthdate ? $keep->birthdate->toDateString()." (".$
 echo "  ideology:  ".(is_array($keep->ideologies) ? implode(", ", $keep->ideologies) : "-")."\n";
 echo "  affil:     ".(is_array($keep->affiliation) ? implode(", ", $keep->affiliation) : "-")."\n";
 echo "  cases:     ".$keep->cases()->count()."\n";
+
+// Use the Richard Johnson portrait, copied to the survivor slug path.
+if ($preferredPhoto) {
+    $srcAbs = storage_path("app/public/{$preferredPhoto}");
+    $dstRel = "prisoners/{$keep->slug}.jpg";
+    if (is_file($srcAbs)) {
+        File::ensureDirectoryExists(dirname(storage_path("app/public/{$dstRel}")));
+        File::copy($srcAbs, storage_path("app/public/{$dstRel}"));
+        $keep->photo = $dstRel;
+        echo "  photo set from the Richard Johnson card -> {$dstRel}\n";
+    } else {
+        $keep->photo = $preferredPhoto;   // file not on disk here; keep the path
+        echo "  photo set from the Richard Johnson card -> {$preferredPhoto} (file not found on disk)\n";
+    }
+    $keep->save();
+}
 
 // Photo path follows the slug.
 if ($keep->photo) {
