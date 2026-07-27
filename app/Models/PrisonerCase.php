@@ -81,43 +81,69 @@ final class PrisonerCase extends Model
                 }
             }
 
-            if ($case->incarceration_date && $case->release_date) {
-                $case->imprisoned_for_days = (int) Carbon::parse($case->incarceration_date)
-                    ->diffInDays(Carbon::parse($case->release_date));
-            } elseif ($case->incarceration_date && ! $case->release_date) {
-                // No release date recorded. Only count up to today when the
-                // prisoner is actually still detained (in custody or awaiting
-                // trial); a released prisoner whose release date was never
-                // recorded has an unknown end, so leave it null rather than
-                // inflating "time served" all the way to the present. Mirrors
-                // the stats-chart logic in Prisoner::activeYears().
-                $prisoner = $case->prisoner;
-                $stillDetained = $prisoner && ($prisoner->in_custody || $prisoner->awaiting_trial);
-                $case->imprisoned_for_days = $stillDetained
-                    ? (int) Carbon::parse($case->incarceration_date)->diffInDays(Carbon::today())
-                    : null;
-            } else {
-                $case->imprisoned_for_days = null;
-            }
-
-            if ($case->in_exile_since && $case->end_of_exile) {
-                $case->in_exile_for_days = (int) Carbon::parse($case->in_exile_since)
-                    ->diffInDays(Carbon::parse($case->end_of_exile));
-            } elseif ($case->in_exile_since && ! $case->end_of_exile) {
-                // No end-of-exile recorded. Only count up to today when the
-                // prisoner is actually still in exile; a historical exile with
-                // an unknown end (return or death abroad never documented)
-                // stays null rather than counting to the present. Mirrors the
-                // released-without-release-date guard above.
-                $prisoner = $case->prisoner;
-                $stillExiled = $prisoner && $prisoner->currently_in_exile;
-                $case->in_exile_for_days = $stillExiled
-                    ? (int) Carbon::parse($case->in_exile_since)->diffInDays(Carbon::today())
-                    : null;
-            } else {
-                $case->in_exile_for_days = null;
-            }
+            $case->imprisoned_for_days = $case->computeImprisonedForDays();
+            $case->in_exile_for_days = $case->computeInExileForDays();
         });
+    }
+
+    /**
+     * Days in custody for this case, or null when they cannot be known.
+     *
+     * Both duration columns are stored, and this hook is the only thing that
+     * writes them — which means they are recomputed only when the *case* row
+     * is saved. Changing a flag on the prisoner (in_custody, awaiting_trial)
+     * changes what these should be without touching the case, so the stored
+     * value silently goes stale. prisoners:recompute-imprisonment re-runs this
+     * across the table; it calls the same method the hook does so the two can
+     * never drift apart.
+     */
+    public function computeImprisonedForDays(): ?int
+    {
+        if (! $this->incarceration_date) {
+            return null;
+        }
+
+        if ($this->release_date) {
+            return (int) Carbon::parse($this->incarceration_date)
+                ->diffInDays(Carbon::parse($this->release_date));
+        }
+
+        // No release date recorded. Only count up to today when the prisoner
+        // is actually still detained (in custody or awaiting trial); a
+        // released prisoner whose release date was never recorded has an
+        // unknown end, so leave it null rather than inflating "time served"
+        // all the way to the present. Mirrors the stats-chart logic in
+        // Prisoner::activeYears().
+        $prisoner = $this->prisoner;
+        $stillDetained = $prisoner && ($prisoner->in_custody || $prisoner->awaiting_trial);
+
+        return $stillDetained
+            ? (int) Carbon::parse($this->incarceration_date)->diffInDays(Carbon::today())
+            : null;
+    }
+
+    /** Days in exile for this case, or null when they cannot be known. */
+    public function computeInExileForDays(): ?int
+    {
+        if (! $this->in_exile_since) {
+            return null;
+        }
+
+        if ($this->end_of_exile) {
+            return (int) Carbon::parse($this->in_exile_since)
+                ->diffInDays(Carbon::parse($this->end_of_exile));
+        }
+
+        // No end-of-exile recorded. Only count up to today when the prisoner
+        // is actually still in exile; a historical exile with an unknown end
+        // (return or death abroad never documented) stays null rather than
+        // counting to the present. Mirrors the guard above.
+        $prisoner = $this->prisoner;
+        $stillExiled = $prisoner && $prisoner->currently_in_exile;
+
+        return $stillExiled
+            ? (int) Carbon::parse($this->in_exile_since)->diffInDays(Carbon::today())
+            : null;
     }
 
     public function prisoner(): BelongsTo
