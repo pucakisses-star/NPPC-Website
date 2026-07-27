@@ -1242,9 +1242,9 @@ final class SiteController extends Controller {
 
         // Search prisoners. Accent-insensitive so "Maria Cueto" matches
         // "María Cueto" (and the reverse).
-        $prisoners = AccentInsensitiveSearch::likeAny(
+        $prisoners = AccentInsensitiveSearch::allWords(
             Prisoner::query(),
-            ['name', 'aka', 'first_name', 'last_name', 'description'],
+            ['name', 'aka', 'first_name', 'middle_name', 'last_name', 'description'],
             $q,
         )
             ->limit(20)

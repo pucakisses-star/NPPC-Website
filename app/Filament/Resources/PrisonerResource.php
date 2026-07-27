@@ -183,9 +183,9 @@ class PrisonerResource extends Resource
                     // Accent-insensitive: "Maria Cueto" finds "María Cueto".
                     ->searchable(
                         ['name', 'first_name', 'last_name', 'aka'],
-                        query: fn (Builder $query, string $search): Builder => AccentInsensitiveSearch::likeAny(
+                        query: fn (Builder $query, string $search): Builder => AccentInsensitiveSearch::allWords(
                             $query,
-                            ['name', 'first_name', 'last_name', 'aka'],
+                            ['name', 'first_name', 'middle_name', 'last_name', 'aka'],
                             $search,
                         ),
                     )

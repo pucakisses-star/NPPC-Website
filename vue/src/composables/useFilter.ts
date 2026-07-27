@@ -11,7 +11,9 @@ const fold = (value?: string | null): string =>
     (value ?? '')
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase();
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, ' ');
 
 export function useFilter(): {
     checkPrisonerFilter: (prisoner: PrisonerRecord, buttonFilter: Ref<string>, cleanFilterObject?: Record<any, any>, nameSearch?: Ref<string>) => boolean
@@ -50,12 +52,14 @@ export function useFilter(): {
         }
 
         if(nameSearch && nameSearch.value) {
-            const needle = fold(nameSearch.value.trim());
-            if (needle) {
-                const name = fold(prisoner.name);
-                const aka = fold(prisoner.AKA);
+            // Every word must appear somewhere in the name or AKA, so
+            // "Joseph Smith" matches "Joseph William Smith" and word order
+            // does not matter.
+            const words = fold(nameSearch.value).split(' ').filter(Boolean);
+            if (words.length) {
+                const haystack = fold(prisoner.name) + ' ' + fold(prisoner.AKA);
 
-                if (!name.includes(needle) && !aka.includes(needle)) {
+                if (!words.every(word => haystack.includes(word))) {
                     return false;
                 }
             }

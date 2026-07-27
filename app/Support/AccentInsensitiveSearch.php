@@ -53,4 +53,31 @@ final class AccentInsensitiveSearch
             }
         });
     }
+
+    /**
+     * Match every word of the search term, each in any of the given columns,
+     * so a search does not have to be one contiguous substring: "Joseph
+     * Smith" finds "Joseph William Smith", and "cueto maria" finds "María
+     * Cueto" whatever the word order.
+     *
+     * Words are AND-ed (every word must appear somewhere) while columns are
+     * OR-ed per word, and the whole thing is wrapped in one group so
+     * surrounding constraints still apply.
+     *
+     * @param  string[]  $columns
+     */
+    public static function allWords(Builder $query, array $columns, string $term): Builder
+    {
+        $words = preg_split('/\s+/', trim($term), -1, PREG_SPLIT_NO_EMPTY) ?: [];
+
+        if (! $words) {
+            return $query;
+        }
+
+        return $query->where(function (Builder $outer) use ($columns, $words) {
+            foreach ($words as $word) {
+                $outer->where(fn (Builder $inner) => self::likeAny($inner, $columns, $word));
+            }
+        });
+    }
 }
