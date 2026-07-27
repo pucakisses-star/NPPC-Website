@@ -7,6 +7,7 @@
 #   Charge                   Civil contempt of court
 #   Institution              Norfolk County Jail, Dedham, Massachusetts
 #                            ->  Josephine County Jail, Grants Pass, Oregon
+#   Affiliation              Earth First! added
 #
 # The wrong institution is only detached from this case, never deleted -- other
 # prisoners may legitimately be held at Norfolk County Jail.
@@ -56,12 +57,19 @@ $p->in_custody = false;
 $p->awaiting_trial = false;
 $p->released = true;
 if (! $p->state) { $p->state = "Oregon"; }
+
+// Affiliation: Earth First! -- added without disturbing any existing entries.
+$affs = is_array($p->affiliation) ? $p->affiliation : [];
+if (! in_array("Earth First!", $affs, true)) { $affs[] = "Earth First!"; }
+$p->affiliation = array_values($affs);
+
 $p->save();
 
 echo "  institution: {$oldInst} -> {$inst->name}, {$inst->city}, {$inst->state}\n";
 echo "  incarcerated: {$oldInc} -> ".$c->incarceration_date."\n";
 echo "  released:     {$oldRel} -> ".$c->release_date."\n";
 echo "  charge:       {$c->charges}\n";
+echo "  affiliation:  ".implode(", ", $p->affiliation)."\n";
 echo "  days={$c->imprisoned_for_days} (expected 181)\n";
 
 \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
