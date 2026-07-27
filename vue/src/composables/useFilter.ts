@@ -1,6 +1,18 @@
 import type { Ref } from 'vue'
 import {PrisonerRecord} from "@/@types/types";
 
+/**
+ * Lower-case and strip diacritics, so searching "Maria Cueto" matches
+ * "María Cueto" (and typing the accents still matches the plain spelling).
+ * NFD splits accented characters into base letter + combining mark, which the
+ * regex then removes.
+ */
+const fold = (value?: string | null): string =>
+    (value ?? '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
+
 export function useFilter(): {
     checkPrisonerFilter: (prisoner: PrisonerRecord, buttonFilter: Ref<string>, cleanFilterObject?: Record<any, any>, nameSearch?: Ref<string>) => boolean
 } {
@@ -38,12 +50,12 @@ export function useFilter(): {
         }
 
         if(nameSearch && nameSearch.value) {
-            const nameSearchLower = nameSearch.value.trim().toLowerCase();
-            if (nameSearchLower) {
-                const prisonerNameLower = prisoner.name.toLowerCase();
-                const prisonerAKALower = prisoner.AKA?.toLowerCase();
+            const needle = fold(nameSearch.value.trim());
+            if (needle) {
+                const name = fold(prisoner.name);
+                const aka = fold(prisoner.AKA);
 
-                if (!prisonerNameLower.includes(nameSearchLower) && !prisonerAKALower?.includes(nameSearchLower)) {
+                if (!name.includes(needle) && !aka.includes(needle)) {
                     return false;
                 }
             }
