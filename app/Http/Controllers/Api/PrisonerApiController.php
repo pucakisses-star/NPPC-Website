@@ -105,7 +105,7 @@ class PrisonerApiController extends Controller
                     'id' => $prisoner->id,
                     'slug' => $prisoner->slug,
                     'name' => $prisoner->name,
-                    'Photo' => $prisoner->photo ? asset('storage/'.$prisoner->photo) : null,
+                    'Photo' => $prisoner->photoUrl(),
                     'Description' => $prisoner->description,
                     'Age' => $prisoner->age,
                     // The card's Birthday field shows a month + day, so only send a

@@ -72,6 +72,25 @@ final class Prisoner extends Model
         return ['birthdate', 'death_date'];
     }
 
+    /**
+     * Public URL for the photo, cache-busted by the file's modification time.
+     *
+     * Replacement photos are written to the same path (prisoners/{slug}.jpg),
+     * so without the ?v= stamp browsers and CDNs keep serving the previous
+     * image after a swap. Returns null when there is no photo.
+     */
+    public function photoUrl(): ?string
+    {
+        if (! $this->photo) {
+            return null;
+        }
+
+        $url = Storage::disk('public')->url($this->photo);
+        $path = Storage::disk('public')->path($this->photo);
+
+        return is_file($path) ? $url.'?v='.filemtime($path) : $url;
+    }
+
     public static function booted(): void
     {
         parent::booted();
