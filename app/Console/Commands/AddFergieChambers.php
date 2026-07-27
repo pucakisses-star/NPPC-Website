@@ -44,6 +44,7 @@ final class AddFergieChambers extends Command
             if ($existing) {
                 $this->warn('Skipped (already exists): '.$name);
                 $this->attachPhoto($existing);
+                $this->syncCustodyStatus($existing);
 
                 return;
             }
@@ -92,6 +93,11 @@ final class AddFergieChambers extends Command
                     .'to his financing of pro-Palestinian activism. Arrested in Ibiza, Spain, on July 10, 2026 at the '
                     .'request of the U.S. Department of Justice and held pending extradition.',
                 'arrest_date' => '2026-07-10',
+                // He was held from the day of the arrest, so the incarceration
+                // date is the same. Without it PrisonerCase::saving leaves
+                // imprisoned_for_days null — arrest_date alone never starts the
+                // detention counter.
+                'incarceration_date' => '2026-07-10',
                 'convicted' => 'Not convicted — charges pending. Held in Spanish custody after his July 10, 2026 arrest, '
                     .'awaiting an extradition hearing; he has not been tried.',
                 'sentence' => 'Faces up to 30 years in U.S. federal prison if extradited and convicted.',
@@ -103,6 +109,35 @@ final class AddFergieChambers extends Command
         });
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Re-assert the custody flags on a record that already existed.
+     *
+     * Every "in custody" list on the site reads prisoner.in_custody directly,
+     * so a record created by some other route — with the flag left false —
+     * would stay off those lists forever, because this command used to return
+     * from the already-exists branch without touching status. Also fills in a
+     * missing incarceration date from the arrest date: he was held from the
+     * day of the arrest, and imprisoned_for_days is computed from the
+     * incarceration date alone.
+     */
+    private function syncCustodyStatus(Prisoner $prisoner): void
+    {
+        if (! $prisoner->in_custody || $prisoner->released || ! $prisoner->awaiting_trial) {
+            $prisoner->in_custody = true;
+            $prisoner->awaiting_trial = true;
+            $prisoner->released = false;
+            $prisoner->save();
+            $this->info('  Custody status re-asserted (in custody, awaiting trial, not released)');
+        }
+
+        foreach ($prisoner->cases()->whereNull('incarceration_date')->whereNotNull('arrest_date')->get() as $case) {
+            $case->incarceration_date = $case->arrest_date;
+            $case->mirrorDatePrecision('arrest_date', 'incarceration_date');
+            $case->save();
+            $this->info('  Incarceration date set from the arrest date: '.$case->arrest_date->toDateString());
+        }
     }
 
     /** Copy the committed non-free portrait onto the public disk if the record has no photo. */
