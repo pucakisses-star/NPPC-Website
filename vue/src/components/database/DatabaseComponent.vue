@@ -45,6 +45,48 @@ watch([buttonFilter, cleanFilterObject, nameSearch, includeMinor], () => {
   visibleCount.value = 20;
 });
 
+// Auto-fallback to "All Cases" when the status filter is what emptied the
+// results. Picking an era like 1700s while "In Custody or Exiled" is selected
+// would otherwise show nothing, when the era itself has plenty of records --
+// so the status filter drops away rather than the page looking empty.
+// autoSwitchedFrom drives the notice, and is cleared as soon as the user
+// changes the status filter themselves.
+const autoSwitchedFrom = ref<string>('');
+
+const statusFilterLabels: Record<string, string> = {
+  imprisonedOrExiled: 'In Custody or Exiled',
+  inExile: 'In Exile',
+  inCustody: 'In Custody',
+  released: 'Released',
+  awaitingTrial: 'Awaiting Trial',
+};
+
+// Same filtering, but ignoring the status buttons -- tells us whether the
+// other filters on their own would have matched anything.
+const matchesWithoutStatus = computed(() => {
+  const noStatus = ref('');
+  return records.value.filter((record) => {
+    if (!includeMinor.value && record['Minor Case']) return false;
+    return checkPrisonerFilter(record, noStatus, cleanFilterObject, nameSearch);
+  }).length;
+});
+
+watch([filteredRecords, matchesWithoutStatus], () => {
+  if (
+    buttonFilter.value !== '' &&
+    filteredRecords.value.length === 0 &&
+    matchesWithoutStatus.value > 0
+  ) {
+    autoSwitchedFrom.value = statusFilterLabels[buttonFilter.value] ?? buttonFilter.value;
+    buttonFilter.value = '';
+  }
+});
+
+// A deliberate change of the status filter dismisses the notice.
+watch(buttonFilter, (value) => {
+  if (value !== '') autoSwitchedFrom.value = '';
+});
+
 onMounted(() => {
   observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && hasMore.value) {
@@ -74,6 +116,7 @@ const clearFilters = () => {
   filterObject.value = {};
   cleanFilterObject.value = {};
   buttonFilter.value = 'imprisonedOrExiled';
+  autoSwitchedFrom.value = '';
   // Force FiltersComponent to reset by incrementing a key
   filterKey.value++;
 };
@@ -118,6 +161,9 @@ watch(filterObject, (newValue, oldValue) => {
         <FiltersComponent class="flex-1" :key="filterKey" :filters="filterFieldsObj" v-model:model-value="filterObject"/>
         <button v-if="hasActiveFilters" @click="clearFilters" class="clear-filters-btn">Clear Filters</button>
       </div>
+      <div v-if="autoSwitchedFrom" class="auto-switch-notice" role="status" aria-live="polite">
+        No results for “{{ autoSwitchedFrom }}” with these filters — showing <strong>All Cases</strong> instead.
+      </div>
       <div class="results-row">
         <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
         <label class="include-minor">
@@ -153,6 +199,19 @@ watch(filterObject, (newValue, oldValue) => {
   border-color: #fff;
   background: rgba(255,255,255,0.1);
 }
+.auto-switch-notice {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-left: 3px solid rgba(255,255,255,0.55);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.04);
+}
+.auto-switch-notice strong { color: #fff; font-weight: 700; }
+
 .results-row {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
