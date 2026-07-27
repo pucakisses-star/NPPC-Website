@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 #
-# Christina Leigh Reid -- update the REAL record, and delete the duplicate
-# "Chris Reid" stub if it is still present.
+# Christina Reid -- update the REAL record (slug christina-reid), and delete
+# the duplicate "Chris Reid" stub if it is still present.
+#
+# The display name is "Christina Reid"; the middle name Leigh is stored in the
+# middle_name field rather than in the full name, which also keeps the public
+# URL /prisoner/christina-reid intact.
 #
 # The stub and the real record are the same person, so this picks a survivor
 # (preferring the record already named Christina Leigh Reid, otherwise the one
@@ -21,8 +25,8 @@
 #   Released      1994-06-21  (1,106 days, about 36 months of a 41-month
 #                 sentence -- consistent with federal good-conduct credit)
 #
-# The public URL is preserved: renaming would regenerate the slug, so the
-# existing slug is restored afterwards unless NEW_SLUG=1 is passed.
+# The existing slug is restored after saving as a safety net, in case the
+# record was named something else; NEW_SLUG=1 accepts the regenerated slug.
 #
 # Idempotent. Run from the repo root:
 #   bash database/data/update-christina-reid.sh
@@ -55,9 +59,9 @@ $score = function (Prisoner $x) {
 
     return $n * 10 + $x->cases->count();
 };
-$real = $matches->first(fn ($m) => strtolower($m->name) === "christina leigh reid")
-    ?? $matches->first(fn ($m) => $m->slug === "christina-reid")
+$real = $matches->first(fn ($m) => $m->slug === "christina-reid")
     ?? $matches->first(fn ($m) => strtolower($m->name) === "christina reid")
+    ?? $matches->first(fn ($m) => strtolower($m->name) === "christina leigh reid")
     ?? $matches->sortByDesc($score)->first();
 $dupes = $matches->reject(fn ($m) => $m->id === $real->id);
 
@@ -102,7 +106,9 @@ foreach ($dupes as $d) {
 }
 
 // --- Apply the corrected details to the real record ---
-$real->name = "Christina Leigh Reid";
+// Display name stays "Christina Reid" -- the middle name lives in its own
+// field, not in the full name -- which also keeps the slug christina-reid.
+$real->name = "Christina Reid";
 $real->first_name = "Christina";
 $real->middle_name = "Leigh";
 $real->last_name = "Reid";
@@ -115,7 +121,7 @@ $real->setPartialDate("birthdate", 1964, null, null);   // c. 1964 -- year only
 $real->in_custody = false;
 $real->awaiting_trial = false;
 $real->released = true;
-$real->description = "Christina Leigh Reid, known as Chris Reid, was an Irish republican prisoner held on United States federal charges relating to support for the Irish Republican Army, and imprisoned at FCI Pleasanton in California. Arrested on July 12, 1989, she was convicted on June 18, 1990 and sentenced on August 20, 1990 to 41 months. She entered custody in approximately June 1991 and was released on June 21, 1994. Her case was documented in the Prairie Fire Organizing Committee magazine Breakthrough.";
+$real->description = "Christina Reid, known as Chris Reid, was an Irish republican prisoner held on United States federal charges relating to support for the Irish Republican Army, and imprisoned at FCI Pleasanton in California. Arrested on July 12, 1989, she was convicted on June 18, 1990 and sentenced on August 20, 1990 to 41 months. She entered custody in approximately June 1991 and was released on June 21, 1994. Her case was documented in the Prairie Fire Organizing Committee magazine Breakthrough.";
 $oldSlug = $real->slug;
 $real->save();   // renaming regenerates the slug
 if ($oldSlug !== $real->slug && getenv("NEW_SLUG") !== "1") {
