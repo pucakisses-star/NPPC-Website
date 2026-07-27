@@ -8,6 +8,7 @@ use App\Filament\Resources\PrisonerResource\RelationManagers;
 use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Prisoner;
 use App\Models\Scopes\NotUnderReviewScope;
+use App\Support\AccentInsensitiveSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists;
@@ -179,7 +180,15 @@ class PrisonerResource extends Resource
                     ->size(50),
                 Tables\Columns\TextColumn::make('name')
                     ->description(fn (Prisoner $record): ?string => $record->aka ? "AKA: {$record->aka}" : null)
-                    ->searchable(['name', 'first_name', 'last_name', 'aka'])
+                    // Accent-insensitive: "Maria Cueto" finds "María Cueto".
+                    ->searchable(
+                        ['name', 'first_name', 'last_name', 'aka'],
+                        query: fn (Builder $query, string $search): Builder => AccentInsensitiveSearch::likeAny(
+                            $query,
+                            ['name', 'first_name', 'last_name', 'aka'],
+                            $search,
+                        ),
+                    )
                     ->sortable()
                     ->weight('bold'),
                 Tables\Columns\IconColumn::make('under_review')

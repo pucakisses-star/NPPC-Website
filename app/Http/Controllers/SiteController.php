@@ -14,6 +14,7 @@ use App\Models\Institution;
 use App\Models\Page;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
+use App\Support\AccentInsensitiveSearch;
 use App\Support\IncarcerationCostRates;
 use Carbon\Carbon;
 use App\Models\Product;
@@ -1239,10 +1240,13 @@ final class SiteController extends Controller {
             ];
         }
 
-        // Search prisoners
-        $prisoners = Prisoner::where('name', 'like', "%{$q}%")
-            ->orWhere('description', 'like', "%{$q}%")
-            ->orWhere('aka', 'like', "%{$q}%")
+        // Search prisoners. Accent-insensitive so "Maria Cueto" matches
+        // "María Cueto" (and the reverse).
+        $prisoners = AccentInsensitiveSearch::likeAny(
+            Prisoner::query(),
+            ['name', 'aka', 'first_name', 'last_name', 'description'],
+            $q,
+        )
             ->limit(20)
             ->get();
 
