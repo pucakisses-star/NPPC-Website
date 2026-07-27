@@ -21,8 +21,12 @@
 #   Released      1994-06-21  (1,106 days, about 36 months of a 41-month
 #                 sentence -- consistent with federal good-conduct credit)
 #
+# The public URL is preserved: renaming would regenerate the slug, so the
+# existing slug is restored afterwards unless NEW_SLUG=1 is passed.
+#
 # Idempotent. Run from the repo root:
 #   bash database/data/update-christina-reid.sh
+#   NEW_SLUG=1 bash database/data/update-christina-reid.sh   # adopt the new slug
 
 set -euo pipefail
 cd "$(dirname "$0")/../.."
@@ -32,9 +36,11 @@ use App\Models\Institution;
 use App\Models\Prisoner;
 use Illuminate\Support\Facades\File;
 
+// Matches the real record (slug christina-reid), the duplicate stub
+// (chris-reid) and any already-renamed variant, by slug or by name.
 $matches = Prisoner::withoutGlobalScopes()
-    ->where(fn ($q) => $q->whereIn("slug", ["christina-leigh-reid", "chris-reid"])
-        ->orWhereRaw("LOWER(name) IN (?, ?)", ["chris reid", "christina leigh reid"]))
+    ->where(fn ($q) => $q->whereIn("slug", ["christina-reid", "christina-leigh-reid", "chris-reid"])
+        ->orWhereRaw("LOWER(name) LIKE ? AND LOWER(name) LIKE ?", ["chris%", "%reid"]))
     ->with("cases")
     ->get();
 
@@ -50,6 +56,8 @@ $score = function (Prisoner $x) {
     return $n * 10 + $x->cases->count();
 };
 $real = $matches->first(fn ($m) => strtolower($m->name) === "christina leigh reid")
+    ?? $matches->first(fn ($m) => $m->slug === "christina-reid")
+    ?? $matches->first(fn ($m) => strtolower($m->name) === "christina reid")
     ?? $matches->sortByDesc($score)->first();
 $dupes = $matches->reject(fn ($m) => $m->id === $real->id);
 
@@ -108,8 +116,16 @@ $real->in_custody = false;
 $real->awaiting_trial = false;
 $real->released = true;
 $real->description = "Christina Leigh Reid, known as Chris Reid, was an Irish republican prisoner held on United States federal charges relating to support for the Irish Republican Army, and imprisoned at FCI Pleasanton in California. Arrested on July 12, 1989, she was convicted on June 18, 1990 and sentenced on August 20, 1990 to 41 months. She entered custody in approximately June 1991 and was released on June 21, 1994. Her case was documented in the Prairie Fire Organizing Committee magazine Breakthrough.";
-$real->save();   // regenerates the slug from the corrected name
-echo "\nupdated: {$real->name} (aka {$real->aka}), Female, BOP {$real->inmate_number}, born c.1964, slug {$real->slug}\n";
+$oldSlug = $real->slug;
+$real->save();   // renaming regenerates the slug
+if ($oldSlug !== $real->slug && getenv("NEW_SLUG") !== "1") {
+    // Keep the existing public URL (/prisoner/christina-reid) working.
+    // Pass NEW_SLUG=1 to adopt the slug generated from the new name.
+    $real->slug = $oldSlug;
+    $real->save();
+    echo "\nslug kept as {$oldSlug} so the existing URL keeps working (NEW_SLUG=1 to change it).\n";
+}
+echo "updated: {$real->name} (aka {$real->aka}), Female, BOP {$real->inmate_number}, born c.1964, slug {$real->slug}\n";
 
 $inst = Institution::firstOrCreate(
     ["name" => "FCI Pleasanton"],
