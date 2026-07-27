@@ -383,7 +383,7 @@
         @foreach($featuredPrisoners as $prisoner)
             <a href="/prisoner/{{ $prisoner->slug ?? $prisoner->id }}" class="lm-case-card">
                 @if($prisoner->photo)
-                    <div class="lm-case-photo" style="background-image: url('{{ asset('storage/'.$prisoner->photo) }}');"></div>
+                    <div class="lm-case-photo" style="background-image: url('{{ $prisoner->photoUrl() }}');"></div>
                 @else
                     <div class="lm-case-photo-placeholder">
                         <img src="/images/no-image-available.svg" alt="No image available" style="width:60%; height:auto; opacity:0.8;">

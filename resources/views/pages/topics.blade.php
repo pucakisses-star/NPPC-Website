@@ -346,7 +346,7 @@
                     @foreach($relatedPrisoners as $prisoner)
                         <div class="tpx-case">
                             @if($prisoner->photo)
-                                <img src="{{ asset('storage/' . $prisoner->photo) }}" class="tpx-case-photo" alt="">
+                                <img src="{{ $prisoner->photoUrl() }}" class="tpx-case-photo" alt="">
                             @else
                                 <div class="tpx-case-photo"></div>
                             @endif

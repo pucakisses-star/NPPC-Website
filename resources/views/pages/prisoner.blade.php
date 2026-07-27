@@ -5,14 +5,14 @@
 @section('meta_description'){{ $prisoner->name }}{{ $prisoner->aka ? ' (AKA '.$prisoner->aka.')' : '' }} — {{ substr(strip_tags($prisoner->description ?? ''), 0, 155) }}@endsection
 
 @if($prisoner->photo)
-@section('og_image'){{ asset('storage/'.$prisoner->photo) }}@endsection
+@section('og_image'){{ $prisoner->photoUrl() }}@endsection
 @endif
 
 @section('head')
 <meta name="description" content="{{ $prisoner->name }}{{ $prisoner->aka ? ' (AKA '.$prisoner->aka.')' : '' }} — {{ substr(strip_tags($prisoner->description ?? ''), 0, 155) }}">
 <meta property="og:title" content="{{ $prisoner->name }} — NPPC">
 <meta property="og:description" content="{{ substr(strip_tags($prisoner->description ?? ''), 0, 200) }}">
-@if($prisoner->photo)<meta property="og:image" content="{{ asset('storage/'.$prisoner->photo) }}">@endif
+@if($prisoner->photo)<meta property="og:image" content="{{ $prisoner->photoUrl() }}">@endif
 <meta property="og:url" content="{{ url('/prisoner/'.$prisoner->slug) }}">
 <meta property="og:type" content="profile">
 <style>
@@ -212,7 +212,7 @@
         <div class="prisoner-photo-col">
             @if($prisoner->photo)
                 <div class="prisoner-photo">
-                    <img src="{{ asset('storage/' . $prisoner->photo) }}" alt="{{ $prisoner->name }}" decoding="async">
+                    <img src="{{ $prisoner->photoUrl() }}" alt="{{ $prisoner->name }}" decoding="async">
                 </div>
             @else
                 <div class="prisoner-photo-placeholder">
