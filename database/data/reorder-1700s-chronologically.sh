@@ -12,7 +12,8 @@
 # Chronology key: the earliest dated event across a prisoner cases
 # (incarceration_date, arrest_date, sentenced_date, in_exile_since), falling
 # back to a 4-digit year in the era string. Undated records sort to the bottom
-# of the block (oldest end); ties break on name.
+# of the block (oldest end); records sharing a year are shuffled randomly, not
+# alphabetised, so each preview reshuffles same-year cohorts.
 #
 # Records still at sort_order 0 are NOT touched -- run the placement commands
 # first (prisoners:place-zero-sort / prisoners:auto-place-zero-sort).
@@ -67,10 +68,17 @@ $yearOf = function (Prisoner $p) {
 $slots = $placed->pluck("sort_order")->map(fn ($s) => (int) $s)->sort()->values()->all();
 
 // Newest first: descending year, undated last, name as tiebreaker.
-$ordered = $placed->sortBy([
-    fn ($a, $b) => ($yearOf($b) ?? -1) <=> ($yearOf($a) ?? -1),
-    fn ($a, $b) => strcmp((string) $a->name, (string) $b->name),
-])->values();
+// Newest first. Records sharing a year (and the undated group) are shuffled
+// randomly rather than alphabetised, so same-year cohorts do not read as an
+// A-Z list. Chronology always wins over the shuffle.
+$buckets = [];
+foreach ($placed as $p) { $buckets[$yearOf($p) ?? 0][] = $p; }
+krsort($buckets);            // newest year first; undated (key 0) lands last
+$ordered = collect();
+foreach ($buckets as $bucket) {
+    shuffle($bucket);
+    foreach ($bucket as $p) { $ordered->push($p); }
+}
 
 echo "Planned order (top of list first):\n";
 $moves = [];
