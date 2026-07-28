@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Cache;
 final class RecomputeImprisonmentDays extends Command
 {
     protected $signature = 'prisoners:recompute-imprisonment
-        {--slug= : Limit to one prisoner, and print the full profile-page math}
+        {--slug= : Limit to these prisoners (comma-separated), and print the full profile-page math for each}
         {--apply : Write the corrected values (default is a dry run)}';
 
     protected $description = 'Recompute stored imprisoned_for_days / in_exile_for_days and report anything stale';
@@ -44,17 +44,25 @@ final class RecomputeImprisonmentDays extends Command
     public function handle(): int
     {
         $apply = (bool) $this->option('apply');
-        $slug = $this->option('slug');
+
+        $slugs = array_values(array_filter(array_map(
+            'trim',
+            explode(',', (string) $this->option('slug')),
+        )));
 
         $prisoners = Prisoner::withoutGlobalScopes()
-            ->when($slug, fn ($q) => $q->where('slug', $slug))
+            ->when($slugs, fn ($q) => $q->whereIn('slug', $slugs))
             ->with('cases')
             ->get();
 
-        if ($slug && $prisoners->isEmpty()) {
-            $this->error("No prisoner with slug: {$slug}");
-
-            return self::FAILURE;
+        if ($slugs) {
+            $missing = array_diff($slugs, $prisoners->pluck('slug')->all());
+            if ($missing) {
+                $this->error('No prisoner with slug: '.implode(', ', $missing));
+            }
+            if ($prisoners->isEmpty()) {
+                return self::FAILURE;
+            }
         }
 
         $changed = 0;
@@ -91,7 +99,7 @@ final class RecomputeImprisonmentDays extends Command
                 }
             }
 
-            $this->report($prisoner, $rows, (bool) $slug);
+            $this->report($prisoner, $rows, (bool) $slugs);
         }
 
         if ($apply && $changed > 0) {
