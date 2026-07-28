@@ -38,6 +38,14 @@
 #   2005 resentencing, and says in its own text that the custody is counted
 #   once, next door.
 #
+# THE AKA IS REMOVED.
+#   The record carried "Dr. Chaos" as an AKA, which showed as an italic line
+#   under his name on the profile. It is cleared. The alias still appears in
+#   the biography, where the sentence explains what it was, so nothing is lost
+#   except the standalone byline. This runs whether the AKA currently reads
+#   "Dr. Chaos" or the "Dr. Ch@os (Dr. Chaos)" form an earlier version of this
+#   script wrote.
+#
 # NOT CHANGED
 #   State stays Illinois -- that is where he was arrested and where the case
 #   holding the custody dates was prosecuted, even though he was a Wisconsin
@@ -81,7 +89,7 @@ foreach ($p->cases as $c) {
 $p->first_name = "Joseph";
 $p->middle_name = "D.";
 $p->last_name = "Konopka";
-$p->aka = "Dr. Ch@os (Dr. Chaos)";
+$p->aka = null;   // the Dr. Chaos AKA is removed; the alias stays in the biography
 $p->gender = "Male";
 $p->era = "2000s";
 $p->affiliation = ["Realm of Ch@os"];
@@ -121,7 +129,7 @@ $wisconsin->save();
 // ---- receipt ---------------------------------------------------------------
 $p->refresh()->load("cases");
 echo "\nAFTER\n";
-echo "  {$p->name}  [{$p->slug}]   AKA {$p->aka}\n";
+echo "  {$p->name}  [{$p->slug}]   AKA ".($p->aka ?: "(removed)")."\n";
 echo "  born ".$p->formatPartialDate("birthdate")."   age {$p->age}\n";
 $total = 0;
 foreach ($p->cases as $c) {
