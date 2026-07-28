@@ -23,7 +23,13 @@
 # the top. The frame is gone now; the light grey at the edges is the
 # photographer’s backdrop, not the print.
 #
-# Crop is 42,64 to 632,801 -- 590x737, four by five, starting below the tear.
+# Crop is 42,56 to 632,978 -- 590x922, the whole photograph with the margin
+# taken off and nothing of the picture removed. It is NOT forced to four by
+# five: an earlier pass squared the frame up to that ratio and the bottom edge
+# cut off his shirt collar. The print is a tall portrait and it stays one. The
+# top starts ten pixels inside the margin, which drops a small tear at the edge
+# of the mount without touching his hair.
+#
 # Contrast stretched slightly, nothing else altered, native resolution with no
 # upscaling.
 #
