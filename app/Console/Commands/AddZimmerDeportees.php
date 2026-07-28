@@ -7,77 +7,75 @@ use App\Models\Institution;
 use App\Models\Prisoner;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 /**
- * Import the First Red Scare deportees from Kenyon Zimmer's "Red Scare
- * Deportees" index (kenyonzimmer.com/red-scare-deportees), a scholarly
- * database built from INS deportation case files.
+ * Import and enrich the First Red Scare deportees from Kenyon Zimmer's
+ * "Red Scare Deportees" index (kenyonzimmer.com/red-scare-deportees), a
+ * scholarly database built from INS deportation case files.
  *
- * The roster ships as database/data/zimmer-deportees.json: 702 people
- * deported as alien radicals in 1919-1922, parsed from all 89 pages of
- * the index, with 45 people already in the database excluded at build
- * time (Emma Goldman, Berkman, the Abrams defendants, the Magonistas and
- * others), 86 excluded because the source gives no deportation date, and
- * a handful of unusable entries (illegible surnames) dropped.
+ * The roster ships as database/data/zimmer-deportees.json -- 746 records
+ * parsed from all 89 pages of the index -- plus 100 portrait photographs
+ * (mugshots, prison photos, newspaper portraits) under
+ * database/data/photos/zimmer/, hand-verified as portraits of the person
+ * rather than document scans (membership cards, fliers and the like are
+ * excluded).
  *
- * CUSTODY IS RECORDED CONSERVATIVELY, in three tiers:
+ * TWO KINDS OF RECORD:
  *
- *   span (173)   Arrested in the 1919 Palmer Raids and deported on the
- *                Buford transport of December 21, 1919, with no mention
- *                of bail: the detention from arrest to sailing --
- *                principally at Ellis Island -- is documented for this
- *                group, so incarceration and release dates are set and
- *                the counter runs. Institution: Ellis Island Immigration
- *                Station (the name the database already uses).
+ *   NEW (716)     Deportees not in the database. Full record: composed
+ *                 facts header plus the index's biographical narrative,
+ *                 with attribution; birth year (year precision, "c."
+ *                 kept approximate); affiliations mapped onto existing
+ *                 taxonomy (Union of Russian Workers, IWW, Communist
+ *                 Party USA, Partido Liberal Mexicano, Socialist Party
+ *                 of America); portrait attached where one exists (67).
+ *                 Custody in three conservative tiers: 176 Palmer Raid
+ *                 arrestees deported on the Buford with no bail mention
+ *                 get the documented arrest-to-sailing detention (Ellis
+ *                 Island Immigration Station) and a running counter; 331
+ *                 arrest-date-only; 209 exile-only. Every record gets
+ *                 in_exile_since = the deportation date, with no end of
+ *                 exile invented.
  *
- *   arrest (324) An arrest date is documented but continuous detention
- *                between arrest and deportation is not (or bail is
- *                mentioned): the arrest date is set, the counter stays
- *                empty, and the case text says why.
+ *   ENRICH (30)   Deportees already in the database (Goldman, Berkman,
+ *                 Steimer, Galleani...). NOTHING IS OVERWRITTEN: a
+ *                 portrait is attached only if the record has no photo
+ *                 (24 available), the birth year is set only if the
+ *                 field is empty, and affiliations are merged in without
+ *                 removing existing ones. Bios are left alone.
  *
- *   exile (205)  Only the deportation is dated. No custody fields at
- *                all; the deportation is recorded as exile.
+ * MATCHING is accent-insensitive on name and alias, but only multi-word
+ * keys count and matched records must sit in a plausible era -- single
+ * -word aliases and era mismatches produced false matches (a 1919
+ * deportee is not the 2000s Vieques protester who shares his name).
+ * Three new records carry force_new because their names collide with
+ * unrelated existing records (Jose Angel Hernandez, Johan Johanson,
+ * Carl Larson); the slug generator disambiguates them.
  *
- * EXILE: every record gets in_exile_since = the deportation date. No end
- * of exile is set -- most never returned -- so the exile counter does not
- * run open-ended for people long dead (the same released-without-a-date
- * rule the imprisonment counter uses).
- *
- * Bios are composed from the structured facts of each entry (birth,
- * occupation, migration, affiliation, arrest, ship, destination) with
- * attribution to Zimmer's index -- they are not copied from the site's
- * narrative text.
- *
- * Birth years (many "c." approximations) are stored at YEAR precision;
- * unknown day/month is never invented. Deportation dates are full dates.
- *
- * Idempotent: existing records (matched by normalized name or AKA,
- * accent-insensitive) are skipped at runtime as well. Dry-run by
- * default:
+ * Idempotent, dry-run by default:
  *
  *   php artisan prisoners:add-zimmer-deportees
  *   php artisan prisoners:add-zimmer-deportees --apply
  */
 final class AddZimmerDeportees extends Command
 {
-    protected $signature = 'prisoners:add-zimmer-deportees {--apply : Create the records}';
+    protected $signature = 'prisoners:add-zimmer-deportees {--apply : Create and enrich the records}';
 
-    protected $description = 'Import First Red Scare deportees from Kenyon Zimmer\'s Red Scare Deportees index';
+    protected $description = 'Import and enrich First Red Scare deportees from Kenyon Zimmer\'s Red Scare Deportees index';
 
     public function handle(): int
     {
         $apply = (bool) $this->option('apply');
 
-        $path = database_path('data/zimmer-deportees.json');
-        $roster = json_decode(file_get_contents($path), true);
+        $roster = json_decode(file_get_contents(database_path('data/zimmer-deportees.json')), true);
         if (! is_array($roster)) {
-            $this->error('Could not read '.$path);
+            $this->error('Could not read zimmer-deportees.json');
 
             return self::FAILURE;
         }
 
-        // Runtime duplicate check against every existing name and AKA.
         $existing = [];
         foreach (Prisoner::withoutGlobalScopes()->get(['name', 'aka']) as $p) {
             foreach ([$p->name, $p->aka] as $n) {
@@ -93,25 +91,36 @@ final class AddZimmerDeportees extends Command
                 ['name' => 'Ellis Island Immigration Station'],
                 ['city' => 'New York', 'state' => 'New York'],
             );
+            File::ensureDirectoryExists(storage_path('app/public/prisoners'));
         }
 
         $created = 0;
         $skipped = 0;
+        $enriched = 0;
+        $photosAttached = 0;
         $tiers = ['span' => 0, 'arrest' => 0, 'exile' => 0];
 
         foreach ($roster as $r) {
-            $keys = array_filter([$this->norm($r['name']), $r['aka'] ? $this->norm($r['aka']) : null]);
-            $isDup = false;
-            foreach ($keys as $k) {
-                if (isset($existing[$k])) {
-                    $isDup = true;
-                }
-            }
-            if ($isDup) {
-                $this->line('  skip (exists): '.$r['name']);
-                $skipped++;
+            if ($r['enrich_only']) {
+                $enriched += $this->enrich($r, $apply, $photosAttached) ? 1 : 0;
 
                 continue;
+            }
+
+            $keys = array_filter([$this->norm($r['name']), $r['aka'] ? $this->norm($r['aka']) : null]);
+            if (empty($r['force_new'])) {
+                $isDup = false;
+                foreach ($keys as $k) {
+                    if (isset($existing[$k])) {
+                        $isDup = true;
+                    }
+                }
+                if ($isDup) {
+                    $this->line('  skip (exists): '.$r['name']);
+                    $skipped++;
+
+                    continue;
+                }
             }
 
             $c = $r['case'];
@@ -126,7 +135,6 @@ final class AddZimmerDeportees extends Command
                     'last_name' => $r['last_name'],
                     'aka' => $r['aka'],
                     'description' => $r['description'],
-                    'gender' => null,
                     'era' => $r['era'],
                     'ideologies' => $r['ideologies'] ?: null,
                     'affiliation' => $r['affiliations'] ?: null,
@@ -140,6 +148,10 @@ final class AddZimmerDeportees extends Command
                     $p->setPartialDate('birthdate', (int) $r['birth_year']);
                 }
                 $p->save();
+
+                if ($r['photo']) {
+                    $this->attachPhoto($p, $r['photo']) && $photosAttached++;
+                }
 
                 $case = $p->cases()->make([
                     'charges' => $c['charges'],
@@ -155,8 +167,6 @@ final class AddZimmerDeportees extends Command
                 }
                 $case->save();
 
-                // Keep the runtime index current so roster-internal
-                // duplicates cannot slip through either.
                 foreach ($keys as $k) {
                     $existing[$k] = true;
                 }
@@ -165,16 +175,74 @@ final class AddZimmerDeportees extends Command
         }
 
         $this->newLine();
-        $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); skipped {$skipped} already present.");
-        $this->info("Custody tiers: {$tiers['span']} with a documented detention span (Buford/Ellis Island), {$tiers['arrest']} arrest-date-only, {$tiers['exile']} exile-only.");
+        $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); enriched {$enriched} existing; skipped {$skipped}; ".($apply ? "{$photosAttached} photo(s) attached." : 'photos attach on --apply.'));
+        $this->info("Custody tiers: {$tiers['span']} detention-span (Buford/Ellis Island), {$tiers['arrest']} arrest-only, {$tiers['exile']} exile-only.");
         if (! $apply) {
-            $this->info('Dry run. Re-run with --apply to create the records.');
+            $this->info('Dry run. Re-run with --apply.');
         } else {
             Cache::forget(PrisonerApiController::cacheKey());
-            $this->info('Done. Run php artisan prisoners:place-zero-sort-by-year --apply to place the new records in the archive order.');
+            $this->info('Done. Run php artisan prisoners:place-zero-sort-by-year --apply to place the new records.');
         }
 
         return self::SUCCESS;
+    }
+
+    /** Fill gaps on an existing record without overwriting anything. */
+    private function enrich(array $r, bool $apply, int &$photosAttached): bool
+    {
+        $p = Prisoner::withoutGlobalScopes()->where('slug', $r['existing_slug'])->first();
+        if (! $p) {
+            $this->warn('  enrich target missing: '.$r['existing_slug']);
+
+            return false;
+        }
+
+        $actions = [];
+        if ($r['photo'] && ! $p->photo) {
+            $actions[] = 'photo';
+        }
+        if ($r['birth_year'] && ! $p->birthdate) {
+            $actions[] = 'birth '.$r['birth_year'];
+        }
+        $merged = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: [])));
+        if ($merged !== ($p->affiliation ?: [])) {
+            $actions[] = 'affiliations';
+        }
+
+        if (! $actions) {
+            return false;
+        }
+        $this->line('  enrich '.$p->slug.': '.implode(', ', $actions));
+
+        if ($apply) {
+            if (in_array('photo', $actions, true)) {
+                $this->attachPhoto($p, $r['photo']) && $photosAttached++;
+            }
+            if ($r['birth_year'] && ! $p->birthdate) {
+                $p->setPartialDate('birthdate', (int) $r['birth_year']);
+            }
+            $p->affiliation = $merged ?: null;
+            $p->save();
+        }
+
+        return true;
+    }
+
+    private function attachPhoto(Prisoner $p, string $file): bool
+    {
+        $src = database_path('data/photos/zimmer/'.$file);
+        if (! is_file($src)) {
+            $this->warn('  photo file missing: '.$file);
+
+            return false;
+        }
+        $dest = 'prisoners/'.$p->slug.'.jpg';
+        File::copy($src, storage_path('app/public/'.$dest));
+        touch(storage_path('app/public/'.$dest));
+        $p->photo = $dest;
+        $p->save();
+
+        return true;
     }
 
     private function norm(string $s): string
