@@ -47,7 +47,8 @@ class ConsolidateIdeologies extends Command
         'Anti-fascist' => 'Anti-fascism',
         'Antifascist' => 'Anti-fascism',
         'Anti-Nuclear' => 'Anti-nuclear',
-        'Pacifist' => 'Pacifism',
+        'Pacifist' => 'Anti-War',
+        'Pacifism' => 'Anti-War',
         'Conscientious objection' => 'Conscientious Objection',
         'Communist' => 'Communism',
         'Socialist' => 'Socialism',
@@ -185,7 +186,7 @@ class ConsolidateIdeologies extends Command
         // --- broad-vs-variant belief merges ---
         'Labor' => 'Labor organizing',
         'Unionism' => 'Trade unionism',
-        'Nonviolence' => 'Pacifism',
+        'Nonviolence' => 'Anti-War',
         'Native American' => 'Indigenous Sovereignty',
         // whole Indigenous cluster collapsed to one canonical
         'Indigenous rights' => 'Indigenous Sovereignty',
