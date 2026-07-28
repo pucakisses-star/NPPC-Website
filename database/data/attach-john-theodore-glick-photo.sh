@@ -15,10 +15,19 @@
 # only person in focus and the caption names only him.
 #
 # The scan carried the white page margins of the archive print and a small tear
-# at the top edge. Both were cropped off (content box detected at 40,44 to
-# 633,979; the crop starts below the tear at y=62) and the contrast was
-# stretched slightly. Nothing else was altered, and the image is used at its
-# native resolution with no upscaling.
+# at the top edge. Both are cropped off. The margin was found by taking every
+# row and column that is not almost pure white end to end, giving a content box
+# of 42,46 to 632,978, then stepping two pixels further in so the anti-aliased
+# transition pixels along the edge of the mount go with it -- an earlier pass
+# used a looser threshold and left a pale strip down the left side and across
+# the top. The frame is gone now; the light grey at the edges is the
+# photographer’s backdrop, not the print.
+#
+# Crop is 42,64 to 632,801 -- 590x737, four by five, starting below the tear.
+# Contrast stretched slightly, nothing else altered, native resolution with no
+# upscaling.
+#
+# Re-run with FORCE=1 to replace an already-attached earlier version.
 #
 # Only attached where the record has no photo; FORCE=1 replaces regardless.
 #
