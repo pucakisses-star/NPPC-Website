@@ -72,7 +72,7 @@ for s in fix-walter-matthey fix-david-elmakayes fix-eric-hafner fix-alissa-azar 
          fix-george-meyers fix-jane-speed-de-andreu fix-aurelio-tolentino \
          fix-bradford-lyttle set-kolton-krottinger-photo \
          add-merrimack-four-photos fix-merrimack-four-custody \
-         set-judith-miller-photo; do
+         set-judith-miller-photo fix-lucy-fowlkes fix-sami-hamdi; do
     if [ -f "database/data/${s}.sh" ]; then
         echo
         echo "--- ${s}"
