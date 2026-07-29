@@ -1,6 +1,22 @@
 #!/usr/bin/env bash
 #
-# Jane Speed de Andreu -- portrait and five documented custody episodes.
+# Jane Speed de Andreu -- life dates, portrait and five documented
+# custody episodes.
+#
+# LIFE DATES: born 1910, died 1958, both at YEAR PRECISION because
+# neither a day nor a month was supplied. Middle initial K.
+#
+# The years fit the record: she was twenty-three when she addressed the
+# Birmingham May Day demonstration in 1933 and went to jail rather than
+# pay the fine, and forty-four at the Arecibo and Smith Act arrests of
+# 1954. She died at forty-eight in 1958 -- the same year the Smith Act
+# prosecution against her was withdrawn and archived, so the case
+# outlived her only by months, if at all.
+#
+# The display name is left as Jane Speed de Andreu. The initial goes in
+# the middle-name field rather than into the title, since what was
+# supplied is the initial itself and not a rendering of how her name
+# should read on the site.
 #
 # The record held a single dateless Smith Act case, so a woman jailed on
 # at least five occasions across twenty-one years showed an imprisonment
@@ -92,14 +108,17 @@ if (! $p) {
 }
 
 $p->first_name = "Jane";
+$p->middle_name = "K.";
 $p->last_name = "Speed";
 $p->gender = "Female";
+$p->setPartialDate("birthdate", 1910);
+$p->setPartialDate("death_date", 1958);
 $p->race = "White";
 $p->in_custody = false;
 $p->released = true;
 $p->awaiting_trial = false;
 $p->ideologies = ["Communism", "Civil Rights", "Anti-War", "Civil Liberties"];
-$p->description = "Jane Speed de Andreu was an Alabama-born Communist organizer who was jailed on at least five occasions between 1933 and 1954, in Birmingham, New York and Puerto Rico. She came from an old Alabama family and worked in the sharecroppers and anti-Jim Crow struggles of the 1930s South. On May 1, 1933 she addressed the interracial May Day demonstration in Birmingham and was arrested; convicted of disorderly conduct, of speaking without a permit and of violating the city ordinances forbidding unsegregated public assemblies, she was offered a fine and chose jail instead, serving fifty-three days. In September 1935 she and Julia Church Kolar were arrested after entering the Italian Consulate in New York to protest Mussolinis planned invasion of Ethiopia; both were convicted and given suspended sentences. She later moved to Puerto Rico and married the Communist writer Cesar Andreu Iglesias. Police arrested her in Santurce on July 14, 1950, with Manuel Arroyo Zeppenfeldt and Ana Livia Cordero, while they gathered signatures on a petition against use of the atomic bomb. In the roundup that followed the March 1954 attack on the United States Capitol she was seized at dawn on March 7 and held three weeks in the Arecibo Womens Jail without ever being formally charged. On October 20, 1954 she was arrested again, with her husband, in the federal Smith Act roundup, and was indicted a week later as the only continental defendant among the eleven charged in the first Smith Act prosecution ever brought in Puerto Rico. The case was tried in San Juan in 1956 in English, a language most of the defendants could not follow; the prosecution was withdrawn and archived in 1958 without a conviction against her.";
+$p->description = "Jane Speed de Andreu was an Alabama-born Communist organizer who was jailed on at least five occasions between 1933 and 1954, in Birmingham, New York and Puerto Rico. She came from an old Alabama family and worked in the sharecroppers and anti-Jim Crow struggles of the 1930s South. On May 1, 1933 she addressed the interracial May Day demonstration in Birmingham and was arrested; convicted of disorderly conduct, of speaking without a permit and of violating the city ordinances forbidding unsegregated public assemblies, she was offered a fine and chose jail instead, serving fifty-three days. In September 1935 she and Julia Church Kolar were arrested after entering the Italian Consulate in New York to protest Mussolinis planned invasion of Ethiopia; both were convicted and given suspended sentences. She later moved to Puerto Rico and married the Communist writer Cesar Andreu Iglesias. Police arrested her in Santurce on July 14, 1950, with Manuel Arroyo Zeppenfeldt and Ana Livia Cordero, while they gathered signatures on a petition against use of the atomic bomb. In the roundup that followed the March 1954 attack on the United States Capitol she was seized at dawn on March 7 and held three weeks in the Arecibo Womens Jail without ever being formally charged. On October 20, 1954 she was arrested again, with her husband, in the federal Smith Act roundup, and was indicted a week later as the only continental defendant among the eleven charged in the first Smith Act prosecution ever brought in Puerto Rico. The case was tried in San Juan in 1956 in English, a language most of the defendants could not follow; the prosecution was withdrawn and archived in 1958 without a conviction against her. She was born in 1910 and died in 1958, at forty-eight, the same year the case against her was dropped.";
 $p->save();
 
 $src = database_path("data/photos/nonfree/jane-speed-de-andreu.jpg");
@@ -181,7 +200,8 @@ foreach ($rows as [$marker, $charges, $sentence, $arrest, $incarceration, $relea
 }
 
 $p->refresh()->load("cases");
-echo "\n{$p->name}  [{$p->slug}]\n";
+echo "\n{$p->name}  [{$p->slug}]   middle name ".($p->middle_name ?: "-")."\n";
+echo "  born ".($p->formatPartialDate("birthdate") ?: "-")."   died ".($p->formatPartialDate("death_date") ?: "-")."   age ".($p->age ?? "-")."  (expect 1910, 1958, 48)\n";
 echo "  photo ".($p->photo ?: "(none)")."\n";
 $total = 0;
 foreach ($p->cases->sortBy("incarceration_date") as $c) {
