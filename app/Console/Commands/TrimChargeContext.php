@@ -200,6 +200,32 @@ final class TrimChargeContext extends Command
             $this->newLine();
             $this->warn('ZERO changes across '.$scanned.' values — diagnostic dump:');
             $this->line('  PHP '.PHP_VERSION.'  PCRE '.PCRE_VERSION);
+
+            // Self-test: run the rules on three strings that MUST trim. If
+            // these pass here while the table produces zero changes, the code
+            // is fine and the stored values differ from what the API shows;
+            // if they fail, the rules themselves misbehave in this
+            // environment and the failure mode is printed.
+            $selfTests = [
+                'Seditious libel — for articles in the newspaper attacking the governor over many months.' => 'Seditious libel.',
+                'Civil contempt of court — refusing to testify before the federal grand jury about sources.' => 'Civil contempt of court.',
+                'Trespass and disorderly conduct. He was arrested at the gate with eleven other activists there.' => 'Trespass and disorderly conduct.',
+            ];
+            foreach ($selfTests as $in => $want) {
+                $got = $this->shorten($in);
+                $this->line('  self-test: '.($got === $want ? 'PASS' : 'FAIL — got: '.rawurlencode($got)));
+            }
+
+            // And one known row, bytes on the wire: the Zenger charges were
+            // written by this repo and must contain a spaced em dash.
+            $zenger = \App\Models\Prisoner::withoutGlobalScopes()->where('slug', 'john-peter-zenger')->with('cases')->first();
+            if ($zenger && $zenger->cases->first()) {
+                $zc = (string) $zenger->cases->first()->charges;
+                $this->line('  zenger stored charges ('.strlen($zc).' bytes): '.rawurlencode(substr($zc, 0, 140)));
+                $this->line('  zenger shorten() result: '.rawurlencode(substr($this->shorten($zc), 0, 140)));
+            } else {
+                $this->line('  zenger row not found for the known-row probe');
+            }
             foreach ($diagnostics as $i => $raw) {
                 $this->line('  sample '.($i + 1).': len='.strlen($raw)
                     .' utf8='.(mb_check_encoding($raw, 'UTF-8') ? 'yes' : 'NO')
