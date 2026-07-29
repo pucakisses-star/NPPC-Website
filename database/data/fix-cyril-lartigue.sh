@@ -24,18 +24,22 @@
 # which is not a state a person can be in -- so he is now marked
 # released.
 #
-# THE AGE IS NOT STORED IN THE AGE FIELD, ON PURPOSE. It is a snapshot
-# taken at the moment of a lookup, not a fact about him: 32 as of
-# August 1, 2023 means he is 34 or 35 now, so writing 32 into the age
-# column would put a figure on the profile that is wrong today and gets
-# wronger every year. This record already has no birthdate to derive
-# from, so nothing would correct it. Instead the snapshot is recorded
-# in the case text WITH its as-of date, where it stays true.
+# AGE 32 IS CURRENT, NOT HISTORICAL. The two BOP fields are read
+# separately: "Not in BOP Custody as of" is the date he left Bureau
+# custody, while the locator prints the person's age AT THE MOMENT THE
+# PAGE IS VIEWED. So the 32 belongs to the present, not to 2023, and it
+# is stored in the age column.
 #
-# NO BIRTHDATE IS SET EITHER. Age 32 on August 1, 2023 places his birth
-# between about August 1990 and August 1991 -- a two-year window, which
-# does not fit a year-precision field (the Barbara Katt rule). The
-# window is stated in the case text instead.
+# It is still a value with a shelf life -- there is no birthdate behind
+# it, so nothing recomputes it and it will read 32 after his next
+# birthday too. The case text therefore records when the figure was
+# taken, so a later reader can tell how stale it is.
+#
+# NO BIRTHDATE IS SET. Being 32 in mid-2026 places his birth between
+# about July 1993 and July 1994 -- a two-year window, which does not fit
+# a year-precision field (the Barbara Katt rule). The window is stated
+# in the case text instead. A real date of birth would let the age
+# maintain itself and should replace this if one turns up.
 #
 # NO CUSTODY DATES ARE ADDED. The twenty-four month sentence is known
 # but no admission date is, and the August 1, 2023 locator check is a
@@ -63,6 +67,7 @@ $p->last_name = "Lartigue";
 $p->inmate_number = "48611-480";
 $p->race = "White";
 $p->gender = "Male";
+$p->age = 32;
 $p->in_custody = false;
 $p->released = true;
 $p->awaiting_trial = false;
@@ -82,14 +87,14 @@ if (is_file($src)) {
 
 $case = $p->cases->first() ?? $p->cases()->create([]);
 $case->charges = "Possession of an unregistered destructive device — a Molotov cocktail made near the Austin Municipal Court during the protest of May 30, 2020.";
-$case->sentence = "Twenty-four months in federal prison. Federal Bureau of Prisons register number 48611-480. The BOP inmate locator, checked August 1, 2023, listed him as no longer in Bureau custody and gave his age as 32 — an age recorded at the moment of that lookup rather than a fixed fact, which places his birth somewhere between about August 1990 and August 1991. NO ADMISSION OR RELEASE DATE IS DOCUMENTED: the August 1, 2023 locator check establishes only a latest-possible release, not the day he walked out, so no custody dates are recorded and the imprisonment counter stays empty rather than carrying an invented span.";
+$case->sentence = "Twenty-four months in federal prison. Federal Bureau of Prisons register number 48611-480. The BOP inmate locator records him as not in Bureau custody as of August 1, 2023, and gave his age as 32 when checked in July 2026 — the locator prints a current age rather than an age at release, which places his birth between about July 1993 and July 1994. That two-year window is too wide for a birthdate field, so none is set; the stored age of 32 has no birthdate behind it and will not advance on its own, and should be replaced by a real date of birth if one turns up. NO ADMISSION OR RELEASE DATE IS DOCUMENTED: the August 1, 2023 entry establishes only a latest-possible release, not the day he walked out, so no custody dates are recorded and the imprisonment counter stays empty rather than carrying an invented span.";
 $case->save();
 
 $p->refresh()->load("cases");
 echo "Cyril Lartigue  [{$p->slug}]\n";
 echo "  register no. ".($p->inmate_number ?: "-")."   race ".($p->race ?: "-")."   sex ".($p->gender ?: "-")."\n";
 echo "  in_custody ".var_export($p->in_custody, true)."   released ".var_export($p->released, true)."  (both were false before)\n";
-echo "  age field ".($p->age ?? "(unset — the BOP 32 was a 2023 snapshot, see the case text)")."\n";
+echo "  age ".($p->age ?? "-")."   (expect 32; no birthdate behind it, so it will not advance on its own)\n";
 echo "  photo ".($p->photo ?: "(none)")."   ".filesize(storage_path("app/public/".$p->photo))." bytes\n";
 echo "  cases ".$p->cases->count()."   days ".($p->cases->first()->imprisoned_for_days ?? "null")."  (expect null — no documented dates)\n";
 
