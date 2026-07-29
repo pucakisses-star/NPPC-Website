@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Prisoner;
 use App\Models\Scopes\NotUnderReviewScope;
 use App\Support\AccentInsensitiveSearch;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists;
@@ -60,11 +61,10 @@ class PrisonerResource extends Resource
                             ->maxLength(255),
                         PartialDate::make('birthdate', 'Date of birth'),
                         PartialDate::make('death_date', 'Date of death'),
-                        Forms\Components\TextInput::make('age')
-                            ->numeric()
-                            ->disabled()
-                            ->dehydrated(false)
-                            ->helperText('Auto-calculated from birthdate (and death date if set).'),
+                        Forms\Components\Placeholder::make('age_display')
+                            ->label('Age')
+                            ->content(fn (Forms\Get $get, ?Prisoner $record): string => self::ageDisplay($get, $record))
+                            ->helperText('Calculated from the date of birth above (and the date of death if set), and updated as you edit them.'),
                     ])
                     ->columns(3),
 
@@ -163,6 +163,69 @@ class PrisonerResource extends Resource
                     ->numeric()
                     ->default(0),
             ]);
+    }
+
+    /**
+     * The age shown beside the life dates, computed from what is CURRENTLY in
+     * the form rather than from the stored `age` column.
+     *
+     * The old field was a disabled TextInput bound to that column, which made
+     * it a mirror of a number written the last time the record was saved: type
+     * a birthdate of October 1992 into a record whose stored age was 41 and the
+     * box went on saying 41 until you saved and reloaded. The label promised it
+     * was auto-calculated, so the stale value read as a calculation error.
+     *
+     * A stored age with no birthdate behind it is NOT stale and is still shown:
+     * plenty of records get an age from a source that never gave a birth date
+     * (a BOP inmate lookup, say), and that number is the only age information
+     * there is. It is labelled as recorded so the two cases cannot be confused.
+     */
+    private static function ageDisplay(Forms\Get $get, ?Prisoner $record): string
+    {
+        $birth = self::dateFromPartialState($get, 'birthdate');
+
+        if (! $birth) {
+            $stored = $record?->getAttributes()['age'] ?? null;
+
+            return $stored === null || $stored === ''
+                ? '—'
+                : $stored.'  (as recorded — no date of birth to calculate from)';
+        }
+
+        $death = self::dateFromPartialState($get, 'death_date');
+        $years = (int) $birth->diffInYears($death ?? Carbon::now(), false);
+
+        if ($years < 0) {
+            return 'the date of death precedes the date of birth — one of them is wrong';
+        }
+
+        return $years > 120 ? '—' : (string) $years;
+    }
+
+    /** Read one PartialDate field out of the live form state. */
+    private static function dateFromPartialState(Forms\Get $get, string $field): ?Carbon
+    {
+        $precision = $get("{$field}__precision") ?: 'day';
+
+        if ($precision === 'year') {
+            $year = $get("{$field}__year");
+            $raw = $year ? sprintf('%04d-01-01', (int) $year) : null;
+        } elseif ($precision === 'month') {
+            $month = $get("{$field}__month");
+            $raw = $month ? $month.'-01' : null;
+        } else {
+            $raw = $get("{$field}__date") ?: null;
+        }
+
+        if (! $raw) {
+            return null;
+        }
+
+        try {
+            return Carbon::parse($raw);
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     public static function table(Table $table): Table
