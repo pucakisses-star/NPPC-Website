@@ -63,6 +63,7 @@ echo "==================================================================="
 run "merge-iww-affiliation" bash database/data/merge-iww-affiliation.sh
 run "remove-veterans-rights-ideology" bash database/data/remove-veterans-rights-ideology.sh
 run "fix-ralph-ginzburg" bash database/data/fix-ralph-ginzburg.sh
+run "fix-free-expression-sort" bash database/data/fix-free-expression-sort.sh
 
 echo
 echo "==================================================================="
