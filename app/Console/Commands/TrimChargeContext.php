@@ -74,10 +74,24 @@ final class TrimChargeContext extends Command
         return mb_strlen($h) >= 10 && ! preg_match(self::GENERIC, $h);
     }
 
+    /**
+     * Invalid UTF-8 makes every /u regex in this class return null/false, so
+     * the whole command silently no-ops — the leading suspect for an observed
+     * run that trimmed 0 of 8,370 on the server while trimming 2,334 on the
+     * same values locally. Legacy imports are the likely source (Windows-1252
+     * em dashes), so that is the assumed source encoding.
+     */
+    private function utf8(string $value): string
+    {
+        return mb_check_encoding($value, 'UTF-8')
+            ? $value
+            : mb_convert_encoding($value, 'UTF-8', 'Windows-1252');
+    }
+
     /** The offence alone, or the original when no rule applies safely. */
     public function shorten(string $value): string
     {
-        $s = trim(preg_replace('/\s+/u', ' ', $value));
+        $s = trim(preg_replace('/\s+/u', ' ', $this->utf8($value)));
         $orig = $s;
 
         // 1. em/en dash introducing narrative
@@ -136,6 +150,7 @@ final class TrimChargeContext extends Command
         $preserved = 0;
         $scanned = 0;
         $shown = 0;
+        $diagnostics = [];
 
         foreach (Prisoner::withoutGlobalScopes()->with('cases')->cursor() as $p) {
             foreach ($p->cases as $case) {
@@ -145,8 +160,11 @@ final class TrimChargeContext extends Command
                 }
                 $scanned++;
 
+                if (count($diagnostics) < 3) {
+                    $diagnostics[] = $raw;
+                }
                 $new = $this->shorten($raw);
-                if ($new === trim(preg_replace('/\s+/u', ' ', $raw))) {
+                if ($new === trim(preg_replace('/\s+/u', ' ', $this->utf8($raw)))) {
                     continue;
                 }
 
@@ -172,6 +190,21 @@ final class TrimChargeContext extends Command
 
                 $changed++;
                 $needsKeeping && $preserved++;
+            }
+        }
+
+        // A zero-change run over thousands of values is a malfunction, not a
+        // result. Print enough about the environment and the actual bytes to
+        // identify the cause from the log alone.
+        if ($changed === 0 && $scanned > 1000) {
+            $this->newLine();
+            $this->warn('ZERO changes across '.$scanned.' values — diagnostic dump:');
+            $this->line('  PHP '.PHP_VERSION.'  PCRE '.PCRE_VERSION);
+            foreach ($diagnostics as $i => $raw) {
+                $this->line('  sample '.($i + 1).': len='.strlen($raw)
+                    .' utf8='.(mb_check_encoding($raw, 'UTF-8') ? 'yes' : 'NO')
+                    .' dash-regex='.(preg_match('/\s[—–]\s/u', $raw) === 1 ? 'matches' : (preg_last_error() !== PREG_NO_ERROR ? 'ERROR '.preg_last_error_msg() : 'no match')));
+                $this->line('    bytes: '.rawurlencode(substr($raw, 0, 90)));
             }
         }
 
