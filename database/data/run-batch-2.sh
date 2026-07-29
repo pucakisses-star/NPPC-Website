@@ -64,6 +64,8 @@ run "merge-iww-affiliation" bash database/data/merge-iww-affiliation.sh
 run "remove-veterans-rights-ideology" bash database/data/remove-veterans-rights-ideology.sh
 run "fix-ralph-ginzburg" bash database/data/fix-ralph-ginzburg.sh
 run "fix-free-expression-sort" bash database/data/fix-free-expression-sort.sh
+run "normalize-verdicts (dry run)" php artisan prisoners:normalize-verdicts
+run "normalize-verdicts (apply)" php artisan prisoners:normalize-verdicts --apply
 
 echo
 echo "==================================================================="
