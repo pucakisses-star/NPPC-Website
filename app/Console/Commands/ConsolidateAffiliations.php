@@ -34,8 +34,14 @@ class ConsolidateAffiliations extends Command
     private const MAP = [
         // --- case / punctuation / plural variants ---
         'Anarchist Movement' => 'Anarchist movement',
-        'Animal Liberation Movement' => 'Animal liberation movement',
-        'Black Liberation Movement' => 'Black liberation movement',
+        // These two ran BACKWARDS: they rewrote the title-cased spelling the
+        // corpus actually uses (18 records for Black Liberation Movement, 4
+        // for Animal Liberation Movement) into a lower-cased one carried by
+        // NOBODY, so running this command would have invented two labels and
+        // emptied two good ones. Reversed, so the stray lower-case spellings
+        // fold into the established forms instead.
+        'Animal liberation movement' => 'Animal Liberation Movement',
+        'Black liberation movement' => 'Black Liberation Movement',
         'Fries’s Rebellion' => 'Fries\'s Rebellion',
         'Shays’ Rebellion' => 'Shays\' Rebellion',
         'Fugitives from enslavement' => 'Fugitive from enslavement',
