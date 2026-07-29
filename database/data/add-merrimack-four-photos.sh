@@ -26,9 +26,13 @@
 #      the same dark-haired woman as the right panel here and the same
 #      woman as the Belanger booking photograph.
 #
-# Calla Walsh gets the higher-resolution crop in place of the small one
-# already on her record; it is the same photograph, so nothing about her
-# portrait changes except its sharpness.
+# CALLA WALSH IS NOT UPGRADED. Her record already carried the middle
+# panel at 271x350, and a higher-resolution crop of the same photograph
+# was prepared -- but the existing portrait is kept at the owners
+# request. The file shipped here as calla-walsh.jpg IS that original
+# 271x350 image, so running this script leaves her portrait exactly as
+# it was, and restores it if an earlier run of this script had already
+# replaced it.
 #
 # MIDDLE NAMES from the court records and the Attorney Generals release:
 #   Sophie Marika Ross, Calla Mairead Walsh, Bridget Irene Shergalis.
