@@ -72,7 +72,8 @@ for s in fix-walter-matthey fix-david-elmakayes fix-eric-hafner fix-alissa-azar 
          fix-george-meyers fix-jane-speed-de-andreu fix-aurelio-tolentino \
          fix-bradford-lyttle set-kolton-krottinger-photo \
          add-merrimack-four-photos fix-merrimack-four-custody \
-         set-judith-miller-photo fix-lucy-fowlkes fix-sami-hamdi; do
+         set-judith-miller-photo fix-lucy-fowlkes fix-sami-hamdi \
+         fix-sofia-deferrari; do
     if [ -f "database/data/${s}.sh" ]; then
         echo
         echo "--- ${s}"
@@ -83,11 +84,17 @@ for s in fix-walter-matthey fix-david-elmakayes fix-eric-hafner fix-alissa-azar 
 done
 
 # ---- 5. placement and derived values, last ---------------------------
-step "Place every record still at sort_order 0"
+step "Zero the Zimmer block so it interleaves chronologically"
+bash database/data/resort-zimmer-deportees.sh
+
+step "Place every record still at sort_order 0 (new records, Sofia, the Zimmer block)"
 php artisan prisoners:place-zero-sort-by-year --apply
 
 step "Group co-defendants so linked prisoners sit together"
 php artisan prisoners:group-codefendants --apply || echo "  (skipped)"
+
+step "Compact the sort order: renumber 1..N, closing every gap"
+bash database/data/compact-sort-order.sh
 
 step "Recompute the imprisonment day counters"
 php artisan prisoners:recompute-imprisonment --apply
