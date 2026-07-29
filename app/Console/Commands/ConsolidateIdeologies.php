@@ -112,9 +112,18 @@ class ConsolidateIdeologies extends Command
         'Environmentalist' => 'Environmental Activism',
         'Animal rights' => 'Animal Rights Activism',
         'Tax protest' => 'Tax resistance',
-        'Labor Activism' => 'Labor organizing',
-        'Labor activism' => 'Labor organizing',
-        'Labor rights' => 'Labor organizing',
+        // The corpus settled on the title-cased spelling (816 records to
+        // one), so that is the canonical and the lower-case variant folds
+        // into it. 'Black Southern Labor Organizing' folds in too: it was
+        // the ONLY label on all 47 records that carried it -- the 1910s
+        // Arkansas sharecroppers organizing for the Progressive Farmers
+        // and Household Union -- so retiring it outright would have left
+        // them with no politics recorded at all.
+        'Labor organizing' => 'Labor Organizing',
+        'Black Southern Labor Organizing' => 'Labor Organizing',
+        'Labor Activism' => 'Labor Organizing',
+        'Labor activism' => 'Labor Organizing',
+        'Labor rights' => 'Labor Organizing',
         'Peace activism' => 'Peace movement',
         'Pro-life' => 'Anti-abortion',
         'Pro-life activism' => 'Anti-abortion',
@@ -163,7 +172,7 @@ class ConsolidateIdeologies extends Command
         'Anti-colonial resistance' => 'Anti-colonial',
         'Anti-Vietnam War' => 'Anti-War',
         'Anti-Iraq War' => 'Anti-War',
-        'Working-class organizing' => 'Labor organizing',
+        'Working-class organizing' => 'Labor Organizing',
         'Immigration justice' => 'Immigrant rights',
         'Migrant rights' => 'Immigrant rights',
         'Christian nonviolence' => 'Christian pacifism',
@@ -179,12 +188,12 @@ class ConsolidateIdeologies extends Command
 
         // --- organizational tags sitting in the ideology field -> the belief ---
         'IWW' => 'Industrial unionism',
-        'UMWA' => 'Labor organizing',
+        'UMWA' => 'Labor Organizing',
         'AIM' => 'Indigenous Sovereignty',
         'Catholic Worker / Plowshares' => 'Catholic',
 
         // --- broad-vs-variant belief merges ---
-        'Labor' => 'Labor organizing',
+        'Labor' => 'Labor Organizing',
         'Unionism' => 'Trade unionism',
         'Nonviolence' => 'Anti-War',
         'Native American' => 'Indigenous Sovereignty',
@@ -271,8 +280,8 @@ class ConsolidateIdeologies extends Command
         'Digital Privacy' => 'Anti-surveillance',
         'Frontier farmer' => 'Agrarian populism',
         'Land reform' => 'Agrarian populism',
-        'Knights of Labor' => 'Labor organizing',
-        'WFM' => 'Labor organizing',
+        'Knights of Labor' => 'Labor Organizing',
+        'WFM' => 'Labor Organizing',
         'Irish republican socialism' => 'Irish republicanism',
         'Veterans\' organizing' => 'Veterans\' rights',
         'Housing justice' => 'Tenant rights',
@@ -290,6 +299,23 @@ class ConsolidateIdeologies extends Command
         'Cypherpunk',
         // vague or one-off orphans (single-prisoner, no sensible home)
         'Anti-communism',
+        'Anti-Globalization',
+        'Anti-Poverty',
+        'New Left',
+        // Retired: describes the circumstances of an arrest rather than a
+        // politics. Both casings are listed because the corpus carried
+        // 'Self-Defense' while MAP funnels four variants into
+        // 'Self-defense'; removing only one spelling would let the other
+        // come back. The narrower 'Black Armed Self-Defense' is retired
+        // with them -- the records that carried it keep Black Nationalism
+        // and Civil Rights, which is where their politics actually sits.
+        'Self-Defense',
+        'Self-defense',
+        'Black Armed Self-Defense',
+        // Retired: a theological school rather than a politics. The four
+        // records that carried it (the Wilmington Ten defendants) all keep
+        // Civil Rights, and one keeps Black Liberation.
+        'Black Liberation Theology',
         'Anti-Stalinism',
         'Anti-system',
         'Anti-Díaz',
