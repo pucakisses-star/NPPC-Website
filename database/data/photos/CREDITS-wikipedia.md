@@ -144,3 +144,4 @@ require. Each links to the Commons File: page (full author/license details).
 | Fred Fine | `fred-fine.jpg` | Public domain | Cropped from the "Know Your Enemy" pamphlet page (Fred Fine, CPUSA — not David Fine) | https://commons.wikimedia.org/wiki/File:Know_Your_Enemy.jpg |
 | Sidney Steinberg | `sidney-steinberg.jpg` | Public domain | Cropped from the "Know Your Enemy" pamphlet page (labeled "Sid Steinberg"; the Twain Harte cabin defendant) | https://commons.wikimedia.org/wiki/File:Know_Your_Enemy.jpg |
 | Benjamin Gwinn Harris | `benjamin-gwinn-harris.jpg` | Public domain | Brady National Photographic Art Gallery, c. 1863 | https://commons.wikimedia.org/wiki/File:Benjamin_Gwinn_Harris_(Maryland_Congressman)_(1).jpg |
+| Judith Miller | `judith-miller.jpg` | CC BY-SA 2.0 (attribution required) | Ben P L from Provo, USA | [File](https://commons.wikimedia.org/wiki/File:Judy_Miller_%2832595090148%29.jpg) |
