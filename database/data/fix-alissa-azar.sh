@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 #
-# Alissa Azar -- corrected custody dates.
+# Alissa Azar -- corrected custody dates and date of birth.
+#
+# BIRTHDATE: February 12, 1991, supplied by the site owner as 2/12/91
+# and read in the American month/day/year order -- she is an Oregon
+# activist and every other date on this record is written that way. Day
+# precision. The record previously had no birthdate and no age at all;
+# the age now derives from it instead of being absent.
 #
 # The case carried an incarceration date of August 1, 2024 and no
 # release date at all. August 1 is not a custody date: it is a stand-in
@@ -43,6 +49,7 @@ if (! $p) {
 $p->in_custody = false;
 $p->released = true;
 $p->awaiting_trial = false;
+$p->setPartialDate("birthdate", 1991, 2, 12);
 $p->save();
 
 $case = $p->cases->first() ?? $p->cases()->create([]);
@@ -54,6 +61,7 @@ $case->save();
 $p->refresh()->load("cases");
 $case = $p->cases->first();
 echo "Alissa Azar  [{$p->slug}]\n";
+echo "  born ".($p->formatPartialDate("birthdate") ?: "-")."   age ".($p->age ?? "-")."   (expect Feb 12, 1991)\n";
 echo "  incarcerated ".$case->incarceration_date->toDateString()."   released ".$case->release_date->toDateString()."\n";
 echo "  imprisoned_for_days = ".($case->imprisoned_for_days ?? "null")."  (expect 14, was 0)\n";
 echo "  years in prison: ".implode(", ", $p->years_in_prison ?: [])."\n";
