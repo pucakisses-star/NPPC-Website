@@ -31,13 +31,18 @@ use Illuminate\Support\Str;
  *                 taxonomy (Union of Russian Workers, IWW, Communist
  *                 Party USA, Partido Liberal Mexicano, Socialist Party
  *                 of America); portrait attached where one exists (67).
- *                 Custody in three conservative tiers: 176 Palmer Raid
- *                 arrestees deported on the Buford with no bail mention
- *                 get the documented arrest-to-sailing detention (Ellis
- *                 Island Immigration Station) and a running counter; 331
- *                 arrest-date-only; 209 exile-only. Every record gets
- *                 in_exile_since = the deportation date, with no end of
- *                 exile invented.
+ *                 Custody: 176 Palmer Raid arrestees deported on the
+ *                 Buford get the documented arrest-to-sailing detention
+ *                 (Ellis Island Immigration Station); 310 more with an
+ *                 arrest date and no bail mention get an ASSUMED span
+ *                 from arrest to sailing, stated as an assumption in the
+ *                 case text; 21 with bail mentioned get the arrest date
+ *                 only; 209 exile-only. Every record gets in_exile_since
+ *                 = the deportation date; end_of_exile is set from a
+ *                 documented return to the US (45 records) or the death
+ *                 date, never invented. Death dates parsed from the
+ *                 narratives (59 records) are stored at their stated
+ *                 precision.
  *
  *   UPGRADE       Records created by the EARLIER, template-only version
  *                 of this import (identified by the old closing sentence
@@ -162,6 +167,9 @@ final class AddZimmerDeportees extends Command
                 if ($r['birth_year']) {
                     $p->setPartialDate('birthdate', (int) $r['birth_year']);
                 }
+                if (! empty($r['death'])) {
+                    $p->setPartialDate('death_date', ...array_map(fn ($x) => $x === null ? null : (int) $x, $r['death']));
+                }
                 $p->save();
 
                 if ($r['photo']) {
@@ -175,7 +183,7 @@ final class AddZimmerDeportees extends Command
                 if ($tier === 'span' && $ellis) {
                     $case->institution_id = $ellis->id;
                 }
-                foreach ([['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']]] as [$field, $val]) {
+                foreach ([['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']], ['end_of_exile', $c['exile_end'] ?? null]] as [$field, $val]) {
                     if ($val) {
                         $case->setPartialDate($field, ...array_map(fn ($x) => $x === null ? null : (int) $x, $val));
                     }
@@ -228,6 +236,9 @@ final class AddZimmerDeportees extends Command
         if ($r['birth_year'] && ! $p->birthdate) {
             $p->setPartialDate('birthdate', (int) $r['birth_year']);
         }
+        if (! empty($r['death']) && ! $p->death_date) {
+            $p->setPartialDate('death_date', ...array_map(fn ($x) => $x === null ? null : (int) $x, $r['death']));
+        }
         $p->affiliation = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: []))) ?: null;
         $p->ideologies = array_values(array_unique(array_merge($p->ideologies ?: [], $r['ideologies'] ?: []))) ?: null;
         $p->save();
@@ -240,7 +251,7 @@ final class AddZimmerDeportees extends Command
         if ($case && $c) {
             $case->charges = $c['charges'];
             $case->sentence = $c['sentence'];
-            foreach ([['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']]] as [$field, $val]) {
+            foreach ([['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']], ['end_of_exile', $c['exile_end'] ?? null]] as [$field, $val]) {
                 if ($val) {
                     $case->setPartialDate($field, ...array_map(fn ($x) => $x === null ? null : (int) $x, $val));
                 }
@@ -267,6 +278,9 @@ final class AddZimmerDeportees extends Command
         }
         if ($r['birth_year'] && ! $p->birthdate) {
             $actions[] = 'birth '.$r['birth_year'];
+        }
+        if (! empty($r['death']) && ! $p->death_date) {
+            $actions[] = 'death '.$r['death'][0];
         }
         $merged = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: [])));
         if ($merged !== ($p->affiliation ?: [])) {
@@ -297,6 +311,9 @@ final class AddZimmerDeportees extends Command
             }
             if ($r['birth_year'] && ! $p->birthdate) {
                 $p->setPartialDate('birthdate', (int) $r['birth_year']);
+            }
+            if (! empty($r['death']) && ! $p->death_date) {
+                $p->setPartialDate('death_date', ...array_map(fn ($x) => $x === null ? null : (int) $x, $r['death']));
             }
             $p->affiliation = $merged ?: null;
             if ($narrative) {
