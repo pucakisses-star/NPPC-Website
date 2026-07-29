@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Institution;
 use App\Models\Prisoner;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
@@ -44,14 +45,19 @@ use Illuminate\Support\Str;
  *                 narratives (59 records) are stored at their stated
  *                 precision.
  *
- *   UPGRADE       Records created by the EARLIER, template-only version
- *                 of this import (identified by the old closing sentence
- *                 and the absence of a narrative) are refreshed in
- *                 place: description replaced with the narrative
- *                 version, case text and dates updated, photo and birth
- *                 year filled where missing, affiliations merged. Run
- *                 the command again after pulling and the templated
- *                 records heal themselves.
+ *   REFRESH       Records this import owns -- identified by either the
+ *                 old template-only closing sentence or the current
+ *                 attribution line ("Adapted from Kenyon Zimmer") -- are
+ *                 diffed against the roster and re-synchronised in
+ *                 place: description replaced, case text and dates
+ *                 updated (including exile ends and custody spans the
+ *                 roster learned after the record was first written),
+ *                 photo file re-copied when its bytes differ (recrops
+ *                 propagate), birth and death filled where missing,
+ *                 affiliations merged. A record that already matches the
+ *                 roster counts as "current" and is left untouched, so
+ *                 the run is idempotent. Run the command again after
+ *                 pulling and the records heal themselves.
  *
  *   ENRICH (30)   Deportees already in the database (Goldman, Berkman,
  *                 Steimer, Galleani...). NOTHING IS OVERWRITTEN: a
@@ -66,7 +72,11 @@ use Illuminate\Support\Str;
  * deportee is not the 2000s Vieques protester who shares his name).
  * Three new records carry force_new because their names collide with
  * unrelated existing records (Jose Angel Hernandez, Johan Johanson,
- * Carl Larson); the slug generator disambiguates them.
+ * Carl Larson); the slug generator disambiguates them. force_new
+ * bypasses the name map only for records this import does NOT own: an
+ * existing record with the same name whose description carries the
+ * Zimmer attribution IS this record from a previous run, and is
+ * refreshed rather than created again.
  *
  * Idempotent, dry-run by default:
  *
@@ -111,7 +121,8 @@ final class AddZimmerDeportees extends Command
         $created = 0;
         $skipped = 0;
         $enriched = 0;
-        $upgraded = 0;
+        $refreshed = 0;
+        $currentCount = 0;
         $photosAttached = 0;
         $tiers = ['span' => 0, 'arrest' => 0, 'exile' => 0];
 
@@ -123,24 +134,41 @@ final class AddZimmerDeportees extends Command
             }
 
             $keys = array_filter([$this->norm($r['name']), $r['aka'] ? $this->norm($r['aka']) : null]);
+            $ownSlug = null;
             if (empty($r['force_new'])) {
-                $dupSlug = null;
                 foreach ($keys as $k) {
-                    $dupSlug = $dupSlug ?? ($existing[$k] ?? null);
+                    $ownSlug = $ownSlug ?? ($existing[$k] ?? null);
                 }
-                if ($dupSlug !== null) {
-                    // A record created by the earlier, template-only version
-                    // of this import carries the old closing sentence and no
-                    // narrative; refresh it in place from the current roster.
-                    if ($this->upgradeTemplated($r, $dupSlug, $apply, $photosAttached)) {
-                        $upgraded++;
-                    } else {
-                        $this->line('  skip (exists): '.$r['name']);
-                        $skipped++;
-                    }
+            } else {
+                // force_new exists because the name collides with an
+                // UNRELATED record, so the name map cannot be consulted --
+                // but a record with this exact name whose description
+                // carries the Zimmer attribution is this import's own
+                // output from a previous run, not the collision.
+                $ownSlug = Prisoner::withoutGlobalScopes()
+                    ->where('name', $r['name'])
+                    ->where(function ($q) {
+                        $q->where('description', 'like', '%Adapted from Kenyon Zimmer%')
+                            ->orWhere('description', 'like', '%index of deportation case files%');
+                    })
+                    ->orderBy('created_at')
+                    ->value('slug');
+            }
+            if ($ownSlug !== null) {
+                // A record this import owns is diffed against the roster
+                // and re-synchronised in place; one that already matches
+                // counts as current and is left alone.
+                $result = $this->refreshOwned($r, $ownSlug, $apply, $photosAttached);
+                if ($result === 'refresh') {
+                    $refreshed++;
+                } elseif ($result === 'current') {
+                    $currentCount++;
+                } else {
+                    $this->line('  skip (exists): '.$r['name']);
+                    $skipped++;
+                }
 
-                    continue;
-                }
+                continue;
             }
 
             $c = $r['case'];
@@ -198,9 +226,9 @@ final class AddZimmerDeportees extends Command
         }
 
         $this->newLine();
-        $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); upgraded {$upgraded} templated record(s) from the earlier import; enriched {$enriched} existing; skipped {$skipped}; ".($apply ? "{$photosAttached} photo(s) attached." : 'photos attach on --apply.'));
-        if ($upgraded === 0 && $skipped > 100) {
-            $this->warn('Hundreds skipped with zero upgrades: the records probably predate the narrative roster but their template signature did not match. Check that git pull brought the latest main before this run.');
+        $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); refreshed {$refreshed} owned record(s) that had drifted from the roster; {$currentCount} already current; enriched {$enriched} existing; skipped {$skipped}; ".($apply ? "{$photosAttached} photo(s) attached." : 'photos attach on --apply.'));
+        if ($refreshed === 0 && $currentCount === 0 && $skipped > 100) {
+            $this->warn('Hundreds skipped with zero refreshed/current: the records were probably created by an earlier roster but their attribution signature did not match. Check that git pull brought the latest main before this run.');
         }
         $this->info("Custody tiers: {$tiers['span']} detention-span (Buford/Ellis Island), {$tiers['arrest']} arrest-only, {$tiers['exile']} exile-only.");
         if (! $apply) {
@@ -214,27 +242,71 @@ final class AddZimmerDeportees extends Command
     }
 
     /**
-     * Refresh a record created by the earlier template-only import: replace
-     * the templated description with the narrative one, update the Zimmer
-     * case text and dates, and fill photo/birth/affiliations. Records whose
-     * description does not carry the old template signature are left alone.
+     * Re-synchronise a record this import owns against the current roster.
+     * Two description signatures qualify as owned: the old template-only
+     * closing sentence, and the attribution line every roster description
+     * carries -- the second matters because a record upgraded under an
+     * earlier roster misses whatever the roster learned afterwards (death
+     * dates, exile ends, assumed custody spans, recropped photos).
+     *
+     * Returns 'refresh' when something needed updating, 'current' when the
+     * record already matches the roster, and null when the record is not
+     * this import's (a genuine name collision -- left alone).
      */
-    private function upgradeTemplated(array $r, string $slug, bool $apply, int &$photosAttached): bool
+    private function refreshOwned(array $r, string $slug, bool $apply, int &$photosAttached): ?string
     {
         $p = Prisoner::withoutGlobalScopes()->where('slug', $slug)->with('cases')->first();
         if (! $p) {
-            return false;
+            return null;
         }
         $desc = (string) $p->description;
-        $isOldTemplate = str_contains($desc, 'index of deportation case files')
-            && ! str_contains($desc, 'Adapted from Kenyon Zimmer');
-        if (! $isOldTemplate) {
-            return false;
+        if (! str_contains($desc, 'Adapted from Kenyon Zimmer')
+            && ! str_contains($desc, 'index of deportation case files')) {
+            return null;
         }
 
-        $this->line('  upgrade (old template): '.$p->slug);
+        $aff = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: [])));
+        $ide = array_values(array_unique(array_merge($p->ideologies ?: [], $r['ideologies'] ?: [])));
+        $c = $r['case'];
+        $case = $p->cases->first(fn ($x) => str_contains((string) $x->charges, 'Red Scare Deportees index')) ?? $p->cases->first();
+        $caseDates = [['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']], ['end_of_exile', $c['exile_end'] ?? null]];
+
+        $changes = [];
+        if ($desc !== $r['description']) {
+            $changes[] = 'description';
+        }
+        if ($r['birth_year'] && ! $p->birthdate) {
+            $changes[] = 'birth '.$r['birth_year'];
+        }
+        if (! empty($r['death']) && ! $p->death_date) {
+            $changes[] = 'death '.$r['death'][0];
+        }
+        if ($aff !== ($p->affiliation ?: [])) {
+            $changes[] = 'affiliations';
+        }
+        if ($ide !== ($p->ideologies ?: [])) {
+            $changes[] = 'ideologies';
+        }
+        if ($r['photo'] && $this->photoStale($p, $r['photo'])) {
+            $changes[] = 'photo';
+        }
+        if ($case) {
+            if ((string) $case->charges !== $c['charges'] || (string) $case->sentence !== $c['sentence']) {
+                $changes[] = 'case text';
+            }
+            foreach ($caseDates as [$field, $val]) {
+                if ($val && $this->caseDateYmd($case, $field) !== $this->rosterYmd($val)) {
+                    $changes[] = $field;
+                }
+            }
+        }
+
+        if (! $changes) {
+            return 'current';
+        }
+        $this->line('  refresh '.$p->slug.': '.implode(', ', $changes));
         if (! $apply) {
-            return true;
+            return 'refresh';
         }
 
         $p->description = $r['description'];
@@ -244,19 +316,17 @@ final class AddZimmerDeportees extends Command
         if (! empty($r['death']) && ! $p->death_date) {
             $p->setPartialDate('death_date', ...array_map(fn ($x) => $x === null ? null : (int) $x, $r['death']));
         }
-        $p->affiliation = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: []))) ?: null;
-        $p->ideologies = array_values(array_unique(array_merge($p->ideologies ?: [], $r['ideologies'] ?: []))) ?: null;
+        $p->affiliation = $aff ?: null;
+        $p->ideologies = $ide ?: null;
         $p->save();
-        if ($r['photo']) {
+        if (in_array('photo', $changes, true)) {
             $this->attachPhoto($p, $r['photo']) && $photosAttached++;
         }
 
-        $c = $r['case'];
-        $case = $p->cases->first(fn ($x) => str_contains((string) $x->charges, 'Red Scare Deportees index')) ?? $p->cases->first();
-        if ($case && $c) {
+        if ($case) {
             $case->charges = $c['charges'];
             $case->sentence = $c['sentence'];
-            foreach ([['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']], ['end_of_exile', $c['exile_end'] ?? null]] as [$field, $val]) {
+            foreach ($caseDates as [$field, $val]) {
                 if ($val) {
                     $case->setPartialDate($field, ...array_map(fn ($x) => $x === null ? null : (int) $x, $val));
                 }
@@ -264,7 +334,39 @@ final class AddZimmerDeportees extends Command
             $case->save();
         }
 
-        return true;
+        return 'refresh';
+    }
+
+    /** The stored value of a case date column as Y-m-d, null when unset. */
+    private function caseDateYmd(object $case, string $field): ?string
+    {
+        $v = $case->{$field};
+        if (! $v) {
+            return null;
+        }
+
+        return ($v instanceof Carbon ? $v : Carbon::parse($v))->toDateString();
+    }
+
+    /** A roster [y, m, d] tuple as the Y-m-d string setPartialDate would store (missing parts default to 01). */
+    private function rosterYmd(array $val): string
+    {
+        return sprintf('%04d-%02d-%02d', (int) $val[0], (int) ($val[1] ?? null ?: 1), (int) ($val[2] ?? null ?: 1));
+    }
+
+    /** True when the record's photo is missing on disk or its bytes differ from the roster file (recrops propagate). */
+    private function photoStale(Prisoner $p, string $file): bool
+    {
+        $src = database_path('data/photos/zimmer/'.$file);
+        if (! is_file($src)) {
+            return false;
+        }
+        if (! $p->photo) {
+            return true;
+        }
+        $dest = storage_path('app/public/'.$p->photo);
+
+        return ! is_file($dest) || md5_file($dest) !== md5_file($src);
     }
 
     /** Fill gaps on an existing record without overwriting anything. */
