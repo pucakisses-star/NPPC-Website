@@ -199,6 +199,9 @@ final class AddZimmerDeportees extends Command
 
         $this->newLine();
         $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); upgraded {$upgraded} templated record(s) from the earlier import; enriched {$enriched} existing; skipped {$skipped}; ".($apply ? "{$photosAttached} photo(s) attached." : 'photos attach on --apply.'));
+        if ($upgraded === 0 && $skipped > 100) {
+            $this->warn('Hundreds skipped with zero upgrades: the records probably predate the narrative roster but their template signature did not match. Check that git pull brought the latest main before this run.');
+        }
         $this->info("Custody tiers: {$tiers['span']} detention-span (Buford/Ellis Island), {$tiers['arrest']} arrest-only, {$tiers['exile']} exile-only.");
         if (! $apply) {
             $this->info('Dry run. Re-run with --apply.');
@@ -222,8 +225,10 @@ final class AddZimmerDeportees extends Command
         if (! $p) {
             return false;
         }
-        $old = 'documented in historian Kenyon Zimmer';
-        if (! str_contains((string) $p->description, $old) || str_contains((string) $p->description, 'Adapted from Kenyon Zimmer')) {
+        $desc = (string) $p->description;
+        $isOldTemplate = str_contains($desc, 'index of deportation case files')
+            && ! str_contains($desc, 'Adapted from Kenyon Zimmer');
+        if (! $isOldTemplate) {
             return false;
         }
 
@@ -242,7 +247,7 @@ final class AddZimmerDeportees extends Command
         $p->affiliation = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: []))) ?: null;
         $p->ideologies = array_values(array_unique(array_merge($p->ideologies ?: [], $r['ideologies'] ?: []))) ?: null;
         $p->save();
-        if ($r['photo'] && ! $p->photo) {
+        if ($r['photo']) {
             $this->attachPhoto($p, $r['photo']) && $photosAttached++;
         }
 
