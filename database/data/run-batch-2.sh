@@ -66,6 +66,8 @@ run "fix-ralph-ginzburg" bash database/data/fix-ralph-ginzburg.sh
 run "fix-free-expression-sort" bash database/data/fix-free-expression-sort.sh
 run "normalize-verdicts (dry run)" php artisan prisoners:normalize-verdicts
 run "normalize-verdicts (apply)" php artisan prisoners:normalize-verdicts --apply
+run "trim-charge-context (dry run)" php artisan prisoners:trim-charge-context
+run "trim-charge-context (apply)" php artisan prisoners:trim-charge-context --apply
 
 echo
 echo "==================================================================="
