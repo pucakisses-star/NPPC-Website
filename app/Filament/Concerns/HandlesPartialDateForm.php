@@ -47,7 +47,7 @@ trait HandlesPartialDateForm
 
             $c = Carbon::parse($data[$field]);
             match ($prec) {
-                'year' => $data["{$field}__year"] = (int) $c->year,
+                'circa', 'year' => $data["{$field}__year"] = (int) $c->year,
                 'month' => $data["{$field}__month"] = $c->format('Y-m'),
                 default => $data["{$field}__date"] = $c->format('Y-m-d'),
             };
@@ -62,7 +62,7 @@ trait HandlesPartialDateForm
 
         foreach ($this->partialDateFields() as $field) {
             $prec = $data["{$field}__precision"] ?? 'day';
-            $prec = in_array($prec, ['year', 'month', 'day'], true) ? $prec : 'day';
+            $prec = in_array($prec, ['circa', 'year', 'month', 'day'], true) ? $prec : 'day';
             $date = $data["{$field}__date"] ?? null;
             $month = $data["{$field}__month"] ?? null;
             $year = $data["{$field}__year"] ?? null;
@@ -72,7 +72,7 @@ trait HandlesPartialDateForm
             );
 
             $stored = match (true) {
-                $prec === 'year' && $year => sprintf('%04d-01-01', (int) $year),
+                in_array($prec, ['year', 'circa'], true) && $year => sprintf('%04d-01-01', (int) $year),
                 $prec === 'month' && $month => Carbon::parse($month.'-01')->format('Y-m-d'),
                 $prec === 'day' && $date => Carbon::parse($date)->format('Y-m-d'),
                 default => null,

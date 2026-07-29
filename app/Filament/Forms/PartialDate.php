@@ -15,9 +15,14 @@ use Filament\Forms\Get;
  * only ever asks for the parts that precision needs — which means the browser
  * never complains about an "incomplete" date:
  *
- *   - Full date     -> the normal calendar date picker (MM/DD/YYYY)
- *   - Month & year  -> a month picker (MM/YYYY, no day)
- *   - Year only     -> a plain year box
+ *   - Full date        -> the normal calendar date picker (MM/DD/YYYY)
+ *   - Month & year     -> a month picker (MM/YYYY, no day)
+ *   - Year only        -> a plain year box
+ *   - Approximate year -> the same year box, displayed as "c. 1971"
+ *
+ * "Approximate year" is for a year worked back from an age reported on a known
+ * date, which pins the birth to a twelve-month window that usually straddles two
+ * calendar years. It records the likelier year without claiming certainty.
  *
  * State lives in `{field}__date` / `{field}__month` / `{field}__year` (only the
  * one matching the precision is used) plus `{field}__precision`; the owning page
@@ -53,7 +58,10 @@ class PartialDate
                 ->maxValue(2100)
                 ->placeholder('e.g. 1971')
                 ->live(onBlur: true)
-                ->visible(fn (Get $get) => $get($prec) === 'year')
+                ->visible(fn (Get $get) => in_array($get($prec), ['year', 'circa'], true))
+                ->helperText(fn (Get $get) => $get($prec) === 'circa'
+                    ? 'Shown as "c. 1971" — use when the year is worked back from a reported age and could be a year out.'
+                    : null)
                 ->columnSpan(2),
             Select::make($prec)
                 ->label('Precision')
@@ -61,6 +69,7 @@ class PartialDate
                     'day' => 'Full date',
                     'month' => 'Month & year',
                     'year' => 'Year only',
+                    'circa' => 'Approximate year (c.)',
                 ])
                 ->default('day')
                 ->selectablePlaceholder(false)
