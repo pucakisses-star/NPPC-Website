@@ -193,12 +193,17 @@ final class TrimChargeContext extends Command
             }
         }
 
-        // A zero-change run over thousands of values is a malfunction, not a
-        // result. Print enough about the environment and the actual bytes to
-        // identify the cause from the log alone.
+        // A zero-change run over thousands of values is either the idempotent
+        // steady state after a successful apply, or a malfunction. The known-
+        // row probe below tells them apart: an already-trimmed Zenger row
+        // means the work is done; an untrimmed one alongside passing
+        // self-tests means the stored data differs from expectation. (This
+        // block once cried malfunction unconditionally — the real answer, on
+        // the server where it first fired, was that the apply had already
+        // succeeded on an earlier run and the alarm was noise.)
         if ($changed === 0 && $scanned > 1000) {
             $this->newLine();
-            $this->warn('ZERO changes across '.$scanned.' values — diagnostic dump:');
+            $this->line('Zero changes across '.$scanned.' values — diagnostic:');
             $this->line('  PHP '.PHP_VERSION.'  PCRE '.PCRE_VERSION);
 
             // Self-test: run the rules on three strings that MUST trim. If
@@ -222,7 +227,11 @@ final class TrimChargeContext extends Command
             if ($zenger && $zenger->cases->first()) {
                 $zc = (string) $zenger->cases->first()->charges;
                 $this->line('  zenger stored charges ('.strlen($zc).' bytes): '.rawurlencode(substr($zc, 0, 140)));
-                $this->line('  zenger shorten() result: '.rawurlencode(substr($this->shorten($zc), 0, 140)));
+                if ($this->shorten($zc) === trim(preg_replace('/\s+/u', ' ', $this->utf8($zc)))) {
+                    $this->info('  Known row is already in trimmed form: a previous apply succeeded and this run had nothing to do. Not a malfunction.');
+                } else {
+                    $this->warn('  Known row is NOT trimmed while self-tests pass — the stored data differs from expectation; the bytes above show how.');
+                }
             } else {
                 $this->line('  zenger row not found for the known-row probe');
             }
