@@ -67,6 +67,7 @@ run "remove-non-portrait-photos" bash database/data/remove-non-portrait-photos.s
 # ---- 2. taxonomy -----------------------------------------------------
 step "Taxonomy"
 run "ideology-taxonomy-cleanup" bash database/data/ideology-taxonomy-cleanup.sh
+run "merge-iww-affiliation" bash database/data/merge-iww-affiliation.sh
 if [ -f database/data/merge-pacifism-into-anti-war.sh ]; then
     run "merge-pacifism-into-anti-war" bash database/data/merge-pacifism-into-anti-war.sh
 fi
