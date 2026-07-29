@@ -31,13 +31,19 @@ class PartialDate
         $prec = "{$field}__precision";
 
         return Group::make([
+            // The three inputs are live(onBlur) so anything derived from the
+            // date -- the age beside a prisoner's life dates, for one --
+            // recalculates when you leave the field instead of showing the
+            // last-saved value until the next reload.
             DatePicker::make("{$field}__date")
                 ->label($label)
+                ->live(onBlur: true)
                 ->visible(fn (Get $get) => ($get($prec) ?? 'day') === 'day')
                 ->columnSpan(2),
             TextInput::make("{$field}__month")
                 ->label($label)
                 ->type('month')
+                ->live(onBlur: true)
                 ->visible(fn (Get $get) => $get($prec) === 'month')
                 ->columnSpan(2),
             TextInput::make("{$field}__year")
@@ -46,6 +52,7 @@ class PartialDate
                 ->minValue(1)
                 ->maxValue(2100)
                 ->placeholder('e.g. 1971')
+                ->live(onBlur: true)
                 ->visible(fn (Get $get) => $get($prec) === 'year')
                 ->columnSpan(2),
             Select::make($prec)

@@ -116,8 +116,10 @@ final class Prisoner extends Model
                     ? $model->birthdate
                     : Carbon::parse($model->birthdate);
                 $endC = $end instanceof Carbon ? $end : Carbon::parse($end);
-                $age = (int) $birth->diffInYears($endC);
-                $model->attributes['age'] = $age > 120 ? null : $age;
+                // Signed — see getAgeAttribute(): an absolute diff turns a
+                // death-before-birth pair into a believable age.
+                $age = (int) $birth->diffInYears($endC, false);
+                $model->attributes['age'] = ($age < 0 || $age > 120) ? null : $age;
             }
 
             // Keep imprisoned_or_exiled in sync with the active-state
@@ -192,11 +194,16 @@ final class Prisoner extends Model
         }
 
         $end = $this->death_date ?? Carbon::now();
-        $age = (int) $this->birthdate->diffInYears($end);
+
+        // Signed on purpose. diffInYears() is absolute by default, so a death
+        // date that precedes the birthdate -- a real state in at least one
+        // imported record -- would otherwise render as a perfectly plausible
+        // positive age instead of showing that something is wrong.
+        $age = (int) $this->birthdate->diffInYears($end, false);
 
         // A birthdate stored with an unknown/placeholder year (e.g. 1900)
         // produces an impossible age; suppress rather than display it.
-        return $age > 120 ? null : $age;
+        return ($age < 0 || $age > 120) ? null : $age;
     }
 
     /**
