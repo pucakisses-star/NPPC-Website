@@ -49,10 +49,13 @@
 #              Garrett rule).
 #
 #   GINZBURG   Entered federal custody February 17, 1972, held at the
-#              federal prison camp at Allenwood, Pennsylvania, paroled
-#              October 11, 1972 = 237 days, the eight months the
-#              obituaries describe. The five-year sentence had been cut
-#              to three shortly before he reported.
+#              federal institution at Lewisburg, Pennsylvania, where he
+#              was received, and then held at the Allenwood Federal
+#              Prison Camp; paroled October 10, 1972 = 236 days, or
+#              seven months and twenty-three days. The five-year
+#              sentence had been cut to three shortly before he
+#              reported. (Earlier drafts of this file said October 11
+#              and 237 days.)
 #
 #   MILLER     Jailed July 6, 2005, released September 29, 2005 = 85
 #              days, which is exactly the figure every account gives
@@ -182,7 +185,7 @@ read -r -d '' GINZBURG <<'JSON' || true
   "name": "Ralph Ginzburg",
   "first_name": "Ralph",
   "last_name": "Ginzburg",
-  "description": "Ralph Ginzburg was the magazine publisher whose federal obscenity conviction produced one of the strangest doctrines in American First Amendment law. In 1962 he brought out Eros, a lavish hardbound quarterly on love and sex which ran for four issues; he also published the newsletter Liaison and The Housewife's Handbook on Selective Promiscuity. Indicted in Philadelphia in 1963, he was convicted on twenty-eight counts of violating the federal obscenity statute and sentenced to five years in prison and a $42,000 fine. The Supreme Court affirmed 5 to 4 on March 21, 1966 in Ginzburg v. United States, 383 U.S. 463. Justice Brennan's majority did not hold that the publications were themselves obscene; it held that the way Ginzburg had sold them — the leering advertising, the applications for mailing privileges from the Pennsylvania towns of Intercourse and Blue Ball — amounted to pandering, and that this could tip otherwise protected material over the line. Four justices dissented sharply, Justice Black observing that Ginzburg was going to prison for a crime he could not have known existed until the Court announced it. Appeals dragged for six more years, and the sentence was cut from five years to three shortly before he reported. He entered federal custody on February 17, 1972, served at the federal prison camp at Allenwood, Pennsylvania, and was paroled on October 11, 1972, after about eight months. Ginzburg had earlier published 100 Years of Lynchings (1962), a documentary collection of contemporary newspaper accounts of lynchings in America, and the magazine fact:, whose survey of psychiatrists on Barry Goldwater led to the libel judgment in Goldwater v. Ginzburg; he later published Avant Garde and Moneysworth and worked as a New York press photographer. Born in Brooklyn on October 28, 1929, he died of multiple myeloma in Riverdale, New York on July 6, 2006.",
+  "description": "Ralph Ginzburg was the magazine publisher whose federal obscenity conviction produced one of the strangest doctrines in American First Amendment law. In 1962 he brought out Eros, a lavish hardbound quarterly on love and sex which ran for four issues; he also published the newsletter Liaison and The Housewife's Handbook on Selective Promiscuity. Indicted in Philadelphia in 1963, he was convicted on twenty-eight counts of violating the federal obscenity statute and sentenced to five years in prison and a $42,000 fine. The Supreme Court affirmed 5 to 4 on March 21, 1966 in Ginzburg v. United States, 383 U.S. 463. Justice Brennan's majority did not hold that the publications were themselves obscene; it held that the way Ginzburg had sold them — the leering advertising, the applications for mailing privileges from the Pennsylvania towns of Intercourse and Blue Ball — amounted to pandering, and that this could tip otherwise protected material over the line. Four justices dissented sharply, Justice Black observing that Ginzburg was going to prison for a crime he could not have known existed until the Court announced it. Appeals dragged for six more years, and the sentence was cut from five years to three shortly before he reported. He entered federal custody on February 17, 1972, was received at the federal institution at Lewisburg, Pennsylvania and then held at the Allenwood Federal Prison Camp, and was paroled on October 10, 1972, after seven months and twenty-three days. Ginzburg had earlier published 100 Years of Lynchings (1962), a documentary collection of contemporary newspaper accounts of lynchings in America, and the magazine fact:, whose survey of psychiatrists on Barry Goldwater led to the libel judgment in Goldwater v. Ginzburg; he later published Avant Garde and Moneysworth and worked as a New York press photographer. Born in Brooklyn on October 28, 1929, he died of multiple myeloma in Riverdale, New York on July 6, 2006.",
   "state": "Pennsylvania",
   "race": "White",
   "gender": "Male",
@@ -200,8 +203,8 @@ read -r -d '' GINZBURG <<'JSON' || true
       "charges": "Twenty-eight counts of violating the federal obscenity statute, for mailing Eros magazine, the newsletter Liaison and The Housewife's Handbook on Selective Promiscuity. Indicted in Philadelphia in 1963.",
       "convicted": "Yes — 1963. Affirmed 5–4 by the Supreme Court on March 21, 1966 in Ginzburg v. United States, 383 U.S. 463, on the ground that the pandering manner of the advertising, rather than the contents themselves, put the publications outside protection.",
       "incarceration_date": "1972-02-17",
-      "release_date": "1972-10-11",
-      "sentence": "Five years and a $42,000 fine, reduced to three years shortly before he surrendered. He entered custody on February 17, 1972, was held at the federal prison camp at Allenwood, Pennsylvania, and was paroled on October 11, 1972 after 237 days — the eight months usually cited. Nearly nine years passed between conviction and imprisonment while the appeals ran."
+      "release_date": "1972-10-10",
+      "sentence": "Five years and a $42,000 fine, reduced to three years shortly before he surrendered. He entered custody on February 17, 1972, was received at the federal institution at Lewisburg, Pennsylvania and subsequently confined at the Allenwood Federal Prison Camp, and was released on parole on October 10, 1972 after 236 days — seven months and twenty-three days. Nearly nine years passed between conviction and imprisonment while the appeals ran."
     }
   ]
 }
@@ -278,7 +281,7 @@ foreach (["james-franklin", "john-peter-zenger", "william-f-davis", "ralph-ginzb
     }
     echo "   TOTAL days = {$total}\n";
 }
-echo "\nExpected: Franklin 30 (month precision, about four weeks), Zenger 261, Davis 0 (length undocumented), Ginzburg 237, Miller 85.\n";
+echo "\nExpected: Franklin 30 (month precision, about four weeks), Zenger 261, Davis 0 (length undocumented), Ginzburg 236, Miller 85.\n";
 
 \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
 echo "Done.\n";
