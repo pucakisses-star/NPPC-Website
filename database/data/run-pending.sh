@@ -11,22 +11,30 @@
 #   * The Zimmer duplicate cleanup must run BEFORE the importer, so the
 #     importer sees one copy of each force_new record and refreshes it
 #     instead of finding several.
-#   * prisoners:place-zero-sort-by-year must run AFTER every add, or it
-#     places nothing -- a record that does not exist yet cannot be at
-#     sort_order 0.
+#   * prisoners:place-zero-sort-by-year must run AFTER every add and
+#     after the Zimmer re-sort, or it places nothing.
+#   * compact-sort-order runs AFTER placement, so unplaced records are
+#     never laundered into real positions.
 #   * prisoners:recompute-imprisonment runs LAST, because the day
 #     counters are stored on the case rows and only recomputed when a
-#     case is saved; several scripts above change flags or dates that
-#     the counters depend on.
+#     case is saved.
 #
-# Everything here is idempotent, so running the script twice is safe
-# and the second run mostly reports "nothing to do".
+# ONE FAILING STEP DOES NOT ABORT THE RUN. Every step is wrapped: a
+# failure is recorded and printed in a summary at the end, and the rest
+# of the work still happens. (The first version of this script used
+# plain set -e, and a single NOT FOUND from a script that had already
+# run once stopped the entire pipeline before most of the corrections
+# were reached.)
+#
+# Everything here is idempotent, so running the script twice is safe.
 #
 # Run from the repo root, after git pull:
 #   bash database/data/run-pending.sh
 
-set -euo pipefail
+set -uo pipefail
 cd "$(dirname "$0")/../.."
+
+FAILED=()
 
 step() {
     echo
@@ -35,35 +43,40 @@ step() {
     echo "==================================================================="
 }
 
+run() {
+    local label="$1"
+    shift
+    echo
+    echo "--- ${label}"
+    if "$@"; then
+        return 0
+    fi
+    echo "  !! FAILED: ${label} — recorded, continuing with the rest"
+    FAILED+=("${label}")
+    return 0
+}
+
 # ---- 1. removals, before anything counts records ---------------------
-step "Remove the Andy Ngo civil-suit defendants (no custody, civil judgment)"
-bash database/data/remove-ngo-civil-suit-defendants.sh
-
-step "Remove Hatfield and Chambers (merged long ago, never run)"
-bash database/data/remove-matewan-hatfield-chambers.sh || echo "  (script missing or already applied)"
-
-step "Photo audit: drop 19 non-portrait images and 32 dead photo paths"
-bash database/data/remove-non-portrait-photos.sh
+step "Removals"
+run "remove-ngo-civil-suit-defendants" bash database/data/remove-ngo-civil-suit-defendants.sh
+if [ -f database/data/remove-matewan-hatfield-chambers.sh ]; then
+    run "remove-matewan-hatfield-chambers" bash database/data/remove-matewan-hatfield-chambers.sh
+fi
+run "remove-non-portrait-photos" bash database/data/remove-non-portrait-photos.sh
 
 # ---- 2. taxonomy -----------------------------------------------------
-step "Ideology taxonomy cleanup: retire six labels, merge two"
-bash database/data/ideology-taxonomy-cleanup.sh
-
-step "Merge Pacifism into Anti-War"
-bash database/data/merge-pacifism-into-anti-war.sh || echo "  (already applied)"
+step "Taxonomy"
+run "ideology-taxonomy-cleanup" bash database/data/ideology-taxonomy-cleanup.sh
+if [ -f database/data/merge-pacifism-into-anti-war.sh ]; then
+    run "merge-pacifism-into-anti-war" bash database/data/merge-pacifism-into-anti-war.sh
+fi
 
 # ---- 3. creations, before placement ----------------------------------
-step "Add the five free-expression prisoners"
-bash database/data/add-free-expression-five.sh
-
-step "Zimmer: delete the duplicate force_new records BEFORE the importer"
-bash database/data/remove-duplicate-zimmer-force-new.sh
-
-step "Zimmer importer: dry run first, so the numbers can be read"
-php artisan prisoners:add-zimmer-deportees
-
-step "Zimmer importer: apply"
-php artisan prisoners:add-zimmer-deportees --apply
+step "Creations"
+run "add-free-expression-five" bash database/data/add-free-expression-five.sh
+run "remove-duplicate-zimmer-force-new" bash database/data/remove-duplicate-zimmer-force-new.sh
+run "zimmer importer (dry run)" php artisan prisoners:add-zimmer-deportees
+run "zimmer importer (apply)" php artisan prisoners:add-zimmer-deportees --apply
 
 # ---- 4. per-prisoner corrections -------------------------------------
 step "Per-prisoner corrections"
@@ -75,29 +88,19 @@ for s in fix-walter-matthey fix-david-elmakayes fix-eric-hafner fix-alissa-azar 
          set-judith-miller-photo fix-lucy-fowlkes fix-sami-hamdi \
          fix-sofia-deferrari; do
     if [ -f "database/data/${s}.sh" ]; then
-        echo
-        echo "--- ${s}"
-        bash "database/data/${s}.sh"
+        run "${s}" bash "database/data/${s}.sh"
     else
         echo "  (missing: ${s}.sh)"
     fi
 done
 
 # ---- 5. placement and derived values, last ---------------------------
-step "Zero the Zimmer block so it interleaves chronologically"
-bash database/data/resort-zimmer-deportees.sh
-
-step "Place every record still at sort_order 0 (new records, Sofia, the Zimmer block)"
-php artisan prisoners:place-zero-sort-by-year --apply
-
-step "Group co-defendants so linked prisoners sit together"
-php artisan prisoners:group-codefendants --apply || echo "  (skipped)"
-
-step "Compact the sort order: renumber 1..N, closing every gap"
-bash database/data/compact-sort-order.sh
-
-step "Recompute the imprisonment day counters"
-php artisan prisoners:recompute-imprisonment --apply
+step "Placement and derived values"
+run "resort-zimmer-deportees" bash database/data/resort-zimmer-deportees.sh
+run "place-zero-sort-by-year" php artisan prisoners:place-zero-sort-by-year --apply
+run "group-codefendants" php artisan prisoners:group-codefendants --apply
+run "compact-sort-order" bash database/data/compact-sort-order.sh
+run "recompute-imprisonment" php artisan prisoners:recompute-imprisonment --apply
 
 step "Final state"
 php artisan tinker --execute='
@@ -117,5 +120,13 @@ echo "Cache cleared.\n";
 
 echo
 echo "==================================================================="
-echo "  All pending work applied."
+if [ ${#FAILED[@]} -eq 0 ]; then
+    echo "  All pending work applied. No failures."
+else
+    echo "  Finished with ${#FAILED[@]} failed step(s):"
+    for f in "${FAILED[@]}"; do
+        echo "    - ${f}"
+    done
+    echo "  Everything else was applied. Re-run after fixing, or report the output."
+fi
 echo "==================================================================="
