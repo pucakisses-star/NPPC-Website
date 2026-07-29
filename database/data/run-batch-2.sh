@@ -18,12 +18,19 @@
 #                                   so if it already ran this costs a
 #                                   second and reports nothing to do.
 #   remove-veterans-rights-ideology retire Veterans{39} Rights, 9 records
+#   fix-ralph-ginzburg              release October 10 not 11 (236 days,
+#                                   not 237), and the Lewisburg
+#                                   reception recorded alongside
+#                                   Allenwood
 #
-# NO PLACEMENT OR RECOMPUTE TAIL. Neither script touches dates, custody
-# or sort_order, so there is nothing for
-# prisoners:place-zero-sort-by-year or
-# prisoners:recompute-imprisonment to do afterwards. Those only belong
-# in a batch that adds records or changes case dates.
+# NO PLACEMENT TAIL. Nothing here creates a record or moves one, so
+# prisoners:place-zero-sort-by-year has nothing to place.
+#
+# The Ginzburg fix DOES change a case date, but it writes the case row
+# itself, and the day counter is recomputed by the model on save -- so
+# no recompute pass is needed either. If a later batch changes dates
+# without saving the case (a flag on the prisoner, say), that batch
+# needs prisoners:recompute-imprisonment --apply at the end.
 #
 # One failing step does not abort the run: failures are collected and
 # listed at the end.
@@ -50,11 +57,12 @@ run() {
 }
 
 echo "==================================================================="
-echo "  Batch 2 — taxonomy only"
+echo "  Batch 2 — taxonomy and one correction"
 echo "==================================================================="
 
 run "merge-iww-affiliation" bash database/data/merge-iww-affiliation.sh
 run "remove-veterans-rights-ideology" bash database/data/remove-veterans-rights-ideology.sh
+run "fix-ralph-ginzburg" bash database/data/fix-ralph-ginzburg.sh
 
 echo
 echo "==================================================================="
