@@ -68,6 +68,8 @@ run "normalize-verdicts (dry run)" php artisan prisoners:normalize-verdicts
 run "normalize-verdicts (apply)" php artisan prisoners:normalize-verdicts --apply
 run "trim-charge-context (dry run)" php artisan prisoners:trim-charge-context
 run "trim-charge-context (apply)" php artisan prisoners:trim-charge-context --apply
+run "strip-bio-ages (dry run)" php artisan prisoners:strip-bio-ages
+run "strip-bio-ages (apply)" php artisan prisoners:strip-bio-ages --apply
 
 echo
 echo "==================================================================="
