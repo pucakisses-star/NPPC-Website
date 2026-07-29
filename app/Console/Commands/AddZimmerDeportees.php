@@ -39,6 +39,15 @@ use Illuminate\Support\Str;
  *                 in_exile_since = the deportation date, with no end of
  *                 exile invented.
  *
+ *   UPGRADE       Records created by the EARLIER, template-only version
+ *                 of this import (identified by the old closing sentence
+ *                 and the absence of a narrative) are refreshed in
+ *                 place: description replaced with the narrative
+ *                 version, case text and dates updated, photo and birth
+ *                 year filled where missing, affiliations merged. Run
+ *                 the command again after pulling and the templated
+ *                 records heal themselves.
+ *
  *   ENRICH (30)   Deportees already in the database (Goldman, Berkman,
  *                 Steimer, Galleani...). NOTHING IS OVERWRITTEN: a
  *                 portrait is attached only if the record has no photo
@@ -77,10 +86,10 @@ final class AddZimmerDeportees extends Command
         }
 
         $existing = [];
-        foreach (Prisoner::withoutGlobalScopes()->get(['name', 'aka']) as $p) {
+        foreach (Prisoner::withoutGlobalScopes()->get(['slug', 'name', 'aka']) as $p) {
             foreach ([$p->name, $p->aka] as $n) {
                 if ($n) {
-                    $existing[$this->norm($n)] = true;
+                    $existing[$this->norm($n)] ??= $p->slug;
                 }
             }
         }
@@ -97,6 +106,7 @@ final class AddZimmerDeportees extends Command
         $created = 0;
         $skipped = 0;
         $enriched = 0;
+        $upgraded = 0;
         $photosAttached = 0;
         $tiers = ['span' => 0, 'arrest' => 0, 'exile' => 0];
 
@@ -109,15 +119,20 @@ final class AddZimmerDeportees extends Command
 
             $keys = array_filter([$this->norm($r['name']), $r['aka'] ? $this->norm($r['aka']) : null]);
             if (empty($r['force_new'])) {
-                $isDup = false;
+                $dupSlug = null;
                 foreach ($keys as $k) {
-                    if (isset($existing[$k])) {
-                        $isDup = true;
-                    }
+                    $dupSlug = $dupSlug ?? ($existing[$k] ?? null);
                 }
-                if ($isDup) {
-                    $this->line('  skip (exists): '.$r['name']);
-                    $skipped++;
+                if ($dupSlug !== null) {
+                    // A record created by the earlier, template-only version
+                    // of this import carries the old closing sentence and no
+                    // narrative; refresh it in place from the current roster.
+                    if ($this->upgradeTemplated($r, $dupSlug, $apply, $photosAttached)) {
+                        $upgraded++;
+                    } else {
+                        $this->line('  skip (exists): '.$r['name']);
+                        $skipped++;
+                    }
 
                     continue;
                 }
@@ -168,14 +183,14 @@ final class AddZimmerDeportees extends Command
                 $case->save();
 
                 foreach ($keys as $k) {
-                    $existing[$k] = true;
+                    $existing[$k] = $p->slug;
                 }
             }
             $created++;
         }
 
         $this->newLine();
-        $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); enriched {$enriched} existing; skipped {$skipped}; ".($apply ? "{$photosAttached} photo(s) attached." : 'photos attach on --apply.'));
+        $this->info(($apply ? 'Created' : 'Would create')." {$created} record(s); upgraded {$upgraded} templated record(s) from the earlier import; enriched {$enriched} existing; skipped {$skipped}; ".($apply ? "{$photosAttached} photo(s) attached." : 'photos attach on --apply.'));
         $this->info("Custody tiers: {$tiers['span']} detention-span (Buford/Ellis Island), {$tiers['arrest']} arrest-only, {$tiers['exile']} exile-only.");
         if (! $apply) {
             $this->info('Dry run. Re-run with --apply.');
@@ -185,6 +200,55 @@ final class AddZimmerDeportees extends Command
         }
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Refresh a record created by the earlier template-only import: replace
+     * the templated description with the narrative one, update the Zimmer
+     * case text and dates, and fill photo/birth/affiliations. Records whose
+     * description does not carry the old template signature are left alone.
+     */
+    private function upgradeTemplated(array $r, string $slug, bool $apply, int &$photosAttached): bool
+    {
+        $p = Prisoner::withoutGlobalScopes()->where('slug', $slug)->with('cases')->first();
+        if (! $p) {
+            return false;
+        }
+        $old = 'documented in historian Kenyon Zimmer';
+        if (! str_contains((string) $p->description, $old) || str_contains((string) $p->description, 'Adapted from Kenyon Zimmer')) {
+            return false;
+        }
+
+        $this->line('  upgrade (old template): '.$p->slug);
+        if (! $apply) {
+            return true;
+        }
+
+        $p->description = $r['description'];
+        if ($r['birth_year'] && ! $p->birthdate) {
+            $p->setPartialDate('birthdate', (int) $r['birth_year']);
+        }
+        $p->affiliation = array_values(array_unique(array_merge($p->affiliation ?: [], $r['affiliations'] ?: []))) ?: null;
+        $p->ideologies = array_values(array_unique(array_merge($p->ideologies ?: [], $r['ideologies'] ?: []))) ?: null;
+        $p->save();
+        if ($r['photo'] && ! $p->photo) {
+            $this->attachPhoto($p, $r['photo']) && $photosAttached++;
+        }
+
+        $c = $r['case'];
+        $case = $p->cases->first(fn ($x) => str_contains((string) $x->charges, 'Red Scare Deportees index')) ?? $p->cases->first();
+        if ($case && $c) {
+            $case->charges = $c['charges'];
+            $case->sentence = $c['sentence'];
+            foreach ([['arrest_date', $c['arrest']], ['incarceration_date', $c['incarceration']], ['release_date', $c['release']], ['in_exile_since', $c['exile_since']]] as [$field, $val]) {
+                if ($val) {
+                    $case->setPartialDate($field, ...array_map(fn ($x) => $x === null ? null : (int) $x, $val));
+                }
+            }
+            $case->save();
+        }
+
+        return true;
     }
 
     /** Fill gaps on an existing record without overwriting anything. */
@@ -209,6 +273,19 @@ final class AddZimmerDeportees extends Command
             $actions[] = 'affiliations';
         }
 
+        // The index's biographical narrative, appended as a clearly
+        // attributed supplement -- the existing bio is never replaced.
+        // The narrative sits between the facts header and the attribution
+        // line of the roster description; a 60-character probe keeps the
+        // append idempotent.
+        $narrative = $this->narrativeOf($r['description']);
+        $probe = $narrative ? mb_substr($narrative, 0, 60) : null;
+        if ($narrative && ! str_contains((string) $p->description, $probe)) {
+            $actions[] = 'bio supplement';
+        } else {
+            $narrative = null;
+        }
+
         if (! $actions) {
             return false;
         }
@@ -222,10 +299,31 @@ final class AddZimmerDeportees extends Command
                 $p->setPartialDate('birthdate', (int) $r['birth_year']);
             }
             $p->affiliation = $merged ?: null;
+            if ($narrative) {
+                $p->description = rtrim((string) $p->description)
+                    ."\n\nFrom Kenyon Zimmer's Red Scare Deportees index (kenyonzimmer.com, compiled from INS deportation case files): "
+                    .$narrative;
+            }
             $p->save();
         }
 
         return true;
+    }
+
+    /** The narrative paragraphs of a roster description: the attribution line and (when present) the facts header are stripped by pattern, not by position. */
+    private function narrativeOf(string $description): ?string
+    {
+        $parts = explode("\n\n", $description);
+        if ($parts && str_starts_with(end($parts), 'Adapted from Kenyon Zimmer')) {
+            array_pop($parts);
+        }
+        if ($parts && mb_strlen($parts[0]) < 320
+            && preg_match('/ was born |^Worked as a |^Immigrated to the United States/u', $parts[0])) {
+            array_shift($parts);
+        }
+        $narr = trim(implode("\n\n", $parts));
+
+        return $narr !== '' ? $narr : null;
     }
 
     private function attachPhoto(Prisoner $p, string $file): bool
