@@ -41,10 +41,15 @@
 # in the case text instead. A real date of birth would let the age
 # maintain itself and should replace this if one turns up.
 #
-# NO CUSTODY DATES ARE ADDED. The twenty-four month sentence is known
-# but no admission date is, and the August 1, 2023 locator check is a
-# LATEST-POSSIBLE release rather than a release date. The imprisonment
-# counter therefore stays empty, which is correct rather than missing.
+# THE RELEASE DATE IS AUGUST 1, 2023 -- the date the locator gives as
+# the point he was no longer in Bureau custody, recorded as his release.
+#
+# NO ADMISSION DATE IS ADDED, so the imprisonment counter stays empty
+# even with the release date in place: the model needs both ends. The
+# twenty-four month sentence would put the admission in August 2021 if
+# counted backwards, but that is arithmetic rather than evidence, and
+# federal terms rarely run their nominal length. Find the admission date
+# and the span completes itself.
 #
 # Idempotent. Run from the repo root:
 #   bash database/data/fix-cyril-lartigue.sh
@@ -87,7 +92,8 @@ if (is_file($src)) {
 
 $case = $p->cases->first() ?? $p->cases()->create([]);
 $case->charges = "Possession of an unregistered destructive device — a Molotov cocktail made near the Austin Municipal Court during the protest of May 30, 2020.";
-$case->sentence = "Twenty-four months in federal prison. Federal Bureau of Prisons register number 48611-480. The BOP inmate locator records him as not in Bureau custody as of August 1, 2023, and gave his age as 32 when checked in July 2026 — the locator prints a current age rather than an age at release, which places his birth between about July 1993 and July 1994. That two-year window is too wide for a birthdate field, so none is set; the stored age of 32 has no birthdate behind it and will not advance on its own, and should be replaced by a real date of birth if one turns up. NO ADMISSION OR RELEASE DATE IS DOCUMENTED: the August 1, 2023 entry establishes only a latest-possible release, not the day he walked out, so no custody dates are recorded and the imprisonment counter stays empty rather than carrying an invented span.";
+$case->sentence = "Twenty-four months in federal prison. Federal Bureau of Prisons register number 48611-480. Released August 1, 2023, the date the BOP inmate locator gives as the point he was no longer in Bureau custody. The locator also gave his age as 32 when checked in July 2026 — it prints a current age rather than an age at release, which places his birth between about July 1993 and July 1994. That two-year window is too wide for a birthdate field, so none is set; the stored age of 32 has no birthdate behind it and will not advance on its own, and should be replaced by a real date of birth if one turns up. NO ADMISSION DATE IS DOCUMENTED, so the imprisonment counter stays empty: counting back twenty-four months from the release would put his admission in August 2021, but that is arithmetic rather than evidence and federal terms rarely run their nominal length. If the admission date is found, the span becomes complete.";
+$case->setPartialDate("release_date", 2023, 8, 1);
 $case->save();
 
 $p->refresh()->load("cases");
@@ -96,7 +102,10 @@ echo "  register no. ".($p->inmate_number ?: "-")."   race ".($p->race ?: "-")."
 echo "  in_custody ".var_export($p->in_custody, true)."   released ".var_export($p->released, true)."  (both were false before)\n";
 echo "  age ".($p->age ?? "-")."   (expect 32; no birthdate behind it, so it will not advance on its own)\n";
 echo "  photo ".($p->photo ?: "(none)")."   ".filesize(storage_path("app/public/".$p->photo))." bytes\n";
-echo "  cases ".$p->cases->count()."   days ".($p->cases->first()->imprisoned_for_days ?? "null")."  (expect null — no documented dates)\n";
+$c = $p->cases->first();
+echo "  released ".(optional($c->release_date)->toDateString() ?: "-")."   (expect 2023-08-01)\n";
+echo "  incarcerated ".(optional($c->incarceration_date)->toDateString() ?: "(not documented)")."\n";
+echo "  days ".($c->imprisoned_for_days ?? "null")."  (expect null — a release date alone cannot make a span)\n";
 
 \Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
 echo "Done.\n";
