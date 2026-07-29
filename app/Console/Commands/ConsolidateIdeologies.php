@@ -300,6 +300,13 @@ class ConsolidateIdeologies extends Command
         // vague or one-off orphans (single-prisoner, no sensible home)
         'Anti-communism',
         'Anti-Globalization',
+        // Retired. Both casings are listed: the corpus carried
+        // 'Veterans\' Rights' while MAP funnels 'Veterans\' organizing'
+        // into the lower-cased 'Veterans\' rights', so retiring one
+        // spelling alone would let the other reappear. All nine records
+        // that carried it keep another ideology, eight of them Anti-War.
+        'Veterans\' Rights',
+        'Veterans\' rights',
         'Anti-Poverty',
         'New Left',
         // Retired: describes the circumstances of an arrest rather than a
