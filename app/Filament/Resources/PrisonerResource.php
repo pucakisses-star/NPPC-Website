@@ -207,7 +207,7 @@ class PrisonerResource extends Resource
     {
         $precision = $get("{$field}__precision") ?: 'day';
 
-        if ($precision === 'year') {
+        if (in_array($precision, ['year', 'circa'], true)) {
             $year = $get("{$field}__year");
             $raw = $year ? sprintf('%04d-01-01', (int) $year) : null;
         } elseif ($precision === 'month') {
