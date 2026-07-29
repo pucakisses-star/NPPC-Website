@@ -62,9 +62,15 @@ php artisan tinker --execute='
 use App\Models\Institution;
 use App\Models\Prisoner;
 
-$p = Prisoner::withoutGlobalScopes()->where("slug", "dr-walter-c-matthey")->with("cases")->first();
+// The Prisoner model regenerates the slug whenever the name changes, so
+// the first run of this script (renaming him to Walter A.) moved him
+// from dr-walter-c-matthey to dr-walter-a-matthey. Look up both, so a
+// re-run finds him instead of failing.
+$p = Prisoner::withoutGlobalScopes()
+    ->whereIn("slug", ["dr-walter-c-matthey", "dr-walter-a-matthey"])
+    ->with("cases")->first();
 if (! $p) {
-    echo "NOT FOUND: dr-walter-c-matthey\n";
+    echo "NOT FOUND: dr-walter-c-matthey / dr-walter-a-matthey\n";
     exit(1);
 }
 
