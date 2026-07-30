@@ -104,8 +104,27 @@ final class PrisonerCase extends Model
         }
 
         if ($this->release_date) {
-            return (int) Carbon::parse($this->incarceration_date)
-                ->diffInDays(Carbon::parse($this->release_date));
+            $start = Carbon::parse($this->incarceration_date);
+            $end = Carbon::parse($this->release_date);
+
+            // A release BEFORE the custody starts is not a short sentence, it
+            // is a mismatched pair: one row holding an arrest from one episode
+            // and a release from an earlier, unrelated one. Lifelong
+            // activists collect several arrests, and a single case row cannot
+            // hold two of them.
+            //
+            // diffInDays() is absolute, so such a pair yields a large,
+            // entirely believable figure — Paul Magno's 2013 arrest against a
+            // 1986 release rendered as "Imprisoned For 27 years 10 months 10
+            // days" on his public profile. Suppress it instead, for the same
+            // reason the age hook in Prisoner::saving() suppresses an
+            // impossible age rather than publishing the absolute difference:
+            // no counter is better than a fabricated one.
+            if ($end->lt($start)) {
+                return null;
+            }
+
+            return (int) $start->diffInDays($end);
         }
 
         // No release date recorded. Only count up to today when the prisoner
@@ -113,7 +132,7 @@ final class PrisonerCase extends Model
         // released prisoner whose release date was never recorded has an
         // unknown end, so leave it null rather than inflating "time served"
         // all the way to the present. Mirrors the stats-chart logic in
-        // Prisoner::activeYears().
+        // Prisoner::getIncarcerationYearsArray().
         $prisoner = $this->prisoner;
         $stillDetained = $prisoner && ($prisoner->in_custody || $prisoner->awaiting_trial);
 
@@ -130,8 +149,16 @@ final class PrisonerCase extends Model
         }
 
         if ($this->end_of_exile) {
-            return (int) Carbon::parse($this->in_exile_since)
-                ->diffInDays(Carbon::parse($this->end_of_exile));
+            $start = Carbon::parse($this->in_exile_since);
+            $end = Carbon::parse($this->end_of_exile);
+
+            // Same guard as computeImprisonedForDays(): an exile that ends
+            // before it begins is a mismatched pair, not a duration.
+            if ($end->lt($start)) {
+                return null;
+            }
+
+            return (int) $start->diffInDays($end);
         }
 
         // No end-of-exile recorded. Only count up to today when the prisoner
