@@ -1,0 +1,412 @@
+[
+ {
+  "slug": "ralph-ginzburg",
+  "find": "obscene inuendo",
+  "replace": "obscene innuendo"
+ },
+ {
+  "slug": "sonia-anayibe-rojas",
+  "find": "thr trial",
+  "replace": "the trial"
+ },
+ {
+  "slug": "sonia-anayibe-rojas",
+  "find": "the prosuection",
+  "replace": "the prosecution"
+ },
+ {
+  "slug": "sonia-anayibe-rojas",
+  "find": "non-credible witnessed",
+  "replace": "non-credible witnesses"
+ },
+ {
+  "slug": "oscar-lopez-rivera",
+  "find": "interstate transporation of stolen propert.",
+  "replace": "interstate transportation of stolen property."
+ },
+ {
+  "slug": "oscar-lopez-rivera",
+  "find": "His disproporionate sentence",
+  "replace": "His disproportionate sentence"
+ },
+ {
+  "slug": "benjamin-gidow",
+  "find": "party lead- ership",
+  "replace": "party leadership"
+ },
+ {
+  "slug": "benjamin-gidow",
+  "find": "general secretaiy",
+  "replace": "general secretary"
+ },
+ {
+  "slug": "thomas-carey",
+  "find": "con- spiracy",
+  "replace": "conspiracy"
+ },
+ {
+  "slug": "earl-whitten",
+  "find": "was sen- tenced",
+  "replace": "was sentenced"
+ },
+ {
+  "slug": "harry-brewer",
+  "find": "was con- victed",
+  "replace": "was convicted"
+ },
+ {
+  "slug": "gus-swift",
+  "find": "for dis turbing the peace",
+  "replace": "for disturbing the peace"
+ },
+ {
+  "slug": "charles-sauer",
+  "find": "for al leged disparaging",
+  "replace": "for alleged disparaging"
+ },
+ {
+  "slug": "john-katkus",
+  "find": "an al leged attempt",
+  "replace": "an alleged attempt"
+ },
+ {
+  "slug": "john-katkus",
+  "find": "recruiting and enlisment",
+  "replace": "recruiting and enlistment"
+ },
+ {
+  "slug": "fleming-jordan",
+  "find": "6 months (sus pended)",
+  "replace": "6 months (suspended)"
+ },
+ {
+  "slug": "fred-hampton",
+  "find": "a dangerous individua by",
+  "replace": "a dangerous individual by"
+ },
+ {
+  "slug": "nikita-safroniev",
+  "find": "His wife remaine din Russia",
+  "replace": "His wife remained in Russia"
+ },
+ {
+  "slug": "matthew-dehart",
+  "find": "the hactivist group",
+  "replace": "the hacktivist group"
+ },
+ {
+  "slug": "harry-winitsky",
+  "find": "prosecution of himon anti-anarchy",
+  "replace": "prosecution of him on anti-anarchy"
+ },
+ {
+  "slug": "j-a-maxwell",
+  "find": "Maxwell begem serving",
+  "replace": "Maxwell began serving"
+ },
+ {
+  "slug": "a-m-blumberg",
+  "find": "whenhe was released onbond",
+  "replace": "when he was released on bond"
+ },
+ {
+  "slug": "grover-h-perry",
+  "find": "\" notpromising. \"",
+  "replace": "\"not promising.\""
+ },
+ {
+  "slug": "grover-h-perry",
+  "find": "released onbond on September",
+  "replace": "released on bond on September"
+ },
+ {
+  "slug": "frank-burke",
+  "find": "\" thehole \"",
+  "replace": "\"the hole\""
+ },
+ {
+  "slug": "frank-burke",
+  "find": "andhe was subjected",
+  "replace": "and he was subjected"
+ },
+ {
+  "slug": "frank-burke",
+  "find": "hospitalizadon",
+  "replace": "hospitalization"
+ },
+ {
+  "slug": "ben-boloff",
+  "find": "haggard, andcoughing. \"",
+  "replace": "haggard, and coughing.\""
+ },
+ {
+  "slug": "clure-isenhover",
+  "find": "prevent andhinder \"",
+  "replace": "prevent and hinder\""
+ },
+ {
+  "slug": "john-avila",
+  "find": "a wife andthree children",
+  "replace": "a wife and three children"
+ },
+ {
+  "slug": "lise-olsen",
+  "find": "a terrorist infront of the jury",
+  "replace": "a terrorist in front of the jury"
+ },
+ {
+  "slug": "sidney-wallace-mader",
+  "find": "his arrest anddetention \"",
+  "replace": "his arrest and detention\""
+ },
+ {
+  "slug": "robert-harden",
+  "find": "States andsentenced to two years",
+  "replace": "States and sentenced to two years"
+ },
+ {
+  "slug": "thomas-hammerschmidt",
+  "find": "registration andsentenced to fifteen",
+  "replace": "registration and sentenced to fifteen"
+ },
+ {
+  "slug": "pete-muselin",
+  "find": "anti-sedition law andsentenced to five years",
+  "replace": "anti-sedition law and sentenced to five years"
+ },
+ {
+  "slug": "pete-muselin",
+  "find": "Tom Zima'shouseand Muselin'sbarber shop, wherea large",
+  "replace": "Tom Zima's house and Muselin's barber shop, where a large"
+ },
+ {
+  "slug": "pete-muselin",
+  "find": "confiscated. Thethree defendants",
+  "replace": "confiscated. The three defendants"
+ },
+ {
+  "slug": "g-j-bourg",
+  "find": "after abunch of drunken",
+  "replace": "after a bunch of drunken"
+ },
+ {
+  "slug": "william-e-martin",
+  "find": "William E. Martin acarpenter from",
+  "replace": "William E. Martin, a carpenter from"
+ },
+ {
+  "slug": "victor-johnson",
+  "find": "a printer andamember of the",
+  "replace": "a printer and a member of the"
+ },
+ {
+  "slug": "bell-wicenski",
+  "find": "athorities",
+  "replace": "authorities"
+ },
+ {
+  "slug": "malik-fard-muhammad",
+  "find": "confinment",
+  "replace": "confinement"
+ },
+ {
+  "slug": "luis-v-rodriguez",
+  "find": "crulty",
+  "replace": "cruelty"
+ },
+ {
+  "slug": "hyman-perkus",
+  "find": "ddeportee",
+  "replace": "deportee"
+ },
+ {
+  "slug": "hyman-perkus",
+  "find": "delared",
+  "replace": "declared"
+ },
+ {
+  "slug": "daniel-berrigan",
+  "find": "destroeyd",
+  "replace": "destroyed"
+ },
+ {
+  "slug": "alice-paul",
+  "find": "hunger strike durnig her",
+  "replace": "hunger strike during her"
+ },
+ {
+  "slug": "francisco-torres",
+  "find": "A fomer Black Panther",
+  "replace": "A former Black Panther"
+ },
+ {
+  "slug": "teddy-heath",
+  "find": "jury foung him guilty",
+  "replace": "jury found him guilty"
+ },
+ {
+  "slug": "william-durrell",
+  "find": "indispensible",
+  "replace": "indispensable"
+ },
+ {
+  "slug": "raphael-joseph",
+  "find": "did not recieve",
+  "replace": "did not receive"
+ },
+ {
+  "slug": "raphael-joseph",
+  "find": "inhnerently",
+  "replace": "inherently"
+ },
+ {
+  "slug": "samuel-sterenstein",
+  "find": "innoculation",
+  "replace": "inoculation"
+ },
+ {
+  "slug": "dan-voloshin",
+  "find": "inteviewed",
+  "replace": "interviewed"
+ },
+ {
+  "slug": "alex-sologub",
+  "find": "as a 5; nterviewed on Jan. 5, 1919",
+  "replace": "as a 5; interviewed on Jan. 5, 1919"
+ },
+ {
+  "slug": "pasquale-nardini",
+  "find": "joned",
+  "replace": "joined"
+ },
+ {
+  "slug": "james-peck",
+  "find": "lator",
+  "replace": "later"
+ },
+ {
+  "slug": "frank-klassen",
+  "find": "lsited",
+  "replace": "listed"
+ },
+ {
+  "slug": "carl-ahlteen",
+  "find": "machineiy",
+  "replace": "machinery"
+ },
+ {
+  "slug": "reuben-j-eash",
+  "find": "militaiy",
+  "replace": "military"
+ },
+ {
+  "slug": "warren-billings",
+  "find": "militiant",
+  "replace": "militant"
+ },
+ {
+  "slug": "manuel-rey-y-garcia",
+  "find": "movemint",
+  "replace": "movement"
+ },
+ {
+  "slug": "edward-wilke",
+  "find": "registerd",
+  "replace": "registered"
+ },
+ {
+  "slug": "antonio-guerrero",
+  "find": "sentencd",
+  "replace": "sentenced"
+ },
+ {
+  "slug": "sami-al-arian",
+  "find": "sentneced",
+  "replace": "sentenced"
+ },
+ {
+  "slug": "fred-merchawk",
+  "find": "setnenced",
+  "replace": "sentenced"
+ },
+ {
+  "slug": "stephen-stanley",
+  "find": "shanghied",
+  "replace": "shanghaied"
+ },
+ {
+  "slug": "j-b-childs",
+  "find": "solitaiy",
+  "replace": "solitary"
+ },
+ {
+  "slug": "anton-sheroff",
+  "find": "tensferred",
+  "replace": "transferred"
+ },
+ {
+  "slug": "stanislaw-bartesiewics",
+  "find": "territrories",
+  "replace": "territories"
+ },
+ {
+  "slug": "amos-t-bontrager",
+  "find": "timeing",
+  "replace": "timing"
+ },
+ {
+  "slug": "aden-e-heckman",
+  "find": "transfered",
+  "replace": "transferred"
+ },
+ {
+  "slug": "gavril-nechiporenko",
+  "find": "wiefe",
+  "replace": "wife"
+ },
+ {
+  "slug": "john-j-ballam",
+  "find": "wofkingmen",
+  "replace": "workingmen"
+ },
+ {
+  "slug": "gerard-liebisch",
+  "find": "woriy",
+  "replace": "worry"
+ },
+ {
+  "slug": "abraham-f-neufeld",
+  "find": "name mispelled Neufield",
+  "replace": "name misspelled Neufield"
+ },
+ {
+  "slug": "minnie-d-abbott",
+  "find": "picketing for womens' suffrage",
+  "replace": "picketing for women's suffrage"
+ },
+ {
+  "slug": "robert-golistein",
+  "find": "Ten vears tn.",
+  "replace": "Ten years in."
+ },
+ {
+  "slug": "william-t-walker",
+  "find": "Two vearsin the.",
+  "replace": "Two years in the."
+ },
+ {
+  "slug": "perley-j-burns",
+  "find": "Two yeursin {he.",
+  "replace": "Two years in the."
+ },
+ {
+  "slug": "richard-lake",
+  "find": "$34 r­­obbery",
+  "replace": "$34 robbery"
+ },
+ {
+  "slug": "edward-salzer",
+  "find": "states: ünassigned,",
+  "replace": "states: \"unassigned,"
+ }
+]
