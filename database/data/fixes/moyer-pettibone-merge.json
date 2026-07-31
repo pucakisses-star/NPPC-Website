@@ -1,0 +1,90 @@
+{
+ "keep": {
+  "slug": "charles-moyer",
+  "middle_name": "H.",
+  "race": "White",
+  "birthdate": [
+   1866,
+   null,
+   null
+  ],
+  "affiliation": [
+   "Western Federation of Miners",
+   "Industrial Workers of the World (IWW)",
+   "Socialist Party of America"
+  ],
+  "description": "Charles H. Moyer (1866–1929) was president of the Western Federation of Miners. He was born in Iowa in 1866 — usually described as near Ames, though one family source gives Moingona in Boone County — and no reliable month and day has been established. An Iowa genealogical compilation expands his middle initial as Henry, but contemporary legal, union and newspaper records identify him only as Charles H. Moyer, and that is the form kept here.\n\nHe was first arrested at Ouray, Colorado on March 26, 1904, on a charge of desecrating the American flag. He had authorized a Western Federation of Miners poster headed \"Is Colorado in America?\", which set out across the stripes of a flag a list of the rights suspended in the mining districts — martial law, habeas corpus, free speech, free press — beside a photograph of the union miner Henry Maki, chained to a telegraph pole by the militia. Released on a reported $500 bond on the flag charge, he was taken straight back into custody by the Colorado militia and held at Telluride, in the city jail under military guard, from the morning of March 30 until the afternoon of June 15, 1904. The state justified it by Governor James Peabody's declaration of insurrection and the claim that a union leader at liberty might help perpetuate the disturbance; Moyer's later federal complaint alleged that no criminal complaint was filed against him during those seventy-seven days and that he was held without probable cause. The Colorado Supreme Court rejected his habeas corpus challenge, and his damages action reached the United States Supreme Court, which ruled against him in Moyer v. Peabody, 212 U.S. 78, on January 18, 1909.\n\nOn the evening of February 17, 1906, Moyer was arrested in Denver together with William D. Haywood and George A. Pettibone, held in the city jail and briefly at the Oxford Hotel where the three were kept from reaching their lawyers or families, and put aboard a special train to Idaho at daybreak on February 18. The charge was the murder of former Idaho governor Frank Steunenberg, on the theory that the Western Federation leadership had conspired to have Harry Orchard kill him with a bomb. Moyer was held in the Ada County Jail at Boise and was never brought to trial. After Pettibone was acquitted, prosecutors asked the court to dismiss the case against Moyer, and he was released on the afternoon of January 4, 1908 — six hundred and eighty-six days after his arrest, with no conviction and no sentence.\n\nHe remained president of the Western Federation of Miners until 1926 and died at Pomona, California on June 2, 1929.",
+  "cases": [
+   {
+    "match_year": 1904,
+    "arrest": [
+     1904,
+     3,
+     26
+    ],
+    "incarceration": [
+     1904,
+     3,
+     30
+    ],
+    "release": [
+     1904,
+     6,
+     15
+    ],
+    "institution_name": "Telluride City Jail",
+    "institution_city": "Telluride",
+    "institution_state": "Colorado",
+    "charges": [
+     "Desecration or improper use of the United States flag (the \"Is Colorado in America?\" poster), then military detention without an ordinary criminal complaint."
+    ],
+    "convicted": "No — no criminal complaint was filed during the military imprisonment; the flag charge produced no conviction.",
+    "sentence": "No sentence. Arrested at Ouray on March 26, 1904 on the flag charge and released on a reported $500 bond, then taken back into custody by the Colorado militia and held at Telluride under military guard from the morning of March 30 until the afternoon of June 15, 1904 — 77 elapsed days, 78 counting both endpoints. The Colorado Supreme Court rejected his habeas corpus challenge; his damages action was decided against him in Moyer v. Peabody, 212 U.S. 78 (January 18, 1909)."
+   },
+   {
+    "match_year": 1906,
+    "arrest": [
+     1906,
+     2,
+     17
+    ],
+    "incarceration": [
+     1906,
+     2,
+     17
+    ],
+    "release": [
+     1908,
+     1,
+     4
+    ]
+   }
+  ]
+ },
+ "delete": [
+  "charles-h-moyer"
+ ],
+ "pettibone": {
+  "slug": "george-pettibone",
+  "middle_name": "Arthur",
+  "birthdate": [
+   1862,
+   6,
+   15
+  ],
+  "death_date": [
+   1908,
+   8,
+   3
+  ]
+ },
+ "pettibone_delete": [
+  "george-a-pettibone"
+ ],
+ "clear_photo": [
+  {
+   "slug": "charles-crowley",
+   "why": "A coarse newspaper halftone captioned \"Charlie Crowley.\" and credited WIDE WORLD PHOTOS. The screen is so open that the face is barely legible at any size, and nothing ties a Wide World wire photo of a \"Charlie Crowley\" to the IWW member from Portola who served a three-year criminal-syndicalism sentence in San Quentin from October 29, 1923. Note also that a separate record, charles-c-crowley, is a different man entirely — the San Francisco detective in the Hindu-German Conspiracy case — and keeps his own photograph."
+  }
+ ]
+}
