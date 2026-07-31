@@ -9,14 +9,13 @@
 #                               that got Charles Moyer arrested for flag
 #                               desecration.
 #
-#                               THE BODY IS OUR OWN PROSE, not the
-#                               Denverite text, which is Copyright
-#                               Colorado Public Radio. Meltzer is credited
-#                               at the top and the bottom with a link to
-#                               the original. The poster-s thirteen
-#                               stripes and Emma Langdon-s 1904 passage
-#                               are quoted in full because those are
-#                               public domain primary sources.
+#                               THE FULL TEXT IS REPUBLISHED VERBATIM
+#                               WITH PERMISSION from Denverite / Colorado
+#                               Public Radio, confirmed by the curator.
+#                               Attribution appears above the text, in the
+#                               author record and in a closing note. Two
+#                               typos in the original are preserved on
+#                               purpose -- verbatim means verbatim.
 #
 #                               The hero image is the poster itself,
 #                               public domain, uncropped.

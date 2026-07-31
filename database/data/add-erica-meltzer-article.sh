@@ -3,22 +3,25 @@
 # ERICA MELTZER -- author page, and the 1904 "Is Colorado in America?"
 # poster article.
 #
-# ON THE BODY TEXT, stated plainly because it is a judgement rather than a
-# transcription. The Denverite piece is Copyright Colorado Public Radio.
-# Reproducing it verbatim here would be republishing a copyrighted news
-# article without a licence, so the body is OUR OWN account of the same
-# material, credited to Meltzer at the top and again at the bottom with a
-# link to the original.
+# THE FULL TEXT IS REPUBLISHED WITH PERMISSION. The piece is Copyright
+# Colorado Public Radio, and the curator has confirmed that Denverite
+# granted permission to reproduce it exactly. The body is therefore the
+# original article verbatim, not a paraphrase.
 #
-#   The two things quoted in full are quoted because they are PUBLIC
-#   DOMAIN, not because they are short: the thirteen stripes of the 1904
-#   poster, and Emma Langdon-s 1904 passage on desecration. Those are the
-#   primary sources the piece is about, and the article would be thinner
-#   without them.
+#   ATTRIBUTION IS CARRIED IN THREE PLACES because that is what
+#   republication under permission normally requires and because the byline
+#   would otherwise be the only signal that this is not our own reporting:
+#   a credit line above the text, the author record itself, and a closing
+#   note with her bio and the copyright holder.
 #
-#   IF THE RIGHTS ARE HELD OR PERMISSION IS GRANTED, swapping in the
-#   original text is a one-file change: replace
-#   database/data/articles/is-colorado-in-america.body.html and re-run.
+#   TWO ORIGINAL TYPOS ARE PRESERVED, deliberately. The piece reads
+#   "Industrial Workers of World" and "Peabody ordered Moyer-s released".
+#   Verbatim means verbatim; silently correcting a republished text edits
+#   somebody else-s work under their name. Fix them only if Denverite asks.
+#
+#   The internal links are preserved too -- the Labadie Collection, the
+#   Denver Public Library, the three-governors piece and the History.com
+#   entry all point where she pointed them.
 #
 # THE HERO IMAGE IS THE POSTER ITSELF, from Wikimedia Commons at
 # 6648x8352 and public domain, resized to 1400px tall and NOT cropped --
