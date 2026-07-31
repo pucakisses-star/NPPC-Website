@@ -1,0 +1,100 @@
+{
+ "people": [
+  {
+   "slug": "allan-hoffman",
+   "arrest": [
+    1961,
+    4,
+    28
+   ],
+   "incarceration": [
+    1961,
+    5,
+    8
+   ],
+   "release": [
+    1961,
+    5,
+    26
+   ],
+   "sentence": "Sixty days in the workhouse — then the harshest term ever imposed under the New York Defense Emergency Act — for refusing to take shelter during the April 28, 1961 civil-defense drill. He served eighteen days and was released on May 26, 1961 on one hundred dollars bail pending appeal, so the sixty days is NOT recorded as time served. The May 8 incarceration date is derived by counting the eighteen reported days back from the documented May 26 release."
+  },
+  {
+   "slug": "bill-henry",
+   "arrest": [
+    1960,
+    11,
+    22
+   ],
+   "institution": "Federal Correctional Institution, Danbury",
+   "institution_city": "Danbury",
+   "institution_state": "Connecticut",
+   "sentence": "One year. He is documented as having served a year at the federal prison in Danbury, Connecticut; his exact admission and release dates are not located, so no custody span is entered.",
+   "description": "Bill Henry was a 27-year-old Committee for Non-Violent Action pacifist who, with Donald Martin, swam to and boarded the nuclear submarine Ethan Allen on November 22, 1960 at its launching in Groton, Connecticut — the signature act of the CNVA's Polaris Action campaign against the nuclear-missile submarines. He received a one-year sentence and is documented as having served a year at the federal prison in Danbury, Connecticut."
+  },
+  {
+   "slug": "donald-martin",
+   "arrest": [
+    1960,
+    11,
+    22
+   ],
+   "institution": "Federal Correctional Institution, Danbury",
+   "institution_city": "Danbury",
+   "institution_state": "Connecticut",
+   "sentence": "An indefinite youth-offender sentence that could have held him for as long as four years. He refused bail and was held at Danbury awaiting trial by February 1961. His exact release date is unresolved, so no release is entered.",
+   "description": "Donald Martin was a 20-year-old Committee for Non-Violent Action pacifist who, with Bill Henry, swam to and boarded the nuclear submarine Ethan Allen on November 22, 1960 at its launching in Groton, Connecticut, in the Polaris Action protest against the nuclear-missile submarine program. He refused bail and was held at the federal prison in Danbury, Connecticut awaiting trial by February 1961, and subsequently received an indefinite youth-offender sentence that could have kept him imprisoned for as long as four years. His exact release date remains unresolved."
+  },
+  {
+   "slug": "ed-guerard",
+   "arrest": [
+    1961,
+    3,
+    11
+   ],
+   "minor_case": true,
+   "convicted": "No — no documented prison term",
+   "sentence": "No documented sentence. Arrested after paddling toward the Abraham Lincoln at Portsmouth on March 11, 1961; after swimming toward the Thomas Edison on June 15, 1961 he was released within hours, with Sanders and Keyes.",
+   "description": "Ed Guerard was a Committee for Non-Violent Action pacifist and former Marine who repeatedly took to the water against the Polaris submarines. He was arrested after paddling toward the Abraham Lincoln at Portsmouth, New Hampshire on March 11, 1961, and swam toward the Thomas Edison at New London on June 15, 1961, after which he, Edward Sanders and Eugene Keyes were released within a few hours. He was arrested and briefly detained; no documented prison term followed."
+  },
+  {
+   "slug": "edward-sanders",
+   "arrest": [
+    1961,
+    8,
+    null
+   ],
+   "sentence": "Seventy-seven days for breach of peace and resisting arrest, from the August 1961 Ethan Allen commissioning protest. The number of days he actually served is unconfirmed, so no custody span is entered.",
+   "description": "Edward Sanders was a 21-year-old New York University student — not, as sometimes recorded, a Harvard student — who swam toward the nuclear submarine Thomas Edison at New London on June 15, 1961 in the Committee for Non-Violent Action's Polaris Action, was seized by Navy frogmen, and was released within hours. He returned for the August 1961 commissioning protest of the Ethan Allen and received a seventy-seven-day jail sentence for breach of peace and resisting arrest; the precise number of days he ultimately served still needs confirmation."
+  },
+  {
+   "slug": "eugene-keyes",
+   "arrest": [
+    1961,
+    8,
+    null
+   ],
+   "sentence": "Jailed after the August 1961 Ethan Allen commissioning protest; reported to have served seventeen days. His June 15, 1961 Thomas Edison swim ended in release within hours.",
+   "description": "Eugene \"Gene\" Keyes was a 19-year-old Harvard student — not, as sometimes recorded, an NYU student — and Committee for Non-Violent Action pacifist who swam toward the nuclear submarine Thomas Edison at New London on June 15, 1961 and was released within hours. He was jailed after the later August 1961 commissioning protest of the Ethan Allen and is reported to have served seventeen days. His photographic archive of the CNVA campaigns, kept for the rest of his life, documents several of the people in this database."
+  },
+  {
+   "slug": "jerry-wheeler",
+   "institution": "Pima County Jail",
+   "institution_city": "Tucson",
+   "institution_state": "Arizona",
+   "sentence": "Six months, for entering Davis-Monthan Air Force Base near Tucson — the sentence is firmly documented, and he wrote from the Pima County Jail after conviction, but no release record proves he served the entire term, so the six months is not recorded as time served. He later received further jail time connected with anti-nuclear actions in California.",
+   "description": "Jerry Wheeler was a participant in the San Francisco-to-Moscow Walk for Peace who left the march to commit civil disobedience at Davis-Monthan Air Force Base near Tucson, Arizona. Convicted and sentenced to six months, he wrote from the Pima County Jail; no release record proving full service has been found. He later received jail time connected with anti-nuclear actions in California. A December 1960 photograph on the Monterey Peninsula shows him carrying the walk's CNVA sign, its caption noting he \"is now serving a six month term in prison\"."
+  },
+  {
+   "slug": "marjorie-swann",
+   "institution": "Federal Reformatory for Women, Alderson",
+   "institution_city": "Alderson",
+   "institution_state": "West Virginia",
+   "sentence": "Six months for the 1959 Omaha Action protest at the Mead, Nebraska missile base. Committed August 10, 1959, taken to the federal womens prison at Alderson, West Virginia, and returned home January 11, 1960 — 154 days, five months and a day, the last of the seven jailed to be released."
+  },
+  {
+   "slug": "richard-zink",
+   "sentence": "A federal judge ordered him in June 1961 to serve thirty days of a six-month term — a definite custodial sentence, but no jail register, admission date or release notice proving his exact custody dates has been located, so none is entered."
+  }
+ ]
+}
