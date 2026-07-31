@@ -242,3 +242,105 @@ Harriet Andrews** — no person-identified institutional portrait located.
   implicit, because a nineteenth-century engraving reads as a photograph
   at thumbnail size and is not one.
 - **Rights:** published 1872; public domain.
+
+---
+
+# Round three (batch 42)
+
+**The Library of Congress block is gone.** Batches 30 to 32 recorded that
+loc.gov served a Cloudflare challenge to this environment and worked
+around it by taking Wikimedia Commons mirrors. Both `www.loc.gov` and
+`tile.loc.gov` now answer normally — including the JSON catalogue API
+(`?fo=json`) and the MASTER TIFFs under
+`tile.loc.gov/storage-services/master/`. Fetch from the source from here
+on. `hsp.org` and `siarchives.si.edu` still return 403 on every path
+tried.
+
+Both portraits below are cut from the same negative and share a caption.
+
+## amy-juengling.jpg — Amy Juengling
+
+- **Source:** Library of Congress, Records of the National Woman's Party,
+  digital id `mnwp.276023`, published in *The Suffragist* 5, no. 95
+  (Nov. 17, 1917). Photograph by Harris & Ewing, Washington, D.C.
+- **Obtained via:** the LOC master TIFF,
+  `tile.loc.gov/storage-services/master/mss/mnwp/276/276023u.tif`
+  (3035×2031 — the service JPEG is the same size, so nothing is lost by
+  taking either).
+- **Rights:** Public domain.
+- **Archival caption:** "Some of the picket line of Nov. 10, 1917. Left
+  to right: Mrs. Catherine Martinette, Eagle Grove, Iowa. Mrs. William
+  Kent, Kentfield, California. Miss Mary Bartlett Dixon, Easton, Md.
+  Mrs. C.T. Robertson, Salt Lake City, Utah. Miss Cora Week, New York
+  City. Miss Amy Ju[e]ngling, Buffalo, N.Y. Miss Hattie Kruger, Buffalo,
+  N.Y. Miss Belle Sheinberg… Miss Julia Emory…"
+- **Why this is her:** the caption names all nine sitters in order and
+  she is the sixth. Her record has her arrested on November 10, 1917 —
+  the day of this photograph. The position was checked against the
+  independently made Wikimedia crop of the same plate before cutting.
+- **Processing:** cropped from the plate at x 1740–2130, y 480–1000
+  (390×520 native), then enlarged to 525×700. No retouching. The pink
+  flecks are damage on the original negative and are left alone.
+
+## belle-sheinberg.jpg — Belle Sheinberg
+
+- **Source, rights and caption:** identical to Amy Juengling above — the
+  same negative, `mnwp.276023`. She is the eighth of the nine.
+- **Why this is her:** same caption, same left-to-right count, checked
+  against the Wikimedia crop of the same plate.
+- **QUALITY NOTE — this one is soft.** She stands PARTLY BEHIND Hattie
+  Kruger and occupies only about 220 pixels of a 3035-pixel plate, so
+  525×700 means enlarging roughly two and a half times. It is kept on
+  the same reasoning as Anna Herkner's newsprint halftone: authentic,
+  captioned, and the alternative is no portrait at all. Her face is in
+  focus and centred, and Kruger's shoulder and hat are visible at the
+  frame edges, which is honest for a crop out of a group photograph.
+  Replace it if a studio portrait surfaces.
+- **Processing:** cropped at x 2125–2345, y 540–833 (220×293 native),
+  then enlarged to 525×700. No retouching.
+
+---
+
+## Identified but NOT attached, round three
+
+**Betsy Graves Reyneau** — FOUND, VERIFIED, AND DELIBERATELY NOT USED.
+Los Angeles Times, April 5, 1948, via the UCLA Digital Library
+(`ark:/21198/zz0002nbnb`), 2154×2962: she stands beside her own portrait
+of George Washington Carver, so the identification is unambiguous.
+**It is CC BY 4.0, not public domain.** Every other portrait on this site
+is public domain, and prisoner records have no photo credit field — the
+template renders a bare `<img>` with no caption — so there is nowhere to
+put the attribution the licence requires. A `photo_credit` column plus a
+caption line under the portrait would unlock this image and any other
+CC BY archival photograph. That is a schema change and was not made
+unasked.
+
+It is also a 1948 photograph of a woman arrested in 1917, which is worth
+knowing before it goes on the page.
+
+**Phoebe C. Munnecke** and **Beatrice Kinkead** — the LOC portrait index
+(*Individual Portraits Contained in the Records of the National Woman's
+Party*) lists "Munnecke, Phoebe C. (I:155, 1 image)" and "Kinkead,
+Beatrice (I:153, 1 image)", so the prints exist. **They were not
+digitised.** Folder 153 runs Kalb → Keller → Kelley → King → Koonce → La
+Follette and folder 155 runs Moller → Moore → Morey; neither name appears
+in either sequence. Both need a reproduction order from the Manuscript
+Division.
+
+**Ada Louise Davenport Kendall** — two problems. The index has "Kendall,
+Mrs. Frederick W. (I:153, 1 image)" and nothing under Ada. That entry is
+not digitised either, and identifying Mrs. Frederick W. Kendall with Ada
+Louise Davenport Kendall needs a source rather than an inference from a
+shared surname. Even if the plate were online it should not be attached
+until the identification is made — the same reasoning that has kept
+Annie J. Magee without a portrait since batch 31.
+
+**Rebecca Winsor Evans** — Historical Society of Pennsylvania, the same
+two-sister photograph noted for Ellen Winsor in batch 32: Ellen on the
+left, Rebecca on the RIGHT. hsp.org refuses this environment on every
+path tried (`omeka.hsp.org`, `digitallibrary.hsp.org` and `hsp.org`
+itself all return 403), and the Wayback Machine was rate-limiting at the
+time of writing. Needs an ordinary browser, then a crop to the
+right-hand figure. Drop it in as
+`database/data/photos/rebecca-winsor-evans.jpg` and re-run
+`attach-silent-sentinel-photos-3.sh`; the script already lists her.

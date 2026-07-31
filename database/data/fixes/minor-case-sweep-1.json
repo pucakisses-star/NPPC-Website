@@ -1,0 +1,402 @@
+{
+ "flag": [
+  {
+   "slug": "allanawissica",
+   "name": "Allanawissica",
+   "days": 1,
+   "why": "Held one day as a diplomatic hostage at Fort Randolph and murdered with his father. Precedent: Wesley Everest, lynched, is already flagged."
+  },
+  {
+   "slug": "betty-connolly",
+   "name": "Betty Connolly",
+   "days": 1,
+   "why": "1 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "charles-stadtfeld",
+   "name": "Charles Stadtfeld",
+   "days": 1,
+   "why": "1 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "l-roth",
+   "name": "L. Roth",
+   "days": 1,
+   "why": "1 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "lucas-griffith",
+   "name": "Lucas Griffith",
+   "days": 1,
+   "why": "1 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "ruth-small",
+   "name": "Ruth Small",
+   "days": 1,
+   "why": "1 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "waldo-frank",
+   "name": "Waldo Frank",
+   "days": 1,
+   "why": "1 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "alison-turnbull-hopkins",
+   "name": "Alison Turnbull Hopkins",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "elizabeth-stuyvesant",
+   "name": "Elizabeth Stuyvesant",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "florence-bayard-hilles",
+   "name": "Florence Bayard Hilles",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "gladys-greiner",
+   "name": "Gladys Greiner",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "iris-calderhead-walker",
+   "name": "Iris Calderhead Walker",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "janet-fotheringham",
+   "name": "Janet Fotheringham",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "joy-young",
+   "name": "Joy Young",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "julia-hurlbut",
+   "name": "Julia Hurlbut",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "louise-parker-mayo",
+   "name": "Louise Parker Mayo",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "margaret-whittemore",
+   "name": "Margaret Whittemore",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "mary-ingham",
+   "name": "Mary Ingham",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "mary-walker",
+   "name": "Mary Walker",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "matilda-hall-gardner",
+   "name": "Matilda Hall Gardner",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "mrs-francis-green",
+   "name": "Mrs. Francis Green",
+   "days": 2,
+   "why": "2 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "adrian-andrew-martinez",
+   "name": "Adrian Andrew Martinez",
+   "days": 3,
+   "why": "Three days then released on a $5,000 bond. UNRESOLVED — revisit if he is convicted and sentenced."
+  },
+  {
+   "slug": "anna-ginsberg",
+   "name": "Anna Ginsberg",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "anna-herkner",
+   "name": "Anna Herkner",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "anne-martin",
+   "name": "Anne Martin",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "beatrice-kinkead",
+   "name": "Beatrice Kinkead",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "betsy-graves-reyneau",
+   "name": "Betsy Graves Reyneau",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "david-huerta",
+   "name": "David Huerta",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "estella-eylward",
+   "name": "Estella Eylward",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "jennie-bronenberg",
+   "name": "Jennie Bronenberg",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "louise-bryant",
+   "name": "Louise Bryant",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "marie-ernst-kennedy",
+   "name": "Marie Ernst Kennedy",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "martha-reed-shoemaker",
+   "name": "Martha Reed Shoemaker",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "mrs-t-w-forbes",
+   "name": "Mrs. T. W. Forbes",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "nell-mercer",
+   "name": "Nell Mercer",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "reba-gomborov",
+   "name": "Reba Gomborov",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "rebecca-m-garrison",
+   "name": "Rebecca M. Garrison",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "rose-gratz-fishstein",
+   "name": "Rose Gratz Fishstein",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "sue-shelton-white",
+   "name": "Sue Shelton White",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "willie-grace-johnson",
+   "name": "Willie Grace Johnson",
+   "days": 3,
+   "why": "3 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "himelius-hockett",
+   "name": "Himelius Hockett",
+   "days": 4,
+   "why": "Four days and five nights at Kinston without food or water. Brief, and brutal — the flag measures the first, not the second."
+  },
+  {
+   "slug": "alice-kimball",
+   "name": "Alice Kimball",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "anna-kelton-wiley",
+   "name": "Anna Kelton Wiley",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "edna-mary-purtell",
+   "name": "Edna Mary Purtell",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "effie-b-main",
+   "name": "Effie B. Main",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "gertrude-crocker",
+   "name": "Gertrude Crocker",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "jen-kipka",
+   "name": "Jen Kipka",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "ruby-e-koenig",
+   "name": "Ruby E. Koenig",
+   "days": 5,
+   "why": "5 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "dade-singapuri",
+   "name": "Dade Singapuri",
+   "days": 6,
+   "why": "6 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "hattie-nestle",
+   "name": "Hattie Nestle",
+   "days": 6,
+   "why": "6 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "mary-a-nolan",
+   "name": "Mary A. Nolan",
+   "days": 6,
+   "why": "6 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "christian-damian-cerna-camacho",
+   "name": "Christian Damian Cerna-Camacho",
+   "days": 7,
+   "why": "Seven days held; sentenced to probation with no prison term."
+  },
+  {
+   "slug": "clara-wold",
+   "name": "Clara Wold",
+   "days": 8,
+   "why": "8 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "jose-angel-hernandez-2",
+   "name": "José Ángel Hernández",
+   "days": 9,
+   "why": "Nine days from arrest to deportation. The record itself notes the span is an upper bound pending evidence of an interim release."
+  },
+  {
+   "slug": "simon-w-gerson",
+   "name": "Simon W. Gerson",
+   "days": 9,
+   "why": "Nine days held pretrial while contesting bail; acquitted by directed verdict. Textbook pretrial-only."
+  },
+  {
+   "slug": "fleming-mize",
+   "name": "Fleming Mize",
+   "days": 10,
+   "why": "10 days in custody, consistent with the term the record itself states."
+  },
+  {
+   "slug": "ruth-mckay",
+   "name": "Ruth McKay",
+   "days": 10,
+   "why": "10 days in custody, consistent with the term the record itself states."
+  }
+ ],
+ "skip": [
+  {
+   "slug": "david-lock",
+   "name": "David Lock",
+   "days": 9,
+   "why": "The record contradicts itself three ways: the sentence text says released 1795, the verdict says he escaped on November 24, 1794, and the bio says he reached Philadelphia around Christmas 1794 — after the stored release."
+  },
+  {
+   "slug": "dora-kelly-lewis",
+   "name": "Dora Kelly Lewis",
+   "days": 2,
+   "why": "Arrest date (1917-11-09) postdates the stored incarceration (1917-07-06). Her biography is about the November 14 Night of Terror. The stored 2 days is the same cohort stamp."
+  },
+  {
+   "slug": "eleanor-calnan",
+   "name": "Eleanor Calnan",
+   "days": 2,
+   "why": "Stevens records three terms — 3 days (July 1917), 60 days (September 1917), 8 days (February 1919) — about 71 days in all. Only one 2-day row is stored."
+  },
+  {
+   "slug": "eunice-dana-brannan",
+   "name": "Eunice Dana Brannan",
+   "days": 2,
+   "why": "Her own record says she was pardoned after three days and then re-imprisoned. The later term is not recorded, so the true total is unknown."
+  },
+  {
+   "slug": "gabriel-meyers",
+   "name": "Gabriel Meyers",
+   "days": 9,
+   "why": "Dated 2005-07-07 to 2005-07-16, but Oscar Grant was killed on January 1, 2009 and the BART board protest was that April — the year is wrong by four. His record also states a 30-day jail sentence against 9 days stored."
+  },
+  {
+   "slug": "hazel-hunkins",
+   "name": "Hazel Hunkins",
+   "days": 5,
+   "why": "Stevens records 15 days (August 1918). Five are stored."
+  },
+  {
+   "slug": "katharine-fisher",
+   "name": "Katharine Fisher",
+   "days": 5,
+   "why": "Her record says 30 days at Occoquan from September 13, 1917. Five are stored."
+  },
+  {
+   "slug": "lucille-shields",
+   "name": "Lucille Shields",
+   "days": 2,
+   "why": "Stevens records three terms — 3 days, 5 days, 3 days for applauding in court — about 11 days in all. Only one 2-day row is stored."
+  },
+  {
+   "slug": "lucy-burns",
+   "name": "Lucy Burns",
+   "days": 2,
+   "why": "Arrest date (1917-09-03) postdates the stored incarceration (1917-07-06). Sentence recorded as 6 months; her biography says she served the most prison time of any American suffragist. The stored 2 days is a cohort stamp, not her term."
+  }
+ ]
+}
