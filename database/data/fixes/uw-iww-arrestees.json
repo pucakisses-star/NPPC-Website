@@ -1,0 +1,489 @@
+{
+ "new": [
+  {
+   "slug": "max-dezettel",
+   "name": "Max Dezettel",
+   "first_name": "Max",
+   "last_name": "Dezettel",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "Idaho",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing",
+    "Free Speech"
+   ],
+   "minor_case": true,
+   "description": "Max Dezettel was a Spokane IWW organizer and local secretary who went to Boise, Idaho in August 1911 to establish or assist an IWW local and was arrested after attempting to speak publicly. One report said police choked and struck him while taking him to jail. The Industrial Worker reported that he was denied the opportunity to defend himself and sentenced to fifty days, but a follow-up report said he was released after about four days, after ostensibly promising not to speak again — only to resume speaking shortly afterward. The sentence was evidently suspended, shortened or not fully served; the surviving reports do not explain the legal mechanism.\n\nHe later worked in syndicalist and labor publishing, associated with the Kansas City paper The Toiler alongside Earl Browder and with plans for a Chicago labor publication connected to the Trade Union Educational League.",
+   "cases": [
+    {
+     "incarceration": [
+      1911,
+      8,
+      null
+     ],
+     "institution": "Boise City Jail",
+     "institution_city": "Boise",
+     "institution_state": "Idaho",
+     "charges": [
+      "Street speaking for the IWW in Boise, August 1911."
+     ],
+     "convicted": "Reported sentenced without being allowed to make a defense",
+     "sentence": "Fifty days reported imposed; released after about four days. The fifty-day figure is NOT recorded as time served — the reports disagree, and the sentence appears to have been suspended or cut short."
+    }
+   ]
+  },
+  {
+   "slug": "jennie-la-zar",
+   "name": "Jennie La Zar",
+   "first_name": "Jennie",
+   "last_name": "La Zar",
+   "gender": "Female",
+   "era": "1910s",
+   "state": "Illinois",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "minor_case": true,
+   "description": "Jennie La Zar was a member of the IWW's Chicago Recruiting Union. Around February 8, 1919, Chicago police arrested or detained her for questioning during the wartime and Red Scare repression of IWW activity; officers attempted to pressure her to stop attending IWW meetings. No formal criminal charge, court appearance, sentence or prolonged imprisonment is documented — the likely outcome was a brief investigative detention followed by release.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      2,
+      8
+     ],
+     "charges": [
+      "Detained for questioning over IWW membership; no formal charge documented."
+     ],
+     "convicted": "No — no documented charge, conviction or sentence",
+     "sentence": "Brief investigative detention around February 8, 1919; exact duration and release not documented."
+    }
+   ]
+  },
+  {
+   "slug": "walker-c-smith",
+   "name": "Walker C. Smith",
+   "first_name": "Walker",
+   "middle_name": "C.",
+   "last_name": "Smith",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "Washington",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing",
+    "Free Speech",
+    "Anti-Militarism"
+   ],
+   "description": "Walker C. Smith was an IWW propagandist, writer and editor of the Spokane-based Industrial Worker from about February 1912 to July 1913. He wrote extensively on sabotage, direct action, militarism and industrial unionism, including the pamphlets Sabotage: Its History, Philosophy and Function and The Everett Massacre — the contemporary account of the 1916 killings that this database's Everett records draw on.\n\nDuring the Seattle General Strike of February 6 to 11, 1919, police arrested Smith in a roundup of radicals and IWW members, one report associating the arrest with distributing or possessing a pamphlet on revolutionary Russia. He was among roughly thirty-one people taken into custody in the strike-era crackdown, and was closely associated with the Equity Printing Company, the IWW-connected Seattle print shop that police closed in the post-strike repression. No conviction is documented; the prosecution appears to have ended without trial. Much of his personal life, including his vital dates, remains unestablished.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      2,
+      null
+     ],
+     "charges": [
+      "Arrested in the February 1919 Seattle General Strike crackdown; suspected of distributing radical literature concerning Russia."
+     ],
+     "convicted": "No — no conviction located; the prosecution appears to have ended without trial",
+     "sentence": "Final charge and exact release date unresolved."
+    }
+   ]
+  },
+  {
+   "slug": "peter-lynch",
+   "name": "Peter Lynch",
+   "first_name": "Peter",
+   "last_name": "Lynch",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "California",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "minor_case": true,
+   "description": "Peter Lynch was an IWW delegate organizing agricultural laborers around Calipatria, in California's Imperial Valley. In September 1919, according to an IWW report, local ranchers pressured the town marshal to arrest him. The marshal reportedly anticipated mob violence and warned Lynch — but a group of ranchers obtained keys and entered the jail around midnight, removed Lynch from custody, drove him into the desert, beat him, and robbed him of his clothing, shoes, money, jewelry, union dues books and about one hundred dollars in IWW dues stamps. His detention was therefore both an arrest and an extrajudicial kidnapping from the jail itself. No legitimate criminal charge, court proceeding or formal release is documented.\n\nPeter Lynch is a common name, and no reliable connection to a census, birth or death record has been established.",
+   "cases": [
+    {
+     "incarceration": [
+      1919,
+      9,
+      null
+     ],
+     "institution": "Calipatria Town Jail",
+     "institution_city": "Calipatria",
+     "institution_state": "California",
+     "charges": [
+      "Arrested at the urging of local ranchers while organizing agricultural workers; no documented charge."
+     ],
+     "convicted": "No — no documented prosecution",
+     "sentence": "Held briefly in the town jail, then kidnapped from custody by a vigilante group around midnight, beaten in the desert and robbed."
+    }
+   ]
+  },
+  {
+   "slug": "james-cronin",
+   "name": "James Cronin",
+   "first_name": "James",
+   "last_name": "Cronin",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "Nebraska",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "James Cronin was sent by the IWW to the Scottsbluff area of Nebraska in October 1919 to investigate the arrests of about fifteen members of Agricultural Workers Industrial Union No. 400 under Nebraska's criminal-syndicalism campaign. Shortly after arriving, Cronin was himself arrested on a criminal-syndicalism charge. The surviving chronology gives no precise arrest date, jail, bail, trial result or release date, and no biographical evidence has been found distinctive enough to connect him to any later James Cronin in census, military or death records.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      10,
+      null
+     ],
+     "charges": [
+      "Criminal syndicalism (Nebraska), after arriving to investigate the arrests of fifteen AWIU No. 400 organizers."
+     ],
+     "convicted": "Disposition unresolved",
+     "sentence": "Disposition, custody span and release unresolved."
+    }
+   ]
+  },
+  {
+   "slug": "james-hayes",
+   "name": "James Hayes",
+   "first_name": "James",
+   "last_name": "Hayes",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "Panama Canal Zone",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "James Hayes was an IWW member prosecuted at Balboa in the United States-administered Panama Canal Zone. A November 1919 report said he had been convicted of mutiny and sentenced to two years; the surviving report does not explain what conduct constituted the alleged mutiny, or whether the prosecution arose from maritime, military, construction or prison labor activity. By January 1920 an IWW newspaper reported that he had escaped from the Gamboa Stockade, so the escape occurred no later than the report published January 31, 1920. No reliable record of recapture or later disposition has been found.\n\nHe should not be merged with other IWW members named James Hayes without an additional geographic or occupational identifier.",
+   "cases": [
+    {
+     "incarceration": [
+      1919,
+      11,
+      null
+     ],
+     "release": [
+      1920,
+      1,
+      null
+     ],
+     "institution": "Gamboa Stockade",
+     "institution_state": "Panama Canal Zone",
+     "charges": [
+      "Mutiny (prosecuted at Balboa, Panama Canal Zone; the underlying conduct is not described in the surviving report)."
+     ],
+     "convicted": "Yes — convicted by November 1919",
+     "sentence": "Two years. Escaped from the Gamboa Stockade by January 31, 1920; the release date recorded here is the escape, at month precision. Subsequent status unresolved."
+    }
+   ]
+  },
+  {
+   "slug": "w-e-spear",
+   "name": "W. E. Spear",
+   "first_name": "W.",
+   "middle_name": "E.",
+   "last_name": "Spear",
+   "gender": "Male",
+   "era": "1920s",
+   "state": "Washington",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "W. E. Spear was the Seattle district secretary-treasurer of an IWW industrial union organization. On April 22, 1920, Seattle's police Red Squad raided the organization's office in the Globe Building, seizing records said to include a directory of roughly twelve thousand members, and arrested Spear, his assistant Ed Burns, and the office stenographer Alicia Rosenbaum. Contemporary reports said the prisoners were held incommunicado for investigation on open charges. The defendants were brought toward trial in June 1920 under Washington's criminal-syndicalism and criminal-anarchy repression; the case against Spear was dismissed on January 24, 1921 on the prosecution's motion. No prison sentence is documented, and his actual pretrial custody span is uncertain because the records do not state whether or when he obtained bail. His full first and middle names are not established.",
+   "cases": [
+    {
+     "arrest": [
+      1920,
+      4,
+      22
+     ],
+     "incarceration": [
+      1920,
+      4,
+      22
+     ],
+     "charges": [
+      "Criminal syndicalism / criminal anarchy (Washington), after the April 22, 1920 Red Squad raid on the Globe Building IWW office."
+     ],
+     "convicted": "No — dismissed January 24, 1921 on the prosecution's motion",
+     "sentence": "Held incommunicado for investigation after the raid; custody span uncertain because the bail record is silent. No release date is entered for that reason."
+    }
+   ]
+  },
+  {
+   "slug": "alicia-rosenbaum",
+   "name": "Alicia Rosenbaum",
+   "first_name": "Alicia",
+   "last_name": "Rosenbaum",
+   "aka": "Alice Rose; Alice Lloyd",
+   "gender": "Female",
+   "era": "1920s",
+   "state": "Washington",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "Alicia Rosenbaum, a twenty-one-year-old stenographer, was arrested with W. E. Spear and Ed Burns in the April 22, 1920 police Red Squad raid on the IWW office in Seattle's Globe Building. A contemporary Swedish-language newspaper identified her explicitly as \"Alicia Rosenbaum, alias Alice Rose\"; the IWW's own later reporting used Alicia Rosenbaum. The defendants were held for investigation and called toward trial in June 1920. Spear's case was dismissed in January 1921, but no verdict or dismissal notice specifically naming Rosenbaum has been found, so her disposition is unresolved. A 1924 IWW notice identified \"Alice Lloyd, also known as Alicia Rosenbaum\" — evidence of a further alias, not proof of marriage or a legal name change. Her reported age puts her birth about 1898 or 1899, which is not independently verified, so no birthdate is recorded.",
+   "cases": [
+    {
+     "arrest": [
+      1920,
+      4,
+      22
+     ],
+     "incarceration": [
+      1920,
+      4,
+      22
+     ],
+     "charges": [
+      "Held for investigation on open charges after the April 22, 1920 Globe Building raid."
+     ],
+     "convicted": "Disposition unresolved — no verdict or dismissal notice naming her has been located",
+     "sentence": "Held incommunicado for investigation; custody span and disposition unresolved."
+    }
+   ]
+  },
+  {
+   "slug": "james-schmidt",
+   "name": "James Schmidt",
+   "first_name": "James",
+   "last_name": "Schmidt",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "South Dakota",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "James Schmidt was an itinerant IWW member prosecuted at Aberdeen, South Dakota in 1915 for killing a railroad brakeman. By the defense account reported in labor and later scholarly sources, the brakeman attempted to extort money from Schmidt and then threatened or tried to shoot him; Schmidt maintained he acted in self-defense. The case went to trial, the jury failed to reach a verdict — a majority reportedly favoring acquittal on self-defense grounds — and Schmidt remained confined for a little more than a year while prosecutors considered a retrial. The charge was dismissed on October 7, 1916 and he was released. Descriptions of the case as dismissed \"without trial\" are misleading: there was a trial, it ended without a verdict, and no retrial followed. The exact institution of his custody is unresolved.",
+   "cases": [
+    {
+     "incarceration": [
+      1915,
+      null,
+      null
+     ],
+     "release": [
+      1916,
+      10,
+      7
+     ],
+     "charges": [
+      "Homicide of a railroad brakeman; Schmidt maintained he acted in self-defense during an attempted extortion and shooting."
+     ],
+     "convicted": "No — hung jury at trial; charge dismissed October 7, 1916",
+     "sentence": "Held slightly more than a year through the mistrial and the wait for a retrial that never came; released on dismissal, October 7, 1916."
+    }
+   ]
+  },
+  {
+   "slug": "james-johnson-everett",
+   "name": "James Johnson",
+   "first_name": "James",
+   "last_name": "Johnson",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "Washington",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "James Johnson was arrested in Seattle on September 29, 1916, as Everett authorities attempted to build an arson conspiracy case against IWW members in the conflict that preceded the Everett Massacre. He was taken to the Everett jail and accused of involvement in local fires. Walker C. Smith's contemporary account says Johnson was initially held without a warrant — one was not issued until October 17, about nineteen days after the arrest — and that authorities shifted their theory when one of the fires attributed to him turned out to have occurred after he was already in custody. Police reportedly tried to induce confessions by falsely telling Johnson and his co-accused George Bradley that the other had confessed, though the two had allegedly never met before their arrests. Smith reported that Johnson was jailed fifty-eight days without a preliminary hearing; the calendar interval from September 29 to the November 23 release is fifty-five days, so one of the dates or the count is imprecise, and the fifty-eight-day figure is kept as reported rather than as arithmetic.\n\nHe is not the J. J. Johnson of the Los Angeles criminal-syndicalism records, nor any other James Johnson in this database.",
+   "cases": [
+    {
+     "arrest": [
+      1916,
+      9,
+      29
+     ],
+     "incarceration": [
+      1916,
+      9,
+      29
+     ],
+     "release": [
+      1916,
+      11,
+      23
+     ],
+     "institution": "Everett Jail",
+     "institution_city": "Everett",
+     "institution_state": "Washington",
+     "charges": [
+      "Second-degree arson conspiracy allegation; held without a timely warrant or preliminary hearing."
+     ],
+     "convicted": "No — released November 23, 1916 after the arson allegations collapsed",
+     "sentence": "No conviction. Held from September 29 to November 23, 1916 in the Everett jail; a warrant was not issued until October 17."
+    }
+   ]
+  },
+  {
+   "slug": "george-bradley",
+   "name": "George Bradley",
+   "first_name": "George",
+   "last_name": "Bradley",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "Washington",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "George Bradley had reportedly served as secretary of the Everett IWW local for only one day before local authorities or vigilantes expelled him from Everett. He was arrested in Seattle on September 29, 1916, in parallel with James Johnson, transported to Everett and accused of participating in a second-degree arson conspiracy. Police reportedly attempted to induce confessions by falsely telling each man the other had confessed — though the two had allegedly never met before their arrests — a detail that strongly suggests a frame-up connected to the wider campaign against the Everett IWW. Bradley was released with Johnson on November 23, 1916; no conviction or sentence was imposed.\n\nHe should not be automatically identified with any similarly named person in the post-Everett Massacre prisoner photographs.",
+   "cases": [
+    {
+     "arrest": [
+      1916,
+      9,
+      29
+     ],
+     "incarceration": [
+      1916,
+      9,
+      29
+     ],
+     "release": [
+      1916,
+      11,
+      23
+     ],
+     "institution": "Everett Jail",
+     "institution_city": "Everett",
+     "institution_state": "Washington",
+     "charges": [
+      "Second-degree arson conspiracy allegation, in the campaign against the Everett IWW local."
+     ],
+     "convicted": "No — released November 23, 1916; the charge was abandoned",
+     "sentence": "No conviction. Held from September 29 to November 23, 1916 in the Everett jail."
+    }
+   ]
+  },
+  {
+   "slug": "louis-lavine",
+   "name": "Louis Lavine",
+   "first_name": "Louis",
+   "last_name": "Lavine",
+   "aka": "Louis Lavie",
+   "gender": "Male",
+   "era": "1910s",
+   "state": "California",
+   "affiliation": [
+    "Industrial Workers of the World (IWW)"
+   ],
+   "ideologies": [
+    "Labor Organizing"
+   ],
+   "description": "Louis Lavine was an IWW member arrested near Hornbrook, California in early 1917. A March 1917 IWW account titled \"The Case of Louis Lavine\" describes him riding a freight train when railroad brakemen ordered him to jump at about twenty miles an hour; when they tried to force him off, Lavine reportedly displayed a pair of pliers in a manner meant to resemble a handgun. He was arrested at Hornbrook on an accusation described as shooting at a person with intent to kill — although the object he displayed was not a firearm. The formal charge as filed has not been found. A later IWW item, spelling the surname Lavie, reported him due for release on June 26, 1917; the matching circumstances and chronology make it highly probable the two names are one prisoner. The projected release is recorded in this text only — an expected date is not a documented release, so none is entered on the case.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      null,
+      null
+     ],
+     "charges": [
+      "Accused of shooting at a person with intent to kill, after displaying pliers as if a weapon during an altercation with railroad brakemen; the object was not a firearm."
+     ],
+     "convicted": "Formal charge and disposition unresolved",
+     "sentence": "Custody location and sentence unresolved. An IWW item under the spelling Lavie reported him due for release June 26, 1917; a projected date is not entered as a release."
+    }
+   ]
+  }
+ ],
+ "updates": {
+  "billings": {
+   "slug": "warren-billings",
+   "death_date": [
+    1972,
+    9,
+    4
+   ],
+   "dedupe_note": "His two case rows are the same imprisonment imported twice, off by one day at every date.",
+   "keep_case_year": 1916,
+   "case": {
+    "arrest": [
+     1916,
+     7,
+     26
+    ],
+    "incarceration": [
+     1916,
+     7,
+     26
+    ],
+    "sentenced": [
+     1916,
+     10,
+     7
+    ],
+    "release": [
+     1939,
+     10,
+     null
+    ],
+    "sentence": "Life imprisonment for second-degree murder, sentenced October 7, 1916 — Mooney, not Billings, received the first-degree conviction and death sentence. Held principally at Folsom, where he learned watchmaking. Governor Culbert Olson commuted the sentence in October 1939, releasing him after about twenty-three years; Governor Edmund G. Brown granted a full pardon on December 21, 1961. The two imported rows disagreed on the release day (October 15 and 16), so the release is recorded at month precision."
+   }
+  },
+  "oconnor": {
+   "slug": "harvey-oconnor",
+   "birthdate": [
+    1897,
+    3,
+    29
+   ],
+   "death_date": [
+    1987,
+    8,
+    29
+   ],
+   "description": "Harvey O'Connor (March 29, 1897 – August 29, 1987) was a labor journalist and author, born in Minneapolis and raised in the Pacific Northwest, who worked in Seattle journalism and the radical press from about 1918 to 1924 and later wrote extensively on labor history, corporate power and the petroleum industry. His papers are held by the Walter P. Reuther Library at Wayne State University.\n\nDuring or immediately after the February 1919 Seattle General Strike, O'Connor was arrested in a police roundup of labor radicals. Authorities accused him and other radical publishers of producing material tending to cause a breach of the peace, and he was indicted or threatened with prosecution under Washington's criminal-anarchy law, which carried up to ten years. He was never tried: prosecutors abandoned the case after the state failed in a test prosecution meant to establish the legality of its broader criminal-anarchy campaign.\n\nDecades later he was indicted for contempt of Congress in October 1953 for refusing, on First Amendment grounds, to answer Senator McCarthy's questions. His case became part of the broader First Amendment resistance to congressional investigations of the McCarthy era.",
+   "new_case": {
+    "arrest": [
+     1919,
+     2,
+     null
+    ],
+    "charges": [
+     "Criminal anarchy (Washington) and publication of allegedly incendiary material, in the February 1919 Seattle General Strike crackdown."
+    ],
+    "convicted": "No — never tried; the case was abandoned after the state lost its test prosecution",
+    "sentence": "No sentence. Arrested in the post-strike roundup of radical publishers; the criminal-anarchy charge carried up to ten years but was abandoned without trial."
+   }
+  }
+ }
+}
