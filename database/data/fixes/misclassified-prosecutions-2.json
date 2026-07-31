@@ -1,0 +1,205 @@
+{
+ "_source": "Curator corrections round 2, July 2026. National Archives inmate indexes; Kohn, American Political Prisoners; John Kenneth Turner, Barbarous Mexico; National Civil Liberties Bureau, War-Time Prosecutions and Mob Violence (1919); Brissenden's court-minute summary; University of Montana sedition project; Labor Defender; Ricardo Flores Magon archive; Zimmer, Red Scare Deportees.",
+ "_conventions": "Dates are [year, month|null, day|null]; a trailing true marks the year approximate. Group-level sentence information is never presented as an individual fact, and a sentence length is never projected forward into a release date.",
+ "records": [
+  {
+   "slug": "otto-inglehardt",
+   "inmate_number": "8907",
+   "description": "Otto Inglehardt, of Manchester, New Hampshire, was prosecuted at Concord, New Hampshire for violating the espionage laws. The National Archives index for the Atlanta penitentiary records him as white and aged 58, and as federal prisoner number 8907.\n\nA historical compilation gives a one-year sentence and dates the beginning of his Atlanta imprisonment to October 7, 1918.\n\nNO RELEASE DATE IS CALCULATED FROM THE ONE-YEAR SENTENCE. His exact birth date and place, arrest and sentencing dates, release date, actual time served, the precise statutory counts, the case outcome and his death are all unresolved.",
+   "cases": [
+    {
+     "incarceration": [
+      1918,
+      10,
+      7
+     ],
+     "release": null,
+     "charges": "Federal prosecution at Concord, New Hampshire, recorded in the National Archives index as violating the espionage laws. The precise statutory counts are not established.",
+     "sentence": "One year per a historical compilation. Atlanta imprisonment began October 7, 1918; federal prisoner number 8907. No release date is calculated from the sentence length, and the actual time served is unresolved.",
+     "institution": {
+      "name": "U.S. Penitentiary Atlanta",
+      "city": "Atlanta",
+      "state": "Georgia"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "prisciliano-silva",
+   "name": "Prisciliano G. Silva",
+   "first_name": "Prisciliano",
+   "middle_name": "G.",
+   "last_name": "Silva",
+   "aka": "Prisciliano Silva; Priscilliano G. Silva; Priciliano Silva; Prisciliano Sylva",
+   "inmate_number": "6210",
+   "description": "Prisciliano G. Silva was a member of the Partido Liberal Mexicano prosecuted in about 1908 for activity connected with the party and for violating United States neutrality laws. His imprisonment at Leavenworth is documented by federal prisoner number 6210. Documented spellings include Priscilliano G. Silva, Priciliano Silva and Sylva.\n\nA secondary photograph caption gives a two-year sentence and describes that conviction as his SECOND, implying an earlier proceeding whose arrest, charge, sentence and custody are all unresolved. The exact admission and release dates for the 1908 case are likewise unresolved.\n\nMother Jones later sought clemency for him while he was reportedly gravely ill in prison. Partido Liberal Mexicano correspondence establishes that he was active with revolutionary forces in Mexico in 1911, which proves he survived the United States proceeding but does not fix his release date.\n\nA 1908 Bureau of Prisons mugshot of him is reproduced on Wikimedia Commons; it has not been attached to this record.",
+   "cases": [
+    {
+     "incarceration": null,
+     "release": null,
+     "charges": "Prosecuted in about 1908 for Partido Liberal Mexicano activity and violation of United States neutrality laws.",
+     "sentence": "A secondary caption gives two years, and describes the conviction as his second; an earlier proceeding is implied but wholly unresolved. Imprisoned at Leavenworth as federal prisoner number 6210. The admission and release dates are unresolved, so no custody span is recorded. Mother Jones sought clemency while he was reportedly gravely ill in prison, and he was active with revolutionary forces in Mexico by 1911.",
+     "institution": {
+      "name": "United States Penitentiary, Leavenworth",
+      "city": "Leavenworth",
+      "state": "Kansas"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "santiago-oleary",
+   "ideologies": [
+    "Irish Republicanism"
+   ],
+   "description": "Santiago O'Leary was an officer of the San Patricio formation in the Mexican army during the Mexican-American War, reported as captain of the second company. He was wounded and captured at the Battle of Churubusco on August 20, 1847.\n\nCAPTURED SAN PATRICIOS RECEIVED MATERIALLY DIFFERENT OUTCOMES depending on whether they had enlisted in and deserted from the United States Army. The group's desertion charges, death sentences, brandings, whippings and terms of imprisonment therefore cannot be assigned to him individually without his court-martial record, and none is assigned here.\n\nWhether he had enlisted in and deserted from the United States Army, his court-martial and sentencing dates, his individual sentence, his place of custody, his release, and his birth and death are all unresolved.\n\nAn earlier version of this record associated him with the CATHOLIC WORKER MOVEMENT. That movement was founded in 1933 and has nothing to do with this 1847 case; the association is removed.",
+   "cases": [
+    {
+     "charges": "Captured as an officer of the San Patricio formation at the Battle of Churubusco, August 20, 1847. Whether he faced a desertion charge depends on whether he had enlisted in the United States Army, which is not established.",
+     "sentence": "No individual sentence is documented. Captured San Patricios received materially different outcomes according to their enlistment and desertion circumstances, so the group's death sentences, brandings, whippings and imprisonment cannot be attributed to him without his court-martial record."
+    }
+   ]
+  },
+  {
+   "slug": "tomas-de-espinosa",
+   "description": "Tomás de Espinosa is named in contemporary reporting among Partido Liberal Mexicano refugees prosecuted and convicted under United States neutrality laws.\n\nJohn Kenneth Turner reports COLLECTIVE sentences of roughly eighteen to thirty months for the named defendants, and imprisonment at either Leavenworth or Florence. THE SOURCE DOES NOT IDENTIFY HIS INDIVIDUAL SENTENCE OR INSTITUTION, and neither is assigned to him here. An earlier version of this record presented the group range as though it described his own term.\n\nHis aliases, vital dates, arrest and sentencing dates, statutory count, admission, institution, release, actual time served, later outcome and photograph are all unresolved.",
+   "cases": [
+    {
+     "charges": "Prosecuted and convicted under United States neutrality laws as a Partido Liberal Mexicano refugee.",
+     "sentence": "GROUP-LEVEL INFORMATION ONLY. Turner reports collective sentences of roughly eighteen to thirty months and imprisonment at either Leavenworth or Florence for the named defendants together. His individual sentence and institution are not identified in the source and are not assigned here, so no institution is linked and no custody span is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "walter-nichiperuck",
+   "description": "Walter Nichiperuck was born in 1894 in Grodno in the Russian Empire, in what is now principally Belarus, and served as secretary of a Hartford, Connecticut branch of the Union of Russian Workers.\n\nHe was administratively deported to Russia on January 22, 1921. THIS WAS ADMINISTRATIVE IMMIGRATION DETENTION AND DEPORTATION, NOT A CRIMINAL CONVICTION, and the record is classified accordingly.\n\nHartford saw substantial Palmer-era raids in which many Russian workers were detained, but GROUP DETENTION DATES MUST NOT BE ASSIGNED TO HIM without his individual immigration file, and none are. The underlying individual file was not retrievable, so these details rest on the supplied transcription of the Zimmer project record, which was built from federal immigration files.\n\nHis name in the original language, alternative transliterations, exact birth date and place, arrest and detention dates, detention facility, deportation vessel and port, later life and death are all unresolved.",
+   "cases": [
+    {
+     "charges": "Administrative deportation under the wartime Immigration Acts, as an alien radical and secretary of a Hartford branch of the Union of Russian Workers. Not a criminal prosecution or conviction.",
+     "sentence": "Administratively deported to Russia on January 22, 1921. No arrest date, detention date or facility is documented for him individually, and the Palmer-era group detention dates are deliberately not applied, so no custody span is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "albert-brooks",
+   "birthdate": [
+    1888,
+    9,
+    10
+   ],
+   "state": "Montana",
+   "description": "Albert Brooks was born on September 10, 1888 in Illinois; the precise locality and his death are unresolved.\n\nA Beaverhead County, Montana jury convicted him on May 24, 1918, in case number 735, under MONTANA'S STATE SEDITION LAW. His conduct was distributing the Industrial Workers of the World pamphlet \"War and the Workers\", written by Walker C. Smith. He was sentenced to seven to fifteen years and incarcerated at Montana State Prison, Deer Lodge.\n\nTHE MONTANA SUPREME COURT REVERSED HIS CONVICTION ON APRIL 8, 1920, docket number 4419, because the pamphlet had not been read to the jury and a biased juror had been allowed to sit. He was released on May 4, 1920, after a reported twenty-four months served.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage Act conviction. His exact arrest, sentencing and prison-admission dates are unresolved.",
+   "cases": [
+    {
+     "incarceration": null,
+     "release": [
+      1920,
+      5,
+      4
+     ],
+     "charges": "Montana state sedition law (Laws of 1918, extraordinary session, ch. 11), Beaverhead County case number 735, for distributing the Industrial Workers of the World pamphlet \"War and the Workers\" by Walker C. Smith. Not a federal Espionage Act prosecution.",
+     "sentence": "Seven to fifteen years, convicted by jury on May 24, 1918 and incarcerated at Montana State Prison, Deer Lodge. THE MONTANA SUPREME COURT REVERSED THE CONVICTION ON APRIL 8, 1920, docket number 4419, because the pamphlet was not read to the jury and a biased juror was allowed to sit. Released May 4, 1920 after a reported twenty-four months. The prison-admission date is unresolved, so no admission is entered and no day counter is computed.",
+     "institution": {
+      "name": "Montana State Prison",
+      "city": "Deer Lodge",
+      "state": "Montana"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "andre-boutin",
+   "description": "Andre Boutin, of Onondaga County, New York, circulated the antiwar pamphlet \"Pure Common Sense\". The federal court at Syracuse refused to dismiss the prosecution against him in United States v. Boutin, 251 F. 313 (N.D.N.Y. 1918).\n\nTHAT REPORTED OPINION CONCERNS A PRETRIAL MOTION AND IS NOT PROOF OF CONVICTION. A historical compilation later describes him as found guilty of disloyalty, but the conviction, the judgment and any prison record require independent confirmation, and this record does not assert them. An earlier version stated the conviction as established fact on the strength of the pretrial ruling alone.\n\nThe reported sources use \"Andre Boutin\"; \"André\" is a normalised French spelling rather than a separately documented alias.\n\nHis vital dates, arrest and indictment dates, exact statutory counts, conviction and sentencing dates, sentence, institution, admission and release, actual time served, appeals and death are all unresolved.",
+   "cases": [
+    {
+     "convicted": "Unresolved — the reported decision is a pretrial ruling, not a judgment",
+     "charges": "Federal wartime speech prosecution at Syracuse, New York for circulating the antiwar pamphlet \"Pure Common Sense\". The exact statutory counts are not established.",
+     "sentence": "NO SENTENCE IS DOCUMENTED. United States v. Boutin, 251 F. 313 (N.D.N.Y. 1918), is a ruling refusing to dismiss the prosecution -- a pretrial motion, not a final judgment. A historical compilation describes him as found guilty of disloyalty, but the conviction, judgment and prison records require independent confirmation and are not asserted here."
+    }
+   ]
+  },
+  {
+   "slug": "augustus-j-johnson",
+   "description": "Augustus J. Johnson was a New York City subway motorman and an official of the Motormen's Benevolent Association, jailed in connection with the transit strike that began on December 9, 1957. His exact identity remains incompletely verified.\n\nA contemporary Associated Press report states that FOUR association officials began serving previously suspended ten-day jail sentences after the strike started. THE ARTICLE DOES NOT NAME THE FOUR. His individual participation and his admission date are therefore probable rather than documented, and the ten-day sentence is recorded here as group evidence rather than as his own established term.\n\nHis canonical full identity, vital dates, arrest and original sentencing dates, the charge, the jail, the exact custody interval, his office in the association, the later outcome and a verified portrait are all unresolved. Cornell's Amsterdam News archive lists one print under \"Johnson, A.J.\", but it has not been shown to depict this man.",
+   "cases": [
+    {
+     "charges": "Contempt arising from the New York City transit strike that began December 9, 1957, as an official of the Motormen's Benevolent Association. The charge is not individually documented for him.",
+     "sentence": "GROUP EVIDENCE, NOT AN INDIVIDUAL RECORD. A contemporary Associated Press report says four association officials began serving previously suspended ten-day jail sentences after the strike began on December 9, 1957, but does not name them. His participation and admission date are probable rather than documented, so no custody dates are entered."
+    }
+   ]
+  },
+  {
+   "slug": "caravas-detroit-1930",
+   "description": "Only the surname Caravas has been verified. A photograph in the Labor Defender of July 1930 identifies Caravas among five Detroit workers \"sentenced to 90 days for meeting\"; Caravas is the fourth person from the left in that group photograph.\n\nThe caption does not identify the arrest date, the tribunal, the statute, the institution, or the conduct beyond the meeting itself.\n\nNO RELEASE DATE IS PROJECTED. Ninety days must not be carried forward from an admission date that is not documented, and none is. The given name, aliases, vital dates, arrest, sentencing, admission and release dates, the charge and conduct, the custody facility, the actual time served, any appeal, later life and an individual portrait are all unresolved.",
+   "cases": [
+    {
+     "charges": "Holding a workers' meeting in Detroit, 1930. The tribunal, statute and exact conduct are not identified in the source.",
+     "sentence": "Ninety days, per a photograph caption in the Labor Defender of July 1930 naming five Detroit workers sentenced together. No admission date is documented, so no release date is projected from the sentence length and no day counter is computed."
+    }
+   ]
+  },
+  {
+   "slug": "conn-detroit-1930",
+   "description": "Only the surname Conn has been verified. A photograph in the Labor Defender of July 1930 identifies Conn among five Detroit workers \"sentenced to 90 days for meeting\"; Conn is the second person from the left in that group photograph.\n\nThe caption does not identify the arrest date, the tribunal, the statute, the institution, or the conduct beyond the meeting itself.\n\nNO RELEASE DATE IS PROJECTED. Ninety days must not be carried forward from an admission date that is not documented, and none is. The given name, aliases, vital dates, arrest, sentencing, admission and release dates, the charge and conduct, the custody facility, the actual time served, any appeal, later life and an individual portrait are all unresolved.",
+   "cases": [
+    {
+     "charges": "Holding a workers' meeting in Detroit, 1930. The tribunal, statute and exact conduct are not identified in the source.",
+     "sentence": "Ninety days, per a photograph caption in the Labor Defender of July 1930 naming five Detroit workers sentenced together. No admission date is documented, so no release date is projected from the sentence length and no day counter is computed."
+    }
+   ]
+  },
+  {
+   "slug": "charles-jacobsen",
+   "name": "C. Jacobsen",
+   "first_name": "C.",
+   "last_name": "Jacobsen",
+   "aka": "Charles Jacobsen",
+   "description": "Contemporary records identify him only as C. Jacobsen. The expansion to \"Charles Jacobsen\", under which this record was previously filed, is unverified.\n\nHe was among the defendants convicted in the Chicago mass prosecution of the Industrial Workers of the World. The trial began on April 1, 1918, verdicts were returned on August 17, and sentences were imposed on August 30, 1918. The consolidated convictions were reviewed in Haywood v. United States, 268 F. 795, decided in 1920.\n\nTHE SENTENCE IS IN CONFLICT. The National Civil Liberties Bureau's 1919 roster places C. Jacobsen in a one-year group, while a summary of the court minute book reports that twelve defendants received one year and one day. The original judgment is needed to resolve which applies.\n\nHis full name, individual conduct, arrest date, exact counts and judgment, prison, admission and release, actual time served, vital dates and photograph are all unresolved.",
+   "cases": [
+    {
+     "charges": "Federal conspiracy prosecution of the Industrial Workers of the World at Chicago. Trial began April 1, 1918; verdicts August 17; sentences August 30, 1918.",
+     "sentence": "CONFLICTING. The National Civil Liberties Bureau roster of 1919 places him in a one-year group; a summary of the court minute book reports twelve defendants receiving one year and one day. The original judgment is needed to resolve it. The consolidated convictions were reviewed in Haywood v. United States, 268 F. 795 (1920). No prison, admission or release is documented, so no custody span is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "ed-evans",
+   "name": "Henry C. Evans",
+   "first_name": "Henry",
+   "middle_name": "C.",
+   "last_name": "Evans",
+   "aka": "Ed Evans; H. C. Evans; Henry Evans",
+   "birthdate": [
+    1873,
+    null,
+    null,
+    true
+   ],
+   "death_date": [
+    1918,
+    10,
+    31
+   ],
+   "released": false,
+   "in_custody": false,
+   "description": "Henry C. Evans, recorded in contemporary sources as H. C. Evans and Henry Evans, was among the Industrial Workers of the World defendants arrested in the Sacramento crackdown that began in December 1917. He was jailed in the Sacramento County Jail and federally indicted on Espionage Act-related charges. His individual arrest and admission day were not located.\n\nHE DIED OF INFLUENZA AND DOUBLE PNEUMONIA WHILE AWAITING TRIAL, and so received no sentence and had no release. THE DEATH DATE IS IN CONFLICT: the Sacramento Bee reported his death on October 31, 1918, while a cemetery-derived record gives October 30. October 31 is recorded and the conflict is noted rather than silently resolved.\n\nA cemetery-derived record says he was born in 1873 in Mississippi and was 45; the exact birth date and locality are unresolved, so the year is stored as approximate.\n\nTHIS RECORD WAS FILED AS \"ED EVANS\", which appears to conflate him with his fellow prisoner Ed Burns. He is not to be confused with Henry Evans the Oberlin abolitionist, a separate record in this database.",
+   "cases": [
+    {
+     "incarceration": null,
+     "death_in_custody": [
+      1918,
+      10,
+      31
+     ],
+     "charges": "Federal Espionage Act-related indictment in the Sacramento Industrial Workers of the World case, following the crackdown that began in December 1917.",
+     "sentence": "NO SENTENCE. He died in the Sacramento County Jail awaiting trial, of influenza and double pneumonia. The Sacramento Bee reported the death on October 31, 1918; a cemetery-derived record gives October 30, and that one-day conflict is unresolved. His individual arrest and admission day were not located, so no admission is entered.",
+     "institution": {
+      "name": "Sacramento County Jail",
+      "city": "Sacramento",
+      "state": "California"
+     }
+    }
+   ]
+  }
+ ]
+}
