@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# BATCH 38 -- Dr. Otis Wesley Smith served the seven days.
+# BATCH 38 -- Dr. Otis W. Smith served the seven days.
 #
 #   fix-otis-wesley-smith   The record described an eight-month work-gang
 #                           sentence "suspended only on condition that he
@@ -15,8 +15,10 @@
 #                           RELIABLE SUPPORT was found for the letter
 #                           begging forgiveness, which is removed.
 #
-#                           THE SLUG CHANGES: otis-w-smith becomes
-#                           otis-wesley-smith.
+#                           THE NAME AND SLUG DO NOT CHANGE. An earlier
+#                           version renamed him and regenerated the slug;
+#                           that is reverted, and re-running this batch
+#                           repairs it if the earlier version already ran.
 #
 #                           His portrait comes from his own funeral
 #                           program in the Digital Library of Georgia,
@@ -48,7 +50,7 @@ run() {
 }
 
 echo "==================================================================="
-echo "  Batch 38 — Dr. Otis Wesley Smith"
+echo "  Batch 38 — Dr. Otis W. Smith"
 echo "==================================================================="
 
 run "fix-otis-wesley-smith" bash database/data/fix-otis-wesley-smith.sh

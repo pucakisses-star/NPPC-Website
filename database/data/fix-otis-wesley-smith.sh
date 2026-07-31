@@ -41,6 +41,16 @@
 # THE JAIL BUILDING IS NOT IDENTIFIED, so no institution is linked.
 # Contemporary reporting says only that he was held in jail.
 #
+# THE NAME AND SLUG DO NOT CHANGE. An earlier version of this script
+# renamed him to "Otis Wesley Smith", which regenerated the slug. That is
+# reverted: he stays Otis W. Smith at /prisoner/otis-w-smith, and only the
+# middle-name FIELD is expanded from the initial to Wesley, which does not
+# touch the display name and so leaves the slug alone.
+#
+#   IF THE EARLIER VERSION ALREADY RAN, this script repairs it. It looks
+#   up both slugs, sets the name back, and the model regenerates
+#   otis-w-smith from it. Re-running is the fix; nothing else is needed.
+#
 # THE PHOTOGRAPH comes from his own funeral program, in the Digital
 # Library of Georgia. Its cover reads "Sunrise May 12, 1925 - Sunset
 # February 5, 2007", which is where both dates in this record come from
@@ -55,11 +65,11 @@ cd "$(dirname "$0")/../.."
 DST_DIR="storage/app/public/prisoners"
 mkdir -p "$DST_DIR"
 
-if [ -f database/data/photos/otis-wesley-smith.jpg ]; then
-    cp -f database/data/photos/otis-wesley-smith.jpg "${DST_DIR}/otis-wesley-smith.jpg"
-    echo "copied otis-wesley-smith.jpg"
+if [ -f database/data/photos/otis-w-smith.jpg ]; then
+    cp -f database/data/photos/otis-w-smith.jpg "${DST_DIR}/otis-w-smith.jpg"
+    echo "copied otis-w-smith.jpg"
 else
-    echo "MISSING SOURCE: database/data/photos/otis-wesley-smith.jpg"
+    echo "MISSING SOURCE: database/data/photos/otis-w-smith.jpg"
 fi
 
 php artisan tinker --execute='
@@ -99,7 +109,12 @@ $instFixed = 0;
 $missing = 0;
 
 foreach ($payload["records"] as $row) {
-    $p = Prisoner::withoutGlobalScopes()->where("slug", $row["slug"])->with("cases")->first();
+    // Try the intended slug, then the one an earlier version of this
+    // script would have left behind, so a re-run repairs the rename.
+    $p = Prisoner::withoutGlobalScopes()
+        ->whereIn("slug", [$row["slug"], "otis-wesley-smith"])
+        ->with("cases")
+        ->first();
 
     if (! $p && isset($row["name"])) {
         $p = Prisoner::withoutGlobalScopes()->where("name", $row["name"])->with("cases")->first();
@@ -229,14 +244,14 @@ echo "Done.\n";
 php artisan tinker --execute='
 use App\Models\Prisoner;
 
-$p = Prisoner::withoutGlobalScopes()->whereIn("slug", ["otis-wesley-smith", "otis-w-smith"])->first();
+$p = Prisoner::withoutGlobalScopes()->whereIn("slug", ["otis-w-smith", "otis-wesley-smith"])->first();
 
 if (! $p) {
     echo "  NOT FOUND: neither otis-wesley-smith nor otis-w-smith\n";
     return;
 }
 
-$rel = "prisoners/otis-wesley-smith.jpg";
+$rel = "prisoners/otis-w-smith.jpg";
 
 if (! is_file(storage_path("app/public/".$rel))) {
     echo "  image not on disk — photo left unset\n";

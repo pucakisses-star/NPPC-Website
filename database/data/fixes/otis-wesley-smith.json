@@ -1,14 +1,14 @@
 {
  "_source": "Curator correction, July 2026. Atlanta Daily World contemporary reporting; Howard Zinn's later account; Georgia state court records; Digital Library of Georgia, Atlanta Funeral Programs Collection.",
- "_conventions": "Dates are [year, month|null, day|null].",
+ "_conventions": "Dates are [year, month|null, day|null]. The NAME AND SLUG ARE DELIBERATELY UNCHANGED -- only the middle-name field is expanded from the initial W. to Wesley, which does not touch the display name and so does not regenerate the slug.",
  "records": [
   {
    "slug": "otis-w-smith",
-   "name": "Otis Wesley Smith",
+   "name": "Otis W. Smith",
    "first_name": "Otis",
    "middle_name": "Wesley",
    "last_name": "Smith",
-   "aka": "Otis W. Smith; Dr. Otis Wesley Smith",
+   "aka": "Otis Wesley Smith; Dr. Otis W. Smith",
    "birthdate": [
     1925,
     5,
@@ -20,7 +20,7 @@
     5
    ],
    "state": "Georgia",
-   "description": "Dr. Otis Wesley Smith (May 12, 1925 - February 5, 2007) was an Atlanta-born physician and civil-rights figure who practised in Fort Valley, Georgia, where he was then the only Black resident physician in Peach County.\n\nOn June 25, 1957 crossed telephone lines led to a confrontation with Inez Crutchfield, a white service-station operator. A later account by Howard Zinn, based on Smith's own recollection, says she told him to get off the line using a racial epithet and that he replied by calling her a bitch; the contemporary newspaper reported only that the crossed lines led to an exchange in which Smith allegedly made offensive remarks. He was arrested immediately and released on a $1,000 bond posted by supporters. How long that first detention lasted is unresolved.\n\nOn March 10, 1958 Peach County Superior Court convicted him of using opprobrious words or abusive language in the presence of a white woman, and Judge Oscar L. Long imposed a straight eight-month jail sentence with no fine. SMITH THEN SPENT SEVEN DAYS IN JAIL. On March 17, after appeals from both Black and white residents, Long suspended the term; Smith paid a $500 fine, was placed on probation, and was ordered to leave the area.\n\nThe prosecution rested on Georgia's former statute against unprovoked opprobrious words or abusive language tending to cause a breach of the peace. The United States Supreme Court held that statute facially unconstitutional in Gooding v. Wilson in 1972.\n\nSeveral details in an earlier version of this record were wrong. It dated the telephone incident to 1958 rather than June 1957; it described the sentence as suspended without noting that he actually served seven days; it attached the $500 fine to the original sentence rather than to the modification a week later; and it stated that the suspension was conditioned on his writing the woman a letter begging forgiveness. NO RELIABLE SUPPORT FOR THE LETTER WAS FOUND. The contemporary account documents a fine, probation and removal from the area, and Zinn mentions leaving town but no letter. The record also called the term eight months on a work gang; the contemporary source says jail, while Zinn's later account calls it a chain-gang sentence. The specific jail building has not been identified.",
+   "description": "Dr. Otis W. Smith was a civil rights activist and the first African-American board-certified pediatrician to practice in the state of Georgia. On June 25, 1957, while attempting to make a phone call a technical malfunction in the telephone lines caused his call to merge with that of a white woman who then called Dr. Smith a racial slur. Dr. Smith allegedly responded with “opprobrious words.” Dr. Smith was arrested that day and on March 10, 1958 was convicted by Peach County Superior Court Judge Oscar L. Long of using abusive language and sentenced to eight months in jail. Smith remained jailed for seven days. On March 17, after appeals from Black and white residents, Long suspended the term upon payment of a $500 fine, placed Smith on probation, and required him to leave the area.",
    "cases": [
     {
      "arrest": [
