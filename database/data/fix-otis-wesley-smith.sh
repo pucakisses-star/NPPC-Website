@@ -51,6 +51,11 @@
 #   up both slugs, sets the name back, and the model regenerates
 #   otis-w-smith from it. Re-running is the fix; nothing else is needed.
 #
+#   THE AKA FIELD IS CLEARED. An earlier version filed alternate names
+#   there; the payload now carries a null for it, which the field loop
+#   writes through, so any leftover string is removed. There is only one
+#   form of his name in use and no alternate spelling to search for.
+#
 # THE PHOTOGRAPH comes from his own funeral program, in the Digital
 # Library of Georgia. Its cover reads "Sunrise May 12, 1925 - Sunset
 # February 5, 2007", which is where both dates in this record come from

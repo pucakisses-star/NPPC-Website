@@ -1,6 +1,6 @@
 {
  "_source": "Curator correction, July 2026. Atlanta Daily World contemporary reporting; Howard Zinn's later account; Georgia state court records; Digital Library of Georgia, Atlanta Funeral Programs Collection.",
- "_conventions": "Dates are [year, month|null, day|null]. The NAME AND SLUG ARE DELIBERATELY UNCHANGED -- only the middle-name field is expanded from the initial W. to Wesley, which does not touch the display name and so does not regenerate the slug.",
+ "_conventions": "Dates are [year, month|null, day|null]. The NAME AND SLUG ARE DELIBERATELY UNCHANGED -- only the middle-name field is expanded from the initial W. to Wesley, which does not touch the display name and so does not regenerate the slug. A null value CLEARS the field: aka is null so that any alternate-name string an earlier version of this script wrote is removed.",
  "records": [
   {
    "slug": "otis-w-smith",
@@ -8,7 +8,7 @@
    "first_name": "Otis",
    "middle_name": "Wesley",
    "last_name": "Smith",
-   "aka": "Otis Wesley Smith; Dr. Otis W. Smith",
+   "aka": null,
    "birthdate": [
     1925,
     5,
