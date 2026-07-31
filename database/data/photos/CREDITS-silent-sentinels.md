@@ -221,6 +221,10 @@ Harriet Andrews** — no person-identified institutional portrait located.
   family publication, which is a far stronger identification than an
   uncaptioned web image.
 - **Processing:** page 1 of the PDF extracted at its embedded resolution
-  (3556×4543), the printed photograph cropped out of the page, the cream
-  page margin trimmed, and the result cropped to 525×700. No rotation was
-  needed — the page came out upright. No retouching.
+  (3556×4543), then DESKEWED. The page was scanned 0.507° off level,
+  measured by fitting a line to the top edge of the printed photograph
+  across 114 sample columns, and rotated back by that amount. The
+  photograph's rectangle was then re-detected on the levelled image
+  (1646×1919) and cropped to 525×700 at full height, so nothing is lost
+  from the top of his head and no page margin shows at the bottom. No
+  retouching.
