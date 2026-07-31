@@ -137,3 +137,70 @@ jail ledger. Attaching a photograph of one of those candidates would
 assert exactly the identification that was withheld, and would do it in
 the most visible place on the page. The image is on file in the dossier
 and can be added the moment the identity is settled.
+
+---
+
+# Round two (batch 32)
+
+## ernestine-hara.jpg — Ernestine Hara
+
+- **Source:** Library of Congress, Records of the National Woman's Party,
+  digital id `mnwp.151010` — <https://hdl.loc.gov/loc.mss/mnwp.151010>
+- **Obtained via:** Wikimedia Commons, *Ernestine Hara 151010v.jpg*
+  (1975×2912).
+- **Rights:** Public domain.
+- **Archival caption:** "Full-length, outdoor photograph of Ernestine
+  Hara, wearing dark coat, hat, and tricolor (purple, white, and gold)
+  suffrage sash, and holding large tricolor banner on pole."
+- **Note on the resource id:** the dossier cites LOC item `mnwp000392`,
+  a Harris & Ewing studio portrait. That item is not mirrored on
+  Commons, and loc.gov refuses non-interactive clients. This is a
+  different, also-named LOC image of her from the same collection —
+  and the studio credit "HARRIS & EWING" is legible in the lower right
+  of the print, so it is by the same photographer. Substitute the
+  studio portrait if it can be pulled from loc.gov directly.
+- **Processing:** full-length original cropped to her figure with the
+  banner, rather than enlarging a small face out of a wide outdoor shot.
+
+## josephine-bennett.jpg — Josephine Beach Day Bennett
+
+- **Source:** Harriet Beecher Stowe Center, via Connecticut History —
+  <https://connecticuthistory.org/josephine-bennett-hartfords-city-mother/>
+- **Obtained via:** Wikimedia Commons, *Josephine Bennett in Washington,
+  D.C. in January 1919.jpg* (873×1269).
+- **Rights:** Public domain.
+- **Caption:** "Josephine Bennett in Washington, D.C. in January 1919."
+- **Why this one:** the dossier links the c. 1914 photograph of her with
+  her daughters Tanya and Katherine, which is only 382×599 at source
+  (191×300 as linked). This image is from the same collection and the
+  same article, is more than twice the size, and was taken in
+  Washington in **January 1919 — the month and the city of her arrest**.
+
+## Still outstanding after round two
+
+**Ellen Winsor** — Historical Society of Pennsylvania, "Ellen Winsor and
+Rebecca Winsor Evans photograph", <https://omeka.hsp.org/s/digitalcollections/document/17593>,
+Ellen on the left. Same Cloudflare block as Dr. Lockrey: hsp.org refuses
+this environment outright, and she is not on Wikimedia Commons. Needs an
+ordinary browser. It is a two-person photograph, so it also needs
+cropping to the left-hand figure.
+
+**Elizabeth Green Kalb** — NOT re-attached, because she already carries
+the correct image. Her stored photo is the same Harris & Ewing LOC
+portrait (`mnwp.153001`) the dossier cites, already cropped at 640×847.
+The Commons original is larger at 2372×3261 and would give a marginally
+sharper 525×700, but the existing crop is above target resolution and
+correct, so it is left alone rather than churned.
+
+**Elizabeth Minnie Huff** and **Elizabeth McShane** — the dossier rates
+both as medium confidence. Huff's biographical page carries a
+person-linked image with no identified institution or original
+provenance. McShane's reproduces her 1913 Vassarion portrait held by
+Vassar College Libraries, but no separate Vassar image record was
+resolved. Neither is attached without a citable archival source.
+
+**Elsie Unterman** — the image on her biographical page is a prison pin,
+not a portrait.
+
+**Elsie Vervane, Estella Eylward, Eunice Huff, Gertrude Murphy,
+Harriet Andrews** — no person-identified institutional portrait located.

@@ -1,0 +1,229 @@
+{
+  "_source": "Researcher dossier round 2 (entries 17-28), July 2026. Doris Stevens, Jailed for Freedom (appendix); Inez Haynes Irwin, The Story of the Woman's Party; Library of Congress 'Women of Protest' detailed chronology; Alexander Street biographical database; Connecticut History; California State University archives.",
+  "_conventions": "birthdate/death_date are [year, month|null, day|null]; a trailing true marks the year as approximate and stores circa precision. release=null means no discharge record was found -- a NOMINAL completion date computed from the sentence length is deliberately NOT stored as a release. An empty cases array leaves existing rows alone.",
+  "_defaults": {
+    "charges": "Arrested for picketing the Wilson White House for woman suffrage.",
+    "convicted": "Imprisoned in the 1917-1919 National Woman's Party suffrage campaign"
+  },
+
+  "records": [
+    {
+      "slug": "elizabeth-green-kalb",
+      "aka": "Elizabeth Green Kalb Handy",
+      "birthdate": [1896, null, null],
+      "death_date": [1973, null, null],
+      "description": "Elizabeth Green Kalb (1896-1973) was born in Columbus, Ohio, and was living in Houston, Texas at the time of her arrest. A graduate of Rice Institute in 1916 and a student at the University of Chicago, she was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She died in Front Royal, Virginia. The exact days of her birth and death are unresolved.\n\nShe was arrested on January 13, 1919 and released on bail that afternoon, then rearrested the same evening and held overnight in the House of Detention. On January 14 she was sentenced to five days and committed to the District of Columbia Jail. No discharge record has been found; the sentence would nominally have run to January 19, but that is a calculation rather than a record and is not entered as her release date.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 13],
+          "incarceration": [1919, 1, 13],
+          "release": null,
+          "sentence": "Five days in the District of Columbia Jail, imposed January 14, 1919. Arrested January 13, released on bail that afternoon, rearrested the same evening and held overnight in the House of Detention. No discharge record found; the nominal completion date of January 19 is a calculation and is not recorded as a release."
+        }
+      ]
+    },
+
+    {
+      "slug": "elizabeth-hoff",
+      "name": "Elizabeth Minnie Huff",
+      "first_name": "Elizabeth",
+      "middle_name": "Minnie",
+      "last_name": "Huff",
+      "aka": "Elizabeth Hoff; Elizabeth Minnie Huff Johnson; Elisabeth Minnie Johnson",
+      "birthdate": [1891, 1, 28],
+      "death_date": [1989, null, null],
+      "description": "Elizabeth Minnie Huff (January 28, 1891 - 1989), later Elizabeth Minnie Huff Johnson and sometimes recorded as Elisabeth Minnie Johnson, was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. The exact day of her death is unresolved.\n\nShe was arrested on January 13, 1919 and released on bail, then rearrested that evening and held overnight. On January 14 she was sentenced to five days in the District Jail. No discharge record has been found; the sentence would nominally have run to January 19, which is a calculation rather than a record.\n\nOn the name: Doris Stevens's appendix lists her as \"Elizabeth Hoff\", and this record was previously filed under that spelling. Inez Haynes Irwin's contemporary history of the National Woman's Party names Elizabeth Huff among those arrested on January 13, and the biographical record confirms Huff. \"Hoff\" appears to be a variant or slip in Stevens.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 13],
+          "incarceration": [1919, 1, 13],
+          "release": null,
+          "sentence": "Five days in the District Jail, imposed January 14, 1919. Arrested January 13, released on bail, rearrested that evening and held overnight. No discharge record found; the nominal completion date of January 19 is a calculation and is not recorded as a release."
+        }
+      ]
+    },
+
+    {
+      "slug": "elizabeth-mcshane",
+      "aka": "Elizabeth McShane Hilles",
+      "birthdate": [1891, 11, 9],
+      "death_date": [1976, 8, 13],
+      "description": "Elizabeth McShane (November 9, 1891 - August 13, 1976), later Elizabeth McShane Hilles, was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She was jailed three times and hunger-struck in at least two of those terms.\n\nArrested while picketing on November 10, 1917, she was sentenced on November 16 to fifteen days. She was sent first to the Occoquan Workhouse and then transferred to the District Jail, where she was FORCE-FED during a hunger strike. She was released on November 27, eleven days after sentencing.\n\nArrested again on August 6, 1918 during the Lafayette Square demonstration, she was released and then convicted, and was committed about August 15 to the old District Workhouse on a fifteen-day sentence. She was released on August 20 after a hunger strike, roughly five days into the term.\n\nArrested a third time on February 9, 1919 at the final watchfire demonstration, she was sentenced on February 10 to five days in the District Jail and released on February 13.\n\nStevens's appendix dates that last term to January. The chronological narrative in Irwin and the Library of Congress detailed chronology both place it in February, and this record follows them.",
+      "cases": [
+        {
+          "arrest": [1917, 11, 10],
+          "incarceration": [1917, 11, 16],
+          "release": [1917, 11, 27],
+          "sentence": "Fifteen days, imposed November 16, 1917 after arrest while picketing on November 10. Sent to the Occoquan Workhouse and then transferred to the District Jail, where she was force-fed during a hunger strike. Released November 27, eleven days after sentencing."
+        },
+        {
+          "arrest": [1918, 8, 6],
+          "incarceration": [1918, 8, 15],
+          "release": [1918, 8, 20],
+          "sentence": "Fifteen days at the old District Workhouse. Arrested August 6, 1918 at the Lafayette Square demonstration and initially released; convicted and committed about August 15, the exact commitment day being approximate. Released August 20 after a hunger strike."
+        },
+        {
+          "arrest": [1919, 2, 9],
+          "incarceration": [1919, 2, 10],
+          "release": [1919, 2, 13],
+          "sentence": "Five days in the District Jail, imposed February 10, 1919 after arrest at the February 9 final watchfire demonstration. Released February 13. Stevens dates this term to January; Irwin and the Library of Congress chronology both place it in February."
+        }
+      ]
+    },
+
+    {
+      "slug": "ellen-winsor",
+      "birthdate": [1882, 11, 30],
+      "death_date": [1959, 7, 25],
+      "description": "Ellen Winsor (November 30, 1882 - July 25, 1959) was a Pennsylvania member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on January 13, 1919, released on bail and rearrested that evening, held overnight, and sentenced on January 14 to five days in the District Jail. Sources describe her as spending five days in jail; no discharge record has been found, so the nominal release date of January 19 is not entered.\n\nOne biographical account alleges an earlier arrest in the summer of 1917 involving a meeting or a statue. No contemporary arrest roster supporting it has been located, so it is recorded here as unverified and no case row is created for it.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 13],
+          "incarceration": [1919, 1, 13],
+          "release": null,
+          "sentence": "Five days in the District Jail, imposed January 14, 1919. Arrested January 13, released on bail, rearrested that evening and held overnight. Sources describe five days served; no discharge record found, so the nominal release date of January 19 is not recorded."
+        }
+      ]
+    },
+
+    {
+      "slug": "elsie-unterman",
+      "aka": "Elsa Unterman; Elsie Ramp",
+      "description": "Elsie Unterman, also recorded as Elsa Unterman and under her former married name Elsie Ramp, was a member of the National Woman's Party jailed twice during the 1917-1919 campaign for woman suffrage. She married Floyd Cleveland Ramp on December 21, 1914 and later divorced. Her dates of birth and death are unresolved.\n\nOn January 25, 1919 she was arrested for applauding suffrage prisoners in court and sentenced to forty-eight hours for contempt. She was released on January 27 and then arrested or recommitted the same day after applauding again, drawing a second forty-eight-hour sentence. Both terms were served in the District Jail.\n\nThe total time is unresolved. Stevens's appendix summarises her as having served three days, which cannot be reconciled with two consecutive forty-eight-hour sentences. The two sentencing dates are recorded because they are documented; the end of the second term is not, so the nominal completion date of January 29 is left out.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 25],
+          "incarceration": [1919, 1, 25],
+          "release": [1919, 1, 27],
+          "sentence": "Forty-eight hours for contempt of court, imposed January 25, 1919 for applauding suffrage prisoners. Released January 27, when she was immediately arrested again."
+        },
+        {
+          "arrest": [1919, 1, 27],
+          "incarceration": [1919, 1, 27],
+          "release": null,
+          "sentence": "A second forty-eight-hour contempt sentence, January 27, 1919, after applauding again. District Jail. No discharge record found; the nominal completion date of January 29 is a calculation and is not recorded. Stevens summarises her total as three days, which conflicts with two consecutive forty-eight-hour terms."
+        }
+      ]
+    },
+
+    {
+      "slug": "elsie-vervane",
+      "aka": "Elsie Probst Vervane; Elsie Ver Vane; Elsie Vervaene; Elsie Von Vane",
+      "birthdate": [1870, 12, null],
+      "description": "Elsie Probst Vervane, recorded variously as Elsie Ver Vane, Elsie Vervaene and Elsie Von Vane, was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She was born in New York City in approximately December 1870; the exact day of her birth and her date of death are unresolved. She married Samuel Vervane on September 15, 1895 and divorced in January 1926.\n\nShe was arrested on January 13, 1919, released on bail and rearrested that evening, held overnight, and sentenced on January 14 to five days in the District Jail. Stevens records that she served five days; no discharge record has been found, so the nominal release date of January 19 is not entered.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 13],
+          "incarceration": [1919, 1, 13],
+          "release": null,
+          "sentence": "Five days in the District Jail, imposed January 14, 1919. Arrested January 13, released on bail, rearrested that evening and held overnight. Stevens records five days served; no discharge record found, so the nominal release date of January 19 is not recorded."
+        }
+      ]
+    },
+
+    {
+      "slug": "ernestine-hara",
+      "aka": "Ernestine Hara Kettler; Ernestine Emerson",
+      "birthdate": [1896, 1, 25],
+      "death_date": [1978, 11, 1],
+      "description": "Ernestine Hara (January 25, 1896 - November 1, 1978), later Ernestine Hara Kettler, was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She left an oral history of her imprisonment.\n\nShe was arrested on September 22, 1917. After about an hour awaiting bail she was tried on September 23 and sentenced to thirty days for obstructing traffic. She entered the Occoquan Workhouse and was transferred to the District Jail for the final three days of the term. Her oral history says she served the full thirty days, which would place completion around October 23, but no discharge record has been located and that date is not entered.",
+      "cases": [
+        {
+          "arrest": [1917, 9, 22],
+          "incarceration": [1917, 9, 23],
+          "release": null,
+          "sentence": "Thirty days for obstructing traffic, imposed September 23, 1917 after arrest on September 22 and about an hour awaiting bail. Served at the Occoquan Workhouse, with transfer to the District Jail for the final three days. Her oral history says she served the full term; no discharge record has been located, so the nominal completion date of about October 23 is not recorded as a release."
+        }
+      ]
+    },
+
+    {
+      "slug": "estella-eylward",
+      "aka": "Estella Ladds Eylward; Estella Vouraka",
+      "birthdate": [1880, null, null],
+      "description": "Estella Ladds Eylward, formerly Estella Vouraka, was born in New Mexico in 1880 and was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She married James Jacob Eylward on September 15, 1903. The exact day of her birth and her date of death are unresolved.\n\nShe was arrested on February 9, 1919 at the final watchfire demonstration, sentenced on February 10 to five days in the District Jail, and released on February 13 after the prisoners' hunger strike.",
+      "cases": [
+        {
+          "arrest": [1919, 2, 9],
+          "incarceration": [1919, 2, 10],
+          "release": [1919, 2, 13],
+          "sentence": "Five days in the District Jail, imposed February 10, 1919 after arrest at the February 9 final watchfire demonstration. Released February 13 after the prisoners' hunger strike."
+        }
+      ]
+    },
+
+    {
+      "slug": "eunice-huff",
+      "aka": "Eunice Sarah Huff; Enna Huff; Eunice S. Huff Noack",
+      "birthdate": [1893, 1, 21],
+      "death_date": [1985, 8, null],
+      "description": "Eunice Sarah Huff (January 21, 1893 - August 1985), also called Enna Huff and later Eunice S. Huff Noack, was a member of the National Woman's Party who took part in the 1917-1919 campaign to picket the Wilson White House for woman suffrage. The exact day of her death is unresolved.\n\nShe was arrested on August 14, 1918 during a demonstration and released, then returned with other protesters that evening and was rearrested. No sentence and no second release date have been located for that day, so no term of custody is recorded for it.\n\nStevens records that she served three days in January 1919 for applauding suffrage prisoners in court. The arrest, jail-entry and release dates for that term are all unresolved.",
+      "cases": [
+        {
+          "arrest": [1918, 8, 14],
+          "incarceration": null,
+          "release": null,
+          "sentence": "Arrested August 14, 1918 during a demonstration and released, then returned with other protesters that evening and rearrested. No sentence and no release date have been located, so no custody is recorded for this arrest."
+        },
+        {
+          "arrest": null,
+          "incarceration": null,
+          "release": null,
+          "sentence": "Three days in January 1919 for applauding suffrage prisoners in court, per Stevens. The arrest, jail-entry and release dates are all unresolved, so no dates are recorded and no day counter is computed."
+        }
+      ]
+    },
+
+    {
+      "slug": "gertrude-murphy",
+      "aka": "Gertrude Murphy Schneller; Gertrude Murphy Sneller",
+      "birthdate": [1891, null, null, true],
+      "description": "Gertrude E. Murphy, later Gertrude Murphy Schneller and also spelled Sneller, was born about 1891 and was a member of the National Woman's Party jailed twice during the 1917-1919 campaign for woman suffrage. Her exact dates of birth and death are unresolved.\n\nOn January 16, 1919 she was sentenced to twenty-four hours for contempt after applauding suffrage prisoners in court, and served it in the District Jail. Arrested again on January 27 at a watchfire demonstration, she was sentenced on January 28 to five days in the District Jail and joined the hunger strike there.\n\nNo discharge record has been found for either term. The sentences would nominally have ended on January 17 and February 2, but those are calculations rather than records and are not entered as release dates.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 16],
+          "incarceration": [1919, 1, 16],
+          "release": null,
+          "sentence": "Twenty-four hours for contempt of court, imposed January 16, 1919 after applauding suffrage prisoners. District Jail. No discharge record found; the nominal release date of January 17 is a calculation and is not recorded."
+        },
+        {
+          "arrest": [1919, 1, 27],
+          "incarceration": [1919, 1, 28],
+          "release": null,
+          "sentence": "Five days in the District Jail, imposed January 28, 1919 after arrest at a watchfire demonstration on January 27. She joined the hunger strike. No discharge record found; the nominal completion date of February 2 is a calculation and is not recorded."
+        }
+      ]
+    },
+
+    {
+      "slug": "harriet-u-andrews",
+      "birthdate": [1884, 5, 23],
+      "death_date": [1959, 3, 7],
+      "description": "Harriet U. Andrews (May 23, 1884 - March 7, 1959) was a member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on January 7, 1919 at a watchfire demonstration, and sentenced and committed on January 8 to five days in the District Jail. Sources describe her as serving five days; no discharge record has been found, so the nominal release date of January 13 is not entered.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 7],
+          "incarceration": [1919, 1, 8],
+          "release": null,
+          "sentence": "Five days in the District Jail, imposed and served from January 8, 1919 after arrest at a watchfire demonstration on January 7. Sources describe five days served; no discharge record found, so the nominal release date of January 13 is not recorded."
+        }
+      ]
+    },
+
+    {
+      "slug": "josephine-bennett",
+      "aka": "Josephine Beach Day Bennett; Mrs. M. Toscan Bennett",
+      "birthdate": [1880, 5, 4],
+      "death_date": [1961, 6, 12],
+      "description": "Josephine Beach Day Bennett (May 4, 1880 - June 12, 1961), listed in the contemporary records as Mrs. M. Toscan Bennett, was a Hartford, Connecticut member of the National Woman's Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on January 8, 1919 during a watchfire protest and sentenced the same day to five days in the District Jail, where she took part in the hunger strike. Sources describe her as serving five days; no discharge record has been found, so the nominal release date of January 13 is not entered.",
+      "cases": [
+        {
+          "arrest": [1919, 1, 8],
+          "incarceration": [1919, 1, 8],
+          "release": null,
+          "sentence": "Five days in the District Jail, imposed January 8, 1919, the day of her arrest at a watchfire protest. She took part in the hunger strike. Sources describe five days served; no discharge record found, so the nominal release date of January 13 is not recorded."
+        }
+      ]
+    }
+  ]
+}
