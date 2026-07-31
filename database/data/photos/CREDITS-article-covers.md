@@ -62,3 +62,25 @@ portrait already in site storage, falling back to the Commons image above.
 | Article slug | File | Source / credit |
 |---|---|---|
 | broadview-six-ice-protest-case-collapses-2026 | broadview-six-grid.jpg | Chicago Tribune defendants grid (© Chicago Tribune, used at site owner's direction — not a free license). Edited composite: tiles tone-matched, uniformly cropped, reassembled. Replaces the earlier Paul Goyette / CC BY 4.0 Wikimedia cover. |
+
+---
+
+## is-colorado-in-america (batch 41)
+
+| Field | Value |
+|---|---|
+| Commons file | `Is Colorado in America.jpg` (6648×8352) |
+| License | Public domain |
+| Subject | Western Federation of Miners poster, 1904 |
+| Holdings | University of Michigan Library, Joseph A. Labadie Collection; Denver Public Library, Western History Collection C331.892822 |
+
+Resized to 1400px tall and **not cropped** — the whole point of the poster
+is thirteen readable lines of grievance, so trimming it to a banner shape
+would destroy the thing being illustrated.
+
+The poster was chosen over any image from the Denverite article
+deliberately: it is the primary source, it is public domain, and it avoids
+taking a Colorado Public Radio photograph.
+
+**Author avatar** — `authors/erica-meltzer.jpg`, the headshot supplied
+with the request, from Denverite (Colorado Public Radio).
