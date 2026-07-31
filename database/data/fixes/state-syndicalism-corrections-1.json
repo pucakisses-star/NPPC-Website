@@ -1,0 +1,626 @@
+{
+ "_source": "Curator corrections, July 2026.",
+ "_conventions": "Dates are [year, month|null, day|null]. An institution object is matched or created by name and its city and state are corrected in place, which affects every prisoner linked to that institution row.",
+ "records": [
+  {
+   "slug": "carol-swenson",
+   "name": "Carl Swenson",
+   "first_name": "Carl",
+   "last_name": "Swenson",
+   "aka": "Carol Swenson",
+   "death_date": [
+    1919,
+    9,
+    18
+   ],
+   "released": false,
+   "in_custody": false,
+   "description": "Carl Swenson, a member of the Industrial Workers of the World, died in custody on September 18, 1919 in the Spokane County Jail in Washington, where he was being held awaiting trial for violating the federal Espionage Act. His death was recorded as suicide by hanging.\n\nThis record previously named him Carol Swenson and gave the date as September 19.",
+   "cases": [
+    {
+     "death_in_custody": [
+      1919,
+      9,
+      18
+     ],
+     "sentence": "Died in custody on September 18, 1919 in the Spokane County Jail, Spokane, Washington, while awaiting trial. The death was recorded as suicide by hanging. He was never tried and no sentence was imposed.",
+     "institution": {
+      "name": "Spokane County Jail",
+      "city": "Spokane",
+      "state": "Washington"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "josef-kalenezcicz",
+   "incarceration": true,
+   "description": "Josef Kalenezcicz was held in federal immigration custody from January 2, 1920 and deported to Russia as a radical on February 26, 1921, after roughly thirteen months in detention.\n\nAdapted from Kenyon Zimmer, Red Scare Deportees (kenyonzimmer.com), compiled from INS deportation case files.",
+   "cases": [
+    {
+     "incarceration": [
+      1920,
+      1,
+      2
+     ],
+     "release": [
+      1921,
+      2,
+      26
+     ],
+     "sentence": "Administrative deportation under the wartime Immigration Acts. Held from January 2, 1920 and deported to Russia on February 26, 1921."
+    }
+   ]
+  },
+  {
+   "slug": "dorothy-calhoun",
+   "death_date": [
+    1936,
+    null,
+    null
+   ],
+   "description": "Dorothy Calhoun was a young Georgia worker whose death was taken up by the Labor Defender in 1937 as one of a series of cases concerning Black workers and the Atlanta police.\n\nShe died in Atlanta, and was dead by October 14, 1936. SHE DID NOT DIE IN JAIL. An earlier version of this record stated that she died in custody in a Georgia jail; that is not established. The claim that police mistreatment caused her death is an allegation made by Angelo Herndon, and is recorded here as his allegation rather than as a finding.",
+   "cases": [
+    {
+     "sentence": "No jail death is established. She died in Atlanta and was dead by October 14, 1936. Angelo Herndon alleged that police mistreatment caused her death; that is his allegation and not a documented finding. An earlier version of this record stated she died in a Georgia jail."
+    }
+   ]
+  },
+  {
+   "slug": "elias-matson",
+   "description": "Elias Matson, a member of the Industrial Workers of the World, was sentenced to two to ten years for violating Washington State's criminal syndicalism law and served the term at the Washington State Reformatory at Monroe.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case.",
+   "cases": [
+    {
+     "charges": "Washington state criminal syndicalism prosecution (Laws of 1919, ch. 174), not a federal Espionage or Sedition Act case.",
+     "sentence": "Two to ten years for criminal syndicalism, served at the Washington State Reformatory at Monroe.",
+     "institution": {
+      "name": "Washington State Reformatory",
+      "city": "Monroe",
+      "state": "Washington"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "w-r-holey",
+   "description": "W. R. Holey, a member of the Industrial Workers of the World, received a prison sentence for violating Washington State's criminal syndicalism law.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case.",
+   "cases": [
+    {
+     "charges": "Washington state criminal syndicalism prosecution (Laws of 1919, ch. 174), not a federal Espionage or Sedition Act case.",
+     "sentence": "Imprisoned under Washington State's criminal syndicalism law. The length of the term and the facility are not established."
+    }
+   ]
+  },
+  {
+   "slug": "j-j-johnson",
+   "inmate_number": "38118",
+   "description": "J. J. Johnson, an Industrial Workers of the World member from Los Angeles, received a four-year prison sentence and entered San Quentin State Prison on July 12, 1923 as prisoner number 38118.\n\nThe prison's location was previously recorded as Tamal, which is the postal name of the site; it is corrected here to San Quentin, Marin County, California.",
+   "cases": [
+    {
+     "sentence": "Four years, served at San Quentin State Prison from July 12, 1923. Prisoner number 38118.",
+     "institution": {
+      "name": "San Quentin State Prison",
+      "city": "San Quentin",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "frank-hestings",
+   "description": "Frank Hestings was sentenced to four to ten years under Washington State's criminal syndicalism law, the prosecution resting principally on his alleged membership of the Industrial Workers of the World. He served the sentence at the Washington State Penitentiary at Walla Walla.\n\nHis sentencing is dated January 22, though the year is qualified in the sources, and an appeal was reported in 1921.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case.",
+   "cases": [
+    {
+     "charges": "Washington state criminal syndicalism prosecution (Laws of 1919, ch. 174), resting principally on alleged membership of the Industrial Workers of the World. Not a federal Espionage or Sedition Act case.",
+     "sentence": "Four to ten years at the Washington State Penitentiary, Walla Walla. Sentenced January 22, the year being qualified in the sources; an appeal was reported in 1921.",
+     "institution": {
+      "name": "Washington State Penitentiary at Walla Walla",
+      "city": "Walla Walla",
+      "state": "Washington"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "john-hiza",
+   "description": "John Hiza, a member of the Industrial Workers of the World, received a seven-year sentence under California's criminal syndicalism law. He was admitted to Folsom State Prison in March 1923 and is documented as still held there in June 1927.\n\nThis was a state prosecution. An earlier version of this record carried a federal Espionage or Sedition Act charge; no separate federal prosecution has been found, and that charge is removed.",
+   "cases": [
+    {
+     "charges": "California criminal syndicalism prosecution (Statutes of 1919, ch. 188). No separate federal prosecution has been found.",
+     "incarceration": [
+      1923,
+      3,
+      null
+     ],
+     "sentence": "Seven years under California's criminal syndicalism law. Admitted to Folsom State Prison in March 1923, the exact day not established, and documented as still held there in June 1927. No discharge date has been found.",
+     "institution": {
+      "name": "Folsom State Prison",
+      "city": "Folsom",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "israel-blankenstein",
+   "ideologies": [
+    "Communism"
+   ],
+   "description": "Israel Blankenstein was an organizer for the Communist Party prosecuted in Pennsylvania for underground Communist organizing. He was reported as sentenced to two to four years, with an appeal pending and an application for amnesty planned.\n\nThis was a state prosecution. An earlier version of this record carried a federal Espionage or Sedition Act charge and described him under anti-militarism; neither fits the case.",
+   "cases": [
+    {
+     "charges": "Pennsylvania prosecution for underground Communist organizing. Not a federal Espionage or Sedition Act case.",
+     "sentence": "Reported as two to four years, with an appeal pending and an application for amnesty planned. No custody dates are established."
+    }
+   ]
+  },
+  {
+   "slug": "j-l-brian",
+   "description": "J. L. Brian, of St. Maries, Idaho, received a sentence of one to ten years under Idaho's criminal syndicalism law.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case. The place name appears in the source as \"St. Marie\"; the town is St. Maries, and the source spelling is preserved here as a transcription note.",
+   "cases": [
+    {
+     "charges": "Idaho criminal syndicalism prosecution. Not a federal Espionage or Sedition Act case.",
+     "sentence": "One to ten years under Idaho's criminal syndicalism law. He is recorded as being from St. Maries, Idaho, which the source transcribes as \"St. Marie\"."
+    }
+   ]
+  },
+  {
+   "slug": "frank-geizler",
+   "inmate_number": "12495",
+   "description": "Frank Geizler was an Austrian member of the Industrial Workers of the World. He was held at Grand Forks, North Dakota by September 1, 1917, prosecuted at Fargo for threatening President Woodrow Wilson, and sentenced to two years, which he is reported to have begun serving on March 9, 1918 at the United States Penitentiary at Leavenworth as prisoner number 12495.\n\nOn October 18, 1919 he was re-arrested by police immediately upon his release from Leavenworth and held for deportation. The final deportation disposition and the detention facility are unresolved.\n\nThe interval from March 9, 1918 to October 18, 1919 is 588 days. That figure is calculated from the two reported dates rather than taken from any statement of time served, and it excludes the unresolved pre-trial custody at Grand Forks.",
+   "cases": [
+    {
+     "incarceration": [
+      1918,
+      3,
+      9
+     ],
+     "release": [
+      1919,
+      10,
+      18
+     ],
+     "charges": "Federal prosecution for threatening the President of the United States, tried at Fargo, North Dakota.",
+     "sentence": "Two years, reported as beginning March 9, 1918, served at the United States Penitentiary, Leavenworth as prisoner number 12495. Released October 18, 1919. The 588-day span is calculated from the two reported dates rather than from any statement of time served, and excludes unresolved pre-trial custody at Grand Forks from before September 1, 1917.",
+     "institution": {
+      "name": "United States Penitentiary, Leavenworth",
+      "city": "Leavenworth",
+      "state": "Kansas"
+     }
+    },
+    {
+     "arrest": [
+      1919,
+      10,
+      18
+     ],
+     "incarceration": null,
+     "release": null,
+     "charges": "Immigration detention for deportation as an alien radical.",
+     "sentence": "Re-arrested by police on October 18, 1919 immediately upon release from Leavenworth and held for deportation. The final disposition and the detention facility are unresolved, so no custody span is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "guillermo-adan",
+   "description": "Guillermo Adán was a Mexican revolutionary associated with the Partido Liberal Mexicano, named in contemporary rosters of those jailed or prosecuted under United States neutrality laws.\n\nHe was arrested at least three times. The first two arrests are known only by inference, from a contemporary description of the later arrest as his third; their places, charges and outcomes are all unresolved. The third arrest was reported on September 30, 1909 at Eagle Pass, Texas, on an allegation about his entry into the country and with a neutrality prosecution contemplated in connection with the Las Vacas raid. He was indicted under the neutrality law by November 1909.\n\nA report of January 22, 1910 said he had been freed after spending seventeen months in jail awaiting a hearing. No conviction or sentence was reported.\n\nThe seventeen months is deliberately NOT converted into an admission date here, because the period appears to span repeated arrests or changes of procedural status rather than one continuous confinement. Whether custody was continuous from the earlier arrests, the individual facilities, the exact day of release, and his dates of birth and death are all unresolved.",
+   "cases": [
+    {
+     "arrest": [
+      1909,
+      9,
+      30
+     ],
+     "incarceration": null,
+     "release": null,
+     "charges": "United States neutrality law prosecution connected with the Las Vacas raid, together with an allegation concerning his entry into the country. Indicted under the neutrality law by November 1909.",
+     "sentence": "No conviction or sentence was reported. A report of January 22, 1910 said he had been freed after seventeen months in jail awaiting a hearing. That span appears to cover repeated arrests or changes of procedural status rather than one continuous confinement, so it is not converted into custody dates and no day counter is computed."
+    }
+   ]
+  },
+  {
+   "slug": "john-g-weiler",
+   "description": "John G. Weiler was a member of the Communist Labor Party convicted under California's Criminal Syndicalism Act and sentenced to an indeterminate term of one to fourteen years. He was confined at San Quentin State Prison from February 1921 and paroled in May 1923.\n\nThe case concerned Communist Labor Party organisation or membership. An earlier version of this record classified it as a federal Espionage or Sedition Act prosecution, which it was not.\n\nHis documented custody span is roughly two years and three months, calculated from month-only dates rather than from any statement of time served.",
+   "cases": [
+    {
+     "incarceration": [
+      1921,
+      2,
+      null
+     ],
+     "release": [
+      1923,
+      5,
+      null
+     ],
+     "charges": "California Criminal Syndicalism Act prosecution (Statutes of 1919, ch. 188), concerning Communist Labor Party organisation or membership. Not a federal Espionage or Sedition Act case.",
+     "sentence": "Indeterminate term of one to fourteen years. Confined at San Quentin State Prison from February 1921 and paroled in May 1923. Both dates are month-only, so the recorded span of roughly two years and three months is calculated rather than documented.",
+     "institution": {
+      "name": "San Quentin State Prison",
+      "city": "San Quentin",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "lotta-burke",
+   "state": "Ohio",
+   "death_date": [
+    1960,
+    12,
+    null
+   ],
+   "description": "Lotta Burke was a Cincinnati garment worker, labour leader, suffragist, Socialist, pacifist and women's-rights speaker. Sources give her dates as 1869-1960, while a contemporary report called her 45 in June 1917, which would place her birth around 1871 or 1872; neither establishes an exact birth date, so none is recorded. A later biographical account says she died in December 1960 and was buried at St. John Cemetery in St. Bernard, Ohio.\n\nShe was arrested in Cincinnati on June 12, 1917 with Thomas Hammerschmidt, initially on a treason allegation, for ordering anti-conscription handbills. After a preliminary hearing on June 25 she was held in a Dayton, Ohio jail and released on July 16 on a $3,000 bond -- a stay of about three weeks.\n\nShe was later prosecuted with twelve others for conspiracy to defraud the United States by encouraging men not to register for military service, and was convicted by February 1920. A government compilation records a fifteen-month sentence and names Missouri State Prison, but no admission or release has been found and she was on appeal bond during the litigation. The Sixth Circuit affirmance was reported in 1923.\n\nON MAY 26, 1924 THE SUPREME COURT REVERSED ALL THIRTEEN CONVICTIONS, holding that openly urging resistance to draft registration was not defrauding the United States under the statute charged.\n\nAn earlier version of this record said she served fifteen months in the Missouri State Prison. Fifteen months was the sentence imposed; whether she served any of it is unresolved.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      6,
+      12
+     ],
+     "incarceration": [
+      1917,
+      6,
+      25
+     ],
+     "release": [
+      1917,
+      7,
+      16
+     ],
+     "charges": "Arrested on a treason allegation for ordering anti-conscription handbills, Cincinnati, Ohio.",
+     "sentence": "No conviction on this arrest. Held in a Dayton, Ohio jail after a preliminary hearing on June 25, 1917 and released on July 16 on a $3,000 bond, a stay of about three weeks."
+    },
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "charges": "Federal conspiracy to defraud the United States by encouraging men not to register for military service, prosecuted with twelve co-defendants.",
+     "sentence": "Fifteen months imposed, with Missouri State Prison named in a government compilation, but no admission or release date has been found and she was on appeal bond during the litigation. The Sixth Circuit affirmed in 1923. ON MAY 26, 1924 THE SUPREME COURT REVERSED ALL THIRTEEN CONVICTIONS, holding that openly urging resistance to draft registration was not defrauding the United States under the statute charged. No custody is recorded for this case because none is documented."
+    }
+   ]
+  },
+  {
+   "slug": "mickey-j-dunn",
+   "inmate_number": "35564",
+   "description": "Mickey J. Dunn was an Oakland member of the Industrial Workers of the World convicted under California's Criminal Syndicalism Act and sentenced to five years. He was confined at San Quentin State Prison from November 1921 until January 1926 as prisoner number 35564.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case.\n\nThe recorded span of roughly four years and two months is calculated from month-only dates rather than from any statement of time served. The exact days of arrest, conviction, sentencing, admission and release are unresolved, as are his vital dates and any appeal history.",
+   "cases": [
+    {
+     "incarceration": [
+      1921,
+      11,
+      null
+     ],
+     "release": [
+      1926,
+      1,
+      null
+     ],
+     "charges": "California Criminal Syndicalism Act prosecution (Statutes of 1919, ch. 188), arising from Industrial Workers of the World activity. Not a federal Espionage or Sedition Act case.",
+     "sentence": "Five years. Confined at San Quentin State Prison from November 1921 until January 1926 as prisoner number 35564. Both dates are month-only, so the span of roughly four years and two months is calculated rather than documented.",
+     "institution": {
+      "name": "San Quentin State Prison",
+      "city": "San Quentin",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "o-g-brown",
+   "description": "O. G. Brown was a Black youth in Mississippi sentenced to death for the alleged theft of $1.85, one of the legal-lynching cases publicised by the International Labor Defense.\n\nThe item appeared in the Labor Defender in January 1935 as part of a review of the preceding year, so the sentence belongs to 1934 rather than to a date in 1935. An earlier version of this record dated it to 1935.\n\nNothing further is established: not the county, the court, the exact offence designation, the arrest or sentencing date, the institution, any appeal or commutation, any execution or release, his vital dates, his full name, or a photograph. IT WOULD BE UNSAFE TO READ THE DEATH SENTENCE AS EVIDENCE THAT HE WAS EXECUTED, and this record does not.",
+   "cases": [
+    {
+     "charges": "Alleged theft of $1.85, Mississippi; sentenced to death.",
+     "sentence": "Death sentence imposed in 1934, reported in the Labor Defender of January 1935 in a review of the preceding year. Nothing further is established -- no county, court, dates, institution, appeal, commutation, execution or release. The death sentence is not evidence that it was carried out."
+    }
+   ]
+  },
+  {
+   "slug": "pedro-gonzales",
+   "name": "Pedro González",
+   "first_name": "Pedro",
+   "last_name": "González",
+   "aka": "Pedro Gonzales",
+   "description": "Pedro González was among the refugees associated with the Partido Liberal Mexicano whom John Kenneth Turner lists as subject to an ATTEMPTED EXTRADITION, on allegations of murder and robbery arising from the uprising at Jiménez, Coahuila, during which a person was killed and post-office money disappeared.\n\nThis should be classified as an extradition proceeding, not as a conviction under United States neutrality laws. Turner discusses extradition proceedings in several American cities but does not identify González's arrest city, custody facility, dates or final ruling. He describes the extradition campaign as generally unsuccessful, but González's individual outcome is unresolved.\n\nNo evidence was found for a sentence, time served, birth, death, or aliases beyond the accent variant. HE SHOULD NOT BE CONFLATED WITH LATER SIMILARLY NAMED PRISONERS, including the journalist Pedro J. González.",
+   "cases": [
+    {
+     "charges": "Subject of an attempted extradition on allegations of murder and robbery arising from the uprising at Jiménez, Coahuila. An extradition proceeding, not a prosecution or conviction under United States neutrality laws.",
+     "sentence": "No sentence is recorded. Turner describes the extradition campaign against the Partido Liberal Mexicano refugees as generally unsuccessful, but this man's individual outcome, arrest city, custody facility and dates are all unresolved, so no custody is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "sam-kurland",
+   "description": "Sam Kurland was a needle-trades labour activist. \"Samuel\" is not independently documented.\n\nA contemporary labour newspaper reported a fifteen-day sentence for disorderly conduct during a strike in 1926; the arrest, sentencing date, facility and actual time served are all unresolved.\n\nIn the 1927 fur strike he was accused of assaulting Sam Zanistomsky on April 4 and arrested on either April 5 or April 7, the sources differing. Contemporary labour papers called the case a frame-up, which is their allegation rather than an established fact. He was initially held without bail. He was convicted of second-degree assault on June 29, 1927, committed to the Tombs on July 1 while sentencing was postponed, and sentenced on October 7, 1927 to five years at Sing Sing.\n\nHe was listed as Sing Sing prisoner number 8273 by October 1928 and at Comstock by December 1929. THE SENTENCE IS IN CONFLICT: the Comstock directory describes a one-to-ten-year term against the contemporary report of five years, and the precise legal sentence should be treated as unsettled.\n\nHis release, discharge or parole, actual time served, appeal history and vital dates are unresolved.",
+   "cases": [
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "charges": "Disorderly conduct during a strike, 1926.",
+     "sentence": "Fifteen days reported by a contemporary labour newspaper in April 1926. The arrest, the sentencing date, the facility and the actual time served are all unresolved, so no custody is recorded."
+    },
+    {
+     "arrest": [
+      1927,
+      4,
+      null
+     ],
+     "incarceration": [
+      1927,
+      7,
+      1
+     ],
+     "release": null,
+     "charges": "Second-degree assault on Sam Zanistomsky, April 4, 1927, during the New York fur strike. Contemporary labour papers called the case a frame-up; that is their allegation and not an established fact.",
+     "sentence": "Convicted June 29, 1927 and sentenced October 7, 1927 to five years at Sing Sing, having been committed to the Tombs on July 1 while sentencing was postponed. Held without bail initially. Arrest reported as either April 5 or April 7, so the arrest is recorded to the month. Listed as Sing Sing prisoner 8273 by October 1928 and at Comstock by December 1929; the Comstock directory describes a one-to-ten-year term, conflicting with the five years reported at sentencing, so the legal sentence is unsettled. No release, discharge or parole has been found.",
+     "institution": {
+      "name": "Sing Sing Correctional Facility",
+      "city": "Ossining",
+      "state": "New York"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "tomas-sarabia",
+   "name": "Tomás Sarabia Labrada",
+   "first_name": "Tomás",
+   "last_name": "Sarabia Labrada",
+   "aka": "Tomás Sarabia; Tomás S. Labrada; Henry",
+   "death_date": [
+    1912,
+    null,
+    null
+   ],
+   "description": "Tomás Sarabia Labrada was a Mexico City-born journalist and organiser for the Partido Liberal Mexicano. Documented forms of his name include Tomás Sarabia, Tomás S. Labrada and the pseudonym Henry; a later scholarly source reports the fuller alias Henry Max Morton, but that expansion is secondary rather than independently documented.\n\nThe Archivo Magón biography records his birth year only as \"18??\". He was arrested with José M. Rangel on August 10, 1909 for an alleged violation of the neutrality law and remained imprisoned into 1910. He died in 1912 of tuberculosis reportedly contracted in jail.\n\nA contemporary report dated January 18, 1910 says he had been freed after five months because the grand jury failed to indict him. THE DOCUMENTED OUTCOME WAS RELEASE WITHOUT INDICTMENT, NOT CONVICTION.\n\nNo release date is recorded here. The report establishes only that he was free by January 18, 1910, so \"five months\" is the safer statement of duration; treating January 18 as the release day would give an elapsed 161 days that no source documents.",
+   "cases": [
+    {
+     "arrest": [
+      1909,
+      8,
+      10
+     ],
+     "incarceration": [
+      1909,
+      8,
+      10
+     ],
+     "release": null,
+     "charges": "Alleged violation of the United States neutrality law, arrested with José M. Rangel.",
+     "sentence": "NO CONVICTION. A report of January 18, 1910 says he had been freed after five months because the grand jury failed to indict him. No release date is entered: the report establishes only that he was free by that date, and treating it as the release day would produce an elapsed 161 days that no source documents. He died in 1912 of tuberculosis reportedly contracted in jail."
+    }
+   ]
+  },
+  {
+   "slug": "thomas-smit",
+   "name": "Charles Thomas Smit",
+   "first_name": "Charles",
+   "middle_name": "Thomas",
+   "last_name": "Smit",
+   "aka": "Thomas Smit; Tom Smit",
+   "birthdate": [
+    1944,
+    3,
+    7
+   ],
+   "death_date": [
+    2018,
+    5,
+    10
+   ],
+   "description": "Charles Thomas \"Tom\" Smit (March 7, 1944 - May 10, 2018) was one of the Chicago 15. On May 25, 1969 the group entered Selective Service headquarters at 2355 West 63rd Street in Chicago, removed roughly 40,000 draft records, burned them behind the building, and waited to be arrested. His exact places of birth and death are unresolved.\n\nHe was indicted on June 3, 1969 on federal counts of destruction of government property, mutilation of records, interfering with the Selective Service System, and conspiracy.\n\nHE DID NOT APPEAR FOR TRIAL ON MAY 5, 1970 AND HIS CASE WAS SEVERED. The sentences imposed on the eight defendants in the reported appeal, United States v. Cullen, therefore MUST NOT be attributed to him.\n\nA contemporary report published on August 12, 1973 states that the FBI arrested him, then a 29-year-old fugitive, in Palo Alto, California. The exact day of that arrest and any subsequent judgment or sentence are unresolved, so no custody is recorded.",
+   "cases": [
+    {
+     "arrest": [
+      1969,
+      5,
+      25
+     ],
+     "incarceration": null,
+     "release": null,
+     "charges": "Destruction of government property, mutilation of records, interfering with the Selective Service System, and conspiracy — the May 25, 1969 Chicago 15 draft-board action at 2355 West 63rd Street, Chicago.",
+     "sentence": "NO SENTENCE ATTRIBUTABLE. Indicted June 3, 1969. He did not appear for trial on May 5, 1970 and his case was severed from the others, so the sentences imposed on the eight defendants in United States v. Cullen do not apply to him. The group was arrested at the scene on May 25, 1969, having waited for the police; no custody span is documented."
+    },
+    {
+     "arrest": [
+      1973,
+      8,
+      null
+     ],
+     "incarceration": null,
+     "release": null,
+     "charges": "Arrested as a federal fugitive following the severance of his 1969 draft-board case.",
+     "sentence": "A report published August 12, 1973 states that the FBI arrested him, then aged 29, in Palo Alto, California. The exact arrest day and any subsequent judgment or sentence are unresolved, so the arrest is recorded to the month and no custody is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "walter-sprunger",
+   "inmate_number": "14720",
+   "birthdate": [
+    1889,
+    1,
+    1
+   ],
+   "death_date": [
+    1918,
+    10,
+    15
+   ],
+   "in_custody": false,
+   "released": false,
+   "description": "Walter Sprunger (January 1, 1889 - October 15, 1918) was a Mennonite from Adams County, Indiana, who refused military service on religious grounds.\n\nOn October 4, 1918 he and three other Mennonite conscientious objectors were court-martialled for their nonresistant refusal to obey military orders and sent to the United States Disciplinary Barracks at Fort Leavenworth, Kansas. Contemporary Indiana reporting gives his sentence as ten years; the prison register identifies him as number 14720.\n\nHE DIED IN CUSTODY OF INFLUENZA ON OCTOBER 15, 1918, eleven days after admission. There was no release.\n\nHis offence was military refusal to obey orders as a conscientious objector. An earlier version of this record carried a generic federal Espionage or Sedition Act charge, which does not describe his case.",
+   "cases": [
+    {
+     "incarceration": [
+      1918,
+      10,
+      4
+     ],
+     "death_in_custody": [
+      1918,
+      10,
+      15
+     ],
+     "charges": "Court-martialled for nonresistant refusal to obey military orders as a Mennonite conscientious objector. Not an Espionage or Sedition Act prosecution.",
+     "sentence": "Ten years per contemporary Indiana reporting; prison register number 14720. Court-martialled October 4, 1918 and sent to the United States Disciplinary Barracks at Fort Leavenworth, where he died of influenza on October 15, 1918, eleven days after admission. There was no release.",
+     "institution": {
+      "name": "United States Disciplinary Barracks, Fort Leavenworth",
+      "city": "Fort Leavenworth",
+      "state": "Kansas"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "e-yamaguchi",
+   "name": "Einosuke Yamaguchi",
+   "first_name": "Einosuke",
+   "last_name": "Yamaguchi",
+   "aka": "E. Yamaguchi; Enosuke Yamaguchi; Pauley",
+   "description": "Einosuke Yamaguchi, also recorded as Enosuke Yamaguchi and under the documented alias \"Pauley\", was a Japanese radical organiser in Los Angeles.\n\nHe was arrested on January 3, 1930 at a forum on Brooklyn Avenue in Los Angeles under the authority of California's Criminal Syndicalism Act. The disposition of that charge and his release from it are unresolved.\n\nIn March 1930 he was arrested again, with Hakomori and Fukunaga, during a Trade Union Unity League demonstration advocating the organisation of unemployed workers. He was jailed and reportedly fined $500, and was ultimately placed in deportation proceedings.\n\nIn August 1932 he was released from the Lincoln Heights Jail for deportation or voluntary departure; contemporary reports show him leaving the jail and travelling east. HE DEPARTED FOR THE SOVIET UNION RATHER THAN JAPAN. The exact day of departure is unresolved.\n\nWhether he was held continuously between the March 1930 jailing and the August 1932 release is not established, so no custody span is recorded and no day counter is computed.\n\nSources: the Yamazaki study of Japanese-American radicalism; Street Meeting; and the Western Worker of September 1, 1932. A contemporary jail-departure photograph appears in that issue of the Western Worker, with Los Angeles Public Library provenance identified in a later reproduction; it has not been attached to this record.",
+   "cases": [
+    {
+     "arrest": [
+      1930,
+      1,
+      3
+     ],
+     "incarceration": null,
+     "release": null,
+     "charges": "Arrested under the authority of California's Criminal Syndicalism Act at a forum on Brooklyn Avenue, Los Angeles.",
+     "sentence": "The disposition of this charge and any release from it are unresolved, so no custody is recorded."
+    },
+    {
+     "arrest": [
+      1930,
+      3,
+      null
+     ],
+     "incarceration": null,
+     "release": [
+      1932,
+      8,
+      null
+     ],
+     "charges": "Arrested with Hakomori and Fukunaga during a Trade Union Unity League demonstration advocating the organisation of unemployed workers, Los Angeles.",
+     "sentence": "Jailed and reportedly fined $500, then placed in deportation proceedings. Released from the Lincoln Heights Jail in August 1932 for deportation or voluntary departure, and departed for the Soviet Union rather than Japan; the exact day is unresolved. Continuous custody between the March 1930 jailing and the August 1932 release is NOT established, so no incarceration date is entered and no day counter is computed.",
+     "institution": {
+      "name": "Lincoln Heights Jail",
+      "city": "Los Angeles",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "g-terrill",
+   "name": "G. J. Terrill",
+   "first_name": "G.",
+   "middle_name": "J.",
+   "last_name": "Terrill",
+   "aka": "G. Terrill",
+   "inmate_number": "38132",
+   "description": "G. J. Terrill was one of the Los Angeles Industrial Workers of the World defendants known as the \"Twenty-Seven\", prosecuted under California's Criminal Syndicalism Act. Contemporary prisoner rolls give his name as G. J. Terrill, San Quentin number 38132; this record previously carried the shortened form \"G. Terrill\".\n\nHe was released from San Quentin State Prison with Joe Varella on December 12, 1926, the report identifying the two as the last prisoners still held from the Twenty-Seven case.\n\nHis admission is PROBABLE BUT NOT DOCUMENTED: the cohort was admitted on July 12, 1923, and the named prison roll confirms his custody but not that admission date, so no incarceration date is entered.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case.\n\nPOSSIBLE DUPLICATE, flagged and not merged: this database also holds a record for \"C. J. Terrill\", likewise an Industrial Workers of the World member from Los Angeles at San Quentin from July 12, 1923. C and G are easily confused in transcription and the two may be one man, but nothing found here establishes it.",
+   "cases": [
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": [
+      1926,
+      12,
+      12
+     ],
+     "charges": "California Criminal Syndicalism Act prosecution (Statutes of 1919, ch. 188), as one of the Los Angeles Industrial Workers of the World \"Twenty-Seven\". Not a federal Espionage or Sedition Act case.",
+     "sentence": "Released from San Quentin State Prison on December 12, 1926 with Joe Varella, reported as the last two prisoners still held from the Twenty-Seven case. Prisoner number 38132. Admission with the cohort on July 12, 1923 is probable but not independently documented, so no incarceration date is entered and no day counter is computed.",
+     "institution": {
+      "name": "San Quentin State Prison",
+      "city": "San Quentin",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ines-ruiz",
+   "aka": "Inez Ruiz",
+   "gender": "Male",
+   "description": "Inés Ruiz, also recorded as Inez Ruiz, was a man associated with the Catarino Garza revolutionary movement on the Texas-Mexico border.\n\nMexican authorities sought his extradition for alleged murder, arson, robbery and kidnapping during the San Ignacio raid of December 10, 1892. A federal commissioner ordered him detained and a district court granted habeas relief, but THE UNITED STATES SUPREME COURT REVERSED THAT RELIEF ON MARCH 16, 1896. He was rearrested by May 21, 1896 and extradition was granted on July 9, 1896. His trial in Mexico and his later fate are unresolved.\n\nHe was jailed again at Mexico's request as an alleged revolutionary from about December 13, 1909. Judge Scott ordered his release, and a newspaper of February 10, 1910 reported that he had been freed the previous day.\n\nThis was an extradition proceeding rather than a prosecution under United States neutrality laws, and an earlier version of this record described him only through the generic neutrality-law roster entry.",
+   "cases": [
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "charges": "Extradition sought by Mexican authorities for alleged murder, arson, robbery and kidnapping during the San Ignacio raid of December 10, 1892. An extradition proceeding, not a United States neutrality-law prosecution.",
+     "sentence": "A federal commissioner ordered him detained; a district court granted habeas relief; the United States Supreme Court reversed that relief on March 16, 1896. He was rearrested by May 21, 1896 and extradition was granted on July 9, 1896. The dates of his detention are not established, so no custody span is recorded. His trial in Mexico and his later fate are unresolved."
+    },
+    {
+     "arrest": null,
+     "incarceration": [
+      1909,
+      12,
+      13
+     ],
+     "release": [
+      1910,
+      2,
+      9
+     ],
+     "charges": "Jailed at the request of Mexico as an alleged revolutionary.",
+     "sentence": "Held from about December 13, 1909 until Judge Scott ordered his release; a newspaper of February 10, 1910 reported he had been freed the previous day. The start date is approximate, so the recorded span is close to but not exactly documented."
+    }
+   ]
+  },
+  {
+   "slug": "louis-allen",
+   "inmate_number": "12026",
+   "description": "Louis Allen was a Los Angeles member of the Industrial Workers of the World, convicted with eight co-defendants under California's Criminal Syndicalism Act and sentenced to an indeterminate term of one to fourteen years. He was imprisoned at Folsom State Prison from December 1921 as prisoner number 12026.\n\nA scholarly history records that guards at Folsom covered his head with a blanket, dragged him from solitary confinement and beat him unconscious, and that complaints were filed with the prison board.\n\nHis release date is in conflict by one day. A compilation gives September 11, 1925, while a contemporary newspaper report of September 11 says the release would happen \"tomorrow\", which would make it September 12. The compilation date is recorded and the conflict is noted rather than silently resolved.\n\nThis was a state prosecution. An earlier version of this record classified it as a federal Espionage or Sedition Act case.",
+   "cases": [
+    {
+     "incarceration": [
+      1921,
+      12,
+      null
+     ],
+     "release": [
+      1925,
+      9,
+      11
+     ],
+     "charges": "California Criminal Syndicalism Act prosecution (Statutes of 1919, ch. 188), convicted with eight co-defendants at Los Angeles. Not a federal Espionage or Sedition Act case.",
+     "sentence": "Indeterminate term of one to fourteen years, served at Folsom State Prison from December 1921 as prisoner number 12026. Guards there covered his head with a blanket, dragged him from solitary confinement and beat him unconscious, and complaints were filed with the prison board. Released September 11, 1925 per a compilation; a contemporary report of that date says the release would occur the following day, so September 12 is possible and the one-day conflict is unresolved. The December 1921 admission is month-only, so the recorded span is approximate at its start.",
+     "institution": {
+      "name": "Folsom State Prison",
+      "city": "Folsom",
+      "state": "California"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "mike-matty",
+   "description": "Mike Matty was a coal miner from Brownsville, Pennsylvania, jailed at the Allegheny County Workhouse at Blawnox -- rendered in contemporary sources as \"Blaw Knox\" -- for National Miners Union activity during the 1928 soft-coal strike and his conflict with the John L. Lewis leadership of the United Mine Workers.\n\nHe was demonstrably in custody by October 1928 and was still imprisoned in January 1929. He was released on April 29, 1929, after what the contemporary defence publication called several months' imprisonment.\n\nNO ADMISSION DATE IS RECORDED. October 1928 is the point at which custody is first attested, not the date he entered, so entering it would understate the term and present an attestation as an admission. His actual time served is therefore not calculated. The exact arrest, admission and sentencing dates, the formal charge and statute, the length of the sentence, his vital dates and any photograph are all unresolved.",
+   "cases": [
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": [
+      1929,
+      4,
+      29
+     ],
+     "charges": "Jailed for National Miners Union activity during the 1928 soft-coal strike and conflict with the John L. Lewis leadership of the United Mine Workers. The formal charge and statute are not established.",
+     "sentence": "Held at the Allegheny County Workhouse at Blawnox. Attested in custody by October 1928 and still imprisoned in January 1929; released April 29, 1929 after what the contemporary defence publication called several months. No admission date is entered, because October 1928 is when custody is first attested rather than when it began, so no day counter is computed.",
+     "institution": {
+      "name": "Allegheny County Workhouse",
+      "city": "Blawnox",
+      "state": "Pennsylvania"
+     }
+    }
+   ]
+  }
+ ]
+}
