@@ -19,6 +19,12 @@
     .deceased-indicator { cursor: help; }
     .deceased-indicator .deceased-label { display: none; }
     .deceased-indicator:hover .deceased-label { display: inline; }
+    /* Raised dagger next to the age. Kept in step with the Vue database
+       card (vue/src/components/database/CardComponent.vue), which has had
+       the sup treatment since the old absolutely-nudged span was dropped;
+       this page still rendered it full-size on the baseline. Explicit
+       values so a CSS reset cannot flatten it back down. */
+    sup.deceased-indicator { font-size: 0.65em; line-height: 0; position: relative; top: -0.45em; vertical-align: baseline; margin-left: 0.15em; }
     .prisoner-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; font-family: Avenir, Helvetica, Arial, sans-serif; }
     .prisoner-hero { display: flex; gap: 48px; padding: 48px 0 40px; align-items: flex-start; }
     .prisoner-info { flex: 1; }
@@ -142,7 +148,7 @@
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Date of death:</span><span class="prisoner-meta-value">{{ $prisoner->formatPartialDate('death_date', 'd. m. Y') }}</span></div>
                 @endif
                 @if($prisoner->age)
-                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}@if($prisoner->death_date)<span class="deceased-indicator"> †<span class="deceased-label"> Deceased</span></span>@endif</span></div>
+                    <div class="prisoner-meta-row"><span class="prisoner-meta-label">Age:</span><span class="prisoner-meta-value">{{ $prisoner->age }}@if($prisoner->death_date)<sup class="deceased-indicator">&dagger;<span class="deceased-label"> Deceased</span></sup>@endif</span></div>
                 @endif
                 @if($prisoner->gender)
                     <div class="prisoner-meta-row"><span class="prisoner-meta-label">Gender:</span><span class="prisoner-meta-value">{{ $prisoner->gender }}</span></div>
