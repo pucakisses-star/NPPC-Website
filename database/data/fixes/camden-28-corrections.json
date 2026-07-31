@@ -1,0 +1,623 @@
+{
+ "merge": {
+  "keep": "kathleen-ridolfi",
+  "drop": "cookie-ridolfi",
+  "note": "The same woman twice: Kathleen Mary Ridolfi, known as Cookie. The survivor keeps the fuller name; the deleted row held the only arrest date (1971-08-22), which is written onto the survivor first. The deleted row's biography also called her the youngest member — that was Jayma Abdoo, twenty at indictment against Ridolfi's twenty-three — and a law student at the time, though she attended Temple and Philadelphia Textile then and came to the law later. The merged biography fixes both."
+ },
+ "people": [
+  {
+   "slug": "father-michael-doyle",
+   "arrest": [
+    1971,
+    8,
+    22
+   ],
+   "incarceration": [
+    1971,
+    8,
+    22
+   ],
+   "clear_release": true,
+   "death": [
+    2022,
+    11,
+    4
+   ],
+   "affiliation_add": [
+    "Camden 28",
+    "Catholic Left"
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved.",
+   "note": "Arrest moves from August 21 to the early morning of August 22, the raid date. His case released him on 1973-05-19 — the eve of the verdict — as if he sat in jail through the whole trial; he was out on bail by about mid-September 1971, so the release date is removed and the custody left open with the span in the text. Death corrected from November 23 to November 4, 2022. He also had no affiliation at all since the batch 45 split from the Molly Maguire."
+  },
+  {
+   "slug": "michael-giocondo",
+   "birth": [
+    1929,
+    null,
+    null,
+    true
+   ],
+   "death": [
+    2014,
+    4,
+    null
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "joan-reilly",
+   "birth": [
+    1951,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "robert-williamson",
+   "birth": [
+    1949,
+    8,
+    16
+   ],
+   "death": [
+    2026,
+    5,
+    15
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "rosemary-reilly",
+   "birth": [
+    1949,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "terry-buckalew",
+   "birth": [
+    1950,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "paul-couming",
+   "birth": [
+    1948,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "anne-dunham",
+   "birth": [
+    1948,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "peter-fordi",
+   "birth": [
+    1936,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "robert-good",
+   "birth": [
+    1949,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "john-grady",
+   "birth": [
+    1925,
+    null,
+    null,
+    true
+   ],
+   "sentence_case_year": 1971,
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved.",
+   "note": "Camden case only; his 1982 Plowshares case is untouched, and per the dossier the November 13, 1982 date must never be read back onto Camden."
+  },
+  {
+   "slug": "edward-mcgowan",
+   "birth": [
+    1935,
+    5,
+    7
+   ],
+   "death": [
+    2020,
+    9,
+    28
+   ],
+   "arrest": [
+    1971,
+    8,
+    22
+   ],
+   "incarceration": [
+    1971,
+    8,
+    22
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved.",
+   "note": "His obituary specifically confirms the August 22 arrest, so he gets day precision where most of the cohort gets the month."
+  },
+  {
+   "slug": "edward-murphy",
+   "birth": [
+    1937,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved.",
+   "note": "FLAGGED, NOT CHANGED: the record carries a death date of 2012-04-04. The dossier could not resolve his death and a name as common as Edward Murphy is exactly where a false match lives. The stored date is kept but should be re-sourced."
+  },
+  {
+   "slug": "barry-musi",
+   "birth": [
+    1948,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "kathleen-ridolfi",
+   "name": "Kathleen Ridolfi",
+   "aka": "Cookie Ridolfi",
+   "birth": [
+    1948,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    22
+   ],
+   "incarceration": [
+    1971,
+    8,
+    22
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved.",
+   "description": "Kathleen Mary \"Cookie\" Ridolfi, a South Philadelphia native, was twenty-three at the Camden 28 indictment. She attended Temple University and Philadelphia Textile College and managed the Resistance Book Store near Temple, and was also named in the Harrisburg conspiracy proceedings. FBI surveillance photographed her with Rosemary Reilly carrying bags during preparations for the raid, and later research identifies both women among the group that entered the draft-board offices on August 22, 1971. Tried as one of the seventeen and acquitted on May 20, 1973. She became an attorney and law professor, and in 2001 founded the Northern California Innocence Project at Santa Clara University."
+  },
+  {
+   "slug": "john-swinglish",
+   "birth": [
+    1944,
+    3,
+    25
+   ],
+   "death": [
+    2017,
+    4,
+    12
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved."
+  },
+  {
+   "slug": "margaret-innes",
+   "name": "Margaret Inness",
+   "birth": [
+    1944,
+    11,
+    6
+   ],
+   "death": [
+    2021,
+    8,
+    22
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "sentence": "No sentence — acquitted with all seventeen trial defendants on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy (most defendants refused release until everyone could make bail); individual release date unresolved.",
+   "description": "Margaret Mary Inness (November 6, 1944 – August 22, 2021) was a Boston native, a Regis College graduate, a former novice with the Sisters of Notre Dame de Namur, and a special-education teacher completing a master's degree at Boston College at the time of the Camden 28 indictment. Tried as one of the seventeen and acquitted on May 20, 1973, she went on to teach in Boston public schools for more than thirty years. Her married name was Margaret Inness Galvani. She died in Savannah, Georgia on August 22, 2021 — fifty years to the day after the raid.",
+   "note": "RENAMED Innes -> Inness, the spelling in the federal court opinion and her obituary. The rename regenerates the slug (margaret-innes becomes margaret-inness), which breaks the old URL — accepted for a demonstrable spelling error, as with Anna Herkner in batch 30."
+  },
+  {
+   "slug": "jayma-abdoo",
+   "birth": [
+    1951,
+    null,
+    null,
+    false
+   ],
+   "death": [
+    2006,
+    8,
+    null
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Jayma A. Abdoo (1951 – August 2006) was the youngest documented member of the Camden 28, twenty at the 1971 indictment. A graduate of Immaculate Heart Academy in Bergen County, she had worked in Eugene McCarthy's 1968 presidential campaign and was a children's librarian. She was severed from the main trial and her charges were dismissed after the May 1973 acquittals. She later graduated with honors from Columbia University and became an assistant dean at Barnard College. She died of cancer in August 2006."
+  },
+  {
+   "slug": "william-anderson-2",
+   "birth": [
+    1935,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Dr. William A. Anderson was an osteopathic physician in Westmont, New Jersey, thirty-six at the Camden 28 indictment and the father of six. His practice served Camden's low-income Puerto Rican community and the elderly residents of the McGuire housing project. He graduated from Temple University's pharmacy program and the Philadelphia College of Osteopathic Medicine. He was severed from the main trial and his charges were dismissed after the May 1973 acquittals."
+  },
+  {
+   "slug": "milo-billman",
+   "birth": [
+    1932,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Rev. Milo Billman, a Lutheran minister ordained in 1958, was the only Protestant clergyman among the Camden 28. He had worked with Appalachian communities near Cincinnati, helped develop an antipoverty organization in Columbus, and served as outreach director of Camden's EPOC program. He was severed from the main trial and his charges were dismissed after the May 1973 acquittals."
+  },
+  {
+   "slug": "eugene-dixon",
+   "birth": [
+    1934,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Eugene \"Gene\" Dixon was a Camden resident, father of four, and a longtime supervisor for a Philadelphia automotive company, thirty-seven at the Camden 28 indictment. He was active in Catholic religious education and the PTA and was known as a poet. He was severed from the main trial and his charges were dismissed after the May 1973 acquittals. He continued writing poetry and books after retirement."
+  },
+  {
+   "slug": "keith-forsyth",
+   "birth": [
+    1949,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Keith Forsyth, from Marion, Ohio, was the Camden group's skilled lock picker, twenty-two at the indictment. He had attended the College of Wooster, moved to Philadelphia, drove a cab and was active in the October 4th Organization in Kensington. He was also one of the burglars who entered the FBI office in Media, Pennsylvania in March 1971 and exposed the COINTELPRO files, a role he revealed publicly in 2014. In the Camden case he was severed from the main trial and his charges were dismissed after the May 1973 acquittals. He later earned engineering degrees and became an engineer."
+  },
+  {
+   "slug": "francis-mel-madden",
+   "birth": [
+    1938,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Francis Melvin \"Mel\" Madden, a Boston native, was ordained a Franciscan priest in 1965 and founded Liberty Village, a Jersey City drug-treatment center, in 1967. By 1971 he had married, had two children, and worked as training director for New Jersey's drug-education program, from which he was suspended without pay after his arrest. He was severed from the main trial and his charges were dismissed after the May 1973 acquittals."
+  },
+  {
+   "slug": "lianne-moccia",
+   "birth": [
+    1950,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Lianne Moccia, from Revere, Massachusetts, was twenty-one at the Camden 28 indictment, a part-time senior at Fordham University who had worked with the Christian Appalachian Project and the Bronx Resistance Book Store. Later accounts describe her as one of the drivers supporting the Camden operation rather than one of the people inside the draft-board office. She was severed from the main trial and her charges were dismissed after the May 1973 acquittals."
+  },
+  {
+   "slug": "frank-pommersheim",
+   "birth": [
+    1943,
+    null,
+    null,
+    false
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Frank Pommersheim, born 1943 in Queens, New York, graduated from Colgate University in 1965 and Columbia Law School in 1968 and worked as a VISTA lawyer in Alaska. In the Camden 28 case he was severed from the main trial and his charges were dismissed after the May 1973 acquittals — secondary biographies sometimes say he was \"acquitted with the Camden 28\", but the contemporary trial record shows he was not among the seventeen the jury acquitted. He became a leading scholar of federal Indian law at the University of South Dakota."
+  },
+  {
+   "slug": "martha-shemeley",
+   "birth": [
+    1937,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Martha Lee Shemeley was a Camden social worker, a former diocesan teacher, a Seton Hall psychology graduate and a published Catholic writer who lectured on the role of women in the church and on the \"underground church\". She was thirty-four at the Camden 28 indictment and the mother of a ten-year-old. She was severed from the main trial and her charges were dismissed after the May 1973 acquittals. Contemporary press used the spelling Shemeley; Shemely appears in secondary accounts. A genealogical record suggesting a birth in March 1936 under the maiden name Martha Lee Haley is a probable but unverified match, so it is noted here and not entered."
+  },
+  {
+   "slug": "sarah-tosi",
+   "birth": [
+    1951,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "No — severed from the main trial; charges dismissed after the May 20, 1973 acquittals",
+   "sentence": "Never tried. Severed from the seventeen-defendant trial; the charges were dismissed after the jury acquitted all seventeen on May 20, 1973. About three weeks of pretrial custody in August-September 1971 under the collective bail strategy; individual release date unresolved.",
+   "description": "Sarah Tosi, from Ho-Ho-Kus, New Jersey, was twenty at the Camden 28 indictment. A 1969 graduate of Immaculate Heart Academy and National Honor Society president, she had been a district coordinator in the 1968 McCarthy campaign, attended Wellesley College, and was active in Boston's Paulist Center and in Dorchester community work. Later accounts identify her among the drivers supporting the Camden operation rather than those inside the draft-board office. She was severed from the main trial and her charges were dismissed after the May 1973 acquittals.",
+   "note": "FLAGGED, NOT CHANGED: the record carries a death date of 2006-04-15. The dossier could not resolve her death, so the stored date is kept but should be re-sourced."
+  },
+  {
+   "slug": "anita-ricci",
+   "birth": [
+    1949,
+    null,
+    null,
+    true
+   ],
+   "arrest": [
+    1971,
+    8,
+    null
+   ],
+   "incarceration": [
+    1971,
+    8,
+    null
+   ],
+   "convicted": "Pleaded guilty to a reduced or lesser charge before the trial; exact disposition and sentence unresolved",
+   "sentence": "Contemporary defense reporting separates her from both the seventeen tried defendants and those whose charges were severed and dismissed: she entered a guilty plea to a lesser charge before the seventeen-person trial. The exact plea, sentence and custody outcome are unresolved pending the federal docket. She should not be described as acquitted.",
+   "description": "Anita Ricci, a Philadelphia native, was twenty-two at the Camden 28 indictment. She had graduated near the top of her class at St. Maria Goretti High School, won a scholarship to the University of Pennsylvania, studied sociology at Temple University, and worked at Philadelphia's Resistance Book Store. Unlike her co-defendants she entered a guilty plea to a lesser charge before the seventeen-person trial; the exact disposition and any sentence remain unresolved, and later accounts that fold her into the statement that all twenty-eight were acquitted or dismissed are wrong. Her father's February 2007 obituary refers to her as his late daughter, establishing only that she died before that date."
+  }
+ ]
+}
