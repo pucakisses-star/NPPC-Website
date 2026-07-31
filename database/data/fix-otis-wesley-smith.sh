@@ -51,6 +51,19 @@
 #   up both slugs, sets the name back, and the model regenerates
 #   otis-w-smith from it. Re-running is the fix; nothing else is needed.
 #
+#   FLAGGED A MINOR CASE. The seven days he served fit the flag as it is
+#   actually used: of the 213 records carrying it, every one is 22 days or
+#   under and the median is three, and a conviction does not disqualify a
+#   record -- many minor cases are convictions resolved as time served.
+#
+#     THE LABEL IS DOING TWO JOBS, which is worth saying. The toggle is
+#     called "minor case" but its helper text defines it by BREVITY --
+#     short holds, dismissed charges, pretrial-only. Smith was convicted,
+#     given eight months, fined, put on probation and ordered out of the
+#     area under a statute later held unconstitutional. The detention was
+#     brief; the case was not. The flag is set because the field means
+#     brief, but a reader may not read it that way.
+#
 #   THE AKA FIELD IS CLEARED. An earlier version filed alternate names
 #   there; the payload now carries a null for it, which the field loop
 #   writes through, so any leftover string is removed. There is only one
@@ -133,7 +146,7 @@ foreach ($payload["records"] as $row) {
 
     $notes = [];
 
-    foreach (["name", "first_name", "middle_name", "last_name", "aka", "description", "state", "inmate_number", "ideologies", "gender"] as $field) {
+    foreach (["name", "first_name", "middle_name", "last_name", "aka", "description", "state", "inmate_number", "ideologies", "gender", "minor_case"] as $field) {
         if (array_key_exists($field, $row) && $p->{$field} != $row[$field]) {
             $p->{$field} = $row[$field];
             $notes[] = $field;
