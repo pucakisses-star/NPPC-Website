@@ -18,7 +18,8 @@ final class AddStorePressRelease extends Command {
     protected $description = 'Publish the NPPC store launch press release';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Press Release'], ['slug' => 'press-release']);
+        // Keyed on the SLUG, not the title — see AddMobileAppPressRelease.
+        $category = Category::firstOrCreate(['slug' => 'press-releases'], ['title' => 'Press Releases']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Communications']);
 
         $slug = 'nppc-launches-online-store';

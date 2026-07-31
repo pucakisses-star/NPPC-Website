@@ -39,10 +39,12 @@ final class AddTnrReportArticle extends Command
             $this->warn('Source image not found: public/'.self::SOURCE);
         }
 
-        // Filed as a "Report" (not a news article), so its URL is /report/{slug}
-        // and the card is labelled REPORT. firstOrCreate also creates the
-        // category on first run (slug auto-generated as "report").
-        $category = Category::firstOrCreate(['title' => 'Report']);
+        // Filed under "Reports" (not a news article), so its URL is
+        // /reports/{slug} and the card is labelled REPORTS. Keyed on the
+        // SLUG: keying on the title "Report" minted a singular duplicate
+        // alongside the seeded "Reports", which MergeReportCategory then
+        // had to clean up.
+        $category = Category::firstOrCreate(['slug' => 'reports'], ['title' => 'Reports']);
         $author = Author::where('name', 'National Political Prisoner Coalition')->first();
 
         $intro = 'A new NPPC report on transnational repression — how governments reach across borders to '

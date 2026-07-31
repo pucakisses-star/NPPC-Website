@@ -8,11 +8,25 @@ use Illuminate\Console\Command;
 
 /**
  * Consolidates the singular "Press Release" category into "Press Releases"
- * (the canonical category seeded by CategorySeeder). The singular one was
- * created in error by earlier firstOrCreate(['title' => 'Press Release'])
- * calls. If both exist, every article under "Press Release" is reassigned to
- * "Press Releases" and the singular is deleted; if only the singular exists, it
- * is renamed. Idempotent.
+ * (the canonical category seeded by CategorySeeder). If both exist, every
+ * article under "Press Release" is reassigned to "Press Releases" and the
+ * singular is deleted; if only the singular exists, it is renamed. No
+ * article is ever deleted. Idempotent.
+ *
+ * Both categories showing at once puts BOTH on the /news tab bar, because
+ * ArticlesGrid builds its tabs from Category::all() — every category is a
+ * tab whether or not it duplicates another.
+ *
+ * The singular was minted by firstOrCreate(['title' => 'Press Release'])
+ * in AddMobileAppPressRelease, AddStorePressRelease and
+ * AddNppcQuizPressRelease. Those three now key on the SLUG instead, so
+ * running them can no longer recreate it — before that fix this merge
+ * would silently undo itself the next time any of them ran.
+ *
+ * Merged articles move from /press-release/{slug} to /press-releases/{slug},
+ * since Article::getUrlAttribute() derives the prefix from the category
+ * slug. Old links keep working: SiteController::article() resolves an
+ * article by slug alone and 301s a mismatched prefix to the canonical URL.
  */
 final class MergePressReleaseCategory extends Command
 {

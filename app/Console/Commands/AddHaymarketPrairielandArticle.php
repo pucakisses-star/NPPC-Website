@@ -80,10 +80,12 @@ HTML;
             }
         }
 
-        // Filed as a "Publication" (not a news article): URL /publication/{slug}
-        // and the card is labelled PUBLICATION. firstOrCreate also creates the
-        // category on first run (slug auto-generated as "publication").
-        $category = Category::firstOrCreate(['title' => 'Publication']);
+        // Filed under "Publications" (not a news article): URL
+        // /publications/{slug} and the card is labelled PUBLICATIONS. Keyed
+        // on the SLUG: keying on the title "Publication" minted a singular
+        // duplicate alongside the seeded "Publications", which
+        // MergePublicationCategory then had to clean up.
+        $category = Category::firstOrCreate(['slug' => 'publications'], ['title' => 'Publications']);
 
         $attributes = [
             'title' => $title,
