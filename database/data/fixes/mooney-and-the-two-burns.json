@@ -1,0 +1,93 @@
+{
+ "mooney": {
+  "slug": "thomas-mooney",
+  "case": {
+   "arrest": [
+    1916,
+    7,
+    null
+   ],
+   "incarceration": [
+    1916,
+    7,
+    null
+   ],
+   "sentenced": [
+    1917,
+    2,
+    24
+   ],
+   "release": [
+    1939,
+    1,
+    7
+   ],
+   "institution": "San Quentin State Prison",
+   "charges": [
+    "First-degree murder (Preparedness Day bombing) — frame-up by Pinkerton-style detective Martin Swanson on perjured testimony."
+   ],
+   "convicted": "Yes — convicted February 1917 on perjured testimony; death sentence commuted November 1918; unconditional pardon January 7, 1939",
+   "sentence": "Death, imposed February 24, 1917. Commuted to life imprisonment in November 1918 by Governor William Stephens at President Wilson's urging — Wilson feared the execution might trigger worker revolt on the Russian pattern. Governor Culbert Olson granted an unconditional pardon on January 7, 1939, releasing him after more than twenty-two years. His arrest is recorded at month precision: he was taken in the days after the July 22, 1916 bombing, and accounts differ between July 26 and July 27, so no single day is asserted."
+  }
+ },
+ "burns_fix": {
+  "slug": "ed-burns",
+  "death_date": [
+   1918,
+   11,
+   null
+  ],
+  "description": "Ed Burns was arrested in California and jailed while awaiting trial in the Sacramento IWW case, the federal Espionage Act prosecution of the union's California membership. He was held in the Sacramento County Jail, where he died in November 1918 — one of the five Sacramento defendants who died in the county jail, most during the influenza epidemic, before the case ever came to trial in January 1919.\n\nHe is not the Ed Burns of the April 1920 Seattle Globe Building raid, who was arrested with W. E. Spear and Alicia Rosenbaum and has his own record in this database.",
+  "case": {
+   "arrest": null,
+   "death_in_custody": [
+    1918,
+    11,
+    null
+   ],
+   "institution": "Sacramento County Jail",
+   "institution_city": "Sacramento",
+   "institution_state": "California",
+   "charges": [
+    "Federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918 (Sacramento IWW case)."
+   ],
+   "convicted": "Never tried — died in custody awaiting trial",
+   "sentence": "Died in the Sacramento County Jail in November 1918, awaiting the trial that began without him in January 1919. His previously stored arrest date of February 1, 1924 — five years after his death — was removed as impossible; his actual arrest date is not documented and none is entered."
+  }
+ },
+ "burns_new": {
+  "slug": "ed-burns-seattle",
+  "name": "Ed Burns",
+  "first_name": "Ed",
+  "last_name": "Burns",
+  "gender": "Male",
+  "era": "1920s",
+  "state": "Washington",
+  "affiliation": [
+   "Industrial Workers of the World (IWW)"
+  ],
+  "ideologies": [
+   "Labor Organizing"
+  ],
+  "description": "Ed Burns was the assistant to W. E. Spear, the Seattle district secretary-treasurer of an IWW industrial union organization. On April 22, 1920, Seattle's police Red Squad raided the organization's office in the Globe Building, seized records said to include a directory of roughly twelve thousand members, and arrested Burns together with Spear and the office stenographer Alicia Rosenbaum. Contemporary reports said the prisoners were held incommunicado for investigation on open charges, and the defendants were brought toward trial in June 1920 under Washington's criminal-syndicalism and criminal-anarchy repression. Spear's case was dismissed on January 24, 1921 on the prosecution's motion; no verdict or dismissal notice specifically naming Burns has been located, so his disposition is unresolved.\n\nHe is not the Ed Burns of the Sacramento IWW case, who died in the Sacramento County Jail in November 1918 — seventeen months before the Globe Building raid — and who has his own record in this database.",
+  "cases": [
+   {
+    "arrest": [
+     1920,
+     4,
+     22
+    ],
+    "incarceration": [
+     1920,
+     4,
+     22
+    ],
+    "charges": [
+     "Held for investigation on open charges after the April 22, 1920 Red Squad raid on the Globe Building IWW office."
+    ],
+    "convicted": "Disposition unresolved — no verdict or dismissal notice naming him has been located",
+    "sentence": "Held incommunicado for investigation; custody span and disposition unresolved. His co-defendant Spear's case was dismissed January 24, 1921."
+   }
+  ]
+ }
+}
