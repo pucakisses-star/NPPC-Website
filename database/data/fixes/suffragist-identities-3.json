@@ -1,0 +1,864 @@
+{
+ "_source": "Researcher dossier round 3 (entries 26-50), July 2026. Library of Congress 'Women of Protest' detailed chronology; Doris Stevens, Jailed for Freedom appendix 4; Inez Haynes Irwin, The Story of the Woman's Party; Alexander Street biographical database; National Park Service; Nevada Women's History Project; Maryland Women's Heritage Center; Smithsonian National Portrait Gallery.",
+ "_conventions": "Dates are [year, month|null, day|null]; a trailing true marks the year approximate and stores circa precision. release=null means no discharge record was found; a nominal completion date computed from the sentence length is never stored as a release. An empty cases array leaves existing rows alone.",
+ "_defaults": {
+  "charges": "Arrested for picketing the Wilson White House for woman suffrage.",
+  "convicted": "Imprisoned in the 1917-1919 National Woman's Party suffrage campaign"
+ },
+ "records": [
+  {
+   "slug": "mrs-charles-w-barnes",
+   "name": "Nellie Main Barnes",
+   "first_name": "Nellie",
+   "middle_name": "Main",
+   "last_name": "Barnes",
+   "aka": "Mrs. Charles W. Barnes",
+   "birthdate": [
+    1860,
+    8,
+    5
+   ],
+   "death_date": [
+    1950,
+    8,
+    20
+   ],
+   "description": "Nellie Main Barnes (August 5, 1860 - August 20, 1950) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on November 10, 1917 while picketing and sentenced to fifteen days. Doris Stevens does not conclusively identify her facility as Occoquan, and the surviving record does not establish her entry and discharge dates or whether she completed the full fifteen days, so no custody dates are entered.\n\nThis record was previously filed under her husband’s name, as Mrs. Charles W. Barnes.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      11,
+      10
+     ],
+     "incarceration": null,
+     "release": null,
+     "sentence": "Fifteen days, imposed after arrest while picketing on November 10, 1917. The facility is not conclusively identified in Stevens; it is not established as Occoquan. Entry and discharge dates are unresolved and it is not known whether she served the full term, so no custody span is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "mrs-edmund-c-evans",
+   "name": "Rebecca Winsor Evans",
+   "first_name": "Rebecca",
+   "middle_name": "Winsor",
+   "last_name": "Evans",
+   "aka": "Mrs. Edmund C. Evans",
+   "death_date": [
+    1959,
+    7,
+    25
+   ],
+   "description": "Rebecca Winsor Evans (born 1877 or 1879 - July 25, 1959) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She was the sister of Ellen Winsor, also in this database, and died on the same day, about twenty minutes after her.\n\nHer birth year is given variously as 1877 and 1879 and the exact day is unresolved, so no birthdate is recorded.\n\nShe was arrested at the Lafayette Square demonstration on August 6, 1918 but released on bail without serving time. Arrested again on January 7, 1919, she was sentenced on January 8 to five days in the District Jail. A full term would have ended about January 13, but no personal discharge document has been located.",
+   "cases": [
+    {
+     "arrest": [
+      1918,
+      8,
+      6
+     ],
+     "incarceration": null,
+     "release": null,
+     "sentence": "Arrested at the Lafayette Square demonstration on August 6, 1918 and released on bail. No imprisonment is documented for this arrest, so none is recorded."
+    },
+    {
+     "arrest": [
+      1919,
+      1,
+      7
+     ],
+     "incarceration": [
+      1919,
+      1,
+      8
+     ],
+     "release": null,
+     "sentence": "Five days in the District Jail, imposed January 8, 1919 after arrest on January 7. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "mrs-frederick-w-kendall",
+   "name": "Ada Louise Davenport Kendall",
+   "first_name": "Ada",
+   "middle_name": "Louise Davenport",
+   "last_name": "Kendall",
+   "aka": "Mrs. Frederick W. Kendall",
+   "birthdate": [
+    1867,
+    3,
+    31
+   ],
+   "death_date": [
+    1950,
+    4,
+    14
+   ],
+   "description": "Ada Louise Davenport Kendall (March 31, 1867 - April 14, 1950) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on September 13, 1917 and sentenced to thirty days at the Occoquan Workhouse. A complete term would have ended about October 13, 1917, but no personal discharge record has been found.\n\nThis record previously dated her arrest to August 1917 and was filed under her husband’s name, as Mrs. Frederick W. Kendall.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      9,
+      13
+     ],
+     "incarceration": [
+      1917,
+      9,
+      13
+     ],
+     "release": null,
+     "sentence": "Thirty days at the Occoquan Workhouse, after arrest on September 13, 1917. An earlier version of this record dated the arrest to August 1917. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "mrs-mark-jackson",
+   "name": "Bertha M. Jackson",
+   "first_name": "Bertha",
+   "middle_name": "M.",
+   "last_name": "Jackson",
+   "aka": "Mrs. Mark Jackson; Bertha Maude Rehbein Mather Jackson",
+   "birthdate": [
+    1876,
+    null,
+    null,
+    true
+   ],
+   "description": "Bertha M. Jackson, recorded more fully as Bertha Maude Rehbein Mather Jackson, was born about 1876 and was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Her exact dates of birth and death are unresolved.\n\nShe was arrested on September 13, 1917 and sentenced to thirty days at the Occoquan Workhouse. Presumptive completion was around October 13, 1917, but no individual discharge record has been found.\n\nThis record previously dated her arrest to August 1917 and was filed under her husband’s name, as Mrs. Mark Jackson.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      9,
+      13
+     ],
+     "incarceration": [
+      1917,
+      9,
+      13
+     ],
+     "release": null,
+     "sentence": "Thirty days at the Occoquan Workhouse, after arrest on September 13, 1917. An earlier version of this record dated the arrest to August 1917. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "mrs-palys-l-chevrier",
+   "name": "Palys L. Chevrier",
+   "first_name": "Palys",
+   "middle_name": "L.",
+   "last_name": "Chevrier",
+   "aka": "Mrs. Palys L. Chevrier; Dollee Chevrier; Palys Lorena Aglae Chevrier",
+   "birthdate": [
+    1878,
+    3,
+    14
+   ],
+   "death_date": [
+    1948,
+    3,
+    24
+   ],
+   "description": "Palys Lorena Aglae Chevrier, known as Dollee (March 14, 1878 - March 24, 1948), was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on January 13, 1919, spent that night at the House of Detention, and was sentenced on January 14 to five days in the District Jail. A full term would have ended about January 19; no discharge record has been located.\n\nShe was arrested again at the final watchfire demonstration on February 9, 1919. The located records do not establish whether she was among the twenty-six sentenced the following day, so no sentence is recorded for that arrest.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      1,
+      13
+     ],
+     "incarceration": [
+      1919,
+      1,
+      13
+     ],
+     "release": null,
+     "sentence": "Five days in the District Jail, imposed January 14, 1919. Arrested January 13 and held overnight at the House of Detention. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    },
+    {
+     "arrest": [
+      1919,
+      2,
+      9
+     ],
+     "incarceration": null,
+     "release": null,
+     "sentence": "Arrested at the final watchfire demonstration on February 9, 1919. The records located do not establish whether she was among the twenty-six sentenced the next day, so no custody is recorded for this arrest."
+    }
+   ]
+  },
+  {
+   "slug": "nina-samarodin",
+   "name": "Nina Samorodin",
+   "first_name": "Nina",
+   "last_name": "Samorodin",
+   "aka": "Nina Samarodin; Nina Samardin; Nina Samorodin Ramuglia",
+   "birthdate": [
+    1892,
+    7,
+    4
+   ],
+   "death_date": [
+    1981,
+    11,
+    28
+   ],
+   "description": "Nina Samorodin (July 4, 1892 - November 28, 1981), later Nina Samorodin Ramuglia, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on September 13, 1917 and sentenced to thirty days at the Occoquan Workhouse. Presumptive completion was around October 13, 1917; exact discharge documentation is unresolved.\n\nHer surname was previously spelled Samarodin in this record; Samardin also appears in the sources.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      9,
+      13
+     ],
+     "incarceration": [
+      1917,
+      9,
+      13
+     ],
+     "release": null,
+     "sentence": "Thirty days at the Occoquan Workhouse, after arrest on September 13, 1917. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "phoebe-c-munnecke",
+   "birthdate": [
+    1885,
+    null,
+    null
+   ],
+   "death_date": [
+    1955,
+    11,
+    13
+   ],
+   "description": "Phoebe C. Munnecke (1885 - November 13, 1955) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. The exact day of her birth is unresolved.\n\nShe was arrested on January 4, 1919 and released on bail. Re-arrested on January 5, she was refused bail and given ten days’ imprisonment, during which she joined a hunger strike. She was held in the House of Detention and District Jail system. A full term would have ended about January 15, but no discharge record has been located.\n\nA further contempt sentence is recorded inconsistently: Irwin gives forty-eight hours, Stevens gives three days. Its date and duration therefore remain unresolved and no dates are entered for it.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      1,
+      4
+     ],
+     "incarceration": null,
+     "release": null,
+     "sentence": "Arrested January 4, 1919 and released on bail. No imprisonment is documented for this arrest."
+    },
+    {
+     "arrest": [
+      1919,
+      1,
+      5
+     ],
+     "incarceration": [
+      1919,
+      1,
+      5
+     ],
+     "release": null,
+     "sentence": "Ten days, imposed after re-arrest on January 5, 1919 when bail was refused. She joined the hunger strike. Held through the House of Detention and District Jail system. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    },
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "sentence": "A separate contempt sentence for applauding in court, recorded as forty-eight hours by Irwin and as three days by Stevens. The date and the duration are both unresolved, so no dates are entered."
+    }
+   ]
+  },
+  {
+   "slug": "reba-gomborov",
+   "aka": "Reba Gomborov Commero; Reba Commero",
+   "description": "Reba Gomborov, later Reba Commero, was born in Kyiv and was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Her dates of birth and death are unresolved, and several contemporary misspellings of her name occur in the sources.\n\nShe was arrested on February 9, 1919 during the final watchfire demonstration, sentenced on February 10 to five days in the District Jail, and took part in the hunger strike. She was released early with the remaining prisoners on February 13.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      2,
+      9
+     ],
+     "incarceration": [
+      1919,
+      2,
+      10
+     ],
+     "release": [
+      1919,
+      2,
+      13
+     ],
+     "sentence": "Five days in the District Jail, imposed February 10, 1919 after arrest at the February 9 final watchfire demonstration. She took part in the hunger strike and was released early with the remaining prisoners on February 13."
+    }
+   ]
+  },
+  {
+   "slug": "rebecca-harrison",
+   "name": "Rebecca M. Garrison",
+   "first_name": "Rebecca",
+   "middle_name": "M.",
+   "last_name": "Garrison",
+   "aka": "Rebecca Harrison",
+   "birthdate": [
+    1892,
+    6,
+    23
+   ],
+   "description": "Rebecca M. Garrison (born June 23, 1892) of Joplin, Missouri was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Her date of death is unresolved.\n\nShe was arrested on February 9, 1919 at the final watchfire demonstration and sentenced to five days in the District Jail; Stevens dates the imprisonment entry to February 10, the day of sentencing. She was released early on February 13.\n\nOn the name: this record was filed as “Rebecca Harrison”. The Joplin residence, the February 1919 demonstration and the five-day sentence all correspond to Rebecca M. Garrison, and “Harrison” appears to be a transcription or printing error.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      2,
+      9
+     ],
+     "incarceration": [
+      1919,
+      2,
+      10
+     ],
+     "release": [
+      1919,
+      2,
+      13
+     ],
+     "sentence": "Five days in the District Jail, imposed February 10, 1919 after arrest at the February 9 final watchfire demonstration. Released early on February 13."
+    }
+   ]
+  },
+  {
+   "slug": "rhoda-kellogg",
+   "aka": "Rhoda Kellogg Rypins",
+   "birthdate": [
+    1898,
+    1,
+    23
+   ],
+   "death_date": [
+    1987,
+    8,
+    21
+   ],
+   "description": "Rhoda Kellogg (January 23, 1898 - August 21, 1987), later Rhoda Kellogg Rypins, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was jailed for twenty-four hours for contempt after applauding in court, probably on January 15, 1919, though the exact date remains slightly uncertain and is not entered. Arrested again on January 27, she was sentenced on January 28 to five days in the District Jail. Nominal completion was about February 2; no personal discharge record has been found.",
+   "cases": [
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "sentence": "Twenty-four hours for contempt after applauding suffrage prisoners in court, probably January 15, 1919. The date is not established with certainty, so it is not entered."
+    },
+    {
+     "arrest": [
+      1919,
+      1,
+      27
+     ],
+     "incarceration": [
+      1919,
+      1,
+      28
+     ],
+     "release": null,
+     "sentence": "Five days in the District Jail, imposed January 28, 1919 after arrest on January 27. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "ruby-e-koenig",
+   "birthdate": [
+    1886,
+    null,
+    null,
+    true
+   ],
+   "death_date": [
+    1968,
+    6,
+    22
+   ],
+   "description": "Ruby E. Koenig (born about 1886 - June 22, 1968) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on August 6, 1918 at Lafayette Square and initially released on bail. She was tried and sentenced on August 15 to fifteen days in the old District Workhouse, and released early on August 20 with the rest of that group, about five days into the term.",
+   "cases": [
+    {
+     "arrest": [
+      1918,
+      8,
+      6
+     ],
+     "incarceration": [
+      1918,
+      8,
+      15
+     ],
+     "release": [
+      1918,
+      8,
+      20
+     ],
+     "sentence": "Fifteen days in the old District Workhouse, imposed August 15, 1918. Arrested at Lafayette Square on August 6 and initially released on bail. Released early on August 20, about five days into the term."
+    }
+   ]
+  },
+  {
+   "slug": "ruth-crocker",
+   "birthdate": [
+    1886,
+    null,
+    null,
+    true
+   ],
+   "death_date": [
+    1932,
+    3,
+    4
+   ],
+   "description": "Ruth Crocker (born about 1886 - March 4, 1932) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on September 13, 1917 and sentenced to thirty days at the Occoquan Workhouse; presumptive completion was around October 13, but no discharge record has been found.\n\nShe was jailed again for contempt in January 1919. Irwin gives the term as forty-eight hours and Stevens as three days, and the entry and release dates are unresolved, so no dates are entered for it.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      9,
+      13
+     ],
+     "incarceration": [
+      1917,
+      9,
+      13
+     ],
+     "release": null,
+     "sentence": "Thirty days at the Occoquan Workhouse, after arrest on September 13, 1917. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    },
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "sentence": "A contempt sentence in January 1919, recorded as forty-eight hours by Irwin and as three days by Stevens. The entry and release dates are unresolved, so no dates are entered."
+    }
+   ]
+  },
+  {
+   "slug": "ruth-scott",
+   "description": "Ruth Scott was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Her dates of birth and death are unresolved.\n\nShe was arrested on January 13, 1919 and held overnight at the House of Detention, then sentenced on January 14 to five days in the District Jail. Her biography records that she served five days, which is consistent with release about January 19, but that date is not independently documented and is not entered.",
+   "cases": [
+    {
+     "arrest": [
+      1919,
+      1,
+      13
+     ],
+     "incarceration": [
+      1919,
+      1,
+      13
+     ],
+     "release": null,
+     "sentence": "Five days in the District Jail, imposed January 14, 1919. Arrested January 13 and held overnight at the House of Detention. Her biography records five days served; the discharge date is not independently documented, so about January 19 is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "sarah-tarleton-colvin",
+   "aka": "Sarah Lightfoot Tarleton Colvin",
+   "birthdate": [
+    1865,
+    9,
+    12
+   ],
+   "death_date": [
+    1949,
+    4,
+    22
+   ],
+   "description": "Sarah Lightfoot Tarleton Colvin (September 12, 1865 - April 22, 1949) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Stevens records two separate five-day terms in the District Jail connected with the 1919 watchfire demonstrations.\n\nThe date of the first arrest is unresolved. She was arrested a second time on January 27, 1919 alongside Mary Nolan and sentenced on January 28 to five days. Nominal completion of that term was about February 2; neither personal discharge document has been located.",
+   "cases": [
+    {
+     "arrest": null,
+     "incarceration": null,
+     "release": null,
+     "sentence": "The first of two five-day terms in the District Jail connected with the 1919 watchfire demonstrations. The date of this arrest is unresolved, so no dates are entered."
+    },
+    {
+     "arrest": [
+      1919,
+      1,
+      27
+     ],
+     "incarceration": [
+      1919,
+      1,
+      28
+     ],
+     "release": null,
+     "sentence": "Five days in the District Jail, imposed January 28, 1919 after arrest on January 27 alongside Mary Nolan. No personal discharge record has been located, so the nominal completion date is not entered as a release."
+    }
+   ]
+  },
+  {
+   "slug": "abby-scott-baker",
+   "aka": "Abby Pearce Scott Baker",
+   "birthdate": [
+    1871,
+    7,
+    24
+   ],
+   "death_date": [
+    1944,
+    5,
+    13
+   ],
+   "description": "Abby Pearce Scott Baker (July 24, 1871 - May 13, 1944) was a National Woman’s Party lobbyist and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on September 4, 1917 and sentenced to sixty days at the Occoquan Workhouse. The located sources do not supply her discharge date or establish that she served the full sixty days, so no release is recorded.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      9,
+      4
+     ],
+     "incarceration": [
+      1917,
+      9,
+      4
+     ],
+     "release": null,
+     "sentence": "Sixty days at the Occoquan Workhouse, after arrest on September 4, 1917. The sources do not supply a discharge date or establish that the full term was served, so no release is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "agnes-h-morey",
+   "aka": "Mary Agnes Hosmer Morey",
+   "birthdate": [
+    1868,
+    10,
+    25
+   ],
+   "death_date": [
+    1924,
+    3,
+    28
+   ],
+   "description": "Mary Agnes Hosmer Morey (October 25, 1868 - March 28, 1924) was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on November 10, 1917. After the original cases were dismissed on November 12 she rejoined the renewed picketing and was held again on November 13. She was sentenced on November 14 to thirty days and transferred to the Occoquan Workhouse on November 15. She was released in the unconditional discharge of the remaining suffrage prisoners on November 27 and 28, about thirteen or fourteen days into the sentence.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      11,
+      10
+     ],
+     "incarceration": [
+      1917,
+      11,
+      14
+     ],
+     "release": [
+      1917,
+      11,
+      28
+     ],
+     "sentence": "Thirty days, imposed November 14, 1917. First arrested November 10; the original cases were dismissed on November 12 and she was held again on November 13 after rejoining the picketing. Transferred to the Occoquan Workhouse on November 15 and released in the unconditional discharge of the remaining suffrage prisoners on November 27 and 28."
+    }
+   ]
+  },
+  {
+   "slug": "alice-gram",
+   "aka": "Alice M. Gram Robinson",
+   "birthdate": [
+    1895,
+    3,
+    16
+   ],
+   "death_date": [
+    1984,
+    1,
+    24
+   ],
+   "description": "Alice M. Gram (March 16, 1895 - January 24, 1984), later Alice M. Gram Robinson, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on November 10, 1917, held again on November 13, and sentenced on November 14 to thirty days. She was transferred to the Occoquan Workhouse on November 15 and released with the remaining prisoners on November 27 and 28, about thirteen or fourteen days into the sentence.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      11,
+      10
+     ],
+     "incarceration": [
+      1917,
+      11,
+      14
+     ],
+     "release": [
+      1917,
+      11,
+      28
+     ],
+     "sentence": "Thirty days, imposed November 14, 1917 after arrest on November 10 and a further detention on November 13. Transferred to the Occoquan Workhouse on November 15 and released with the remaining prisoners on November 27 and 28."
+    }
+   ]
+  },
+  {
+   "slug": "amy-juengling",
+   "aka": "Regina Amy Victoria Juengling; Amy Jungling",
+   "birthdate": [
+    1886,
+    12,
+    9
+   ],
+   "death_date": [
+    1974,
+    1,
+    16
+   ],
+   "description": "Amy Juengling (December 9, 1886 - January 16, 1974), recorded more fully as Regina Amy Victoria Juengling, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on November 10, 1917, held again on November 13, sentenced on November 14 to thirty days, and transferred to the Occoquan Workhouse on November 15. She was released with the remaining prisoners on November 27 and 28, about thirteen or fourteen days into the sentence.\n\nShe was arrested again on February 9, 1919. The located records do not establish an individual sentence from that arrest, so no custody is recorded for it.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      11,
+      10
+     ],
+     "incarceration": [
+      1917,
+      11,
+      14
+     ],
+     "release": [
+      1917,
+      11,
+      28
+     ],
+     "sentence": "Thirty days, imposed November 14, 1917 after arrest on November 10 and a further detention on November 13. Transferred to the Occoquan Workhouse on November 15 and released with the remaining prisoners on November 27 and 28."
+    },
+    {
+     "arrest": [
+      1919,
+      2,
+      9
+     ],
+     "incarceration": null,
+     "release": null,
+     "sentence": "Arrested February 9, 1919. The located records do not establish an individual sentence from this arrest, so no custody is recorded."
+    }
+   ]
+  },
+  {
+   "slug": "anna-gwinter",
+   "name": "Anna Gvinter",
+   "first_name": "Anna",
+   "last_name": "Gvinter",
+   "aka": "Anna Gwinter; Eleanor Gwinter",
+   "birthdate": [
+    1891,
+    null,
+    null,
+    true
+   ],
+   "description": "Anna Gvinter, printed as Anna Gwinter and by Irwin as Eleanor Gwinter, was born about 1891 and was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Her exact dates of birth and death are unresolved.\n\nThe sources disagree about which arrest her thirty-day sentence belongs to. The better-supported chronology has her arrested on September 13, 1917 and sentenced to thirty days at the Occoquan Workhouse: she wrote from the workhouse on September 21, and an affidavit dated October 13 is consistent with release by then. Stevens’s appendix instead attaches the thirty days to the November 10 arrests, but Irwin’s November 10 list does not include her. This record follows the September chronology; original court records would be needed for certainty.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      9,
+      13
+     ],
+     "incarceration": [
+      1917,
+      9,
+      13
+     ],
+     "release": null,
+     "sentence": "Thirty days at the Occoquan Workhouse, after arrest on September 13, 1917. She wrote from the workhouse on September 21 and an affidavit dated October 13 is consistent with release by then, but no discharge record has been located. Stevens instead attaches this sentence to the November 10 arrests; Irwin’s November 10 list does not include her, so the September chronology is followed here."
+    }
+   ]
+  },
+  {
+   "slug": "anna-kelton-wiley",
+   "aka": "Anna Campbell Kelton Wiley; Nan Wiley; Mrs. Harvey W. Wiley",
+   "birthdate": [
+    1877,
+    3,
+    8
+   ],
+   "death_date": [
+    1964,
+    1,
+    6
+   ],
+   "description": "Anna Campbell Kelton Wiley (March 8, 1877 - January 6, 1964), known as Nan and recorded in contemporary sources as Mrs. Harvey W. Wiley, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on November 10, 1917 and sentenced to fifteen days in the District Jail. She was released on bond on November 19 pending appeal, having served five days, which places the start of the sentence several days after the arrest.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      11,
+      10
+     ],
+     "incarceration": [
+      1917,
+      11,
+      14
+     ],
+     "release": [
+      1917,
+      11,
+      19
+     ],
+     "sentence": "Fifteen days in the District Jail, after arrest on November 10, 1917. Released on bond on November 19 pending appeal, having served five days; the sentence therefore began several days after the arrest, on about November 14."
+    }
+   ]
+  },
+  {
+   "slug": "anna-kuhn",
+   "aka": "Dr. Anna Louise Kuhn",
+   "birthdate": [
+    1859,
+    4,
+    13
+   ],
+   "death_date": [
+    1934,
+    10,
+    6
+   ],
+   "description": "Dr. Anna Louise Kuhn (April 13, 1859 - October 6, 1934) was a Maryland physician who took part in the 1917-1919 National Woman’s Party campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on August 6, 1918 at Lafayette Square and released on bail.\n\nStevens’s appendix additionally records a November 1917 arrest and a thirty-day sentence, but Irwin’s November 10 roster does not contain her name, and the appendix does not identify whether such a sentence was served at the District Jail or at Occoquan or give discharge dates. That term is therefore described here but not recorded as a case with dates.",
+   "cases": [
+    {
+     "arrest": [
+      1918,
+      8,
+      6
+     ],
+     "incarceration": null,
+     "release": null,
+     "sentence": "Arrested at Lafayette Square on August 6, 1918 and released on bail. No imprisonment is documented for this arrest. Stevens separately records a November 1917 arrest and thirty-day sentence, but Irwin’s November 10 roster omits her and no facility or discharge date is given, so that term is not recorded with dates."
+    }
+   ]
+  },
+  {
+   "slug": "anne-martin",
+   "aka": "Anne Henrietta Martin; Anna Martin; Annie Martin; Anne O’Hara",
+   "birthdate": [
+    1875,
+    9,
+    30
+   ],
+   "death_date": [
+    1951,
+    4,
+    15
+   ],
+   "description": "Anne Henrietta Martin (September 30, 1875 - April 15, 1951), also recorded as Anna or Annie Martin and occasionally under the pseudonym Anne O’Hara, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on July 14, 1917 and sentenced to sixty days at the Occoquan Workhouse. President Wilson pardoned the July 14 prisoners on July 17, so she was in custody about three days.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      7,
+      14
+     ],
+     "incarceration": [
+      1917,
+      7,
+      14
+     ],
+     "release": [
+      1917,
+      7,
+      17
+     ],
+     "sentence": "Sixty days at the Occoquan Workhouse, imposed after arrest on July 14, 1917. President Wilson pardoned the July 14 prisoners on July 17, so about three days were served."
+    }
+   ]
+  },
+  {
+   "slug": "belle-sheinberg",
+   "description": "Belle Sheinberg was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Her date of birth is given as October 12, 1895 in one biographical record and as July 18, 1895 in another; the year 1895 is consistent but the day is unresolved, so no birthdate is recorded. Her date of death is unresolved.\n\nShe was arrested on November 10, 1917, held again on November 13, sentenced on November 14 to thirty days, and transferred to the Occoquan Workhouse on November 15. She was released with the remaining prisoners on November 27 and 28, about thirteen or fourteen days into the sentence.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      11,
+      10
+     ],
+     "incarceration": [
+      1917,
+      11,
+      14
+     ],
+     "release": [
+      1917,
+      11,
+      28
+     ],
+     "sentence": "Thirty days, imposed November 14, 1917 after arrest on November 10 and a further detention on November 13. Transferred to the Occoquan Workhouse on November 15 and released with the remaining prisoners on November 27 and 28."
+    }
+   ]
+  },
+  {
+   "slug": "beatrice-kinkead",
+   "aka": "Minnie Beatrice Reynolds Kinkead; Beatrice Reynolds Kinkead; Mrs. James A. Kinkead",
+   "birthdate": [
+    1874,
+    11,
+    8
+   ],
+   "death_date": [
+    1947,
+    11,
+    11
+   ],
+   "description": "Minnie Beatrice Reynolds Kinkead (November 8, 1874 - November 11, 1947), recorded in contemporary sources as Mrs. James A. Kinkead, was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage.\n\nShe was arrested on July 14, 1917 and sentenced to sixty days at the Occoquan Workhouse. President Wilson pardoned the July 14 prisoners on July 17, so she was in custody about three days.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      7,
+      14
+     ],
+     "incarceration": [
+      1917,
+      7,
+      14
+     ],
+     "release": [
+      1917,
+      7,
+      17
+     ],
+     "sentence": "Sixty days at the Occoquan Workhouse, imposed after arrest on July 14, 1917. President Wilson pardoned the July 14 prisoners on July 17, so about three days were served."
+    }
+   ]
+  },
+  {
+   "slug": "betsy-graves-reyneau",
+   "aka": "Betsy Graves Reyneau Ortmans",
+   "birthdate": [
+    1888,
+    6,
+    6
+   ],
+   "death_date": [
+    1964,
+    10,
+    18
+   ],
+   "description": "Betsy Graves Reyneau (June 6, 1888 - October 18, 1964), later Betsy Graves Reyneau Ortmans, was a portrait painter and was a member of the National Woman’s Party and one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. Some derivative image metadata gives her birth year as 1889; Smithsonian and biographical records support 1888.\n\nShe was arrested on July 14, 1917 and sentenced to sixty days at the Occoquan Workhouse. President Wilson pardoned the July 14 prisoners on July 17, so she was in custody about three days.",
+   "cases": [
+    {
+     "arrest": [
+      1917,
+      7,
+      14
+     ],
+     "incarceration": [
+      1917,
+      7,
+      14
+     ],
+     "release": [
+      1917,
+      7,
+      17
+     ],
+     "sentence": "Sixty days at the Occoquan Workhouse, imposed after arrest on July 14, 1917. President Wilson pardoned the July 14 prisoners on July 17, so about three days were served."
+    }
+   ]
+  }
+ ]
+}
