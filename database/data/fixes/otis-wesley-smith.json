@@ -1,0 +1,50 @@
+{
+ "_source": "Curator correction, July 2026. Atlanta Daily World contemporary reporting; Howard Zinn's later account; Georgia state court records; Digital Library of Georgia, Atlanta Funeral Programs Collection.",
+ "_conventions": "Dates are [year, month|null, day|null].",
+ "records": [
+  {
+   "slug": "otis-w-smith",
+   "name": "Otis Wesley Smith",
+   "first_name": "Otis",
+   "middle_name": "Wesley",
+   "last_name": "Smith",
+   "aka": "Otis W. Smith; Dr. Otis Wesley Smith",
+   "birthdate": [
+    1925,
+    5,
+    12
+   ],
+   "death_date": [
+    2007,
+    2,
+    5
+   ],
+   "state": "Georgia",
+   "description": "Dr. Otis Wesley Smith (May 12, 1925 - February 5, 2007) was an Atlanta-born physician and civil-rights figure who practised in Fort Valley, Georgia, where he was then the only Black resident physician in Peach County.\n\nOn June 25, 1957 crossed telephone lines led to a confrontation with Inez Crutchfield, a white service-station operator. A later account by Howard Zinn, based on Smith's own recollection, says she told him to get off the line using a racial epithet and that he replied by calling her a bitch; the contemporary newspaper reported only that the crossed lines led to an exchange in which Smith allegedly made offensive remarks. He was arrested immediately and released on a $1,000 bond posted by supporters. How long that first detention lasted is unresolved.\n\nOn March 10, 1958 Peach County Superior Court convicted him of using opprobrious words or abusive language in the presence of a white woman, and Judge Oscar L. Long imposed a straight eight-month jail sentence with no fine. SMITH THEN SPENT SEVEN DAYS IN JAIL. On March 17, after appeals from both Black and white residents, Long suspended the term; Smith paid a $500 fine, was placed on probation, and was ordered to leave the area.\n\nThe prosecution rested on Georgia's former statute against unprovoked opprobrious words or abusive language tending to cause a breach of the peace. The United States Supreme Court held that statute facially unconstitutional in Gooding v. Wilson in 1972.\n\nSeveral details in an earlier version of this record were wrong. It dated the telephone incident to 1958 rather than June 1957; it described the sentence as suspended without noting that he actually served seven days; it attached the $500 fine to the original sentence rather than to the modification a week later; and it stated that the suspension was conditioned on his writing the woman a letter begging forgiveness. NO RELIABLE SUPPORT FOR THE LETTER WAS FOUND. The contemporary account documents a fine, probation and removal from the area, and Zinn mentions leaving town but no letter. The record also called the term eight months on a work gang; the contemporary source says jail, while Zinn's later account calls it a chain-gang sentence. The specific jail building has not been identified.",
+   "cases": [
+    {
+     "arrest": [
+      1957,
+      6,
+      25
+     ],
+     "incarceration": [
+      1958,
+      3,
+      10
+     ],
+     "release": [
+      1958,
+      3,
+      17
+     ],
+     "convicted": "Yes — convicted March 10, 1958 in Peach County Superior Court",
+     "judge": "Oscar L. Long",
+     "prosecutor": "William M. West, solicitor-general",
+     "charges": "Using opprobrious words or abusive language in the presence of a white woman, under Georgia's former breach-of-the-peace statute — held facially unconstitutional by the United States Supreme Court in Gooding v. Wilson (1972). Arising from a crossed telephone line on June 25, 1957.",
+     "sentence": "Eight months in jail, imposed March 10, 1958 by Judge Oscar L. Long of Peach County Superior Court, initially with no fine. HE SERVED SEVEN DAYS, March 10 to 17, 1958. On March 17, after appeals from Black and white residents, Long suspended the remaining term; Smith paid a $500 fine, was placed on probation and was ordered to leave the area. The fine belongs to the modification, not to the original sentence. The contemporary report describes a jail sentence; Howard Zinn's later account calls it eight months on the chain gang. The specific jail building is not identified, so no institution is linked."
+    }
+   ]
+  }
+ ]
+}

@@ -204,3 +204,23 @@ not a portrait.
 
 **Elsie Vervane, Estella Eylward, Eunice Huff, Gertrude Murphy,
 Harriet Andrews** — no person-identified institutional portrait located.
+
+---
+
+# Unrelated addition (batch 38)
+
+## otis-wesley-smith.jpg — Dr. Otis Wesley Smith
+
+- **Source:** Digital Library of Georgia, Atlanta Funeral Programs
+  Collection — his own 2007 funeral program,
+  `dlg.galileo.usg.edu/data/aarl/afpc/pdfs/aarl_afpc_smithotiswesley.pdf`
+- **Why this is him:** it is his funeral program. The cover reads
+  "The Homegoing Celebration of Dr. Otis Wesley Smith — Sunrise May 12,
+  1925 – Sunset February 5, 2007", so the portrait and the vital dates in
+  this record authenticate each other from a single document. It is a
+  family publication, which is a far stronger identification than an
+  uncaptioned web image.
+- **Processing:** page 1 of the PDF extracted at its embedded resolution
+  (3556×4543), the printed photograph cropped out of the page, the cream
+  page margin trimmed, and the result cropped to 525×700. No rotation was
+  needed — the page came out upright. No retouching.
