@@ -1,0 +1,174 @@
+{
+ "merges": [
+  {
+   "keep": "homer-b-stewart",
+   "drop": "h-b-stewart",
+   "note": "Same San Quentin criminal-syndicalism prisoner; the drop is the ILD roster row. RELEASE DATES DISAGREE BY THREE DAYS: the ILD roster says 1927-03-21, the surviving record 1927-03-24. The survivor's date is kept; the roster's is recorded here."
+  },
+  {
+   "keep": "arthur-g-ross",
+   "drop": "a-g-ross",
+   "note": "Same Sacramento defendant; the drop is the roster row with no dates at all."
+  },
+  {
+   "keep": "b-johansen",
+   "drop": "b-johanson",
+   "note": "Same Sacramento defendant. Pre-existing wrinkle on the survivor, not introduced here: its case releases him in 1925 while its own biography says 1926."
+  },
+  {
+   "keep": "jacob-tori",
+   "drop": "louis-tori",
+   "aka": "Iacopo Tori",
+   "clear_vitals": true,
+   "take_photo": true,
+   "note": "THE SURVIVOR'S PHOTO WAS JACOB RIIS. The famous journalist — and Riis's exact dates, born 1849-05-03 died 1914-05-26, were sitting in the record's vital-date fields, killing the man four years before his own conviction. Both are cleared. The photo is replaced by the drop's Leavenworth double mugshot, no. 13633. The roster listed him as Louis Tori; the dossier gives Iacopo/Jacob."
+  },
+  {
+   "keep": "charles-rothfiser",
+   "drop": "charles-rothfisher",
+   "aka": "Charles Rothfisher",
+   "note": "Same Hungarian-language IWW editor; the drop is the NCLB roster row. The roster spelling goes to AKA since it may well be the more correct form."
+  },
+  {
+   "keep": "fred-jaakkola",
+   "drop": "fred-jakkola",
+   "note": "Same Detroit Chicago-trial defendant; survivor has the birthdate and the Leavenworth dates."
+  },
+  {
+   "keep": "walter-t-nef",
+   "drop": "walter-t-neff",
+   "note": "Same Marine Transport Workers leader. THE TWO ROWS DISAGREE ON HIS DEATH: the survivor says 1959-06-01, the deleted row said 1937-01-01. Both look like year-precision artifacts rendered as full dates. The survivor's stands because its record is otherwise the better documented; the other is preserved here."
+  },
+  {
+   "keep": "giovanni-baldazzi",
+   "drop": "j-baldazzi",
+   "note": "NCLB roster row for the same man."
+  },
+  {
+   "keep": "giovanni-baldazzi",
+   "drop": "john-baldazza",
+   "note": "Same editor of the IWW Italian-language paper. THE LEAVENWORTH SPANS DISAGREE: survivor says August 30, 1918 to February 1922 with clemency and deportation; the deleted row said January 1918 to January 1920. The survivor's dates come from the Zimmer INS-file record and stand; the other span is preserved here."
+  },
+  {
+   "keep": "alexander-antonov",
+   "drop": "aleksandr-opotsky",
+   "aka": "Aleksandr Opotsky; also spelled Antonoff",
+   "description": "Alexander Antonov (recorded in the INS files as Aleksandr Opotsky, and also as Antonoff) was born about 1896 in Grodno Province, Russia (present-day Belarus). He immigrated to the United States in 1913 and worked as a laborer. He joined the Union of Russian Workers in McKees Rocks, Pennsylvania in 1917, served as a delegate for the IWW’s General Recruiting Union in Pittsburgh, and identified himself as an anarchist. Arrested in Pittsburgh on April 14, 1919, he told interrogators “I believe in no government of any kind,” and instead “I favor the system of [Peter] Kropatkin [sic].” He was deported to Soviet Russia aboard the Buford on December 21, 1919. After reportedly being imprisoned in seventeen Soviet prisons, he emigrated to Argentina sometime before 1921 with help from comrades abroad. Adapted from Kenyon Zimmer, Red Scare Deportees (kenyonzimmer.com), compiled from INS deportation case files.",
+   "note": "Same Buford deportee — born Grodno 1896, URW and IWW in Pittsburgh, arrested April 1919, sailed December 21, 1919. The INS file name was Opotsky. The two bios each held detail the other lacked, so the survivor gets a composed biography carrying all of it, including the Kropotkin quote and the seventeen Soviet prisons."
+  },
+  {
+   "keep": "vincent-saint-john",
+   "drop": "vincent-st-john",
+   "move_cases": true,
+   "note": "Two episodes of one man: the 1907 Goldfield conspiracy-to-murder arrest (dismissed) and the federal IWW prosecution. The 1907 case row MOVES onto the survivor rather than dying with the duplicate, so his record now shows both."
+  },
+  {
+   "keep": "manuel-rey-y-garcia",
+   "drop": "manuel-rey",
+   "move_cases": true,
+   "note": "Same Marine Transport Workers organizer; Louis G. Raymond was his later assumed name and is already the survivor's AKA. The drop held the only dated custody span — Cook County and Leavenworth, June 26, 1917 to December 15, 1922 — so its case row MOVES onto the survivor, whose own row documented only the March 1923 deportation."
+  },
+  {
+   "keep": "joseph-caruso",
+   "drop": "giuseppe-caruso",
+   "aka": "Giuseppe Caruso",
+   "note": "Italian and English forms of the same Lawrence striker, acquitted November 26, 1912 after ten months held with Ettor and Giovannitti. The survivor has the institution and the full custody dates; the Italian form goes to AKA."
+  },
+  {
+   "keep": "albert-whitehead",
+   "drop": "albert-wlutehead",
+   "note": "Wlutehead is a transcription error. Everything the misspelled row said — Sacramento arrest, a year in the San Francisco County Jail, tuberculosis — is already in the survivor's Zimmer-sourced biography, which adds his birth in Leicester in 1867 and the December 1919 deportation."
+  },
+  {
+   "keep": "alexander-cournos",
+   "drop": "alex-cournos",
+   "note": "NCLB roster row for the same Pittsburgh ten-year defendant."
+  },
+  {
+   "keep": "aurelio-vincente-azuara",
+   "drop": "aurelio-v-azuara",
+   "note": "NCLB roster row for the same man."
+  },
+  {
+   "keep": "aurelio-vincente-azuara",
+   "drop": "vincente-a-azuara",
+   "note": "Same El Rebelde editor. The survivor is the Zimmer INS-file record with the photo and the deportation date of March 27, 1923; the deleted row's release of December 20, 1922 is the commutation date and is consistent with it."
+  },
+  {
+   "keep": "charles-h-mackinnon",
+   "drop": "c-h-mckinnon",
+   "note": "NCLB roster row (spelled McKinnon) for the same Boston organizer; the survivor already carries two case rows."
+  },
+  {
+   "keep": "charles-plann",
+   "drop": "charles-plahn",
+   "note": "NCLB roster row (spelled Plahn) for the same Minnesota farmer."
+  },
+  {
+   "keep": "joe-mccarthy",
+   "drop": "joe-mccarty",
+   "note": "NCLB roster row (spelled McCarty) for the same Lumber Workers organizer."
+  },
+  {
+   "keep": "john-avila",
+   "drop": "john-avilla",
+   "note": "NCLB roster row (spelled Avilla) for the same Lowell defendant."
+  },
+  {
+   "keep": "pete-mcevoy",
+   "drop": "peter-mcevoy",
+   "note": "NCLB roster row for the same San Jose iron molder."
+  },
+  {
+   "keep": "ragnar-johanson",
+   "drop": "ragner-johannsen",
+   "description_append": "A duplicate record under the spelling Ragner Johannsen adds that he served his Leavenworth time in three stints — September 1917 to March 1918, September 1918 to September 1919, and April 1921 to November 1922 — and that he organized the Domestic Workers Industrial Union in Seattle.",
+   "note": "Same Swedish organizer, deported January 1923, died 1959. The duplicate's Leavenworth stints and his Seattle Domestic Workers organizing are appended to the survivor's biography rather than lost."
+  },
+  {
+   "keep": "robert-feehan",
+   "drop": "robert-freehan",
+   "description": "Robert Feehan, a Structural Iron Workers Industrial Union member from Chicago, Illinois, was convicted at the mass IWW trial and sentenced to four years in prison for conspiracy to violate federal statutes, including the Espionage Act. He served in Leavenworth Penitentiary from September 1918 to February 22, 1922. His case is documented in the National Civil Liberties Bureau’s March 1919 compilation “War-Time Prosecutions and Mob Violence”; a duplicate roster entry spelled the surname Freehan.",
+   "note": "Freehan is the corrupted spelling, but it carried the fuller biography, so the text moves onto the correctly spelled record — the same direction as Harrison George in batch 45."
+  },
+  {
+   "keep": "sigfrid-stenberg",
+   "drop": "sig-stenberg",
+   "note": "NCLB roster row for the same Alarm manager."
+  },
+  {
+   "keep": "v-v-ohare",
+   "drop": "v-v-ohair",
+   "note": "NCLB roster row (spelled O'Hair) for the same Los Angeles miner, paroled July 1920."
+  },
+  {
+   "keep": "vincent-santilli",
+   "drop": "vincent-santelli",
+   "note": "NCLB roster row (spelled Santelli) for the same Sacramento ten-year defendant."
+  },
+  {
+   "keep": "bill-haywood",
+   "drop": "w-d-haywood",
+   "note": "NCLB roster row for the IWW general secretary; the survivor carries both his cases and his vital dates."
+  },
+  {
+   "keep": "bill-haywood",
+   "drop": "william-d-haywood",
+   "note": "A THIRD Haywood, found while applying the pair: a Steunenberg-only record whose case (1906-02-17 to 1907-07-29) duplicates the survivor's first case exactly. Same import shape as the Moyer and Pettibone duplicates from batch 44."
+  },
+  {
+   "keep": "john-alex-macdonald",
+   "drop": "although-macdonald",
+   "description_append": "MacDonald was diagnosed with a mild case of tuberculosis, but the government refused to grant clemency because he had published the poem “A Patriot” in the Industrial Worker: “I love my country, yes, I do, / I love my Uncle Sam, / I also love my steak and eggs, / I guess I won’t enlist. / I love my flag, I do, I do, / Which floats upon the breeze, / I also love my arms, and legs, / I guess I won’t enlist. / I love my country, yes, I do, / I hope her folks do well; / Without our arms and legs and things / I think we’d look like Hell. / Yet men with faces half shot off / Are unfit to be seen; / I’ve read in books it spoils their looks, / I guess I won’t enlist.”",
+   "note": "The drop's name field reads 'Although MacDonald' — a corrupted import that split one profile mid-sentence. Its content, the tuberculosis clemency refusal and the full text of the poem A Patriot, is appended to the survivor's biography. Wrinkle preserved: the fragment says his sentence was commuted in October 1923, while the survivor's Zimmer text has him deported to Canada on August 5, 1923."
+  },
+  {
+   "keep": "j-h-beyer",
+   "drop": "j-h-beyer-2",
+   "move_cases": true,
+   "take_photo": true,
+   "description_append": "Before the Chicago prosecution he was one of the 74 IWW members held in the Snohomish County jail and charged with murder after the Everett Massacre of November 5, 1916, when Sheriff Donald McRae and a posse of armed vigilantes opened fire on the steamer Verona at the Everett dock, killing at least five Wobblies. The charges against all 74 were dropped after Thomas H. Tracy’s acquittal on May 5, 1917. At the time of the massacre he was 56, a painter, born in Michigan.",
+   "note": "Two episodes of one man — the Everett Massacre detention and the Chicago-trial prosecution; the survivor's AKA already reads J. H. Byers. The Everett case row MOVES onto the survivor. THE TWO PHOTOS ARE NOT THE SAME PHOTOGRAPH AND NOT PLAUSIBLY THE SAME MAN: the survivor carried a Houghton Library studio cabinet card of a young man in a wing collar, while the drop carries a prison mugshot, no. 4914, of a man in his fifties — and the record says Beyer was 56 at the time of the massacre. The mugshot replaces the cabinet card, which stays on disk."
+  }
+ ]
+}

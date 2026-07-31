@@ -145,3 +145,50 @@ php artisan prisoners:audit-duplicate-names --show-ruled-out
 ```
 
 Read-only. It never writes.
+
+---
+
+# Batch 46 — the IWW clusters (curator-supplied)
+
+28 clusters supplied by the curator, all verified against both records,
+producing **31 merges** (`merge-duplicate-prisoners-2.sh`). The dominant
+pattern: a fuller biographical record against a thin roster row from the
+NCLB's March 1919 *War-Time Prosecutions and Mob Violence* or the ILD
+class-war-prisoner lists, the roster row carrying a variant spelling
+(Jakkola, Avilla, McCarty, Plahn, O'Hair, Santelli, Freehan) or bare
+initials (H. B., A. G., C. H., W. D., V. V.).
+
+Beyond the routine:
+
+- **Jacob Tori's photo was Jacob Riis** — the journalist — and Riis's
+  exact vital dates (1849-05-03 / 1914-05-26) were in the record's date
+  fields, killing the man four years before his own conviction. Some
+  earlier enrichment matched the wrong famous Jacob. Dates cleared,
+  photo replaced by the Leavenworth double mugshot (no. 13633) from the
+  `louis-tori` duplicate.
+- **The two Beyer photos were two different men.** The records are one
+  man (AKA J. H. Byers), but the survivor carried a Houghton Library
+  cabinet card of a *young* man while the record says Beyer was 56 at
+  the Everett Massacre. The prison mugshot (no. 4914) from the duplicate
+  replaces it; the cabinet card stays on disk and was very likely never
+  him. Contrary to the working note that the two records "use the same
+  photograph" — they did not.
+- **Three case rows moved** rather than cascading away: Vincent Saint
+  John's 1907 Goldfield arrest, J. H. Beyer's Everett detention, and the
+  only dated custody span for Manuel Rey y García.
+- **A third Haywood** (`william-d-haywood`, Steunenberg-only, duplicate
+  case dates) surfaced beside the named pair; all three now collapse
+  into `bill-haywood`.
+- **Conflicts resolved explicitly**, each preserved in the payload
+  notes: Stewart's release (ILD 1927-03-21 vs 1927-03-24), Nef's death
+  (1937-01-01 vs 1959-06-01, both year-precision artifacts), Baldazzi's
+  Leavenworth span (Zimmer INS dates stand), MacDonald's commutation
+  month (October 1923 vs an August 5, 1923 deportation).
+- **Text never silently discarded**: composed biographies for Antonov
+  (both halves of the Zimmer record) and Feehan (the fuller text moves
+  onto the correctly spelled name, as with Harrison George); appended
+  passages for MacDonald (the *A Patriot* poem and the clemency
+  refusal), Ragnar Johanson (Leavenworth stints, Seattle organizing),
+  and Beyer (the Everett account).
+- **Blackie Ford** was already merged in batch 45; the run reports the
+  duplicate as already gone.
