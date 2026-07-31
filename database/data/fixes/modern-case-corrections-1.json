@@ -1,0 +1,82 @@
+{
+  "_source": "Curator corrections, July 2026.",
+  "_conventions": "Dates are [year, month|null, day|null]. release=null leaves the day counter empty. incarceration=null records an arrest or a charge that produced no jail time. Keys absent from a record are left untouched.",
+
+  "records": [
+    {
+      "slug": "kat-abughazaleh",
+      "description": "Journalist, media analyst, and Democratic political candidate. Federally charged along with five co-defendants over a September 26, 2025 anti-ICE confrontation at the Broadview ICE Processing Center outside Chicago during Operation Midway Blitz — the Trump administration's federal deployment to Chicago.\n\nShe was not arrested at the demonstration. The charges were brought afterwards, and she self-surrendered on November 12, 2025 and was released the same day without being jailed. All charges were dismissed with prejudice in May 2026 after the disclosure of grand-jury misconduct by federal prosecutors.",
+      "cases": [
+        {
+          "arrest": [2025, 11, 12],
+          "incarceration": null,
+          "release": null,
+          "sentence": "Charges dismissed with prejudice in May 2026 over grand-jury misconduct by federal prosecutors. She was not arrested at the September 26, 2025 demonstration; she self-surrendered on November 12, 2025 and was released the same day without being incarcerated, so no custody is recorded."
+        }
+      ]
+    },
+
+    {
+      "slug": "larry-bushart",
+      "cases": [
+        {
+          "arrest": [2025, 9, 21],
+          "incarceration": [2025, 9, 21],
+          "release": [2025, 10, 27],
+          "sentence": "Charges dropped by the district attorney for insufficient evidence. Arrested late on September 21, 2025 and held on a 2 million dollar bond he could not afford until October 27 — thirty-seven days counted inclusively, which is the figure his account and the reporting use."
+        }
+      ]
+    },
+
+    {
+      "slug": "lucas-griffith",
+      "description": "Lucas Griffith, a student journalist interning for Cincinnati CityBeat, was arrested on July 17, 2025 while covering an anti-ICE march in Covington, Kentucky. He was held overnight and released the following day, July 18. Initially charged with felony rioting plus misdemeanors, he had the felony dropped and in October 2025 was convicted of one count of failure to disperse and acquitted of the others. He was fined fifty dollars plus court costs.",
+      "cases": [
+        {
+          "arrest": [2025, 7, 17],
+          "incarceration": [2025, 7, 17],
+          "release": [2025, 7, 18],
+          "sentence": "Fifty-dollar fine plus court costs on one count of failure to disperse; acquitted of the other counts and the felony rioting charge dropped. Arrested July 17, 2025 while reporting on an anti-ICE march and released the following day, July 18."
+        }
+      ]
+    },
+
+    {
+      "slug": "mahmoud-khalil",
+      "description": "Mahmoud Khalil is a legal permanent resident of the United States and a Columbia University graduate student who was detained by the Department of Homeland Security and targeted for deportation over his participation in protests against Israel's war on Gaza.\n\nHe was arrested at his university residence on March 8, 2025 and held in immigration detention in Jena, Louisiana. No criminal charge was ever brought against him; the government proceeded entirely through removal proceedings. He was released on bail by order of a federal court on June 19, 2025, after more than three months in custody, and his legal challenges continued after his release.",
+      "cases": [
+        {
+          "arrest": [2025, 3, 8],
+          "incarceration": [2025, 3, 8],
+          "release": [2025, 6, 19],
+          "sentence": "Immigration detention pending removal proceedings, with no criminal charges. Arrested March 8, 2025 and held at the LaSalle Detention Facility in Jena, Louisiana until released on bail by federal court order on June 19, 2025. Legal challenges continued after release."
+        }
+      ]
+    },
+
+    {
+      "slug": "mohammed-hoque",
+      "age": 20,
+      "description": "Mohammed Hoque was a 20-year-old Bangladeshi international student at Minnesota State University, Mankato when he was first detained. In late March 2025, plainclothes ICE officers followed his car as he returned home from a coding class and surrounded him at his home, telling him his student visa had been revoked. He was held in ICE custody for over a month. He had no criminal record; the only basis the government cited was social-media activity, including Instagram posts about violence against Palestinians in Gaza and a #FreePalestine hashtag in his Instagram bio.\n\nHis attorneys filed a habeas petition arguing his detention was First Amendment retaliation for his support of Palestinian human rights. On May 7, 2025, U.S. District Judge Jerry Blackwell of the District of Minnesota ordered his immediate release, finding that Hoque's arrest aligned with the publicly stated executive policy of targeting social media users who express support for Palestinian human rights and criticise violence in Gaza. He was released on a 7,500-dollar bond."
+    },
+
+    {
+      "slug": "john-wade",
+      "in_custody": true,
+      "released": false,
+      "description": "John Wade is a U.S. activist prosecuted in the federal cases brought after the 2020 George Floyd uprising. Activist support networks covering protest prosecutions listed him alongside defendants such as Matthew White and Montez Lee as facing federal charges arising from the demonstrations that followed the police murder of George Floyd, and he is identified in those reports by prisoner number 14762509. Groups including Uprising Support and anti-repression collectives have circulated appeals for legal support and fundraising on his behalf.\n\nHe was released from his federal sentence in June 2024. He was rearrested in October 2024 and was still listed in custody in spring 2026. The exact days of the release and the rearrest are not established, so both are recorded to the month only.",
+      "cases": [
+        {
+          "release": [2024, 6, null],
+          "sentence": "Federal property-destruction conspiracy case arising from the 2020 George Floyd uprising. Released in June 2024; the exact day is not established, so the date is recorded to the month. The start of this term is not documented, so no day counter is computed for it."
+        },
+        {
+          "arrest": [2024, 10, null],
+          "incarceration": [2024, 10, null],
+          "release": null,
+          "sentence": "Rearrested in October 2024 and still listed in custody in spring 2026. The exact day of the rearrest is not established, so the date is recorded to the month and the day counter runs from the first of that month, which may overstate the span by up to thirty days."
+        }
+      ]
+    }
+  ]
+}
