@@ -1,0 +1,22 @@
+{
+ "slug": "aurelio-luis-perez-lugones",
+ "age": 61,
+ "clear_race": true,
+ "in_custody": false,
+ "released": true,
+ "awaiting_trial": true,
+ "description": "Aurelio Luis Perez-Lugones is a systems engineer and information technology specialist from Laurel, Maryland — born in Miami, Florida, and reported as sixty-one years old at his January 2026 arrest — who held a Top Secret / Sensitive Compartmented Information clearance while working as a Pentagon contractor. Beginning in October 2025 he is alleged to have taken screenshots of classified intelligence reports, pasted them into other applications to obscure his access, printed them, and brought them home; documents marked SECRET were later recovered from a lunchbox in his car and from his basement. The indictment charges five counts of unlawful transmission and one of unlawful retention of national defense information under 18 U.S.C. § 793, each carrying a statutory maximum of ten years — which does not mean an automatic consecutive sixty-year sentence.\n\nThe indictment says the material went to a person it calls only Reporter 1. Other court filings and press reporting identify the reporter as the Washington Post's Hannah Natanson, who has not publicly confirmed that Perez-Lugones was a source, so the connection remains an allegation. The indictment likewise describes only an unnamed foreign country; subsequent reporting tied the information to Venezuela and United States military activity involving it.\n\nHe was arrested on January 8, 2026 and made his initial appearance on January 9. The criminal prosecution is in the United States District Court for the District of Maryland — the separate Eastern District of Virginia litigation concerns the unsealing fight over the devices seized from the reporter. He pleaded not guilty, and on May 4, 2026, United States District Judge Matthew J. Maddox — miscalled Michael Maddox in several reports — ordered him released to strict pretrial home detention with electronic location monitoring and restrictions on internet-connected devices, after one hundred sixteen days in pretrial custody. The detention facility that held him is not yet reliably identified in the public record. His trial is pending.",
+ "case": {
+  "release": [
+   2026,
+   5,
+   4
+  ],
+  "clear_institution": true,
+  "judge": "U.S. District Judge Matthew J. Maddox (D. Md.)",
+  "prosecutor": "U.S. Attorney's Office for the District of Maryland; announced by AG Pamela Bondi and FBI Director Kash Patel",
+  "plead": "Not guilty",
+  "convicted": "No — released May 4, 2026 to pretrial home detention; trial pending in D. Md.",
+  "sentence": "No sentence — pretrial. Detained from his January 8, 2026 arrest until May 4, 2026, when Judge Matthew J. Maddox ordered release to strict home detention with electronic monitoring and restrictions on internet-connected devices: 116 elapsed days, 117 counted inclusively. Each of the six Section 793 counts carries a ten-year statutory maximum, which does not translate into an automatic consecutive sixty years. The facility that held him pretrial is not yet reliably identified, so none is recorded."
+ }
+}
