@@ -228,3 +228,17 @@ Harriet Andrews** — no person-identified institutional portrait located.
   (1646×1919) and cropped to 525×700 at full height, so nothing is lost
   from the top of his head and no page margin shows at the bottom. No
   retouching.
+
+## samuel-green.jpg — Reverend Samuel Green
+
+- **This is not a photograph.** It is a wood engraving published in
+  William Still's *The Underground Rail Road* (1872). Still noted that
+  many of his engravings were produced from "photographs from life", and
+  Green appears to have sat for a portrait in Philadelphia shortly after
+  his 1862 release — but **the underlying photograph has not been
+  located**, so the engraving is one remove from the sitter.
+- **Status:** the highest-confidence authenticated likeness available. It
+  is kept on that basis, with the caveat recorded here rather than left
+  implicit, because a nineteenth-century engraving reads as a photograph
+  at thumbnail size and is not one.
+- **Rights:** published 1872; public domain.
