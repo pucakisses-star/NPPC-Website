@@ -237,9 +237,27 @@ final class Prisoner extends Model
             // chart (the "still in custody today" tail), so cap the range at
             // the documented incarceration year instead.
             $stillDetained = $this->in_custody || $this->awaiting_trial;
+
+            // The prisoner-level death date is only an end for somebody who
+            // was still inside when they died. Applying it to a RELEASED
+            // prisoner whose release date was never recorded does not cap the
+            // range, it extends it across their whole remaining life: Simon
+            // Gerson, jailed about ten days in 1951 and then acquitted, was
+            // listed as having spent every year from 1951 to his death in
+            // 2004 in prison. It ran to 2,687 fabricated prisoner-years
+            // across the table, and it got worse each time an accurate death
+            // date was added to an old record whose release was never
+            // documented.
+            //
+            // `released` is the test rather than in_custody, so that somebody
+            // who died inside with both flags false -- the state batch 27
+            // recorded for Luis Rodriguez and Romaine Fitzgerald -- still
+            // counts through to their death.
+            $diedInCustody = ! $this->released && $this->death_date;
+
             $end = $case->release_date
                 ?? $case->death_in_custody_date
-                ?? ($this->death_date ? Carbon::parse($this->death_date) : null)
+                ?? ($diedInCustody ? Carbon::parse($this->death_date) : null)
                 ?? ($stillDetained ? Carbon::now() : $start);
 
             $startYear = (int) $start->format('Y');

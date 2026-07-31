@@ -1,0 +1,80 @@
+{
+ "_source": "Curator correction, July 2026. Contemporary reporting on the 1951-52 New York Smith Act prosecutions; the federal appellate decision in the case of the thirteen convicted defendants.",
+ "_conventions": "Dates are [year, month|null, day|null]. release=null means no discharge date is documented.",
+ "records": [
+  {
+   "slug": "isidore-begun",
+   "description": "Isidore Begun was a Russian-born American educator, teachers' union activist, and Communist Party organizer in the Bronx. Born on December 3, 1903, he immigrated to the United States as an infant, later earned a master's degree from Columbia University, and worked as a teacher in New York City's public schools. He became active in the New York Teachers Union and served as head of the Communist Party's Bronx County organization.\n\nFBI agents arrested Begun and sixteen other New York Communist Party officials on June 20, 1951, charging them with conspiring to advocate the forcible overthrow of the United States government under the Smith Act. Begun was initially held while attempting to raise bail and was released by June 29, 1951, after roughly ten days in custody.\n\nAfter the government challenged and invalidated bonds supplied by the Civil Rights Congress Bail Fund in July, Begun was returned to federal custody. He remained jailed into August and was one of the final two defendants unable to obtain replacement bail. He was eventually released on $10,000 privately furnished bail in mid-August 1951; the exact date has not been established, so it is not recorded here.\n\nBegun went to trial with the other New York defendants in 1952. On September 30, 1952, Federal Judge Edward J. Dimock DIRECTED A VERDICT OF ACQUITTAL for Begun and Simon W. Gerson, finding that the prosecution had presented insufficient evidence against them. He was never convicted and served no sentence. The thirteen remaining defendants were convicted and sentenced; the federal appellate decision expressly notes that two defendants had been acquitted at the close of the government's case.\n\nAn earlier version of this record stated that he was convicted in the 1952 second-string Foley Square Smith Act trial and sentenced in January 1953 to two years. Neither the conviction nor the sentence happened.\n\nBegun died on October 21, 1988.",
+   "birthdate": [
+    1903,
+    12,
+    3
+   ],
+   "death_date": [
+    1988,
+    10,
+    21
+   ],
+   "cases": [
+    {
+     "arrest": [
+      1951,
+      6,
+      20
+     ],
+     "incarceration": [
+      1951,
+      6,
+      20
+     ],
+     "release": [
+      1951,
+      6,
+      29
+     ],
+     "convicted": "No — acquitted by directed verdict, September 30, 1952",
+     "judge": "Edward J. Dimock",
+     "sentence": "NO SENTENCE. Acquitted by directed verdict on September 30, 1952, Federal Judge Edward J. Dimock ruling that the government had presented insufficient evidence. Arrested June 20, 1951 and held while contesting bail of between $10,000 and $20,000; released on bail by June 29, 1951, roughly ten days in custody."
+    },
+    {
+     "arrest": null,
+     "incarceration": [
+      1951,
+      7,
+      null
+     ],
+     "release": null,
+     "convicted": "No — acquitted by directed verdict, September 30, 1952",
+     "judge": "Edward J. Dimock",
+     "sentence": "NO SENTENCE. Second period of pretrial custody, after the government invalidated the Civil Rights Congress Bail Fund bonds in July 1951 and Judge Sylvester Ryan ordered the defendants apprehended unless they furnished private replacement bail. Begun was returned to custody in July, was one of four defendants still jailed at the end of the month and one of only two still jailed on August 8, and was released on $10,000 privately furnished bail in mid-August 1951. Neither the return date nor the release date is given in the sources, so the return is recorded to the month only and no release date is entered."
+    }
+   ]
+  },
+  {
+   "slug": "simon-w-gerson",
+   "description": "Simon W. \"Si\" Gerson was a journalist, electoral organizer, and longtime political-action director of the Communist Party USA. Born on January 23, 1909, he worked as a reporter and editor for the Daily Worker and later the Daily World. He managed Communist election campaigns, advocated proportional representation and ballot access for minor parties, and repeatedly ran for public office in New York.\n\nFBI agents arrested Gerson and sixteen other New York Communist Party officials on June 20, 1951, under the Smith Act. He remained in custody while contesting bail set at between $10,000 and $20,000, and was released by June 29 after roughly ten calendar days.\n\nThe government later invalidated the Civil Rights Congress bond that had secured his release, and Judge Sylvester Ryan cancelled those bonds and ordered the defendants apprehended unless they furnished replacement bail privately. Available reporting indicates Gerson had obtained acceptable replacement bail by the weekend of July 28-29, 1951, when he was no longer among the defendants reported as still jailed. Whether he was physically returned to custody during the intervening dispute has not been established, so no second detention is recorded.\n\nGerson went to trial with the other defendants in 1952. On September 30, 1952, Federal Judge Edward J. Dimock DIRECTED VERDICTS OF ACQUITTAL for Gerson and Isidore Begun because the government had presented insufficient evidence against them. He was never convicted and served no sentence.\n\nAn earlier version of this record stated that he was convicted in the 1952 second-string Foley Square Smith Act trial and sentenced in January 1953 to three years. Neither the conviction nor the sentence happened.\n\nGerson remained active as a journalist, Communist Party political strategist, and ballot-access advocate for decades. He died in Brooklyn on December 26, 2004, at the age of ninety-five.",
+   "cases": [
+    {
+     "arrest": [
+      1951,
+      6,
+      20
+     ],
+     "incarceration": [
+      1951,
+      6,
+      20
+     ],
+     "release": [
+      1951,
+      6,
+      29
+     ],
+     "convicted": "No — acquitted by directed verdict, September 30, 1952",
+     "judge": "Edward J. Dimock",
+     "sentence": "NO SENTENCE. Acquitted by directed verdict on September 30, 1952, Federal Judge Edward J. Dimock ruling that the government had presented insufficient evidence. Arrested June 20, 1951 and held while contesting bail of between $10,000 and $20,000; released on bail by June 29, 1951, roughly ten days in custody."
+    }
+   ]
+  }
+ ]
+}
