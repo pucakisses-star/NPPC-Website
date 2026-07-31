@@ -1,0 +1,66 @@
+{
+ "_source": "Curator correction, July 2026. Dorchester County docket and Maryland Penitentiary record as analysed by the Maryland State Archives; pardon docket, pardon record and prisoner record; William Still, The Underground Rail Road (1872).",
+ "_conventions": "Dates are [year, month|null, day|null, approximate]. A trailing true stores circa precision.",
+ "records": [
+  {
+   "slug": "samuel-green",
+   "inmate_number": "5146",
+   "birthdate": [
+    1802,
+    null,
+    null,
+    true
+   ],
+   "death_date": [
+    1877,
+    2,
+    28
+   ],
+   "description": "The Reverend Samuel Green (circa 1802 - February 28, 1877) was a farmer, Methodist Episcopal licensed exhorter and Underground Railroad agent in Dorchester County, Maryland. He was born enslaved at East New Market and purchased the remaining years of his own service around 1833, later freeing his wife Catherine \"Kitty\" Green. His home was a safe place for Harriet Tubman and other freedom seekers. He was called Reverend historically, though he was a licensed lay preacher rather than an ordained minister in the modern sense.\n\nAfter he returned from visiting his escaped son in Canada, local authorities suspected him of helping enslaved people flee, particularly after the escape of the Dover Eight. STATE'S ATTORNEY CHARLES F. GOLDSBOROUGH CONCLUDED THERE WAS INSUFFICIENT EVIDENCE TO PROSECUTE HIM FOR THAT, and he was never tried for it. He was instead prosecuted under two indictments for possessing prohibited abolitionist material.\n\nSheriff Robert Bell searched his home and arrested him on April 4, 1857, seizing a copy of Harriet Beecher Stowe's Uncle Tom's Cabin, a letter from his son in Canada, a map of Canada and railroad schedules. He was arraigned on April 17 for the book and on April 22 on three counts covering the letter, the map and the schedules. Tried first on the letter, map and schedules, he was ACQUITTED on April 25, the judge ruling that documents useful for escape did not fall within that particular abolitionist-literature statute. He was then tried on the already-pending book indictment and convicted on May 14, 1857.\n\nMaryland's 1841 law made it a felony for a free Black person knowingly to receive or possess abolitionist publications thought likely to produce discontent or insurrection, and required ten to twenty years' imprisonment. HIS TEN-YEAR SENTENCE WAS THE STATUTORY MINIMUM. He entered the Maryland Penitentiary in Baltimore on May 18, 1857 as prisoner number 5146, recorded as about fifty-five years old. Rather than the heaviest prison labour he performed lighter, trusted duties around the warden's office.\n\nGovernor Augustus W. Bradford granted him a conditional pardon on March 26, 1862, requiring him to leave Maryland within sixty days. He was released on April 21, 1862, having served four years, eleven months and three days in the penitentiary.\n\nAn earlier version of this record said he was first tried and acquitted for aiding the Dover Eight, and then charged again over the book. That is wrong: the Dover Eight allegation was never prosecuted, and the acquittal was on a separate abolitionist-literature indictment covering the letter, the map and the railroad schedules.",
+   "cases": [
+    {
+     "arrest": [
+      1857,
+      4,
+      4
+     ],
+     "incarceration": null,
+     "release": null,
+     "convicted": "No — acquitted April 25, 1857",
+     "charges": "Possessing a letter from Canada, a map of Canada and railroad schedules, charged as prohibited abolitionist material under Maryland law. Three counts, arraigned April 22, 1857.",
+     "sentence": "NO CONVICTION — ACQUITTED APRIL 25, 1857. Arraigned April 22, 1857 on three counts covering a letter from his son in Canada, a map or pictorial representation of Canada, and railroad schedules showing routes north. Tried on April 24 and 25 and acquitted, the judge ruling that documents useful for escape did not fall within the abolitionist-literature statute. No custody is recorded on this row; the imprisonment belongs to the separate Uncle Tom's Cabin indictment. He was NOT tried for aiding the Dover Eight -- the state's attorney found insufficient evidence and never brought that charge."
+    },
+    {
+     "arrest": [
+      1857,
+      4,
+      4
+     ],
+     "incarceration": [
+      1857,
+      5,
+      18
+     ],
+     "release": [
+      1862,
+      4,
+      21
+     ],
+     "sentenced": [
+      1857,
+      5,
+      14
+     ],
+     "convicted": "Yes — convicted May 14, 1857",
+     "charges": "Knowingly possessing a copy of Harriet Beecher Stowe's Uncle Tom's Cabin as prohibited abolitionist literature, under Maryland's 1841 statute making such possession by a free Black person a felony carrying ten to twenty years. Arraigned April 17, 1857.",
+     "sentence": "Ten years, THE STATUTORY MINIMUM under Maryland's 1841 law, which required ten to twenty years for a free Black person knowingly possessing prohibited abolitionist publications. Arraigned April 17, 1857; convicted May 14, 1857; received at the Maryland Penitentiary in Baltimore on May 18, 1857 as prisoner number 5146, recorded as about fifty-five. Governor Augustus W. Bradford granted a conditional pardon on March 26, 1862 requiring him to leave Maryland within sixty days, and he was released on April 21, 1862 -- four years, eleven months and three days served against a projected expiry of May 14, 1867.\n\nTHE COUNTER RUNS FROM THE PENITENTIARY ADMISSION, not from the April 4 arrest. He was jailed after the arrest, but the Dorchester County jail ledger has not been consulted and continuity of that detention is not established. Counting from April 4 would publish about five years and seventeen days as though documented; counting from May 18 publishes the 1,799 days that are.",
+     "institution": {
+      "name": "Maryland Penitentiary",
+      "city": "Baltimore",
+      "state": "Maryland"
+     }
+    }
+   ]
+  }
+ ]
+}
