@@ -18,7 +18,10 @@ final class AddMobileAppPressRelease extends Command {
     protected $description = 'Publish the NPPC mobile app announcement press release';
 
     public function handle(): int {
-        $category = Category::firstOrCreate(['title' => 'Press Release'], ['slug' => 'press-release']);
+        // Keyed on the SLUG, not the title. Keying on the title minted a
+        // second "Press Release" category alongside the seeded "Press
+        // Releases", and both then showed up as tabs on /news.
+        $category = Category::firstOrCreate(['slug' => 'press-releases'], ['title' => 'Press Releases']);
         $author   = Author::firstOrCreate(['name' => 'NPPC Communications']);
 
         $slug = 'nppc-announces-mobile-app';
