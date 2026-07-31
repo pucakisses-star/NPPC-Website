@@ -209,7 +209,7 @@ Harriet Andrews** — no person-identified institutional portrait located.
 
 # Unrelated addition (batch 38)
 
-## otis-wesley-smith.jpg — Dr. Otis Wesley Smith
+## otis-w-smith.jpg — Dr. Otis Wesley Smith
 
 - **Source:** Digital Library of Georgia, Atlanta Funeral Programs
   Collection — his own 2007 funeral program,
