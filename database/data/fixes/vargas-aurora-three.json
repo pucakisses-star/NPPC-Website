@@ -1,0 +1,108 @@
+{
+ "vargas": {
+  "slug": "diego-vargas",
+  "in_custody": false,
+  "released": true,
+  "inmate_number": "55070-424",
+  "state": "Illinois",
+  "description": "Diego Vargas, of Aurora, Illinois, was federally prosecuted for actions on two consecutive nights of the 2020 George Floyd uprising in the Chicago suburbs. On the evening of May 31, 2020 he joined others attempting to open an ATM at a First Midwest Bank branch in downtown Aurora — the original complaint says he helped pull on the machine, and his later plea agreement admitted he also struck it with a baseball bat and used a metal street-sign pole to try to pry it open. The machine held more than fifty thousand dollars; no money was obtained. The following night, June 1, he broke a window of the closed Egg Harbor Cafe in Naperville with a street-sign pole and threw a lit explosive device inside, causing two explosions and no injuries.\n\nHe was first arrested on July 1, 2020 with Fermin Ocampo-Tellez and Michael Gomez on the ATM conspiracy complaint; public records do not establish how long he remained in custody after that first arrest. A separate federal indictment for the restaurant explosion followed, and he was arrested again on October 7, 2020, appearing the next day by telephone from the Metropolitan Correctional Center in Chicago, where he was ordered detained and remained through sentencing. He pleaded guilty on June 10, 2021 to a single count of maliciously attempting to damage or destroy a building by an explosive device — the ATM incident was admitted as relevant conduct, not separately convicted — and on March 3, 2022 Judge Elaine E. Bucklo imposed the mandatory-minimum sixty months. He served at FCI Allenwood Medium and then FCI Schuylkill under federal register number 55070-424, and a BOP-derived inmate index reports his release on February 4, 2025 — about four years, three months and twenty-eight days of continuous custody from the October 2020 arrest. That date is high confidence but pending direct Bureau of Prisons confirmation.",
+  "main_case": {
+   "arrest": [
+    2020,
+    10,
+    7
+   ],
+   "incarceration": [
+    2020,
+    10,
+    7
+   ],
+   "sentenced": [
+    2022,
+    3,
+    3
+   ],
+   "release": [
+    2025,
+    2,
+    4
+   ],
+   "judge": "U.S. District Judge Elaine E. Bucklo (N.D. Ill.)",
+   "charges": [
+    "Maliciously attempting to damage or destroy a building by means of an explosive device (the June 1, 2020 Egg Harbor Cafe explosion, Naperville)."
+   ],
+   "convicted": "Yes — guilty plea June 10, 2021",
+   "sentence": "Sixty months, the mandatory minimum, imposed March 3, 2022 by Judge Elaine E. Bucklo. Held pretrial at the Metropolitan Correctional Center, Chicago from the October 7, 2020 arrest; served at FCI Allenwood Medium and then FCI Schuylkill. A BOP-derived index reports release on February 4, 2025 — about four years, three months and twenty-eight days of continuous custody — high confidence, pending direct BOP confirmation. The ATM incident was admitted as relevant conduct; the conviction is the single explosive-device count."
+  },
+  "atm_case": {
+   "arrest": [
+    2020,
+    7,
+    1
+   ],
+   "charges": [
+    "Conspiracy to commit bank theft (the May 31, 2020 ATM attempt at First Midwest Bank, Aurora)."
+   ],
+   "convicted": "Not separately convicted — admitted as relevant conduct in the explosive-device plea",
+   "sentence": "No separate sentence. How long he remained in custody after this first arrest is not publicly established, so no span is entered."
+  }
+ },
+ "new": [
+  {
+   "slug": "fermin-ocampo-tellez",
+   "name": "Fermin Ocampo-Tellez",
+   "first_name": "Fermin",
+   "last_name": "Ocampo-Tellez",
+   "gender": "Male",
+   "era": "2020s",
+   "state": "Illinois",
+   "ideologies": [
+    "Black Lives Matter"
+   ],
+   "description": "Fermin Ocampo-Tellez, of Aurora, Illinois, reported as twenty-seven at his arrest, was one of three men federally charged with conspiracy to commit bank theft after the night of May 31, 2020, when — amid the George Floyd uprising protests in downtown Aurora — a group tried to remove an ATM from its enclosure at a First Midwest Bank drive-through. The complaint says Ocampo-Tellez repeatedly struck the machine with a baseball bat in an unsuccessful attempt to move it; no money was taken, and the bank put the damage at thirty thousand dollars. He was arrested on July 1, 2020 with Diego Vargas and Michael Gomez and made an initial appearance in federal court in Chicago.\n\nHis disposition is unresolved in the accessible record. The docket ran long before Judge Matthew F. Kennelly, and a later entry sought a writ of habeas corpus ad prosequendum to produce him — indicating he was then in custody somewhere else — but no sentencing record, custody span or release has been publicly established, so none is entered.",
+   "cases": [
+    {
+     "arrest": [
+      2020,
+      7,
+      1
+     ],
+     "judge": "U.S. District Judge Matthew F. Kennelly (N.D. Ill.)",
+     "charges": [
+      "Conspiracy to commit bank theft (the May 31, 2020 ATM attempt at First Midwest Bank, Aurora, during the George Floyd uprising protests)."
+     ],
+     "convicted": "Disposition unresolved in the accessible record",
+     "sentence": "Arrested July 1, 2020; initial appearance in Chicago. A later docket entry sought a writ to produce him from other custody, but no sentencing record, custody span or release is publicly established, so none is entered."
+    }
+   ]
+  },
+  {
+   "slug": "michael-gomez-aurora",
+   "name": "Michael Gomez",
+   "first_name": "Michael",
+   "last_name": "Gomez",
+   "gender": "Male",
+   "era": "2020s",
+   "state": "Illinois",
+   "ideologies": [
+    "Black Lives Matter"
+   ],
+   "description": "Michael Gomez, of Aurora, Illinois, reported as nineteen at his arrest, was the youngest of the three men federally charged with conspiracy to commit bank theft over the attempt to open an ATM at a First Midwest Bank drive-through in downtown Aurora on the night of May 31, 2020, amid the George Floyd uprising protests. No money was taken. He was arrested on July 1, 2020 with Fermin Ocampo-Tellez and Diego Vargas and made an initial appearance in federal court in Chicago; an early docket entry notes a sealed pretrial status report concerning him.\n\nHis disposition is unresolved in the accessible record: no sentencing record, custody span or release has been publicly established, so none is entered. He is not to be confused with any other Michael Gomez; the slug carries the city for that reason.",
+   "cases": [
+    {
+     "arrest": [
+      2020,
+      7,
+      1
+     ],
+     "judge": "U.S. District Judge Matthew F. Kennelly (N.D. Ill.)",
+     "charges": [
+      "Conspiracy to commit bank theft (the May 31, 2020 ATM attempt at First Midwest Bank, Aurora, during the George Floyd uprising protests)."
+     ],
+     "convicted": "Disposition unresolved in the accessible record",
+     "sentence": "Arrested July 1, 2020; initial appearance in Chicago. No sentencing record, custody span or release is publicly established, so none is entered."
+    }
+   ]
+  }
+ ]
+}
