@@ -1,0 +1,21 @@
+{
+ "_source": "Curator correction, July 2026.",
+ "_conventions": "Dates are [year, month|null, day|null, approximate]. A trailing true stores circa precision, which the model defines as a year that may be off by one -- exactly the shape of an 'approximately 1848-1849' birth.",
+ "records": [
+  {
+   "slug": "joseph-r-dunlop",
+   "birthdate": [
+    1848,
+    null,
+    null,
+    true
+   ],
+   "death_date": [
+    1926,
+    null,
+    null
+   ],
+   "description": "Joseph R. Dunlop (born about 1848 or 1849, died 1926) was the editor of the Chicago Dispatch. In the 1890s he was prosecuted under the Comstock postal-obscenity law and sentenced to two years for circulating \"obscene\" literature through the mails — one of the era's many press prosecutions defended by the free-thought and anarchist papers. He was committed to the Joliet penitentiary on May 4, 1897 and released on February 10, 1899.\n\nHis birth year is not settled to a single year; the sources place it at about 1848 or 1849, so it is stored at circa precision and displays as \"c. 1848\". No day or month is established for either his birth or his death."
+  }
+ ]
+}
