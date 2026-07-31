@@ -1,0 +1,136 @@
+{
+ "merges": [
+  {
+   "keep": "jayden-allen",
+   "drop": "jayden-chayanne-allen",
+   "middle": "Chayanne",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "christian-bufford",
+   "drop": "christian-deshawn-bufford",
+   "middle": "Deshawn",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "sydney-clifford",
+   "drop": "sydney-leanne-clifford",
+   "middle": "Leanne",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "brianna-gibson",
+   "drop": "brianna-latrell-gibson",
+   "middle": "LaTrell",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "michael-herbert",
+   "drop": "michael-anton-herbert",
+   "middle": "Anton",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "irene-kim",
+   "drop": "kim-irene",
+   "group": "greenpeace",
+   "note": "Name order reversed, not a middle name. Age 26 and New York on both."
+  },
+  {
+   "keep": "julie-a-mcelvain",
+   "drop": "julie-ann-mcelvain",
+   "middle": "Ann",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "sarah-newman",
+   "drop": "sarah-francis-newman",
+   "middle": "Francis",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "dakota-p-schee",
+   "drop": "dakota-paige-schee",
+   "middle": "Paige",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "tamura-r-seiji",
+   "drop": "tamura-russell-seiji",
+   "middle": "Russell",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "richard-a-sisney",
+   "drop": "richard-alexander-sisney",
+   "middle": "Alexander",
+   "group": "greenpeace"
+  },
+  {
+   "keep": "robert-thompson",
+   "drop": "robert-g-thompson",
+   "middle": "G.",
+   "note": "Identical birth AND death dates (1915-06-21, 1965-10-16). The survivor holds the only case dates the pair has (1948-07-19 to 1960-12-14); the deleted row had none, so nothing is lost."
+  },
+  {
+   "keep": "richard-blackie-ford",
+   "drop": "richard-ford",
+   "note": "The deleted row's own biography calls him Richard \"Blackie\" Ford. Survivor has the photo, the Folsom release date and the fuller account."
+  },
+  {
+   "keep": "john-boncore-hill",
+   "drop": "john-hill",
+   "carry": [
+    "death_date"
+   ],
+   "note": "Dacajeweiah, Splitting the Sky. Survivor has the photo and the conviction dates; the deleted row carried a death date of 2013-03-13, which is brought across."
+  },
+  {
+   "keep": "evan-welling-thomas",
+   "drop": "evan-thomas",
+   "note": "Norman Thomas's younger brother. Survivor has the full custody dates and the precise death date of 1974-12-15 against the other's bare 1974."
+  },
+  {
+   "keep": "daniel-baker",
+   "drop": "daniel-alan-baker",
+   "middle": "Alan",
+   "note": "The survivor's own biography opens \"Daniel Alan Baker, age 33\". It holds the birthdate and the custody dates; the deleted row had neither."
+  },
+  {
+   "keep": "virgil-j-stauffer",
+   "drop": "j-virgil-stauffer",
+   "note": "Name order reversed. Both are the same WWI conscientious objector at Fort Leavenworth found sincere by the Board of Inquiry in January 1919. Survivor has the release date and the state."
+  },
+  {
+   "keep": "harrison-george",
+   "drop": "george-harrison",
+   "carry": [
+    "description",
+    "ideologies"
+   ],
+   "note": "NAME REVERSED, AND THE CORRECT FORM IS THE THIN ONE. Harrison George was the IWW journalist convicted at the mass Chicago trial; the deleted row is his name backwards with the better biography attached, so the biography is carried onto the correctly named record."
+  },
+  {
+   "keep": "jose-roman-rivera",
+   "drop": "jose-rivera",
+   "note": "Identical case: arrested 2001-05-22, released 2001-08-21, 90 days, same facility. The fuller name survives. NOTE that jose-perez-rivera is a DIFFERENT man - arrested 2001-04-26 and sentenced to 45 days - and is left alone."
+  }
+ ],
+ "split": {
+  "slug": "michael-doyle",
+  "strip_affiliation": [
+   "Camden 28"
+  ],
+  "strip_case_year": 1971,
+  "clear": [
+   "birthdate",
+   "death_date"
+  ],
+  "death_date": [
+   1877,
+   6,
+   21
+  ],
+  "description": "Michael Doyle was one of the Irish coal miners hanged as a Molly Maguire in the Pennsylvania anthracite region. He was tried at Mauch Chunk in Carbon County for the murder of the mine boss John P. Jones, in prosecutions driven by the Reading Railroad president Franklin B. Gowen — who acted as a private prosecutor against the union he was trying to destroy, using evidence gathered by the Pinkerton agent James McParland. Doyle was hanged at the Carbon County Prison on June 21, 1877, one of ten men executed in Pennsylvania that day.\n\nThis record previously carried a second case and a second life. It had been conflated with Father Michael Doyle, the Camden 28 priest, who is a separate record in this database and who died in 2022."
+ }
+}
