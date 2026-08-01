@@ -1,0 +1,155 @@
+{
+ "people": [
+  {
+   "slug": "leroy-jones",
+   "birth": [1947, null, null, true],
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through the trial; acquitted August 6, 1971. The exact physical discharge date is not documented, so no release date is entered. Born about 1947, a year derived from his reported age at the time; no exact birth date has been located, and no verified death record or later-life match has been found."
+  },
+  {
+   "slug": "ronald-ailsworth",
+   "birth": [1949, null, null, true],
+   "append": "He was acquitted with his codefendants on August 6, 1971, but remained subject to separate federal and New Haven matters, so the acquittal date does not mark his release and none is entered. Decades later he served an unrelated imprisonment at the Louisiana State Penitentiary at Angola that ended on September 26, 2019, after approximately forty years, and he was interviewed after his release, in 2021.",
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison from then through the August 6, 1971 acquittal — but he faced additional federal and New Haven matters, so the acquittal date is expressly not entered as his release and his discharge from this custody is unresolved.",
+   "angola_case": {
+    "release": [2019, 9, 26],
+    "institution": "Louisiana State Penitentiary (Angola)",
+    "institution_city": "Angola",
+    "institution_state": "Louisiana",
+    "charges": "Not established in this record — a much later imprisonment unrelated to the 1970 New Orleans Panther case.",
+    "convicted": "Yes — the details of the underlying conviction are not established in this record",
+    "sentence": "An imprisonment at the Louisiana State Penitentiary at Angola of approximately forty years, ending September 26, 2019. No admission date or underlying case detail is established here, so only the documented release is entered."
+   }
+  },
+  {
+   "slug": "malik-rahim",
+   "append": "After the August 6, 1971 acquittal — he had been held about eleven months — a later account says he was released during 1971 and arrested again five days later on an unrelated kidnapping allegation; the exact date of his first discharge is not supplied, so his release is entered at year precision.",
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "release": [1971, null, null],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison for about eleven months; acquitted August 6, 1971 and released during 1971 — the year is documented but the exact discharge date is not, so the release is entered at year precision. A later account says he was arrested again five days after release on an unrelated kidnapping allegation."
+  },
+  {
+   "slug": "william-cloud",
+   "birth": [1952, null, null, true],
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered. Born about 1952, a year derived from his reported age at the time; no verified death record or later-life match has been found."
+  },
+  {
+   "slug": "isaac-edwards",
+   "aka": "Isaac Edwards III",
+   "birth": [1942, null, null, true],
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered. Born about 1942, a year derived from his reported age at the time; no verified death record or later-life match has been found."
+  },
+  {
+   "slug": "milton-martin",
+   "birth": [1943, null, null, true],
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered. Born about 1943, a year derived from his reported age at the time; no verified death record or later-life match has been found."
+  },
+  {
+   "slug": "tyrone-edwards",
+   "aka": "Tyronne Edwards",
+   "birth": [1952, null, null, true],
+   "append": "Born about 1952, he later styled his name Tyronne Edwards, became the Rev. Dr. Tyronne Edwards, and as of 2026 is identified by Plaquemines Parish as its District 1 representative.",
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered."
+  },
+  {
+   "slug": "alton-edwards",
+   "aka": "Sugar Ed",
+   "birth": [1949, null, null, true],
+   "death": [2020, 1, 26],
+   "append": "Known as \"Sugar Ed\", he was born about 1949 and died on January 26, 2020, at seventy. His obituary identifies the Rev. Dr. Tyronne Edwards — his Piety Street codefendant — as his brother, which both anchors the identification and links the two defendants as family.",
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered."
+  },
+  {
+   "slug": "leah-hodges",
+   "birth": [1951, null, null, true],
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered. Born about 1951, a year derived from her reported age at the time. A New Orleans community activist named Leah Hodges was photographed in 2007, but that identity connection is probable rather than proved, so no later-life detail is asserted."
+  },
+  {
+   "slug": "elaine-young",
+   "aka": "E-baby",
+   "birth": [1948, null, null, true],
+   "arrest": [1970, 9, 15],
+   "incarceration": [1970, 9, 15],
+   "convicted": "No — acquitted August 6, 1971",
+   "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered. Born about 1948, a year derived from her reported age at the time; no verified death record or later-life match has been found."
+  }
+ ],
+ "new": [
+  {
+   "slug": "charles-rudolph-scott",
+   "name": "Charles Rudolph Scott",
+   "first_name": "Charles",
+   "middle_name": "Rudolph",
+   "last_name": "Scott",
+   "gender": "Male",
+   "race": "Black",
+   "era": "1970s",
+   "state": "Louisiana",
+   "affiliation": ["Black Panther Party", "National Committee to Combat Fascism"],
+   "ideologies": ["Black Liberation"],
+   "birth": [1950, null, null, true],
+   "death": [1999, 7, 21],
+   "description": "Charles Rudolph Scott was a member of the New Orleans chapter of the Black Panther Party (organized as the National Committee to Combat Fascism) and one of the defendants arrested after the September 14-15, 1970 police assault on the party's Piety Street headquarters. The Black Panther newspaper listed him as twenty at the time, while a family account calls him nineteen, so he was probably born in 1950 or 1951; no exact birth date has been located. Held in the Orleans Parish Prison, he was acquitted with his codefendants on August 6, 1971, but was reportedly subject to federal and New Haven holds afterward; a family account says he was back in Queens, New York by approximately mid-1972, without establishing when the transfer or release occurred. He died on July 21, 1999, at forty-eight.",
+   "case": {
+    "arrest": [1970, 9, 15],
+    "incarceration": [1970, 9, 15],
+    "institution": "Orleans Parish Prison",
+    "institution_city": "New Orleans",
+    "institution_state": "Louisiana",
+    "charges": "Attempted murder of police (the September 1970 Piety Street standoff, New Orleans)",
+    "convicted": "No — acquitted August 6, 1971",
+    "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through the August 6, 1971 acquittal — but reportedly subject to federal and New Haven holds afterward. A family account places him back in Queens by approximately mid-1972; neither the transfer nor the release date is documented, so no release date is entered."
+   }
+  },
+  {
+   "slug": "catherine-bournes",
+   "name": "Catherine Bournes",
+   "first_name": "Catherine",
+   "last_name": "Bournes",
+   "aka": "Catherine Bourns; Catherine Bourne",
+   "gender": "Female",
+   "race": "Black",
+   "era": "1970s",
+   "state": "Louisiana",
+   "affiliation": ["Black Panther Party", "National Committee to Combat Fascism"],
+   "ideologies": ["Black Liberation"],
+   "birth": [1950, null, null, true],
+   "description": "Catherine Bournes — her name also appears in the record as Bourns and Bourne — was a member of the New Orleans chapter of the Black Panther Party (organized as the National Committee to Combat Fascism) and one of the defendants arrested after the September 14-15, 1970 police assault on the party's Piety Street headquarters. She was held in the Orleans Parish Prison from September 15, 1970 through at least the August 6, 1971 acquittal of the defendants; her exact discharge date is not documented. She was born about 1950, a year derived from her reported age at the time; no exact birth date, verified death record or later-life match has been located.",
+   "case": {
+    "arrest": [1970, 9, 15],
+    "incarceration": [1970, 9, 15],
+    "institution": "Orleans Parish Prison",
+    "institution_city": "New Orleans",
+    "institution_state": "Louisiana",
+    "charges": "Attempted murder of police (the September 1970 Piety Street standoff, New Orleans)",
+    "convicted": "No — acquitted August 6, 1971",
+    "sentence": "Arrested September 15, 1970 after the police assault on the Piety Street headquarters and held in the Orleans Parish Prison through at least the August 6, 1971 acquittal; the exact discharge date is not documented, so no release date is entered."
+   }
+  }
+ ]
+}
