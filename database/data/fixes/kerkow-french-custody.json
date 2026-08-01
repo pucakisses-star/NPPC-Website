@@ -1,0 +1,16 @@
+{
+    "slug": "catherine-marie-kerkow",
+    "append": "French police arrested Kerkow and Holder in Paris on January 25, 1975, and she was held at Fleury-Mérogis Prison, south of the city, while France weighed the American extradition request. France refused that request on April 7, 1975, treating the hijacking as politically motivated. On June 2, 1975 — three years to the day after the hijacking — a Paris court convicted her of presenting a falsified passport and sentenced her to three months and one day in prison and a 1,000-franc fine; Le Monde reported that she was to be released because her detention, by then roughly 128 days, had already exceeded the sentence. French authorities opened their own hijacking prosecution, but the investigating judge did not keep her incarcerated — she was placed under judicial supervision after her release.",
+    "case": {
+        "arrest": [1975, 1, 25],
+        "incarceration": [1975, 1, 25],
+        "sentenced": [1975, 6, 2],
+        "release": [1975, 6, 2, true],
+        "charges": "Presenting a falsified passport",
+        "convicted": "Yes",
+        "sentence": "Three months and one day in prison and a 1,000-franc fine, imposed by a Paris court on June 2, 1975, for presenting a falsified passport. By then her detention — about 128 days since the January 25, 1975 arrest alongside Willie Roger Holder — had already exceeded the sentence, and Le Monde reported that she was to be released. France had refused the American extradition request on April 7, 1975, treating the hijacking as politically motivated; French authorities then opened their own hijacking prosecution, but the investigating judge did not keep her incarcerated — she was placed under judicial supervision after release.",
+        "institution": "Fleury-Mérogis Prison",
+        "institution_city": "Fleury-Mérogis",
+        "institution_state": "France"
+    }
+}
