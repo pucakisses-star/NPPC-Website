@@ -8,14 +8,15 @@
 #     THE COHORT (New Orleans Panthers, arrested September 15, 1970
 #     after the police assault on the Piety Street headquarters, all
 #     acquitted August 6, 1971) gains its documented custody: arrest
-#     and incarceration September 15, 1970, Orleans Parish Prison —
-#     and NO release dates, because the exact discharge dates are not
-#     documented. Exceptions per the dossier: Malik Rahim released
-#     during 1971 (year precision, rearrested five days later);
-#     Ronald Ailsworth expressly does NOT get August 6 as a release
-#     (federal and New Haven holds) and gains a second case row for
-#     the unrelated Angola imprisonment that ended September 26,
-#     2019 after approximately forty years.
+#     and incarceration September 15, 1970, Orleans Parish Prison,
+#     and — on the curator-s standing instruction — the acquittal
+#     date ASSUMED as the release date unless implied otherwise,
+#     with the assumption stated in every sentence text. Implied
+#     otherwise, so no release: Ronald Ailsworth (federal and New
+#     Haven holds; he also gains a second case row for the unrelated
+#     Angola imprisonment that ended September 26, 2019 after
+#     approximately forty years) and Charles Rudolph Scott (the same
+#     reported holds; back in Queens only by about mid-1972).
 #
 #     BIRTH YEARS derived from age at arrest at circa precision (the
 #     Camden 28 method); exact dates only where documented — Alton
