@@ -1,0 +1,71 @@
+{
+ "karim": {
+  "slug": "karim-njabafundi",
+  "name": "Karim Njabafudi",
+  "aka": "Larry Jackson; Brother Black",
+  "birth": [
+   1955,
+   null,
+   null,
+   true
+  ],
+  "description": "Karim Hekima Oman Wadu Njabafudi — born Larry Jackson in New Orleans, also recorded as Karim and \"Brother Black\" — was a citizen of the Republic of New Afrika and, at about fifteen, the youngest of the RNA-11 arrested in the August 18, 1971 FBI and Jackson police raid on the RNA Provisional Government residence at 1148 Lewis Street in Jackson, Mississippi. A contemporary 1971 booklet preserved by the Amistad Research Center gives his full adopted name and identifies him as Larry Jackson, and federal court records identify him as \"Larry Jackson, a/k/a Karim and Brother Black.\"\n\nAt about 6:30 that morning, agents and police holding a fugitive warrant for another man and misdemeanor warrants for three people — one of them a warrant for \"Larry, last name unknown\", later identified as him, over an alleged assault on a newspaper reporter at RNA headquarters — surrounded the house and fired tear gas. In the gun battle that followed, Jackson police lieutenant William L. Skinner was killed and another officer and an FBI agent were wounded; the seven occupants then surrendered. Court testimony attributed the fatal shot to Hekima Ana, not to Njabafudi, who reportedly told agents he had fired a .30-06 rifle from the west side of the house. Mississippi convicted him of murder as an aider and abettor, under a statute treating an accessory before the fact as a principal.\n\nTried from September 22, 1972 — venue moved from Hinds County to Lauderdale County — he was convicted and sentenced to life on September 25, 1972, expressly in the Mississippi State Penitentiary at Parchman. The Mississippi Supreme Court affirmed on March 24, 1975 and denied rehearing on May 12, 1975. He was released in November 1979.\n\nThe federal court dismissed him from the adult federal prosecution of the RNA defendants because he was a juvenile who had not waived his rights under the Federal Juvenile Delinquency Act; the government said it would proceed against him separately as a juvenile, but no judgment proving that prosecution or any federal sentence has been located, so claims of a federal fifteen-year term are unresolved. His birth date is likewise unresolved: the Mississippi Supreme Court put his age at fifteen and two-thirds on the day of the raid, implying a birth around December 1955, while a federal footnote called him sixteen; the year is entered at circa precision and no exact date is inferred.\n\nHe is not the Larry Jackson of the November 1970 New Orleans Black Panther raid — that alias belonged to John England Morris Jr., who has his own record in this database.",
+  "case": {
+   "arrest": [
+    1971,
+    8,
+    18
+   ],
+   "incarceration": [
+    1971,
+    8,
+    18
+   ],
+   "sentenced": [
+    1972,
+    9,
+    25
+   ],
+   "release": [
+    1979,
+    11,
+    null
+   ],
+   "institution": "Mississippi State Penitentiary (Parchman)",
+   "institution_city": "Parchman",
+   "institution_state": "Mississippi",
+   "charges": "Murder of Jackson police lieutenant William L. Skinner (as aider and abettor, under the accessory-as-principal statute), from the August 18, 1971 raid on the RNA residence at 1148 Lewis Street.",
+   "convicted": "Yes — convicted September 25, 1972 after a trial moved to Lauderdale County; affirmed March 24, 1975, rehearing denied May 12, 1975",
+   "sentence": "Life imprisonment, imposed September 25, 1972, expressly in the Mississippi State Penitentiary. In custody from the August 18, 1971 raid; released November 1979, entered at month precision because no individual discharge record is located. The fatal shot was attributed at trial to Hekima Ana. The separate federal juvenile matter is unresolved: he was dismissed from the adult federal case as an unwaived juvenile, and no judgment proving a federal prosecution or the claimed fifteen-year federal term has been located."
+  }
+ },
+ "morris": {
+  "slug": "larry-jackson",
+  "name": "John England Morris Jr.",
+  "aka": "Larry Jackson",
+  "state": "Louisiana",
+  "affiliation": [
+   "Black Panther Party",
+   "National Committee to Combat Fascism"
+  ],
+  "ideologies": [
+   "Black Liberation",
+   "Black Nationalism"
+  ],
+  "description": "John England Morris Jr., who used the alias Larry Jackson, was a member of the New Orleans chapter of the Black Panther Party and its National Committee to Combat Fascism organizing. In the pre-dawn raid of November 26, 1970, about fifty New Orleans police — some disguised as priests and postal workers — stormed the party's office in the Desire housing project; Morris was among the six people arrested, charged with attempted murder and violating the federal firearms act, and held at the Orleans Parish Prison. The federal appellate case arising from the raid identifies him as \"John England Morris Jr., a/k/a Larry Jackson,\" and he — not the RNA teenager who shared the alias — was convicted of possessing an unregistered automatic rifle seized in the raid. Contemporary research also describes the New Orleans \"Larry Jackson\" as a fugitive wanted in California on attempted-murder charges, a description incompatible with the fifteen-year-old Karim Njabafudi.\n\nHis sentence and custody span from the federal firearms conviction are not established in the accessible record, so no release is entered.\n\nHe is not Karim Njabafudi, the Republic of New Afrika defendant whose birth name was also Larry Jackson and who has his own record in this database — the two men were conflated in earlier versions of this entry.",
+  "drop_case_arrest": "1971-08-17",
+  "case": {
+   "arrest": [
+    1970,
+    11,
+    26
+   ],
+   "institution": "Orleans Parish Prison",
+   "institution_city": "New Orleans",
+   "institution_state": "Louisiana",
+   "charges": "Attempted murder and violation of the federal firearms act — the November 26, 1970 raid on the Desire-project Black Panther Party office.",
+   "convicted": "Yes — convicted of possessing an unregistered automatic rifle seized in the raid (federal appellate record)",
+   "sentence": "Sentence and custody span from the federal firearms conviction are not established in the accessible record; no release is entered."
+  }
+ }
+}
