@@ -255,7 +255,7 @@
     "Civil Rights"
    ],
    "affiliation": [],
-   "description": "Henry Schwarzschild was a religious official associated with a Highland Park, Illinois congregation, about thirty-five years old and traveled by bus from Montgomery and was arrested at the Jackson Trailways terminal on June 21, 1961; he later became a prominent civil-liberties figure with the ACLU — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHis birth year, about 1926, is derived from his reported age at arrest; catalog materials misspell his surname Schwarzchild.",
+   "description": "Henry Schwarzschild was a religious official associated with a Highland Park, Illinois congregation, about thirty-five years old and traveled by bus from Montgomery and was arrested at the Jackson Trailways terminal on June 21, 1961; he later became a prominent civil-liberties figure with the ACLU — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHis birth year, about 1926, is derived from his reported age at arrest; catalog materials misspell his surname Schwarzchild. His Sovereignty Commission mugshot (Jackson police placard 21041, dated 6-21-61) was located by direct verification of the catalog after an earlier record-id inference proved to point at another rider.",
    "cases": [
     {
      "arrest": [
@@ -268,7 +268,7 @@
      "sentence": "Arrested 1961-06-21. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
     }
    ],
-   "photo": false,
+   "photo": true,
    "birth": [
     1926,
     null,
@@ -660,7 +660,7 @@
      "sentence": "Arrested 1961-07-15. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
     }
    ],
-   "photo": false,
+   "photo": true,
    "middle_name": "Vernon",
    "birth": [
     1937,
@@ -974,7 +974,7 @@
      "sentence": "Arrested 1961-07-21. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
     }
    ],
-   "photo": false
+   "photo": true
   },
   {
    "slug": "sally-jane-rowley",
@@ -1075,7 +1075,7 @@
      "sentence": "Arrested 1961-07-29. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
     }
    ],
-   "photo": false,
+   "photo": true,
    "aka": "Wolcott Smith",
    "birth": [
     1941,
@@ -1990,7 +1990,7 @@
    "ideologies": [
     "Civil Rights"
    ],
-   "photo": false
+   "photo": true
   },
   {
    "slug": "jerome-h-smith",
@@ -2028,7 +2028,7 @@
    "ideologies": [
     "Civil Rights"
    ],
-   "photo": false
+   "photo": true
   },
   {
    "slug": "jean-catherine-thompson",
@@ -2168,7 +2168,7 @@
    "ideologies": [
     "Civil Rights"
    ],
-   "photo": false
+   "photo": true
   },
   {
    "slug": "kredelle-petway",
@@ -2204,7 +2204,7 @@
    "ideologies": [
     "Civil Rights"
    ],
-   "photo": false
+   "photo": true
   },
   {
    "slug": "edward-william-kale",
@@ -2271,7 +2271,7 @@
    "ideologies": [
     "Civil Rights"
    ],
-   "photo": false
+   "photo": true
   },
   {
    "slug": "peter-harry-stoner",
@@ -2636,5 +2636,73 @@
    },
    "aka": "Bernard Scott Lee"
   }
- ]
+ ],
+ "photo_ids": {
+  "mary-lou-bell": "2-55-5-12-1-1-1",
+  "gary-green-jr": "2-55-5-9-1-1-1",
+  "dion-diamond": "2-55-2-87-1-1-1",
+  "dion-diamond-batonrouge": "3-16a-2-111-1-1-1",
+  "pauline-kathleen-sims": "2-55-6-118-1-1-1",
+  "alphonso-kelly-petway": "2-55-6-40-1-1-1",
+  "mary-jean-smith": "2-55-3-72-1-1-1",
+  "frederick-leonard": "2-55-3-68-1-1-1",
+  "elizabeth-s-adler": "2-55-4-87-1-1-1",
+  "larry-fred-hunter": "2-55-3-61-1-1-1",
+  "evelyn-pierce": "2-55-4-38-1-1-1",
+  "alan-kaufman": "2-55-6-98-1-1-1",
+  "eddie-jean-thomas": "2-55-5-14-1-1-1",
+  "david-lering-richards": "2-55-6-14-1-1-1",
+  "elnora-r-price": "2-55-5-60-1-1-1",
+  "meredith-coleman-anding-jr": "2-55-4-39-1-1-1",
+  "albert-barough": "2-55-6-104-1-1-1",
+  "paul-breines": "2-55-6-69-1-1-1",
+  "daniel-e-burkholder": "2-55-5-85-1-1-1",
+  "winston-fuller": "2-55-6-95-1-1-1",
+  "joseph-edward-gerbac": "2-55-6-97-1-1-1",
+  "reginald-jackson": "2-55-5-111-1-1-1",
+  "joseph-john-michael-mcdonald": "2-55-4-21-1-1-1",
+  "philip-m-posner": "2-55-6-96-1-1-1",
+  "meryle-joy-reagon": "2-55-4-24-1-1-1",
+  "rose-schorr-rosenberg": "2-55-6-13-1-1-1",
+  "charles-grier-sellers-jr": "2-55-6-66-1-1-1",
+  "felix-singer": "2-55-4-11-1-1-1",
+  "robert-singleton": "2-55-6-100-1-1-1",
+  "sam-joe-townsend": "2-55-6-94-1-1-1",
+  "john-r-washington": "2-55-6-62-1-1-1",
+  "donna-sage-garde": "2-55-6-70-1-1-1",
+  "james-t-carey": "2-55-6-63-1-1-1",
+  "mary-l-jorgensen": "2-55-6-67-1-1-1",
+  "orville-b-luster": "2-55-6-61-1-1-1",
+  "max-gregory-pavesic": "2-55-6-106-1-1-1",
+  "doris-jean-castle": "2-55-2-89-1-1-1",
+  "leon-russ-jr": "2-55-6-17-1-1-1",
+  "charles-henry-booth": "2-55-6-12-1-1-1",
+  "carroll-gary-barber": "2-55-6-9-1-1-1",
+  "michael-r-grubbs": "2-55-6-102-1-1-1",
+  "ray-allen-cooper": "2-55-6-11-1-1-1",
+  "lonnie-thurman": "2-55-6-105-1-1-1",
+  "william-leons": "2-55-6-99-1-1-1",
+  "herbert-s-mann": "2-55-6-101-1-1-1",
+  "john-lewis": "2-55-2-84-1-1-1",
+  "ruby-doris-smith-robinson": "2-55-4-23-1-1-1",
+  "wyatt-t-walker": "2-55-5-47-1-1-1",
+  "judith-ann-frieze": "2-55-5-49-1-1-1",
+  "margaret-burr-leonard": "2-55-5-50-1-1-1",
+  "leon-felton-smith-jr": "2-55-5-51-1-1-1",
+  "samuel-timothy-nash": "2-55-5-52-1-1-1",
+  "henry-schwarzschild": "2-55-5-55-1-1-1",
+  "melvin-lorenzo-white": "2-55-5-54-1-1-1",
+  "allan-levine": "2-55-6-64-1-1-1",
+  "sally-jane-rowley": "2-55-6-83-1-1-1",
+  "judith-norene-scroggins": "2-55-6-84-1-1-1",
+  "woollcott-smith": "2-55-6-89-1-1-1",
+  "hilmar-ehrenfried-pabel": "2-55-6-86-1-1-1",
+  "jerome-h-smith": "2-55-2-88-1-1-1",
+  "claire-oconnor": "2-55-4-55-1-1-1",
+  "david-kerr-morton": "2-55-4-57-1-1-1",
+  "john-charles-taylor-jr": "2-55-5-109-1-1-1",
+  "kredelle-petway": "2-55-6-39-1-1-1",
+  "leo-vernon-washington": "2-55-6-15-1-1-1",
+  "francis-l-geddes": "2-55-6-60-1-1-1"
+ }
 }
