@@ -1,0 +1,16 @@
+{
+ "slug": "spencer-anderson",
+ "under_review": true,
+ "age": 24,
+ "released": true,
+ "minor_case": true,
+ "description": "Spencer Anderson, a 24-year-old resident of Clarkston, Michigan, was arrested on February 26, 2026 and charged with three felony counts of malicious destruction of police property. Waterford Township police alleged that several automatic license-plate-reader cameras had been broken from their mounts and smashed, and that one reader captured the suspect vehicle while nearby business surveillance recorded a person striking two cameras with a blunt object. Anderson was arraigned in the 51st District Court on February 27 and released on a $500 cash bond. Police estimated the damage at approximately $10,000 and announced that they would seek restitution. No conviction or custodial sentence has been verified, and available sources do not conclusively establish Anderson's personal political motive.",
+ "case": {
+  "arrest": [2026, 2, 26],
+  "incarceration": [2026, 2, 26],
+  "release": [2026, 2, 27],
+  "judge": "Judge Todd Fox, 51st District Court (Waterford)",
+  "convicted": "No — case pending; current disposition unresolved",
+  "sentence": "Released February 27, 2026 on a $500 cash bond after arraignment before Judge Todd Fox. Documented custody is the arrest-and-booking span of February 26 to 27 only; no jail sentence or pretrial detention beyond that is supported by the available record. Each of the three counts carries up to four years' imprisonment and a $5,000 fine, and Waterford police said they would seek restitution for approximately $10,000 in damage. The March 11, 2026 probable-cause conference and March 18, 2026 preliminary examination were scheduled dates, not confirmed hearings; proceedings were later rescheduled and no reliable, accessible court docket verifies the current disposition. Case pending or current disposition unresolved."
+ }
+}
