@@ -8,6 +8,13 @@
 #   Institution              Norfolk County Jail, Dedham, Massachusetts
 #                            ->  Josephine County Jail, Grants Pass, Oregon
 #   Affiliation              Earth First! added
+#   Description              was a truncated fragment ("Jeff Hogg was an
+#                            Oregon environmental activist and nursing
+#                            student") -- replaced with a full biography
+#                            (added in batch 60; the description update
+#                            only fires when the fragment or an empty
+#                            bio is found, so a curator-edited bio is
+#                            never overwritten)
 #
 # The wrong institution is only detached from this case, never deleted -- other
 # prisoners may legitimately be held at Norfolk County Jail.
@@ -62,6 +69,17 @@ if (! $p->state) { $p->state = "Oregon"; }
 $affs = is_array($p->affiliation) ? $p->affiliation : [];
 if (! in_array("Earth First!", $affs, true)) { $affs[] = "Earth First!"; }
 $p->affiliation = array_values($affs);
+
+// The stored biography was a truncated fragment. Replace it only when the
+// fragment (or nothing) is found, so a later curator edit is never clobbered.
+$bio = "Jeff Hogg was an Oregon environmental activist and nursing student from Eugene who became the longest-jailed grand jury resister of the Green Scare era. Subpoenaed in 2006 to the federal grand jury in Eugene investigating the Operation Backfire arson prosecutions of Earth Liberation Front and Animal Liberation Front activists, he refused to testify, and on May 18, 2006 he was jailed for civil contempt. He was held at the Josephine County Jail in Grants Pass for 181 days, until November 15, 2006, when the court concluded that further confinement would not coerce his testimony. He was never charged with any crime.";
+$frag = "Jeff Hogg was an Oregon environmental activist and nursing student";
+if (! $p->description || trim($p->description) === $frag) {
+    $p->description = $bio;
+    echo "  description: replaced the truncated fragment\n";
+} elseif ($p->description !== $bio) {
+    echo "  description: left alone (already differs from the known fragment)\n";
+}
 
 $p->save();
 
