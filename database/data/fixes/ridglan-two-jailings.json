@@ -1,0 +1,41 @@
+{
+ "ridglan": [
+  {
+   "slug": "aditya-aswani",
+   "march_release": [2026, 3, 17],
+   "march_sentence": "Held in the Dane County Jail for approximately two nights after the March 15, 2026 open rescue; released March 17, 2026 — contemporary coverage identifies him among the final five people released that day — without formal charges being filed at that time. The felony counts came the following month and are carried on the second case.",
+   "april_sentence": "Arrested April 18, 2026 — the Dane County Sheriff confirms the arrest — on the four felony counts filed over the March rescue, and held approximately three days. Bond of $10,000 cash was set on the afternoon of April 21, 2026, and a contemporaneous update announced that he, Dean Wyrzykowski and Michelle Lunsky were being released on their bonds, apparently during the evening after his initial appearance.",
+   "append": "He was jailed twice: held in the Dane County Jail from March 15 to March 17, 2026 after the rescue itself, released without formal charges being filed at that time, and again from April 18 to April 21, 2026 on the felony counts, until release on the $10,000 cash bond."
+  },
+  {
+   "slug": "dean-wyrzykowski",
+   "march_release": [2026, 3, 17],
+   "march_sentence": "Held in the Dane County Jail for two nights after the March 15, 2026 open rescue — Wyrzykowski personally stated he had been held two nights, and WMTV recorded him immediately after his March 17, 2026 release — without formal charges being filed at that time. The felony counts came the following month and are carried on the second case.",
+   "april_sentence": "Arrested April 18, 2026 on the four felony counts filed over the March rescue and held approximately three days: in a firsthand account written from jail on April 21 he described it as his third straight day in custody. Bond of $10,000 cash was set that day, and the post was subsequently updated to say he had been released, consistent with the evening release following the bond hearing.",
+   "append": "He was jailed twice: held in the Dane County Jail from March 15 to March 17, 2026 after the rescue itself — he described the two nights himself, on camera, immediately after release — and again from April 18 to April 21, 2026 on the felony counts, writing from jail on his third straight day in custody before release on the $10,000 cash bond."
+  },
+  {
+   "slug": "michelle-lunsky",
+   "aka": "Misha Lunsky",
+   "march_release": [2026, 3, 16, true],
+   "march_sentence": "Detained at the March 15, 2026 open rescue on an initial trespassing allegation. She was not among the five people identified as the final detainees released on March 17, indicating she had already been discharged — probably on March 15 or 16; no booking record distinguishing the two days has been located, so the release is entered as March 16 at approximate precision. The felony counts came the following month and are carried on the second case.",
+   "april_sentence": "Arrested April 18, 2026 — the sheriff identified her in connection with the April 18 arrests — on the four felony counts filed over the March rescue, and held approximately three days until the April 21, 2026 bond proceeding set $10,000 cash; she was included in the contemporaneous announcement that the detained defendants were being released.",
+   "append": "Known as \"Misha\", she was jailed twice: briefly detained after the March 15, 2026 rescue on an initial trespassing allegation — discharged by March 16, the exact day unresolved — and again from April 18 to April 21, 2026 on the felony counts, until release on the $10,000 cash bond."
+  }
+ ],
+ "march_charges": "Detained after the March 15, 2026 open rescue at Ridglan Farms; released without formal charges being filed at that time — the felony counts were filed in April 2026 and are carried on the second case.",
+ "march_convicted": "No charges were filed from this initial detention",
+ "april_charges": "Four felony counts — burglary (as party to a crime), criminal damage to property, theft, and attempted theft — stemming from the March 15, 2026 \"open rescue\" of about 22 beagles from Ridglan Farms, a beagle-breeding and research facility in Blue Mounds, Wisconsin; combined maximum exposure roughly 31 years.",
+ "april_convicted": "No — pleaded not guilty on May 21, 2026; awaiting trial (jury selection September 28, 2026, before Dane County Circuit Judge John Hyland)",
+ "saldana": {
+  "slug": "gabriela-saldana",
+  "arrest": [2026, 4, 16],
+  "incarceration": [2026, 4, 16],
+  "release": [2026, 4, 20, true],
+  "institution": "Turner Guilford Knight Correctional Center",
+  "institution_city": "Miami",
+  "institution_state": "Florida",
+  "sentence": "Arrested shortly after 2:10 a.m. on April 16, 2026 and booked into the Turner Guilford Knight Correctional Center shortly after 4:15 a.m. — the Miami-Dade booking information establishes both times. Bond of $5,000 was set the same day by Judge Mindy S. Glazer. FIU student journalism reported on April 20, 2026 that she had been released on bond; the exact jail-discharge timestamp is not established in the available reporting, so the release is entered at approximate precision. She faces years in prison if convicted.\n\nVerdict as recorded: No — pending trial, Miami-Dade County\n\nCharges as recorded: Florida written threats to kill or do bodily harm — for a WhatsApp meme message addressed to Benjamin Netanyahu about an FIU capstone-presentation event; the \"with prejudice\" hate-crime enhancement was denied for lack of probable cause.",
+  "append": "Booking records date her arrest to shortly after 2:10 a.m. on April 16, 2026 — not April 15 as earlier versions of this entry said — with jail admission at the Turner Guilford Knight Correctional Center shortly after 4:15 a.m. She was released on the $5,000 bond by April 20, 2026, per FIU student reporting; the exact discharge timestamp is not publicly established."
+ }
+}
