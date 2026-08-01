@@ -9,14 +9,12 @@
 #
 # CUSTODY. Every defendant gains the documented span: arrest and
 # incarceration September 15, 1970, Orleans Parish Prison, acquitted
-# August 6, 1971 — and NO release date, because the exact physical
-# discharge dates are not documented and an unknown is stored as an
-# unknown. Two exceptions, per the dossier:
-#
-#   MALIK RAHIM (Donald T. Guyton) was released DURING 1971 — held
-#   about eleven months, rearrested five days later on an unrelated
-#   kidnapping allegation — so his release is entered at YEAR
-#   precision, the one documented fact.
+# August 6, 1971 — and, ON THE CURATOR-S STANDING INSTRUCTION, the
+# acquittal date is ASSUMED AS THE RELEASE DATE unless the record
+# implies otherwise. No separate discharge records are documented,
+# and every sentence text states that the release is assumed from
+# the acquittal. Two defendants ARE implied otherwise, and keep no
+# release:
 #
 #   RONALD AILSWORTH must NOT have August 6 as a release: he faced
 #   additional federal and New Haven matters, and his discharge from
@@ -25,6 +23,15 @@
 #   documents: released September 26, 2019 after approximately forty
 #   years, no admission date or underlying detail established, so
 #   only the release is entered.
+#
+#   CHARLES RUDOLPH SCOTT was reportedly subject to the same federal
+#   and New Haven holds, and a family account only places him back
+#   in Queens by about mid-1972 — so his release too stays open.
+#
+#   MALIK RAHIM keeps the assumed August 6 release: "released during
+#   1971" after about eleven months is consistent with the acquittal
+#   date, and nothing implies a different one. His rearrest five
+#   days after release stays in his texts.
 #
 # BIRTH YEARS from age at arrest, the Camden 28 method: birth year =
 # 1970 minus the reported age, entered at CIRCA precision ("may be off
