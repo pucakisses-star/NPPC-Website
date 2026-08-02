@@ -14,7 +14,8 @@ final class AddMaleckiObituaryArticle extends Command {
     protected $description = 'Publish the obituary for Robert Malecki (1942-2024)';
 
     private const SLUG     = 'robert-malecki-obituary-1942-2024';
-    private const PUB_DATE = '2026-08-02 12:00:00';
+    // Dated to his death, per the curator.
+    private const PUB_DATE = '2024-09-24 12:00:00';
 
     public function handle(): int {
         $category = Category::firstOrCreate(['title' => 'News'], ['slug' => 'news']);
