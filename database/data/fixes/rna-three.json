@@ -1,0 +1,26 @@
+{
+    "people": [
+        {
+            "slug": "charlie-hill",
+            "label": "Charlie Hill",
+            "set": {"first_name": "Charles", "middle_name": "Lee", "aka": null},
+            "birthdate": [1949, 12, 15]
+        },
+        {
+            "slug": "michael-finney",
+            "label": "Michael Finney",
+            "set": {"middle_name": "Robert", "state": "California"},
+            "birthdate": [1950, 12, 9],
+            "death_date": [2005, 1, 24],
+            "photo": true
+        },
+        {
+            "slug": "ralph-goodwin",
+            "label": "Ralph Goodwin",
+            "set": {"middle_name": "Lawrence", "state": "California"},
+            "birthdate": [1947, 4, 29],
+            "death_date": [1975],
+            "photo": true
+        }
+    ]
+}
