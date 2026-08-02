@@ -1,0 +1,15 @@
+{
+    "slug": "robert-malecki",
+    "case": {
+        "arrest_date": [1969, 11, 11],
+        "incarceration_date": [1969, 11, 11],
+        "release_date": [1972, 3],
+        "in_exile_since": [1972, 6],
+        "end_of_exile": [2024, 9, 24],
+        "indicted": "December 10, 1969 (federal indictment)",
+        "sentence": "In custody from the November 11, 1969 \"Silver Spring Revisited\" raid — a January 9, 1970 report has all three defendants still jailed, Malecki under $10,000 bond in the Baltimore County Jail — through release on bail in March 1972 (an August 18, 1972 wire report quotes him telling Swedish officials he had been released \"last March\"; no exact day is documented, so the release is entered at month precision). The federal indictment was returned December 10, 1969. He recalled about nine months in the Baltimore County Jail before federal marshals moved him to USP Lewisburg — placing the transfer at approximately August 1970, an estimate from his recollection rather than a documented date. His separate claim of 27 months at Lewisburg cannot be reconciled with these endpoints and appears to conflate total imprisonment with the Lewisburg stay. Facing the bomb-conspiracy prosecution that followed, he fled to Sweden in June 1972.",
+        "institution": "USP Lewisburg",
+        "institution_city": "Lewisburg",
+        "institution_state": "Pennsylvania"
+    }
+}
