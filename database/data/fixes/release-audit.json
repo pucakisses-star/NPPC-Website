@@ -1,76 +1,296 @@
 {
  "released": [
-  {"slug": "donald-zepeda", "release": [2025, 11, 10],
-   "append": "The Bureau of Prisons records his release from federal custody on November 10, 2025."},
-  {"slug": "mujera-benjamin-lungaho", "release": [2026, 4, 23],
-   "append": "The Bureau of Prisons records his release from federal custody on April 23, 2026."},
-  {"slug": "margaret-channon", "release": [2026, 6, 5],
-   "append": "The Bureau of Prisons records her release from federal custody on June 5, 2026."},
-  {"slug": "timothy-martin", "release": [2026, 5, 21],
-   "append": "The Bureau of Prisons records his release on May 21, 2026, completing the 18-month sentence through a Raleigh residential-reentry placement."},
-  {"slug": "samantha-shader", "release": [2025, 7, 9],
-   "append": "The Bureau of Prisons records her release from FCI Tallahassee on July 9, 2025, completing the 72-month sentence."},
-  {"slug": "conrad-rockenhaus", "release": [2026, 3, 2],
-   "append": "The Bureau of Prisons records his release from custody on March 2, 2026."},
-  {"slug": "ramiz-zijad-hodzic", "release": [2021, 11, 30],
-   "append": "The Bureau of Prisons records his release on November 30, 2021, completing the sentence from the 2015 St. Louis material-support case."},
-  {"slug": "armando-gomez", "release": [2026, 3, 25],
-   "append": "The Bureau of Prisons records his release from federal custody on March 25, 2026."},
-  {"slug": "hafiz-muhammad-sher-ali-khan", "release": [2019, 10, 11],
-   "append": "On October 11, 2019, a federal judge granted the 84-year-old imam compassionate release to a North Carolina hospice, citing pneumonia, dementia, and cancer; the Bureau of Prisons records his release from FMC Butner that day."},
-  {"slug": "alex-saab", "release": [2023, 12, 20],
-   "append": "He was released on December 20, 2023, in a United States-Venezuela prisoner exchange and flew home to Caracas the same day."},
-  {"slug": "russell-kilfoil", "release": [2023, 10, 27],
-   "append": "The Bureau of Prisons records his release on October 27, 2023, completing the sentence through a New York residential-reentry office."},
-  {"slug": "thiruthanikan-thanigasalam", "release": [2019, 7, 19],
-   "append": "After his 25-year sentence was reduced to 15 years in 2016 under an agreement that the Canadian defendants be deported on completion, the Bureau of Prisons records his release from FCI Elkton on July 19, 2019, followed by removal to Canada."},
-  {"slug": "edilberto-berrio-ortiz", "release": [2024, 7, 31],
-   "append": "The Bureau of Prisons records his release from FCI Bastrop on July 31, 2024, completing the 204-month sentence."},
-  {"slug": "carlos-gamarra-murillo", "release": [2025, 7, 18],
-   "append": "The Bureau of Prisons records his release from FCI La Tuna on July 18, 2025."},
-  {"slug": "dawn-jeffrey", "release": [2022, 12, 12],
-   "append": "On December 12, 2022, she was sentenced to 17 months — effectively time served after her pretrial detention — with 18 months of supervised release, and did not return to custody."},
-  {"slug": "gilberto-castillo", "release": [2025, 8, 25],
-   "append": "Iowa Department of Corrections records show his prison term ending April 10, 2025, work release ending August 25, 2025, and active parole supervision since — he is out of prison on parole."},
-  {"slug": "marc-castillo", "release": [2025, 3, 15],
-   "append": "Iowa Department of Corrections records show his final prison term ending March 15, 2025, with no supervision remaining — the sentence is fully discharged."},
-  {"slug": "jacob-d-little", "release": [2023, 2, 3],
-   "append": "The Bureau of Prisons records his release from FDC SeaTac on February 3, 2023, completing the 16-month sentence."},
-  {"slug": "matthew-scott-white", "release": [2025, 10, 23],
-   "append": "The Bureau of Prisons records his release on October 23, 2025, completing the 72-month sentence through a Minneapolis residential-reentry placement."},
-  {"slug": "beto-coral", "release": [2026, 7, 16],
-   "append": "He left the United States on a removal flight to Colombia on July 16, 2026 — a voluntary departure negotiated by his lawyers after about a month in ICE custody — and is no longer detained."},
-  {"slug": "julio-cesar-irungaray", "release": [2026, 6, null],
-   "append": "He was deported to Guadalajara, Mexico, roughly four to five days after his June 24, 2026 detention, and is reported living in Durango; he is no longer in United States custody."},
-  {"slug": "david-japenga", "release": [2010, 12, null],
-   "append": "He was paroled in mid-December 2010, weeks after the November 23, 2010 sentence of six to eighteen months."},
-  {"slug": "carlos-coleman", "release": [2012, 11, 13],
+  {
+   "slug": "donald-zepeda",
+   "release": [
+    2025,
+    11,
+    10
+   ],
+   "append": "The Bureau of Prisons records his release from federal custody on November 10, 2025."
+  },
+  {
+   "slug": "mujera-benjamin-lungaho",
+   "release": [
+    2026,
+    4,
+    23
+   ],
+   "append": "The Bureau of Prisons records his release from federal custody on April 23, 2026."
+  },
+  {
+   "slug": "margaret-channon",
+   "release": [
+    2026,
+    6,
+    5
+   ],
+   "append": "The Bureau of Prisons records her release from federal custody on June 5, 2026."
+  },
+  {
+   "slug": "timothy-martin",
+   "release": [
+    2026,
+    5,
+    21
+   ],
+   "append": "The Bureau of Prisons records his release on May 21, 2026, completing the 18-month sentence through a Raleigh residential-reentry placement."
+  },
+  {
+   "slug": "samantha-shader",
+   "release": [
+    2025,
+    7,
+    9
+   ],
+   "append": "The Bureau of Prisons records her release from FCI Tallahassee on July 9, 2025, completing the 72-month sentence."
+  },
+  {
+   "slug": "conrad-rockenhaus",
+   "release": [
+    2026,
+    3,
+    2
+   ],
+   "append": "The Bureau of Prisons records his release from custody on March 2, 2026."
+  },
+  {
+   "slug": "ramiz-zijad-hodzic",
+   "release": [
+    2021,
+    11,
+    30
+   ],
+   "append": "The Bureau of Prisons records his release on November 30, 2021, completing the sentence from the 2015 St. Louis material-support case."
+  },
+  {
+   "slug": "armando-gomez",
+   "release": [
+    2026,
+    3,
+    25
+   ],
+   "append": "The Bureau of Prisons records his release from federal custody on March 25, 2026."
+  },
+  {
+   "slug": "hafiz-muhammad-sher-ali-khan",
+   "release": [
+    2019,
+    10,
+    11
+   ],
+   "append": "On October 11, 2019, a federal judge granted the 84-year-old imam compassionate release to a North Carolina hospice, citing pneumonia, dementia, and cancer; the Bureau of Prisons records his release from FMC Butner that day."
+  },
+  {
+   "slug": "russell-kilfoil",
+   "release": [
+    2023,
+    10,
+    27
+   ],
+   "append": "The Bureau of Prisons records his release on October 27, 2023, completing the sentence through a New York residential-reentry office."
+  },
+  {
+   "slug": "thiruthanikan-thanigasalam",
+   "release": [
+    2019,
+    7,
+    19
+   ],
+   "append": "After his 25-year sentence was reduced to 15 years in 2016 under an agreement that the Canadian defendants be deported on completion, the Bureau of Prisons records his release from FCI Elkton on July 19, 2019, followed by removal to Canada."
+  },
+  {
+   "slug": "edilberto-berrio-ortiz",
+   "release": [
+    2024,
+    7,
+    31
+   ],
+   "append": "The Bureau of Prisons records his release from FCI Bastrop on July 31, 2024, completing the 204-month sentence."
+  },
+  {
+   "slug": "carlos-gamarra-murillo",
+   "release": [
+    2025,
+    7,
+    18
+   ],
+   "append": "The Bureau of Prisons records his release from FCI La Tuna on July 18, 2025."
+  },
+  {
+   "slug": "dawn-jeffrey",
+   "release": [
+    2022,
+    12,
+    12
+   ],
+   "append": "On December 12, 2022, she was sentenced to 17 months — effectively time served after her pretrial detention — with 18 months of supervised release, and did not return to custody."
+  },
+  {
+   "slug": "gilberto-castillo",
+   "release": [
+    2025,
+    8,
+    25
+   ],
+   "append": "Iowa Department of Corrections records show his prison term ending April 10, 2025, work release ending August 25, 2025, and active parole supervision since — he is out of prison on parole."
+  },
+  {
+   "slug": "marc-castillo",
+   "release": [
+    2025,
+    3,
+    15
+   ],
+   "append": "Iowa Department of Corrections records show his final prison term ending March 15, 2025, with no supervision remaining — the sentence is fully discharged."
+  },
+  {
+   "slug": "jacob-d-little",
+   "release": [
+    2023,
+    2,
+    3
+   ],
+   "append": "The Bureau of Prisons records his release from FDC SeaTac on February 3, 2023, completing the 16-month sentence."
+  },
+  {
+   "slug": "matthew-scott-white",
+   "release": [
+    2025,
+    10,
+    23
+   ],
+   "append": "The Bureau of Prisons records his release on October 23, 2025, completing the 72-month sentence through a Minneapolis residential-reentry placement."
+  },
+  {
+   "slug": "beto-coral",
+   "release": [
+    2026,
+    7,
+    16
+   ],
+   "append": "He left the United States on a removal flight to Colombia on July 16, 2026 — a voluntary departure negotiated by his lawyers after about a month in ICE custody — and is no longer detained."
+  },
+  {
+   "slug": "julio-cesar-irungaray",
+   "release": [
+    2026,
+    6,
+    null
+   ],
+   "append": "He was deported to Guadalajara, Mexico, roughly four to five days after his June 24, 2026 detention, and is reported living in Durango; he is no longer in United States custody."
+  },
+  {
+   "slug": "david-japenga",
+   "release": [
+    2010,
+    12,
+    null
+   ],
+   "append": "He was paroled in mid-December 2010, weeks after the November 23, 2010 sentence of six to eighteen months."
+  },
+  {
+   "slug": "carlos-coleman",
+   "release": [
+    2012,
+    11,
+    13
+   ],
    "append": "The record of a guilty plea is incorrect: Coleman went to trial in United States v. Cornell, and on November 13, 2012, the court granted his Rule 29 motion for judgment of acquittal and dismissed the case against him. He was never convicted, and left custody with the acquittal.",
-   "fix_case": {"convicted": "No — judgment of acquittal granted November 13, 2012 (Rule 29), case dismissed",
-                "sentence": "None — acquitted at trial. The court granted a Rule 29 judgment of acquittal on November 13, 2012 and dismissed the case."}},
-  {"slug": "chase-vladamir-spencer", "release": [2022, 1, null, true],
-   "append": "He was sentenced to one year eight months in the Kent County jail with full credit for time served — meaning release at sentencing, in approximately January 2022; the exact date is undocumented."},
-  {"slug": "brian-cortez-lightfoot-jr", "release": [2026, 6, 28],
-   "append": "His determinate two-year term, imposed June 28, 2024, fully expired no later than June 28, 2026 — the date entered here as the latest possible release; with California conduct credits his actual release was likely around mid-2025, but the exact date is undocumented."},
-  {"slug": "jeremy-white", "release": [2026, 6, 28],
-   "append": "His determinate two-year term, imposed June 28, 2024, fully expired no later than June 28, 2026 — the date entered here as the latest possible release; with California conduct credits his actual release was likely around mid-2025, but the exact date is undocumented."},
-  {"slug": "jacob-greenburg", "release": [2025, null, null, true],
-   "append": "Washington's Department of Corrections incarcerated-persons search no longer lists him, consistent with completion of the 60-month sentence (imposed March 2022, with jail credit and earned release time) around 2025; the exact release date is undocumented."},
-  {"slug": "daithi-ocorrain", "release": [2026, 4, null, true],
-   "append": "He secured High Court bail after an initial refusal, and by the May 11, 2026 hearing at Ennis District Court he was on bail awaiting trial — no longer in custody."},
-  {"slug": "nervis-villalobos-cardenas", "release": [2018, null, null, true],
-   "append": "He was never extradited to the United States: Spanish courts granted him provisional liberty around 2018 after finding the evidence insufficient to hold him, and as of 2026 he lives free in Spain, having obtained Spanish nationality in October 2025."}
+   "fix_case": {
+    "convicted": "No — judgment of acquittal granted November 13, 2012 (Rule 29), case dismissed",
+    "sentence": "None — acquitted at trial. The court granted a Rule 29 judgment of acquittal on November 13, 2012 and dismissed the case."
+   }
+  },
+  {
+   "slug": "chase-vladamir-spencer",
+   "release": [
+    2022,
+    1,
+    null,
+    true
+   ],
+   "append": "He was sentenced to one year eight months in the Kent County jail with full credit for time served — meaning release at sentencing, in approximately January 2022; the exact date is undocumented."
+  },
+  {
+   "slug": "brian-cortez-lightfoot-jr",
+   "release": [
+    2026,
+    6,
+    28
+   ],
+   "append": "His determinate two-year term, imposed June 28, 2024, fully expired no later than June 28, 2026 — the date entered here as the latest possible release; with California conduct credits his actual release was likely around mid-2025, but the exact date is undocumented."
+  },
+  {
+   "slug": "jeremy-white",
+   "release": [
+    2026,
+    6,
+    28
+   ],
+   "append": "His determinate two-year term, imposed June 28, 2024, fully expired no later than June 28, 2026 — the date entered here as the latest possible release; with California conduct credits his actual release was likely around mid-2025, but the exact date is undocumented."
+  },
+  {
+   "slug": "jacob-greenburg",
+   "release": [
+    2025,
+    null,
+    null,
+    true
+   ],
+   "append": "Washington's Department of Corrections incarcerated-persons search no longer lists him, consistent with completion of the 60-month sentence (imposed March 2022, with jail credit and earned release time) around 2025; the exact release date is undocumented."
+  },
+  {
+   "slug": "daithi-ocorrain",
+   "release": [
+    2026,
+    4,
+    null,
+    true
+   ],
+   "append": "He secured High Court bail after an initial refusal, and by the May 11, 2026 hearing at Ennis District Court he was on bail awaiting trial — no longer in custody."
+  },
+  {
+   "slug": "nervis-villalobos-cardenas",
+   "release": [
+    2018,
+    null,
+    null,
+    true
+   ],
+   "append": "He was never extradited to the United States: Spanish courts granted him provisional liberty around 2018 after finding the evidence insufficient to hold him, and as of 2026 he lives free in Spain, having obtained Spanish nationality in October 2025."
+  }
  ],
  "died": [
-  {"slug": "edward-sistrunk", "death": [2024, null, null, true],
-   "append": "He died in custody in 2024, at 84, last held at SCI Rockview; the exact date is undocumented. Prison Radio records him as deceased, and he no longer appears in the Pennsylvania Department of Corrections locator."},
-  {"slug": "salih-ali-abdullah", "death": [2020, null, null, true],
-   "append": "He died in custody in 2020, suffering a fatal stroke in the middle of his fourteenth Parole Board appearance, after serving about forty-seven years."}
+  {
+   "slug": "edward-sistrunk",
+   "death": [
+    2024,
+    null,
+    null,
+    true
+   ],
+   "append": "He died in custody in 2024, at 84, last held at SCI Rockview; the exact date is undocumented. Prison Radio records him as deceased, and he no longer appears in the Pennsylvania Department of Corrections locator."
+  },
+  {
+   "slug": "salih-ali-abdullah",
+   "death": [
+    2020,
+    null,
+    null,
+    true
+   ],
+   "append": "He died in custody in 2020, suffering a fatal stroke in the middle of his fourteenth Parole Board appearance, after serving about forty-seven years."
+  }
  ],
  "notes": [
-  {"slug": "larry-hoover",
-   "append": "His federal sentence was commuted in May 2025 and the Bureau of Prisons records his federal release on May 29, 2025 — but he remains in Illinois state custody, serving the 200-year state murder sentence, so he is still incarcerated."},
-  {"slug": "grailing-brown",
-   "append": "The Bureau of Prisons now lists his projected release as a transfer to state custody; he remains incarcerated."}
+  {
+   "slug": "larry-hoover",
+   "append": "His federal sentence was commuted in May 2025 and the Bureau of Prisons records his federal release on May 29, 2025 — but he remains in Illinois state custody, serving the 200-year state murder sentence, so he is still incarcerated."
+  },
+  {
+   "slug": "grailing-brown",
+   "append": "The Bureau of Prisons now lists his projected release as a transfer to state custody; he remains incarcerated."
+  }
  ]
 }
