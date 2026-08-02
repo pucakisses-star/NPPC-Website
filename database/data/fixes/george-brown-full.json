@@ -1,0 +1,24 @@
+{
+    "slug": "george-brown",
+    "person": {
+        "released": true,
+        "in_exile": true,
+        "currently_in_exile": false,
+        "birthdate": [1944, 3, 28],
+        "death_date": [2015, 10, 9]
+    },
+    "bio": "George Brown was born on March 28, 1944. He had been convicted of armed robbery and was serving a sentence in New Jersey when he escaped from prison with George Wright on August 22, 1970. A federal unlawful-flight warrant was subsequently issued for him.\n\nBrown later lived with the other members of the group in Detroit. On July 31, 1972, he participated as one of the three armed men in the Flight 841 hijacking. After Algeria returned the ransom and the group's hoped-for relationship with the Panther International Section collapsed, Brown entered France with the McNairs and Joyce Tillerson.\n\nFrench authorities arrested Brown on May 26, 1976, and held him at Fleury-Mérogis. The Paris Assize Court sentenced him on November 24, 1978, to five years' imprisonment. Like McNair, he appears to have been released after approximately three years in total custody, in the spring of 1980.\n\nBrown remained in Paris, married a French woman who had participated in the support campaign for the \"Four of Fleury,\" worked as a painter and continued supporting campaigns concerning American political prisoners. He died in Paris's 20th arrondissement on October 9, 2015.",
+    "case": {
+        "arrest_date": [1976, 5, 26],
+        "incarceration_date": [1976, 5, 26],
+        "sentenced_date": [1978, 11, 24],
+        "release_date": [1980, 4, null, true],
+        "in_exile_since": [1972, 7, 31],
+        "end_of_exile": [2015, 10, 9],
+        "convicted": "Yes — sentenced by the Paris Assize Court, November 24, 1978; France tried the case rather than extradite",
+        "sentence": "Five years — imposed by the Paris Assize Court on November 24, 1978, for the July 31, 1972 hijacking of Delta Air Lines Flight 841. In custody at Fleury-Mérogis Prison from his May 26, 1976 arrest in Paris, and released in approximately the spring of 1980 after about three years in total custody. He had earlier escaped a New Jersey armed-robbery sentence with George Wright on August 22, 1970, drawing a federal unlawful-flight warrant.",
+        "institution": "Fleury-Mérogis Prison",
+        "institution_city": "Fleury-Mérogis",
+        "institution_state": "France"
+    }
+}
