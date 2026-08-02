@@ -1,0 +1,26 @@
+{
+    "slug": "johnny-earl-vines",
+    "person": {
+        "name": "Johnny Earl Vines",
+        "first_name": "Johnny",
+        "middle_name": "Earl",
+        "last_name": "Vines",
+        "state": "New Mexico",
+        "gender": "Male",
+        "era": "1970s",
+        "in_custody": false,
+        "released": true,
+        "in_exile": false,
+        "currently_in_exile": false,
+        "awaiting_trial": false,
+        "birthdate": [1942, null, null, true]
+    },
+    "bio": "Johnny Earl Vines was an Albuquerque airport aircraft fueler who sheltered Charles Hill, Michael Finney, and Ralph Goodwin during the November 1971 manhunt following the killing of New Mexico State Police officer Robert Rosenbloom. Authorities also alleged that Vines advised the fugitives about gaining access to Albuquerque International Airport, from which they hijacked TWA Flight 106 to Cuba on November 27. Arrested on November 30, 1971, Vines was convicted of harboring federal fugitives and sentenced to five years in prison. His conviction survived appeal, and the Supreme Court denied review on December 4, 1972.",
+    "case": {
+        "match_arrest": "1971-11-30",
+        "arrest_date": [1971, 11, 30],
+        "charges": "Harboring federal fugitives — sheltering Charles Hill, Michael Finney and Ralph Goodwin during the November 1971 manhunt",
+        "convicted": "Yes — convicted of harboring federal fugitives; the conviction survived appeal, and the Supreme Court denied review on December 4, 1972",
+        "sentence": "Five years in prison. Authorities also alleged that Vines advised the fugitives about gaining access to Albuquerque International Airport, from which they hijacked TWA Flight 106 to Cuba on November 27, 1971. His dates of incarceration and release are not documented."
+    }
+}
