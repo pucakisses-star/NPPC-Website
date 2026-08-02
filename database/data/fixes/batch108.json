@@ -1,0 +1,64 @@
+{
+ "merges": [
+  {
+   "keep": "jacob-hoopes",
+   "drop": "robert-hoopes",
+   "aka_add": "Robert Jacob Hoopes",
+   "note": "Same person: Robert Jacob Hoopes, 25, Portland (BOP 98782-511, FCI Sheridan). The kept record has the photo, the arrest date, and the fuller case row; the dropped record's biography (Quaker-community detail) is appended so nothing is lost."
+  },
+  {
+   "keep": "daniel-sanchez-estrada",
+   "drop": "daniel-rolando-sanchez-estrada",
+   "aka_add": "Daniel Rolando Sanchez-Estrada",
+   "copy_case_incarceration": [2025, 7, null],
+   "note": "Same person: the Prairieland 30-year concealment defendant (BOP 95099-511, FCI Victorville Medium II). The kept record has the richer biography (Des, husband of Maricela Rueda) and the AKA; the dropped record's biography is appended, and its July 2025 incarceration date copies onto the kept case row."
+  },
+  {
+   "keep": "ricardo-palmera",
+   "drop": "juvenal-ovidio-ricardo-palmera-pineda",
+   "ideology_add": "Communism",
+   "copy_case_convicted": "Yes — convicted at trial of hostage-taking",
+   "copy_case_sentence": "720 months (60 years) in federal prison, imposed 2008 for the hostage-taking of three American contractors; held at USP Florence ADMAX with projected release February 17, 2055.",
+   "note": "Same person: Simon Trinidad (BOP 27896-016, Florence ADMAX). The kept record has the photo and established slug; the dropped record's biography is appended, its Communism ideology carries over, and its conviction and 720-month sentence fill the kept case row's empty fields."
+  }
+ ],
+ "corrections": [
+  {
+   "slug": "alexander-stokes-contompasis",
+   "case_match_charges": "Draft Evasion",
+   "case_set_charges": "Assault and criminal possession of a weapon — the stabbing of two Proud Boys during the January 6, 2021 clash at East Capitol Park in Albany.",
+   "note": "The case was mislabeled Draft Evasion; the October 2022 conviction is for the Albany Capitol stabbing (12 + 8 consecutive years)."
+  },
+  {
+   "slug": "fran-thompson",
+   "case_match_charges": "Draft Evasion",
+   "case_set_charges": "First-degree murder — the shooting of a man who had stalked and threatened her and broke into her home; she was barred from presenting a self-defense argument.",
+   "note": "The case was mislabeled Draft Evasion; her conviction is first-degree murder, as her own biography states."
+  },
+  {
+   "slug": "kenneth-whitmore",
+   "case_match_charges": "Murder",
+   "case_clear_release": true,
+   "case_sentence_replace": ["Life — paroled 2016", "Life — never paroled"],
+   "append": "A correction to the note above: Whitmore was never in fact paroled. The 2016 milestone widely celebrated by his supporters was his release from more than three decades of solitary confinement into the general population at Angola, around 2015; he remains at the Louisiana State Penitentiary serving the life sentence, with his non-unanimous-jury challenge still pending.",
+   "note": "The paroled-2016 claim was wrong: he left solitary, not the prison. The false 2016 release date clears from the case row, the sentence text corrects, and the biography keeps its original text with the correction appended."
+  },
+  {
+   "slug": "eric-brandt",
+   "case_match_sentence": "48 months",
+   "case_set_sentence": "12 years Colorado state prison — three consecutive 4-year terms for retaliation against a judge, imposed February 2022.",
+   "append": "His Colorado sentence, imposed in February 2022, was in fact 12 years — three consecutive 4-year terms for retaliation against a judge. Nearing his Colorado parole eligibility in early 2026, he was taken into federal custody on an Eastern District of Louisiana indictment charging interstate threats, and remains held.",
+   "note": "The recorded 48-month sentence was wrong (12 years), and the new federal case is documented in the biography."
+  },
+  {
+   "slug": "jeffrey-weinhaus",
+   "inmate_number": "1261778",
+   "note": "The inmate-number field held a case number (2012-4030); his Missouri DOC number is 1261778."
+  },
+  {
+   "slug": "ines-soto",
+   "desc_replace": ["On June 23, 2026 she was sentenced to 50 years", "On July 1, 2026 she was sentenced to 50 years"],
+   "note": "She was sentenced July 1, 2026, not June 23 — a surgical date fix; every other word of the biography is untouched."
+  }
+ ]
+}
