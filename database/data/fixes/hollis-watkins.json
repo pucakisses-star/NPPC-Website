@@ -1,0 +1,58 @@
+{
+    "slug": "hollis-watkins",
+    "person": {
+        "name": "Hollis Watkins",
+        "first_name": "Hollis",
+        "last_name": "Watkins",
+        "state": "Mississippi",
+        "race": "Black",
+        "gender": "Male",
+        "era": "1960s",
+        "ideologies": ["Civil Rights"],
+        "affiliation": ["Student Nonviolent Coordinating Committee", "Mississippi Freedom Democratic Party", "Southern Echo", "Nation of Islam"],
+        "in_custody": false,
+        "released": true,
+        "in_exile": false,
+        "currently_in_exile": false,
+        "awaiting_trial": false,
+        "birthdate": [1941, 7, 29],
+        "death_date": [2023, 9, 20]
+    },
+    "bio": "Hollis Watkins was a Mississippi civil-rights organizer, voting-rights activist, and freedom-song leader born on July 29, 1941, near Summit in Lincoln County, Mississippi. He began attending NAACP youth meetings led by Medgar Evers as a teenager and became one of the first native Mississippians to work full-time for the Student Nonviolent Coordinating Committee in 1961.\n\nWatkins worked with Bob Moses, Curtis Hayes, Fannie Lou Hamer, Medgar Evers, and other organizers on voter-registration campaigns throughout McComb, Hattiesburg, Greenwood, and Holmes County. He later served as a county organizer during the 1964 Mississippi Freedom Summer and supported the Mississippi Freedom Democratic Party's challenge to the state's segregated Democratic delegation. In 1989, he founded Southern Echo, which trained grassroots organizers throughout Mississippi and the South.\n\nWatkins died at his home in Clinton, Mississippi, on September 20, 2023, with his wife Edna beside him. He was 82 and was buried at Chisholm Mission AME Church Cemetery near Summit.",
+    "cases": [
+        {
+            "label": "McComb Woolworth sit-in",
+            "match": {"arrest": "1961-08-26"},
+            "arrest_date": [1961, 8, 26],
+            "incarceration_date": [1961, 8, 26],
+            "release_date": [1961, 9, 29, true],
+            "charges": "McComb's first sit-in at the segregated Woolworth lunch counter, conducted with Curtis Hayes",
+            "convicted": "No — a later account states the charges were eventually dropped",
+            "sentence": "34 days in jail under harsh conditions; he reportedly lost 18 pounds. The exact discharge date has not been located — 34 days from the August 26, 1961 arrest places his release around September 28-29, 1961, entered at approximate precision."
+        },
+        {
+            "label": "Burglund High School walkout",
+            "match": {"arrest": "1961-10-04"},
+            "arrest_date": [1961, 10, 4],
+            "incarceration_date": [1961, 10, 4],
+            "release_date": [1961, 11, 12, true],
+            "charges": "Arrested with Curtis Hayes, Bob Moses and others after the Burglund High School walkout marchers knelt in prayer at McComb City Hall",
+            "convicted": "",
+            "sentence": "The walkout of October 4, 1961 protested the expulsion of 15-year-old activist Brenda Travis. His family biography records another 39 days in jail, placing probable release around November 11-12, 1961 (entered at approximate precision); an exact discharge record remains unresolved."
+        },
+        {
+            "label": "Greenwood voter-registration imprisonment",
+            "match": {"arrest_month": "1963-06"},
+            "arrest_date": [1963, 6],
+            "incarceration_date": [1963, 6],
+            "sentenced_date": [1963, 6],
+            "release_date": [1963, 8, null, true],
+            "charges": "Disturbing the peace and possibly parading without a permit — the June 1963 Greenwood voter-registration march of about 200 Black residents that refused an order to disperse",
+            "convicted": "Yes — a four-month sentence imposed after what was described as a five-minute trial",
+            "sentence": "Four months, imposed after a five-minute trial. Held briefly in the Greenwood city jail, about one week at the county penal farm, then transferred to the Mississippi State Penitentiary at Parchman, where — despite no capital offense — he spent 55 days in the maximum-security death-row unit, much of it in isolation or solitary confinement. Entered as June 1963 to circa August 1963; the Associated Press obituary places the Parchman episode in 1962, but his first-person account and the chronology of Greenwood's first large demonstration indicate 1963, and precise arrest and release dates await Leflore County or Parchman records.",
+            "institution": "Mississippi State Penitentiary (Parchman)",
+            "institution_city": "Parchman",
+            "institution_state": "Mississippi"
+        }
+    ]
+}
