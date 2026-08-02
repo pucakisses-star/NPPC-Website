@@ -1,0 +1,15 @@
+{
+    "slug": "willie-roger-holder",
+    "bio": "Willie Roger Holder was a Black Panther and Vietnam veteran who went AWOL from the military after being seriously wounded by a landmine and then subsequently jailed by the army for marijuana possession. In 1972, he hijacked Western Airlines Flight 701 with accomplice Marie Kerkow, demanding freedom for political prisoner Angela Davis and safe passage to North Vietnam in exchange for the release of the passengers. He eventually was given $500,000 in ransom and fled to Algeria where he was granted political asylum. In 1975 him and Marie Kerkow were arrested attempting to enter France and held for several months before release. In 1980 a French court convicted him for the American hijacking and handed down a five-year suspended sentence. In 1986 French authorities deported him to the United States where he was arrested and held again for the hijacking and received a four-year sentence. He was paroled in August 1989. In July 1991 he was rearrested on a parole violation after a police informant claimed he was planning another hijacking. After his final release from prison in 1992 he spent the remainder of his life working as a day laborer.",
+    "us_case_sentence": "Four years for the hijacking, imposed after French authorities deported him to the United States on July 26, 1986; held from that day in pretrial custody and then federal imprisonment, and paroled in August 1989. In exile from June 3, 1972 to July 26, 1986 — political asylum in Algeria, then France.",
+    "parole_case": {
+        "match_arrest": "1991-07-02",
+        "arrest_date": [1991, 7, 2],
+        "incarceration_date": [1991, 7, 2],
+        "release_date": [1992, 6, 2],
+        "in_exile_since": [1992, 6, 2],
+        "end_of_exile": [1992, 6, 2],
+        "charges": "Parole violation",
+        "sentence": "Rearrested July 2, 1991 on a parole violation after a police informant claimed he was planning another hijacking; held until June 2, 1992 — his final release from prison. He spent the remainder of his life working as a day laborer."
+    }
+}
