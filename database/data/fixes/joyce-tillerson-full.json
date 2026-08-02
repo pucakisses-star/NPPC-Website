@@ -1,0 +1,25 @@
+{
+    "slug": "joyce-tillerson",
+    "person": {
+        "aka": "Joyce Brown; Joyce Tillerson Burgess",
+        "released": true,
+        "in_exile": true,
+        "currently_in_exile": false,
+        "birthdate": [1951, 6, 6],
+        "death_date": [2000, 4, 15]
+    },
+    "bio": "Joyce Tillerson, also documented as Joyce Tillerson Burgess, was born on June 6, 1951, in Spartanburg, South Carolina. She traveled aboard Flight 841 with her young daughter. Although she was treated as a member of the hijacking group, the French proceedings reportedly did not establish that either Tillerson or Jean McNair had personally carried a weapon.\n\nAfter reaching Algeria and then France, Tillerson lived clandestinely with the others until her arrest in Paris on May 26, 1976. She was imprisoned at Fleury-Mérogis for approximately two and a half years. On November 24, 1978, she received a five-year sentence, with two years suspended. Because she had already served nearly the entire three-year custodial portion, she was released within days of the verdict.\n\nTillerson remained in Paris and later worked with La Cimade, an organization assisting migrants and refugees. She subsequently worked for the Paris office of the African National Congress and, following the end of apartheid, for the South African embassy. She died in Paris's 12th arrondissement on April 15, 2000, aged 48; the French death index confirms her birth and death dates.",
+    "case": {
+        "arrest_date": [1976, 5, 26],
+        "incarceration_date": [1976, 5, 26],
+        "sentenced_date": [1978, 11, 24],
+        "release_date": [1978, 11, 24],
+        "in_exile_since": [1972, 7, 31],
+        "end_of_exile": [2000, 4, 15],
+        "convicted": "Yes — convicted by the Paris Assize Court, November 24, 1978; France tried the case rather than extradite",
+        "sentence": "Five years, two years suspended — imposed by the Paris Assize Court on November 24, 1978, for the July 31, 1972 hijacking of Delta Air Lines Flight 841. Having spent approximately two and a half years at Fleury-Mérogis Prison since her May 26, 1976 arrest in Paris, she was released within days of the verdict, having already served nearly the entire custodial portion. The French proceedings reportedly did not establish that she or Jean McNair had personally carried a weapon.",
+        "institution": "Fleury-Mérogis Prison",
+        "institution_city": "Fleury-Mérogis",
+        "institution_state": "France"
+    }
+}
