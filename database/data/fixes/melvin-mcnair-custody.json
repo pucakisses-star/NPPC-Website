@@ -1,0 +1,17 @@
+{
+    "slug": "melvin-mcnair",
+    "person": {
+        "released": true
+    },
+    "case": {
+        "arrest_date": [1976, 5, 26],
+        "incarceration_date": [1976, 5, 26],
+        "sentenced_date": [1978, 11, 24],
+        "release_date": [1980, 4, null, true],
+        "convicted": "Yes — convicted by the Paris Assize Court, November 24, 1978; France refused extradition and tried the case itself",
+        "sentence": "Convicted by the Paris Assize Court on November 24, 1978, for the July 31, 1972 hijacking of Delta Air Lines Flight 841. In custody at Fleury-Mérogis Prison from his May 26, 1976 arrest in Paris, and released in approximately the spring of 1980 after about three years in total custody. He settled permanently in France.",
+        "institution": "Fleury-Mérogis Prison",
+        "institution_city": "Fleury-Mérogis",
+        "institution_state": "France"
+    }
+}
