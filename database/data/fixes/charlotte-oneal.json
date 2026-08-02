@@ -1,0 +1,16 @@
+{
+    "slug": "charlotte-oneal",
+    "person": {
+        "middle_name": "Hill",
+        "aka": null,
+        "currently_in_exile": false,
+        "in_exile": true,
+        "birthdate": [1951, 3, 9]
+    },
+    "bio": "Charlotte O'Neal is an artist, poet, and musician as well as a former member of the Black Panther Party who fled into exile alongside her husband, Black Panther leader Pete O'Neal after he jumped bail in 1970. The pair eventually settled in Tanzania and co-founded the United African Alliance Community Center near Arusha. There she has spent decades leading arts, music, and education programs and mentoring young people, becoming a prominent community and spiritual leader.",
+    "case": {
+        "in_exile_since": [1970],
+        "end_of_exile": [1990],
+        "sentence": "Never charged — went into exile with her husband Pete O'Neal after he jumped bail in 1970. Exile recorded from 1970 to 1990; the couple settled in Tanzania and co-founded the United African Alliance Community Center near Arusha, where she has remained."
+    }
+}
