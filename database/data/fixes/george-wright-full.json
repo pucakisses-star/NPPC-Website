@@ -1,0 +1,26 @@
+{
+    "slug": "george-wright",
+    "person": {
+        "middle_name": "Edward",
+        "state": "Virginia",
+        "birthdate": [1943, 3, 29]
+    },
+    "bio": "George Edward Wright was born on March 29, 1943, in Halifax, Virginia. In 1962 he participated in a series of armed robberies in New Jersey, one of which resulted in the fatal shooting of gas-station proprietor Walter Patterson. Wright entered a no-contest or \"no defense\" plea to murder and received a 15-to-30-year prison sentence. He escaped from the New Jersey prison at Leesburg with George Brown on August 22, 1970.\n\nDuring the Flight 841 hijacking, Wright used the name Reverend Larry Darnell Burgess, dressed as a clergyman and carried a handgun concealed inside a hollowed-out Bible. The FBI describes him as confronting the flight crew with the weapon; survivor and investigative accounts generally identify him as the principal organizer or leader aboard the aircraft.\n\nUnlike the other four, Wright avoided the 1976 French arrests. He later lived in Guinea-Bissau and then Portugal under the identity José Luís Jorge dos Santos, acquired Portuguese citizenship, married and raised a family. Portuguese police arrested him on September 26, 2011, after fingerprints connected his Portuguese identity to the American fugitive record. He was released the following month, and Portuguese courts denied the American extradition request.\n\nThe FBI's current page continues to list Wright as wanted and states that he is known to be living in Portugal. No verified death has been reported.",
+    "main_case": {
+        "match_charges": "Escape",
+        "in_exile_since": [1972, 7, 31],
+        "convicted": "Convicted of the 1962 New Jersey murder (no-contest plea, 15 to 30 years); never tried for the hijacking — Portugal denied extradition",
+        "sentence": "Escaped from the New Jersey prison at Leesburg with George Brown on August 22, 1970, while serving 15 to 30 years imposed on a no-contest plea to murder for the 1962 shooting of gas-station proprietor Walter Patterson. Hijacked Delta Air Lines Flight 841 on July 31, 1972 as Reverend Larry Darnell Burgess, dressed as a clergyman with a handgun concealed inside a hollowed-out Bible; survivor and investigative accounts generally identify him as the principal organizer aboard. In exile since the hijacking — Algeria, Guinea-Bissau, then Portugal as José Luís Jorge dos Santos, with Portuguese citizenship. The FBI continues to list him as wanted and living in Portugal; no verified death has been reported."
+    },
+    "portugal_case": {
+        "match_arrest": "2011-09-26",
+        "arrest_date": [2011, 9, 26],
+        "incarceration_date": [2011, 9, 26],
+        "release_date": [2011, 10, 14],
+        "in_exile_since": [2011, 10, 14],
+        "end_of_exile": [2011, 10, 14],
+        "charges": "Detained in Portugal on the American extradition request",
+        "convicted": "No — Portuguese courts denied the American extradition request",
+        "sentence": "Arrested in Portugal on September 26, 2011, after fingerprints connected his Portuguese identity — José Luís Jorge dos Santos — to the American fugitive record; held until his release on October 14, 2011. Portuguese courts denied the American extradition request, and he remains free in Portugal."
+    }
+}
