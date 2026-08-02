@@ -2,10 +2,9 @@
 #
 # BATCH 84 -- Melvin McNair: birth date, the III, corrected bio.
 #
-#   Per the curator-s correction: MELVIN McNAIR III was born on
-#   OCTOBER 30, 1948. The birthdate is set; the full form "Melvin
-#   McNair III" is recorded as AKA (display name stays "Melvin
-#   McNair", matching the batch 83 convention). The bio is replaced
+#   Per the curator-s corrections: born OCTOBER 30, 1948; the
+#   birthdate is set and any AKA is CLEARED (the record shows just
+#   "Melvin McNair"). The bio is replaced
 #   with the corrected text, which adds that his Black-liberation and
 #   antiwar politics grew out of the racism he experienced during his
 #   military service.
@@ -63,7 +62,7 @@ $notes = [];
 
 if ($p->aka !== $payload["aka"]) {
     $p->aka = $payload["aka"];
-    $notes[] = "aka=".$payload["aka"];
+    $notes[] = $payload["aka"] === null ? "aka cleared" : "aka=".$payload["aka"];
 }
 
 [$y, $m, $d] = $payload["birthdate"];
