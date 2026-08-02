@@ -1,0 +1,10 @@
+{
+    "photos": ["colin-weger", "zainab-hakim", "paige-feyock"],
+    "malecki": {
+        "slug": "robert-malecki",
+        "birthdate": [1942, 10, 27],
+        "death_date": [2024, 9, 24],
+        "in_exile_since": [1972, 6],
+        "end_of_exile": [2024, 9, 24]
+    }
+}
