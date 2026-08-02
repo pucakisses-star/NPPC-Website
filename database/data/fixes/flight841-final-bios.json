@@ -1,0 +1,29 @@
+{
+    "people": [
+        {
+            "slugs": ["george-wright"],
+            "set": {"aka": null},
+            "bio": "George Wright was a Black Liberation Army member who on July 31, 1972 hijacked Delta Air Lines Flight 841 with a group of four others after it departed Detroit. The group demanded a large ransom and passage to Algeria, where they hoped to join the exiled International Section of the Black Panther Party. Wright eventually relocated to France and later to Guinea-Bissau and then Portugal, where he lived under a new identity, acquired Portuguese citizenship and started a family. Portuguese police arrested him in September 2011 after his fingerprints were matched to his decades-old American fugitive record. Portuguese courts rejected attempts by the American government to have him extradited, ruling that he was protected by Portuguese law and citizenship, and he was subsequently released."
+        },
+        {
+            "slugs": ["joyce-tillerson"],
+            "set": {"aka": null},
+            "bio": "Joyce Tillerson was a black revolutionary who on July 31, 1972 hijacked Delta Air Lines Flight 841 with a group of four others after it departed Detroit in order to get passage to Algeria so she could join the International Section of the Black Panther Party. Tillerson eventually relocated to France where she was arrested and held for the hijacking with other members of the group. After serving a French prison sentence she remained in Paris and worked for La Cimade, an organization assisting migrants and refugees. She later worked for the South African embassy in Paris until her death from cancer in 2000."
+        },
+        {
+            "slugs": ["george-brown"],
+            "set": {},
+            "bio": "George Brown was a black revolutionary who on July 31, 1972 hijacked Delta Air Lines Flight 841 with a group of four others after it departed Detroit in order to get passage to Algeria so he and the group could join the International Section of the Black Panther Party. Brown eventually relocated to France where he was arrested and held for the hijacking with other members of the group. After serving a French prison sentence he remained in Paris and married a French woman who had participated in the support campaign for the group's release. He became a painter and remained an advocate and activist of American political prisoners for the remainder of his life."
+        },
+        {
+            "slugs": ["jean-carol-allen-mcnair", "jean-mcnair"],
+            "set": {"aka": null, "name": "Jean McNair", "first_name": "Jean", "middle_name": "Carol", "last_name": "McNair"},
+            "bio": "Jean McNair was a teacher and black revolutionary who along with her husband and three others hijacked Delta Air Lines Flight 841 after it departed Detroit in order to get passage to Algeria so she and the group could join the International Section of the Black Panther Party. Eventually she and the group left Algeria and secretly entered France in 1973 and lived there under assumed identities with assistance from French supporters until being arrested by French authorities on May 26, 1976. Jean was imprisoned at Fleury-Mérogis Prison before being sentenced to time served for the hijacking. McNair and her husband later settled in Caen, Normandy where she founded the youth organization Espérance et Jeunesse in 1988. The nonprofit provided educational, social and professional assistance to more than 3,000 disadvantaged children. McNair remained a respected community activist for the remainder of her life."
+        },
+        {
+            "slugs": ["melvin-mcnair"],
+            "set": {},
+            "bio": "Melvin McNair was a Vietnam veteran and black revolutionary who, with his wife Jean and three other companions, hijacked Delta Air Lines Flight 841 out of Detroit on July 31, 1972, demanding ransom and passage to Algeria to join the Black Panther International Section. The hijackers released all 86 passengers in Miami before flying on to Algiers. Disillusioned with exile in Algeria, the group moved to France, where they were arrested in 1976 and tried for the hijacking. After his release from prison McNair settled in Caen, Normandy, where he worked at an orphanage and coached youth baseball until his retirement."
+        }
+    ]
+}
