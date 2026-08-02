@@ -1,0 +1,319 @@
+{
+ "new": [
+  {
+   "slug": "mary-magdalene-harrison",
+   "name": "Mary Magdalene Harrison",
+   "first_name": "Mary",
+   "middle_name": "Magdalene",
+   "last_name": "Harrison",
+   "gender": "Female",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Mary Magdalene Harrison was arrested in Jackson, Mississippi, on June 23, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 23],
+     "charges": "Freedom Ride participation — arrested Jackson, June 23, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-23. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "mary-lucille-hamilton",
+   "name": "Mary Lucille Hamilton",
+   "first_name": "Mary",
+   "middle_name": "Lucille",
+   "last_name": "Hamilton",
+   "gender": "Female",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "birth": [1935],
+   "death": [2002],
+   "description": "Mary Lucille Hamilton was arrested in Jackson, Mississippi, on June 25, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which also supplies her life years, 1935 to 2002. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 25],
+     "charges": "Freedom Ride participation — arrested Jackson, June 25, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-25. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "norma-libson",
+   "name": "Norma Libson",
+   "first_name": "Norma",
+   "last_name": "Libson",
+   "gender": "Female",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "birth": [1934],
+   "description": "Norma Libson, born in 1934, was arrested in Jackson, Mississippi, on June 25, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 25],
+     "charges": "Freedom Ride participation — arrested Jackson, June 25, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-25. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "robert-william-mason",
+   "name": "Robert William Mason",
+   "first_name": "Robert",
+   "middle_name": "William",
+   "last_name": "Mason",
+   "gender": "Male",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Robert William Mason was arrested in Jackson, Mississippi, on June 25, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 25],
+     "charges": "Freedom Ride participation — arrested Jackson, June 25, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-25. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "rita-carter",
+   "name": "Rita Carter",
+   "first_name": "Rita",
+   "last_name": "Carter",
+   "gender": "Female",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Rita Carter was arrested in Jackson, Mississippi, on June 20, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "robert-martinson",
+   "name": "Robert Martinson",
+   "first_name": "Robert",
+   "last_name": "Martinson",
+   "gender": "Male",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Robert Martinson was arrested in Jackson, Mississippi, on June 20, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "william-wagoner",
+   "name": "William Wagoner",
+   "first_name": "William",
+   "last_name": "Wagoner",
+   "gender": "Male",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "William Wagoner was arrested in Jackson, Mississippi, on June 20, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "lestra-peterson",
+   "name": "Lestra Peterson",
+   "first_name": "Lestra",
+   "last_name": "Peterson",
+   "gender": "Female",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Lestra Peterson was arrested in Jackson, Mississippi, on June 20, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "margaret-ann-kerr",
+   "name": "Margaret Ann Kerr",
+   "first_name": "Margaret",
+   "middle_name": "Ann",
+   "last_name": "Kerr",
+   "gender": "Female",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Margaret Ann Kerr was arrested in Jackson, Mississippi, on June 20, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "paul-duncan-mcconnell",
+   "name": "Paul Duncan McConnell",
+   "first_name": "Paul",
+   "middle_name": "Duncan",
+   "last_name": "McConnell",
+   "gender": "Male",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "description": "Paul Duncan McConnell was arrested in Jackson, Mississippi, on June 20, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  },
+  {
+   "slug": "grant-harland-muse-jr",
+   "name": "Grant Harland Muse Jr.",
+   "first_name": "Grant",
+   "middle_name": "Harland",
+   "last_name": "Muse",
+   "gender": "Male",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": ["Civil Rights"],
+   "affiliation": [],
+   "aka": "Reverend Grant Harland Muse",
+   "birth": [1925, null, null, true],
+   "description": "Grant Harland Muse Jr., a thirty-five-year-old Episcopal priest at Good Shepherd Church in Berkeley, rode the Illinois Central Railroad from New Orleans to Jackson, Mississippi, and was arrested on June 20, 1961, for participating in the Freedom Rides — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHis birth year, about 1925, is an estimate from his reported age at arrest; no exact birth date has been located.",
+   "cases": [
+    {
+     "arrest": [1961, 6, 20],
+     "charges": "Freedom Ride participation — rode the Illinois Central Railroad from New Orleans, arrested Jackson, June 20, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-20. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "photo": true
+  }
+ ],
+ "updates": [
+  {
+   "slug": "miriam-feingold",
+   "photo_slug": "miriam-feingold",
+   "case_arrest": [1961, 6, 21],
+   "note": "Her Sovereignty Commission mugshot (2-55-5-48, placard 21048, 6-21-61) attaches to the empty photo slot, and the arrest date enters at June 21, 1961, from the verified record."
+  },
+  {
+   "slug": "james-robert-wahlstrom",
+   "append": "The catalog in fact preserves two distinct arrest records for Wahlstrom, then a twenty-two-year-old University of Wisconsin psychology student: the June 6, 1961 arrest at the Jackson Trailways terminal after riding from New Orleans with six other Freedom Riders, and a second arrest at the Jackson Greyhound terminal on July 31, 1961, during another Freedom Ride. His birth year, about 1938, is an estimate from his reported age; both custody outcomes remain unresolved.",
+   "birth": [1938, null, null, true],
+   "add_case": {
+    "match_missing_charges": "Greyhound terminal, July 31",
+    "arrest": [1961, 7, 31],
+    "charges": "Freedom Ride participation — second arrest, at the Jackson Greyhound terminal, July 31, 1961.",
+    "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+    "sentence": "Arrested 1961-07-31. The Civil Rights Digital Library establishes the arrest and a second identification-photograph record but not the disposition or the release date — unresolved pending court, jail, or penitentiary records."
+   }
+  },
+  {
+   "slug": "buron-lewis-teale",
+   "rename": "Buren Lewis Teale",
+   "first_name": "Buren",
+   "aka": "Buron Lewis Teale",
+   "note": "CRDL authority page (people/teale_buren_lewis) identifies Buren Lewis Teale as the authoritative form and marks the photograph spelling Buron as erroneous; the primary form and the AKA swap accordingly."
+  },
+  {
+   "slug": "fredrick-muntean",
+   "rename": "Frederick Dean Muntean",
+   "first_name": "Frederick",
+   "middle_name": "Dean",
+   "aka": "Fredrick Muntean",
+   "birth": [1938, null, null, true],
+   "append": "CRDL's authority record gives his full canonical name, Frederick Dean Muntean, and identifies him as a twenty-two-year-old Youngstown University student who rode the Illinois Central Railroad from New Orleans with about eleven other riders; his birth year, about 1938, is an estimate from that age.",
+   "note": "Authority page people/muntean_frederick_dean supplies the canonical full name; the photograph spelling Fredrick becomes the AKA."
+  },
+  {
+   "slug": "alpha-zara-palmer",
+   "birth": [1943],
+   "aka": "Alpha Zare Palmer",
+   "note": "CRDL supplies a 1943 birth year, and the photograph spelling Alpha Zare Palmer joins as an AKA."
+  },
+  {
+   "slug": "frank-caston",
+   "birth": [1943],
+   "note": "CRDL supplies a 1943 birth year."
+  },
+  {
+   "slug": "frank-lee-griffin",
+   "birth": [1940],
+   "note": "CRDL supplies a 1940 birth year."
+  },
+  {
+   "slug": "jessie-l-harris",
+   "birth": [1942],
+   "aka": "Jesse Harris",
+   "note": "CRDL supplies a 1942 birth year, and its authority record uses Jesse Harris, kept as an AKA."
+  }
+ ],
+ "photo_ids": {
+  "mary-magdalene-harrison": "2-55-5-59-1-1-1",
+  "mary-lucille-hamilton": "2-55-5-144-1-1-1",
+  "norma-libson": "2-55-5-132-1-1-1",
+  "robert-william-mason": "2-55-5-142-1-1-1",
+  "rita-carter": "2-55-4-84-1-1-1",
+  "robert-martinson": "2-55-4-78-1-1-1",
+  "william-wagoner": "2-55-4-80-1-1-1",
+  "lestra-peterson": "2-55-4-76-1-1-1",
+  "margaret-ann-kerr": "2-55-4-72-1-1-1",
+  "paul-duncan-mcconnell": "2-55-4-79-1-1-1",
+  "grant-harland-muse-jr": "2-55-4-74-1-1-1",
+  "miriam-feingold": "2-55-5-48-1-1-1"
+ }
+}

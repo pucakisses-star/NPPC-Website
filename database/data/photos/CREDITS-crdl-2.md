@@ -31,3 +31,17 @@ The full slug→record-id table is in
 key). Slugs listed there without a file in `photos/crdl2/` had no
 retrievable or verifiable image in this pass and will attach on a
 re-run when a slug-named file is dropped in.
+
+## Third wave (batch 105, `photos/crdl3/`)
+
+Same provenance and method as above (MDAH large scans, frontal panels
+with placards, 525×700, all placards read against ledger dates on a
+contact sheet): the June 20, 1961 Illinois Central group (Carter
+21027, Martinson 21037, Wagoner 21039, Peterson 21035, Kerr 21031,
+McConnell 21038, Rev. Muse 21033), Harrison 21058 (6-23), Hamilton
+21068, Libson 21082, Mason 21072 (6-25), and Miriam Feingold 21048
+(6-21), whose mugshot fills the empty slot on her existing record.
+The Wahlstrom scans at …4-4 and …6-112 both carry placard 20953,
+6-6-61 — MDAH serves the June 6 image for both of his records; his
+July 31 arrest is documented in the …6-112 catalog data, and no
+distinct July 31 photograph is retrievable.
