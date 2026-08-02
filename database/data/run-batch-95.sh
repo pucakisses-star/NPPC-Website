@@ -10,9 +10,8 @@
 #   both address fields are cleared.
 #
 #   His exile flags were on but the case had no in_exile_since, so
-#   the counter read zero. Set to 2011 (year precision, per his bio:
-#   "In 2011 Cooper and his family fled to Brazil"), no end date —
-#   about 15 years and running.
+#   the counter read zero. Set to DECEMBER 2011 (month precision, per
+#   the curator), no end date — nearly 15 years and running.
 #
 #   NOTE FOR THE CURATOR: ten OTHER records share the same West
 #   Tennessee State Penitentiary institution link, which looks like
@@ -83,11 +82,11 @@ if (! $case) {
         }
     }
 
-    $was = $case->in_exile_since ? $case->in_exile_since->format("Y-m-d") : null;
+    $was = $case->in_exile_since ? $case->in_exile_since->format("Y-m") : null;
 
-    if (! $was || substr($was, 0, 4) !== "2011") {
-        $case->setPartialDate("in_exile_since", 2011);
-        $notes[] = "in_exile_since=2011 (year precision)".($was ? " (was ".$was.")" : "");
+    if ($was !== "2011-12") {
+        $case->setPartialDate("in_exile_since", 2011, 12);
+        $notes[] = "in_exile_since=December 2011 (month precision)".($was ? " (was ".$was.")" : "");
     }
 
     if ($case->end_of_exile !== null) {
