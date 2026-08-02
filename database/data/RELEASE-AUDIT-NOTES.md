@@ -4,9 +4,18 @@ All 188 in-custody records audited: the 37 with BOP register numbers
 checked directly against the federal inmate locator, the rest through
 twelve research passes over state DOC locators, court records, news,
 and support-committee announcements, with the two-fact identity rule
-throughout. Outcome: **29 released, 2 died in custody, 152 confirmed
+throughout. Outcome: **28 released, 2 died in custody, 153 confirmed
 or presumed still in, 5 unresolved.** The releases and deaths apply in
 `run-batch-106.sh`; everything below is flagged, not changed.
+
+## Alex Saab — left unchanged, per the curator
+
+The audit initially marked Saab released (the December 20, 2023
+US-Venezuela prisoner exchange), but the curator reports he has since
+been REARRESTED, so his record keeps its in-custody status and was
+removed from the batch. The 2023 exchange and the rearrest are not
+yet reflected in his case rows — a future update could carry that
+chronology.
 
 ## Unresolved — could not confirm either way (left in custody)
 

@@ -4,7 +4,7 @@
 # against the BOP inmate locator, state DOC locators, court records,
 # and support-committee reporting (August 2, 2026).
 #
-#   29 RELEASED — federal releases carry the BOP actual release date
+#   28 RELEASED — federal releases carry the BOP actual release date
 #   (day precision); deportations, bail, time-served and
 #   term-expiration releases carry the precision the record supports,
 #   with the evidentiary situation stated in the biography. Carlos
