@@ -1,0 +1,31 @@
+{
+    "old_slug": "jean-mcnair",
+    "new_slug": "jean-carol-allen-mcnair",
+    "person": {
+        "name": "Jean Carol Allen McNair",
+        "first_name": "Jean",
+        "middle_name": "Carol",
+        "last_name": "McNair",
+        "aka": "Jean Carol Allen",
+        "state": "North Carolina",
+        "released": true,
+        "in_exile": true,
+        "currently_in_exile": false,
+        "birthdate": [1946, 10, 11],
+        "death_date": [2014, 10, 24]
+    },
+    "bio": "Jean Carol McNair, née Allen, was born on October 11, 1946, in Winston-Salem, North Carolina. She attended Winston-Salem State College from 1964 to 1968 and trained as a physical-education teacher. She married Melvin McNair on August 25, 1969, and they had two children.\n\nOn July 31, 1972, Jean and Melvin McNair participated with George Wright, George Brown and Joyce Tillerson in the armed hijacking of Delta Air Lines Flight 841, traveling from Detroit to Miami; Jean boarded with the McNairs' two small children. The group demanded $1 million and transportation to Algeria, releasing the passengers in Miami before flying through Boston to Algiers. Algerian authorities seized and returned the ransom, while the hijackers were initially permitted to remain in the country.\n\nThe McNairs hoped to join the Black Panther Party's exiled International Section, but their relationship with the Panther community in Algeria proved disappointing. They secretly entered France in 1973 and lived there under assumed identities with assistance from French supporters.\n\nFrench authorities arrested Jean, Melvin, George Brown and Joyce Tillerson in Paris on May 26, 1976. Jean was imprisoned at Fleury-Mérogis Prison while France considered the American extradition request and then prepared its own prosecution. During their imprisonment, the four defendants contributed to the book Nous, Noirs américains évadés du ghetto. On November 24, 1978, the Paris Assize Court convicted all four; Jean received a five-year sentence with two years suspended, and because she had already spent almost two and a half years in pretrial custody she was released immediately after the verdict.\n\nJean and Melvin later settled in the La Grâce-de-Dieu neighborhood of Caen, Normandy. Jean founded the youth organization Espérance et Jeunesse in 1988, providing educational, social and professional assistance to disadvantaged children; the organization reportedly assisted more than 3,000 young people over approximately 25 years. She and Melvin became respected neighborhood mediators and community workers.\n\nJean McNair died in Caen on October 24, 2014, aged 68, of an apparent heart attack. Around 400 people attended her funeral at Notre-Dame de La Grâce-de-Dieu on October 29.",
+    "case": {
+        "arrest_date": [1976, 5, 26],
+        "incarceration_date": [1976, 5, 26],
+        "sentenced_date": [1978, 11, 24],
+        "release_date": [1978, 11, 24],
+        "in_exile_since": [1972, 7, 31],
+        "end_of_exile": [2014, 10, 24],
+        "convicted": "Yes — convicted by the Paris Assize Court, November 24, 1978; France refused extradition and tried the case itself",
+        "sentence": "Five years, two years suspended — imposed by the Paris Assize Court on November 24, 1978, which convicted all four defendants for the July 31, 1972 hijacking of Delta Air Lines Flight 841. Having already spent approximately 912 days in pretrial custody at Fleury-Mérogis Prison since her May 26, 1976 arrest in Paris, she was released immediately after the verdict for time served. France refused the American extradition request and tried the case itself. During the imprisonment the four defendants contributed to the book Nous, Noirs américains évadés du ghetto.",
+        "institution": "Fleury-Mérogis Prison",
+        "institution_city": "Fleury-Mérogis",
+        "institution_state": "France"
+    }
+}
