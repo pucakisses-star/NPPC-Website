@@ -1,0 +1,22 @@
+{
+    "people": [
+        {
+            "slug": "charlie-hill",
+            "set": {"in_exile": true, "currently_in_exile": true},
+            "in_exile_since": [1971, 11, 27],
+            "end_of_exile": null
+        },
+        {
+            "slug": "michael-finney",
+            "set": {"in_exile": true, "currently_in_exile": false},
+            "in_exile_since": [1971, 11, 27],
+            "end_of_exile": [2005, 1, 24]
+        },
+        {
+            "slug": "ralph-goodwin",
+            "set": {"in_exile": true, "currently_in_exile": false},
+            "in_exile_since": [1971, 11, 27],
+            "end_of_exile": [1975]
+        }
+    ]
+}
