@@ -1,0 +1,36 @@
+{
+    "hnaihen": {
+        "slug": "hashem-younis-hashem-hnaihen",
+        "inmate_number": "29753-511"
+    },
+    "sun": {
+        "slug": "mike-sun",
+        "inmate_number": "15303-506"
+    },
+    "hasna": {
+        "slug": "mohammad-yousef-hasna",
+        "person": {
+            "name": "Mohammad Yousef Hasna",
+            "first_name": "Mohammad",
+            "middle_name": "Yousef",
+            "last_name": "Hasna",
+            "gender": "Male",
+            "era": "2020s",
+            "in_custody": true,
+            "awaiting_trial": true,
+            "released": false,
+            "in_exile": false,
+            "currently_in_exile": false,
+            "birthdate": [1981, null, null, true]
+        },
+        "bio": "Mohammad Yousef Hasna is a Turkish man from Istanbul who was arrested in the United Kingdom on July 31, 2026, on American charges of conspiring to provide material support to Hamas, conspiring to finance terrorism, and financing terrorism — each carrying a maximum penalty of twenty years in prison. Prosecutors in Manhattan allege that since at least 2023 he worked closely with senior Hamas leadership, including governing-body member Ghazi Hamad, funneling money and supplies through what they characterize as a sham global charity operating under the guise of humanitarian aid. He was ordered held pending extradition proceedings. The charges are accusations; he has not been tried.",
+        "case": {
+            "match_arrest": "2026-07-31",
+            "arrest_date": [2026, 7, 31],
+            "incarceration_date": [2026, 7, 31],
+            "charges": "Conspiring to provide material support to Hamas; conspiring to finance terrorism; financing terrorism",
+            "convicted": "No — held in the United Kingdom pending extradition to the United States",
+            "sentence": "Arrested in the United Kingdom on July 31, 2026, on charges announced by the U.S. Attorney in Manhattan, and ordered held pending extradition proceedings. Each charge carries a maximum of twenty years. Prosecutors allege that since at least 2023 he delivered supplies, food and funding to Hamas under the guise of humanitarian aid, working through what they characterize as a sham global charity. The charges are allegations; he has not been tried."
+        }
+    }
+}
