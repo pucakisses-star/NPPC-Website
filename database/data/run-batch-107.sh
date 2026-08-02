@@ -7,12 +7,15 @@
 #   At audit time (August 2, 2026) 224 records carried the exact
 #   ideology string "Black Lives Matter"; 12 records already used the
 #   "Black Lives Matter Movement" affiliation, so the swap converges
-#   on the established term. The sweep is rule-based and idempotent:
-#   for every prisoner whose ideologies contain the exact string, it
-#   removes that entry and adds the affiliation only if not already
-#   present. Other ideologies (Police Accountability, Anti-Racism,
-#   Pro-Palestine...) are left untouched, and nothing else about the
-#   record changes.
+#   on the established term. Per the curator, everyone in the
+#   movement cohort must also carry the "Police Accountability"
+#   ideology: 17 of the swapped records and 4 of the pre-existing
+#   affiliation holders lacked it at audit time and gain it here.
+#   The sweep is rule-based and idempotent: any record carrying the
+#   ideology string OR the affiliation gets the ideology entry
+#   removed, the affiliation ensured, and Police Accountability
+#   ensured. Other ideologies (Anti-Racism, Pro-Palestine...) are
+#   left untouched, and nothing else about the record changes.
 #
 # Run from the repo root, after git pull:
 #   bash database/data/run-batch-107.sh
@@ -45,39 +48,54 @@ use App\Models\Prisoner;
 
 $IDEOLOGY    = "Black Lives Matter";
 $AFFILIATION = "Black Lives Matter Movement";
+$KEEP        = "Police Accountability";
 
 $changed = 0;
 $affAdded = 0;
-$affAlready = 0;
+$paAdded = 0;
 
-Prisoner::withUnderReview()->chunkById(200, function ($people) use ($IDEOLOGY, $AFFILIATION, &$changed, &$affAdded, &$affAlready) {
+Prisoner::withUnderReview()->chunkById(200, function ($people) use ($IDEOLOGY, $AFFILIATION, $KEEP, &$changed, &$affAdded, &$paAdded) {
     foreach ($people as $p) {
         $ideos = (array) ($p->ideologies ?? []);
+        $affs  = (array) ($p->affiliation ?? []);
 
-        if (! in_array($IDEOLOGY, $ideos, true)) {
+        $inCohort = in_array($IDEOLOGY, $ideos, true) || in_array($AFFILIATION, $affs, true);
+
+        if (! $inCohort) {
             continue;
         }
 
-        $p->ideologies = array_values(array_filter($ideos, fn ($i) => $i !== $IDEOLOGY));
+        $dirty = false;
 
-        $affs = (array) ($p->affiliation ?? []);
+        if (in_array($IDEOLOGY, $ideos, true)) {
+            $ideos = array_values(array_filter($ideos, fn ($i) => $i !== $IDEOLOGY));
+            $dirty = true;
+        }
+
+        if (! in_array($KEEP, $ideos, true)) {
+            $ideos[] = $KEEP;
+            $paAdded++;
+            $dirty = true;
+        }
 
         if (! in_array($AFFILIATION, $affs, true)) {
             $affs[] = $AFFILIATION;
-            $p->affiliation = array_values($affs);
             $affAdded++;
-        } else {
-            $affAlready++;
+            $dirty = true;
         }
 
-        $p->save();
-        $changed++;
+        if ($dirty) {
+            $p->ideologies = array_values($ideos);
+            $p->affiliation = array_values($affs);
+            $p->save();
+            $changed++;
+        }
     }
 });
 
 echo "records changed: ", $changed,
      "   affiliation added: ", $affAdded,
-     "   affiliation already present: ", $affAlready, "\n";
+     "   Police Accountability added: ", $paAdded, "\n";
 
 $left = Prisoner::withUnderReview()->get()->filter(
     fn ($p) => in_array($IDEOLOGY, (array) ($p->ideologies ?? []), true)
