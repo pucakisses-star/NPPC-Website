@@ -1,0 +1,21 @@
+{
+ "new": [],
+ "updates": [
+  {
+   "slug": "ralph-robert-rogers",
+   "birth": [1928],
+   "note": "CRDL authority metadata supplies the 1928 birth year (ledger entry 561); enters only because the field is empty."
+  },
+  {
+   "slug": "tommie-eldridge-brashear",
+   "aka": "Tommie Eldrige Brashear",
+   "note": "The ledger reports the CRDL authority form as Eldrige (with the photograph reading Eldredge); recorded as an AKA alongside the stored Eldridge spelling."
+  },
+  {
+   "slug": "jeanne-h-herrick",
+   "aka": "Jeanne Forry Herrick",
+   "note": "The mugshot inscription form, per the ledger."
+  }
+ ],
+ "photo_ids": {}
+}
