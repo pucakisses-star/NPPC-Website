@@ -7,12 +7,15 @@
 # against the biographies. Per the curator, with the standing rule:
 # NOTHING IS DELETED FROM DESCRIPTIONS.
 #
-#   TWENTY-ONE PHOTO DETACHMENTS — records wearing someone else's
+#   TWENTY-SIX PHOTO DETACHMENTS — records wearing someone else's
 #   portrait (usually a more famous near-namesake: Julius Rosenberg
 #   wearing Susan Rosenberg's photo, Fred Hampton wearing his son's,
 #   James Larson wearing Big Jim Larkin's...). The photo column
 #   clears; the image file stays on disk because in most pairs the
-#   OTHER record legitimately owns it.
+#   OTHER record legitimately owns it. Five initially ambiguous
+#   pairs were resolved by reference-image research (Vern/Elmer
+#   Smith, Shafer/Samuel, Shabazz Bey/Azeez, Wilson/Lewinson,
+#   Gelders/Geier) and are included.
 #
 #   TEN MERGES — photo collisions that turned out to be one person
 #   with two records (frank-cordaro/cordero, steve-kelly-sj/
@@ -24,9 +27,6 @@
 #   dropped record documents SEPARATE custody episodes (Kelly,
 #   Melvin) those case rows MOVE to the kept record instead of
 #   deleting.
-#
-#   Five ambiguous pairs are left untouched pending identity
-#   verification — see the flags in fixes/batch109.json.
 #
 # Run from the repo root, after git pull (after batch 108):
 #   bash database/data/run-batch-109.sh

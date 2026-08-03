@@ -83,6 +83,26 @@
   {
    "slug": "bill-odonnell",
    "reason": "wears Bill Dunne's prison-classroom photo; Fr. O'Donnell was the Berkeley parish priest"
+  },
+  {
+   "slug": "elmer-smith",
+   "reason": "wears Vern Smith's 1933 wire-glasses portrait (matches Wikipedia's Smith-vern-r-1933.jpg); Elmer Smith's documented HistoryLink portrait shows a clean-shaven man without glasses"
+  },
+  {
+   "slug": "justin-samuel",
+   "reason": "wears Justin Shafer's 2017 Dallas County mugshot (matches the DataBreaches.net photo, same gray polo); Samuel was ~21 at his 2000 sentencing and this subject is far older"
+  },
+  {
+   "slug": "abdul-azeez",
+   "reason": "wears Hanif Shabazz Bey's portrait (matches vi3.org/images/hanif.jpg, dreadlocks and green prison door); the campaign site shows Azeez as a bald man with a full white beard"
+  },
+  {
+   "slug": "edwin-r-lewinson",
+   "reason": "wears Edwin P. Wilson's arraignment photo (a crop of Getty 152879470, the ex-CIA agent leaving US District Court); Seton Hall's photos of Lewinson show a heavier man with fluffy white hair"
+  },
+  {
+   "slug": "joseph-geier",
+   "reason": "wears Joseph Gelders's 1936 Central Press portrait (matches Wikimedia Commons Joseph_Gelders.jpg, CP watermark visible); Geier was a WWI-era defendant"
   }
  ],
  "merges": [
@@ -185,6 +205,6 @@
   "Records left photo-less by detachment could take correct portraits later: Julius Rosenberg, Fred Hampton, and Joan Baez-adjacent figures all have famous public-domain images.",
   "False positives verified and left alone: the Jackson 1961 mugshot format pairs (rosell/watts, horne/bass, caston/wells, palmer/horne, mcnair/bass) and the Everett IWW pair johanson/scarlett (bookings 13130 vs 13114, different men).",
   "Legitimate shared group photos left alone: guam-deportees.jpg (28 records), the Groveland trio, the Kissing Case pair, the Smith/Carberry NYPD-van incident photo, and the Soto couple photo.",
-  "Five photo pairs remain under identity verification (Elmer/Vern Smith, Justin Samuel/Shafer, Abdul Azeez/Hanif Shabazz Bey, Edwin P. Wilson/Edwin R. Lewinson, Joseph Geier/Gelders) — their detachments will follow in an amendment once the depicted person is confirmed; nothing is changed for them here."
+  "The five initially ambiguous pairs were resolved by reference-image research and their detachments are included above: the shared photos depict Vern Smith (detached from elmer-smith), Justin Shafer (from justin-samuel), Hanif Shabazz Bey (from abdul-azeez), Edwin P. Wilson (from edwin-r-lewinson), and Joseph Gelders (from joseph-geier). Justin Shafer has no record of his own, so that photo now hangs on nobody — curator judgment on whether it belongs anywhere."
  ]
 }
