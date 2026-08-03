@@ -1,0 +1,39 @@
+{
+ "morales": {
+  "slug": "william-morales",
+  "birthdate": [1950, 2, 7],
+  "affiliation_add": "FALN",
+  "set_exile": true,
+  "append": "The full custody chronology, per the curator: born February 7, 1950, in New York City, Morales was a member of the Fuerzas Armadas de Liberacion Nacional Puertorriquena (FALN). On July 12, 1978, a device exploded while he was working with explosives in an East Elmhurst, Queens apartment, costing him catastrophic injuries to both hands, his face, and one eye; investigators recovered 66 sticks of dynamite and a large quantity of bomb-making material, and he was hospitalized under guard at Elmhurst General Hospital and remained continuously in custody. On February 28, 1979, he was convicted federally of possession of pipe bombs and possession or interstate transportation of pipe bombs and a sawed-off shotgun — ten years plus five years of probation per FBI records — and in April 1979 New York State sentenced him to 29 to 89 years in the Queens explosives and weapons prosecution (the exact state sentencing day awaits a primary court record). Held at the federal Metropolitan Correctional Center and then the Bellevue Hospital prison ward for treatment and the planned fitting of prosthetic hands, he escaped on May 21, 1979 — cutting through the security screen of a third-floor prison-ward window and descending on a makeshift rope of elastic bandages — after approximately 313 days in American custody; on June 1, 1979, federal authorities charged him with unlawful interstate flight. Mexican authorities recaptured him near Puebla on May 26, 1983, after armed confrontations in which a Mexican police officer and two of his associates were killed; convicted in Mexico over the officer's death, he received an eight-year sentence. On June 24, 1988, Mexico released him and placed him on a flight to Cuba rather than granting the pending American extradition request, and he has lived in Cuba since.",
+  "us_case": {
+   "match_charges": "Federal weapons and explosives",
+   "force_arrest": [1978, 7, 12],
+   "force_incarceration": [1978, 7, 12],
+   "force_release": [1979, 5, 21],
+   "force_days": 313,
+   "set_charges": "Federal: possession of pipe bombs and possession or interstate transportation of pipe bombs and a sawed-off shotgun (convicted February 28, 1979). New York State: the Queens explosives and weapons prosecution over the July 12, 1978 East Elmhurst blast, in which investigators recovered 66 sticks of dynamite. A June 1, 1979 federal charge of unlawful interstate flight followed his escape.",
+   "set_convicted": "Yes — convicted federally February 28, 1979; sentenced by New York State in April 1979",
+   "set_sentence": "Ten years federal plus five years of probation, and 29 to 89 years from New York State. Held at Elmhurst General Hospital under guard, the federal Metropolitan Correctional Center, and the Bellevue Hospital prison ward, from which he escaped on May 21, 1979, through a cut window screen on a rope of elastic bandages — approximately 313 days in American custody. The custody end date recorded here is the escape, not a release.",
+   "institution": {
+    "name": "Metropolitan Correctional Center, New York",
+    "city": "New York",
+    "state": "New York"
+   }
+  },
+  "add_case": {
+   "match_missing_charges": "Mexican police officer",
+   "arrest": [1983, 5, 26],
+   "incarceration": [1983, 5, 26],
+   "release": [1988, 6, 24],
+   "days": 1856,
+   "charges": "Mexican charges arising from the death of a Mexican police officer during the armed confrontations surrounding his May 26, 1983 recapture near Puebla, in which two of his associates were also killed.",
+   "convicted": "Yes — convicted in Mexico; eight-year sentence",
+   "sentence": "Eight years in Mexican custody. Released June 24, 1988 — after about five years — and placed on a flight to Cuba rather than extradited to the United States."
+  }
+ },
+ "flags": [
+  "The exact April 1979 New York State sentencing day awaits a primary court record — the month is stated in the biography, not entered as a case date.",
+  "The US case release_date carries his May 21, 1979 escape as the end of custody — an escape, not a release; the sentence text says so explicitly.",
+  "in_exile and currently_in_exile set true: he has lived in Cuba since the June 24, 1988 Mexican release, with the American extradition request never granted."
+ ]
+}
