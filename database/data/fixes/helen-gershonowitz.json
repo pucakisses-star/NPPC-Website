@@ -1,0 +1,26 @@
+{
+  "name": "Helen Gershonowitz",
+  "first_name": "Helen",
+  "last_name": "Gershonowitz",
+  "aka": "Hinda Gershanowitz",
+  "description": "Helen Gershonowitz — Hinda to her Yiddish-speaking comrades, and about forty-two years old at the time of her arrest — was a Paterson, New Jersey member of the Communist-led National Textile Workers Union, known in that silk city for her work in women workers' organizations. In early 1931 she joined the picket line at Max Urban's small silk mill at 36 Madison Avenue, where the weavers had been on strike for roughly eight weeks against a fifty percent piece-rate cut. On the morning of February 18, 1931, Urban drove up to the line where she and two fellow pickets stood; in the scuffle that followed — the union press reported that she was struck first and that unidentified men, whom it linked to Urban's bootlegging feuds, beat him about the head before fleeing — the mill owner was hospitalized. She was arrested at the scene on felonious assault charges along with Benjamin Lieb and Albert Katzenbuch; Louis Harris and Louis Bart were seized the next day. When Urban died on March 21, 1931 — the physician's report gave meningitis as the cause — all five were rearrested in their beds at three in the morning, held without bail in the Passaic County Jail, and indicted for first-degree murder, a charge that carried the electric chair. The International Labor Defense took up the case as a frame-up in the Sacco-Vanzetti mold. In poor health — chronic heart trouble, anemia, and two recent operations — she spent about two months in the county jail before becoming the first of the five released on bail, on May 19, 1931, and while free she was named among the local leaders of that summer's Paterson general silk strike. The case collapsed entirely: on May 31, 1932 a jury needed only ten minutes to acquit her and Lieb of the felonious assault charges, and on September 12, 1932 the murder indictments against all five were dismissed. She was never convicted of anything. Her story is known almost wholly through the Communist movement press of 1931-32, and nothing has yet been traced of her life before the strike or after her vindication.",
+  "state": "New Jersey",
+  "gender": "Female",
+  "ideologies": ["Communism"],
+  "affiliation": ["National Textile Workers Union"],
+  "in_custody": false,
+  "released": true,
+  "cases": [
+    {
+      "institution_name": "Passaic County Jail",
+      "institution_city": "Paterson",
+      "institution_state": "New Jersey",
+      "charges": "First-degree murder in the death of silk-mill owner Max Urban, plus felonious assault and assault with intent to kill Morris Urban — all arising from the February 18, 1931 picket-line clash at the struck Urban mill in Paterson.",
+      "arrest_date": "1931-02-18",
+      "incarceration_date": "1931-03-21",
+      "release_date": "1931-05-19",
+      "convicted": "No — acquitted of the assault charges by a ten-minute jury verdict on May 31, 1932; the first-degree murder indictment was dismissed on September 12, 1932",
+      "imprisoned_for_days": 59
+    }
+  ]
+}

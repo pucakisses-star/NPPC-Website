@@ -1,0 +1,35 @@
+{
+ "photos": [
+  "abdul-azeez",
+  "anthony-ladd",
+  "bill-odonnell",
+  "david-caplan",
+  "edgar-hoover",
+  "edward-anderson",
+  "elmer-smith",
+  "fred-hampton",
+  "helen-gershonowitz",
+  "ian-wallace",
+  "james-larson",
+  "joan-bell",
+  "john-i-turner",
+  "julius-rosenberg",
+  "rebecca-rubin"
+ ],
+ "appends": [
+  {
+   "slug": "ian-wallace",
+   "append": "A clarification of the case chronology: the arsons — at Michigan Technological University in Houghton and a nearby US Forest Service facility — took place in November 2001, but Wallace, of Eau Claire, Wisconsin, was not charged until years later, pleading guilty in September 2008 and receiving a three-year federal sentence in March 2009, served at FCI Elkton until his release on January 12, 2012. He went on to earn a doctorate in anthropology.",
+   "note": "The research pass that recovered his portrait also established the fuller chronology (FBI Detroit press release, March 27, 2009; Eau Claire Leader-Telegram, October 2009); appended per the no-deletion rule."
+  }
+ ],
+ "flags": [
+  "william-houston has a verified portrait (Yellow Springs News obituary, August 27, 2015, family-provided photo of him holding his Life is so Precious peace sign: ysnews.com/wp-content/uploads/2015/08/082715_Houston_Bill.jpg, identity anchored by the obituary text and Nuclear Resister nr124) but ysnews.com would not serve the file to this environment — attach it in a future batch from a network that can reach the site.",
+  "justin-samuel has a verified portrait (the Mozilla Firefox 4 video capture identified by his co-defendant Peter Young on animalliberationfrontline.com) but the only surviving copy is on web.archive.org, which this environment cannot reach; snapshot 20120713195923 of justin_samuel1.jpg.",
+  "john-grady: the only located portrait is the August 22, 1971 AP wirephoto of his Camden arraignment, sold as a watermarked scan by historicimages.com (product now04750) — not attached because of the watermark; a clean print would need licensing.",
+  "edwin-r-lewinson: both Seton Hall tribute photos (shu.edu/images/edlewinson_320.jpg and Lewinson-and-dog.jpg) show him too small or turned away for a usable portrait crop; left photo-less.",
+  "No verifiable portrait exists in accessible sources for: matthew-depalma (the one captioned Flint Journal photo is dead-linked with no archive), alejandro-avalos (federal case, no released mugshot, no captioned news photo), trevor-miller (2006 Caledonia coverage carried no photo of him; beware the Toronto activist and 2023 Hagersville near-namesakes), david-davis (Philadelphia Nine; the Bulletin photo morgue is undigitized — Temple Urban Archives and the Pitt UE Archives are offline leads), jose-perez-rivera (Vieques rank-and-file were not individually photographed in captioned coverage; do not confuse with Jose Perez Gonzalez), carl-schilter (sentenced June 1918 before the mass Sacramento trial, absent from the entire Leavenworth name index — likely McNeil Island, whose files are undigitized), and joseph-geier (served at Atlanta Penitentiary, whose case files are not digitized with photographs).",
+  "Helen Gershonowitz enters with the Daily Worker group-photo crop (April 15, 1931, page 3) as her portrait; the caption names her center among the five defendants. Microfilm quality, but authentically her.",
+  "Her record's account rests almost entirely on the Communist movement press (Daily Worker, Class Struggle) — the only accessible 1931-32 sources; the mainstream Paterson papers are not digitized. The bio says so explicitly."
+ ]
+}
