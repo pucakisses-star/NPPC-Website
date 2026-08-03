@@ -1,0 +1,21 @@
+{
+  "name": "Arthur Taylor",
+  "first_name": "Arthur",
+  "last_name": "Taylor",
+  "description": "Arthur Taylor was a United Mine Workers of America organizer in the District 2 campaign that swept Somerset County, Pennsylvania, in the great 1922 coal strike. In April 1922, as the county's non-union miners prepared to walk out, he was arrested at Somerset alongside fellow organizer Powers Hapgood — a contemporary account in the New Majority records the two as having been in custody there two days before the successful April 17 organizing action at Boswell, which places the arrest around April 15, 1922. Both men were free again in time for the Boswell action, so the detention lasted at most about two days, most likely a brief hold or a single overnight stay. The charge wording and disposition have not survived in the accessible record; the fuller story of the Somerset arrests awaits the organizing telegrams preserved in the UMWA District 2 papers at Indiana University of Pennsylvania.",
+  "state": "Pennsylvania",
+  "gender": "Male",
+  "era": "1920s",
+  "ideologies": ["Labor Organizing"],
+  "affiliation": ["United Mine Workers of America"],
+  "in_custody": false,
+  "released": true,
+  "cases": [
+    {
+      "charges": "Organizing arrest at Somerset, Pennsylvania, with Powers Hapgood during the 1922 Somerset County coal strike — the charge wording has not survived in the accessible record.",
+      "arrest_date": "1922-04-15",
+      "convicted": "Unresolved — no disposition survives in the accessible record",
+      "sentence": "In custody at Somerset two days before the April 17, 1922 Boswell organizing action and free again by that date — at most about two days held, most likely a brief detention or one overnight stay."
+    }
+  ]
+}
