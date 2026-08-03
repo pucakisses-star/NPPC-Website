@@ -1,0 +1,163 @@
+{
+ "note": "Nine records, per the curator: put them in exile on the assumption they are abroad, with the uncertainty stated rather than smoothed away. Six are new, three already exist. Every biography carries the curator's own caveat about what is and is not verified, because the schema has only in_exile and currently_in_exile — there is no 'possible exile, status unverified' tier for the four military cases the curator asked to keep out of the confirmed column.",
+
+ "creates": [
+  {
+   "name": "David Hemler",
+   "first_name": "David",
+   "last_name": "Hemler",
+   "gender": "Male",
+   "race": "White",
+   "era": "1980s",
+   "ideologies": ["Anti-War"],
+   "in_exile": true,
+   "currently_in_exile": true,
+   "description": "David Hemler was a United States Air Force airman who deserted on February 10, 1984, aged 21, from the 6913th Electronic Security Squadron at Augsburg in West Germany, and hitchhiked through Denmark to Sweden. He attributed his desertion to pacifism — he had become involved with a pacifist church — and to his opposition to the policies of the Reagan administration. He lived in Sweden under an assumed name for twenty-eight years, telling no one his real identity, and came forward in June 2012, then aged 49, married with three children and working for a Swedish government agency; he said he had decided to stop as his children grew older, and contacted his parents and brother in the United States a few weeks before going public.\n\nHe was still listed as an Air Force fugitive when he came forward in 2012. Present residence and military-case status unverified: no dependable recent confirmation has been found of where he now lives or whether the desertion case against him remains open. He is recorded here as currently in exile on the assumption that he remains abroad.",
+   "cases": [
+    {
+     "charges": "Desertion from the United States Air Force (Article 85, UCMJ) — left the 6913th Electronic Security Squadron, Augsburg, West Germany, February 10, 1984",
+     "convicted": "No — never tried; still listed as an Air Force fugitive when he came forward in 2012",
+     "in_exile_since": "1984-02-10",
+     "sentence": "None imposed. He reached Sweden within days of leaving Augsburg and lived there under an assumed name until June 2012."
+    }
+   ]
+  },
+  {
+   "name": "Joshua Key",
+   "first_name": "Joshua",
+   "last_name": "Key",
+   "gender": "Male",
+   "race": "White",
+   "state": "Oklahoma",
+   "era": "2000s",
+   "ideologies": ["Anti-War"],
+   "in_exile": true,
+   "currently_in_exile": true,
+   "description": "Joshua Key, born in Guthrie, Oklahoma in 1978, enlisted in the United States Army in 2002 and was stationed at Fort Carson, Colorado. He served eight months in Iraq in 2003 as a combat engineer, taking part in what he has described as some two hundred raids on civilian homes. Returning to the United States on leave in November 2003, he did not go back, and on March 8, 2005 he entered Canada at Toronto, filing an asylum claim three days later.\n\nHis refugee claim was rejected by the Immigration and Refugee Board on October 20, 2006. He won an appeal in the Federal Court on July 4, 2008, which required the claim to be reheard, but received a second negative decision on July 30, 2010. In 2016 he was granted temporary permission to work and to receive government health care while his case continued to be reviewed. With the Canadian author Lawrence Hill he wrote The Deserter's Tale, an account of his service in Iraq and his decision to leave. He has been publicly documented living in Winnipeg, Manitoba.\n\nPresent residence and outstanding United States military status unverified: reporting through 2024 places him among the American war resisters still seeking the right to remain in Canada, but no recent official record has been found confirming his current residence or the status of any military case against him. He is recorded here as currently in exile on the assumption that he remains abroad.",
+   "cases": [
+    {
+     "charges": "Desertion from the United States Army — did not return from leave, November 2003, after eight months in Iraq with a combat engineer unit",
+     "convicted": "No — never tried; he left for Canada before any court-martial",
+     "in_exile_since": "2005-03-08",
+     "sentence": "None imposed. Refugee claim rejected October 20, 2006; Federal Court appeal won July 4, 2008; second negative Immigration and Refugee Board decision July 30, 2010; temporary work and health-care permission granted in 2016 pending further review."
+    }
+   ]
+  },
+  {
+   "name": "Kyle Snyder",
+   "first_name": "Kyle",
+   "last_name": "Snyder",
+   "gender": "Male",
+   "race": "White",
+   "state": "Colorado",
+   "era": "2000s",
+   "ideologies": ["Anti-War"],
+   "in_exile": true,
+   "currently_in_exile": true,
+   "description": "Kyle Snyder, born September 12, 1983 and raised partly in foster care in Colorado, enlisted in the United States Army in 2004 and served in Iraq with the 94th Engineers out of Fort Leonard Wood. In 2005, while on mid-tour leave, he went to Canada, called the war illegal and immoral, and applied for refugee status. On October 31, 2006 he held a press conference and then surrendered to Army authorities at Fort Knox, Kentucky, having been told through his lawyer that he would be discharged quickly and not imprisoned; when he was instead faced with returning to Iraq or going to prison, he left again and travelled the United States speaking against the war.\n\nOn February 23, 2007 he was arrested by police in Nelson, British Columbia, at the request of the United States Army. The police had no warrant; he was taken in wearing a robe and boxer shorts, not permitted to dress or to call his lawyer, and was released after roughly six hours when immigration officials confirmed there was no legal basis to hold him.\n\nWhereabouts unverified: no credible recent source has been found locating him, and his country is uncertain — Canada or unknown. No exile start date is recorded on his case, because his time abroad was interrupted by the October 2006 surrender and nothing has documented his location since February 2007. He is recorded here as currently in exile on the assumption that he remains abroad.",
+   "cases": [
+    {
+     "charges": "Desertion from the United States Army — left while on mid-tour leave from Iraq, 2005; absent again after the October 31, 2006 surrender at Fort Knox",
+     "convicted": "No — never tried",
+     "sentence": "None imposed. Arrested without warrant at Nelson, British Columbia on February 23, 2007 at the request of the United States Army and released after about six hours, immigration officials having found no legal basis to detain him."
+    }
+   ]
+  },
+  {
+   "name": "Dave Smith",
+   "first_name": "Dave",
+   "last_name": "Smith",
+   "gender": "Male",
+   "race": "White",
+   "state": "Texas",
+   "era": "1970s",
+   "ideologies": ["Anti-War"],
+   "in_exile": true,
+   "currently_in_exile": true,
+   "description": "Dave Smith was a United States Army deserter who opposed the Vietnam War and reached Sweden, one of roughly a thousand American exiles — some eight hundred of them deserters and draft resisters — who were granted asylum there during the war. Born on a farm in Texas, he was still living in Sweden in December 1982, when the Washington Post found him there aged 36 and reported that he had taken Swedish citizenship. He spoke, the paper noted, with a Swedish accent running through his American English, and had at times to search for the English word he wanted.\n\nLiving status and present residence unverified: no dependable recent evidence has been found establishing whether he is alive or still in Sweden. He is recorded here as currently in exile on the assumption that he remains abroad. His is also a common name, so a future record for another Dave Smith should be checked against this one before it is created.",
+   "cases": [
+    {
+     "charges": "Desertion from the United States Army during the Vietnam War",
+     "convicted": "No — reached Sweden, which granted American war resisters asylum",
+     "sentence": "None imposed. Resident in Sweden and holding Swedish citizenship by December 1982; no exile start date is recorded because the year he reached Sweden has not been established."
+    }
+   ]
+  },
+  {
+   "name": "William Schiller",
+   "first_name": "William",
+   "last_name": "Schiller",
+   "aka": "Bill Schiller",
+   "gender": "Male",
+   "race": "White",
+   "state": "Illinois",
+   "era": "1970s",
+   "ideologies": ["Anti-War"],
+   "in_exile": true,
+   "currently_in_exile": true,
+   "description": "William Schiller, known as Bill, was a draft resister from suburban Chicago and an early recruit to the Peace Corps who left the United States rather than be conscripted for the Vietnam War, joining the roughly one thousand American exiles Sweden took in during the war. He was still living there in December 1982, when the Washington Post found him aged 39 and reported that he had taken Swedish citizenship, his American English by then carrying a Swedish accent.\n\nLiving status and present residence unverified: no dependable recent evidence has been found establishing whether he is alive or still in Sweden. He is recorded here as currently in exile on the assumption that he remains abroad.",
+   "cases": [
+    {
+     "charges": "Draft resistance — refusal of induction for the Vietnam War",
+     "convicted": "No — reached Sweden, which granted American war resisters asylum",
+     "sentence": "None imposed. Resident in Sweden and holding Swedish citizenship by December 1982; no exile start date is recorded because the year he reached Sweden has not been established."
+    }
+   ]
+  },
+  {
+   "name": "Richard Johnstone",
+   "first_name": "Richard",
+   "last_name": "Johnstone",
+   "gender": "Male",
+   "race": "White",
+   "state": "Iowa",
+   "era": "1970s",
+   "ideologies": ["Anti-War"],
+   "in_exile": true,
+   "currently_in_exile": true,
+   "description": "Richard Johnstone, a farm boy from Brooklyn, Iowa, deserted from the United States Army during the Vietnam War and reached Sweden, among the roughly one thousand American exiles the country took in. He received a formal release from the Army in 1977 and could thereafter travel to the United States, so he was no longer a fugitive in the ordinary sense, but he stayed in Sweden. He was still there in December 1982, when the Washington Post found him aged 38, his American English by then carrying a Swedish accent.\n\nLiving status and present residence unverified: no dependable recent evidence has been found establishing whether he is alive or still in Sweden. He is recorded here as currently in exile on the assumption that he remains abroad — an exile by residence rather than by legal compulsion, since 1977.",
+   "cases": [
+    {
+     "charges": "Desertion from the United States Army during the Vietnam War",
+     "convicted": "No — reached Sweden, which granted American war resisters asylum; formally released by the Army in 1977",
+     "sentence": "None imposed. Released by the Army in 1977 and thereafter free to travel to the United States; still resident in Sweden in December 1982. No exile start date is recorded because the year he reached Sweden has not been established."
+    }
+   ]
+  }
+ ],
+
+ "precision": [
+  {"slug": "david-hemler", "year": 1962, "circa": true, "basis": "aged 21 when he deserted on February 10, 1984 and 49 in June 2012, which places his birth between June 1962 and February 10, 1963"},
+  {"slug": "joshua-key", "year": 1978, "circa": false, "basis": "born in Guthrie, Oklahoma in 1978; no day reported"},
+  {"slug": "kyle-snyder", "year": 1983, "month": 9, "day": 12, "circa": false, "basis": "September 12, 1983, reported directly"},
+  {"slug": "dave-smith", "year": 1946, "circa": true, "basis": "aged 36 in the Washington Post report of December 26, 1982"},
+  {"slug": "william-schiller", "year": 1943, "circa": true, "basis": "aged 39 in the Washington Post report of December 26, 1982"},
+  {"slug": "richard-johnstone", "year": 1944, "circa": true, "basis": "aged 38 in the Washington Post report of December 26, 1982"}
+ ],
+
+ "updates": [
+  {
+   "slug": "leo-frederick-burt",
+   "set_exile": true,
+   "aka": "Eugene Donald Fieldston",
+   "exile_since": {"year": 1970, "month": 9, "day": 2},
+   "bio_append": "The FBI wanted notice issued by the Bureau's Milwaukee field office gives his place of birth as Darby, Pennsylvania, lists a second date of birth used — April 15, 1950, against the April 18, 1948 recorded here — and the alias Eugene Donald Fieldston, and offers a reward of up to $150,000. Its remarks state that he has ties to New York City, Boston and Peterborough, Ontario. It does not say he is in Canada, and no country has ever been established for him; whether he is still alive is also publicly unknown. He was indicted federally at Madison, Wisconsin on September 2, 1970 for sabotage, destruction of government property and conspiracy, and the exile recorded here runs from that indictment on the assumption that he has been abroad since — the date is the start of his time as a fugitive, which is the only thing the record can honestly measure.",
+   "note": "Country unknown; possible Canadian connection; current living status unconfirmed."
+  }
+ ],
+
+ "verify": [
+  {
+   "slug": "daniel-andreas-san-diego",
+   "expect": "in custody, awaiting trial, not in exile",
+   "reason": "The curator notes he should no longer be listed as an uncertain exile: arrested in Wales in November 2024 and ruled extraditable by a British judge in February 2026, he is a detained extradition defendant. The record already says so — in_custody and awaiting_trial set, currently_in_exile false, UK custody from November 25, 2024 with the February 6, 2026 ruling on the case row. Checked, not changed."
+  }
+ ],
+
+ "flagged": [
+  {
+   "slug": "jeremy-hinzman",
+   "reason": "Already carried currently_in_exile, so the curator's instruction needs nothing done to his flags. Two defects on the record are NOT fixed here beyond the first. (1) His age column holds the value 2 with no birthdate, so his public profile reads 'Age: 2'; that is unambiguous garbage and is cleared. (2) His case row is attached to FCI Petersburg, Hopewell, Virginia, complete with the prison mailing and physical address — an institution he has never been held in, having gone to Canada in January 2004 and stayed. That looks like an import artifact. Detaching an institution is a curatorial call, so it is reported rather than done."
+  }
+ ]
+}
