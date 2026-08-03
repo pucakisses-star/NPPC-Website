@@ -1,0 +1,20 @@
+{
+ "slug": "josephine-sunshine-overaker",
+
+ "birthdate": {"year": 1974, "month": 11, "day": 19},
+
+ "basis": "The FBI wanted poster lists three dates under 'Date(s) of Birth Used' — November 19, 1974; October 4, 1971; November 4, 1971 — and does not say which is hers. The FBI's own age-progressed photograph settles which one the Bureau works from: it was released in December 2015 depicting her at 41 years of age, and she is 41 in December 2015 only under the November 19, 1974 date, which she reached on November 19, 1974 + 41 years = November 19, 2015, a few weeks before the release. The October and November 1971 alternatives would have made her 44 at that moment, and 41 in the autumn of 2012. November 19, 1974 is also the date the poster lists first, which on an FBI notice is normally the primary identity, and the two 1971 dates differ only by a month, reading as one alias identity recorded two ways rather than two independent attestations — consistent with the two Quintana identities in her alias list. Not certain, and there is contrary usage: federal law enforcement was still describing her in April 2022 as 'either 47 or 50 years old' — 47 being the 1974 branch and 50 the 1971 one — so the government has never formally abandoned either, and a KATU report of April 2021 gave her age as 49, which is the 1971 branch. The poster's heading also remains 'dates used' rather than a verified birth record, and the same poster gives her place of birth as Canada and her nationality as Canadian while its remarks call her an American citizen, so the Bureau's biographical data on her is not internally stable. What the December 2015 age progression establishes is which date the FBI itself computes from, which is the best available answer short of a birth record.",
+
+ "bio_marker": "and no single one is entered here",
+
+ "bio_replacement": "and the first of them, November 19, 1974, is the one entered here. The FBI released an age-progressed photograph of her in December 2015 depicting her at 41 years of age — an age she reaches in November 2015 under the 1974 date and not under either 1971 date, which would have made her 44 at that moment — so it is the 1974 date the Bureau itself works from. Federal law enforcement was nonetheless still describing her in April 2022 as either 47 or 50 years old, so the 1971 alternative has never been formally abandoned.",
+
+ "bio_fallback": "The FBI wanted notice issued by the Bureau's Portland field office gives her place of birth as Canada and lists three dates of birth used — November 19, 1974, October 4, 1971 and November 4, 1971 — alongside the alias identities Lisa Rachelle Quintana and Maria Rachelle Quintana. The first, November 19, 1974, is the one entered here. The FBI released an age-progressed photograph of her in December 2015 depicting her at 41 years of age — an age she reaches in November 2015 under the 1974 date and not under either 1971 date, which would have made her 44 at that moment — so it is the 1974 date the Bureau itself works from. Federal law enforcement was nonetheless still describing her in April 2022 as either 47 or 50 years old, so the 1971 alternative has never been formally abandoned.",
+
+ "bio_flight": "Federal law enforcement believes she fled to Europe in late 2001.",
+
+ "in_exile_since": {
+  "stored": null,
+  "reason": "Now sourced to a year but deliberately still not stored. Federal law enforcement, quoted in April 2022, believes she fled to Europe in late 2001 — which supersedes the vaguer accounts and is recorded in the biography. It is not written to in_exile_since because the field is a full date: a year-precision 2001 would drive the public exile counter to render a day-level span (about 25 years, 7 months and some days) out of a fact known only to the year, which is the defect batches 124 and 125 were about. There is no in_exile_for_months counterpart to imprisoned_for_months, and adding one for a single record is not warranted here. If the curator wants the running exile counter on her profile, say so and the year goes in."
+ }
+}
