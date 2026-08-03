@@ -32,4 +32,63 @@ final class ImprisonmentDuration
 
         return ['years' => $diff->y, 'months' => $diff->m, 'days' => $diff->d];
     }
+
+    /**
+     * The months to render instead of a day-level span, or null to fall back
+     * to breakdown().
+     *
+     * Returns a figure only when EVERY case that contributes time documents it
+     * in months. A record mixing a months-only case with a date-derived one has
+     * no honest single unit, so it keeps the day breakdown rather than silently
+     * rounding the dated case into months.
+     *
+     * @param  iterable<\App\Models\PrisonerCase>  $cases
+     */
+    public static function documentedMonths(iterable $cases): ?int
+    {
+        $months = 0;
+        $counted = 0;
+
+        foreach ($cases as $case) {
+            if (! $case->imprisoned_for_days) {
+                continue;
+            }
+
+            if (! $case->imprisoned_for_months) {
+                return null;
+            }
+
+            $months += (int) $case->imprisoned_for_months;
+            $counted++;
+        }
+
+        return $counted > 0 ? $months : null;
+    }
+
+    /**
+     * "38 Months", or "3 Years 2 Months 5 Days" — the phrase a counter prints.
+     *
+     * $months is a duration a source stated in whole months; when it is given,
+     * the span is reported in the unit it is actually known to, instead of a
+     * day-level figure derived from endpoints that cannot support one.
+     */
+    public static function phrase($start, int $days, ?int $months = null): string
+    {
+        if ($months !== null && $months > 0) {
+            return $months.' '.($months === 1 ? 'Month' : 'Months');
+        }
+
+        ['years' => $y, 'months' => $m, 'days' => $d] = self::breakdown($start, $days);
+
+        $parts = [];
+        if ($y > 0) {
+            $parts[] = $y.' '.($y === 1 ? 'Year' : 'Years');
+        }
+        if ($m > 0) {
+            $parts[] = $m.' '.($m === 1 ? 'Month' : 'Months');
+        }
+        $parts[] = $d.' '.($d === 1 ? 'Day' : 'Days');
+
+        return implode(' ', $parts);
+    }
 }

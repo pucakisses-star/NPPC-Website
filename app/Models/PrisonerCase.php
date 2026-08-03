@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string|null $judge
  * @property string|null $sentence
  * @property int|null $imprisoned_for_days
+ * @property int|null $imprisoned_for_months
  * @property int|null $in_exile_for_days
  */
 final class PrisonerCase extends Model
@@ -138,6 +139,27 @@ final class PrisonerCase extends Model
      */
     public function computeImprisonedForDays(): ?int
     {
+        // A documented duration outranks the date arithmetic. Where a source
+        // states the time served in months and the endpoints are uncertain —
+        // Bill Sutherland's 38 months against summaries that variously give
+        // 1942-45, 1943-45 and 1943-46 — the months are the fact and the dates
+        // are the guess, so the stored day count is walked forward from the
+        // start rather than measured between two dates that disagree.
+        if ($this->imprisoned_for_months > 0) {
+            $anchor = $this->incarceration_date ?? $this->arrest_date;
+
+            if ($anchor) {
+                $start = Carbon::parse($anchor)->startOfDay();
+
+                return (int) $start->diffInDays($start->copy()->addMonths((int) $this->imprisoned_for_months));
+            }
+
+            // Nothing to anchor to. The average Gregorian month keeps the
+            // aggregates honest; the public counter renders the months
+            // themselves and never sees this figure.
+            return (int) round($this->imprisoned_for_months * 30.436875);
+        }
+
         if (! $this->incarceration_date) {
             return null;
         }

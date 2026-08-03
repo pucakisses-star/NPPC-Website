@@ -187,19 +187,18 @@
                 $imprisonStart = $prisoner->cases->map(fn ($c) => $c->incarceration_date ?: $c->arrest_date)->filter()->sort()->first();
                 $exileStart = ExileDuration::startFor($prisoner->cases);
 
-                $renderCounter = function ($start, int $totalDays, string $label) {
+                // Months a source documented directly, where they beat the
+                // date arithmetic. Null for the ordinary record.
+                $servedMonths = ImprisonmentDuration::documentedMonths($prisoner->cases);
+
+                $renderCounter = function ($start, int $totalDays, string $label, ?int $months = null) {
                     if ($totalDays <= 0) return '';
-                    ['years' => $years, 'months' => $months, 'days' => $days] = ImprisonmentDuration::breakdown($start, $totalDays);
-                    $nums = '';
-                    if ($years > 0) $nums .= $years . ' ' . ($years === 1 ? 'Year' : 'Years') . ' ';
-                    if ($months > 0) $nums .= $months . ' ' . ($months === 1 ? 'Month' : 'Months') . ' ';
-                    $nums .= $days . ' ' . ($days === 1 ? 'Day' : 'Days');
                     return '<div class="prisoner-counter-label">' . e($label) . ':</div>' .
-                           '<div class="prisoner-counter-nums">' . e(trim($nums)) . '</div>';
+                           '<div class="prisoner-counter-nums">' . e(ImprisonmentDuration::phrase($start, $totalDays, $months)) . '</div>';
                 };
             @endphp
             @if($totalDays > 0)
-                {!! $renderCounter($imprisonStart, $totalDays, 'Time Imprisoned') !!}
+                {!! $renderCounter($imprisonStart, $totalDays, 'Time Imprisoned', $servedMonths) !!}
             @endif
             @if($totalExileDays > 0)
                 {!! $renderCounter($exileStart, $totalExileDays, 'Time in Exile') !!}
