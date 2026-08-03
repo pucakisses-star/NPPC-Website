@@ -1,0 +1,29 @@
+{
+ "corrections": [
+  {
+   "slug": "flores-forbes",
+   "case_match_charges": "October 23, 1977",
+   "case_set_charges": "Second-degree murder of fellow Panther Louis Talbert Johnson — accidentally killed during the October 23, 1977 armed attack on the Richmond home of a witness against Huey P. Newton — with the jury relying on transferred intent, plus a firearm-use enhancement. Indicted January 29, 1981 (People v. Forbes, A024602).",
+   "case_set_convicted": "Yes — second-degree murder by transferred intent, plus firearm use; not merely attempted murder as some later biographies state",
+   "case_set_sentence": "Eight years total — six years for second-degree murder plus a consecutive two years for firearm use, imposed September 7, 1983. He served exactly 4 years, 8 months, and 9 days in California custody, principally at Soledad State Prison with part of the term at San Quentin, and was released in 1985.",
+   "case_set_sentenced": [1983, 9, 7],
+   "case_set_incarceration": [1980, 10],
+   "case_set_release": [1985],
+   "case_set_days": 1713,
+   "case_set_institution": {
+    "name": "Soledad State Prison",
+    "city": "Soledad",
+    "state": "California"
+   },
+   "desc_replace": [
+    "served about four and a half years in California prisons",
+    "served four years, eight months, and nine days in California prisons — principally Soledad, with part of the term at San Quentin"
+   ],
+   "append": "The custody chronology, assembled from the appellate record (People v. Forbes, 175 Cal. App. 3d 807, case A024602), a Colorado College biography prepared for his 2016 lecture, and his own account: he surrendered around October 1980 after three years underground, was indicted January 29, 1981, and was sentenced September 7, 1983 to six years for second-degree murder plus a consecutive two years for firearm use. The conviction was specifically for the killing of fellow Panther Louis Talbert Johnson under transferred intent — not attempted murder, as some later biographies state. He served exactly four years, eight months, and nine days, which — if his recollection of an October 1980 surrender is right — places his release between June 10 and July 9, 1985; the exact admission and release dates await his CDCR External Movement History, and only the year is entered until that record is located.",
+   "note": "Dates deliberately partial: incarceration October 1980 (month precision), release 1985 (year precision); 1713 days is the 4y-8m-9d duration reckoned from October 1. Exact endpoints await the CDCR record."
+  }
+ ],
+ "photos": [
+  "flores-forbes"
+ ]
+}
