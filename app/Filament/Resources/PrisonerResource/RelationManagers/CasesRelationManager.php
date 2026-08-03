@@ -56,7 +56,11 @@ class CasesRelationManager extends RelationManager
                 Forms\Components\TextInput::make('imprisoned_for_days')
                     ->numeric()
                     ->disabled()
-                    ->helperText('Auto-calculated from incarceration and release dates'),
+                    ->helperText('Auto-calculated from incarceration and release dates, or from the documented months below'),
+                Forms\Components\TextInput::make('imprisoned_for_months')
+                    ->label('Documented months served')
+                    ->numeric()
+                    ->helperText('Only when a source states the time served in months and the dates cannot support a day-level span. Overrides the calculation above, and the public counter reads e.g. "38 Months".'),
                 Forms\Components\TextInput::make('in_exile_for_days')
                     ->numeric(),
             ]);

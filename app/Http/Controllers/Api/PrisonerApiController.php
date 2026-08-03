@@ -101,6 +101,10 @@ class PrisonerApiController extends Controller
                     ->first();
                 $exileStart = ExileDuration::startFor($prisoner->cases);
 
+                // Non-null only where every case contributing time documents
+                // it in months, so the figure can be printed as stated.
+                $servedMonths = ImprisonmentDuration::documentedMonths($prisoner->cases);
+
                 $data[] = [
                     'id' => $prisoner->id,
                     'slug' => $prisoner->slug,
@@ -140,8 +144,18 @@ class PrisonerApiController extends Controller
                     'SortOrder' => $prisoner->sort_order,
                     'cases' => $cases,
                     'imprisonedFor' => $daysImprisoned,
+                    // Non-null only where a source documented the time served
+                    // in months; consumers should print these rather than
+                    // deriving a day-level span from imprisonedFor.
+                    'imprisonedForMonths' => $servedMonths,
                     'inExileFor' => $daysInExile,
-                    'calculatedPunishment' => $this->calculatePunishment($daysImprisoned, $daysInExile, $imprisonStart, $exileStart),
+                    'calculatedPunishment' => $this->calculatePunishment(
+                        $daysImprisoned,
+                        $daysInExile,
+                        $imprisonStart,
+                        $exileStart,
+                        $servedMonths,
+                    ),
                     'Minor Case' => (bool) $prisoner->minor_case,
                     // Convenience boolean aliases used by Vue filter system
                     'inCustody' => $prisoner->in_custody,
@@ -155,13 +169,20 @@ class PrisonerApiController extends Controller
         return $data;
     }
 
-    private function calculatePunishment(int $daysImprisoned, int $daysInExile, $imprisonStart = null, $exileStart = null): string
+    private function calculatePunishment(int $daysImprisoned, int $daysInExile, $imprisonStart = null, $exileStart = null, ?int $servedMonths = null): string
     {
         $result = '';
 
         if ($daysImprisoned > 0) {
-            ['years' => $years, 'months' => $months, 'days' => $days] = ImprisonmentDuration::breakdown($imprisonStart, $daysImprisoned);
-            $result .= "Imprisoned For {$years} years {$months} months {$days} days";
+            if ($servedMonths > 0) {
+                // The source stated the time served in months; say so instead
+                // of splitting it into a year/month/day span the dates do not
+                // support. See ImprisonmentDuration::documentedMonths().
+                $result .= "Imprisoned For {$servedMonths} months";
+            } else {
+                ['years' => $years, 'months' => $months, 'days' => $days] = ImprisonmentDuration::breakdown($imprisonStart, $daysImprisoned);
+                $result .= "Imprisoned For {$years} years {$months} months {$days} days";
+            }
         }
 
         if ($daysInExile > 0) {
