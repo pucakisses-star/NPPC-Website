@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
+use App\Support\ExileDuration;
 use App\Support\ImprisonmentDuration;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -61,11 +62,14 @@ class PrisonerApiController extends Controller
             ->lazy()
             ->each(function (Prisoner $prisoner) use (&$data) {
                 $daysImprisoned = 0;
-                $daysInExile = 0;
 
-                $cases = $prisoner->cases->map(function ($case) use (&$daysImprisoned, &$daysInExile) {
+                // Custody stints are disjoint, so they sum as they are met;
+                // exile spans can overlap and are unioned once the whole set
+                // is in hand. See ExileDuration.
+                $daysInExile = ExileDuration::totalDays($prisoner->cases);
+
+                $cases = $prisoner->cases->map(function ($case) use (&$daysImprisoned) {
                     $daysImprisoned += $case->imprisoned_for_days ?? 0;
-                    $daysInExile += $case->in_exile_for_days ?? 0;
 
                     return [
                         'Indicted' => $case->indicted,
@@ -95,11 +99,7 @@ class PrisonerApiController extends Controller
                     ->filter()
                     ->sort()
                     ->first();
-                $exileStart = $prisoner->cases
-                    ->map(fn ($c) => $c->in_exile_since)
-                    ->filter()
-                    ->sort()
-                    ->first();
+                $exileStart = ExileDuration::startFor($prisoner->cases);
 
                 $data[] = [
                     'id' => $prisoner->id,

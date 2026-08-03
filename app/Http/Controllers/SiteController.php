@@ -15,6 +15,7 @@ use App\Models\Page;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
 use App\Support\AccentInsensitiveSearch;
+use App\Support\ExileDuration;
 use App\Support\IncarcerationCostRates;
 use Carbon\Carbon;
 use App\Models\Product;
@@ -642,7 +643,13 @@ final class SiteController extends Controller {
         // ─────────────────────────────────────────────────────────────
 
         $totalDaysImprisoned = (int) $cases->sum('imprisoned_for_days');
-        $totalDaysInExile = (int) $cases->sum('in_exile_for_days');
+        // Unioned per prisoner before summing across them: two open-ended
+        // exile rows on one record both run to today, so summing the column
+        // straight across the table counts the same days twice. See
+        // ExileDuration.
+        $totalDaysInExile = (int) $cases->groupBy('prisoner_id')
+            ->map(fn ($rows) => ExileDuration::totalDays($rows))
+            ->sum();
 
         $totalPrisoners = $prisoners->count();
         $totalCases = $cases->count();

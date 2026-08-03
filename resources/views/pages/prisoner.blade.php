@@ -172,16 +172,20 @@
 
             {{-- Imprisonment + exile counters (rendered separately when both apply) --}}
             @php
+                use App\Support\ExileDuration;
                 use App\Support\ImprisonmentDuration;
 
                 $totalDays = $prisoner->cases->sum('imprisoned_for_days');
-                $totalExileDays = $prisoner->cases->sum('in_exile_for_days');
+
+                // Custody stints are disjoint, so they sum; exile spans can
+                // overlap and must be unioned instead. See ExileDuration.
+                $totalExileDays = ExileDuration::totalDays($prisoner->cases);
 
                 // Anchor each counter to the real start date so the calendar
                 // diff is accurate (e.g. May 13 → Dec 13 reads as a clean 7
                 // months, not "7 months 4 days").
                 $imprisonStart = $prisoner->cases->map(fn ($c) => $c->incarceration_date ?: $c->arrest_date)->filter()->sort()->first();
-                $exileStart = $prisoner->cases->map(fn ($c) => $c->in_exile_since)->filter()->sort()->first();
+                $exileStart = ExileDuration::startFor($prisoner->cases);
 
                 $renderCounter = function ($start, int $totalDays, string $label) {
                     if ($totalDays <= 0) return '';
