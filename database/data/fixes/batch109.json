@@ -1,0 +1,190 @@
+{
+ "detach_photos": [
+  {
+   "slug": "rebecca-rubin",
+   "reason": "wears Rubin Hurricane Carter's portrait (the shared rubin-carter.jpg file)"
+  },
+  {
+   "slug": "james-larson",
+   "reason": "wears James Big Jim Larkin's famous 1910s portrait; Larson was a Wisconsin brickmaker jailed at Leavenworth"
+  },
+  {
+   "slug": "john-i-turner",
+   "reason": "wears the British anarchist John Turner's Victorian portrait; John I. Turner was a Spokane IWW lumberjack — different man"
+  },
+  {
+   "slug": "edgar-hoover",
+   "reason": "wears Larry Hoover's photo; Edgar Hoover was a WWI-era Leavenworth prisoner"
+  },
+  {
+   "slug": "edward-anderson",
+   "reason": "wears Edward Snowden's portrait; Anderson was a WWI-era Leavenworth prisoner"
+  },
+  {
+   "slug": "carl-schilter",
+   "reason": "wears Carl Winter's (CPUSA) lecture photo; Schilter was a 1918 Sacramento defendant"
+  },
+  {
+   "slug": "david-caplan",
+   "reason": "wears David Campbell's (2018 NYC antifa) photo; Caplan was a 1910s anarchist"
+  },
+  {
+   "slug": "david-davis",
+   "reason": "wears David Harris's (draft resister) famous 1960s photo; Davis was a Philadelphia Nine Smith Act defendant"
+  },
+  {
+   "slug": "fred-hampton",
+   "reason": "wears Fred Hampton Jr.'s modern photo; the father was assassinated in 1969"
+  },
+  {
+   "slug": "joan-bell",
+   "reason": "wears Joan Baez's 1960s portrait; Joan Andrews Bell is the DC Nine pro-life activist"
+  },
+  {
+   "slug": "john-grady",
+   "reason": "wears John Graham's (Aquash case) photo; Grady was the Camden 28 Catholic activist"
+  },
+  {
+   "slug": "jose-perez-rivera",
+   "reason": "wears Oscar Lopez Rivera's famous portrait; Perez Rivera was a Vieques trespass defendant"
+  },
+  {
+   "slug": "matthew-depalma",
+   "reason": "wears Matt DeHart's flag-backdrop portrait; DePalma was the 2008 RNC Molotov defendant"
+  },
+  {
+   "slug": "william-houston",
+   "reason": "wears William Potts Jr.'s kufi-and-sunglasses photo; Houston was an SOA Watch line-crosser"
+  },
+  {
+   "slug": "alejandro-avalos",
+   "reason": "wears Alejandra Pablos's portrait; Avalos was a 2020 Las Vegas defendant"
+  },
+  {
+   "slug": "ian-wallace",
+   "reason": "wears Herman Wallace's (Angola 3) photo; Ian Wallace was 27 at his 2001 ELF conviction"
+  },
+  {
+   "slug": "julius-rosenberg",
+   "reason": "wears Susan Rosenberg's modern photo; Julius Rosenberg was executed in 1953"
+  },
+  {
+   "slug": "anthony-ladd",
+   "reason": "wears Abdul Majid's (BLA) known portrait; Ladd was the 2022 Nebraska defendant"
+  },
+  {
+   "slug": "michele-alfaro",
+   "reason": "wears Michele Naar-Obed's (Plowshares) photo; Alfaro was 24 at her 2021 sentencing and the photo shows a woman in her sixties"
+  },
+  {
+   "slug": "trevor-miller",
+   "reason": "wears Oren Miller's Sumter County official portrait; Trevor Miller is the Six Nations land-dispute activist"
+  },
+  {
+   "slug": "bill-odonnell",
+   "reason": "wears Bill Dunne's prison-classroom photo; Fr. O'Donnell was the Berkeley parish priest"
+  }
+ ],
+ "merges": [
+  {
+   "keep": "frank-cordaro",
+   "drop": "frank-cordero",
+   "aka_add": "Frank Cordero",
+   "note": "Same person, misspelled duplicate. The dropped record's cumulative-actions case row is redundant with the kept record's documented cases and deletes; its biography is appended."
+  },
+  {
+   "keep": "steve-kelly-sj",
+   "drop": "stephen-kelly",
+   "move_cases": true,
+   "note": "Same person: Fr. Steve Kelly SJ. The kept record has the fuller biography and BOP number; the dropped record's four distinct non-1997 case rows (1995, 1999, 2009, 2018) MOVE over, and its 1997 row (duplicating the kept record's) deletes. The kept record's own two near-identical 1997 rows are flagged for the curator, not touched."
+  },
+  {
+   "keep": "ammon-hennacy",
+   "drop": "ammon-a-hennesey",
+   "aka_add": "Ammon A. Hennesey",
+   "copy_case_incarceration": [
+    1918,
+    6,
+    6
+   ],
+   "copy_case_release": [
+    1921,
+    12,
+    24
+   ],
+   "note": "Same person, misspelled duplicate of the Catholic Worker Ammon Hennacy; his Atlanta Penitentiary dates from the dropped record's case copy onto the kept record's dateless WWI draft-refusal case."
+  },
+  {
+   "keep": "samuel-h-kashinowitz",
+   "drop": "samuel-harry-kasinowitz",
+   "copy_case_incarceration": [
+    1948,
+    10,
+    26
+   ],
+   "copy_case_release": [
+    1948,
+    11,
+    4
+   ],
+   "note": "Same person (the 1948-49 Los Angeles grand-jury contempt defendant). CAUTION preserved for the curator: the dropped record's biography describes HELEN GERSHONOWITZ (a 1931 Passaic strike murder-charge defendant) — it is appended under the merge marker rather than deleted, per the no-deletion rule, and she may deserve her own record; the dropped record's 1931 Passaic case row (hers, not his) deletes rather than polluting his record, and its 1914/2011 vital dates are NOT adopted because the record is contaminated."
+  },
+  {
+   "keep": "dawn-jeffrey",
+   "drop": "brittany-dawn-jeffrey",
+   "aka_add": "Brittany Dawn Jeffrey",
+   "copy_case_arrest": [
+    2020,
+    12,
+    13
+   ],
+   "note": "Same person; the kept record carries the fuller biography and the release-audit update, and gains the arrest date from the dropped record's case."
+  },
+  {
+   "keep": "bryce-michael-williams",
+   "drop": "bryce-williams",
+   "note": "Same person, same Third Precinct arson; the dropped record's 27-month-sentence summary survives in the appended biography, and its thin duplicate case row deletes."
+  },
+  {
+   "keep": "james-e-jackson",
+   "drop": "james-edward-jackson",
+   "copy_case_arrest": [
+    1955,
+    12,
+    2
+   ],
+   "note": "Same person: the CPUSA leader and Smith Act refugee; the kept record gains his December 2, 1955 surrender date from the dropped record's case."
+  },
+  {
+   "keep": "judith-clark",
+   "drop": "judy-clark",
+   "aka_add": "Judy Clark",
+   "note": "Same person: the Brink's getaway driver. The kept record has the correct November 23, 1949 birth date, both case rows, the commutation detail, and the federal register number; the dropped record's biography is appended and its state DIN (83-G-313) survives there."
+  },
+  {
+   "keep": "jorge-p-cornell",
+   "drop": "jorge-peter-cornell",
+   "copy_case_arrest": [
+    2011,
+    12,
+    7
+   ],
+   "note": "Same person: the Greensboro Latin Kings leader. The kept record has the birth date, richer biography, and BOP register; it gains the December 7, 2011 arrest date, and the dropped record's sentence summary survives in the appended biography."
+  },
+  {
+   "keep": "sophie-melvin",
+   "drop": "sophie-gerson",
+   "aka_add": "Sophie Gerson",
+   "move_cases": true,
+   "note": "Same person at two life stages: Sophie Melvin Gerson, the nineteen-year-old Gastonia 1929 defendant who later married Simon Gerson and faced McCarthy-era denaturalization proceedings. The denaturalization case MOVES over so she carries both custody episodes; both biographies survive."
+  }
+ ],
+ "flags": [
+  "steve-kelly-sj retains two near-identical 1997 case rows (arrests 1997-02-11 and 1997-02-12, both ~28 months) — one is probably a duplicate entry of the same action; curator judgment.",
+  "Helen Gershonowitz (Passaic 1931, National Textile Workers Union, first-degree-murder charge over the death of mill-owner Max Urban) has no record of her own; her biography text is preserved inside samuel-h-kashinowitz's merged description pending a decision.",
+  "Records left photo-less by detachment could take correct portraits later: Julius Rosenberg, Fred Hampton, and Joan Baez-adjacent figures all have famous public-domain images.",
+  "False positives verified and left alone: the Jackson 1961 mugshot format pairs (rosell/watts, horne/bass, caston/wells, palmer/horne, mcnair/bass) and the Everett IWW pair johanson/scarlett (bookings 13130 vs 13114, different men).",
+  "Legitimate shared group photos left alone: guam-deportees.jpg (28 records), the Groveland trio, the Kissing Case pair, the Smith/Carberry NYPD-van incident photo, and the Soto couple photo.",
+  "Five photo pairs remain under identity verification (Elmer/Vern Smith, Justin Samuel/Shafer, Abdul Azeez/Hanif Shabazz Bey, Edwin P. Wilson/Edwin R. Lewinson, Joseph Geier/Gelders) — their detachments will follow in an amendment once the depicted person is confirmed; nothing is changed for them here."
+ ]
+}
