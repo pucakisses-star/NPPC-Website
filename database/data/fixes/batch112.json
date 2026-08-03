@@ -1,0 +1,17 @@
+{
+ "corrections": [
+  {
+   "slug": "allen-blitz",
+   "case_match_charges": "Rioting",
+   "case_set_arrest": [1980, 5, 2],
+   "case_set_incarceration": [1980, 5, 2],
+   "case_set_release": [1980, 5, 5],
+   "case_set_days": 3,
+   "append": "His jailing can be dated from a contemporary Workers Viewpoint report: he was arrested on May 2, 1980, after the felony-riot indictments came down — not at the massacre itself — and was still in jail on May 3 with his wife Dori and Lacie Russell after Nelson Johnson and Rand Manzella posted bond. On May 5 a judge reduced the remaining defendants' bail to $5,000 each, apparently permitting their release, making his time jailed approximately three days.",
+   "note": "Dates per the curator, from the contemporary Workers Viewpoint report; the report does not independently confirm the booking-out hour, so the release date is the May 5 bail reduction."
+  }
+ ],
+ "flags": [
+  "The same Workers Viewpoint report implies Dorothy (Dori) Blitz and Lacie Russell shared the May 1980 jailing chronology (still jailed May 3, bail reduced May 5), but the curator's recommendation covered Allen only — their case rows remain dateless pending a decision."
+ ]
+}
