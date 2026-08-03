@@ -1,0 +1,34 @@
+{
+ "corrections": [
+  {
+   "slug": "dennis-mora",
+   "birthdate": [1941, 1, 7],
+   "case_force_arrest": [1966, 7, 7],
+   "case_force_incarceration": [1966, 7, 7],
+   "case_force_release": [1968, 10, 16],
+   "case_force_days": 832,
+   "append": "The custody dates, corrected from contemporary sources: all three of the Fort Hood Three were arrested and confined by military authorities in New York on July 7, 1966 — not late September, which was merely when the early-September courts-martial were behind them — and remained confined through trial and imprisonment. The Militant, in a report datelined October 16, 1968, records Mora released that very day, October 16, 1968, and the NYU Daily Worker photographic archive independently confirms his return from imprisonment at LaGuardia Airport on that date — two years, three months, and nine days after his confinement began.",
+   "note": "Incarceration 1966-09-27 and release 1968-09-27 were wrong; forced to 1966-07-07 and 1968-10-16 per The Militant (Oct 16, 1968 dateline) and the NYU Daily Worker photo archive."
+  },
+  {
+   "slug": "james-johnson-jr",
+   "birthdate": [1946],
+   "case_force_arrest": [1966, 7, 7],
+   "case_force_incarceration": [1966, 7, 7],
+   "case_force_release": [1968, 10, 23],
+   "case_force_days": 839,
+   "append": "The custody dates, corrected from contemporary sources: all three of the Fort Hood Three were arrested and confined by military authorities in New York on July 7, 1966 — not late September, which was merely when the early-September courts-martial were behind them — and remained confined through trial and imprisonment. The Militant, in a report datelined October 16, 1968, gave his release as set for October 23, 1968, and the NYU Daily Worker photographic archive records him appearing with Dennis Mora at a Fort Hood Three press conference on October 28 — two years, three months, and sixteen days after his confinement began.",
+   "note": "Incarceration 1966-09-27 and release 1968-09-27 forced to 1966-07-07 and 1968-10-23 per The Militant; birth year 1946 per the curator."
+  },
+  {
+   "slug": "david-samas",
+   "birthdate": [1946],
+   "case_force_arrest": [1966, 7, 7],
+   "case_force_incarceration": [1966, 7, 7],
+   "case_force_release": [1968, 10, 27],
+   "case_force_days": 843,
+   "append": "The custody dates, corrected from contemporary sources: all three of the Fort Hood Three were arrested and confined by military authorities in New York on July 7, 1966 — not late September, which was merely when the early-September courts-martial were behind them — and remained confined through trial and imprisonment. The Militant, in a report datelined October 16, 1968, gave his release as set for October 27, 1968 — two years, three months, and twenty days after his confinement began, the longest of the three.",
+   "note": "Incarceration 1966-09-27 and release 1968-09-27 forced to 1966-07-07 and 1968-10-27 per The Militant; birth year 1946 per the curator."
+  }
+ ]
+}
