@@ -1,0 +1,37 @@
+{
+ "corrections": [
+  {
+   "slug": "mary-donovan-hapgood",
+   "birthdate": [1886],
+   "death_date": [1973, 6, 24],
+   "desc_replace": [
+    "in March 1929 at Pittston",
+    "on March 4, 1928 at Pittston"
+   ],
+   "append": "A fuller account, per the curator: Mary Donovan Hapgood (1886-1973) was a union organizer, a Socialist Party candidate for governor of Massachusetts, and a leading member of the Sacco-Vanzetti Defense Committee. After the executions of Sacco and Vanzetti she was arrested outside the funeral parlor where their bodies were held, on charges of advocating anarchy and inciting a riot, for carrying a placard quoting the judge who had sentenced the men: Did you see what I did to those anarchist bastards? - Judge Thayer. A year later, for speaking at a meeting of striking miners in Pittston, Pennsylvania, she was jailed four days - March 4 to March 8, 1928 - in the Luzerne County jail at Wilkes-Barre, on charges of disorderly conduct, inciting to riot, and a peace-bond proceeding, and released on bond of $2,500 individually, $5,000 combined.",
+   "case_match_charges": "Inciting to riot",
+   "case_force_arrest": [1928, 3, 4],
+   "case_force_incarceration": [1928, 3, 4],
+   "case_force_release": [1928, 3, 8],
+   "case_force_days": 4,
+   "case_set_charges": "Disorderly conduct, inciting to riot, and a peace-bond proceeding — for speaking at a meeting of striking anthracite miners at Pittston, Pennsylvania.",
+   "case_set_sentence": "Held four days, March 4-8, 1928, in the Luzerne County jail at Wilkes-Barre; released on bond of $2,500 individually ($5,000 combined with her husband Powers Hapgood).",
+   "case_set_institution": {
+    "name": "Luzerne County Jail",
+    "city": "Wilkes-Barre",
+    "state": "Pennsylvania"
+   },
+   "add_case": {
+    "match_missing_charges": "funeral parlor",
+    "arrest": [1927, 8],
+    "charges": "Advocating anarchy and inciting a riot — arrested outside the funeral parlor where the bodies of Sacco and Vanzetti were held, for carrying a placard quoting Judge Thayer: Did you see what I did to those anarchist bastards?",
+    "convicted": "Unresolved — the arrest is documented; the disposition is not",
+    "sentence": "Arrested after the August 1927 executions of Sacco and Vanzetti; jail time and disposition not documented."
+   },
+   "note": "The recorded March 1929 Pittston arrest was wrong — the curator dates the jailing March 4-8, 1928 (4 days, Luzerne County jail). Forced date corrections with old values echoed; birth/death fill empty fields; the 1927 funeral-parlor arrest enters as a second case row."
+  }
+ ],
+ "flags": [
+  "powers-hapgood shares the Pittston case with the same wrong March 1929 dating and the $5,000 bail figure that the curator gives as the couple's combined bond — his record almost certainly needs the same March 4-8, 1928 correction, but the curator's note covered Mary only; left for a decision."
+ ]
+}
