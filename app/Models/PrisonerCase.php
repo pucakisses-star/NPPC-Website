@@ -75,7 +75,8 @@ final class PrisonerCase extends Model
             // does nothing because the field is non-null.
             if (! $case->in_exile_since && $case->release_date) {
                 $prisoner = $case->prisoner;
-                if ($prisoner && ($prisoner->in_exile || $prisoner->currently_in_exile)) {
+                if ($prisoner && ($prisoner->in_exile || $prisoner->currently_in_exile)
+                    && ! $case->custodyResumedAfterRelease()) {
                     $case->in_exile_since = $case->release_date;
                     $case->mirrorDatePrecision('release_date', 'in_exile_since');
                 }
@@ -84,6 +85,44 @@ final class PrisonerCase extends Model
             $case->imprisoned_for_days = $case->computeImprisonedForDays();
             $case->in_exile_for_days = $case->computeInExileForDays();
         });
+    }
+
+    /**
+     * Was the prisoner back in custody after this case's release date?
+     *
+     * Guards the auto-derive above. A release that is followed by another
+     * incarceration did not put anybody into exile — they were out, then they
+     * were inside again — and the row that most often trips this is not even a
+     * release: an escape is recorded as a release_date, because there is no
+     * other column for the day custody ended. William Morales's Bellevue
+     * escape (May 21, 1979) was auto-derived into "in exile since 1979",
+     * alongside the real exile that began when Mexico flew him to Cuba in
+     * 1988, and the two spans were then added together on his public profile.
+     *
+     * Only a guard on the derived value: an in_exile_since set explicitly by
+     * a curator or a data script never reaches this, since the branch above
+     * runs only when the field is empty.
+     *
+     * Note the ordering caveat — a case row saved before its later sibling
+     * exists cannot see custody that has not been entered yet, so this stops
+     * a bad value being re-derived (an admin edit, a recompute run) rather
+     * than guaranteeing one was never written. Existing rows are corrected by
+     * data script.
+     */
+    public function custodyResumedAfterRelease(): bool
+    {
+        if (! $this->release_date || ! $this->prisoner_id) {
+            return false;
+        }
+
+        return self::query()
+            ->where('prisoner_id', $this->prisoner_id)
+            ->when($this->id, fn ($q) => $q->where('id', '!=', $this->id))
+            ->where(function ($q) {
+                $q->where('incarceration_date', '>', $this->release_date)
+                    ->orWhere('arrest_date', '>', $this->release_date);
+            })
+            ->exists();
     }
 
     /**
