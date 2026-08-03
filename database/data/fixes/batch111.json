@@ -1,0 +1,36 @@
+{
+ "removals": [
+  {
+   "slug": "roosevelt-watson",
+   "reason": "Dawson Five — removed per the curator"
+  },
+  {
+   "slug": "henderson-watson",
+   "reason": "Dawson Five — removed per the curator"
+  },
+  {
+   "slug": "jd-davenport",
+   "reason": "Dawson Five — removed per the curator"
+  },
+  {
+   "slug": "johnnie-b-jackson",
+   "reason": "Dawson Five — removed per the curator"
+  },
+  {
+   "slug": "johnny-jackson",
+   "reason": "Dawson Five (duplicate record of Johnnie B. Jackson) — removed per the curator"
+  },
+  {
+   "slug": "james-jackson-jr",
+   "reason": "Dawson Five (Junior Jackson) — removed per the curator"
+  },
+  {
+   "slug": "george-poor",
+   "reason": "Recorded as one of the Dawson Five — removed per the curator with the rest of the group"
+  },
+  {
+   "slug": "eric-abraham",
+   "reason": "Removed per the curator: the South African journalist was banned and house-arrested, not imprisoned, and escaped to asylum in Britain"
+  }
+ ]
+}
