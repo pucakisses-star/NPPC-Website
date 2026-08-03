@@ -1,0 +1,90 @@
+{
+ "corrections": [
+  {
+   "slug": "powers-hapgood",
+   "birthdate": [1899, 12, 28],
+   "death_date": [1949, 2, 4],
+   "desc_replace": [
+    "in March 1929 at Pittston",
+    "on March 4, 1928 at Pittston"
+   ],
+   "append": "A fuller account, per the curator: Powers Hapgood (born December 28, 1899, in Chicago; died February 4, 1949, in Marion County, Indiana) was a Harvard-educated coal miner, Socialist, and labor organizer who was arrested and jailed numerous times over his life for his activism. During the Somerset County, Pennsylvania coal strike of 1922-23 he was reportedly arrested more than a dozen times for leading marches and entering company-owned mining towns to organize or picket — the one episode reconstructable to a date is an April 15, 1922 arrest in Somerset with organizer Arthur Taylor, from which he was free again by the April 17 Boswell action; the rest await the telegrams in the UMWA District 2 papers (IUP Special Collections, Box 30, Folder 11) and Somerset County magistrate records. During the Sacco-Vanzetti campaign in Boston he was arrested four times in August 1927: on August 10 picketing the State House with the death watch (alongside Dorothy Parker, John Dos Passos, and Catharine Sargent Huntington); on August 14 for attempting to address a crowd of thousands on Boston Common after officials revoked the meeting permit — for which Judge Parmenter sentenced him on August 16 to six months for speaking without a permit, a term never served because he immediately appealed under $1,000 bail; on the night of the executions, August 22-23, when he was pulled from a cell of cheering prisoners and committed to the Boston Psychopathic Hospital for observation, released by August 26 — his later lawsuit alleged the psychiatric commitment was improper; and a fourth arrest reported contemporaneously whose exact date is unresolved. The March 4, 1928 Pittston jailing with his wife Mary Donovan Hapgood ended in acquittal later in 1928. Around 1931, during the Maxwell Colliery dispute at Ashley in the Glen Alden coal strike, deputies charged him with attempted assault and placed him in the county jail under $1,000 bail; the admission and release dates have not surfaced. He later became a prominent CIO organizer, and his longest documented imprisonment came in 1937: on May 6 he and other CIO organizers were convicted of contempt for continuing the Lewiston-Auburn, Maine shoe strike in violation of a court injunction and sentenced to six months; they actually spent 58 days jailed before release on bail — around July 2-3, 1937 — and the contempt ruling was subsequently overturned.",
+   "case_match_charges": "Inciting to riot",
+   "case_force_arrest": [1928, 3, 4],
+   "case_force_incarceration": [1928, 3, 4],
+   "case_force_release": [1928, 3, 8],
+   "case_force_days": 4,
+   "case_set_charges": "Inciting to riot — arrested March 4, 1928, at Pittston, Pennsylvania, with his wife Mary Donovan Hapgood, after authorities prohibited a miners defense meeting during the anthracite strike.",
+   "case_set_convicted": "No — acquitted later in 1928; the exact verdict date is unresolved",
+   "case_set_sentence": "Held about four days in the Luzerne County jail at Wilkes-Barre under $5,000 bail each; a March 8 newspaper reported the habeas-corpus request denied and bail fixed at $5,000, and a labor-defense account has them released on that bail after several days — so the release is dated March 8, 1928 as probable rather than certain. Trial was set for April 10, 1928, and by July labor reporting called the result an acquittal.",
+   "case_set_institution": {
+    "name": "Luzerne County Jail",
+    "city": "Wilkes-Barre",
+    "state": "Pennsylvania"
+   },
+   "add_cases": [
+    {
+     "match_missing_charges": "Somerset",
+     "arrest": [1922, 4, 15],
+     "release": [1922, 4],
+     "charges": "Organizing arrest at Somerset, Pennsylvania, with UMWA organizer Arthur Taylor during the 1922-23 Somerset County coal strike — the one of his reportedly more-than-a-dozen Somerset arrests reconstructable to a date.",
+     "convicted": "Unresolved — no charge wording or disposition survives in the accessible record",
+     "sentence": "In custody at Somerset two days before the April 17, 1922 Boswell organizing action, so free again by April 17 — at most about two days held, most likely a brief detention or one overnight stay. The remaining Somerset arrests await the UMWA District 2 telegrams (IUP Box 30, Folder 11)."
+    },
+    {
+     "match_missing_charges": "State House",
+     "arrest": [1927, 8, 10],
+     "release": [1927, 8],
+     "charges": "Loitering and sauntering while picketing the Massachusetts State House with the Sacco-Vanzetti death watch, August 10, 1927 — arrested alongside Dorothy Parker, John Dos Passos, and Catharine Sargent Huntington.",
+     "convicted": "Unresolved — the cases proceeded as test-case appeals rather than jail sentences",
+     "sentence": "Released the same day or overnight at most; bail was being arranged for the arrested demonstrators and no evidence shows a longer hold."
+    },
+    {
+     "match_missing_charges": "Boston Common",
+     "arrest": [1927, 8, 14],
+     "release": [1927, 8],
+     "charges": "Speaking without a permit — arrested August 14, 1927, attempting to address a crowd of two to three thousand on Boston Common about the impending Sacco-Vanzetti executions after officials revoked the meeting permission.",
+     "convicted": "Convicted August 16, 1927 (Judge Parmenter) — sentenced to six months, never served; immediately appealed",
+     "sentence": "Initially held under $200 bail and probably released August 14 or 15; sentenced August 16 to six months for speaking without a permit and immediately appealed under $1,000 bail, so the custodial term was never served — actual lockup probably under one day."
+    },
+    {
+     "match_missing_charges": "Psychopathic",
+     "arrest": [1927, 8, 22],
+     "release": [1927, 8],
+     "charges": "Arrested in the final death-watch demonstrations on the night of the Sacco-Vanzetti executions, August 22-23, 1927, then removed from his cell and committed to the Boston Psychopathic Hospital for observation.",
+     "convicted": "Unresolved — his later lawsuit alleged the psychiatric commitment was improper",
+     "sentence": "Committed to the hospital by August 24 and released by August 26 — probably August 24 or 25; roughly one to three days of detention and hospitalization in all."
+    },
+    {
+     "match_missing_charges": "fourth Boston arrest",
+     "arrest": [1927, 8],
+     "charges": "A fourth Boston arrest during the August 1927 Sacco-Vanzetti campaign — wire services reported by August 26 that he had been arrested four times, but the fourth Boston arrest is not individually dated in the accessible record.",
+     "convicted": "Unresolved",
+     "sentence": "Recorded as an additional documented arrest with the exact date and duration unresolved, rather than combined with the three dated August 1927 episodes."
+    },
+    {
+     "match_missing_charges": "Maxwell Colliery",
+     "arrest": [1931],
+     "charges": "Attempted assault — charged by deputies during the Maxwell Colliery dispute at Ashley, Pennsylvania, in the Glen Alden coal strike, around 1931.",
+     "convicted": "Unresolved",
+     "sentence": "Placed in the county jail under $1,000 bail; the exact admission and release dates have not surfaced."
+    },
+    {
+     "match_missing_charges": "shoe strike",
+     "arrest": [1937, 5, 6],
+     "incarceration": [1937, 5, 6],
+     "release": [1937, 7],
+     "days": 58,
+     "charges": "Contempt of court — convicted May 6, 1937, with other CIO organizers for continuing the Lewiston-Auburn, Maine shoe strike in violation of a court injunction banning strike activity.",
+     "convicted": "Convicted of contempt May 6, 1937; the ruling was subsequently overturned",
+     "sentence": "Sentenced to six months; actually spent 58 days jailed before release on bail — placing the probable release around July 2-3, 1937, entered at month precision pending the exact discharge record — and the contempt ruling was later overturned. His longest documented imprisonment."
+    }
+   ],
+   "note": "Pittston forced from March 1929 to March 4-8, 1928 (release probable); life dates 1899-12-28 / 1949-02-04 per the Encyclopedia of Indianapolis; seven case rows added from the newspaper reconstruction with unresolved fields stated rather than inferred."
+  }
+ ],
+ "flags": [
+  "The remaining eleven-plus Somerset County arrests (1922-23) cannot be dated without the UMWA District 2 telegrams at IUP Special Collections (Box 30, Folder 11) and Somerset County magistrate records — documented in the biography, not as case rows.",
+  "The 1937 Maine release is entered at July 1937 month precision; the 58-day count from the labor-history account implies roughly July 2-3 but the exact discharge day is unconfirmed."
+ ]
+}
