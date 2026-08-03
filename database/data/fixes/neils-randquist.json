@@ -1,0 +1,23 @@
+{
+  "name": "Neils Randquist",
+  "first_name": "Neils",
+  "last_name": "Randquist",
+  "aka": "Niels Rundquist",
+  "description": "Neils Randquist — his name mangled to Nell Randqulst by the optical scan of the contemporary prisoner birthday list, and also printed Niels Rundquist — was held at the Maine State Prison in Thomaston and appeared on the political-prisoner lists circulated by radical organizations of the era; the labor press confirms him as one of the seamen imprisoned in Maine. His birthday was February 11. Beyond that, the accessible record runs dry: no reliable account of his charge, sentence, background, birth year, or precise custody dates has yet surfaced, and those fields are left unresolved rather than inferred.",
+  "state": "Maine",
+  "gender": "Male",
+  "era": "1920s",
+  "ideologies": ["Labor Organizing"],
+  "in_custody": false,
+  "released": true,
+  "cases": [
+    {
+      "institution_name": "Maine State Prison",
+      "institution_city": "Thomaston",
+      "institution_state": "Maine",
+      "charges": "Unresolved — his imprisonment at Thomaston is confirmed by contemporary political-prisoner lists and the labor press, but no account of the charge has surfaced.",
+      "convicted": "Unresolved",
+      "sentence": "Held at the Maine State Prison, Thomaston; sentence and custody dates unresolved pending prison-register or court records."
+    }
+  ]
+}

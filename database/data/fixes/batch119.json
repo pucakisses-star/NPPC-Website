@@ -1,0 +1,60 @@
+{
+ "merges": [
+  {
+   "keep": "james-p-gordon",
+   "drop": "p-j-gordon",
+   "aka_add": "P. J. Gordon",
+   "note": "Same person: the Los Angeles IWW member sentenced to five years in the California criminal-syndicalism campaign, entering Folsom July 12, 1923 — printed as both James P. Gordon and P. J. Gordon. The kept record has the fuller case; the dropped record's biography is appended so nothing is lost."
+  }
+ ],
+ "updates": [
+  {
+   "slug": "eugene-barnett",
+   "birth_force": [1892, 2, 21],
+   "death_force": [1973],
+   "inmate_set": "9414",
+   "append": "His life dates, corrected per the curator: the University of Washington archival finding aid for his papers identifies Eugene Barnett as 1892-1973, and combined with the February 21 birthday on the contemporary prisoner birthday list his probable complete date of birth is February 21, 1892 — replacing earlier recorded dates of 1888 and a 1948 death that do not fit the finding aid. Convicted of second-degree murder after the November 11, 1919 Centralia confrontation, he received a 25-to-40-year sentence at Walla Walla (prisoner 9414) and was released in the early 1930s.",
+   "note": "Stored dates 1888-12-01 / 1948-02-02 conflict with the UW finding aid (1892-1973); forced with old values echoed."
+  },
+  {
+   "slug": "frank-nash",
+   "inmate_set": "9516",
+   "note": "Walla Walla prisoner number from the birthday list; fills only if the field is empty."
+  },
+  {
+   "slug": "frank-sherman",
+   "inmate_set": "35768",
+   "append": "The contemporary prisoner birthday list gives his birthday as February 5 (no birth year has surfaced) and his San Quentin number as 35768. He was convicted under the California criminal-syndicalism law in January 1922, essentially for his association with and advocacy for the IWW.",
+   "note": "Birthday known (Feb 5) but no year — recorded in the biography since a partial date cannot carry a day without a year."
+  },
+  {
+   "slug": "f-e-mcclennigan",
+   "rename": "Francis E. McClennigan",
+   "first_name": "Francis",
+   "aka_add": "Francis McClennigan",
+   "inmate_set": "38125",
+   "append": "His full name — mangled to Francis K. McClenwgan by the optical scan of the birthday list — was Francis McClennigan, also printed F. E. McClennigan; his birthday was February 27 (no birth year has surfaced) and his San Quentin number 38125. A Los Angeles IWW activist, he was involved in defending workers prosecuted during the 1923 San Pedro maritime strike before being imprisoned himself in the California criminal-syndicalism prosecutions; his exact sentence and release date still await reconstruction.",
+   "note": "OCR-corrected name; number and birthday from the list."
+  },
+  {
+   "slug": "james-p-gordon",
+   "inmate_set": "38113",
+   "append": "The contemporary prisoner birthday list gives his birthday as February 13 (no birth year has surfaced). His prisoner number was 38113 — the 88113 rendered by the optical scan of the list was an error. Sentenced to five years under the California criminal-syndicalism campaign, he entered Folsom on July 12, 1923 and apparently remained until his term expired.",
+   "note": "Runs after the merge; number corrected from the OCR reading."
+  },
+  {
+   "slug": "earl-firey",
+   "birth_fill": [1895, 2],
+   "inmate_set": "12640",
+   "append": "A scholarly history identifies him as 27 years old during his spring 1922 prosecution, which — his February birthday having passed — establishes an 1895 birth year; the prisoner birthday list gives the day as February 26 while a genealogy index gives February 29, 1895, a date that cannot exist (1895 was not a leap year), so the birth date is entered at month precision pending confirmation. A Sacramento IWW carpenter, he was convicted of criminal syndicalism with fellow Wobbly J. A. Casdorf and received a five-year sentence, imprisoned from February 17, 1922 — first at San Quentin under number 37474, later at Folsom as 12640 — and released sometime in 1925; the exact date remains unresolved.",
+   "case_fill_incarceration": [1922, 2, 17],
+   "case_fill_release": [1925],
+   "note": "Birth at month precision (day disputed); Folsom number to the inmate field, San Quentin 37474 in the biography; case dates fill empty fields only."
+  }
+ ],
+ "flags": [
+  "Frank Sherman, Francis McClennigan, and James P. Gordon have confirmed February birthdays (5th, 27th, 13th) but no birth years — recorded in their biographies because a date field cannot hold a day without a year; if years surface, full birth dates can enter.",
+  "Earl Firey's birth day is disputed: the prisoner list says February 26, a genealogy index says February 29, 1895 — impossible, as 1895 was not a leap year. Entered at February 1895 month precision.",
+  "Eugene Barnett's previous stored dates (born 1888-12-01, died 1948-02-02) were replaced by the UW finding aid dates; if those old values had a source worth reconciling, the echo in the deploy log preserves them."
+ ]
+}

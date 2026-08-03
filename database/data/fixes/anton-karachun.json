@@ -1,0 +1,24 @@
+{
+  "name": "Anton Karachun",
+  "first_name": "Anton",
+  "last_name": "Karachun",
+  "description": "Anton Karachun was a Russian-born United States Army soldier sent to Siberia with the 31st Infantry during the Allied intervention in the Russian Civil War. He deserted, joined Bolshevik-aligned forces, and was later captured and court-martialed. He received a very long military sentence — contemporary reports variously say 20 or 22 years — served at the McNeil Island federal penitentiary in Washington. His case differed from the IWW prisoners alongside whom his name appeared on political-prisoner lists because it involved desertion and fighting against his former command. He was released in March 1925 and subsequently departed for the Soviet Union. The February 6 birthday recorded on the contemporary prisoner birthday list, with the 1897 birth year, gives his date of birth as February 6, 1897.",
+  "state": "Washington",
+  "gender": "Male",
+  "birthdate": "1897-02-06",
+  "era": "1920s",
+  "ideologies": ["Communism"],
+  "in_custody": false,
+  "released": true,
+  "cases": [
+    {
+      "institution_name": "McNeil Island Federal Penitentiary",
+      "institution_city": "Steilacoom",
+      "institution_state": "Washington",
+      "charges": "Desertion — court-martialed after deserting the 31st Infantry during the Siberian intervention, joining Bolshevik-aligned forces, and being captured by his former command.",
+      "convicted": "Yes — court-martialed; contemporary reports give the sentence variously as 20 or 22 years",
+      "sentence": "A very long military sentence — 20 or 22 years by contemporary reports — served at McNeil Island; released March 1925, after which he departed for the Soviet Union.",
+      "release_date": "1925-03-01"
+    }
+  ]
+}
