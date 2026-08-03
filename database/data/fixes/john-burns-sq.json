@@ -1,0 +1,23 @@
+{
+  "name": "John Burns",
+  "first_name": "John",
+  "last_name": "Burns",
+  "description": "John Burns appears on the June 1925 labor-press political-prisoner birthday notice as held at San Quentin Penitentiary under prisoner number 40054, with a June 16 birthday — one of the class-war prisoners the movement press kept before its readers during the era of California's criminal-syndicalism prosecutions. Beyond the notice, the accessible record runs dry: his charge, sentence, background, birth year, and custody dates have not yet surfaced, and those fields are left unresolved rather than inferred. He is distinct from the Ed Burns and William Burns records elsewhere in this archive.",
+  "state": "California",
+  "gender": "Male",
+  "era": "1920s",
+  "inmate_number": "40054",
+  "ideologies": ["Labor Organizing"],
+  "in_custody": false,
+  "released": true,
+  "cases": [
+    {
+      "institution_name": "San Quentin State Prison",
+      "institution_city": "San Quentin",
+      "institution_state": "California",
+      "charges": "Unresolved — his imprisonment at San Quentin (prisoner 40054) is confirmed by the June 1925 political-prisoner birthday notice, but no account of the charge has surfaced.",
+      "convicted": "Unresolved",
+      "sentence": "Held at San Quentin as of mid-1925; sentence and custody dates unresolved pending prison-register or court records."
+    }
+  ]
+}
