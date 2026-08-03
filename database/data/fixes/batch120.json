@@ -1,0 +1,50 @@
+{
+ "updates": [
+  {
+   "slug": "b-johansen",
+   "aka_add": "B. Johanson",
+   "inmate_set": "38364",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him — spelled B. Johanson — at San Quentin under prisoner number 38364, with a June 3 birthday (no birth year is given)."
+  },
+  {
+   "slug": "george-ryan",
+   "inmate_set": "35567",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him at San Quentin under prisoner number 35567, with a June 25 birthday (no birth year is given)."
+  },
+  {
+   "slug": "herman-suhr",
+   "inmate_set": "9266",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him at Folsom Prison, Represa, under prisoner number 9266, with a June 16 birthday (no birth year is given). The notice appears to print a middle initial O., while the Wheatland prisoner is usually recorded as Herman D. Suhr — the initial awaits independent verification."
+  },
+  {
+   "slug": "louis-allen",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him at Folsom Prison, Represa, under prisoner number 12026 — matching the number already recorded here — with a June 22 birthday (no birth year is given)."
+  },
+  {
+   "slug": "thomas-harty",
+   "aka_add": "Tom Harty",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him — as Tom Harty — at the Maine State Prison, Thomaston, with a June 17 birthday (no birth year is given)."
+  },
+  {
+   "slug": "pedro-perales",
+   "aka_add": "Pedro Paroles",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him — spelled Pedro Paroles — at the Blue Ridge State Farm, Hobby, Texas, still imprisoned twelve years after the Rangel-Cline convictions. The notice gives his birthday as June 19, while a similar 1924 list reportedly gave June 29: the June month is secure, the day awaits a prison record (no birth year is given)."
+  },
+  {
+   "slug": "jesus-gonzalez",
+   "inmate_set": "36458",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him at the Senior Farm, Dewalt, Brazoria County, Texas — a state prison farm — under prisoner number 36458, with a June 30 birthday (no birth year is given), still imprisoned twelve years after the Rangel-Cline convictions."
+  },
+  {
+   "slug": "leonardo-vasquez",
+   "append": "The June 1925 labor-press political-prisoner birthday notice lists him at the Senior Farm, Dewalt, Brazoria County, Texas — a state prison farm, alongside his Rangel-Cline co-defendant Jesus Gonzales — with a June 30 birthday (no birth year is given)."
+  }
+ ],
+ "flags": [
+  "Bartolomeo Vanzetti: the 1925 notice prints his birthday as June 19, but his documented date of birth — already recorded — is June 11, 1888; the notice entry is presumably a printing error and nothing was changed.",
+  "Herman Suhr: the notice appears to print Herman O. Suhr while the Wheatland prisoner is usually Herman D. Suhr — the middle initial awaits independent verification; the stored name (no middle initial) is untouched.",
+  "Frank Martel (president, Detroit Federation of Labor) and Frank Brunton (secretary, Detroit auto workers union) are reported arrested in the same issue during an organizing struggle, but the article does not establish that either was sentenced — per the curator they classify as labor arrestees, not confirmed political prisoners, and NO records were created; revisit if custody evidence surfaces.",
+  "The curator's note about the issue was cut off mid-sentence (it ends: The issue also claims that P) — whatever followed has not been received or processed.",
+  "All June birthdays from the notice lack birth years and therefore live in the biographies; a date field cannot hold a day without a year."
+ ]
+}
