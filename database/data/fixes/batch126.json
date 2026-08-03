@@ -1,0 +1,134 @@
+{
+ "note": "JAFRC contempt custody. All eleven June 7, 1950 defendants already carry the correct incarceration date; what was wrong were the release dates, every one of which was the sentence length added to the surrender date rather than anything a source reported. Three are now fixed to their attested days; the other eight drop to month precision with the documented three months carried by imprisoned_for_months. Bryan and Fleischman were not part of the June 7 surrender and are handled separately below. Case rows are located by their incarceration date, so a record with several cases cannot be edited on the wrong one.",
+
+ "june7": [
+  {
+   "slug": "edward-k-barsky",
+   "name": "Edward K. Barsky",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 11, "day": 7},
+   "months": null,
+   "sentence_append": "About five months of the six-month sentence were served: June 7 to November 7, 1950, at the Federal Reformatory, Petersburg, Virginia. The previously recorded December 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "howard-fast",
+   "name": "Howard Fast",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 8, "day": 29},
+   "months": null,
+   "sentence_append": "Served June 7 to August 29, 1950 at Mill Point Federal Prison Camp, West Virginia; the September 1, 1950 Daily Worker reported him and Lyman R. Bradley free after serving their terms. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": {"name": "Mill Point Federal Prison Camp", "city": "Mill Point", "state": "West Virginia"}
+  },
+  {
+   "slug": "lyman-r-bradley",
+   "name": "Lyman R. Bradley",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 8, "day": 29},
+   "months": null,
+   "sentence_append": "Released from Mill Point Federal Prison Camp, West Virginia, on August 29, 1950 alongside Howard Fast; the September 1, 1950 Daily Worker reported both men free after serving their terms. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": {"name": "Mill Point Federal Prison Camp", "city": "Mill Point", "state": "West Virginia"}
+  },
+
+  {
+   "slug": "jacob-auslander",
+   "name": "Jacob Auslander",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "marjorie-chodorov",
+   "name": "Marjorie Chodorov",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "ruth-leider",
+   "name": "Ruth Leider",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "james-lustig",
+   "name": "James Lustig",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release. This is his JAFRC contempt term; the 1946 Phelps-Dodge strike prosecution is the separate case row on this record.",
+   "institution": null
+  },
+  {
+   "slug": "harry-m-justiz",
+   "name": "Harry M. Justiz",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "manuel-magana",
+   "name": "Manuel Magaña",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "louis-miller",
+   "name": "Louis Miller",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "charlotte-stern",
+   "name": "Charlotte Stern",
+   "incarcerated": "1950-06-07",
+   "release": {"year": 1950, "month": 9},
+   "months": 3,
+   "sentence_append": "Entered federal custody June 7, 1950 and released in early September 1950. The September 1, 1950 Daily Worker reported the remaining eight JAFRC prisoners due out the following week, which places the release at approximately September 3-9, 1950; no individual release day has been found, so the release is recorded at month precision and the counter reports the documented three months rather than a day-level span. The previously recorded September 7, 1950 release was the sentence length added to the surrender date, not a reported release.",
+   "institution": null
+  }
+ ],
+
+ "november13": [
+  {
+   "slug": "helen-bryan",
+   "name": "Helen R. Bryan",
+   "incarcerated": "1950-11-13",
+   "release": {"year": 1951, "month": 2},
+   "months": 3,
+   "sentence_append": "She was not part of the June 7, 1950 surrender: she entered custody separately on November 13, 1950, after her later appeal failed. A three-month term places release at approximately February 1951, but no release notice has been found, so the release is recorded at month precision and the counter reports the three-month term rather than a day-level span. The previously recorded February 13, 1951 release was the sentence length added to the commitment date, not a reported release.",
+   "institution": null
+  },
+  {
+   "slug": "ernestina-fleischman",
+   "name": "Ernestina G. Fleischman",
+   "incarcerated": "1950-11-13",
+   "release": {"year": 1951, "month": 2},
+   "months": 3,
+   "sentence_append": "She was not part of the June 7, 1950 surrender: she entered custody separately on November 13, 1950, after her later appeal failed. A three-month term places release at approximately February 1951, but no release notice has been found, so the release is recorded at month precision and the counter reports the three-month term rather than a day-level span. The previously recorded February 13, 1951 release was the sentence length added to the commitment date, not a reported release.",
+   "institution": {"name": "Federal Reformatory for Women, Alderson", "city": "Alderson", "state": "West Virginia"}
+  }
+ ],
+
+ "flagged": [
+  {
+   "slug": "eugene-dennis",
+   "reason": "Named in the curator's list but absent from both of the curator's own date tables, and the arithmetic excludes him: eleven defendants means Barsky plus ten three-month sentences, and Barsky, Fast, Bradley and the eight named below account for all eleven. His record is a different contempt matter — one year at the United States Penitentiary, Atlanta, for refusing to APPEAR before HUAC in 1947, rather than three months for the board's refusal to surrender the JAFRC records. NOT CHANGED; no custody dates were written to him. If he did surrender with the others on June 7, 1950, say so and it can be added."
+  }
+ ]
+}
