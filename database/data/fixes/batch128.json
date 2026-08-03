@@ -1,0 +1,19 @@
+{
+ "slug": "josephine-sunshine-overaker",
+
+ "aka": "Lisa Rachelle Quintana, Lisa R. Quintana, Maria Rachelle Quintana, Maria Quintana, \"Osha\", \"Jo\", \"China\", \"Josie\", \"Mo\"",
+
+ "indicted": "January 19, 2006 — federal grand jury, District of Oregon, Eugene",
+
+ "bio_append": "The FBI wanted notice issued by the Bureau's Portland field office gives her place of birth as Canada and lists three dates of birth used — November 19, 1974, October 4, 1971 and November 4, 1971 — alongside the alias identities Lisa Rachelle Quintana and Maria Rachelle Quintana; these are dates she is recorded as having used rather than a verified birth date, and no single one is entered here. The same notice states her nationality as Canadian while its remarks call her an American citizen. She was indicted by a federal grand jury at Eugene on January 19, 2006, and the reward stands at up to $50,000.",
+
+ "birthdate": {
+  "stored": null,
+  "reason": "The FBI wanted poster is the only source that carries a birth date for her, and it gives three — November 19, 1974; October 4, 1971; November 4, 1971 — under the heading 'Date(s) of Birth Used', which on an FBI notice means dates the subject has been recorded using, not a verified date of birth. Two of her aliases are full alternate identities (Lisa Rachelle Quintana, Maria Rachelle Quintana), which is where at least two of those dates come from. Nothing found in the January 19, 2006 indictment coverage or the Operation Backfire record establishes which, if any, is hers. Entering one of the three as her birthdate would assert something no source supports, so all three are recorded in the biography instead and the field is left empty. If the curator wants November 19, 1974 — the date the poster lists first, which on FBI notices is usually the primary identity — stored, it is a one-line follow-up."
+ },
+
+ "in_exile_since": {
+  "stored": null,
+  "reason": "No reliable date for her departure. The FBI says she left the United States shortly after the December 2005 Operation Backfire arrests; the biography already on this record says she fled before them. The sources conflict and neither gives a day, so in_exile_since is left empty. currently_in_exile still puts her in the site's currently-imprisoned-or-exiled lists and shows the In Exile badge; only the running exile counter is absent, which is the correct outcome for an exile whose start is unknown."
+ }
+}
