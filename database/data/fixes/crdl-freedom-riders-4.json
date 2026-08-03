@@ -1,0 +1,57 @@
+{
+ "new": [
+  {
+   "slug": "richard-lee-haley",
+   "name": "Richard Lee Haley",
+   "first_name": "Richard",
+   "middle_name": "Lee",
+   "last_name": "Haley",
+   "gender": "Male",
+   "era": "1960s",
+   "state": "Mississippi",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "affiliation": [],
+   "description": "Richard Lee Haley was arrested in Jackson, Mississippi, on July 19, 1961, while picketing the Heidelberg Hotel during the Southern Governors Conference — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, whose subject authority identifies him as a civil-rights worker. One anomaly in the record is preserved rather than resolved: the Jackson Police Department booking placard in his photograph reads number 21209 with the date 7-16-61, while the catalog title and a handwritten notation on the photograph itself both date the arrest July 19 — possibly a placard error, or a photograph from an earlier booking reused in processing. The catalog establishes the arrest, the picketing, and the individually identified police photograph, but not the specific charge wording, the court disposition, the detention duration, or the physical release date; those fields are unresolved pending county-jail or court records.",
+   "cases": [
+    {
+     "arrest": [
+      1961,
+      7,
+      19
+     ],
+     "charges": "Picketing the Heidelberg Hotel during the Southern Governors Conference — arrested Jackson, July 19, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-07-19. The Civil Rights Digital Library establishes the arrest and the identification photograph (booking placard 21209, placard date 7-16-61 against the cataloged July 19 — an unresolved discrepancy) but not the charge wording, disposition, detention duration, or release date — unresolved pending court or jail records."
+    }
+   ],
+   "photo": true
+  }
+ ],
+ "updates": [
+  {
+   "slug": "james-emerson-dennis",
+   "birth": [1935],
+   "note": "CRDL authority metadata supplies the 1935 birth year; enters only because the field is empty."
+  },
+  {
+   "slug": "phillip-jay-havey",
+   "birth": [1930],
+   "note": "CRDL authority metadata supplies the 1930 birth year; enters only because the field is empty."
+  },
+  {
+   "slug": "richard-c-steward",
+   "birth": [1939],
+   "note": "CRDL authority metadata supplies the 1939 birth year; enters only because the field is empty."
+  },
+  {
+   "slug": "rudolph-mitaritonna",
+   "aka": "Rudolph Mitarotonda",
+   "note": "The curator's latest ledger normalizes the surname as Mitarotonda; recorded as an additional AKA alongside the existing photograph-spelling Mitaritenna, with the CRDL authority form Mitaritonna kept primary."
+  }
+ ],
+ "photo_ids": {
+  "richard-lee-haley": "2-55-6-32-1-1-1"
+ }
+}
