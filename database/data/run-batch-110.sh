@@ -2,11 +2,17 @@
 #
 # BATCH 110 -- the follow-ups the batch 109 photo audit flagged:
 #
-#   REPLACEMENT PORTRAITS — records left photo-less by the batch 109
-#   detachments get verified portraits of the RIGHT person, each
-#   identity-confirmed against a captioned source (see
-#   CREDITS-batch-110.md). The attach step only fills EMPTY photo
-#   slots and reports if a photo is already present.
+#   FIFTEEN REPLACEMENT PORTRAITS — records left photo-less by the
+#   batch 109 detachments get verified portraits of the RIGHT
+#   person, each identity-confirmed against a captioned source (see
+#   CREDITS-batch-110.md): four NARA Leavenworth intake mugshots
+#   with matching number boards (Larson, Turner, Hoover, Anderson),
+#   the NARA Julius Rosenberg arrest photo, the 1969 Fred Hampton
+#   Grant Park photo, the vi3.org Abdul Azeez portrait, and more —
+#   plus the Daily Worker group-photo crop of Helen Gershonowitz.
+#   The attach step only fills EMPTY photo slots and reports if a
+#   photo is already present. Eleven records stay photo-less with
+#   the reasons flagged in fixes/batch110.json.
 #
 #   STEVE KELLY CASE DEDUP — steve-kelly-sj carried two
 #   near-identical rows for the Prince of Peace Plowshares action
@@ -30,6 +36,35 @@ set -uo pipefail
 cd "$(dirname "$0")/../.."
 
 FAILED=()
+
+bio_appends() {
+    php artisan tinker --execute='
+use App\Models\Prisoner;
+use Illuminate\Support\Facades\File;
+
+$payload = json_decode(File::get(base_path("database/data/fixes/batch110.json")), true);
+
+foreach ($payload["appends"] as $row) {
+    $p = Prisoner::withUnderReview()->where("slug", $row["slug"])->first();
+
+    echo "\nAPPEND ", $row["slug"], "\n";
+
+    if (! $p) { echo "  NOT FOUND — skipped\n"; continue; }
+
+    if (str_contains((string) $p->description, mb_substr($row["append"], 0, 60))) {
+        echo "  already appended\n";
+        continue;
+    }
+
+    $p->description = trim((string) $p->description)."\n\n".$row["append"];
+    $p->save();
+    echo "  appended\n";
+}
+
+\Illuminate\Support\Facades\Cache::forget(\App\Http\Controllers\Api\PrisonerApiController::cacheKey());
+echo "Done.\n";
+'
+}
 
 run() {
     local label="$1"
@@ -171,9 +206,10 @@ echo "Done.\n";
 '
 }
 
+run "create-helen-gershonowitz" create_gershonowitz
 run "attach-replacement-portraits" attach_photos
 run "kelly-1997-case-dedup" kelly_dedup
-run "create-helen-gershonowitz" create_gershonowitz
+run "bio-appends" bio_appends
 
 echo
 echo "==================================================================="
