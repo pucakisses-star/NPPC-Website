@@ -1,0 +1,134 @@
+{
+ "note": "Six people from the Industrial Worker of August 6, 1924, per the curator. Five of the six are already in the database and need correcting rather than creating; only M. C. Sullivan is genuinely absent. Four of the five carry an import-wide default charge of 'Federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918' — these were state prosecutions under California's 1919 Criminal Syndicalism Act, and that string is on 617 records in all, 94 of them at San Quentin or Folsom. Only the ones in scope here are corrected. Race is left exactly as found on the existing records and is not set on the new one. Birthdays given as a day and month with no year are recorded in prose, because the birthdate column cannot hold a date without a year and inventing one to fill it would be worse than leaving it empty.",
+
+ "updates": [
+  {
+   "slug": "j-c-robinson",
+   "label": "J. C. Robinson — San Quentin 38127",
+   "prisoner": {
+    "inmate_number": "38127",
+    "state": "California",
+    "era": "1920s",
+    "ideologies": ["Labor Organizing", "Civil Liberties"],
+    "description": "J. C. Robinson was a Los Angeles member of the Industrial Workers of the World, prosecuted under California's Criminal Syndicalism Act during the state's campaign to break IWW organizing. He and several co-defendants were convicted on July 11, 1923, and he was held at San Quentin as prisoner 38127. The Industrial Worker of August 6, 1924 lists him among the imprisoned and gives his birthday as August 19; no birth year is recorded. An appellate court afterwards reversed his conviction, and by March 4, 1925 he had been ordered released. The day he was arrested, the day he entered San Quentin and the day he actually walked out are all unresolved, so no time-served figure is published for him."
+   },
+   "case": {
+    "match": "only",
+    "institution": {"name": "San Quentin State Prison", "city": "San Quentin", "state": "California"},
+    "charges": "Criminal syndicalism (California Criminal Syndicalism Act) — one of a group of IWW members prosecuted at Los Angeles.",
+    "convicted": "Yes — conviction later reversed on appeal",
+    "dates": {
+     "sentenced_date": [1923, 7, 11],
+     "incarceration_date": [1923],
+     "release_date": null
+    },
+    "sentence": "Convicted of criminal syndicalism at Los Angeles on July 11, 1923 with several co-defendants, and imprisoned at San Quentin as number 38127. The conviction was afterwards reversed, and he had been ordered released by March 4, 1925.\n\nThe conviction date is stored in the sentenced-date column, there being no separate column for it. The year of admission to San Quentin is held at year precision because the day is unknown, and no release date is entered at all: an order to release is not a discharge, and the day he actually left is unresolved. The record therefore publishes no time-served figure rather than measuring the distance between two guesses.\n\nThis row previously described a federal prosecution under the Espionage and Sedition Acts, which was an import-wide default rather than anything specific to him. It was a state prosecution."
+   }
+  },
+  {
+   "slug": "roy-house",
+   "label": "Roy House — San Quentin 38535",
+   "prisoner": {
+    "inmate_number": "38535",
+    "state": "California",
+    "era": "1920s",
+    "ideologies": ["Labor Organizing", "Civil Liberties"],
+    "description": "Roy House was a member of the Industrial Workers of the World, arrested in the July 1923 roundup of the union at Portola, California. Prosecuted in Plumas County under California's Criminal Syndicalism Act for his membership and organizing, he was convicted and sentenced to four years. He entered San Quentin on October 29, 1923 as prisoner 38535. The Industrial Worker of August 6, 1924 lists him as still imprisoned and gives his birthday as August 21; no birth year is recorded. His parole or release date is unresolved."
+   },
+   "case": {
+    "match": "only",
+    "institution": {"name": "San Quentin State Prison", "city": "San Quentin", "state": "California"},
+    "charges": "Criminal syndicalism (California Criminal Syndicalism Act) — convicted in Plumas County after the July 1923 roundup of the IWW at Portola.",
+    "convicted": "Yes",
+    "dates": {
+     "arrest_date": [1923, 7],
+     "incarceration_date": [1923, 10, 29],
+     "release_date": null
+    },
+    "sentence": "Four years for criminal syndicalism, on conviction in Plumas County. Arrested in the Portola roundup of about July 20 to 25, 1923 — held at month precision, the exact day being unknown — and admitted to San Quentin on October 29, 1923 as prisoner 38535.\n\nNo release date is recorded. This row previously carried a release of 1925, which nothing in his own record supports: his four-year term, running from October 1923, would not have expired until 1927, and the same 1925 sits on some fifty other records from the same bulk import. It produced a published counter of one year two months, measured from his admission to January 1, 1925. It is removed rather than adjusted, because his actual parole or release date is unresolved.\n\nThe row previously described a federal prosecution under the Espionage and Sedition Acts, which was an import-wide default rather than anything specific to him. It was a state prosecution."
+   }
+  },
+  {
+   "slug": "edward-r-peters",
+   "label": "Edward R. Peters — paroled January 10, 1924",
+   "prisoner": {
+    "state": "California",
+    "era": "1920s",
+    "ideologies": ["Labor Organizing", "Civil Liberties"],
+    "description": "Edward R. Peters was a Los Angeles member of the Industrial Workers of the World, prosecuted under California's Criminal Syndicalism Act. He received an indeterminate sentence of one to fourteen years and was held at San Quentin from about December 1921, having reportedly spent some six months in custody before trial. He was paroled on January 10, 1924. The Industrial Worker of August 6, 1924 lists him at California Road Camp A and gives his birthday as August 5, but a later accounting in the same paper records the January 1924 parole — so the August listing was copied from a prisoner list already seven months out of date, and he was not imprisoned on August 6, 1924. No birth year is recorded."
+   },
+   "case": {
+    "match": "only",
+    "institution": {"name": "San Quentin State Prison", "city": "San Quentin", "state": "California"},
+    "charges": "Criminal syndicalism (California Criminal Syndicalism Act) — one of the Los Angeles IWW defendants.",
+    "convicted": "Yes",
+    "dates": {
+     "incarceration_date": [1921, 12],
+     "release_date": [1924, 1, 10]
+    },
+    "sentence": "An indeterminate one to fourteen years for criminal syndicalism, at Los Angeles. Held at San Quentin from about December 1921 — stored at month precision — until parole on January 10, 1924.\n\nNo arrest date is entered. He is reported to have been held roughly six months before trial, which would put the arrest in mid-1921, but that is a span rather than a date, and entering a year would place a false anchor in front of the custody and lengthen the published figure by eleven months. The six months is recorded here instead.\n\nThe row previously described a federal prosecution under the Espionage and Sedition Acts, which was an import-wide default rather than anything specific to him. It was a state prosecution."
+   }
+  },
+  {
+   "slug": "john-lamb",
+   "label": "John Lamb — Walla Walla 9412, and the 1922 death removed",
+   "prisoner": {
+    "inmate_number": "9412",
+    "clear_death_date": true,
+    "description_append": "John Lamb was held at the Washington State Penitentiary at Walla Walla as prisoner 9412, a number sitting between James McInerney's 9410 and Eugene Barnett's 9414. The Industrial Worker of August 6, 1924 lists him at that number and gives his birthday as August 25; no birth year is recorded. His sentence is reported to have been commuted or pardoned in 1933, though the exact release date still wants a contemporary newspaper or a Washington prison record.\n\nThis record previously gave his death as June 6, 1922, of tuberculosis at Walla Walla, and used that date as his release, which cut his imprisonment to about two years and three months. Two independent things contradict it: the August 1924 prisoner list, which has him alive and inside at 9412, and the reported 1933 clemency. The detail also matches what is recorded of his co-defendant James McInerney, who did die at Walla Walla of tuberculosis and meningitis, in 1930. The death date is removed as unsupported. If a Washington prison record establishes it, it should go back — and the 1924 listing then needs explaining."
+   },
+   "case": {
+    "match": "arrest_date",
+    "match_value": "1919-11-11",
+    "dates": {
+     "death_in_custody_date": null,
+     "release_date": [1933]
+    },
+    "sentence": "25 to 40 years for second-degree murder, at the Washington State Penitentiary at Walla Walla, as prisoner 9412. Reported commuted or pardoned in 1933; the release is stored at year precision because the day is not established.\n\nVerdict as recorded: Yes — Grays Harbor County jury verdict, March 13, 1920\n\nCharges as recorded: 2nd-degree murder of four American Legionnaires (Warren Grimm, Arthur McElfresh, Ben Casagranda, Dale Hubbard) during the November 11, 1919 Armistice Day attack on the Centralia, Washington IWW union hall. Tried in Grays Harbor County Superior Court at Montesano, WA, January 26 - March 13, 1920.\n\nThis row previously held a release of June 6, 1922 and a death in custody on the same day, from tuberculosis at Walla Walla, giving about two years three months served. Both are removed — see the biography."
+   }
+  }
+ ],
+
+ "creates": [
+  {
+   "name": "M. C. Sullivan",
+   "first_name": "M.",
+   "last_name": "Sullivan",
+   "state": "Utah",
+   "era": "1920s",
+   "ideologies": ["Labor Organizing", "Civil Liberties"],
+   "affiliation": ["Industrial Workers of the World (IWW)"],
+   "description": "M. C. Sullivan was a traveling delegate of the Oil Workers Industrial Union of the Industrial Workers of the World, arrested on a vagrancy charge while organizing in the Utah Copper Company district at Bingham Canyon, Utah. The Industrial Worker reported that the city authorities tried several times to dispose of the case and that the town's mayor insisted it go forward. He was found guilty by a jury of four, and by April 19, 1924 had appealed to the district court at Salt Lake City. The union's answer to the charge was that he was employed as a union delegate and had money on him, and so was not a vagrant under any ordinary meaning of the word.\n\nVagrancy law was the standard instrument for clearing organizers out of company towns: it required no proof of any act, only a judgement about the person. Whether Sullivan served any jail time, and how the appeal ended, are both unresolved. This record therefore carries no custody dates and publishes no time-served figure, and his arrest is placed no more precisely than late 1923 or early 1924.",
+   "cases": [
+    {
+     "charges": "Vagrancy — arrested while working as a traveling delegate of the IWW Oil Workers Industrial Union in the Utah Copper Company district at Bingham Canyon, Utah.",
+     "convicted": "Yes — found guilty by a jury of four; appealed to the district court at Salt Lake City by April 19, 1924",
+     "sentence": "Unresolved. He was convicted by a four-person jury and had appealed to the Salt Lake City district court by April 19, 1924; neither the sentence, any jail time served, nor the outcome of the appeal is established.\n\nNo arrest, incarceration or release date is entered, and no institution. The arrest can be placed only in late 1923 or early 1924. He is recorded here as an arrest and prosecution rather than a proven imprisonment, and the custody flags are all left false to say so."
+    }
+   ]
+  }
+ ],
+
+ "verify": [
+  {
+   "slug": "james-mcinerney",
+   "expect": {"birthdate": "1886-08-15", "inmate_number": "9410"},
+   "note": "The curator's August 15 birthday and Walla Walla number 9410 are already on this record, with a birth year the ledger does not supply. Nothing to write. The OCR variant 'Melnery' is an error rather than an alias, so it is not added to the aka field, and no second record exists under it."
+  }
+ ],
+
+ "flagged": [
+  {
+   "name": "The Espionage/Sedition default charge",
+   "reason": "617 case rows carry the identical string 'Federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918', 94 of them at San Quentin or Folsom. For the California records that is close to certainly wrong — those were state criminal syndicalism prosecutions, a different statute, a different sovereign and mostly a different decade. Three are corrected here because they were in scope. The rest need a sweep."
+  },
+  {
+   "name": "The 1925 release-date cluster",
+   "reason": "51 case rows carry a bare year-precision release of 1925, 50 of them also carrying the Espionage/Sedition default. Roy House's is removed here because his own four-year term contradicts it. The other 50 are untouched and are probably the same artifact."
+  },
+  {
+   "name": "John Lamb's death date",
+   "reason": "Removing a death date is not a small edit. It rests on the August 6, 1924 prisoner list having him alive at Walla Walla 9412 and on the reported 1933 clemency, against a June 6, 1922 tuberculosis death that closely matches what is separately recorded of James McInerney. If a Washington prison record supports 1922, this should be reverted and the 1924 listing explained."
+  }
+ ]
+}
