@@ -1,0 +1,207 @@
+{
+ "note": "Six people from the May 1923 birthdays box, per the curator. All six are already in the database; none needs creating. What they need is dates. Brazier, Sprague, O'Connell and Caplan between them published a total imprisonment of zero days despite serving roughly six, six, five and eight years — every one of their case rows was missing the incarceration date, so the counter had nothing to measure. Two stored dates are contradicted by the curator's chronology and are changed rather than kept: Caplan's arrest, and Ruthenberg's custody for the draft case. Race and gender are left exactly as found. Birthdays given as a day and month with no year are recorded in prose, the birthdate column being unable to hold a date without a year.",
+
+ "people": [
+  {
+   "slug": "richard-brazier",
+   "label": "Richard Brazier — Leavenworth 13103, Chicago mass trial",
+   "prisoner": {
+    "era": "1910s",
+    "ideologies": ["Labor Organizing", "Anti-War", "Civil Liberties"],
+    "description": "Richard Brazier was an Industrial Workers of the World organizer, General Executive Board member and former Spokane-based officer of the union, prosecuted in the federal government's mass Chicago IWW case during the First World War. He joined the IWW in 1908 and became a national organizer. Convicted of conspiracy under wartime federal law, he was sentenced on August 30, 1918 to twenty years and fined $20,000, and served at Leavenworth Penitentiary as inmate 13103. He had already been held since about September 1917, and remained in federal custody until August 3, 1923, when he was handed to the immigration authorities for deportation. The Industrial Worker of May 1923 gives his birthday as May 18; no birth year is recorded.\n\nThe National Archives index confirms the inmate number. NARA notes that most Leavenworth files of this period contain a mugshot, so his file is worth requesting."
+   },
+   "cases": [
+    {
+     "match": "only",
+     "charges": "Federal conspiracy prosecution under the Espionage Act of 1917 and the Sedition Act of 1918 — the mass IWW trial at Chicago.",
+     "convicted": "Yes",
+     "dates": {
+      "arrest_date": [1917, 9],
+      "sentenced_date": [1918, 8, 30],
+      "incarceration_date": [1917, 9],
+      "release_date": [1923, 8, 3]
+     },
+     "sentence": "Twenty years and a $20,000 fine, on conviction in the mass IWW trial at Chicago. Held from about September 1917 until release on August 3, 1923, and transferred to the immigration authorities on release. Leavenworth inmate 13103.\n\nThe custody is anchored at September 1917 and held at month precision. That is the start of continuous federal custody, not the day he was admitted to Leavenworth: the trial did not conclude until 1918, so the first year was arrest and pretrial detention, and the Leavenworth admission day is unresolved. Measuring from the sentence instead would drop that year and understate the imprisonment by about a fifth.\n\nOn the deportation: the record says he was deported. The curator has him transferred to the immigration authorities on release, which is the order rather than its execution. No exile flag is set on this record, because whether removal was actually carried out is not established here. Worth settling — his later movements are documented."
+    }
+   ]
+  },
+  {
+   "slug": "myron-sprague",
+   "label": "Myron Sprague — Leavenworth 13581, Sacramento mass trial",
+   "prisoner": {
+    "era": "1910s",
+    "ideologies": ["Labor Organizing", "Anti-War", "Civil Liberties"],
+    "description": "Myron Sprague was a laborer and a delegate of Local 573 of the Industrial Workers of the World's Construction Workers Industrial Union, at Stockton, California. Arrested during the federal suppression of the Sacramento IWW organization, he was convicted in the Sacramento mass trial and sentenced in January 1919 to ten years in federal prison. He was held from at least April 1918 and served at Leavenworth Penitentiary as inmate 13581 until his release on December 22, 1923. The Industrial Worker of May 1923 gives his birthday as May 22; no birth year is recorded.\n\nThe National Archives confirms the inmate number, and the Department of Justice collection at Cornell holds a separate thirteen-page clemency and prison-conduct file for him."
+   },
+   "cases": [
+    {
+     "match": "only",
+     "charges": "Federal conspiracy prosecution under the Espionage Act of 1917 and the Sedition Act of 1918 — the mass IWW trial at Sacramento.",
+     "convicted": "Yes",
+     "dates": {
+      "sentenced_date": [1919, 1],
+      "incarceration_date": [1918, 4],
+      "release_date": [1923, 12, 22]
+     },
+     "sentence": "Ten years, on conviction in the mass IWW trial at Sacramento. Held from at least April 1918 until release on December 22, 1923. Leavenworth inmate 13581.\n\nThe custody is anchored at April 1918 and held at month precision, that being the earliest month he can be placed in custody. He may have been taken earlier, in the Sacramento raids of December 1917; if so this understates the imprisonment by about four months. The row previously carried the December 1923 release with no start date at all, so the profile published no imprisonment figure whatever."
+    }
+   ]
+  },
+  {
+   "slug": "george-oconnell",
+   "label": "George O'Connell — Leavenworth 13576, Sacramento mass trial",
+   "prisoner": {
+    "era": "1910s",
+    "ideologies": ["Labor Organizing", "Anti-War", "Civil Liberties"],
+    "description": "George O'Connell was an Industrial Workers of the World member from Imperial, California, prosecuted in the federal government's mass Sacramento IWW case during the First World War. Convicted of conspiracy arising from the union's anti-war activity and its organizing, he was sentenced in January 1919 to ten years in federal prison. He was held from at least August 1918 and served at Leavenworth Penitentiary as inmate 13576 until his release on December 22, 1923. The Industrial Worker of May 1923 gives his birthday as May 30; no birth year is recorded.\n\nThe National Archives confirms the inmate number, and the Department of Justice collection at Cornell holds a fourteen-page file covering his clemency application and his conduct at Leavenworth."
+   },
+   "cases": [
+    {
+     "match": "only",
+     "charges": "Federal conspiracy prosecution under the Espionage Act of 1917 and the Sedition Act of 1918 — the mass IWW trial at Sacramento.",
+     "convicted": "Yes",
+     "dates": {
+      "sentenced_date": [1919, 1],
+      "incarceration_date": [1918, 8],
+      "release_date": [1923, 12, 22]
+     },
+     "sentence": "Ten years, on conviction in the mass IWW trial at Sacramento. Held from at least August 1918 until release on December 22, 1923. Leavenworth inmate 13576.\n\nThe custody is anchored at August 1918 and held at month precision, that being the earliest month he can be placed in custody; the original arrest day and the Leavenworth admission day are both unresolved. The row previously carried the December 1923 release with no start date at all, so the profile published no imprisonment figure whatever."
+    }
+   ]
+  },
+  {
+   "slug": "david-caplan",
+   "label": "David Caplan — San Quentin 30220, Los Angeles Times bombing",
+   "prisoner": {
+    "inmate_number": "30220",
+    "era": "1910s",
+    "ideologies": ["Anarchism", "Labor Organizing"],
+    "description": "David Caplan was an anarchist and labor militant, a grocery-store keeper on Bainbridge Island, Washington, prosecuted in connection with the bombing of the Los Angeles Times building on October 1, 1910 — an attack during the Open Shop war led by Times publisher Harrison Gray Otis that killed twenty-one people. The authorities alleged that Caplan and Matthew Schmidt had helped James McNamara obtain the dynamite. Caplan remained a fugitive until his arrest near Seattle on February 18, 1915. His first trial ended without a verdict; a second jury convicted him of second-degree manslaughter on December 15, 1916, and he was sentenced to ten years. He was held in the Los Angeles County Jail from his arrest until early January 1917, when he was moved to San Quentin as prisoner 30220, and was released for good conduct on July 10, 1923 — about six and a half years at San Quentin and more than eight years in custody altogether. His case was a major labor-defense cause, supported by the AFL Structural Ironworkers and the Industrial Workers of the World. The Industrial Worker of May 1923 gives his birthday as May 18; no birth year is recorded.\n\nHe was named a political prisoner by the labor press of the day, and this record keeps that framing, but the framing should not be read as saying he was imprisoned for speech or association. The prosecution concerned a fatal bombing, and the conviction was for a death."
+   },
+   "cases": [
+    {
+     "match": "institution",
+     "match_institution": "San Quentin State Prison",
+     "role": "San Quentin",
+     "charges": "Murder — the bombing of the Los Angeles Times building, October 1, 1910, in which twenty-one people died. Convicted of second-degree manslaughter.",
+     "convicted": "Yes — second-degree manslaughter, December 15, 1916, at a second trial; the first ended without a verdict",
+     "dates": {
+      "arrest_date": [1915, 2, 18],
+      "sentenced_date": [1916, 12],
+      "incarceration_date": [1917, 1],
+      "release_date": [1923, 7, 10]
+     },
+     "sentence": "Ten years at San Quentin, as prisoner 30220, on conviction of second-degree manslaughter. Admitted in early January 1917 — held at month precision, the day being unresolved — and released for good conduct on July 10, 1923, about six and a half years. The twenty-three months he spent in the Los Angeles County Jail before that are recorded on the companion case row, so the profile totals the whole eight years and five months of custody.\n\nOn the release date. A wire report datelined San Quentin on July 10, 1923 says he was released that day; a labor paper afterwards gave July 11. The same-day dateline is the stronger evidence and is what is stored, but the alternative is recorded here rather than dropped.\n\nThe sentencing date is held at month precision: the conviction was December 15, 1916 and the sentence is reported as about December 18, which is not a day that can be stated. The arrest date was previously stored as February 1, 1915 and is corrected to February 18. The verdict was previously recorded as second-degree murder; it was manslaughter."
+    },
+    {
+     "match": "new",
+     "role": "Los Angeles County Jail",
+     "institution": {"name": "Los Angeles County Jail", "city": "Los Angeles", "state": "California"},
+     "charges": "Murder — held before and during trial for the bombing of the Los Angeles Times building, October 1, 1910.",
+     "convicted": "Held pretrial and through two trials",
+     "dates": {
+      "arrest_date": [1915, 2, 18],
+      "incarceration_date": [1915, 2, 18],
+      "release_date": [1917, 1]
+     },
+     "sentence": "Held in the Los Angeles County Jail from his arrest near Seattle on February 18, 1915 until he was moved to San Quentin in early January 1917 — twenty-three months, through a first trial that ended without a verdict and a second that convicted him.\n\nThis row exists so that the pretrial custody is counted. It is not a separate prosecution: it is the first placement of one continuous custody, and the end date is held at month precision because the transfer day is unresolved. The two rows together give about eight years and five months, which is what the sources report for his total time in custody."
+    }
+   ]
+  },
+  {
+   "slug": "william-z-foster",
+   "label": "William Z. Foster — Spokane 1909 and Bridgman 1922 added",
+   "prisoner": {
+    "ideologies": ["Communism", "Labor Organizing"],
+    "description_append": "Foster's imprisonment and prosecution reach back well before the 1948 indictment. During the IWW free-speech fight at Spokane in 1909 and 1910 he was jailed for forty-seven days. On August 22, 1922 he was arrested at Chicago after federal and Michigan authorities raided the underground Communist Party convention at Bridgman, Michigan, and was the first Communist leader tried under Michigan's Criminal Syndicalism Act; his 1923 trial ended in a hung jury, divided six to six after more than thirty-one hours, and he served no sentence on it."
+   },
+   "cases": [
+    {
+     "match": "new",
+     "role": "Spokane free-speech fight",
+     "institution": {"name": "Spokane City Jail", "city": "Spokane", "state": "Washington"},
+     "charges": "Arrested in the Industrial Workers of the World free-speech fight at Spokane, Washington, 1909-1910.",
+     "convicted": "Yes",
+     "sentence": "Forty-seven days in the Spokane City Jail, during the IWW free-speech fight of 1909-1910. This is the longest term Foster is recorded as actually serving.\n\nNo dates are entered, and so no imprisonment counter is produced from this row. The forty-seven days are documented but its endpoints are not, and the schema records a documented duration in months (imprisoned_for_months), not in days — a documented day-count with unknown endpoints has nowhere to go. Recorded here in the text so the fact is not lost."
+    },
+    {
+     "match": "new",
+     "role": "Bridgman raid",
+     "charges": "Michigan Criminal Syndicalism Act — attending the underground Communist Party convention at Bridgman, Michigan, raided by federal and state authorities on August 22, 1922.",
+     "convicted": "No — the 1923 trial ended in a hung jury, divided six to six after more than thirty-one hours",
+     "dates": {
+      "arrest_date": [1922, 8, 22]
+     },
+     "sentence": "No conviction and no sentence. Foster was arrested at Chicago on August 22, 1922 and was the first Communist leader brought to trial after the Bridgman raid; the jury hung six to six in 1923 and he served nothing on the charge.\n\nNo custody dates are entered. He was arrested and prosecuted, and the length of any pretrial detention is not established, so this row carries no imprisonment figure. It is here because the database records politically motivated arrests and prosecutions that end without conviction, not only completed sentences."
+    },
+    {
+     "match": "stub_annotate",
+     "match_charge": "Smith Act",
+     "append_sentence": "\n\nNote on the arrest date stored on this row. March 6, 1930 is the date of the New York unemployment demonstration at Union Square, more than eighteen years before the Smith Act indictment; it cannot be the arrest for this case. It is left in place rather than deleted because it appears to be a real datum attached to the wrong row, and the 1930 prosecution — for which Foster did serve time — has no record of its own. Worth giving one."
+    }
+   ]
+  },
+  {
+   "slug": "charles-emil-ruthenberg",
+   "label": "C. E. Ruthenberg — draft custody corrected, New York and Michigan cases filled in",
+   "prisoner": {
+    "description_append": "Ruthenberg was imprisoned twice more after the draft case. Convicted under New York's Criminal Anarchy Act, he was sentenced on October 29, 1920 and held at Clinton Prison at Dannemora until he was released on bond in about April 1922; that conviction was afterwards reversed. He was among those arrested in the raid on the underground Communist Party convention at Bridgman, Michigan on August 22, 1922, and a jury convicted him under Michigan's Criminal Syndicalism Act on May 12, 1923. The Michigan Supreme Court affirmed in January 1925, but he remained at liberty through the appeals and never served that sentence; he died on March 1, 1927."
+   },
+   "cases": [
+    {
+     "match": "institution",
+     "match_institution": "Stark County Workhouse",
+     "role": "draft case",
+     "dates": {
+      "incarceration_date": [1918, 1],
+      "release_date": [1918, 12, 8]
+     },
+     "sentence": "One year for obstructing the draft, of which he served about eleven months at the Stark County Workhouse at Canton, Ohio — from about January 1918 until December 8, 1918. Sentenced July 14, 1917.\n\nThe custody dates are changed here and this is the change to check. The row previously ran from July 14, 1917 to March 31, 1918, and gave the imprisonment as 260 days. Its start date was the day of sentence, which is the commonest way a custody date gets invented rather than recorded, and the two dates cannot both be right alongside the appeal that carried this case to the Supreme Court after sentencing. The curator's chronology puts the custody in 1918, beginning about January and ending December 8. That is what is stored: the start at month precision, the release at day precision. It gives 341 days rather than 260.\n\nThe earlier note that he served about ten months is superseded by that chronology, which gives about eleven."
+    },
+    {
+     "match": "stub",
+     "role": "New York criminal anarchism",
+     "institution": {"name": "Clinton Prison", "city": "Dannemora", "state": "New York"},
+     "charges": "Criminal anarchism — New York Criminal Anarchy Act of 1902.",
+     "convicted": "Yes — conviction afterwards reversed",
+     "dates": {
+      "sentenced_date": [1920, 10, 29],
+      "incarceration_date": [1920, 10, 29],
+      "release_date": [1922, 4]
+     },
+     "sentence": "Convicted of criminal anarchism in New York and sentenced on October 29, 1920; held at Clinton Prison at Dannemora until released on bond in about April 1922. The conviction was afterwards reversed.\n\nThis row previously existed as an empty stub carrying only the generic import charge of a federal Espionage and Sedition Act prosecution, with no dates, no institution and no text. It has been given the New York case rather than deleted.\n\nTwo cautions on the dates. Custody is anchored at the sentencing day because the curator's chronology runs the imprisonment from the sentence, but a separate record of the day he was received would be better. The release is held at month precision: it is reported as approximately April 20 to 24, 1922, a five-day window that cannot honestly be stated as a day, and month precision anchors it at April 1, so the figure understates the custody by about three weeks."
+    },
+    {
+     "match": "new",
+     "role": "Bridgman raid",
+     "charges": "Michigan Criminal Syndicalism Act — attending the underground Communist Party convention at Bridgman, Michigan, raided on August 22, 1922.",
+     "convicted": "Yes — convicted May 12, 1923; affirmed by the Michigan Supreme Court in January 1925; never served",
+     "dates": {
+      "arrest_date": [1922, 8, 22],
+      "sentenced_date": [1923, 5, 12]
+     },
+     "sentence": "Convicted under Michigan's Criminal Syndicalism Act on May 12, 1923 after the Bridgman raid, and the conviction was affirmed by the Michigan Supreme Court in January 1925 — but he remained at liberty throughout the appeals and never served the sentence. He died on March 1, 1927.\n\nNo custody dates are entered, and the row therefore produces no imprisonment figure. It is recorded because the conviction is a fact of the prosecution even though no imprisonment followed from it."
+    }
+   ]
+  }
+ ],
+
+ "flagged": [
+  {
+   "name": "Richard Brazier's mailing address",
+   "reason": "His case points at the institution record 'USP Leavenworth', which carries the mailing and physical addresses of FCI Marianna in Florida — a prison operating today, more than a thousand miles from Leavenworth. The profile page renders it under 'Mailing Address', which is the address a reader would use to write to a prisoner. Eighty-six prisoner records publish it. This is not touched here; it is the subject of its own batch, because the same fault runs through thirteen more institutions."
+  },
+  {
+   "name": "Seven institution records for one prison",
+   "reason": "The civilian federal penitentiary at Leavenworth exists in the database seven times over: 'USP Leavenworth' (87 case rows), 'United States Penitentiary, Leavenworth' (28), 'Leavenworth Federal Penitentiary' (13), 'Leavenworth Penitentiary' (12), 'U.S. Penitentiary Leavenworth' (4), 'U.S. Penitentiary, Leavenworth' (1) and 'Federal Correctional Institution, Leavenworth' (1) — 146 rows split seven ways. Brazier points at the first, Sprague and O'Connell at the fourth, which is why three men in the same prison in the same years do not group together. The military prisons at Fort Leavenworth are correctly separate. Clinton Prison at Dannemora is split three ways in the same manner. Merging them is a data operation of its own and is not attempted here."
+  },
+  {
+   "name": "Ruthenberg's ideologies",
+   "reason": "His record is tagged 'Anarchism'. He was a Socialist and then the founding National Secretary of the Communist Party; the tag looks like it came from the name of the New York charge, criminal anarchism, rather than from anything he believed. Left alone here because changing a person's ideology tags is a curatorial decision, not a data repair."
+  },
+  {
+   "name": "William Z. Foster's era and the 1930 arrest",
+   "reason": "His era is set to 1950s, from the Smith Act indictment. With the 1909 Spokane jailing and the 1922 Bridgman arrest now on the record, that is the least representative decade of the three, but era drives sorting and grouping so it is left for the curator. Separately, the arrest date of March 6, 1930 sitting on the Smith Act row belongs to the Union Square unemployment demonstration; Foster served time for that prosecution and has no record of it. Both are annotated in place, not changed."
+  }
+ ]
+}
