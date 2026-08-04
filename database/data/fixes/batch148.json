@@ -1,0 +1,45 @@
+{
+ "slug": "ron-glick",
+ "note": "Custody dates for Ronald Dwayne Glick, per the curator. The record held a single case row with the charge 'Sexual Assault' and no dates of any kind, so the profile published no imprisonment figure. It was also attached to Norfolk County Jail at Dedham, Massachusetts — a jail with no connection to a Flathead County, Montana prosecution — which meant the profile printed a Massachusetts mailing address under the heading a reader uses to write to a prisoner. That attachment is removed.\n\nThis batch records what happened to him. It does not settle whether he belongs in the archive: he is one of the five Tier 1 findings in database/data/POLITICAL-MOTIVATION-AUDIT.md, where the record states no political motivation and the only argument offered is that he maintains innocence. That question is still the curator's.",
+ "detach_institution": "Norfolk County Jail",
+ "description": "Ronald Glick was arrested in Washington in February 2004 and returned to Montana to face felony sexual assault charges linked to allegations involving a 13-year-old. He was held pretrial at the Flathead County Detention Center. A jury convicted him on July 13, 2005, and on December 1, 2005 he was sentenced to 20 years with 15 years suspended — about five years to serve, with credit for the time already spent in jail — in a case tied to his former business in Kalispell and prosecuted in Flathead County. He was released to probation on or about February 18, 2009.\n\nHe was taken back into custody on April 23, 2009 during probation-revocation proceedings and held roughly six weeks, after which the alleged violations and the revocation proceedings were dismissed.\n\nHe has consistently maintained his innocence and has continued to litigate issues connected to his conviction through post-conviction filings and appeals.",
+ "cases": [
+  {
+   "role": "existing",
+   "convicted": "Yes — jury verdict July 13, 2005",
+   "dates": {
+    "incarceration_date": [
+     2004,
+     2
+    ],
+    "sentenced_date": [
+     2005,
+     12,
+     1
+    ],
+    "release_date": [
+     2009,
+     2,
+     18
+    ]
+   },
+   "sentence": "Twenty years with fifteen suspended — about five years to serve, with credit for time already spent in jail. Convicted July 13, 2005; sentenced December 1, 2005; released to probation on or about February 18, 2009.\n\nCustody is anchored at February 2004 and held at month precision: he was arrested in Washington that month and returned to Flathead County, and the exact arrest day does not appear in the court opinions or the contemporary press. The February 18, 2009 release comes from his own later court filing and is repeated by the Montana Supreme Court. The two give 1,844 days, a little over five years, which is what the sentence structure implies.\n\nNo institution is attached. He was held pretrial at the Flathead County Detention Center, but the prison where the sentence was served is not established, and a five-year term should not be recorded against a county jail. This row previously pointed at Norfolk County Jail in Dedham, Massachusetts, which had nothing to do with the case."
+  },
+  {
+   "role": "new",
+   "convicted": "Revocation proceedings dismissed",
+   "dates": {
+    "incarceration_date": [
+     2009,
+     4,
+     23
+    ],
+    "release_date": [
+     2009,
+     6
+    ]
+   },
+   "sentence": "Taken back into custody on April 23, 2009 during probation-revocation proceedings, and held roughly six weeks before the alleged violations and the revocation proceedings were dismissed. He was not returned to prison on a finding against him.\n\nThe release is held at month precision — June 2009. The source gives approximately six weeks, which would end about June 4, but that day is reached by counting forward from the arrest rather than from any discharge record, and this archive does not store arithmetic as though it were a source. Month precision anchors at June 1 and so measures 39 days where the six weeks would be 42. A jail discharge record would settle it."
+  }
+ ]
+}
