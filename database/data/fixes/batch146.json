@@ -1,0 +1,85 @@
+{
+ "note": "Removal of the sixteen ILD and Civil Rights Congress frame-up cases, at the curator's instruction and after research. The test applied is the curator's: a political prisoner is someone imprisoned for their own political activity. In each of these sixteen the political actor is the defence campaign — the International Labor Defense, the Civil Rights Congress or the NAACP — and not the prisoner. None of the sixteen is recorded as having been politically active, and for roughly half no source exists beyond the movement rosters this archive was built from, so the question cannot be carried further than it is carried here.\n\nSTATED FOR THE RECORD, HAVING BEEN RAISED AND OVERRULED: the same test applies to other records still in the database. The Scottsboro Boys are described as nine Black teenagers pulled off a freight train and were not politically active either; so were festus-coleman and james-victory. 253 records use frame-up or legal-lynching language and 56 name the ILD or CRC while carrying no ideology and no affiliation. This batch removes the sixteen the curator named and touches nothing else. The inconsistency is deliberate on the curator's part and is recorded here so that a later reader does not mistake it for an oversight.",
+ "removals": [
+  {
+   "slug": "alphonso-davis",
+   "name": "Alphonso Davis",
+   "reason": "Black worker held on a frame-up rape charge, publicised by the ILD in 1936. No political activity of his own is recorded, and no source beyond the ILD roster exists."
+  },
+  {
+   "slug": "charles-copeland",
+   "name": "Charles Copeland",
+   "reason": "Sentenced to death on a rape charge at Jacksonville, Florida; defenders called it a racial frame-up. No political activity of his own is recorded."
+  },
+  {
+   "slug": "clide-allen",
+   "name": "Clide Allen",
+   "reason": "Unemployed Brooklyn worker, thirty-five years in 1935 on a fabricated rape charge in the Hammer Man case, fought by the ILD as a northern legal lynching. No political activity of his own is recorded."
+  },
+  {
+   "slug": "clyde-brown",
+   "name": "Clyde Brown",
+   "reason": "Held two and a half years under a death sentence for rape at Winston-Salem; the Supreme Court granted a hearing in 1952 and the case became Brown v. Allen. An ordinary defendant whose case became law; no political activity of his own is recorded."
+  },
+  {
+   "slug": "curtis-hopkins",
+   "name": "Curtis Hopkins",
+   "reason": "Tried for rape in Mississippi; defenders called it a racial frame-up. No political activity of his own is recorded, and no source beyond the CRC roster exists."
+  },
+  {
+   "slug": "don-martin",
+   "name": "Don Martin",
+   "reason": "Black Army private charged with rape and kidnapping at Laguna Beach despite an alibi placing him 300 miles away at Camp Ord. No political activity of his own is recorded."
+  },
+  {
+   "slug": "e-k-harris",
+   "name": "E. K. Harris",
+   "reason": "Convicted of rape in eight minutes at Shelbyville, Tennessee in 1934 while a lynch mob burned the courthouse; carried by the ILD. No political activity of his own is recorded."
+  },
+  {
+   "slug": "edward-honeycutt",
+   "name": "Edward Honeycutt",
+   "reason": "Sentenced to death for rape at Opelousas, Louisiana; taken up by the Civil Rights Congress. No political activity of his own is recorded."
+  },
+  {
+   "slug": "ernest-mcduffy",
+   "name": "Ernest McDuffy",
+   "reason": "Eighteen-year-old worker, seven years at the St. Cloud Reformatory on a frame-up rape charge, on the ILD youth-prisoner list. No political activity of his own is recorded."
+  },
+  {
+   "slug": "herman-dennis",
+   "name": "Herman Dennis",
+   "reason": "Black Army private sentenced to death by a military court on Guam in 1948 on a coerced confession; the case became Burns v. Wilson. An ordinary defendant whose case became law; no political activity of his own is recorded."
+  },
+  {
+   "slug": "jeremiah-reeves",
+   "name": "Jeremiah Reeves",
+   "reason": "Sixteen-year-old grocery delivery boy and jazz drummer, strapped into the electric chair during interrogation until he confessed, executed in 1958. His execution sparked the Montgomery protests, but he was not himself in the movement."
+  },
+  {
+   "slug": "jess-hollins",
+   "name": "Jess Hollins",
+   "reason": "Railroaded toward the electric chair on a rape charge in Oklahoma; the ILD won a stay and a new trial, and the case became Hollins v. Oklahoma. No political activity of his own is recorded."
+  },
+  {
+   "slug": "ocie-jugger",
+   "name": "Ocie Jugger",
+   "reason": "Executed in Louisiana in July 1952 on a rape charge resting on a beaten confession; condemned by the Civil Rights Congress as a legal lynching. No political activity of his own is recorded."
+  },
+  {
+   "slug": "paul-washington",
+   "name": "Paul Washington",
+   "reason": "Sentenced to death for rape at Gretna, Louisiana; the CRC carried his appeal toward the Supreme Court. No political activity of his own is recorded."
+  },
+  {
+   "slug": "raleigh-speller",
+   "name": "Raleigh Speller",
+   "reason": "Tried repeatedly at Williamston, North Carolina before all-white juries from which Black jurors were barred; executed in 1953. No political activity of his own is recorded."
+  },
+  {
+   "slug": "walter-brown",
+   "name": "Walter Brown",
+   "reason": "Framed on a rape charge in the 1935 Birmingham terror against the Share Croppers Union and given twenty years. No membership of the union or other political activity of his own is recorded, and no source beyond the ILD roster was found."
+  }
+ ]
+}
