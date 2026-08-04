@@ -1,0 +1,125 @@
+{
+ "note": "Institution records carrying the address of a different facility. The prisoner profile renders institution.mailing_address under the heading 'Mailing Address' — the address a reader uses to write to a prisoner — so a wrong one sends real mail to the wrong place. Eighteen institution records are corrected here, covering about 210 case rows. Every one is either cleared or, in a single case, rewritten to remove a named individual: nothing is guessed. An address is only removed where the stored text names a facility other than the institution it sits on, and each entry carries an expect_contains guard so that a record whose address has changed since this audit is reported and left alone rather than blindly wiped. Records whose address is a legitimate central mail-processing box for their own facility — Edna Mahan through the New Jersey vendor in Las Vegas, Lane County through Smart Communications, the Yuma unit through Arizona's Phoenix processing address — are deliberately untouched.",
+
+ "clear_both": [
+  {
+   "name": "USP Leavenworth",
+   "cases": 87,
+   "expect_contains": "MARIANNA",
+   "reason": "Carries the mailing and physical addresses of FCI Marianna, Florida — an operating federal prison a thousand miles from Leavenworth. This is the largest single instance: 86 prisoner records publish it, among them Richard Brazier, imprisoned at Leavenworth in 1917."
+  },
+  {
+   "name": "U.S. Penitentiary Atlanta",
+   "cases": 19,
+   "expect_contains": "PETERSBURG",
+   "reason": "Carries the addresses of FCI Petersburg, Virginia."
+  },
+  {
+   "name": "Occoquan Workhouse / DC Jail",
+   "cases": 11,
+   "expect_contains": "VAN BUREN",
+   "reason": "Carries the address of MCC Chicago. The Occoquan Workhouse held the 1917 suffrage pickets and closed in 2001; MCC Chicago closed in 2021. Neither can receive mail."
+  },
+  {
+   "name": "Mississippi state and federal courts",
+   "cases": 10,
+   "expect_contains": "MARIANNA",
+   "reason": "Carries the addresses of FCI Marianna, Florida. This record is not a facility at all — it is a catch-all for a group of prosecutions — so no address of any kind belongs on it."
+  },
+  {
+   "name": "Philadelphia Court of Common Pleas / SCI Pennsylvania state prisons",
+   "cases": 10,
+   "expect_contains": "Seminole",
+   "reason": "Carries a private box at Seminole, Florida and a street address at Butler, Pennsylvania. Like the Mississippi record this is a catch-all rather than a facility, and the mailing address is one person's forwarding box."
+  },
+  {
+   "name": "FCI Terre Haute",
+   "cases": 2,
+   "expect_contains": "Mason, TN",
+   "reason": "Carries the addresses of the West Tennessee Detention Facility."
+  },
+  {
+   "name": "Federal Prison Camp, Alderson",
+   "cases": 4,
+   "expect_contains": "Waseca",
+   "reason": "Carries the addresses of FCI Waseca, Minnesota. Alderson is in West Virginia."
+  },
+  {
+   "name": "U.S. Penitentiary Leavenworth",
+   "cases": 4,
+   "expect_contains": "Waseca",
+   "reason": "Carries the addresses of FCI Waseca, Minnesota. This is the second of the seven Leavenworth records and it is wrong in a different direction from the first."
+  },
+  {
+   "name": "Alcatraz / federal prisons",
+   "cases": 2,
+   "expect_contains": "OXFORD",
+   "reason": "Carries the addresses of FCI Oxford, Wisconsin. Alcatraz closed in 1963."
+  },
+  {
+   "name": "Federal Correctional Institution, Phoenix",
+   "cases": 1,
+   "expect_contains": "OXFORD",
+   "reason": "Carries the addresses of FCI Oxford, Wisconsin."
+  },
+  {
+   "name": "Union County Jail",
+   "cases": 1,
+   "expect_contains": "PETERSBURG",
+   "reason": "Carries the addresses of FCI Petersburg, Virginia."
+  }
+ ],
+
+ "clear_mailing_only": [
+  {
+   "name": "Butler County Prison",
+   "cases": 13,
+   "expect_contains": "Seminole",
+   "reason": "The mailing address is a private box at Seminole, Florida, carrying somebody's inmate number. The physical address, 202 S Washington St, Butler, Pennsylvania, is the prison's own and is kept."
+  },
+  {
+   "name": "SCI Dallas",
+   "cases": 12,
+   "expect_contains": "Lancaster County Prison",
+   "reason": "The mailing address is a named individual at a different prison — his name and inmate number, published on twelve other people's profiles. The physical address, 1000 Follies Rd, Dallas, Pennsylvania, is SCI Dallas's own and is kept."
+  },
+  {
+   "name": "West Tennessee State Penitentiary",
+   "cases": 10,
+   "expect_contains": "Detention Facility",
+   "reason": "The mailing address belongs to the West Tennessee Detention Facility at Mason, a different institution from the state penitentiary at Henning. The physical address, Green Chapel Rd, Henning, is the penitentiary's own and is kept."
+  }
+ ],
+
+ "clear_na": [
+  {"name": "Albany Penitentiary", "cases": 14, "expect_contains": "N/A", "reason": "Both fields hold the literal string N/A, which the profile renders as the mailing address."},
+  {"name": "Charlestown State Prison", "cases": 1, "expect_contains": "N/A", "reason": "Both fields hold the literal string N/A."},
+  {"name": "Communications Management Unit", "cases": 6, "expect_contains": "N/A", "reason": "Both fields hold the literal string N/A."}
+ ],
+
+ "rewrite": [
+  {
+   "name": "Trinidad Correctional Facility",
+   "cases": 3,
+   "expect_contains": "Eric Brandt",
+   "field": "mailing_address",
+   "value": "Trinidad Correctional Facility\n21000 Highway 350 East\nModel, CO 81059",
+   "reason": "The facility and its address are right, but the stored text opens with one prisoner's name and number, which then appears on the profiles of the two other people held there. The personal line is removed and the facility address kept, because unlike the others this address is usable."
+  }
+ ],
+
+ "flagged": [
+  {
+   "name": "Where these came from",
+   "reason": "The pattern is consistent with a spreadsheet import in which an address column was filled down or offset by a row: several institutions carry the address of a facility that is alphabetically or positionally adjacent, and the same three addresses (Marianna, Petersburg, Waseca, Oxford) recur across unrelated institutions. Worth checking whether other columns on the institutions table drifted the same way — security level, city and state were not audited here."
+  },
+  {
+   "name": "Catch-all institution records",
+   "reason": "'Mississippi state and federal courts', 'Philadelphia Court of Common Pleas / SCI Pennsylvania state prisons' and 'Alcatraz / federal prisons' are not facilities but groups of them, and 'Los Angeles County Superior Court' is a court. They cannot carry a location, a security level or an address meaningfully, and any prisoner attached to one has no real institution recorded. Twenty-two case rows are involved. Not restructured here."
+  },
+  {
+   "name": "Duplicate institution records",
+   "reason": "Reported with batch 139 and unchanged: the civilian federal penitentiary at Leavenworth exists seven times over across 146 case rows, and two of those seven are corrected here for two different wrong addresses. Clinton Prison at Dannemora is split three ways, the Los Angeles Metropolitan Detention Center three ways, and San Quentin appears both as 'San Quentin State Prison' and 'San Quentin Rehabilitation Center'. Merging them would fix the addresses structurally rather than one record at a time."
+  }
+ ]
+}
