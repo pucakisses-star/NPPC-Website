@@ -1,0 +1,548 @@
+{
+ "note": "Nineteen people from the curator's CRDL ledger entries 456-890 who have no record in the database. The pasted ledger held 435 entries but only 287 distinct people; 246 of those already existed under an exact name match and 15 more under a spelling variant. Only these nineteen were absent on both a full-name and a first-plus-surname check against all 8,570 records. Fields follow the house pattern set by the earlier CRDL waves: state Mississippi, era 1960s, Civil Rights ideology, released, arrest date only, and the disposition left explicitly unresolved. Race is never inferred. Gender is set only where the ledger uses a pronoun or a gendered description for that person, and left empty otherwise.",
+ "creates": [
+  {
+   "name": "Albert Earl Lassiter",
+   "first_name": "Albert",
+   "last_name": "Lassiter",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Albert Earl Lassiter was arrested in Jackson, Mississippi, on March 27, 1961, for the Tougaloo Nine read-in at the whites-only main branch of the Jackson public library, where the students requested service and refused police orders to leave — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The nine were held roughly thirty-two hours, tried in Jackson municipal court, convicted of disturbing the peace, fined $100 each and given thirty-day suspended jail sentences.",
+   "cases": [
+    {
+     "charges": [
+      "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961."
+     ],
+     "arrest_date": "1961-03-27",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27. Held approximately thirty-two hours and released on March 28, 1961 for court. Convicted of disturbing the peace, fined $100, thirty-day jail sentence suspended.",
+     "incarceration_date": "1961-03-27",
+     "release_date": "1961-03-28"
+    }
+   ],
+   "gender": "Male"
+  },
+  {
+   "name": "Ethel Sawyer",
+   "first_name": "Ethel",
+   "last_name": "Sawyer",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Ethel Sawyer was arrested in Jackson, Mississippi, on March 27, 1961, for the Tougaloo Nine read-in at the whites-only main branch of the Jackson public library, where the students requested service and refused police orders to leave — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The nine were held roughly thirty-two hours, tried in Jackson municipal court, convicted of disturbing the peace, fined $100 each and given thirty-day suspended jail sentences.",
+   "cases": [
+    {
+     "charges": [
+      "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961."
+     ],
+     "arrest_date": "1961-03-27",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27. Held approximately thirty-two hours and released on March 28, 1961 for court. Convicted of disturbing the peace, fined $100, thirty-day jail sentence suspended.",
+     "incarceration_date": "1961-03-27",
+     "release_date": "1961-03-28"
+    }
+   ],
+   "gender": "Female",
+   "aka": "Ethel Sawyer Adolphe"
+  },
+  {
+   "name": "Janice LaJune Jackson",
+   "first_name": "Janice",
+   "last_name": "Jackson",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Janice LaJune Jackson was arrested in Jackson, Mississippi, on March 27, 1961, for the Tougaloo Nine read-in at the whites-only main branch of the Jackson public library, where the students requested service and refused police orders to leave — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The nine were held roughly thirty-two hours, tried in Jackson municipal court, convicted of disturbing the peace, fined $100 each and given thirty-day suspended jail sentences.",
+   "cases": [
+    {
+     "charges": [
+      "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961."
+     ],
+     "arrest_date": "1961-03-27",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27. Held approximately thirty-two hours and released on March 28, 1961 for court. Convicted of disturbing the peace, fined $100, thirty-day jail sentence suspended.",
+     "incarceration_date": "1961-03-27",
+     "release_date": "1961-03-28"
+    }
+   ],
+   "gender": "Female",
+   "aka": "Janice Jackson Vails"
+  },
+  {
+   "name": "James Cleo Bradford",
+   "first_name": "James",
+   "last_name": "Bradford",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "James Cleo Bradford was arrested in Jackson, Mississippi, on March 27, 1961, for the Tougaloo Nine read-in at the whites-only main branch of the Jackson public library, where the students requested service and refused police orders to leave — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The nine were held roughly thirty-two hours, tried in Jackson municipal court, convicted of disturbing the peace, fined $100 each and given thirty-day suspended jail sentences.",
+   "cases": [
+    {
+     "charges": [
+      "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961."
+     ],
+     "arrest_date": "1961-03-27",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27. Held approximately thirty-two hours and released on March 28, 1961 for court. Convicted of disturbing the peace, fined $100, thirty-day jail sentence suspended.",
+     "incarceration_date": "1961-03-27",
+     "release_date": "1961-03-28"
+    }
+   ],
+   "gender": "Male",
+   "aka": "James \"Sammy\" Bradford"
+  },
+  {
+   "name": "Geraldine Edwards",
+   "first_name": "Geraldine",
+   "last_name": "Edwards",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Geraldine Edwards was arrested in Jackson, Mississippi, on March 27, 1961, for the Tougaloo Nine read-in at the whites-only main branch of the Jackson public library, where the students requested service and refused police orders to leave — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The Mississippi Department of Archives and History collection history also spells her first name Jeraldine. The nine were held roughly thirty-two hours, tried in Jackson municipal court, convicted of disturbing the peace, fined $100 each and given thirty-day suspended jail sentences.",
+   "cases": [
+    {
+     "charges": [
+      "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961."
+     ],
+     "arrest_date": "1961-03-27",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27. Held approximately thirty-two hours and released on March 28, 1961 for court. Convicted of disturbing the peace, fined $100, thirty-day jail sentence suspended.",
+     "incarceration_date": "1961-03-27",
+     "release_date": "1961-03-28"
+    }
+   ],
+   "gender": "Female",
+   "aka": "Geraldine Edwards Hollis"
+  },
+  {
+   "name": "Abraham Bassford",
+   "first_name": "Abraham",
+   "last_name": "Bassford",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Abraham Bassford was arrested in Jackson, Mississippi, on June 6, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 6, 1961."
+     ],
+     "arrest_date": "1961-06-06",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-06. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ]
+  },
+  {
+   "name": "Carol Silver",
+   "first_name": "Carol",
+   "last_name": "Silver",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Carol Silver was arrested in Jackson, Mississippi, on June 7, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 7, 1961."
+     ],
+     "arrest_date": "1961-06-07",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-07. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ]
+  },
+  {
+   "name": "Ralph Edward Washington",
+   "first_name": "Ralph",
+   "last_name": "Washington",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Ralph Edward Washington was arrested in Jackson, Mississippi, on June 7, 1961, for participating in a Freedom Ride, arrested at Jackson Municipal Airport after flying in from St. Louis with two other riders — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. He was then a twenty-four-year-old employee of the St. Louis County Hospital, and travelled with Robert Lee Jenkins. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested at Jackson Municipal Airport, June 7, 1961."
+     ],
+     "arrest_date": "1961-06-07",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-07. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Male"
+  },
+  {
+   "name": "Michael J. Audain",
+   "first_name": "Michael",
+   "last_name": "Audain",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Michael J. Audain was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 8, 1961."
+     ],
+     "arrest_date": "1961-06-08",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ]
+  },
+  {
+   "name": "Jane Ellen Rosett",
+   "first_name": "Jane",
+   "last_name": "Rosett",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Jane Ellen Rosett was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 8, 1961."
+     ],
+     "arrest_date": "1961-06-08",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Female"
+  },
+  {
+   "name": "Helene Dorothy Wilson",
+   "first_name": "Helene",
+   "last_name": "Wilson",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Helene Dorothy Wilson was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. She was then a twenty-six-year-old housewife from Washington, D.C. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 8, 1961."
+     ],
+     "arrest_date": "1961-06-08",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Female"
+  },
+  {
+   "name": "Robert Wesby",
+   "first_name": "Robert",
+   "last_name": "Wesby",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Robert Wesby was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The CRDL arrest photograph is catalogued under \"Reverend Robert Wesby\". The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 8, 1961."
+     ],
+     "arrest_date": "1961-06-08",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "aka": "Reverend Robert Wesby"
+  },
+  {
+   "name": "Margaret Winonah Beamer",
+   "first_name": "Margaret",
+   "last_name": "Beamer",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Margaret Winonah Beamer was arrested in Jackson, Mississippi, on June 9, 1961, for participating in a Freedom Ride, arrested at the Illinois Central terminal after travelling by train from Nashville with four other riders — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. She was a Central State College student. Accounts outside the CRDL record report that she entered jail on June 11, refused bail and appeal, and remained imprisoned until December 25, 1961 — reportedly the longest full term served by any 1961 Freedom Rider. That chronology is recorded here as reported and needs checking against contemporary court or penitentiary records before it is relied on; it is not entered as custody dates. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested at the Illinois Central terminal, Jackson, June 9, 1961."
+     ],
+     "arrest_date": "1961-06-09",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-09. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Female",
+   "aka": "Winonah Beamer, Winonah Beamer Myers"
+  },
+  {
+   "name": "Patricia Elaine Bryant",
+   "first_name": "Patricia",
+   "last_name": "Bryant",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Patricia Elaine Bryant was arrested in Jackson, Mississippi, on June 9, 1961, for participating in a Freedom Ride, arrested at the Illinois Central terminal after travelling by train from Nashville with four other riders — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested at the Illinois Central terminal, Jackson, June 9, 1961."
+     ],
+     "arrest_date": "1961-06-09",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-09. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Female"
+  },
+  {
+   "name": "Heath Cliff Rush",
+   "first_name": "Heath",
+   "last_name": "Rush",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Heath Cliff Rush was arrested in Jackson, Mississippi, on June 9, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The CRDL image title gives the shorter form Heath Rush; the expanded middle name is not confirmed by the catalogue. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, June 9, 1961."
+     ],
+     "arrest_date": "1961-06-09",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-09. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "aka": "Heath Rush"
+  },
+  {
+   "name": "Jesse Harris",
+   "first_name": "Jesse",
+   "last_name": "Harris",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Jesse Harris was arrested in Jackson, Mississippi, on July 6, 1961, for participating in a sit-in against segregation at Livingston Park — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The arrest photograph is titled Jessie L. Harris while the CRDL authority form is Jesse Harris. He later trained Freedom Summer volunteers and organised in the McComb area and for the Mississippi Freedom Democratic Party. A separately catalogued June 2, 1961 Freedom Ride arrest photograph under the name Jesse James Harris may or may not be the same man; the CRDL material does not settle it, so no second record has been created. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Livingston Park sit-in, Jackson — arrested July 6, 1961."
+     ],
+     "arrest_date": "1961-07-06",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-07-06. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Male",
+   "aka": "Jessie L. Harris"
+  },
+  {
+   "name": "Norma Wagner",
+   "first_name": "Norma",
+   "last_name": "Wagner",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Norma Wagner was arrested in Jackson, Mississippi, on July 29, 1961, for participating in a Freedom Ride, having travelled by Greyhound from Nashville with a ten-person group — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, July 29, 1961."
+     ],
+     "arrest_date": "1961-07-29",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-07-29. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Female"
+  },
+  {
+   "name": "Widijonaiko Tjokroadisunatto",
+   "first_name": "Widijonaiko",
+   "last_name": "Tjokroadisunatto",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "Widijonaiko Tjokroadisunatto was arrested in Jackson, Mississippi, on July 29, 1961, for participating in a Freedom Ride, having travelled by Greyhound from Nashville with a ten-person group — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. Archival and secondary sources vary considerably on the spelling of his name; the form used here follows the rider roster, with the principal variant recorded as an alias. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Freedom Ride participation — arrested Jackson, July 29, 1961."
+     ],
+     "arrest_date": "1961-07-29",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-07-29. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Male",
+   "aka": "Widjonarko Tjokroadissumarto"
+  },
+  {
+   "name": "James Walker Evans",
+   "first_name": "James",
+   "last_name": "Evans",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "description": "James Walker Evans was arrested in Jackson, Mississippi, on September 13, 1961, as one of fifteen Episcopal clergymen on the Prayer Pilgrimage Freedom Ride who entered the segregated coffee shop and waiting area at the Trailways terminal and refused police orders to leave — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library, which establishes the arrest and the individual identification photograph. Most of the fifteen posted bond quickly and continued the pilgrimage; two remained jailed to sustain publicity, and the available account does not identify which two. The arrests later gave rise to Pierson v. Ray. The disposition, any transfer to the Mississippi State Penitentiary at Parchman, the time served and the release date are not established in the CRDL record and are left unresolved here rather than inferred.",
+   "cases": [
+    {
+     "charges": [
+      "Prayer Pilgrimage Freedom Ride — segregated Trailways terminal, Jackson, arrested September 13, 1961."
+     ],
+     "arrest_date": "1961-09-13",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-09-13. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ]
+  }
+ ],
+ "dates": [
+  {
+   "slug": null,
+   "name": "Carol Silver",
+   "birth": {
+    "year": 1938,
+    "month": null,
+    "day": null
+   },
+   "death": null
+  },
+  {
+   "slug": null,
+   "name": "Ralph Edward Washington",
+   "birth": {
+    "year": 1936,
+    "month": null,
+    "day": null
+   },
+   "death": null
+  },
+  {
+   "slug": null,
+   "name": "Helene Dorothy Wilson",
+   "birth": {
+    "year": 1935,
+    "month": null,
+    "day": null
+   },
+   "death": null
+  },
+  {
+   "slug": null,
+   "name": "Margaret Winonah Beamer",
+   "birth": {
+    "year": 1941,
+    "month": 9,
+    "day": 10
+   },
+   "death": {
+    "year": 2018
+   }
+  },
+  {
+   "slug": null,
+   "name": "Patricia Elaine Bryant",
+   "birth": {
+    "year": 1940,
+    "month": null,
+    "day": null
+   },
+   "death": null
+  },
+  {
+   "slug": null,
+   "name": "Jesse Harris",
+   "birth": {
+    "year": 1942,
+    "month": null,
+    "day": null
+   },
+   "death": null
+  }
+ ],
+ "flagged": [
+  {
+   "name": "Lewis A. Zuchman",
+   "reason": "Ledger entry 697, arrested June 7, 1961. NOT created. The database already holds richard-lewis-zuchman, arrested July 16, 1961, and the ledger itself notes the planning variant 'Lewis Richard Zuchman' for that person. These may be one man catalogued twice under different dates or two different men. Creating a record would risk a duplicate; merging would risk collapsing two people. Left for the curator."
+  },
+  {
+   "name": "Jesse James Harris",
+   "reason": "Ledger entry 708, arrested June 2, 1961. NOT created as a separate person. The ledger asserts he is distinct from the July 6 Livingston Park arrestee Jesse Harris but rates that only moderate confidence, citing possible historical identity overlap. One record has been created for Jesse Harris with the June 2 question recorded in his biography."
+  }
+ ]
+}
