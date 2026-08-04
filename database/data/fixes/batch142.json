@@ -1,0 +1,253 @@
+{
+ "note": "Merging institution records that are the same place under different spellings. Reported with batches 139, 140 and 141 and not acted on until now. Only prisoner_cases.institution_id points at institutions, so a merge is a single-column repoint followed by deleting the emptied record. The survivor is the variant carrying the most case rows, except where a less-used name is the more precise one. A survivor missing a city or state takes it from a merged record; addresses are never copied, because batch 140 cleared the wrong ones and re-importing them here would undo that. Groups that merely look alike are listed under not_merged with the reason, because a wrong merge silently relocates prisoners and cannot be undone from the script output.",
+
+ "merges": [
+  {
+   "survivor": "United States Penitentiary, Leavenworth",
+   "city": "Leavenworth",
+   "state": "Kansas",
+   "absorb": [
+    "USP Leavenworth",
+    "Leavenworth Federal Penitentiary",
+    "Leavenworth Penitentiary",
+    "U.S. Penitentiary Leavenworth",
+    "U.S. Penitentiary, Leavenworth",
+    "Federal Correctional Institution, Leavenworth"
+   ],
+   "reason": "Seven records for the civilian federal penitentiary at Leavenworth, Kansas, across 146 case rows. This is why Richard Brazier, Myron Sprague and George O'Connell — three men in that prison in the same years — did not group together. The military prisons at Fort Leavenworth are a different place and are not touched."
+  },
+  {
+   "survivor": "U.S. Penitentiary Atlanta",
+   "city": "Atlanta",
+   "state": "Georgia",
+   "absorb": [
+    "United States Penitentiary, Atlanta",
+    "Atlanta Federal Penitentiary",
+    "Atlanta Penitentiary",
+    "U.S. Penitentiary, Atlanta"
+   ],
+   "reason": "Five records for the federal penitentiary at Atlanta, 32 case rows."
+  },
+  {
+   "survivor": "Allegheny County Workhouse",
+   "city": "Blawnox",
+   "state": "Pennsylvania",
+   "absorb": ["Blawnox Prison"],
+   "reason": "The workhouse at Blawnox, Pennsylvania, under its formal name and its local one. The five Woodlawn sedition defendants sit on the first."
+  },
+  {
+   "survivor": "Clinton State Prison",
+   "city": "Dannemora",
+   "state": "New York",
+   "absorb": ["Clinton Correctional Facility", "Clinton Prison"],
+   "reason": "Three records for the prison at Dannemora, New York, where C. E. Ruthenberg was held."
+  },
+  {
+   "survivor": "Sing Sing Correctional Facility",
+   "city": "Ossining",
+   "state": "New York",
+   "absorb": ["Sing Sing Prison", "Sing Sing"],
+   "reason": "Three records, 13 case rows."
+  },
+  {
+   "survivor": "United States Penitentiary, Lewisburg",
+   "city": "Lewisburg",
+   "state": "Pennsylvania",
+   "absorb": [
+    "Federal Correctional Institution, Lewisburg",
+    "U.S. Penitentiary, Lewisburg",
+    "Lewisburg Federal Penitentiary"
+   ],
+   "reason": "One site at Lewisburg, Pennsylvania, under four names. Bill Sutherland was held there."
+  },
+  {
+   "survivor": "McNeil Island Federal Penitentiary",
+   "city": "Steilacoom",
+   "state": "Washington",
+   "absorb": [
+    "United States Penitentiary, McNeil Island",
+    "U.S. Penitentiary, McNeil Island",
+    "McNeil Island"
+   ],
+   "reason": "Four records for the federal penitentiary on McNeil Island, Washington."
+  },
+  {
+   "survivor": "West Virginia State Penitentiary",
+   "city": "Moundsville",
+   "state": "West Virginia",
+   "absorb": ["West Virginia Penitentiary"],
+   "reason": "Two records for the penitentiary at Moundsville, 16 case rows."
+  },
+  {
+   "survivor": "New Jersey State Prison",
+   "city": "Trenton",
+   "state": "New Jersey",
+   "absorb": ["New Jersey State Penitentiary"],
+   "reason": "Two records for the state prison at Trenton."
+  },
+  {
+   "survivor": "Maryland Penitentiary",
+   "city": "Baltimore",
+   "state": "Maryland",
+   "absorb": ["Maryland State Penitentiary"],
+   "reason": "Two records for the penitentiary at Baltimore."
+  },
+  {
+   "survivor": "Blackwell's Island Penitentiary",
+   "city": "New York",
+   "state": "New York",
+   "absorb": ["Blackwell's Island"],
+   "reason": "The penitentiary on Blackwell's Island. The separate record 'Workhouse, Blackwell's Island' is a different institution on the same island and is NOT merged."
+  },
+  {
+   "survivor": "Kilby Prison",
+   "city": "Montgomery",
+   "state": "Alabama",
+   "absorb": ["Kilby Correctional Facility"],
+   "reason": "Two records for Kilby, Montgomery, Alabama."
+  },
+  {
+   "survivor": "Holman Prison",
+   "city": "Atmore",
+   "state": "Alabama",
+   "absorb": ["Holman Correctional Facility"],
+   "reason": "Two records for Holman, Atmore, Alabama."
+  },
+  {
+   "survivor": "Great Meadow Correctional Facility",
+   "city": "Comstock",
+   "state": "New York",
+   "absorb": ["Great Meadow Prison"],
+   "reason": "Two records for Great Meadow, Comstock, New York."
+  },
+  {
+   "survivor": "La Princesa",
+   "city": "San Juan",
+   "state": "Puerto Rico",
+   "absorb": ["La Princesa Prison"],
+   "reason": "Two records for La Princesa, San Juan."
+  },
+  {
+   "survivor": "Arizona State Penitentiary",
+   "city": "Florence",
+   "state": "Arizona",
+   "absorb": ["Arizona State Prison"],
+   "reason": "The state prison at Florence, Arizona. The less-used name survives because it is the one carrying the city."
+  },
+  {
+   "survivor": "Alcatraz Military Prison",
+   "city": "San Francisco",
+   "state": "California",
+   "absorb": ["Alcatraz Federal Military Prison"],
+   "reason": "Two records for the military prison on Alcatraz. The catch-all record 'Alcatraz / federal prisons' is not a facility and is NOT merged."
+  },
+  {
+   "survivor": "Mississippi State Penitentiary (Parchman Farm)",
+   "city": "Parchman",
+   "state": "Mississippi",
+   "absorb": ["Mississippi State Penitentiary, Parchman Farm"],
+   "reason": "Two records for Parchman. The survivor takes the more specific city, Parchman, over Sunflower County."
+  },
+  {
+   "survivor": "Raiford Penitentiary",
+   "city": "Raiford",
+   "state": "Florida",
+   "absorb": ["Raiford State Prison"],
+   "reason": "Two records for the prison at Raiford, Florida. The separate 'Florida State Prison' record, also at Raiford, is NOT merged — see not_merged."
+  },
+  {
+   "survivor": "Metropolitan Correctional Center, New York",
+   "city": "New York",
+   "state": "New York",
+   "absorb": ["Metropolitan Correctional Center New York"],
+   "reason": "Same name, one with a comma."
+  },
+  {
+   "survivor": "Metropolitan Detention Center, Los Angeles",
+   "city": "Los Angeles",
+   "state": "California",
+   "absorb": ["Metropolitan Detention Center Los Angeles", "Los Angeles Metropolitan Detention Center"],
+   "reason": "Three records for the federal detention centre at Los Angeles."
+  },
+  {
+   "survivor": "Metropolitan Detention Center, Brooklyn",
+   "city": "Brooklyn",
+   "state": "New York",
+   "absorb": ["Metropolitan Detention Center Brooklyn"],
+   "reason": "Same name, one with a comma."
+  },
+  {
+   "survivor": "Manhattan House of Detention (the Tombs)",
+   "city": "New York",
+   "state": "New York",
+   "absorb": ["Manhattan House of Detention (The Tombs)"],
+   "reason": "Same name, differing only in the case of one letter."
+  },
+  {
+   "survivor": "Federal Correctional Institution, Ashland",
+   "city": "Ashland",
+   "state": "Kentucky",
+   "absorb": ["Federal Correctional Institution Ashland"],
+   "reason": "Same name, one with a comma."
+  },
+  {
+   "survivor": "Correctional Training Facility (Soledad State Prison)",
+   "city": "Soledad",
+   "state": "California",
+   "absorb": ["Correctional Training Facility (Soledad)"],
+   "reason": "Same institution at Soledad, California."
+  },
+  {
+   "survivor": "Rikers Island",
+   "city": "New York",
+   "state": "New York",
+   "absorb": ["Rikers Island Penitentiary"],
+   "reason": "Two records for Rikers Island."
+  },
+  {
+   "survivor": "United States Medical Center for Federal Prisoners",
+   "city": "Springfield",
+   "state": "Missouri",
+   "absorb": ["U.S. Medical Center for Federal Prisoners"],
+   "reason": "Same institution at Springfield, Missouri."
+  },
+  {
+   "survivor": "U.S. District Court for the District of Columbia",
+   "city": "Washington",
+   "state": "District of Columbia",
+   "absorb": ["US District Court for the District of Columbia"],
+   "reason": "The same court under two abbreviations. It is a court rather than a prison and probably should not be an institution at all, but two of it is certainly wrong."
+  }
+ ],
+
+ "not_merged": [
+  {
+   "group": "Georgia Penitentiary (Milledgeville) and Georgia State Prison (Reidsville)",
+   "reason": "Different prisons in different towns. The names are similar and the cities are not."
+  },
+  {
+   "group": "Ohio State Penitentiary (Youngstown), Ohio State Prison (London) and Ohio Penitentiary (Columbus)",
+   "reason": "Three different prisons in three different cities."
+  },
+  {
+   "group": "Florida State Prison (Raiford) and the Raiford records",
+   "reason": "The prison at Raiford is Florida State Prison, so these probably are the same place — but a second 'Florida state prison' record gives its city as Lakeland, and Raiford has held more than one institution over the years. Left for someone who can check which prisoner belongs where."
+  },
+  {
+   "group": "Wisconsin State Prison (Waupun) and Wisconsin state prison (Milwaukee)",
+   "reason": "The state prison is at Waupun; what the Milwaukee record refers to is unclear. Merging would move two prisoners to a prison the record does not say they were in."
+  },
+  {
+   "group": "San Quentin State Prison and San Quentin Rehabilitation Center",
+   "reason": "One site, 149 case rows against 23. They are the same prison, renamed in 2023. Which name an archive should canonicalise is a statement rather than a repair — nearly all of this archive's history happened under the older name, but the newer one is what the state calls it now and what a prisoner there today would write on an envelope. Recommendation: keep 'San Quentin State Prison' and merge. Not done here."
+  },
+  {
+   "group": "Occoquan Workhouse, Occoquan Workhouse / DC Jail, District Jail / Occoquan Workhouse",
+   "reason": "The last two are compound records naming two institutions at once, so merging them into the first would assert that those prisoners were at Occoquan rather than the DC Jail. Same problem as the other catch-all records flagged in batch 140."
+  },
+  {
+   "group": "Federal prison, State prison, Federal Correctional Institution, United States Penitentiary",
+   "reason": "Placeholders rather than institutions, carrying eight case rows between them. They are not duplicates of each other and cannot be merged; each needs its real institution identified."
+  }
+ ]
+}

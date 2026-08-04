@@ -1,0 +1,142 @@
+{
+ "note": "Scan artifacts carried in from the book these biographies were transcribed from, reported with batch 141 and repaired here. Three classes, each verified against the stored text before being written: the three records named in that flag, word-splits left by end-of-line hyphenation, and section headings captured onto the end of a biography. Every replacement is a literal string, matched exactly once, and the script reports each as applied or already done rather than rewriting anything blind.",
+ "named": [
+  {
+   "slug": "william-j-dodge",
+   "replacements": [
+    {
+     "from": "William J. Dodge amember of the Socialist Labor Party",
+     "to": "William J. Dodge, a member of the Socialist Labor Party"
+    },
+    {
+     "from": "for disloyal \" utterances. \"",
+     "to": "for disloyal \"utterances.\""
+    },
+    {
+     "from": "Hemade the remarks in a speech \" at the corner",
+     "to": "He made the remarks in a speech \"at the corner"
+    },
+    {
+     "from": "stated \" somehonor \" when he saw",
+     "to": "stated \"some honor\" when he saw"
+    },
+    {
+     "from": "Thegovernment charged",
+     "to": "The government charged"
+    }
+   ]
+  },
+  {
+   "slug": "ben-boloff",
+   "replacements": [
+    {
+     "from": "law \" merely because he was amember of the Communist Party.\"",
+     "to": "law \"merely because he was a member of the Communist Party.\""
+    },
+    {
+     "from": "after fifteen monthsbehind bars, he was released onbond by order",
+     "to": "after fifteen months behind bars, he was released on bond by order"
+    },
+    {
+     "from": " 184 PENNSYLVANIA ANTI-SEDITION LAW PRISONERS",
+     "to": ""
+    }
+   ]
+  },
+  {
+   "slug": "t-a-harris",
+   "replacements": [
+    {
+     "from": "T. A. Harris amember of the Universal Union",
+     "to": "T. A. Harris, a member of the Universal Union"
+    },
+    {
+     "from": "He served in Leavenworth Penitentiary beginningon April 17, 1920.",
+     "to": "He served in Leavenworth Penitentiary beginning on April 17, 1920."
+    }
+   ]
+  }
+ ],
+ "hyphenation": [
+  {
+   "from": "Leaven- worth",
+   "to": "Leavenworth",
+   "slugs": [
+    "nathan-l-welch",
+    "obe-isenhover",
+    "william-powell"
+   ]
+  },
+  {
+   "from": "Em- ery",
+   "to": "Emery",
+   "slugs": [
+    "lawrence-emery"
+   ]
+  },
+  {
+   "from": "con- scripted",
+   "to": "conscripted",
+   "slugs": [
+    "william-gessert"
+   ]
+  },
+  {
+   "from": "Com- munist",
+   "to": "Communist",
+   "slugs": [
+    "ludwig-e-katterfeld"
+   ]
+  },
+  {
+   "from": "doc- trine",
+   "to": "doctrine",
+   "slugs": [
+    "pete-muselin"
+   ]
+  },
+  {
+   "from": "So- cialist",
+   "to": "Socialist",
+   "slugs": [
+    "rev-william-madison-hicks"
+   ]
+  }
+ ],
+ "trailing_headings": [
+  {
+   "slug": "harry-winitsky",
+   "from": " 181 OKLAHOMA CRIMINAL SYNDICALISM LAW PRISONERS",
+   "heading": "181 OKLAHOMA CRIMINAL SYNDICALISM LAW PRISONERS"
+  },
+  {
+   "slug": "homer-ware",
+   "from": " 3 OREGON CRIMINAL SYNDICALISM LAW PRISONER",
+   "heading": "3 OREGON CRIMINAL SYNDICALISM LAW PRISONER"
+  },
+  {
+   "slug": "joe-neil",
+   "from": " 168 MONTANA CRIMINAL SYNDICALISM PRISONERS",
+   "heading": "168 MONTANA CRIMINAL SYNDICALISM PRISONERS"
+  },
+  {
+   "slug": "ludwig-e-katterfeld",
+   "from": " 164 KANSAS CRIMINAL SYNDICALISM LAW PRISONERS",
+   "heading": "164 KANSAS CRIMINAL SYNDICALISM LAW PRISONERS"
+  },
+  {
+   "slug": "robert-wilson",
+   "from": " 163 ILLINOIS CRIMINAL SYNDICALISM LAW PRISONERS",
+   "heading": "163 ILLINOIS CRIMINAL SYNDICALISM LAW PRISONERS"
+  },
+  {
+   "slug": "tom-zima",
+   "from": " WASHINGTON CRIMINAL SYNDICALISM LAW PRISONERS",
+   "heading": "WASHINGTON CRIMINAL SYNDICALISM LAW PRISONERS"
+  }
+ ],
+ "not_attempted": {
+  "class": "Words run together, such as 'amember' or 'Hemade'",
+  "reason": "This class cannot be detected safely. Searching the whole archive for rare long tokens that split into two common words returns 247 candidates across 342 records, and inspection shows the great majority are ordinary words the test happens to fit — unnamed, southeast, farmworkers, storefront, codefendant. There is no threshold that separates them from the real damage without a dictionary, so only the specific joins in the three named records are repaired. The rest wants an eye, not a regular expression."
+ }
+}
