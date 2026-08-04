@@ -25,7 +25,11 @@
        this page still rendered it full-size on the baseline. Explicit
        values so a CSS reset cannot flatten it back down. */
     sup.deceased-indicator { font-size: 0.65em; line-height: 0; position: relative; top: -0.45em; vertical-align: baseline; margin-left: 0.15em; }
-    .prisoner-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; font-family: Avenir, Helvetica, Arial, sans-serif; }
+    /* The site's own face, loaded globally from /fonts/verlag/stylesheet.css.
+       This page used to hard-code Avenir, which is not licensed here and is
+       absent on Windows and Android, so it silently fell back to Helvetica or
+       Arial and read as a different site from the rest of the archive. */
+    .prisoner-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; font-family: Verlag A, Verlag B, Verlag, Helvetica, Arial, sans-serif; }
     .prisoner-hero { display: flex; gap: 48px; padding: 48px 0 40px; align-items: flex-start; }
     .prisoner-info { flex: 1; }
     .prisoner-photo-col { flex: 0 0 380px; }

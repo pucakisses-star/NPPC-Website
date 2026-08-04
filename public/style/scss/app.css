@@ -294,7 +294,7 @@ body.page-history main.container {
   transition: 0.4s;
   padding: 0 10px;
   box-sizing: border-box;
-  font-family: "Verlag, sans-serif";
+  font-family: Verlag, sans-serif;
   color: #fff;
 }
 .timeline__content-desc {
@@ -302,7 +302,7 @@ body.page-history main.container {
   font-size: 15px;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.7);
-  font-family: "Verlag, sans-serif";
+  font-family: Verlag, sans-serif;
   font-weight: normal;
   line-height: 25px;
 }
@@ -338,7 +338,7 @@ body.page-history main.container {
   position: absolute;
   color: rgba(255, 255, 255, 0.5);
   font-size: 13px;
-  font-family: "Verlag, sans-serif";
+  font-family: Verlag, sans-serif;
   border-left: 2px solid rgba(255, 255, 255, 0.5);
   top: 70%;
   margin-top: -5px;
@@ -419,13 +419,13 @@ body.page-history main.container {
 .timeline-header__title {
   color: #fff;
   font-size: 46px;
-  font-family: "Verlag, sans-serif";
+  font-family: Verlag, sans-serif;
   font-weight: normal;
   margin: 0;
 }
 .timeline-header__subtitle {
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Verlag, sans-serif";
+  font-family: Verlag, sans-serif;
   font-size: 16px;
   letter-spacing: 5px;
   margin: 10px 0 0 0;
@@ -1694,7 +1694,7 @@ body.page-history main.container {
 }
 
 #map_faq .faq-open-close {
-  font-size: 15px; 
+  font-size: 15px;
   -webkit-appearance: none;
   border: none;
   color: #fff;

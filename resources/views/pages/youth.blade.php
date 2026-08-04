@@ -10,7 +10,9 @@
            grotesque type, floating snapshot portraits, cream sign-up band,
            photo-strip merch band, copper donate band. Fixed palette in both
            themes (like the report pages). */
-        .yp { background: #000; color: #fff; font-family: 'Helvetica Neue', Avenir, Helvetica, Arial, sans-serif; }
+        /* Verlag, the site's licensed face, in place of a Helvetica/Avenir
+           stack that read as a different site from the rest of the archive. */
+        .yp { background: #000; color: #fff; font-family: Verlag A, Verlag B, Verlag, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
         .yp * { box-sizing: border-box; }
         .yp-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
         .yp-label { font-size: 14px; font-weight: 700; margin: 0 0 26px; }

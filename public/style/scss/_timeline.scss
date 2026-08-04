@@ -41,8 +41,12 @@ body.page-history {
   }
 }
 
-$content-font: 'Verlag, sans-serif';
-$heading-font: 'Verlag, sans-serif';
+// Quoting the whole list made it ONE family name -- a font literally called
+// "Verlag, sans-serif" -- which nothing matches, so every rule using these
+// fell through to the browser default and the timeline never rendered in
+// Verlag at all. The quotes belong around the family name or nowhere.
+$content-font: Verlag, sans-serif;
+$heading-font: Verlag, sans-serif;
 $timeline-width:700px;
 $timeline-container-width:100%;
 .timeline {
