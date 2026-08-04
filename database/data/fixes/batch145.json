@@ -1,0 +1,11 @@
+{
+ "note": "Removal of Martin S. Kimber per the curator, following the political-motivation audit that flagged him. He was arrested for planting two pounds of mercury around an Albany, New York hospital, including on food served to patients, and pleaded guilty to chemical-weapon and consumer-product-tampering charges. The record states no motive of any kind, political or otherwise, and carries no ideology and no affiliation. He was one of the five Tier 1 findings in database/data/POLITICAL-MOTIVATION-AUDIT.md.",
+ "removals": [
+  {
+   "slug": "martin-s-kimber",
+   "name": "Martin S. Kimber",
+   "inmate_number": "19726-052",
+   "reason": "Removed per the curator — no political motivation stated; 2012 Albany hospital mercury contamination"
+  }
+ ]
+}
