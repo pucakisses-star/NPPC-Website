@@ -1,0 +1,18 @@
+{
+ "removals": [
+  {
+   "slug": "john-w-bordenave",
+   "name": "John W. Bordenave",
+   "reason": "Removed per the curator — one of the three Black soldiers condemned by a civil court at Alexandria, Louisiana in 1942"
+  }
+ ],
+
+ "flagged": [
+  {
+   "slugs": ["lawrence-mitchell", "richard-adams"],
+   "reason": "The same case, and NOT removed. The biography on the removed record says 'one of three Black soldiers convicted by a civil court in Alexandria, Louisiana in 1942', and all three are in the database with identical case rows — rape as a capital charge, death, scheduled for October 30, 1942, incarcerated 1942 at year precision with no release recorded. The curator named only John W. Bordenave, so only he is removed; Lawrence Mitchell was pasted alongside him without being named, and Richard Adams was not mentioned at all. If the intent is to remove the case rather than the man, say so and the other two follow in one line each."
+  }
+ ],
+
+ "note": "Both pasted records showed 'Imprisoned For 84 years 7 months 3 days'. That is the scheduled cases:update-imprisoned-days command reported in batch 127: it recomputes any case with an incarceration date and no release date through to today regardless of the in_custody flag, and writes with saveQuietly() so the model hook cannot correct it. All three of these men are flagged released, so PrisonerCase::computeImprisonedForDays() would return null for them. Whichever of these records survives will keep publishing that figure until that command is fixed."
+}
