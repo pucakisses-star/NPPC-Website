@@ -1,0 +1,21 @@
+{
+ "note": "Completes the removal of the Alexandria, Louisiana 1942 case: the three Black soldiers condemned to death by a civil court on a rape charge brought by a white complainant, scheduled to die on October 30, 1942, and reported by New Masses as a wartime legal lynching of servicemen. Batch 133 removed Bordenave alone because the curator had named only him; the curator has since asked for all three. He is listed here again so this script is the complete operation on its own — if batch 133 has already run he simply reports as absent, which is the same thing the script does on a second run of its own.",
+
+ "removals": [
+  {
+   "slug": "john-w-bordenave",
+   "name": "John W. Bordenave",
+   "reason": "Removed per the curator — Alexandria, Louisiana 1942 (already removed by batch 133 if that ran first)"
+  },
+  {
+   "slug": "lawrence-mitchell",
+   "name": "Lawrence Mitchell",
+   "reason": "Removed per the curator — Alexandria, Louisiana 1942"
+  },
+  {
+   "slug": "richard-adams",
+   "name": "Richard Adams",
+   "reason": "Removed per the curator — Alexandria, Louisiana 1942"
+  }
+ ]
+}
