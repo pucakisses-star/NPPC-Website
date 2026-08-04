@@ -11,7 +11,9 @@
            sparse panels that fade in on scroll. Fixed palette in both
            themes. All imagery is our own already-shipped public-domain
            library. */
-        .ra { background: #000; color: #fff; font-family: Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        /* Verlag, the site's licensed face, in place of an Avenir stack that
+           was never licensed here and fell back to Helvetica off Apple. */
+        .ra { background: #000; color: #fff; font-family: Verlag A, Verlag B, Verlag, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
         .ra * { box-sizing: border-box; }
         .ra-caps { font-family: 'Arial Narrow', 'Helvetica Neue Condensed', 'Roboto Condensed', 'Liberation Sans Narrow', Arial, sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: .01em; }
         .ra-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }

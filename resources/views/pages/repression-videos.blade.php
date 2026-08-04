@@ -10,7 +10,9 @@
            intro line, two-column stills with circular play chips, bold
            title—description rows, underlined all-caps play links. Fixed
            palette in both themes; all assets are our own. */
-        .rv { background: #000; color: #fff; font-family: Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif; min-height: 100vh; }
+        /* Verlag, the site's licensed face, in place of an Avenir stack that
+           was never licensed here and fell back to Helvetica off Apple. */
+        .rv { background: #000; color: #fff; font-family: Verlag A, Verlag B, Verlag, 'Helvetica Neue', Helvetica, Arial, sans-serif; min-height: 100vh; }
         .rv * { box-sizing: border-box; }
         .rv-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
         .rv-caps { font-weight: 800; text-transform: uppercase; letter-spacing: .2em; }
