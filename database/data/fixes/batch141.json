@@ -1,0 +1,90 @@
+{
+ "note": "The three Woodlawn sedition defendants, per the curator's custody table. All three are already in the database and all three publish a total imprisonment of zero days: each row holds the five-year sentence and nothing else — no institution, no incarceration date, and for two of them no release date. The curator supplies the missing endpoints, and both of the stated day-counts reproduce exactly from them (799 and 691), which is the check on the dates. Two other records already in the database, steve-bratich and steve-bradich, describe the same prosecution in better detail than these three did, and their charge wording is adopted here so that the whole case finally shares one description. Race and gender are left as found.",
+
+ "case_charges": "Sedition (Pennsylvania Flynn anti-sedition law; organizing Jones & Laughlin steelworkers at Woodlawn, now Aliquippa — the red raid of November 11, 1926).",
+
+ "institution": {"name": "Allegheny County Workhouse", "city": "Blawnox", "state": "Pennsylvania"},
+
+ "people": [
+  {
+   "slug": "pete-muselin",
+   "label": "Pete Muselin — 799 days, Nov 26 1929 to Feb 3 1932",
+   "prisoner": {
+    "state": "Pennsylvania",
+    "era": "1920s",
+    "ideologies": ["Communism", "Civil Liberties"],
+    "description_replacements": [
+     {"from": "Biawnox", "to": "Blawnox", "all": true},
+     {"from": "Pete Muselin was amember of the Communist Party", "to": "Pete Muselin was a member of the Communist Party"},
+     {"from": "accused of being \"active members \" and \" leaders \" of the local branch", "to": "accused of being \"active members\" and \"leaders\" of the local branch"},
+     {"from": "having \"frequently taught by word of mouth \" the doc- trine of communism", "to": "having \"frequently taught by word of mouth\" the doctrine of communism"},
+     {"from": "The Woodland defendants did not fare very well", "to": "The Woodlawn defendants did not fare very well"}
+    ],
+    "description_append": "Muselin entered the Allegheny County Workhouse at Blawnox on November 26, 1929 and was released on February 3, 1932 — 799 days, about two years and two months of the five-year sentence.\n\nOn the release. This record has said that Muselin and Zima obtained pardons in December 1931, while the date recorded for the end of their custody is a parole on February 3, 1932. The two are not necessarily in conflict, a pardon granted in December being capable of taking weeks to take effect, but they are different mechanisms and which one actually opened the gate is not settled here. February 3, 1932 is what is stored, because it is the day the custody ended and that is what the column measures."
+   },
+   "case": {
+    "convicted": "Yes — released February 3, 1932; pardons reported in December 1931",
+    "dates": {"incarceration_date": [1929, 11, 26], "release_date": [1932, 2, 3]},
+    "sentence": "Five years of hard labor at the Allegheny County Workhouse at Blawnox, on conviction under Pennsylvania's Flynn anti-sedition law. Entered custody November 26, 1929 and released February 3, 1932 — 799 days, about two years and two months served of the five years.\n\nThe row previously held the sentence and the note of a December 1931 pardon, with no institution and no dates of any kind, so the profile published no imprisonment figure at all. It also carried the generic import charge of a federal Espionage and Sedition Act prosecution; this was a state prosecution under a Pennsylvania statute, eight years after the war ended."
+   }
+  },
+  {
+   "slug": "tom-zima",
+   "label": "Tom Zima — 799 days, and a biography that was three lines and a stray heading",
+   "prisoner": {
+    "state": "Pennsylvania",
+    "era": "1920s",
+    "ideologies": ["Communism", "Civil Liberties"],
+    "description": "Tom Zima was a member of the Communist Party from Woodlawn, now Aliquippa, Pennsylvania, and one of the defendants in the Woodlawn sedition case. The prosecution grew out of a red raid of November 11, 1926 on Communist organizers among the Jones & Laughlin steelworkers, in which Zima's house and Pete Muselin's barber shop were searched and a quantity of party literature seized. Tried under Pennsylvania's Flynn anti-sedition law alongside Muselin and Milan Resetar, he was sentenced to five years of hard labor at the Allegheny County Workhouse at Blawnox. He entered custody on November 26, 1929 and was released on February 3, 1932 — 799 days, about two years and two months. Resetar did not live to be released; he died at Blawnox in October 1931.\n\nSee the entry for Pete Muselin for a fuller account of the case, including the letters he and Zima wrote from Blawnox.\n\nThis biography previously consisted of two sentences followed by the words \"WASHINGTON CRIMINAL SYNDICALISM LAW PRISONERS\" — a section heading from the source, captured along with the text.",
+    "description_replaces_marker": "WASHINGTON CRIMINAL SYNDICALISM LAW PRISONERS"
+   },
+   "case": {
+    "convicted": "Yes — released February 3, 1932; pardons reported in December 1931",
+    "dates": {"incarceration_date": [1929, 11, 26], "release_date": [1932, 2, 3]},
+    "sentence": "Five years of hard labor at the Allegheny County Workhouse at Blawnox, on conviction under Pennsylvania's Flynn anti-sedition law. Entered custody November 26, 1929 and released February 3, 1932 — 799 days, about two years and two months served of the five years.\n\nThe row previously held the sentence and the note of a December 1931 pardon, with no institution and no dates of any kind, so the profile published no imprisonment figure at all. It also carried the generic import charge of a federal Espionage and Sedition Act prosecution; this was a state prosecution under a Pennsylvania statute, eight years after the war ended."
+   }
+  },
+  {
+   "slug": "milan-resetar",
+   "label": "Milan Resetar — 691 days, died in custody October 18, 1931",
+   "prisoner": {
+    "state": "Pennsylvania",
+    "era": "1920s",
+    "released": false,
+    "ideologies": ["Communism", "Civil Liberties"],
+    "death_date": [1931, 10, 18],
+    "description_replacements": [
+     {"from": "Biawnox", "to": "Blawnox", "all": true},
+     {"from": "Resetar began serving his sentence in 1929 at the Allegheny County Workhouse in Blawnox, Pennsylvania.", "to": "Resetar began serving his sentence on November 26, 1929 at the Allegheny County Workhouse at Blawnox, Pennsylvania."},
+     {"from": "he described Blawnox as a place of \"appalling\" \"filth, \" \"swarming", "to": "he described Blawnox as a place of \"appalling\" \"filth,\" \"swarming"},
+     {"from": "According to one report: Political Prisoners Wlio Died While Incarcerated •189 When he could hardly stand", "to": "According to one report: When he could hardly stand"},
+     {"from": "He died in jail in October 1931.", "to": "He died in custody on October 18, 1931, after 691 days — one year and eleven months of a five-year sentence."}
+    ]
+   },
+   "case": {
+    "convicted": "Yes — died in custody at Blawnox on October 18, 1931",
+    "dates": {"incarceration_date": [1929, 11, 26], "death_in_custody_date": [1931, 10, 18]},
+    "sentence": "Five years of hard labor at the Allegheny County Workhouse at Blawnox, on conviction under Pennsylvania's Flynn anti-sedition law. Entered custody November 26, 1929 and died there on October 18, 1931 — 691 days, one year and eleven months.\n\nThe death is recorded in the death_in_custody_date column rather than as a plain release, which is what that column is for: the model sets the release date to match, so the imprisonment stops at his death instead of running on, and the record says how the custody ended rather than leaving it to read as an ordinary discharge. His death date on the prisoner record is also sharpened from October 1931 to the day.\n\nThe row previously held the five-year sentence and a month-precision release, with no institution and no incarceration date, so the profile published no imprisonment figure at all. It also carried the generic import charge of a federal Espionage and Sedition Act prosecution; this was a state prosecution under a Pennsylvania statute."
+   }
+  }
+ ],
+
+ "flagged": [
+  {
+   "name": "steve-bratich and steve-bradich are the same man",
+   "reason": "Both records describe the fourth defendant in the Woodlawn case, both sentenced to two and a half years at the Allegheny County Workhouse, both era 1920s, both Pennsylvania — under two spellings of one surname. One says he was discharged on appeal in 1928. They should be merged, and the database has prisoners:merge-duplicates for it, but choosing which spelling and which text survives is a curatorial decision and is not made here."
+  },
+  {
+   "name": "The conviction year is given as both 1927 and 1928",
+   "reason": "Muselin's and Resetar's biographies say the three were convicted in 1928; the Bradich record says the Woodlawn defendants were convicted in 1927 and that he was discharged on appeal in 1928. No sentenced_date is written for any of the three here, because picking one of the two years would settle by assertion something the records disagree about. The custody dates the curator supplies are unaffected either way: the appeals ran until the Supreme Court declined review in 1929, which is when they began serving."
+  },
+  {
+   "name": "Blawnox exists twice as an institution",
+   "reason": "'Allegheny County Workhouse' carries 18 case rows and 'Blawnox Prison' carries 3 — the same place at Blawnox, Pennsylvania. The three records here are attached to the first, which is where Bratich and Bradich already sit, so the case groups together. The duplicate pair is left for the same merge pass as the Leavenworth and Clinton splits reported in batches 139 and 140."
+  },
+  {
+   "name": "The same OCR damage is on other records from the same source",
+   "reason": "These biographies were transcribed from a scanned book, and the scan artifacts came with them: a running head and page number captured in the middle of a quotation, 'amember', 'doc- trine', 'Woodland' for Woodlawn, and Blawnox misread as Biawnox throughout. Those are repaired here for the three records in scope. At least three more carry the same signatures and were not touched: william-j-dodge, ben-boloff and t-a-harris."
+  }
+ ]
+}
