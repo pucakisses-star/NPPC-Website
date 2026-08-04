@@ -24,6 +24,38 @@ let observer: IntersectionObserver | null = null;
 // default; the checkbox beside the results count includes them.
 const includeMinor = ref(false);
 
+// Searching a name is a search for a person, not a browse of the significant
+// cases: somebody typing "Kyle Snyder" wants Kyle Snyder, and a record being
+// classified minor is no reason to tell them he does not exist. So a name
+// search turns the filter off for as long as it lasts, and the checkbox
+// visibly ticks itself rather than the filter changing behind the user's back.
+//
+// A deliberate toggle always wins. Unticking during a search means "I really
+// do want minor cases hidden", and is remembered for later searches too;
+// ticking it by hand outside a search survives the search being cleared.
+const minorAutoEnabled = ref(false);
+const minorUserSet = ref(false);
+
+// Fires only on a real click, not on the programmatic changes below.
+const onIncludeMinorToggled = () => {
+  minorUserSet.value = true;
+  minorAutoEnabled.value = false;
+};
+
+watch(nameSearch, (value) => {
+  // Trimmed, to match the name filter itself: whitespace is not a search.
+  if (value.trim() !== '') {
+    if (!minorUserSet.value && !includeMinor.value) {
+      includeMinor.value = true;
+      minorAutoEnabled.value = true;
+    }
+  } else if (minorAutoEnabled.value) {
+    // Only ever undo what this did; a hand-ticked box is left alone.
+    includeMinor.value = false;
+    minorAutoEnabled.value = false;
+  }
+});
+
 // Computed property to generate filtered records
 const filteredRecords = computed(() => {
   return records.value.filter((record) => {
@@ -117,6 +149,11 @@ const clearFilters = () => {
   cleanFilterObject.value = {};
   buttonFilter.value = 'imprisonedOrExiled';
   autoSwitchedFrom.value = '';
+  // Clearing means back to defaults, including the remembered choice about
+  // minor cases -- so the next name search auto-includes them again.
+  includeMinor.value = false;
+  minorAutoEnabled.value = false;
+  minorUserSet.value = false;
   // Force FiltersComponent to reset by incrementing a key
   filterKey.value++;
 };
@@ -167,8 +204,9 @@ watch(filterObject, (newValue, oldValue) => {
       <div class="results-row">
         <div class="results-count" v-if="filteredRecords.length">{{ filteredRecords.length }} results</div>
         <label class="include-minor">
-          <input type="checkbox" v-model="includeMinor" />
+          <input type="checkbox" v-model="includeMinor" @change="onIncludeMinorToggled" />
           <span>Include minor cases</span>
+          <span v-if="minorAutoEnabled" class="include-minor-auto">on for name search</span>
         </label>
       </div>
       <template v-for="record in visibleRecords" >
@@ -241,6 +279,13 @@ watch(filterObject, (newValue, oldValue) => {
   height: 15px;
   accent-color: var(--accent, #4f46e5);
   cursor: pointer;
+}
+/* Says why the box ticked itself, without a banner for every keystroke. */
+.include-minor-auto {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
 }
 @media (max-width: 600px) {
   .results-row { grid-template-columns: 1fr auto; }
