@@ -1,0 +1,23 @@
+{
+ "slug": "nancy-epling",
+
+ "note": "Her record held a single case row pairing the March 10, 2024 arrest with a November 26, 2024 release, which the model read as 261 days of continuous custody — eight and a half months for a thirty-day sentence. She was not held between March and September. The curator's two segments replace it: the arrest keeps its date on the first row, and the custody splits into the two fifteen-day halves actually served.",
+
+ "segments": [
+  {
+   "role": "existing",
+   "match_arrest_date": "2024-03-10",
+   "incarceration_date": "2024-09-27",
+   "release_date": "2024-10-12",
+   "sentence": "Thirty days at the Licking County Jail, served in two fifteen-day segments rather than continuously. First segment: September 27 to October 12, 2024 — fifteen days. The second segment ran from November 11, 2024 and is recorded on the second case row.\n\nThe March 10, 2024 arrest date is retained on this row; the custody dates previously stored here (incarceration March 10, 2024, release November 26, 2024) were an arrest paired with the final release and produced 261 days of custody she did not serve."
+  },
+  {
+   "role": "new",
+   "incarceration_date": "2024-11-11",
+   "release_date": "2024-11-27",
+   "sentence": "Second of the two fifteen-day segments of a thirty-day sentence at the Licking County Jail, following the September 27 to October 12, 2024 first segment.\n\nThe release day is approximate. The curator records entry on November 11, 2024 and release at approximately November 27, and notes that one movement source has her beginning on November 12. Fifteen days from November 11 would end November 26; fifteen days from November 12 would end November 27 exactly. The curator's stated release is kept here rather than an arithmetic one, so this row measures sixteen days and the record totals thirty-one against a sentence described as about thirty. A confirmed jail discharge record would settle it."
+  }
+ ],
+
+ "bio_append": "She served the thirty days in two fifteen-day segments rather than continuously: September 27 to October 12, 2024, and from November 11 to approximately November 27, 2024."
+}
