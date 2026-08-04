@@ -1,0 +1,24 @@
+{
+ "note": "Restores Walter Brown, removed in error by batch 146. The curator caught it: his frame-up is described as part of the 1935 Birmingham terror against the Share Croppers Union, a Communist-led union of Black tenant farmers, and a prosecution mounted as part of a campaign to destroy a union is political whether or not the defendant's own membership is documented. He is the only one of the sixteen removed in batch 146 whose record names an organisation that the prosecution was directed against; the other fifteen were re-checked and none has that feature. He is restored with his original fields and with the union context written into the biography, so a later audit reads the record correctly.",
+ "restore": {
+  "name": "Walter Brown",
+  "first_name": "Walter",
+  "last_name": "Brown",
+  "description": "Walter Brown was a Black worker framed on a \"rape\" charge in the 1935 Birmingham, Alabama terror against the Share Croppers Union and given twenty years.\n\nThe Share Croppers Union was a Communist-led union of Black tenant farmers and agricultural labourers in the Alabama black belt, and the 1935 Birmingham repression was a campaign directed at it. Brown was framed as part of that campaign. His own membership of the union is not documented in the sources this record rests on, and the frame-up is political regardless: he was prosecuted because of a movement the state was trying to destroy, which is what distinguishes his case from a frame-up with no organisation behind it.\n\nThis record was removed in batch 146 and restored in batch 147. It was removed on the reading that no political activity of his own was recorded; that reading took the absence of a membership card for the absence of politics and ignored the sentence it sat in. The context is now stated here so the record is not misread the same way again.",
+  "state": "Alabama",
+  "race": "Black",
+  "gender": "Male",
+  "era": "1930s",
+  "released": true,
+  "in_custody": false,
+  "sort_order": 5068,
+  "cases": [
+   {
+    "charges": "Framed on a rape charge in the Birmingham terror against the Share Croppers Union.",
+    "convicted": "Yes",
+    "sentence": "Twenty years.\n\nFramed in the 1935 Birmingham, Alabama campaign of repression against the Share Croppers Union. No arrest, incarceration or release date is recorded, and none is invented here, so the record publishes no imprisonment figure."
+   }
+  ]
+ },
+ "expected_slug": "walter-brown"
+}
