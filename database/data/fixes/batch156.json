@@ -1,0 +1,20 @@
+{
+ "note": "Restores the accent in César Andreu Iglesias's name, on his own record and in the biography of Jane Speed de Andreu, who was his wife and is the only other record that names him.\n\nNO PHOTOGRAPH IS ADDED, and that is deliberate. The portrait on his English Wikipedia article is hosted at upload.wikimedia.org/wikipedia/en/ rather than on Wikimedia Commons, which is the signature of a non-free file. Its file page confirms it: the image sits in the categories 'All non-free media' and 'Wikipedia non-free files with NFUR stated', and the page states that the use qualifies as fair use on Wikipedia and that 'any other uses of this image, on Wikipedia or elsewhere, may be copyright infringement'. Wikipedia's fair-use rationale covers that article, not this site. A search of Wikimedia Commons returns no freely licensed image of him, so there is no drop-in substitute either.\n\nThe slug is expected to stay cesar-andreu-iglesias: Laravel's Str::slug transliterates é to e, so the URL does not move and nothing linking to him breaks. The script prints the slug after saving so this can be seen rather than assumed.",
+
+ "name": {"slug": "cesar-andreu-iglesias", "from": "Cesar Andreu Iglesias", "to": "César Andreu Iglesias"},
+
+ "descriptions": [
+  {"slug": "cesar-andreu-iglesias", "from": "Cesar Andreu Iglesias", "to": "César Andreu Iglesias"},
+  {"slug": "jane-speed-de-andreu", "from": "Cesar Andreu Iglesias", "to": "César Andreu Iglesias"}
+ ],
+
+ "photo_not_added": {
+  "url": "https://upload.wikimedia.org/wikipedia/en/7/73/C%C3%A9sar_Andreu_Iglesias.JPG",
+  "reason": "Non-free. Hosted on the English Wikipedia rather than Commons, categorised 'All non-free media', and its file page warns that uses elsewhere may be copyright infringement. No freely licensed alternative exists on Commons.",
+  "routes_that_would_work": [
+   "A photograph from a Puerto Rican archive — the Centro de Estudios Puertorriqueños at Hunter College holds his papers — used with permission or under their terms.",
+   "A pre-1978 Puerto Rican or United States publication photograph shown to have been published without a copyright notice, which would place it in the public domain; this needs the specific publication checked, not assumed.",
+   "Written permission from the rights holder of the Wikipedia image, which the file page does not identify."
+  ]
+ }
+}
