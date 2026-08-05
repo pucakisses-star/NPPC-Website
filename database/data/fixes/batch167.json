@@ -1,0 +1,95 @@
+{
+ "slug": "mark-rudd",
+ "file": "mark-rudd.jpg",
+ "photo_path": "prisoners/mark-rudd.jpg",
+ "credit": "Columbia Magazine, Fall 2018, illustrating Phillip Lopate, \"Confessions of a Reluctant Revolutionary\". Captioned \"Mark Rudd\" by the publisher; no photographer credited on the page.",
+ "prisoner": {
+  "middle_name": "William",
+  "affiliation": [
+   "Students for a Democratic Society",
+   "Weatherman",
+   "Weather Underground"
+  ],
+  "description": "Mark William Rudd is an American antiwar organizer who led Columbia University's Students for a Democratic Society chapter during the university's 1968 protests and later helped establish the militant Weatherman faction and the Weather Underground.\n\nHE NEVER SERVED A PRISON SENTENCE, and that is the correction this record most needed. His custody consists of a handful of short detentions before he went underground, and nothing at all afterwards.\n\nPolice arrested him at Haymarket Square in Chicago on October 11, 1969, before the final Days of Rage march began, seizing him after a brief struggle. Booked for riot, assaulting a police officer and resisting arrest, he was taken to Cook County Jail and released on bail the following morning — about one night, and he was among the first defendants bailed out. He was jailed for another two days in December 1969 for travelling outside the area his Chicago bail conditions allowed.\n\nHe had been arrested three times before that, each time in connection with a protest: overnight at the Tombs after the November 1967 demonstration against Secretary of State Dean Rusk outside the New York Hilton; again on April 30, 1968 when police cleared the occupied Columbia buildings; and again on May 18, 1968 after a demonstration at 618 West 114th Street, released when his father posted seventy-five dollars.\n\nIn early April 1970 a federal grand jury indicted him and eleven other Weather leaders for conspiracy to incite riots under the Federal Anti-Riot Act. By then he had already disappeared, following the March 6, 1970 Greenwich Village townhouse explosion, and he stayed underground for roughly seven and a half years — inside the United States, never abroad. The federal prosecution was dismissed with prejudice in October 1973 after the trial judge ordered the government to disclose how its evidence had been gathered and prosecutors chose to drop the charges rather than expose their surveillance methods. He was never tried or sentenced on the federal indictment.\n\nRudd surrendered at the Manhattan criminal courthouse at about nine in the morning on September 14, 1977. He spent roughly nine hours being fingerprinted, processed and held in courthouse cells before Judge Milton L. Williams released him on his own recognizance; he was home by about six that evening. He flew to Chicago the next day, appeared on the outstanding Days of Rage charges and was released on his own recognizance there as well. He was not remanded to prison at any point after surfacing.\n\nThe cases ended in pleas. In New York he pleaded guilty to misdemeanour criminal trespass arising from the May 1968 Columbia protests, the remaining charges were dismissed, and he received an unconditional discharge — no incarceration, no probation, no continuing supervision. In Chicago, on January 19, 1978, he pleaded guilty to two reduced misdemeanour counts of aggravated battery, the rest were dismissed, and he was sentenced to two years of probation and a two-thousand-dollar fine with no jail, which he was allowed to serve while living in Brooklyn. He later taught mathematics at a community college in New Mexico."
+ },
+ "cases": [
+  {
+   "label": "tombs-1967",
+   "dates": {
+    "arrest_date": [1967, 11, 14],
+    "incarceration_date": [1967, 11, 14],
+    "release_date": [1967, 11, 15]
+   },
+   "institution": {"name": "Manhattan House of Detention (the Tombs)", "city": "New York", "state": "New York"},
+   "charges": "Arrested at the demonstration against Secretary of State Dean Rusk outside the New York Hilton. The specific booking charge is not established.",
+   "convicted": "Not established",
+   "sentence": "Held overnight at the Tombs, November 14 to 15, 1967. The disposition of this arrest is not recorded in the sources available here."
+  },
+  {
+   "label": "columbia-bust-1968",
+   "dates": {
+    "arrest_date": [1968, 4, 30],
+    "incarceration_date": [1968, 4, 30],
+    "release_date": null
+   },
+   "institution": {"name": "Manhattan House of Detention (the Tombs)", "city": "New York", "state": "New York"},
+   "charges": "Arrested when police cleared the occupied Columbia University buildings in the early hours of April 30, 1968. Several hundred protesters were taken that night.",
+   "convicted": "Not established",
+   "sentence": "Held at the Tombs. NO RELEASE DATE IS STORED: the sources place him in custody but do not give the hour or day he came out, and a same-day release is an assumption rather than a record. The row therefore publishes no figure for this detention. It was short."
+  },
+  {
+   "label": "west-114th-1968",
+   "dates": {
+    "arrest_date": [1968, 5, 18],
+    "incarceration_date": [1968, 5, 18],
+    "release_date": null
+   },
+   "institution": {"name": "Manhattan House of Detention (the Tombs)", "city": "New York", "state": "New York"},
+   "charges": "Arrested at a demonstration at 618 West 114th Street and booked at the 26th Precinct.",
+   "convicted": "Guilty plea, New York",
+   "sentence": "Held at the Tombs and released when his father posted seventy-five dollars in bail. NO RELEASE DATE IS STORED, for the same reason as the April row: bail was posted, but no date is recorded for it.\n\nThis is the arrest that produced the eventual New York conviction. After he surfaced in 1977 he pleaded guilty to misdemeanour criminal trespass arising from the May 1968 Columbia protests, the other charges were dismissed, and he received an unconditional discharge — no incarceration, no probation, no supervision."
+  },
+  {
+   "label": "days-of-rage",
+   "legacy": {"incarceration_date": "1977-09-13"},
+   "dates": {
+    "arrest_date": [1969, 10, 11],
+    "incarceration_date": [1969, 10, 11],
+    "release_date": [1969, 10, 12],
+    "sentenced_date": [1978, 1, 19]
+   },
+   "institution": {"name": "Cook County Jail", "city": "Chicago", "state": "Illinois"},
+   "judge": null,
+   "charges": "Riot; assaulting a police officer; resisting arrest. Plainclothes officers seized him at Haymarket Square on October 11, 1969, after a brief struggle, before the final Days of Rage march set off.",
+   "convicted": "Yes — pleaded guilty January 19, 1978 to two reduced misdemeanour counts of aggravated battery",
+   "sentence": "About one night in Cook County Jail: taken in on October 11, 1969 and released on bail the following morning, October 12. He was among the first defendants bailed out.\n\nDisposition, January 19, 1978: guilty plea to two reduced misdemeanour counts of aggravated battery, the remaining Chicago charges dismissed. Two years of probation and a two-thousand-dollar fine. NO JAIL SENTENCE — he served the probation while living in Brooklyn.\n\nThis row previously held a different case entirely: it was dated September 13, 1977 and its charges mixed the Federal Anti-Riot Act conspiracy with the Columbia trespass, which put a federal indictment that was dismissed with prejudice in October 1973 and a New York misdemeanour into the same custody. The federal charge produced no custody at all. It is described in the biography and is not a case row, because nothing was served on it."
+  },
+  {
+   "label": "bail-violation-1969",
+   "dates": {
+    "arrest_date": [1969, 12],
+    "incarceration_date": [1969, 12],
+    "release_date": null
+   },
+   "institution": null,
+   "charges": "Violation of the Chicago bail conditions imposed after the Days of Rage arrest, by travelling outside the permitted area.",
+   "convicted": "Not applicable — bail sanction",
+   "sentence": "TWO DAYS IN JAIL, in December 1969. The exact admission and release dates are not given in the source, so the custody is stored at month precision with no release date and publishes no figure. Two days is what the source states; it is recorded here in words rather than smuggled into the date fields, where a month-precision release would resolve to December 1 and measure zero.\n\nThe jail is not established."
+  },
+  {
+   "label": "surrender-1977",
+   "legacy": {"incarceration_date": null, "release_date": "1977-09-14"},
+   "dates": {
+    "arrest_date": [1977, 9, 14],
+    "incarceration_date": [1977, 9, 14],
+    "release_date": [1977, 9, 14]
+   },
+   "institution": null,
+   "judge": "Milton L. Williams",
+   "charges": "Outstanding New York charges, on which he surrendered voluntarily after seven and a half years underground.",
+   "convicted": "Yes — guilty plea to misdemeanour criminal trespass, unconditional discharge",
+   "sentence": "ABOUT NINE HOURS, and no more. He walked into the Manhattan criminal courthouse at about nine in the morning on September 14, 1977, was fingerprinted, processed and held in courthouse cells, and Judge Milton L. Williams released him on his own recognizance. He was home by about six that evening. The row measures zero days because the custody was less than one, not because it is unknown.\n\nHe flew to Chicago the next day, appeared on the outstanding Days of Rage charges and was released on his own recognizance there too. He was never remanded to prison after surfacing.\n\nNO INSTITUTION IS ATTACHED. This row previously carried New York Supreme Court, which is wrong twice over: a court is not a place of imprisonment, and the surrender was to the criminal court rather than to the Supreme Court. Courthouse holding cells are not a jail and should not be recorded as one."
+  }
+ ],
+ "note": "Mark Rudd, corrected. The record asserted a 1977 imprisonment he never served and gave the Chicago probation-and-fine sentence as though it were the New York disposition. The custody is rebuilt from the curator research: six rows, two measured days in total, and a great deal that is honestly left unmeasured.\n\nNOT ENTERED: the Niagara Falls episode of about two days in the Niagara County jail at Lockport, around May 19 to 21, 1969. The curator flags the date as inferred from the day Leary v. United States was decided rather than taken from a booking register, and the allegation was marijuana possession at a border crossing, which is not on its face a political prosecution. It fails both of the tests this archive applies. Say the word and it goes in.\n\nNOT RECORDED AS EXILE: he was underground for about seven and a half years, but inside the United States. Dohrn, Ayers, Wilkerson and Boudin all have in_exile false for the same reason, and the one Weather fugitive in this archive who does carry exile — John Jacobs — spent his underground years in Vancouver. Exile means out of the country.\n\nNOT RENAMED: the curator gives the full name as Mark William Rudd. That is stored in middle_name rather than in the display name, because he is universally published and cited as Mark Rudd, including on his own memoir."
+}
