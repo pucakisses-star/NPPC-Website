@@ -83,7 +83,7 @@
            this page (and on body) so .a1r's 100vw width can render. */
         body.page-archive { overflow-x: hidden; }
         body.page-archive main.container,
-        body.page-archive .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+        body.page-archive .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
         body.page-archive .a1r {
             position: relative;
             left: 50%;

@@ -18,7 +18,7 @@
        the black background spans the viewport, and darken the body so
        there are no white gutters around the page. */
     body.page-student-visa-revocations-and-ice-arrests main.container,
-    body.page-student-visa-revocations-and-ice-arrests .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+    body.page-student-visa-revocations-and-ice-arrests .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
     body.page-student-visa-revocations-and-ice-arrests { background: var(--bg); }
 
     .svr { background: var(--bg); color: rgba(var(--fg-rgb),.82); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }

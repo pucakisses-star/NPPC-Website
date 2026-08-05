@@ -95,7 +95,9 @@
 <div class="staff-modal-overlay" id="staff-modal-overlay" onclick="closeStaffModal()">
     <div class="staff-modal" onclick="event.stopPropagation()">
         <button class="staff-modal-close" onclick="closeStaffModal()">&times;</button>
-        <img id="staff-modal-image" class="staff-modal-image" src="" alt="">
+        {{-- No src attribute: src="" makes browsers fetch the page URL itself
+             as an image on every load. The JS below sets or removes it. --}}
+        <img id="staff-modal-image" class="staff-modal-image" alt="" style="display:none;">
         <div>
             <div id="staff-modal-name" class="staff-modal-name"></div>
             <div id="staff-modal-position" class="staff-modal-position"></div>
@@ -110,7 +112,8 @@
     function openStaffModal(id) {
         var member = staffData.find(function(m) { return m.id === id; });
         if (!member) return;
-        document.getElementById('staff-modal-image').src = member.image ? '/storage/' + member.image : '';
+        if (member.image) { document.getElementById('staff-modal-image').src = '/storage/' + member.image; }
+        else { document.getElementById('staff-modal-image').removeAttribute('src'); }
         document.getElementById('staff-modal-image').style.display = member.image ? 'block' : 'none';
         document.getElementById('staff-modal-name').textContent = member.name;
         document.getElementById('staff-modal-position').textContent = member.position || '';

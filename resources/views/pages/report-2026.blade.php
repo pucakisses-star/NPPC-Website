@@ -16,7 +16,7 @@
    and staff cards. Vanilla JS only.
    ============================================================ */
 body.page-report-2026 main.container,
-body.page-report-2026 .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+body.page-report-2026 .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
 body.page-report-2026 { background: #0a0a12; }
 
 .r26 { --ink: #ececf2; --dim: rgba(236,236,242,0.62); --acc: #5660fe; --acc2: #8f97ff;

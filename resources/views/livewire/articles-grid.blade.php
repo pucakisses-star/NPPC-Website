@@ -15,7 +15,7 @@ function renderArticle(Article $article, bool $large = false, bool $eager = fals
 
     $imageMarkup = $imgUrl
         ? "<a href=\"{$article->url}\" style=\"display: block; {$imgBox}; overflow: hidden; background:var(--surface-2);\"><img src=\"{$imgUrl}\" alt=\"\" loading=\"{$loadingAttr}\" decoding=\"async\" fetchpriority=\"{$fetchPriority}\" style=\"width:100%; height:100%; object-fit:cover; object-position:center; display:block;\"></a>"
-        : "<a href=\"{$article->url}\" style=\"display: block; {$imgBox}; background:var(--surface-2);\"></a>";
+        : "<a href=\"{$article->url}\" class=\"article-img-empty\" style=\"display: block; {$imgBox}; background:var(--surface-2);\"></a>";
 
     $category = $article->category?->title;
     $date = $article->published_at?->format('F j, Y');
@@ -125,6 +125,15 @@ EOB;
             .article-item:hover .article-title,
             .article-item:focus-within .article-title {
                 background-size: 100% 1.5px;
+            }
+
+            /* Imageless articles keep their grey placeholder box on desktop,
+               where it holds the grid rhythm. In the single-column phone
+               layout the same box is a full-width empty slab that reads as a
+               broken image, so collapse it there — the card is then just
+               meta + title, which is what an imageless story is. */
+            @media (max-width: 767px) {
+                .article-item .article-img-empty { display: none !important; }
             }
 
             /* Gentle zoom on the card's photo while it's highlighted. The

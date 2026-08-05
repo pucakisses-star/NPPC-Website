@@ -15,7 +15,7 @@
    cards. Original NPPC content in the site palette.
    ============================================================ */
 body.page-report-2024 main.container,
-body.page-report-2024 .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+body.page-report-2024 .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
 body.page-report-2024 { background: #0a0a12; }
 
 .r24 { --ink: #ececf2; --dim: rgba(236,236,242,.62); --acc: #5660fe; --acc2: #8f97ff;

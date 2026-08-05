@@ -14,7 +14,7 @@
 <style>
     /* Full-bleed dark screening room. */
     body.page-launch-film main.container,
-    body.page-launch-film .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+    body.page-launch-film .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
     body.page-launch-film { background: #060608; }
 
     .lf { background: #060608; color: rgba(255,255,255,0.85); padding: 96px 24px 110px; text-align: center; }

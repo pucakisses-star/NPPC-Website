@@ -16,7 +16,7 @@
    "Movement Victory" seals on the campaigns that won.
    ============================================================ */
 body.page-movement-history main.container,
-body.page-movement-history .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+body.page-movement-history .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; }
 body.page-movement-history { background: #0a0a12; }
 
 .mh { --ink: #ececf2; --acc: #5660fe; --acc2: #8f97ff; --deep: #0a0a12; --navy: #12122a;
