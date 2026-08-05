@@ -1,0 +1,153 @@
+{
+ "note": "Eighteen curated links supplied by the curator. Every URL was fetched and returned HTTP 200, and the headline, publication date and outlet are taken from the page's own metadata rather than from the URL slug or from a summary. Where the URL date and the published date disagreed the metadata was used: the Los Angeles Times pieces at 2026-05-06 and 2026-08-03 in their URLs publish as 2026-05-07 and 2026-08-04. AMP and tracking parameters were stripped from the URLs before storing.",
+ "links": [
+  {
+   "title": "Maine ICE observer sues agents for threatening to arrest him during January surge",
+   "url": "https://www.bangordailynews.com/2026/08/03/portland/portland-police-courts/maine-ice-observer-sues-agents-for-threatening-to-arrest-him/",
+   "source": "Bangor Daily News",
+   "category": "other",
+   "published_at": "2026-08-03 12:00:00"
+  },
+  {
+   "title": "Tarrant County judge removes attendees during public meeting about voting site reductions",
+   "url": "https://fortworthreport.org/2026/08/04/tarrant-county-judge-removes-attendees-during-public-meeting-about-voting-site-reductions/",
+   "source": "Fort Worth Report",
+   "category": "other",
+   "published_at": "2026-08-04 12:00:00"
+  },
+  {
+   "title": "Westlake Man Sentenced for Attack on CHP at ICE Protest",
+   "url": "https://lamag.com/crimeinla/westlake-man-hit-with-37-months-for-attacking-cops-at-ice-protest/",
+   "source": "Los Angeles Magazine",
+   "category": "prosecution",
+   "published_at": "2026-07-28 12:00:00"
+  },
+  {
+   "title": "The professor facing prison in ‘antifa’ case: ‘They want to scare all who oppose ICE’",
+   "url": "https://www.theguardian.com/us-news/ng-interactive/2026/jul/28/ice-protests-antifa-minnesota",
+   "source": "The Guardian",
+   "category": "prosecution",
+   "published_at": "2026-07-28 12:00:00"
+  },
+  {
+   "title": "Man sentenced to prison for throwing cinder-block pieces at federal agents during California protest",
+   "url": "https://www.mercurynews.com/2026/07/23/paramount-man-sentenced-to-10-months-for-throwing-cinder-block-pieces-at-federal-agents-during-protest/",
+   "source": "The Mercury News",
+   "category": "prosecution",
+   "published_at": "2026-07-23 12:00:00"
+  },
+  {
+   "title": "She protested ICE raids. Then agents showed up at her door",
+   "url": "https://www.npr.org/2026/08/03/nx-s1-5886263/ice-dhs-immigration-enforcement-conspiracy-arrests",
+   "source": "NPR",
+   "category": "arrest",
+   "published_at": "2026-08-03 12:00:00"
+  },
+  {
+   "title": "LA protester charged with assaulting officer says he was the one attacked: ‘I thought I was going to die’",
+   "url": "https://www.theguardian.com/us-news/2025/jun/13/protester-charged-ice-los-angeles",
+   "source": "The Guardian",
+   "category": "prosecution",
+   "published_at": "2025-06-13 12:00:00"
+  },
+  {
+   "title": "Suspected U-Haul driver at Bay Area Coast Guard protest charged with assaulting federal officers",
+   "url": "https://www.sfchronicle.com/crime/article/u-haul-driver-coast-guard-protest-charges-21135455.php",
+   "source": "San Francisco Chronicle",
+   "category": "prosecution",
+   "published_at": "2025-11-04 12:00:00"
+  },
+  {
+   "title": "Man sentenced to 4 years in prison for throwing Molotov cocktail during California immigration protest",
+   "url": "https://www.pressdemocrat.com/2026/02/02/man-sentenced-to-4-years-in-prison-for-throwing-molotov-cocktail-during-la-immigration-protest/",
+   "source": "The Press Democrat",
+   "category": "prosecution",
+   "published_at": "2026-02-02 12:00:00"
+  },
+  {
+   "title": "California man previously on FBI's most wanted list pleads guilty to assaulting federal officer during protest",
+   "url": "https://www.latimes.com/california/story/2026-02-17/california-man-pleads-guilty-to-assaulting-federal-officer-during-protest",
+   "source": "Los Angeles Times",
+   "category": "prosecution",
+   "published_at": "2026-02-17 12:00:00"
+  },
+  {
+   "title": "She was arrested for holding a protest sign in small-town California: ‘This is a testing ground’",
+   "url": "https://www.theguardian.com/us-news/ng-interactive/2026/mar/09/fighting-extremism-redding-california",
+   "source": "The Guardian",
+   "category": "arrest",
+   "published_at": "2026-03-09 12:00:00"
+  },
+  {
+   "title": "He took a Molotov cocktail to an ICE protest. Now the SoCal man is going to prison.",
+   "url": "https://www.latimes.com/california/story/2026-05-06/socal-man-ice-protest-molotov-sentencing",
+   "source": "Los Angeles Times",
+   "category": "prosecution",
+   "published_at": "2026-05-07 12:00:00"
+  },
+  {
+   "title": "Ex-Navy SEAL gets prison for driving from El Paso to attack California cops",
+   "url": "https://www.elpasotimes.com/story/news/crime/2026/07/29/ex-navy-seal-gregory-vandenberg-gets-prison-for-drive-from-el-paso-to-attack-california-cops/91082515007/",
+   "source": "El Paso Times",
+   "category": "prosecution",
+   "published_at": "2026-07-29 12:00:00"
+  },
+  {
+   "title": "Westlake man sentenced for anti-ICE protest actions",
+   "url": "https://www.vcstar.com/story/news/local/california/2026/07/29/westlake-village-man-sentenced-for-anti-ice-protest-actions-u-s-department-of-justice/91090402007/",
+   "source": "Ventura County Star",
+   "category": "prosecution",
+   "published_at": "2026-07-29 12:00:00"
+  },
+  {
+   "title": "Anti-ICE protester accused of pouring lighter fluid on CHP car is sentenced to prison",
+   "url": "https://www.latimes.com/california/story/2026-08-03/anti-ice-protester-accused-of-pouring-lighter-fluid-on-chp-car-is-sentenced-to-prison",
+   "source": "Los Angeles Times",
+   "category": "prosecution",
+   "published_at": "2026-08-04 12:00:00"
+  },
+  {
+   "title": "Man who threw cinder block chunks during anti-ICE protest in L.A. gets prison sentence",
+   "url": "https://www.latimes.com/california/story/2026-07-22/cinderblock-chunks-la-protest-prison-sentence",
+   "source": "Los Angeles Times",
+   "category": "prosecution",
+   "published_at": "2026-07-22 12:00:00"
+  },
+  {
+   "title": "ICE facility employee in Aurora arrested after shooting protestor, police say",
+   "url": "https://www.ms.now/news/ice-facility-employee-in-aurora-arrested-after-shooting-protestor-police-say",
+   "source": "MS NOW",
+   "category": "arrest",
+   "published_at": "2026-07-17 12:00:00"
+  },
+  {
+   "title": "NYPD Used High-Tech Surveillance to Find Gaza Paint Splatter Protester, Docs Show",
+   "url": "https://theintercept.com/2026/08/03/nypd-surveillance-gaza-protest-columbia/",
+   "source": "The Intercept",
+   "category": "other",
+   "published_at": "2026-08-03 12:00:00"
+  }
+ ],
+ "replace": {
+  "url": "https://www.kpbs.org/news/national/2026/08/03/she-protested-ice-raids-then-agents-showed-up-at-her-door",
+  "reason": "Batch 149 added this story from KPBS, which carries it as a syndicated copy. The curator has now supplied the NPR original, which is added here, so the KPBS duplicate is removed rather than leaving the same headline in the newswire twice."
+ },
+ "skipped": [
+  {
+   "url": "https://www.vpm.org/news/2024-06-24/gaza-protest-interstate-95-sentence-jail",
+   "http": "403",
+   "reason": "Two reasons, either of which is enough. The fetch was refused so the headline and date could not be verified, and the URL dates the piece to June 24, 2024 — before the dashboard tracker start of May 7, 2025. The newswire filters to the tracker window, so this link would have been created successfully and then never appeared."
+  },
+  {
+   "url": "https://ktla.com/news/california/man-sentenced-in-2023-death-of-jewish-demonstrator-thousand-oaks/",
+   "http": "403",
+   "reason": "The fetch was refused, so the headline and publication date could not be read from the page. A 403 means the request was blocked, not that the article is gone — it can be added by hand from the admin, or supplied with its headline and date and it will go in."
+  },
+  {
+   "url": "https://www.kgw.com/article/news/investigations/37-federal-cases-1-prison-sentence-quiet-resolution-portland-ice-protests/283-11bf0b3a-f9e9-4d1f-85ed-3aaaae6682ac",
+   "http": "403",
+   "reason": "The fetch was refused, so the headline and publication date could not be read from the page. Same as above: blocked, not missing."
+  }
+ ],
+ "same_story_note": "Some of these cover one another. The Mercury News piece of July 23 and the Los Angeles Times piece of July 22 appear to be the same cinder-block sentencing; the Los Angeles Magazine, Ventura County Star and Los Angeles Times items about a Westlake man and a CHP car may be one defendant across three outlets. Several outlets on one story is normal in a newswire and none is removed, but it is worth knowing before the feed is read as a count of separate cases."
+}
