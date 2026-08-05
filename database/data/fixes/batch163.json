@@ -1,0 +1,22 @@
+{
+ "anchor_question": "Is my donation tax-deductible?",
+ "faqs": [
+  {
+   "question": "Will I get a receipt?",
+   "answer": "Yes. An email receipt is sent at the time of your donation, to the address you enter on the donate page. If it hasn't arrived within a few minutes, check your spam folder before writing to us — receipts are sent by our payment processor and are sometimes filtered.\n\nIf your gifts total $250 or more in a calendar year, we also send a year-end acknowledgment letter for your tax records. You don't need to request it.\n\nFor a replacement receipt, or a receipt made out differently, email donations@nppc.org with the date and amount."
+  },
+  {
+   "question": "How do I cancel or change my recurring donation?",
+   "answer": "Email donations@nppc.org and we'll cancel or change it. Include the email address you donated with and the amount, so we can find the right subscription.\n\nMonthly and yearly recurring gifts can be stopped at any time and there is no minimum commitment. Cancelling stops all future charges; it doesn't reverse a payment already taken. If a charge has just gone out and you'd like it back, say so and we'll refund it.\n\nIf you want to change the amount rather than stop giving, tell us the new figure — you don't need to cancel and start again."
+  },
+  {
+   "question": "Is my donation secure?",
+   "answer": "Yes. Card payments are processed by Stripe, and your card details are entered directly into Stripe's systems. They never pass through, and are never stored on, our servers — we don't have access to your card number.\n\nWhat we do hold is what you tell us: your name, email address, and the amount and date of your gift. That is kept for our accounts and for sending receipts.\n\nWe don't sell, rent or trade donor information, and we don't publish donor lists. Given who this organisation works with, that matters more than it might elsewhere: if you would rather your support wasn't associated with your name at all, write to donations@nppc.org before giving and we'll tell you the options."
+  },
+  {
+   "question": "Where does my donation go?",
+   "answer": "Directly into prisoner support and the work that sustains it.\n\nThe largest share goes to material support for people inside and the people holding their families together: commissary deposits, travel costs so families can actually make visits, postage for legal mail, and re-entry assistance for the recently released. The rest keeps this archive and the site running — research, verification of case records, and the staff time behind them.\n\nOur financials are reported in our Annual Report, which is the place to look for the breakdown rather than taking a summary's word for it.\n\nWe don't take money from law-enforcement organisations, prison contractors, or state agencies. Individual donations are what keeps that possible: every dollar from a supporter reduces our dependence on grant cycles and on funders who might prefer we were quieter."
+  }
+ ],
+ "note": "Adds the four donation questions from the curator's list that do not yet exist on the site. None of the twenty-two existing FAQ entries was blank — every one already carries between 380 and 2,200 characters — so nothing is being filled in; these are new entries.\n\nTWO OF THE CURATOR'S SEVEN ARE ALREADY ANSWERED under different wording and are not duplicated: 'Are donations tax deductible?' exists as 'Is my donation tax-deductible?', and 'Can I make a donation with Bitcoin or cryptocurrency?' exists as 'Do you accept donations of stocks, crypto, or DAFs?', which already names BTC, ETH and USDC.\n\n'Where your donation goes' and 'How we use your donations' were two headings for the same thing and are answered once, as 'Where does my donation go?'.\n\nNOTHING IS COPIED FROM THE SOURCE TEXT. The curator's paste is the Innocence Project's FAQ: it names that organisation, asserts its 501(c)(3) status and gives its Tax ID, 32-0077563. Reproducing any of that here would have published another organisation's EIN as NPPC's. Every answer below is instead written from what this site already states about itself — the existing tax-deductibility, funding and crypto answers — and from what the code actually does: Stripe processes payments, and the donation form offers one-time, monthly and yearly intervals.\n\nThe type and sort order are read from the existing tax-deductibility entry rather than guessed, so the new questions appear in the same section of the page."
+}
