@@ -1,0 +1,33 @@
+{
+ "note": "The three links batch 150 could not verify, now added. All three refuse automated fetches — VPM, KTLA and KGW returned 403 or hung up — so none of these headlines came from the page itself. Each was recovered another way and the route is recorded per item, because a headline is a quotation and where it came from is part of it. Two of the three dates are likewise derived rather than read: KTLA's from a syndicated copy of the same story, KGW's from the outlet's own video of the same piece. Neither is the article page's own timestamp and both are marked as such here.",
+
+ "links": [
+  {
+   "title": "37 federal cases, 1 prison sentence: The quiet resolution of Portland's ICE protests",
+   "url": "https://www.kgw.com/article/news/investigations/37-federal-cases-1-prison-sentence-quiet-resolution-portland-ice-protests/283-11bf0b3a-f9e9-4d1f-85ed-3aaaae6682ac",
+   "source": "KGW",
+   "category": "prosecution",
+   "published_at": "2026-05-12 12:00:00",
+   "provenance": "Headline from the search index entry for this exact URL. Date from KGW's own YouTube upload of the same piece, which carries the identical title and published 2026-05-12; the article page refuses fetches, so this is the outlet's date for the story rather than the page's own timestamp."
+  },
+  {
+   "title": "Man sentenced in death of Jewish demonstrator during Southern California protest",
+   "url": "https://ktla.com/news/california/man-sentenced-in-2023-death-of-jewish-demonstrator-thousand-oaks/",
+   "source": "KTLA",
+   "category": "prosecution",
+   "published_at": "2026-06-30 12:00:00",
+   "provenance": "Headline from the search index entry for this exact URL, and confirmed against AOL's syndicated copy which carries it word for word. Date 2026-06-30 is the syndicated copy's published timestamp, wire pickups normally running the same day; the KTLA page itself refuses fetches."
+  },
+  {
+   "title": "I-95 Gaza protesters sentenced to jail",
+   "url": "https://www.vpm.org/news/2024-06-24/gaza-protest-interstate-95-sentence-jail",
+   "source": "VPM",
+   "category": "prosecution",
+   "published_at": "2024-06-24 12:00:00",
+   "provenance": "Headline from the search index entry for this exact URL. Date from the URL itself, which matches the reported sentencing of the nine I-95 blockade defendants in June 2024.",
+   "invisible": true
+  }
+ ],
+
+ "invisible_warning": "The VPM link is dated June 24, 2024. The dashboard newswire filters to the tracker window, which starts on May 7, 2025 — set as $tlStart in resources/views/pages/dashboard.blade.php — so this row will be created and stored correctly and will NOT appear on the page. It is added anyway, at the curator's instruction, so the record exists and will surface the moment the window is widened. Widening it is a one-line change to $tlStart, but it also lengthens the timeline scrubber by eleven months of mostly empty days, which is a design decision rather than a data fix and is not made here."
+}
