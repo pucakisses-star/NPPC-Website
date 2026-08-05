@@ -1,0 +1,48 @@
+{
+ "slug": "clara-lemlich",
+ "source": {
+  "text": "Wikipedia, \"Clara Lemlich\" — https://en.wikipedia.org/wiki/Clara_Lemlich",
+  "photo": "Wikimedia Commons, File:Clara Lemlich 1910.jpg — a studio portrait circa 1910, 4639 x 6448, credited to the International Ladies Garment Workers Union Archives, Kheel Center Collection, Cornell University, via the Jewish Womens Archive. Public domain."
+ },
+ "fields": {
+  "aka": "Clara Lemlich Shavelson; Clara Shavelson; Clara Goldman",
+  "gender": "Female",
+  "ideologies": [
+   "Labor Organizing",
+   "Socialist",
+   "Communist"
+  ],
+  "affiliation": [
+   "International Ladies Garment Workers Union (Local 25)",
+   "Communist Party USA",
+   "United Council of Working-Class Women",
+   "Progressive Women's Councils",
+   "Emma Lazarus Federation of Jewish Women's Clubs"
+  ],
+  "description": "Clara Lemlich was a labor organizer who helped spark the 1909-1910 New York shirtwaist strike, known as the Uprising of the 20,000. She was arrested roughly seventeen times for strike and picket-line activity during the walkout. Her militant call for a general strike galvanized thousands of garment workers.\n\nShe was born Clara Lemlich on March 28, 1886 in Gorodok, then in the Russian Empire and now in Ukraine, into a Yiddish-speaking Jewish family, and taught herself to read Russian over her parents' objections — sewing buttonholes and writing letters for illiterate neighbours to pay for the books. A neighbour lent her revolutionary literature and she became a socialist. The family emigrated to the United States in 1903 after the Kishinev pogrom, and she went into the New York garment trade, where she was elected to the executive board of Local 25 of the International Ladies Garment Workers Union.\n\nAt a mass meeting at Cooper Union on November 22, 1909, after two hours of speeches in generalities, she demanded the floor: \"I am a working girl, one of those striking against intolerable conditions. I am tired of listening to speakers who talk in generalities. What we are here for is to decide whether or not to strike. I make a motion that we go out in a general strike.\" The meeting took a version of the old Jewish oath — if I turn traitor to the cause I now pledge, may this hand wither from the arm I now raise — and voted to walk out. Roughly 20,000 of the trade's 32,000 workers were out within two days. The strike ran until February 10, 1910 and won union contracts at almost every shop, but not at the Triangle Shirtwaist Company, where 146 workers died in the fire of March 25, 1911.\n\nThe violence against her was not only official. Gangsters hired by the employers attacked the picketers and broke several of her ribs; she went back to the picket line. She spoke at rallies until she lost her voice.\n\nBlacklisted from the garment industry for her union work, she turned to the suffrage campaign and co-founded the Wage Earners Suffrage League as a working-class alternative to the middle-class suffrage organisations. She married Joe Shavelson in 1913 and organised housewives and tenants for the next thirty years: the United Council of Working Class Housewives, then in 1929 the United Council of Working-Class Women, which grew to nearly fifty branches in New York and affiliates in six other cities. Its 1935 meat boycott shut more than 4,000 butcher shops in the city. In 1931 the Emma Lazarus Council she helped found declared that nobody in Brighton Beach would be evicted for inability to pay rent, and made it stick by carrying tenants' furniture back into their apartments.\n\nShe was a member of the Communist Party USA and remained one, denouncing the execution of the Rosenbergs. THE STATE TOOK HER PASSPORT after a trip to the Soviet Union in 1951, and accusations of Communist domination destroyed the Progressive Women's Councils in the early 1950s; New York ordered the International Workers Order dissolved in 1952. She retired from garment work in 1954 and then fought the ILGWU at length for a pension.\n\nShe married Abe Goldman in 1960 and moved to California after his death in 1967. At eighty-one she entered the Jewish Home for the Aged in Los Angeles, where she persuaded the management to honour the United Farm Workers grape and lettuce boycotts and helped the orderlies organise a union. She died on July 12, 1982, aged 96."
+ },
+ "dates": {
+  "birthdate": [
+   1886,
+   3,
+   28
+  ],
+  "death_date": [
+   1982,
+   7,
+   12
+  ]
+ },
+ "photo": {
+  "file": "clara-lemlich.jpg",
+  "path": "prisoners/clara-lemlich.jpg",
+  "note": "The record had no photograph at all. The curator supplied a 220x300 Google thumbnail; this is the same picture traced back to its source on Wikimedia Commons and cropped to the same head-and-shoulders framing at 733x1000 — the public-domain original is 4639x6448. Unlike the last two portraits added to this archive, nothing about this one needs a fair-use argument."
+ },
+ "case_fix": {
+  "publishes_now": "Imprisoned For 117 years 7 months 2 days",
+  "days_now": 42948,
+  "why": "The case row carried incarceration_date 1909 and no release date, and a stale day-count of 42,948 measured from 1909 to whenever it was last computed. That is 117 years and it is on her public profile. The seventeen arrests are real and their durations are not recorded, so there is nothing to count. The year moves from incarceration_date to arrest_date, which is what the source actually supports, and the counter goes to null. Moving it also stops any future recompute from inflating it again, which is the difference between fixing this row and merely resetting it.",
+  "arrest_year": 1909,
+  "sentence": "She was arrested about seventeen times for strike and picket-line activity, but the full arrest-and-release chronology is not recorded. The strike ran from November 22, 1909 to February 10, 1910. Employers also hired gangsters who attacked the picket line and broke several of her ribs; she returned to it."
+ }
+}
