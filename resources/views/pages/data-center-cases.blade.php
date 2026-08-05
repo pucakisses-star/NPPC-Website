@@ -17,7 +17,7 @@
     /* Full-bleed: drop the centered .container constraints so the
        black background spans the viewport. */
     body.page-data-center-cases main.container,
-    body.page-data-center-cases .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+    body.page-data-center-cases .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
     body.page-data-center-cases { background: #07080a; }
     html { scroll-behavior: smooth; }
 

@@ -5,7 +5,7 @@
 @section('head')
 <style>
     /* Full-bleed dark memorial, modeled in spirit on gazaschildren.com. */
-    body.page-memorial main.container, body.page-memorial .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+    body.page-memorial main.container, body.page-memorial .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
     body.page-memorial { background: #050408; }
 
     .mem { position: relative; width: 100vw; margin-left: calc(50% - 50vw); height: calc(100vh - 108px); min-height: 560px; background: radial-gradient(120% 90% at 50% 0%, #0b0a12 0%, #050408 60%); overflow: hidden; color: #f2eee4; }

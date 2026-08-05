@@ -501,7 +501,7 @@
             .tk2-footer-bg { width: 165vw; }
             .tk2-footer .tk2-share-bar--footer { bottom: 28px; }
         }
-        body.page-feature-political-prisoner-cost main.container, body.page-feature-political-prisoner-cost .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+        body.page-feature-political-prisoner-cost main.container, body.page-feature-political-prisoner-cost .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
 
         .tk2 { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; padding: 0 0 88px; }
 

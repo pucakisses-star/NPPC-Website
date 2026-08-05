@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
     /* Full-bleed: break out of the global .container max-width (like the tracker). */
-    body.page-topics main.container, body.page-topics .container { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
+    body.page-topics main.container, body.page-topics .container { width: 100% !important; max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; overflow: visible !important; }
     body.page-topics { background: #14110e; }
 
     /* Typography — Karla throughout (like ecfr.eu's body + h1–h6), with
@@ -130,7 +130,13 @@
         .tpx-head { grid-column: 1 / 3; }
         .tpx-nav, .tpx-sub { overflow: visible; }
         .tpx-sub-inner { height: auto; }
-        .tpx-sub-col { overflow: visible; max-height: none; }
+        /* flex: 0 0 auto sizes each column to its longest unwrapped title
+           (e.g. "The Haymarket Affair & the Anti-Anarchist Era (1886–1901)"
+           ≈ 482px). On desktop .tpx-sub's overflow: hidden contains that;
+           this media block removes the clip for natural page scroll, so the
+           column must also become shrinkable or it widens the phone's layout
+           viewport past the screen. */
+        .tpx-sub-col { overflow: visible; max-height: none; flex-shrink: 1; min-width: 0; max-width: 100%; }
         .tpx-detail { grid-column: 1 / 3; grid-row: auto; max-height: none; }
     }
     @@media (max-width: 600px) {
