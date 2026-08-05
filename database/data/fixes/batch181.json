@@ -1,0 +1,27 @@
+{
+ "slug": "annie-adams",
+ "source": {
+  "dates": "Curator-supplied: confined March 3, 1906; released September 7, 1906; Idaho State Penitentiary, Boise.",
+  "photo": "Pittsburgh Press, June 19, 1907, headed LOVE BREAKS DOUBLE BARS OF LABOR PRISONERS AT BOISE, via weneverforget.org. The clipping shows two women and its caption reads: MRS. STEVE ADAMS ON RIGHT AND MRS. PETTIBONE ON LEFT, TALKING THROUGH BARRED WINDOWS OF CELL TO PETTIBONE WITHIN."
+ },
+ "fields": {
+  "gender": "Female",
+  "aka": "Mrs. Steve Adams"
+ },
+ "case": {
+  "incarceration_date": "1906-03-03",
+  "release_date": "1906-09-07",
+  "expect_days": 188,
+  "institution_name": "Idaho State Penitentiary",
+  "institution_city": "Boise",
+  "institution_state": "Idaho",
+  "sentence": "Confined with her children inside the Idaho State Penitentiary at Boise from March 3 to September 7, 1906 — 188 days — under the claim that they were held for protection. No charge was brought against her. The confinement was leverage on her husband Steve Adams to testify for the prosecution in the Steunenberg case."
+ },
+ "description_add": "\n\nShe was held from March 3 to September 7, 1906 — 188 days — at the Idaho State Penitentiary in Boise. No charge was ever brought against her; the stated reason was protection, and the effect, and the point, was pressure on her husband.\n\nTHE PHOTOGRAPH ON THIS RECORD POSTDATES HER OWN CONFINEMENT. It is cut from the Pittsburgh Press of June 19, 1907, nine months after her release, under the headline \"Love Breaks Double Bars of Labor Prisoners at Boise.\" The caption names both women in it — \"Mrs. Steve Adams on right and Mrs. Pettibone on left, talking through barred windows of cell to Pettibone within\" — so in this picture she is a visitor at the bars, not a prisoner behind them. The record shows the right-hand figure, cropped from the clipping; the woman on the left is George Pettibone's wife.",
+ "marker": "POSTDATES HER OWN CONFINEMENT",
+ "photo": {
+  "file": "annie-adams.jpg",
+  "path": "prisoners/annie-adams.jpg",
+  "note": "The supplied image is a whole newspaper clipping containing two women, a headline and a caption. Used whole it would put somebody else on her profile, so the right-hand figure is cropped out and the caption that identifies her is written into the record instead. Native resolution, 182x314 — the clipping scan is 568x739 and enlarging a halftone would add size and no detail."
+ }
+}
