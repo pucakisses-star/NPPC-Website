@@ -1,0 +1,1466 @@
+{
+ "source": {
+  "catalog": "Civil Rights Digital Library (CRDL) authority pages and Mississippi State Sovereignty Commission arrest photographs, Jackson, Mississippi, 1961",
+  "note": "The catalog's authority pages carry birth and death years that its photograph titles do not. This batch is that harvest.",
+  "people_with_a_date_in_the_ledger": 145,
+  "passes_compared": "every ledger pass, checked for contradiction",
+  "contradictions_found": 0
+ },
+ "dates": [
+  {
+   "slug": "alan-kaufman",
+   "archive_name": "Alan Kaufman",
+   "ledger_names": [
+    "Alan Kaufman"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "albert-barough",
+   "archive_name": "Albert Barough",
+   "ledger_names": [
+    "Albert Barough"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "albert-roy-huddleston",
+   "archive_name": "Albert Roy Huddleston",
+   "ledger_names": [
+    "Albert Roy Huddleston"
+   ],
+   "birthdate": [
+    1929
+   ]
+  },
+  {
+   "slug": "alexander-mattahan-anderson",
+   "archive_name": "Alexander Mattahan Anderson",
+   "ledger_names": [
+    "Alexander Mattahan Anderson"
+   ],
+   "birthdate": [
+    1928
+   ]
+  },
+  {
+   "slug": "alexander-weiss",
+   "archive_name": "Alexander Weiss",
+   "ledger_names": [
+    "Alexander Weiss"
+   ],
+   "birthdate": [
+    1936
+   ]
+  },
+  {
+   "slug": "allen-cason-jr",
+   "archive_name": "Allen Cason Jr.",
+   "ledger_names": [
+    "Allen Cason Jr."
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "alpha-zara-palmer",
+   "archive_name": "Alpha Zara Palmer",
+   "ledger_names": [
+    "Alpha Zara Palmer"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "alphonso-kelly-petway",
+   "archive_name": "Alphonso Kelly Petway",
+   "ledger_names": [
+    "Alphonso Kelly Petway"
+   ],
+   "birthdate": [
+    1945
+   ]
+  },
+  {
+   "slug": "barbara-jane-kay",
+   "archive_name": "Barbara Jane Kay",
+   "ledger_names": [
+    "Barbara Jane Kay"
+   ],
+   "birthdate": [
+    1925
+   ]
+  },
+  {
+   "slug": "byron-mark-baer",
+   "archive_name": "Byron Mark Baer",
+   "ledger_names": [
+    "Byron Mark Baer"
+   ],
+   "birthdate": [
+    1929
+   ]
+  },
+  {
+   "slug": "candida-lall",
+   "archive_name": "Candida Lall",
+   "ledger_names": [
+    "Candida Candy Lall"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "carol-ruth-silver",
+   "archive_name": "Carol Ruth Silver",
+   "ledger_names": [
+    "Carol Ruth Silver",
+    "Carol Silver"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "carroll-gary-barber",
+   "archive_name": "Carroll Gary Barber",
+   "ledger_names": [
+    "Carroll Gary Barber"
+   ],
+   "birthdate": [
+    1924
+   ],
+   "death_date": [
+    1999
+   ]
+  },
+  {
+   "slug": "catherine-jo-prensky",
+   "archive_name": "Catherine Jo Prensky",
+   "ledger_names": [
+    "Catherine Jo Prensky"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "cecil-a-thomas",
+   "archive_name": "Cecil A. Thomas",
+   "ledger_names": [
+    "Cecil A. Thomas"
+   ],
+   "birthdate": [
+    1917
+   ]
+  },
+  {
+   "slug": "charles-biggers",
+   "archive_name": "Charles Biggers",
+   "ledger_names": [
+    "Charles Biggers"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "charles-darrick-brice",
+   "archive_name": "Charles Darrick Brice",
+   "ledger_names": [
+    "Charles Darrick Brice"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "charles-david-myers",
+   "archive_name": "Charles David Myers",
+   "ledger_names": [
+    "Charles David Myers"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "charles-henry-booth",
+   "archive_name": "Charles Henry Booth",
+   "ledger_names": [
+    "Charles Henry Booth"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "claire-drew-toombs",
+   "archive_name": "Claire Drew Toombs",
+   "ledger_names": [
+    "Claire Drew Toombs"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "cordell-hull-reagon",
+   "archive_name": "Cordell Hull Reagon",
+   "ledger_names": [
+    "Cordell Hull Reagon"
+   ],
+   "birthdate": [
+    1943,
+    2,
+    22
+   ]
+  },
+  {
+   "slug": "daniel-e-burkholder",
+   "archive_name": "Daniel E. Burkholder",
+   "ledger_names": [
+    "Daniel E. Burkholder"
+   ],
+   "birthdate": [
+    1932
+   ]
+  },
+  {
+   "slug": "david-lering-richards",
+   "archive_name": "David Lering Richards",
+   "ledger_names": [
+    "David Lering Richards"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "delores-williams-lynch",
+   "archive_name": "Delores Williams Lynch",
+   "ledger_names": [
+    "Delores Williams Lynch"
+   ],
+   "birthdate": [
+    1946
+   ]
+  },
+  {
+   "slug": "dion-diamond",
+   "archive_name": "Dion Tyrone Diamond",
+   "ledger_names": [
+    "Dion Tyrone Diamond"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "donna-sage-garde",
+   "archive_name": "Donna Sage Garde",
+   "ledger_names": [
+    "Donna Sage Garde"
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "edmond-dalbert-jr",
+   "archive_name": "Edmond Dalbert Jr.",
+   "ledger_names": [
+    "Edmond Dalbert Jr."
+   ],
+   "birthdate": [
+    1936
+   ]
+  },
+  {
+   "slug": "edward-b-johnson",
+   "archive_name": "Edward B. Johnson",
+   "ledger_names": [
+    "Edward B. Johnson"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "elizabeth-slade-hirschfeld",
+   "archive_name": "Elizabeth Slade Hirschfeld",
+   "ledger_names": [
+    "Elizabeth Slade Hirschfeld"
+   ],
+   "birthdate": [
+    1937
+   ]
+  },
+  {
+   "slug": "ellen-lee-ziskind",
+   "archive_name": "Ellen Lee Ziskind",
+   "ledger_names": [
+    "Ellen Lee Ziskind"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "ernest-newell-weber",
+   "archive_name": "Ernest Newell Weber",
+   "ledger_names": [
+    "Ernest Newell Weber"
+   ],
+   "birthdate": [
+    1909
+   ]
+  },
+  {
+   "slug": "evelyn-pierce",
+   "archive_name": "Evelyn Pierce",
+   "ledger_names": [
+    "Evelyn Pierce"
+   ],
+   "death_date": [
+    2010
+   ]
+  },
+  {
+   "slug": "francis-l-geddes",
+   "archive_name": "Francis L. Geddes",
+   "ledger_names": [
+    "Francis L. Geddes"
+   ],
+   "birthdate": [
+    1923
+   ]
+  },
+  {
+   "slug": "frank-arthur-nelson",
+   "archive_name": "Frank Arthur Nelson",
+   "ledger_names": [
+    "Frank Arthur Nelson"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "frank-caston",
+   "archive_name": "Frank Caston",
+   "ledger_names": [
+    "Frank Caston"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "frank-lee-griffin",
+   "archive_name": "Frank Lee Griffin",
+   "ledger_names": [
+    "Frank Lee Griffin"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "geoffrey-sedgwick-simpson",
+   "archive_name": "Geoffrey Sedgwick Simpson",
+   "ledger_names": [
+    "Geoffrey Sedgwick Simpson"
+   ],
+   "birthdate": [
+    1932
+   ]
+  },
+  {
+   "slug": "george-marion-blevins",
+   "archive_name": "George Marion Blevins",
+   "ledger_names": [
+    "George Marion Blevins"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "gilbert-s-avery-iii",
+   "archive_name": "Gilbert S. Avery III",
+   "ledger_names": [
+    "Gilbert S. Avery III"
+   ],
+   "birthdate": [
+    1931
+   ]
+  },
+  {
+   "slug": "grady-h-donald",
+   "archive_name": "Grady H. Donald",
+   "ledger_names": [
+    "Grady H. Donald"
+   ],
+   "birthdate": [
+    1929
+   ],
+   "death_date": [
+    2002
+   ]
+  },
+  {
+   "slug": "gwendolyn-c-jenkins",
+   "archive_name": "Gwendolyn C. Jenkins",
+   "ledger_names": [
+    "Gwendolyn C. Jenkins"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "helen-jean-o-neal-mccray",
+   "archive_name": "Helen Jean O'Neal McCray",
+   "ledger_names": [
+    "Hellen Jean O’Neal-McCray"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "helene-dorothy-wilson",
+   "archive_name": "Helene Dorothy Wilson",
+   "ledger_names": [
+    "Helene Dorothy Wilson"
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "herbert-s-mann",
+   "archive_name": "Herbert S. Mann",
+   "ledger_names": [
+    "Herbert S. Mann"
+   ],
+   "birthdate": [
+    1925
+   ]
+  },
+  {
+   "slug": "jack-mikhail-wolfson",
+   "archive_name": "Jack Mikhail Wolfson",
+   "ledger_names": [
+    "Jack Mikhail Wolfson"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "james-edward-warren",
+   "archive_name": "James Edward Warren",
+   "ledger_names": [
+    "James Edward Warren"
+   ],
+   "birthdate": [
+    1932
+   ]
+  },
+  {
+   "slug": "james-emerson-dennis",
+   "archive_name": "James Emerson Dennis",
+   "ledger_names": [
+    "James Emerson Dennis"
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "james-g-jones",
+   "archive_name": "James G. Jones",
+   "ledger_names": [
+    "James Garrard Jones"
+   ],
+   "birthdate": [
+    1927
+   ]
+  },
+  {
+   "slug": "james-t-carey",
+   "archive_name": "James T. Carey",
+   "ledger_names": [
+    "James T. Carey"
+   ],
+   "birthdate": [
+    1925
+   ]
+  },
+  {
+   "slug": "jan-leighton-triggs",
+   "archive_name": "Jan Leighton Triggs",
+   "ledger_names": [
+    "Jan Leighton Triggs"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "jean-catherine-thompson",
+   "archive_name": "Jean Catherine Thompson",
+   "ledger_names": [
+    "Jean Catherine Thompson"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "jean-estil-kidwell-pestana",
+   "archive_name": "Jean Estil Kidwell Pestana",
+   "ledger_names": [
+    "Jean Estil Kidwell Pestana"
+   ],
+   "birthdate": [
+    1917
+   ]
+  },
+  {
+   "slug": "jeanne-h-herrick",
+   "archive_name": "Jeanne H. Herrick",
+   "ledger_names": [
+    "Jeanne H. Herrick"
+   ],
+   "birthdate": [
+    1933
+   ]
+  },
+  {
+   "slug": "jessie-james-davis",
+   "archive_name": "Jessie James Davis",
+   "ledger_names": [
+    "Jessie James Davis"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "joan-trumpauer-mulholland",
+   "archive_name": "Joan Trumpauer Mulholland",
+   "ledger_names": [
+    "Joan Trumpauer Mulholland"
+   ],
+   "birthdate": [
+    1941,
+    9,
+    14
+   ]
+  },
+  {
+   "slug": "john-charles-taylor-jr",
+   "archive_name": "John Charles Taylor Jr.",
+   "ledger_names": [
+    "John Charles Taylor Jr."
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "john-crocker-jr",
+   "archive_name": "John Crocker Jr.",
+   "ledger_names": [
+    "John Crocker Jr."
+   ],
+   "birthdate": [
+    1923
+   ]
+  },
+  {
+   "slug": "john-h-moody",
+   "archive_name": "John H. Moody",
+   "ledger_names": [
+    "John H. Moody"
+   ],
+   "birthdate": [
+    1931
+   ]
+  },
+  {
+   "slug": "john-lee-copeland",
+   "archive_name": "John Lee Copeland",
+   "ledger_names": [
+    "John Lee Copeland"
+   ],
+   "birthdate": [
+    1917
+   ]
+  },
+  {
+   "slug": "john-luther-dolan",
+   "archive_name": "John Luther Dolan",
+   "ledger_names": [
+    "John Luther Dolan"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "john-r-washington",
+   "archive_name": "John R. Washington",
+   "ledger_names": [
+    "John R. Washington"
+   ],
+   "birthdate": [
+    1928
+   ]
+  },
+  {
+   "slug": "joseph-edward-gerbac",
+   "archive_name": "Joseph Edward Gerbac",
+   "ledger_names": [
+    "Joseph Edward Gerbac"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "judith-ann-frieze",
+   "archive_name": "Judith Ann Frieze",
+   "ledger_names": [
+    "Judith Ann Frieze"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "judith-norene-scroggins",
+   "archive_name": "Judith Norene Scroggins",
+   "ledger_names": [
+    "Judith Norene Scroggins"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "katherine-a-pleune",
+   "archive_name": "Katherine A. Pleune",
+   "ledger_names": [
+    "Katherine A. Pleune"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "kredelle-petway",
+   "archive_name": "Kredelle Petway",
+   "ledger_names": [
+    "Kredelle Petway"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "landy-mcnair-jr",
+   "archive_name": "Landy McNair Jr.",
+   "ledger_names": [
+    "Landy McNair Jr."
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "larry-bell",
+   "archive_name": "Larry Bell",
+   "ledger_names": [
+    "Larry Bell"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "leo-vernon-washington",
+   "archive_name": "Leo Vernon Washington",
+   "ledger_names": [
+    "Leo Vernon Washington"
+   ],
+   "birthdate": [
+    1937
+   ]
+  },
+  {
+   "slug": "leon-daniel-horne",
+   "archive_name": "Leon Daniel Horne",
+   "ledger_names": [
+    "Leon Daniel Horne"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "leon-felton-smith-jr",
+   "archive_name": "Leon Felton Smith Jr.",
+   "ledger_names": [
+    "Leon Felton Smith Jr."
+   ],
+   "birthdate": [
+    1930
+   ]
+  },
+  {
+   "slug": "leon-russ-jr",
+   "archive_name": "Leon Russ Jr.",
+   "ledger_names": [
+    "Leon Russ",
+    "Leon Russ Jr."
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "leora-berman",
+   "archive_name": "Leora Berman",
+   "ledger_names": [
+    "Leora Berman"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "leotis-thornton",
+   "archive_name": "Leotis Thornton",
+   "ledger_names": [
+    "Leotis Thornton"
+   ],
+   "birthdate": [
+    1937
+   ]
+  },
+  {
+   "slug": "lionel-goldbart",
+   "archive_name": "Lionel Goldbart",
+   "ledger_names": [
+    "Lionel Goldbart"
+   ],
+   "birthdate": [
+    1934
+   ]
+  },
+  {
+   "slug": "lonnie-thurman",
+   "archive_name": "Lonnie Thurman",
+   "ledger_names": [
+    "Lonnie Thurman"
+   ],
+   "birthdate": [
+    1926
+   ]
+  },
+  {
+   "slug": "lula-mae-white",
+   "archive_name": "Lula Mae White",
+   "ledger_names": [
+    "Lula Mae White"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "luvaghn-brown",
+   "archive_name": "Luvaghn Brown",
+   "ledger_names": [
+    "Luvaghn Brown"
+   ],
+   "birthdate": [
+    1945
+   ]
+  },
+  {
+   "slug": "mack-charles-wells",
+   "archive_name": "Mack Charles Wells",
+   "ledger_names": [
+    "Mack Charles Wells"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "margaret-ann-kerr",
+   "archive_name": "Margaret Ann Kerr",
+   "ledger_names": [
+    "Margaret Ann Kerr"
+   ],
+   "birthdate": [
+    1934
+   ]
+  },
+  {
+   "slug": "margaret-lois-ihra",
+   "archive_name": "Margaret Lois Ihra",
+   "ledger_names": [
+    "Margaret Lois Ihra"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "margaret-winonah-beamer",
+   "archive_name": "Margaret Winonah Beamer",
+   "ledger_names": [
+    "Margaret Winonah Beamer"
+   ],
+   "birthdate": [
+    1941,
+    9,
+    10
+   ],
+   "death_date": [
+    2018
+   ]
+  },
+  {
+   "slug": "marian-alice-kendall",
+   "archive_name": "Marian Alice Kendall",
+   "ledger_names": [
+    "Marian Alice Kendall"
+   ],
+   "birthdate": [
+    1926
+   ]
+  },
+  {
+   "slug": "mary-l-jorgensen",
+   "archive_name": "Mary L. Jorgensen",
+   "ledger_names": [
+    "Mary L. Jorgensen"
+   ],
+   "birthdate": [
+    1916
+   ]
+  },
+  {
+   "slug": "mary-lucille-hamilton",
+   "archive_name": "Mary Lucille Hamilton",
+   "ledger_names": [
+    "Mary Lucille Hamilton"
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "matthew-petway",
+   "archive_name": "Matthew Petway",
+   "ledger_names": [
+    "Matthew Petway"
+   ],
+   "birthdate": [
+    1915
+   ]
+  },
+  {
+   "slug": "melvin-lorenzo-white",
+   "archive_name": "Melvin Lorenzo White",
+   "ledger_names": [
+    "Melvin Lorenzo White"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "merrill-orne-young",
+   "archive_name": "Merrill Orne Young",
+   "ledger_names": [
+    "Merrill Orne Young"
+   ],
+   "birthdate": [
+    1930
+   ],
+   "death_date": [
+    2009
+   ]
+  },
+  {
+   "slug": "meryle-joy-reagon",
+   "archive_name": "Meryle Joy Reagon",
+   "ledger_names": [
+    "Meryle Joy Reagon"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "michael-harry-powell",
+   "archive_name": "Michael Harry Powell",
+   "ledger_names": [
+    "Michael Harry Powell"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "michael-leon-prichard",
+   "archive_name": "Michael Leon Prichard",
+   "ledger_names": [
+    "Michael Leon Prichard"
+   ],
+   "birthdate": [
+    1943,
+    3,
+    31
+   ],
+   "death_date": [
+    2007,
+    11,
+    11
+   ]
+  },
+  {
+   "slug": "michael-r-grubbs",
+   "archive_name": "Michael R. Grubbs",
+   "ledger_names": [
+    "Michael R. Grubbs"
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "morton-g-linder",
+   "archive_name": "Morton G. Linder",
+   "ledger_names": [
+    "Morton G. Linder"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "myron-barnett-bloy-jr",
+   "archive_name": "Myron Barnett Bloy Jr.",
+   "ledger_names": [
+    "Myron Barnett Bloy Jr."
+   ],
+   "birthdate": [
+    1926
+   ]
+  },
+  {
+   "slug": "obadiah-lee-simms",
+   "archive_name": "Obadiah Lee Simms",
+   "ledger_names": [
+    "Obadiah Lee Simms"
+   ],
+   "birthdate": [
+    1939
+   ],
+   "death_date": [
+    1999
+   ]
+  },
+  {
+   "slug": "oneal-vance",
+   "archive_name": "Oneal Vance",
+   "ledger_names": [
+    "Oneal Vance"
+   ],
+   "birthdate": [
+    1944
+   ]
+  },
+  {
+   "slug": "patricia-dale-baskerville",
+   "archive_name": "Patricia Dale Baskerville",
+   "ledger_names": [
+    "Patricia Dale Baskerville"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "patricia-elaine-bryant",
+   "archive_name": "Patricia Elaine Bryant",
+   "ledger_names": [
+    "Patricia Elaine Bryant"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "paul-breines",
+   "archive_name": "Paul Breines",
+   "ledger_names": [
+    "Paul Breines"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "percy-sutton",
+   "archive_name": "Percy Sutton",
+   "ledger_names": [
+    "Percy Ellis Sutton"
+   ],
+   "birthdate": [
+    1920,
+    11,
+    24
+   ],
+   "death_date": [
+    2009,
+    12,
+    26
+   ]
+  },
+  {
+   "slug": "philip-m-posner",
+   "archive_name": "Philip M. Posner",
+   "ledger_names": [
+    "Philip M. Posner"
+   ],
+   "birthdate": [
+    1938
+   ]
+  },
+  {
+   "slug": "phillip-jay-havey",
+   "archive_name": "Phillip Jay Havey",
+   "ledger_names": [
+    "Phillip Jay Havey"
+   ],
+   "birthdate": [
+    1930
+   ]
+  },
+  {
+   "slug": "quinland-reeves-gordon",
+   "archive_name": "Quinland Reeves Gordon",
+   "ledger_names": [
+    "Quinland Reeves Gordon"
+   ],
+   "birthdate": [
+    1915
+   ],
+   "death_date": [
+    2004
+   ]
+  },
+  {
+   "slug": "ralph-alan-williams",
+   "archive_name": "Ralph Alan Williams",
+   "ledger_names": [
+    "Ralph Alan Williams"
+   ],
+   "birthdate": [
+    1924
+   ]
+  },
+  {
+   "slug": "ralph-edward-washington",
+   "archive_name": "Ralph Edward Washington",
+   "ledger_names": [
+    "Ralph Edward Washington"
+   ],
+   "birthdate": [
+    1936
+   ]
+  },
+  {
+   "slug": "ralph-floyd",
+   "archive_name": "Ralph Floyd",
+   "ledger_names": [
+    "Ralph Floyd"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "ralph-robert-rogers",
+   "archive_name": "Ralph Robert Rogers",
+   "ledger_names": [
+    "Ralph Robert Rogers"
+   ],
+   "birthdate": [
+    1928
+   ]
+  },
+  {
+   "slug": "ray-allen-cooper",
+   "archive_name": "Ray Allen Cooper",
+   "ledger_names": [
+    "Ray Allen Cooper"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "richard-c-steward",
+   "archive_name": "Richard C. Steward",
+   "ledger_names": [
+    "Richard C. Steward"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "richard-lewis-zuchman",
+   "archive_name": "Richard Lewis Zuchman",
+   "ledger_names": [
+    "Lewis Richard Zuchman"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "richard-paul-griswold",
+   "archive_name": "Richard Paul Griswold",
+   "ledger_names": [
+    "Richard Paul Griswold"
+   ],
+   "birthdate": [
+    1926
+   ]
+  },
+  {
+   "slug": "rick-stanley-ogilvie-sheviakov",
+   "archive_name": "Rick Stanley Ogilvie Sheviakov",
+   "ledger_names": [
+    "Rick Stanley Ogilvie Sheviakov"
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "robert-singleton",
+   "archive_name": "Robert Singleton",
+   "ledger_names": [
+    "Robert Singleton"
+   ],
+   "birthdate": [
+    1936
+   ]
+  },
+  {
+   "slug": "roena-rand",
+   "archive_name": "Roena Rand",
+   "ledger_names": [
+    "Roena Rand"
+   ],
+   "birthdate": [
+    1932
+   ]
+  },
+  {
+   "slug": "rose-schorr-rosenberg",
+   "archive_name": "Rose Schorr Rosenberg",
+   "ledger_names": [
+    "Rose Schorr Rosenberg"
+   ],
+   "birthdate": [
+    1905
+   ]
+  },
+  {
+   "slug": "samuel-timothy-nash",
+   "archive_name": "Samuel Timothy Nash",
+   "ledger_names": [
+    "Samuel Timothy Nash"
+   ],
+   "birthdate": [
+    1937
+   ]
+  },
+  {
+   "slug": "saul-bernard-manfield",
+   "archive_name": "Saul Bernard Manfield",
+   "ledger_names": [
+    "Saul Bernard Manfield"
+   ],
+   "birthdate": [
+    1927
+   ]
+  },
+  {
+   "slug": "stephen-john-green",
+   "archive_name": "Stephen John Green",
+   "ledger_names": [
+    "Stephen John Green"
+   ],
+   "birthdate": [
+    1940
+   ]
+  },
+  {
+   "slug": "tanya-wren",
+   "archive_name": "Tanya Wren",
+   "ledger_names": [
+    "Tanya Wren"
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "thomas-madison-armstrong-iii",
+   "archive_name": "Thomas Madison Armstrong III",
+   "ledger_names": [
+    "Thomas Madison Armstrong III"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "tommie-eldridge-brashear",
+   "archive_name": "Tommie Eldridge Brashear",
+   "ledger_names": [
+    "Tommie Eldrige Brashear"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "tommie-watts-jr",
+   "archive_name": "Tommie Watts Jr.",
+   "ledger_names": [
+    "Tommie Watts Jr."
+   ],
+   "birthdate": [
+    1943
+   ]
+  },
+  {
+   "slug": "vernon-powell-woodward",
+   "archive_name": "Vernon Powell Woodward",
+   "ledger_names": [
+    "Vernon Powell Woodward"
+   ],
+   "birthdate": [
+    1934
+   ]
+  },
+  {
+   "slug": "west-davis-phillips",
+   "archive_name": "West Davis Phillips",
+   "ledger_names": [
+    "West Davis Phillips"
+   ],
+   "birthdate": [
+    1942
+   ]
+  },
+  {
+   "slug": "william-andrew-wendt",
+   "archive_name": "William Andrew Wendt",
+   "ledger_names": [
+    "William Andrew Wendt"
+   ],
+   "birthdate": [
+    1920
+   ]
+  },
+  {
+   "slug": "william-leons",
+   "archive_name": "William Leons",
+   "ledger_names": [
+    "William Leons"
+   ],
+   "birthdate": [
+    1935
+   ]
+  },
+  {
+   "slug": "william-mahoney",
+   "archive_name": "William Mahoney",
+   "ledger_names": [
+    "William Carl Mahoney"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "william-walter-hansen-jr",
+   "archive_name": "William Walter Hansen Jr.",
+   "ledger_names": [
+    "William Walter Hansen Jr."
+   ],
+   "birthdate": [
+    1939
+   ]
+  },
+  {
+   "slug": "winston-fuller",
+   "archive_name": "Winston Fuller",
+   "ledger_names": [
+    "Winston Fuller"
+   ],
+   "birthdate": [
+    1937
+   ]
+  },
+  {
+   "slug": "woollcott-smith",
+   "archive_name": "Woollcott Smith",
+   "ledger_names": [
+    "Woollcott Smith"
+   ],
+   "birthdate": [
+    1941
+   ]
+  },
+  {
+   "slug": "zev-aelony",
+   "archive_name": "Zev Aelony",
+   "ledger_names": [
+    "Zev Aelony"
+   ],
+   "birthdate": [
+    1938
+   ]
+  }
+ ],
+ "durations": [
+  {
+   "slug": "robert-earl-filner",
+   "months": 2,
+   "why": "He refused to post bond after the June 16, 1961 arrest and stayed in for about two months. That is a sourced duration with no recorded endpoints, so it is stored as months and anchored on the arrest.",
+   "note": "\n\nHe refused to post bond and remained in custody for approximately two months. The charges are recorded as disturbing the peace and inciting a riot. The institutional sequence and the release date are not established, so the two months is recorded as a duration rather than as a pair of dates."
+  }
+ ],
+ "prose_durations": [
+  {
+   "slug": "byron-mark-baer",
+   "marker": "45 days in Mississippi custody",
+   "note": "\n\nHe spent 45 days in Mississippi custody after the July 29, 1961 arrest, including imprisonment at the Mississippi State Penitentiary at Parchman, where Rick Sheviakov was one of his cellmates. His prison correspondence survives in the archive, along with the communication codes the riders used and a letter written on toilet paper.\n\nNo imprisonment figure is published for him. The admission and discharge dates are unresolved, and 45 days is neither a pair of dates nor a whole number of months — the two forms this archive stores. Rounding it to one month or two would publish a figure the source does not support, so the 45 days stays here in the text where it is exact."
+  },
+  {
+   "slug": "rick-stanley-ogilvie-sheviakov",
+   "marker": "nearly 45 days at Parchman",
+   "note": "\n\nHe spent nearly 45 days at the Mississippi State Penitentiary at Parchman after the arrest at the Jackson Greyhound station, with Byron Baer among his cellmates. His identification and Parchman correspondence are held by the Mississippi Department of Archives and History.\n\nThe arrest date is not settled. The catalog title says July 21, 1961 while the photograph's date-of-original field says July 29; the reading on record is that July 21 is the arrest and July 29 the processing of the image. This record keeps July 29 as it was entered and notes the conflict rather than silently moving it.\n\nAs with Byron Baer, no imprisonment figure is published: 45 days is neither a pair of dates nor a whole number of months, so it is recorded here in the text where it is exact."
+  }
+ ],
+ "corrections": [
+  {
+   "slug": "michael-j-audain",
+   "arrest_date": "1961-06-07",
+   "marker": "arrested at the Greyhound terminal on June 7",
+   "note": "\n\nThe arrest date on this record was corrected from June 8 to June 7, 1961. The catalog's authority biography puts him at the Greyhound terminal on June 7, arrested after entering a restroom marked for African Americans, and records that he was sent on to the Parchman prison farm. The Sovereignty Commission photograph is dated June 8, which is the processing of the picture rather than the arrest.",
+   "why": "The photograph date and the arrest date are not the same thing, and the catalog says so itself."
+  }
+ ],
+ "add": [
+  {
+   "slug": "jesse-james-harris",
+   "name": "Jesse James Harris",
+   "first_name": "Jesse",
+   "middle_name": "James",
+   "last_name": "Harris",
+   "gender": "Male",
+   "description": "Jesse James Harris was arrested in Jackson, Mississippi, on June 2, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nWHETHER THIS IS A SECOND MAN IS NOT SETTLED. The archive also holds Jessie L. Harris, arrested at the Livingston Park sit-in on July 6, 1961. The catalog files the two arrests under different names and states in more than one place that they are different people. But one pass over the same catalog rated that only moderate and flagged a possible identity overlap needing biographical comparison, and no such comparison has been made. If they are one man, these are two of his arrests and the records should be merged. The doubt is recorded here rather than resolved by guessing, and the same note appears on the other record.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 2, 1961.",
+     "arrest_date": "1961-06-02",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-02. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ]
+  },
+  {
+   "slug": "lewell-a-cecil",
+   "name": "Lewell A. Cecil",
+   "first_name": "Lewell",
+   "middle_name": "A.",
+   "last_name": "Cecil",
+   "description": "Lewell A. Cecil was arrested in Jackson, Mississippi, in the Freedom Ride sequence of June 10, 1961 — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nWHETHER THIS IS A SECOND MAN IS NOT SETTLED. The archive also holds Lewell A. Woods Jr., arrested in the same June 10 group. Lewell A. is not a name two men in one arrest group are likely to share, and the two forms come from separate passes over the catalog rather than from one list naming both. What tips this record into existence is that the Cecil form has a catalog item of its own — a single identified photograph, verified at the item level — while the Woods form was recorded from a collection listing whose item record and full title were never recovered. That is evidence enough to publish the arrest and not enough to merge or discard either record. The same note appears on the other one.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 10, 1961.",
+     "arrest_date": "1961-06-10",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-10. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ]
+  }
+ ],
+ "cross_reference": [
+  {
+   "slug": "jessie-l-harris",
+   "marker": "Jesse James Harris",
+   "note": "\n\nThe catalog gives Jesse Harris as the heading for this record and titles the photograph Jessie L. Harris. It separately holds a June 2, 1961 arrest filed under Jesse James Harris, now a record of its own here, and states that the two are different people — though one pass rated that only moderate and flagged a possible identity overlap. If they are one man, these are two of his arrests."
+  },
+  {
+   "slug": "lewell-a-woods-jr",
+   "marker": "Lewell A. Cecil",
+   "note": "\n\nThe archive also holds Lewell A. Cecil, arrested in the same June 10, 1961 group. Lewell A. is not a name two men in one arrest group are likely to share, and the two forms come from separate passes over the catalog rather than from one list naming both. The Cecil form has a verified item-level photograph record; this one was taken from a collection listing whose item record and full title were never recovered. Neither record is merged into the other on that basis, but they may well be the same man."
+  }
+ ],
+ "birth_year_only": [
+  {
+   "slug": "jessie-l-harris",
+   "birthdate": [
+    1942
+   ],
+   "why": "The catalog's person authority for the Livingston Park arrestee is filed as Harris, Jesse, 1942-."
+  }
+ ],
+ "held_back": [
+  {
+   "what": "A death date of April 20, 2025 for Robert Earl Filner",
+   "why": "The ledger gives him September 4, 1942 to April 20, 2025, and the birth date matches what this archive already holds exactly, so the source is consistent. But everything else in this batch is a historical date for someone long dead, and this one would newly record a recent death. Publishing a living person as dead is the one error here that cannot be undone by a later correction, so it waits for a second source. His two months in custody, which is unambiguous, does go in."
+  }
+ ]
+}
