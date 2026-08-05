@@ -1,0 +1,35 @@
+{
+ "why": "The curator asked for these two links on the dashboard. Batch 178 put them in the article section instead, which was the wrong place: the dashboard has its own curated-link model, DashboardLink, feeding the ticker, the newswire and the event map. This batch puts them where they were meant to go and removes the article.",
+ "links": [
+  {
+   "url": "https://dallasexpress.com/metroplex/hood-county-sheriff-denied-qualified-immunity-in-meme-arrest-lawsuit/",
+   "title": "Federal Judge Rejects Hood County Sheriff's Qualified Immunity Bid In Meme Arrest Lawsuit",
+   "source": "The Dallas Express",
+   "category": "prosecution",
+   "published_at": "2026-07-25",
+   "location_label": "Granbury, TX",
+   "lat": 32.4421,
+   "lng": -97.7942
+  },
+  {
+   "url": "https://texasscorecard.com/local/citizen-arrested-for-a-meme-sues-hood-county-officials/",
+   "title": "Citizen Arrested for a Meme Sues Hood County Officials",
+   "source": "Texas Scorecard",
+   "category": "prosecution",
+   "published_at": "2026-01-13",
+   "location_label": "Granbury, TX",
+   "lat": 32.4421,
+   "lng": -97.7942
+  }
+ ],
+ "remove_article": {
+  "slug": "hood-county-meme-arrest-qualified-immunity-krottinger-2026",
+  "why": "Written by batch 178 in the wrong place. The text is not lost — it is still in database/data/fixes/batch178.json in the repository if it is ever wanted as a piece. Deleted only if it is there, so this is safe whether or not batch 178 has been run on this server yet."
+ },
+ "notes": {
+  "category": "Both are filed as prosecution rather than arrest. The arrest itself was in November 2025; these two report its legal aftermath — the civil suit and the qualified-immunity ruling.",
+  "coordinates": "Both are plotted on Granbury, the Hood County seat, where the sheriff's office, the jail and the justice court all sit.",
+  "titles": "Each title is the headline as the outlet prints it. The Dallas Express headline is not the one in the URL slug, which reads denied-qualified-immunity; the page itself says Federal Judge Rejects Hood County Sheriffs Qualified Immunity Bid.",
+  "idempotency": "updateOrCreate keyed on the URL, matching dashboard:add-keith-rose-cleared, so a re-run refreshes rather than duplicates."
+ }
+}
