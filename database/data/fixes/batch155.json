@@ -1,0 +1,13 @@
+{
+ "ideology": "Anti-Trump",
+ "note": "Removes the ideology tag 'Anti-Trump' from every record carrying it, per the curator. Seven records have it. It is not an ideology — it names the object of an act rather than a politics, which is why it sits oddly beside Labor Organizing, Anarchism or Anti-War.\n\nWORTH KNOWING BEFORE THIS RUNS. Six of the seven have no other ideology and no affiliation at all, so removing it leaves them with an empty taxonomy. That matters beyond tidiness: the political-motivation audit in database/data/POLITICAL-MOTIVATION-AUDIT.md uses exactly that signature — no ideology, no affiliation, no political vocabulary — to find records that may not belong, and these six will surface in the next such sweep. Most of them are the threats-against-elected-officials cluster the audit already raised as an open category question. Removing the tag does not answer that question; it removes the only thing that was answering it by assertion.\n\nOnly the tag is touched. No record is deleted, no other ideology is disturbed, and a record left with an empty list keeps an empty list rather than being given a replacement nobody chose.",
+ "expected": [
+  {"slug": "thomas-welnicki", "leaves": "empty"},
+  {"slug": "gregory-william-loel-timm", "leaves": "empty"},
+  {"slug": "emmanuel-quinones", "leaves": "Police Accountability"},
+  {"slug": "pascale-cecile-veronique-ferrier", "leaves": "empty"},
+  {"slug": "rene-christopher-bracamonte", "leaves": "empty"},
+  {"slug": "cellicia-latoya-hunt", "leaves": "empty"},
+  {"slug": "mickael-gedlu", "leaves": "empty"}
+ ]
+}

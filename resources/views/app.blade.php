@@ -265,6 +265,12 @@ $isHome = request()->segment(1) == ''
         html[data-theme="light"] #app-stats,
         html[data-theme="light"] #graph-component,
         html[data-theme="light"] #graph-component nav { background: var(--bg); }
+        /* VisualisationApp wraps the whole block in #vueApp with an INLINE
+           `style="background:#000"`. An inline style beats any stylesheet
+           rule regardless of specificity, so this is the one that has to be
+           !important — it is the black band showing above and below the
+           filter buttons while everything inside them is already light. */
+        html[data-theme="light"] #vueApp { background: var(--bg) !important; }
         html[data-theme="light"] #graph-component .text-white:not(.app-color-bg) { color: var(--fg); }
         html[data-theme="light"] #graph-component .border-white { border-color: rgba(var(--fg-rgb), 0.3); }
         html[data-theme="light"] #graph-component svg text,
