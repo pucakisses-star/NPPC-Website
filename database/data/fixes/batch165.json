@@ -1,0 +1,53 @@
+{
+ "slug": "john-jacobs",
+ "preserve_slug": true,
+ "prisoner": {
+  "name": "John Gregory Jacobs",
+  "aka": "J.J.; Wayne Curry",
+  "description": "John Gregory Jacobs, commonly known as “J.J.”, was a Students for a Democratic Society leader and a principal founder and theoretician of the Weatherman faction. He was a leading author of the 1969 statement “You Don't Need a Weatherman to Know Which Way the Wind Blows” and helped plan the October 1969 Days of Rage in Chicago. The best contemporary evidence indicates that Jacobs was arrested during the final march on October 11, 1969 and released on bail after a brief period in custody. A federal grand jury subsequently indicted him on conspiracy and Federal Anti-Riot Act charges arising from the demonstrations.\n\nJacobs went underground in 1970 but was expelled from the Weather organization after its leaders rejected the strategy associated with him following the Greenwich Village townhouse explosion. Using the identity Wayne Curry, he eventually settled in Vancouver, British Columbia, where he remained concealed for the rest of his life, working in construction and other manual trades, as a tree planter and as a stonecutter. The principal federal charges were abandoned in 1973, and his federal warrant was reportedly dropped in October 1979. Jacobs died of complications of metastatic melanoma in Vancouver on October 20, 1997, aged fifty.\n\nOn the arrest date: some later summaries say he was arrested almost immediately, during the opening-night disturbance of October 8. A contemporary eyewitness account has him still at liberty at Haymarket Square immediately before the final Saturday march, addressing the crowd and specifically not yet arrested, and another contemporary account reports that by the end of that march all the Weatherman leaders were in custody. October 11 is the better-supported date and is what this record uses.\n\nOn his birth date: this record previously gave February 2, 1947. The Vancouver Magazine investigation, based on interviews with his brother, his partner, friends and former associates, gives his full name and a birth date of September 30, 1947.",
+  "affiliation": [
+   "Students for a Democratic Society",
+   "Progressive Labor Party",
+   "Weather Underground"
+  ],
+  "birthdate": [
+   1947,
+   9,
+   30
+  ],
+  "death_date": [
+   1997,
+   10,
+   20
+  ],
+  "in_exile": true,
+  "currently_in_exile": false
+ },
+ "case": {
+  "dates": {
+   "arrest_date": [
+    1969,
+    10,
+    11
+   ],
+   "incarceration_date": [
+    1969,
+    10,
+    11
+   ],
+   "release_date": null,
+   "in_exile_since": [
+    1970,
+    3,
+    6
+   ],
+   "end_of_exile": [
+    1997,
+    10,
+    20
+   ]
+  },
+  "sentence": "Arrested during the final Days of Rage march on October 11, 1969 and released on bail after a brief period in custody. Federally indicted on April 2, 1970 for conspiracy and under the Federal Anti-Riot Act. The principal charges were abandoned in 1973 and the federal warrant reportedly dropped in October 1979. He was never tried.\n\nNO RELEASE DATE IS STORED, and it is worth saying why the obvious one was rejected. The sources put the release in October 1969 without a day. Stored at month precision that becomes October 1 — ten days BEFORE the October 11 arrest — which the model reads as a mismatched pair and discards, and which any human reader would read as a release preceding the arrest. Most Days of Rage defendants were bailed within about a week, so the custody was probably several days, but no defendant-specific booking or jail record has been located. The row therefore carries a start and no end and produces no imprisonment figure.\n\nThe Chicago booking charge, the jail and his individual bail amount are all still unlocated.\n\nEXILE: he went underground around the March 6, 1970 Greenwich Village townhouse explosion and was concealed until his death on October 20, 1997 — 10,090 days, just over twenty-seven and a half years, latterly in Vancouver under the name Wayne Curry."
+ },
+ "note": "Corrections to John Gregory Jacobs, per the curator, plus his time underground recorded as exile.\n\nThe birth date was wrong: February 2, 1947 is replaced by September 30, 1947. The death date was also wrong — September 8, 1997 is replaced by October 20, 1997, which the curator's source records after police were called to his East Vancouver home on October 19 and he died about eighteen hours later at Vancouver General.\n\nTHE SLUG IS DELIBERATELY PRESERVED. Renaming to the canonical John Gregory Jacobs would regenerate the slug as john-gregory-jacobs and 404 the existing URL, so the record is renamed and the slug written back to john-jacobs in a second save. The name on the page is canonical; the link still resolves."
+}
