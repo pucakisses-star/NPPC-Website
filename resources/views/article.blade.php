@@ -14,7 +14,50 @@
 @section('og_image'){{ str_starts_with($article->image_url, 'http') ? $article->image_url : url($article->image_url) }}@endsection
 @endif
 
+{{-- Article typography: Raleway for headings, Roboto for running text, the
+     pairing used by bcomber.org. Loaded here rather than in the layout so it
+     costs nothing on the rest of the site, and scoped to .article-type so the
+     site's own Verlag is untouched everywhere else — including the static
+     pages, which share .page-content with this template. --}}
+@section('head')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Both stacks fall back to the system UI font rather than to Verlag:
+           if Google Fonts is blocked or slow, the page should look like a
+           plain article, not like half of one. */
+        .article-type,
+        .article-type p,
+        .article-type li,
+        .article-type blockquote,
+        .article-type figcaption,
+        .article-type td,
+        .article-type th {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        .article-type h1,
+        .article-type h2,
+        .article-type h3,
+        .article-type h4,
+        .article-type h5,
+        .article-type h6,
+        .article-type .article-title {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        /* Roboto sits a little smaller and tighter than Verlag at the same
+           size, so the body copy is nudged back to a comfortable measure. */
+        .article-type .page-content p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+        }
+    </style>
+@endsection
+
 @section('body')
+    <div class="article-type">
     <div class="line mt-8"></div>
 
     {{-- Hero image first. The caption sits as its own line *below* the photo
@@ -110,6 +153,7 @@
     @endif
 
     @include('sections.newsletter-signup', ['variant' => 'compact'])
+    </div>{{-- /.article-type --}}
 
     <style>
         /* Related-articles grid: 3 across on desktop, 1 on mobile. */
