@@ -1,0 +1,5 @@
+{
+ "from": {"slug": "nppc-editorial", "name": "NPPC Editorial"},
+ "into": {"slug": "nppc", "name": "NPPC"},
+ "note": "The curator asked that articles not be bylined 'NPPC Editorial' but simply 'NPPC'. This is a merge rather than a rename, because both authors already exist: nppc-editorial carries four articles and nppc carries none. Renaming the first would have left two author records both displaying 'NPPC', on the slugs nppc and nppc-editorial, which is a worse state than the one being fixed.\n\nThe four articles are repointed to the existing NPPC author and the NPPC Editorial record is then deleted, but only if it has no articles left — the script refuses to delete an author that still owns something.\n\nWORTH KNOWING: /author/nppc-editorial will 404 afterwards. Nothing on the site links to it except the bylines being moved, but an external link or a search-engine result would break. A redirect to /author/nppc would fix that and is a one-line addition to routes/web.php; it is not made here because adding routes is a different kind of change from moving data."
+}
