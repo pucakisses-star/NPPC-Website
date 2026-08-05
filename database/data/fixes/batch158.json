@@ -1,0 +1,147 @@
+{
+ "slug": "a-j-muste",
+ "prisoner": {
+  "aka": "Abraham Johannes Muste",
+  "ideologies": [
+   "Anti-War",
+   "Anti-Militarism",
+   "Labor Organizing",
+   "Civil Rights"
+  ],
+  "affiliation": [
+   "Fellowship of Reconciliation",
+   "War Resisters League",
+   "Peacemakers",
+   "Committee for Nonviolent Action",
+   "Brookwood Labor College"
+  ],
+  "description": "A. J. Muste — Abraham Johannes Muste, born at Zierikzee in the Netherlands on January 8, 1885 — moved from the pulpit into labour and peace organising, becoming a central advocate of nonviolent direct action and a bridge between labour militancy and pacifist politics. He led Brookwood Labor College, and worked through the Fellowship of Reconciliation, the War Resisters League, Peacemakers and the Committee for Nonviolent Action. He died in New York City on February 11, 1967, aged 82.\n\nHe was arrested repeatedly across nearly fifty years, and the pattern matters more than any single term: several separate political arrests and short detentions rather than one long sentence.\n\nIn February 1919, as spokesman for the striking textile workers at Lawrence, Massachusetts, he was beaten by police and pulled from a picket line, then charged with disturbing the peace and loitering. He was held about a week before eyewitness testimony supported his account and the charges were dismissed. In early September 1931 he was arrested at the Paterson silk strike alongside Norman Thomas and other labour supporters.\n\nOn June 15, 1955 he was one of twenty-nine pacifists who refused to take shelter during New York City's compulsory civil-defence drill and stayed above ground in City Hall Park. He was arraigned some nine hours later, bail was set at $1,500 a head, and the group was released within forty-eight hours after supporters raised more than $35,000. They were convicted on December 22, 1955 and their sentences suspended.\n\nHis best-documented jail term began on July 1, 1959, when he and other members of Omaha Action crossed the fence at a missile construction site near Mead, Nebraska. He refused bail and stayed in jail until his court appearance on July 9 — eight nights. The judge imposed six months and a $500 fine, then suspended both and placed him on a year's probation conditioned on his staying away from military-base demonstrations. He did not serve six months: later summaries sometimes confuse his suspended sentence with the imprisonment of other Omaha Action defendants.\n\nOn April 21, 1966, at eighty-one, he and five other American pacifists tried to demonstrate against the Vietnam War near the United States Embassy in Saigon. South Vietnamese police arrested them, held them in a detention room at the airport and expelled them from the country."
+ },
+ "cases": [
+  {
+   "role": "existing",
+   "match_charges": "Disturbing the peace",
+   "label": "Lawrence textile strike, 1919",
+   "charges": "Disturbing the peace and loitering — arrested on the picket line during the Lawrence, Massachusetts textile strike.",
+   "convicted": "No — charges dismissed",
+   "dates": {
+    "arrest_date": [
+     1919,
+     2
+    ],
+    "incarceration_date": [
+     1919,
+     2
+    ],
+    "release_date": null
+   },
+   "sentence": "Beaten by police and pulled from the picket line, then held about a week before eyewitness testimony supported his account and the charges were dismissed.\n\nThe custody is anchored at February 1919 at month precision and carries no release date. The week is documented but its endpoints are not: neither the booking nor the discharge day has been located, and this archive stores a documented duration only in months, so a week with no dates has nowhere to go. The row therefore produces no imprisonment figure, and the week is recorded here instead. The arrest date previously read simply 1919."
+  },
+  {
+   "role": "new",
+   "label": "Paterson silk strike, 1931",
+   "charges": "Arrested in support of the striking silk workers at Paterson, New Jersey.",
+   "convicted": "Outcome unresolved",
+   "dates": {
+    "arrest_date": [
+     1931,
+     9,
+     2
+    ],
+    "incarceration_date": [
+     1931,
+     9,
+     2
+    ],
+    "release_date": null
+   },
+   "sentence": "Arrested on or about September 2, 1931 alongside Norman Thomas and other labour supporters during the Paterson silk strike.\n\nNo release date is recorded and none is invented. No jail ledger or newspaper notice establishing how long he was held has been found, so the row carries a start and no end and produces no imprisonment figure."
+  },
+  {
+   "role": "new",
+   "label": "Operation Alert, New York City, 1955",
+   "charges": "Refusing to take shelter during New York City's compulsory civil-defence drill, Operation Alert, in City Hall Park.",
+   "convicted": "Yes — convicted December 22, 1955; sentence suspended",
+   "dates": {
+    "arrest_date": [
+     1955,
+     6,
+     15
+    ],
+    "incarceration_date": [
+     1955,
+     6,
+     15
+    ],
+    "sentenced_date": [
+     1955,
+     12,
+     22
+    ],
+    "release_date": null
+   },
+   "sentence": "One of twenty-nine pacifists who stayed above ground during the drill on June 15, 1955. Arraigned about nine hours after arrest, bail set at $1,500 a head, and the group released within forty-eight hours once supporters had raised more than $35,000. Trial opened November 16; convicted December 22, 1955, sentence suspended, so no further imprisonment followed.\n\nNo release date is stored. The sources place it on June 16 or June 17 without settling which, and the difference is the whole length of the detention — one day against two — so choosing either would be inventing the figure rather than recording it."
+  },
+  {
+   "role": "new",
+   "label": "Mead missile base, Nebraska, 1959",
+   "charges": "Crossing the fence at the missile construction site near Mead, Nebraska, with Omaha Action.",
+   "convicted": "Yes — six months and a $500 fine, both suspended; one year of probation",
+   "dates": {
+    "arrest_date": [
+     1959,
+     7,
+     1
+    ],
+    "incarceration_date": [
+     1959,
+     7,
+     1
+    ],
+    "sentenced_date": [
+     1959,
+     7,
+     9
+    ],
+    "release_date": [
+     1959,
+     7,
+     9
+    ]
+   },
+   "sentence": "His best-documented term. He refused bail and stayed in jail from July 1, 1959 until his court appearance on July 9 — eight nights, nine calendar days. The judge imposed six months and a $500 fine, then suspended both and placed him on a year's probation conditioned on his staying away from military-base demonstrations.\n\nHE DID NOT SERVE SIX MONTHS. Later summaries sometimes confuse the suspended sentence with the imprisonment of other Omaha Action defendants. The eight days recorded here are the custody actually served, and they are the only episode of the five with both endpoints documented — so they are the whole of this record's imprisonment counter, which understates a life of repeated short detentions."
+  },
+  {
+   "role": "new",
+   "label": "Saigon, 1966",
+   "charges": "Demonstrating against the Vietnam War near the United States Embassy in Saigon; arrested by South Vietnamese police.",
+   "convicted": "No charge — detained and expelled",
+   "dates": {
+    "arrest_date": [
+     1966,
+     4,
+     21
+    ]
+   },
+   "sentence": "On April 21, 1966, aged eighty-one, he and five other American pacifists attempted to demonstrate near the United States Embassy in Saigon. South Vietnamese police arrested them, held them in a detention room at the airport and expelled them from the country.\n\nNo incarceration date is entered, so the row produces no imprisonment figure. The accounts do not establish how many hours he was held, and it appears to have been a brief detention rather than an overnight jail term."
+  }
+ ],
+ "flagged": [
+  {
+   "name": "Pacifism is not an ideology this archive uses",
+   "reason": "The curator lists Pacifism among his categories. There is no such term in the ideology vocabulary — zero records carry it — while Anti-War has 1,709 and Anti-Militarism 857, which is how the archive has been expressing the same thing. He is tagged with those two rather than given a new term that would exist on one record and fragment the filter. Worth adding properly if Pacifism should be a category in its own right."
+  },
+  {
+   "name": "Four of the five affiliations are new to the archive",
+   "reason": "War Resisters League already has ten records. Fellowship of Reconciliation, Peacemakers, Committee for Nonviolent Action and Brookwood Labor College have none, so they are created here. That is expected for organisations rather than ideologies, but it means four filter entries with one record each until others are tagged — and the archive certainly holds other people who belong to them."
+  },
+  {
+   "name": "The counter shows eight days for a man detained on five occasions",
+   "reason": "Only the Mead episode has both endpoints documented. Lawrence is about a week with no dates, Paterson has a start and no end, New York is one or two days with the sources disagreeing, and Saigon is hours. This is the third time this gap has come up — Foster's forty-seven days in batch 139 was the same problem. The schema records a documented duration in months (imprisoned_for_months, added in batch 125) but not in days. An imprisoned_for_days_documented column, or letting the months column take a fractional value, would let all four of these be counted instead of narrated."
+  },
+  {
+   "name": "Era and state are single fields on a five-episode life",
+   "reason": "His era reads 1910s and his state Massachusetts, both from the Lawrence arrest. The episodes run from 1919 to 1966 across Massachusetts, New Jersey, New York, Nebraska and South Vietnam. Neither field is changed here, because any single value is wrong in four ways, but the state map counts him once in Massachusetts."
+  }
+ ]
+}
