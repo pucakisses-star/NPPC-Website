@@ -1,0 +1,47 @@
+{
+ "add": {
+  "slug": "henry-maki",
+  "name": "Henry Maki",
+  "first_name": "Henrik",
+  "middle_name": "Iivari",
+  "last_name": "Maentaka",
+  "aka": "Henrik Iivari Maentaka; Heikki Maki",
+  "gender": "Male",
+  "birthdate": "1881-06-03",
+  "death_date": "1910-08-17",
+  "state": "Colorado",
+  "era": "1900s",
+  "ideologies": [
+   "Labor Organizing"
+  ],
+  "affiliation": [
+   "Western Federation of Miners"
+  ],
+  "released": true,
+  "in_custody": false,
+  "description": "Henry Maki, born Henrik \"Heikki\" Iivari Maentaka in Ähtäri, Finland, was a Finnish-American hard-rock miner and a member of the Western Federation of Miners in Telluride, Colorado. During the 1903-1904 Telluride strike, authorities arrested Maki and dozens of other unemployed strikers under a selectively enforced vagrancy law.\n\nThirty-four striking miners were taken in. Twenty-seven were convicted and ordered to pay $25 plus court costs, and given three choices: pay the fine, leave San Miguel County, or work under the sheriff's direction. The men produced $1,148.25 between them in open court and had their union behind them, which is the answer to the charge that they were destitute vagrants. The prosecutions were a mechanism for making strikers work, leave Telluride, or stay in jail.\n\nSixteen reported for the compulsory labour and were set to digging and repairing municipal sewers. Maki refused. Deputy sheriff Willard Runnels walked him to a telephone or telegraph pole, made him put his arms around it, and handcuffed his wrists together on the far side. Contemporary reports describe high wind, blowing snow and temperatures around zero. He was chained there for at least ninety minutes and possibly several hours before being returned to the cells, where a union history records that he was refused food for thirty-six hours. County Judge J. M. Wardlaw ordered the remaining vagrancy prisoners released on March 5, 1904.\n\nA photograph of him chained to the pole became the central image of the Western Federation of Miners poster \"Is Colorado in America?\" The print on this record carries the line the union set beneath it: UNDER THE FOLDS OF THE AMERICAN FLAG IN COLORADO!\n\nHe went back to mining and was killed by falling rock at the Gold Pioneer Mine on August 17, 1910, aged 29.\n\nTHE ARREST DATE IS NOT SETTLED. One retrospective account puts the arrests on Monday, February 29, 1904, which is the date stored here. Emma Langdon's 1905 history of the strike places both the mass arrest and the justice-court proceedings on March 1. A wire report of March 2 says Maki and the others had been convicted \"yesterday,\" which fixes the conviction on March 1 and is why that is recorded as the sentencing date. If Langdon is right about the arrest, the custody was four days rather than five.",
+  "cases": [
+   {
+    "charges": "Vagrancy — selectively enforced against unemployed strikers during the 1903-1904 Telluride strike.",
+    "arrest_date": "1904-02-29",
+    "incarceration_date": "1904-02-29",
+    "sentenced_date": "1904-03-01",
+    "release_date": "1904-03-05",
+    "convicted": "Yes — vagrancy, March 1, 1904; $25 and costs, or leave the county, or labour under the sheriff",
+    "judge": "J. M. Wardlaw (county judge, ordered the release)",
+    "sentence": "Arrested 1904-02-29 in the Telluride vagrancy sweep of thirty-four striking miners and convicted on March 1, 1904, one of twenty-seven; fined $25 plus costs with the alternatives of leaving San Miguel County or working under the sheriff. He refused the labour and on March 2 deputy sheriff Willard Runnels handcuffed him around a telephone or telegraph pole in high wind, blowing snow and temperatures near zero, where he was left at least ninety minutes. A union history records that he was then denied food for thirty-six hours. County Judge J. M. Wardlaw ordered the vagrancy prisoners released on March 5, 1904. Roughly five days in all. The custody was at Telluride city jail or the San Miguel County jail; the sources do not settle which, so no institution is recorded rather than the wrong one."
+   }
+  ]
+ },
+ "expect": {
+  "days": 5,
+  "days_if_langdon": 4,
+  "age_at_death": 29
+ },
+ "photo": {
+  "file": "henry-maki.jpg",
+  "path": "prisoners/henry-maki.jpg",
+  "note": "The print is used whole, caption and all. It is a single subject with no ambiguity to resolve, and the line the union set beneath the picture — UNDER THE FOLDS OF THE AMERICAN FLAG IN COLORADO! — is part of the object rather than a stranger's typography laid over a mugshot. Cropping it would have gained about a fifth of the height and lost the artefact. Resized from 952x1652 to 691x1200 and stored as JPEG."
+ },
+ "institution_note": "Left unset. The custody was at the Telluride city jail or the San Miguel County jail and the sources do not settle which. Telluride City Jail already exists in this archive, from Charles Moyer's record, so picking it would have been easy and might have been wrong."
+}
