@@ -1,0 +1,9 @@
+{
+ "slug": "geoffrey-parsons",
+ "age_at": {"date": "2023-01-18", "age": 20, "event": "arrest"},
+ "birthdate": [2002],
+ "approximate": true,
+ "expect_display": "c. 2002",
+ "expect_precision": "circa",
+ "note": "Birth year worked back from the age the record already states.\n\nHe was 20 when he was arrested on January 18, 2023. That means he had turned 20 by that date and had not yet turned 21, so he was born between January 19, 2002 and January 18, 2003. The window is 365 days wide and straddles two calendar years, which is why it is stored as circa rather than as a flat year: 2002 is the likelier answer, not the known one.\n\nIt is a strong likelihood rather than a coin toss. 347 of the 365 days in the window fall in 2002 and 18 fall in 2003, so 2002 is right about 95 percent of the time. A mid-January arrest is the case the HasPartialDates comment warns about — a date near New Year — but here the calendar works in favour of the answer instead of against it, because the window opens in January and closes in the following January, putting almost all of it in the earlier year.\n\nStored as circa, it renders c. 2002, which is exactly what is known: a year derived from an age, good to about a year.\n\nSEPARATELY, AND NOT FIXED HERE: his profile currently reads Imprisoned For 3 years 6 months 16 days, from a stored counter of 1,293 days. He is flagged released, his case row has an incarceration date of January 18, 2023 and no release date, and computeImprisonedForDays returns null for exactly that shape. The 1,293 is stale residue from the deleted cases:update-imprisoned-days, which counted an open-ended case to whatever day it last ran on. prisoners:recompute-imprisonment --apply clears it, along with the other 459 counters the duration sweep found."
+}
