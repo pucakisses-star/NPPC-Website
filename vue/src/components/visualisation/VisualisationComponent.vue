@@ -35,7 +35,14 @@ const {checkPrisonerFilter} = useFilter()
 const { records, fetchRecords } = useAirtable();
 await fetchRecords();
 
-const buttonFilter = ref<string>('imprisonedOrExiled')
+// Empty string is the "All Cases" option: checkPrisonerFilter treats a blank
+// filter as no filter. The homepage statistics open on the whole archive
+// rather than on the currently-held subset — the charts below are a portrait
+// of who has been imprisoned, and defaulting to "In Custody or Exiled" made
+// them read as a portrait of who is imprisoned today, which is a much smaller
+// and differently-shaped group. The database page has its own filters and is
+// unaffected; this component only ever mounts on #app-stats, on the homepage.
+const buttonFilter = ref<string>('')
 
 // Computed property to generate filtered records
 const filteredRecords = computed(() => {
