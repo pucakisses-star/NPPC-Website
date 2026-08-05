@@ -1,0 +1,174 @@
+{
+ "generated_from": "database/data/DURATION-SWEEP.md",
+ "months": [
+  {
+   "slug": "marshall-conway",
+   "months": 528,
+   "match_phrase": "served about 44 years"
+  },
+  {
+   "slug": "mujahid-farid",
+   "months": 396,
+   "match_phrase": "Served 33 years"
+  },
+  {
+   "slug": "eddie-ellis",
+   "months": 276,
+   "match_phrase": "served 23 years"
+  },
+  {
+   "slug": "rubin-carter",
+   "months": 228,
+   "match_phrase": "served roughly 19 years"
+  },
+  {
+   "slug": "george-merritt-jr",
+   "months": 144,
+   "match_phrase": "served roughly twelve years"
+  },
+  {
+   "slug": "nate-saunsoci",
+   "months": 84,
+   "match_phrase": "Spent seven years"
+  },
+  {
+   "slug": "randolph-jennings",
+   "months": 72,
+   "match_phrase": "released after serving more than six years",
+   "floor": true,
+   "append_note": "\n\nTIME SERVED IS RECORDED AS A FLOOR. The source says more than six years without saying how much more, so 72 months is entered as the least the custody can have been rather than as its length. The record previously counted none of it."
+  },
+  {
+   "slug": "kevin-poulsen",
+   "months": 60,
+   "match_phrase": "spent about 5 years"
+  },
+  {
+   "slug": "patricia-swinton",
+   "months": 60,
+   "match_phrase": "spent more than five years",
+   "floor": true,
+   "append_note": "\n\nTIME SERVED IS RECORDED AS A FLOOR. The source says more than five years without saying how much more, so 60 months is entered as the least the custody can have been rather than as its length. The record previously counted none of it."
+  },
+  {
+   "slug": "warren-kimbro",
+   "months": 48,
+   "match_phrase": "served about four years"
+  },
+  {
+   "slug": "franz-von-rintelen",
+   "months": 36,
+   "match_phrase": "Imprisoned for three years"
+  },
+  {
+   "slug": "omar-seku",
+   "months": 24,
+   "match_phrase": "served about two years"
+  },
+  {
+   "slug": "naum-acheff",
+   "months": 24,
+   "match_phrase": "served two years"
+  },
+  {
+   "slug": "louise-olivereau",
+   "months": 24,
+   "match_phrase": "served approximately two years"
+  },
+  {
+   "slug": "bruce-dancis",
+   "months": 19,
+   "match_phrase": "Served about 19 months"
+  },
+  {
+   "slug": "roy-bourgeois",
+   "months": 18,
+   "match_phrase": "served 18 months"
+  },
+  {
+   "slug": "carlos-noya",
+   "months": 17,
+   "match_phrase": "served 17 months"
+  },
+  {
+   "slug": "barry-bondhus",
+   "months": 14,
+   "match_phrase": "Served about 14 months"
+  },
+  {
+   "slug": "bill-henry",
+   "months": 12,
+   "match_phrase": "served a year"
+  },
+  {
+   "slug": "david-lamar",
+   "months": 12,
+   "match_phrase": "served one year"
+  },
+  {
+   "slug": "robert-klonsky",
+   "months": 12,
+   "match_phrase": "served more than a year",
+   "floor": true,
+   "append_note": "\n\nTIME SERVED IS RECORDED AS A FLOOR. The source says more than a year without saying how much more, so 12 months is entered as the least the custody can have been rather than as its length. The record previously counted none of it."
+  },
+  {
+   "slug": "joseph-palmer",
+   "months": 12,
+   "match_phrase": "imprisoned for more than a year",
+   "floor": true,
+   "append_note": "\n\nTIME SERVED IS RECORDED AS A FLOOR. The source says more than a year without saying how much more, so 12 months is entered as the least the custody can have been rather than as its length. The record previously counted none of it."
+  },
+  {
+   "slug": "douglas-lane",
+   "months": 11,
+   "match_phrase": "held for about eleven months"
+  },
+  {
+   "slug": "george-young",
+   "months": 11,
+   "match_phrase": "held for about eleven months"
+  },
+  {
+   "slug": "james-henderson",
+   "months": 11,
+   "match_phrase": "held for about eleven months"
+  },
+  {
+   "slug": "raymond-peoples",
+   "months": 11,
+   "match_phrase": "held for about eleven months"
+  },
+  {
+   "slug": "ronald-jordan",
+   "months": 11,
+   "match_phrase": "held for about eleven months"
+  },
+  {
+   "slug": "j-tony-serra",
+   "months": 9,
+   "match_phrase": "served 9 months"
+  },
+  {
+   "slug": "robert-shelton",
+   "months": 9,
+   "match_phrase": "served nine months"
+  },
+  {
+   "slug": "tomas-sarabia-labrada",
+   "months": 5,
+   "match_phrase": "freed after five months"
+  },
+  {
+   "slug": "donnell-moore",
+   "months": 4,
+   "match_phrase": "spent about four months"
+  },
+  {
+   "slug": "scott-galindez",
+   "months": 3,
+   "match_phrase": "served approximately 3 months"
+  }
+ ],
+ "note": "Durations the sources state in words and the date fields could not count. Only imprisoned_for_months is used: it is the column the archive already has for a documented duration with uncertain endpoints, it outranks date arithmetic in computeImprisonedForDays, and unlike an anchored date it survives the nightly recompute. See database/data/DURATION-SWEEP.md for the sweep and for the findings this batch deliberately leaves alone."
+}
