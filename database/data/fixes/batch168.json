@@ -1,0 +1,13 @@
+{
+ "slug": "mark-rudd",
+ "match": {"incarceration_date": "1969-12-01", "label": "bail-violation-1969"},
+ "dates": {
+  "incarceration_date": [1969, 12],
+  "release_date": [1969, 12, 3]
+ },
+ "mirror_precision": {"from": "incarceration_date", "to": "release_date"},
+ "expect_days": 2,
+ "expect_display": {"incarceration_date": "December 1969", "release_date": "December 1969"},
+ "sentence": "TWO DAYS IN JAIL, in December 1969, after he travelled outside the area his Chicago bail conditions allowed.\n\nThe two days are sourced; the calendar dates are not. The source gives the length of the custody but not the day it began or ended, so both dates are stored at month precision and both display as December 1969 — which is the whole of what is known about when.\n\nHOW THE TWO DAYS ARE COUNTED, since the stored values will look odd to anyone reading the table directly. A month-precision date needs some day to sit on, and the convention in this archive is the 1st. Anchoring both ends there would measure zero and publish a two-day jailing as a same-day release, so the release is anchored on the 3rd instead. Nothing displays or serialises that day: the profile prints December 1969 through formatPartialDate, and the API emits 1969-12 through partialDateIso. Only the duration reads it, and the duration is the sourced figure.\n\nThis is the opposite trade from the two 1968 Tombs rows above, which keep an empty release date. There the length of the custody is not recorded either, so there is nothing to preserve; here it is, and discarding a sourced duration because the calendar is unknown would lose real information.\n\nCAUTION FOR ADMIN EDITS: opening this row in the admin and saving it will round-trip the release through the month-precision form control, reset the anchor to the 1st and silently drop the count to zero. If that happens, re-run this batch.\n\nThe jail is not established.",
+ "note": "Recovers two documented days that batch 167 threw away.\n\nBatch 167 left this release date empty on the reasoning that a month-precision release resolves to December 1 and would measure zero against a December 1 incarceration. That reasoning was right about the arithmetic and wrong about what to do with it: the fix is to move the anchor, not to discard the duration. The source states two days. Two days is now what the record counts.\n\nRudd total goes from 2 measured days to 4."
+}
