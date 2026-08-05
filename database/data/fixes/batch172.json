@@ -1,0 +1,85 @@
+{
+ "files_dir": "database/data/files/cop-city",
+ "dest_dir": "storage/app/public/prisoners/cop-city",
+ "rows": [
+  {
+   "slug": "francis-carroll",
+   "file": "francis-carroll.jpg",
+   "photo_path": "prisoners/cop-city/francis-carroll.jpg",
+   "was": [
+    932,
+    524
+   ],
+   "now": [
+    471,
+    524
+   ],
+   "aspect": 0.899,
+   "bytes": 39985
+  },
+  {
+   "slug": "geoffrey-parsons",
+   "file": "geoffrey-parsons.jpg",
+   "photo_path": "prisoners/cop-city/geoffrey-parsons.jpg",
+   "was": [
+    932,
+    524
+   ],
+   "now": [
+    413,
+    524
+   ],
+   "aspect": 0.788,
+   "bytes": 32147
+  },
+  {
+   "slug": "graham-evatt",
+   "file": "graham-evatt.jpg",
+   "photo_path": "prisoners/cop-city/graham-evatt.jpg",
+   "was": [
+    932,
+    524
+   ],
+   "now": [
+    367,
+    524
+   ],
+   "aspect": 0.7,
+   "bytes": 30742
+  },
+  {
+   "slug": "ivan-ferguson",
+   "file": "ivan-ferguson.jpg",
+   "photo_path": "prisoners/cop-city/ivan-ferguson.jpg",
+   "was": [
+    932,
+    524
+   ],
+   "now": [
+    343,
+    524
+   ],
+   "aspect": 0.655,
+   "bytes": 36431
+  }
+ ],
+ "cannot_crop": [
+  {
+   "slug": "emily-murphy",
+   "size": [
+    932,
+    524
+   ],
+   "why": "Not letterboxed. The broadcast frame is zoomed INTO the mugshot, cutting off the top of the head and the chin, so the whole 932x524 is picture and there are no bars to remove. Cropping cannot put back what the frame cut off. Needs a replacement source image."
+  },
+  {
+   "slug": "henri-feola",
+   "size": [
+    900,
+    506
+   ],
+   "why": "Same problem, worse: the frame ends just below the eyes, so the lower half of the face is not in the file at all. It also carries a broadcast station watermark in the top-left corner. Needs a replacement source image."
+  }
+ ],
+ "note": "Six of the 34 photographs in prisoners/cop-city are 16:9 broadcast frames rather than portraits. Four are pillarboxed — the real mugshot sits in the middle with a blurred, stretched copy of itself filling the bars on either side — and those are cropped here. Two are zoomed-in frames that cropping cannot rescue.\n\nThe files are replaced in place at the paths the records already point to. No database column changes: Prisoner::photoUrl() appends a ?v= stamp taken from the file modification time, so a replacement at the same path busts the cache by itself."
+}
