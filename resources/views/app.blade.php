@@ -269,6 +269,41 @@ $isHome = request()->segment(1) == ''
         html[data-theme="light"] #graph-component .border-white { border-color: rgba(var(--fg-rgb), 0.3); }
         html[data-theme="light"] #graph-component svg text,
         html[data-theme="light"] #graph-component tspan { fill: var(--fg); }
+        /* Home-page statistics panel (Vue NumbersComponent). It hardcodes
+           `background:#000; color:#FFF` on the section, so in light mode the
+           whole block stayed a black slab below the filter bar. Flipping the
+           section is enough: every label and paragraph inside inherits its
+           colour, and the figures picked out in the donut palette are inline
+           data colours that should survive the theme. */
+        html[data-theme="light"] #stats-component {
+            background: var(--bg) !important;
+            color: var(--fg) !important;
+        }
+
+        /* Place-of-prosecution map (Vue StateMapComponent), same problem.
+           Only the chrome is flipped. The grid cells are painted from a data
+           ramp that runs to near-black at the low end, so the abbreviations
+           sitting on them, the cell borders and the legend bar keep their
+           light-on-dark treatment — recolouring those would make the sparsest
+           states unreadable on exactly the cells that are hardest to read
+           already. Scoped component CSS needs !important to beat. */
+        html[data-theme="light"] #state-map-component { background: var(--bg) !important; }
+        html[data-theme="light"] #state-map-component .state-map-eyebrow {
+            color: var(--fg) !important;
+            border-bottom-color: var(--fg) !important;
+        }
+        html[data-theme="light"] #state-map-component .state-map-title { color: var(--fg) !important; }
+        html[data-theme="light"] #state-map-component .state-map-lead { color: rgba(var(--fg-rgb), 0.85) !important; }
+        html[data-theme="light"] #state-map-component .state-map-sub { color: rgba(var(--fg-rgb), 0.55) !important; }
+        html[data-theme="light"] #state-map-component .state-map-legend { color: rgba(var(--fg-rgb), 0.6) !important; }
+        /* The icon ships as black line-art and the component forces it white
+           with `brightness(0) invert(1)`. Dropping the invert rather than
+           stacking a second one puts it back to black, which is what a light
+           background wants. */
+        html[data-theme="light"] #state-map-component .state-map-icon {
+            filter: brightness(0) !important;
+        }
+
         /* Mobile slide-down menu */
         html[data-theme="light"] #mobile-menu { background: var(--bg); }
         html[data-theme="light"] #mobile-menu a { color: var(--fg); }
