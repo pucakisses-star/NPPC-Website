@@ -17,7 +17,7 @@ every other photograph with that shape.
 |---|---|
 | padded, croppable — fixed in batch 172 | 4 |
 | padded, croppable — **outstanding** | **13** |
-| zoomed-in broadcast frame, not croppable | 3 |
+| zoomed-in broadcast frame, not croppable | 3 (2 since replaced, batch 178) |
 | broken photo link | 1 |
 | everything else | 2,139 |
 
@@ -76,12 +76,25 @@ otherwise carry.
 Not padded. The broadcast frame is zoomed **into** the mugshot, so the missing
 part of the face is not in the file at all and there is nothing to trim.
 
-- `emily-murphy` (932×524) — top of the head and the chin cut off
-- `henri-feola` (900×506) — ends just below the eyes; also carries a station watermark
-- `henry-parker` (640×360) — top of the head clipped
+- ~~`emily-murphy` (932×524) — top of the head and the chin cut off~~ — **replaced in
+  batch 178** with the Fulton County booking photograph (400×337)
+- ~~`henri-feola` (900×506) — ends just below the eyes; also carries a station
+  watermark~~ — **replaced in batch 178**, and moved off a file path that carried a
+  name the record does not use
+- `henry-parker` (640×360) — top of the head clipped — **not fixable, closed.** The
+  frame in this archive is the one every outlet ran; there is no better version in
+  circulation. The clipping is slight and the face is complete.
 
-These need a replacement source image. A tighter crop of a broken frame would
-only hide the problem.
+These needed a replacement source image rather than a tighter crop of a broken
+frame. Two got one: the Atlanta Police Department released the January 21, 2023
+booking photographs as a single six-up composite, and cutting it into cells gives
+the whole head where the broadcast frame gave two thirds of it — at lower
+resolution, which is the right trade when the alternative is a cropped face.
+
+The other three of those six (`francis-carroll`, `graham-evatt`, `ivan-ferguson`)
+were **not** re-cut from the composite. Batch 172 cropped them from broadcast
+frames 524 pixels tall, which beats the composite's 400×337. The official
+photograph only wins where the frame was zoomed *into* the face.
 
 ## One broken photo link
 
