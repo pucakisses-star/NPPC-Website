@@ -1,0 +1,12 @@
+{
+ "note": "One curated link for the dashboard newswire, supplied by the curator. Fetched and returned HTTP 200; the headline is the page's own og:title.\n\nON THE DATE. The page carries two timestamps and they fall on different days: article:published_time gives 2026-07-29T00:41:55Z, and the JSON-LD gives 2026-07-28T17:41:55-07:00. They are the same instant — the first is the second in UTC. KATU is a Portland station reporting a Portland story, so the day it published is July 28 Pacific, and that is what is stored. Reading article:published_time at face value would have filed it a day late and sorted it above stories that actually came after it.\n\nChecked against the 1,055 link URLs on the live page before adding. Not a duplicate: the feed already holds one KATU story, about a man charged with assaulting an ICE officer, which is a different case.",
+ "links": [
+  {
+   "title": "Woman pleads guilty to interference after allegedly painting Portland ICE driveway",
+   "url": "https://katu.com/news/local/red-paint-incident-at-portland-ice-building-leads-woman-to-plead-guilty-to-interference-immigration-customs-border-patrol-control-enforcement-law-federal-ice-dhs-cbp",
+   "source": "KATU",
+   "category": "prosecution",
+   "published_at": "2026-07-28 12:00:00"
+  }
+ ]
+}
