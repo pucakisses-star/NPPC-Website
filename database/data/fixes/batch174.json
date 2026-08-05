@@ -1,0 +1,45 @@
+{
+ "source": {
+  "work": "Doris Stevens, Jailed for Freedom (1920), Appendix 4: Suffrage Prisoners",
+  "url": "https://chswg.binghamton.edu/WASM-US/crowdsourcing/Stevens_JailedForFreedom_Appendix4.pdf",
+  "entries": 168,
+  "already_in_archive": 167
+ },
+ "add": {
+  "slug": "rose-fishstein",
+  "name": "Rose Fishstein",
+  "first_name": "Rose",
+  "last_name": "Fishstein",
+  "gender": "Female",
+  "state": "District of Columbia",
+  "era": "1910s",
+  "ideologies": [
+   "Women's suffrage"
+  ],
+  "affiliation": [
+   "National Woman's Party",
+   "Silent Sentinels"
+  ],
+  "released": true,
+  "description": "Rose Fishstein was a Philadelphia businesswoman and a member of the National Woman's Party, one of the \"Silent Sentinels\" imprisoned during the 1917-1919 campaign to picket the Wilson White House for woman suffrage. She was born in Russia, educated in New York and Philadelphia, and was a student at Temple University. She was arrested at a watchfire demonstration in February 1919 and sentenced to five days in the District Jail.\n\nShe was the sister-in-law of Rose Gratz Fishstein, who is also in this archive. Doris Stevens lists the two women as separate entries in Appendix 4 of Jailed for Freedom, one immediately after the other, and the shared forename and surname are why this record was missing: every automatic check for Rose Fishstein found Rose Gratz Fishstein and stopped.",
+  "cases": [
+   {
+    "charges": "Arrested for picketing the Wilson White House for woman suffrage.",
+    "convicted": "Imprisoned in the 1917-1919 National Woman's Party suffrage campaign",
+    "sentence": "Five days in the District Jail, which is the sentence Doris Stevens records.\n\nNO DAY IS STORED, only the month. Stevens gives \"Feb., 1919\" for her where she gives February 9 for her sister-in-law, so neither the day she was taken in nor the day she came out is established. The women arrested at the February 9 watchfire demonstration were released together on February 13 after the hunger strike, which means the five days imposed may well not be the time actually served. The row carries a month-precision incarceration and no release date, and publishes no imprisonment figure.",
+    "incarceration_date": "1919-02-01"
+   }
+  ]
+ },
+ "month_precision": [
+  "incarceration_date"
+ ],
+ "duplicate": {
+  "slugs": [
+   "dora-lewis",
+   "dora-kelly-lewis"
+  ],
+  "why": "Stevens lists one Mrs. Lawrence Lewis. The archive carries two records for her, and they disagree with each other: dora-lewis gives born 1862-06-12, died 1928-10-22; dora-kelly-lewis gives born 1862-10-13, died 1928-01-31. Both describe the same Philadelphia widow, the same Night of Terror at Occoquan on November 14, 1917. dora-kelly-lewis also holds a case row whose incarceration date (July 6, 1917) precedes its arrest date (November 9, 1917), which is the mismatched-pair shape the duration guard discards.\n\nNOT MERGED HERE. Merging means choosing which birth and death dates to keep, and neither record says where its dates came from. That is a research question, not a script."
+ },
+ "note": "One prisoner from the Stevens appendix that the archive did not have, plus a duplicate found while checking."
+}
