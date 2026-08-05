@@ -1,0 +1,54 @@
+{
+ "note": "Three further links for the newswire, found by searching the same beats as the batch 150 set — ICE protest prosecutions, protest arrests, the federal conspiracy charges — and restricted to roughly the past month. Each was fetched and returned HTTP 200 and each headline is the page's own. Two of the three carry no published date in their metadata, so the date comes from the URL path; that is recorded per item rather than left to look like a read timestamp.\n\nAs many candidates were rejected as accepted, and the rejections are listed because they say something about the feed: one was already in it, one was a fourth outlet on a story added yesterday, and two refused the fetch. A search for more turns up mostly syndication — the NPR conspiracy piece alone appears on five member-station domains — so the newswire is closer to saturated on these beats than it looks.",
+
+ "links": [
+  {
+   "title": "Religious Leaders and Activists Arrested While Protesting Trump's Attacks on Voting Rights",
+   "url": "https://www.democracynow.org/2026/8/4/headlines/religious_leaders_and_activists_arrested_while_protesting_trumps_attacks_on_voting_rights",
+   "source": "Democracy Now!",
+   "category": "arrest",
+   "published_at": "2026-08-04 12:00:00",
+   "provenance": "Headline and date both read from the page metadata."
+  },
+  {
+   "title": "Texas anti-ICE protesters get 30 to 100 years in prison",
+   "url": "https://www.kalw.org/show/your-call/2026-07-10/texas-anti-ice-protesters-get-30-to-100-years-in-prison",
+   "source": "KALW",
+   "category": "prosecution",
+   "published_at": "2026-07-10 12:00:00",
+   "provenance": "Headline read from the page. No published date in the metadata, so the date is taken from the URL path, which the station uses as its publication date."
+  },
+  {
+   "title": "Many Arrested by Portland Police During ICE Protests Saw Cases Fizzle in Court",
+   "url": "https://www.wweek.com/news/courts/2026/07/26/many-arrested-by-portland-police-during-ice-protests-saw-cases-fizzle-in-court/",
+   "source": "Willamette Week",
+   "category": "prosecution",
+   "published_at": "2026-07-26 12:00:00",
+   "provenance": "Headline read from the page. No published date in the metadata, so the date is taken from the URL path."
+  }
+ ],
+
+ "rejected": [
+  {
+   "url": "https://www.wweek.com/news/courts/2026/07/01/protesters-arrested-outside-ice-faced-daunting-prison-sentencesand-mostly-ended-up-with-short-probations/",
+   "reason": "Already in the newswire. Checked against all 1,055 link URLs currently on the page before adding anything."
+  },
+  {
+   "url": "https://www.foxnews.com/us/violent-anti-ice-rioter-who-targeted-police-finally-faces-reckoning-federal-court",
+   "reason": "The Ismael Vega sentencing, which batch 150 already carries from Los Angeles Magazine, the Ventura County Star and the Los Angeles Times. A fourth outlet on one defendant adds no case to the feed and makes the count of items diverge further from the count of cases."
+  },
+  {
+   "url": "https://www.koin.com/news/portland/woman-pleads-guilty-less-than-a-year-after-arrest-at-portland-ice-facility/",
+   "reason": "Fetch refused. The search index title for this URL carries an SEO prefix rather than the headline as published, so it was not used — a headline is a quotation and a search-engine title is not reliably one."
+  },
+  {
+   "url": "https://www.kgw.com/article/news/crime/portland-man-sentenced-federal-prison-hitting-federal-officer-rock-outside-ice-building-protest/283-c28c9288-95ae-48ef-837c-660dd9565641",
+   "reason": "Fetch refused, as with the other KGW article. Recoverable the same way batch 151 recovered its sibling if it is wanted."
+  }
+ ],
+
+ "not_pursued": {
+  "topic": "The UK Palestine Action prosecutions",
+  "reason": "Late July produced a large cluster — 77 arrested outside Westminster Magistrates' Court on July 30, a review hearing covering 1,579 people charged under section 13 of the Terrorism Act, and further sentencings. It is the biggest mass political prosecution in the search window by a wide margin. It is not added because this newswire is domestic: of the 1,055 links on the page, two are British. Say so and they go in."
+ }
+}
