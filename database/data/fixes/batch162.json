@@ -1,0 +1,55 @@
+{
+ "slug": "clayton-van-lydegraf",
+ "file": "clayton-van-lydegraf.jpg",
+ "photo_path": "prisoners/clayton-van-lydegraf.jpg",
+ "prisoner": {
+  "description": "Clayton Van Lydegraf was a longtime communist, labour and anti-imperialist organiser who had belonged to the CPUSA, the Progressive Labor Party, Students for a Democratic Society and the Weather Underground before becoming a leader of the Prairie Fire Organizing Committee and its Revolutionary Committee faction. On November 19, 1977 federal agents arrested him in Houston, Texas, with Judith Bissell and Leslie Mullin; Michael Justesen and Marc Perry were arrested simultaneously in Los Angeles. Prosecutors accused the five of conspiring to bomb the Fullerton office of California State Senator John Briggs and of possessing explosives and firearms. Van Lydegraf was extradited to California and held in the Los Angeles County Central Jail under $500,000 bail. He later pleaded no contest to conspiracy and possession of explosives and spent approximately two years imprisoned before his release in 1980. The investigation arose from a lengthy FBI infiltration of the organisation.\n\nOn the arrest date: the strongest contemporaneous source gives Saturday, November 19, 1977. Some later histories give November 20, apparently because the arrest photographs ran in the Sunday, November 20 Houston Post.\n\nOn his affiliation at the time: he is often listed simply as Weather Underground, but he had been expelled from the principal Weather organisation around 1974. At the time of this arrest he is more accurately identified with the Prairie Fire Organizing Committee and the Revolutionary Committee faction that emerged from the Weather Underground's final split.",
+  "inmate_number": "4614177",
+  "state": "California",
+  "affiliation": [
+   "Communist Party USA",
+   "Progressive Labor Party",
+   "Students for a Democratic Society",
+   "Weather Underground",
+   "Prairie Fire Organizing Committee",
+   "Revolutionary Committee"
+  ],
+  "birthdate": [
+   1915,
+   5,
+   6
+  ],
+  "death_date": [
+   1992,
+   3,
+   30
+  ]
+ },
+ "case": {
+  "institution": {
+   "name": "Los Angeles County Central Jail",
+   "city": "Los Angeles",
+   "state": "California"
+  },
+  "detach_institution": "Federal Bureau of Prisons",
+  "convicted": "Yes — pleaded no contest to conspiracy and possession of explosives",
+  "charges": "Conspiracy and possession of explosives — the alleged plot to bomb the Fullerton office of California State Senator John Briggs. The LA 5 case.",
+  "dates": {
+   "arrest_date": [
+    1977,
+    11,
+    19
+   ],
+   "incarceration_date": [
+    1977,
+    11,
+    19
+   ],
+   "release_date": [
+    1980
+   ]
+  },
+  "sentence": "Pleaded no contest to conspiracy and possession of explosives, and served approximately two years. Arrested in Houston on November 19, 1977 while attending the National Women's Conference, extradited to California, and held in the Los Angeles County Central Jail as prisoner 4614177 under bail initially reported at $500,000. Bissell and Mullin were held at the Sybil Brand Institute; the three men were in the county jail. Federal charges were dismissed under speedy-trial requirements and California continued to hold all five on state charges.\n\nThe release is stored as 1980 at year precision. No court minute order or prison record establishing the day has been found, so the counter measures from November 19, 1977 to January 1, 1980 — 773 days, about two years and a month — which is the earliest the year allows and therefore the least it can have been.\n\nThe institution was previously recorded as the Federal Bureau of Prisons. He was held by Los Angeles County on state charges after the federal case was dismissed."
+ },
+ "note": "Corrected research for Clayton Van Lydegraf, plus a photograph. The image is the right-hand figure in a HistoryLink photograph of the University of Washington Board of Regents hearing of January 23, 1949, cropped to him alone — the left-hand figure is Professor Herbert J. Phillips. Cropped from 1024x1075 to 469x740 and re-encoded at quality 88, about 64 KB."
+}
