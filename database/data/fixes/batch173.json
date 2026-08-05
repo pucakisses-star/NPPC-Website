@@ -1,0 +1,213 @@
+{
+ "files_dir": "database/data/files/framing",
+ "rows": [
+  {
+   "slug": "robert-majure",
+   "photo_path": "prisoners/robert-majure.jpg",
+   "file": "robert-majure.jpg",
+   "was": [
+    680,
+    383
+   ],
+   "now": [
+    281,
+    383
+   ],
+   "bytes": 38780
+  },
+  {
+   "slug": "nicholas-lucia",
+   "photo_path": "prisoners/nicholas-lucia.jpg",
+   "file": "nicholas-lucia.jpg",
+   "was": [
+    1024,
+    576
+   ],
+   "now": [
+    462,
+    576
+   ],
+   "bytes": 56173
+  },
+  {
+   "slug": "damion-zachary-feller",
+   "photo_path": "prisoners/damion-zachary-feller.jpg",
+   "file": "damion-zachary-feller.jpg",
+   "was": [
+    680,
+    382
+   ],
+   "now": [
+    316,
+    382
+   ],
+   "bytes": 31379
+  },
+  {
+   "slug": "chase-vladamir-spencer",
+   "photo_path": "prisoners/chase-vladamir-spencer.jpg",
+   "file": "chase-vladamir-spencer.jpg",
+   "was": [
+    910,
+    512
+   ],
+   "now": [
+    342,
+    512
+   ],
+   "bytes": 27748
+  },
+  {
+   "slug": "christopher-tindal",
+   "photo_path": "prisoners/christopher-tindal.jpg",
+   "file": "christopher-tindal.jpg",
+   "was": [
+    648,
+    364
+   ],
+   "now": [
+    264,
+    364
+   ],
+   "bytes": 27055
+  },
+  {
+   "slug": "dylan-robinson",
+   "photo_path": "prisoners/dylan-robinson.jpg",
+   "file": "dylan-robinson.jpg",
+   "was": [
+    910,
+    512
+   ],
+   "now": [
+    491,
+    512
+   ],
+   "bytes": 45649
+  },
+  {
+   "slug": "deyanna-davis",
+   "photo_path": "prisoners/deyanna-davis.jpg",
+   "file": "deyanna-davis.jpg",
+   "was": [
+    1920,
+    1080
+   ],
+   "now": [
+    860,
+    1075
+   ],
+   "bytes": 118826
+  },
+  {
+   "slug": "jackson-patton",
+   "photo_path": "prisoners/jackson-patton.png",
+   "file": "jackson-patton.png",
+   "was": [
+    1200,
+    630
+   ],
+   "now": [
+    279,
+    384
+   ],
+   "bytes": 151005
+  },
+  {
+   "slug": "semaj-pigram",
+   "photo_path": "prisoners/semaj-pigram.png",
+   "file": "semaj-pigram.png",
+   "was": [
+    264,
+    355
+   ],
+   "now": [
+    223,
+    280
+   ],
+   "bytes": 54557
+  },
+  {
+   "slug": "walter-stewart",
+   "photo_path": "prisoners/walter-stewart.png",
+   "file": "walter-stewart.png",
+   "was": [
+    291,
+    348
+   ],
+   "now": [
+    222,
+    279
+   ],
+   "bytes": 57583
+  },
+  {
+   "slug": "gilberto-castillo",
+   "photo_path": "prisoners/gilberto-castillo.jpg",
+   "file": "gilberto-castillo.jpg",
+   "was": [
+    219,
+    345
+   ],
+   "now": [
+    217,
+    271
+   ],
+   "bytes": 12691
+  },
+  {
+   "slug": "vida-jones",
+   "photo_path": "prisoners/vida-jones.jpg",
+   "file": "vida-jones.jpg",
+   "was": [
+    198,
+    227
+   ],
+   "now": [
+    120,
+    173
+   ],
+   "bytes": 5221
+  },
+  {
+   "slug": "jabari-davis",
+   "photo_path": "prisoners/jabari-davis.jpg",
+   "file": "jabari-davis.jpg",
+   "was": [
+    640,
+    360
+   ],
+   "now": [
+    258,
+    282
+   ],
+   "bytes": 12841
+  },
+  {
+   "slug": "william-tanner",
+   "photo_path": "prisoners/william-tanner.jpg",
+   "file": "william-tanner.jpg",
+   "was": null,
+   "now": [
+    555,
+    799
+   ],
+   "bytes": 109821,
+   "replacement": true
+  }
+ ],
+ "tanner": {
+  "slug": "william-tanner",
+  "source": "https://commons.wikimedia.org/wiki/File:William_Tanner_1927a.jpg",
+  "published": "Ita ja Lansi, no. 11, 1927, p. 164, via the National Library of Finland",
+  "caption": "Finnish politician and wobbly William Tanner (1884-1940)",
+  "rights": "Public domain. Finland: Copyright Act section 49a, a non-artistic photograph, fifty years from creation. United States: published abroad before 1929.",
+  "birthdate": [
+   1884
+  ],
+  "death_date": [
+   1940
+  ]
+ },
+ "note": "The thirteen photographs the framing audit found still padded, plus a replacement for the one broken photo link.\n\nEvery crop was inspected before it was committed, and three needed a second pass. Deyanna Davis first came out with the black bar still attached because the wgrz.com watermark inside it read as picture; she is cropped on column brightness instead, using a high percentile per column so a few bright watermark pixels cannot rescue an otherwise black column. Jackson Patton and Jabari Davis kept a sliver of card border and were tightened by hand.\n\nFile paths and formats are unchanged, so no photo column is rewritten. The three cards stored as PNG stay PNG."
+}
