@@ -1,0 +1,1675 @@
+{
+ "generated_from": "database/data/sweep-ages.py",
+ "rows": [
+  {
+   "slug": "aaron-ellringer",
+   "age": 35,
+   "anchor": "2009-07-16",
+   "year": 1974,
+   "share": 0.54,
+   "kind": "appositive",
+   "phrase": "Aaron Ellringer, age 35,"
+  },
+  {
+   "slug": "aaron-labe-linas",
+   "age": 19,
+   "anchor": "2002-09-20",
+   "year": 1983,
+   "share": 0.721,
+   "kind": "appositive",
+   "phrase": "Aaron Labe Linas, age 19,"
+  },
+  {
+   "slug": "adam-blackwell",
+   "age": 20,
+   "anchor": "2002-09-20",
+   "year": 1982,
+   "share": 0.721,
+   "kind": "appositive",
+   "phrase": "Adam Virden Blackwell, age 20,"
+  },
+  {
+   "slug": "adrian-andrew-martinez",
+   "age": 20,
+   "anchor": "2025-06-17",
+   "year": 2004,
+   "share": 0.54,
+   "kind": "appositive",
+   "phrase": "Adrian Andrew Martinez was a 20-year-old"
+  },
+  {
+   "slug": "alejandro-palacios-rengifo",
+   "age": 32,
+   "anchor": "2009-09-27",
+   "year": 1977,
+   "share": 0.74,
+   "kind": "appositive",
+   "phrase": "Alejandro Palacios Rengifo, age 32,"
+  },
+  {
+   "slug": "alexander-beltran-herrera",
+   "age": 39,
+   "anchor": "2010-12-13",
+   "year": 1971,
+   "share": 0.951,
+   "kind": "appositive",
+   "phrase": "Alexander Beltran Herrera, age 39,"
+  },
+  {
+   "slug": "allan-hoffman",
+   "age": 19,
+   "anchor": "1961-04-28",
+   "year": 1941,
+   "share": 0.677,
+   "kind": "appositive",
+   "phrase": "Allan Hoffman was a 19-year-old"
+  },
+  {
+   "slug": "ana-isabel-pena-arevalo",
+   "age": 47,
+   "anchor": "2007-09-24",
+   "year": 1960,
+   "share": 0.732,
+   "kind": "appositive",
+   "phrase": "Ana Isabel Pena Arevalo, age 47,"
+  },
+  {
+   "slug": "anderson-chamapuro-dogirama",
+   "age": 28,
+   "anchor": "2009-09-27",
+   "year": 1981,
+   "share": 0.74,
+   "kind": "appositive",
+   "phrase": "Anderson Chamapuro Dogirama, age 28,"
+  },
+  {
+   "slug": "andrew-lawrence",
+   "age": 28,
+   "anchor": "1988-04-03",
+   "year": 1959,
+   "share": 0.743,
+   "kind": "appositive",
+   "phrase": "Andrew Lawrence was a 28-year-old"
+  },
+  {
+   "slug": "andrew-smulian",
+   "age": 67,
+   "anchor": "2008-07-29",
+   "year": 1941,
+   "share": 0.575,
+   "kind": "appositive",
+   "phrase": "Andrew Smulian, age 67,"
+  },
+  {
+   "slug": "angela-marie-cesario",
+   "age": 23,
+   "anchor": "2001-05-31",
+   "year": 1977,
+   "share": 0.586,
+   "kind": "appositive",
+   "phrase": "Angela Marie Cesario, age 23,"
+  },
+  {
+   "slug": "antonio-quintana",
+   "age": 22,
+   "anchor": "1975-09-17",
+   "year": 1953,
+   "share": 0.712,
+   "kind": "appositive",
+   "phrase": "Antonio Quintana was a 22-year-old"
+  },
+  {
+   "slug": "austin-nathaniel-nuchraksa",
+   "age": 25,
+   "anchor": "2021-06-01",
+   "year": 1995,
+   "share": 0.582,
+   "kind": "appositive",
+   "phrase": "Austin Nathaniel Nuchraksa, age 25,"
+  },
+  {
+   "slug": "barbara-carter",
+   "age": 22,
+   "anchor": "2013-07-21",
+   "year": 1991,
+   "share": 0.553,
+   "kind": "appositive",
+   "phrase": "Barbara Carter, age 22,"
+  },
+  {
+   "slug": "bill-henry",
+   "age": 27,
+   "anchor": "1960-11-22",
+   "year": 1933,
+   "share": 0.893,
+   "kind": "appositive",
+   "phrase": "Bill Henry was a 27-year-old"
+  },
+  {
+   "slug": "bob-graf",
+   "age": 25,
+   "anchor": "1968-09-23",
+   "year": 1943,
+   "share": 0.729,
+   "kind": "appositive",
+   "phrase": "Bob Graf was a 25-year-old"
+  },
+  {
+   "slug": "bradley-neil-crowder",
+   "age": 23,
+   "anchor": "2008-09-27",
+   "year": 1985,
+   "share": 0.74,
+   "kind": "appositive",
+   "phrase": "Bradley Neil Crowder, age 23,"
+  },
+  {
+   "slug": "brandon-aaron-miller-castillo",
+   "age": 22,
+   "anchor": "2017-02-28",
+   "year": 1994,
+   "share": 0.838,
+   "kind": "appositive",
+   "phrase": "Brandon Aaron Miller-Castillo, age 22,"
+  },
+  {
+   "slug": "brianna-gibson",
+   "age": 28,
+   "anchor": "2019-09-12",
+   "year": 1991,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "28 years old at the time of the arrest"
+  },
+  {
+   "slug": "cailin-elizabeth-major",
+   "age": 25,
+   "anchor": "2010-09-12",
+   "year": 1985,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Cailin Elizabeth Major, age 25,"
+  },
+  {
+   "slug": "cal-ray-biggins",
+   "age": 18,
+   "anchor": "1974-01-11",
+   "year": 1955,
+   "share": 0.97,
+   "kind": "appositive",
+   "phrase": "Cal Ray Biggins was an 18-year-old"
+  },
+  {
+   "slug": "cameron-michael-kraus",
+   "age": 18,
+   "anchor": "1997-03-17",
+   "year": 1978,
+   "share": 0.792,
+   "kind": "appositive",
+   "phrase": "Cameron Michael Kraus, age 18,"
+  },
+  {
+   "slug": "carlos-bayon",
+   "age": 63,
+   "anchor": "2018-08-01",
+   "year": 1955,
+   "share": 0.584,
+   "kind": "appositive",
+   "phrase": "Carlos Bayon, age 63,"
+  },
+  {
+   "slug": "carlos-gamarra-murillo",
+   "age": 54,
+   "anchor": "2005-02-10",
+   "year": 1950,
+   "share": 0.888,
+   "kind": "appositive",
+   "phrase": "Carlos Gamarra-Murillo, age 54,"
+  },
+  {
+   "slug": "cellicia-latoya-hunt",
+   "age": 35,
+   "anchor": "2019-09-16",
+   "year": 1984,
+   "share": 0.71,
+   "kind": "appositive",
+   "phrase": "Cellicia Latoya Hunt, age 35,"
+  },
+  {
+   "slug": "chase-grijalva",
+   "age": 30,
+   "anchor": "2024-06-10",
+   "year": 1993,
+   "share": 0.559,
+   "kind": "present",
+   "phrase": "Chase Payton Grijalva is a 30-year-old"
+  },
+  {
+   "slug": "chelcee-price",
+   "age": 23,
+   "anchor": "2019-09-12",
+   "year": 1996,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Chelcee Price, age 23,"
+  },
+  {
+   "slug": "christian-bufford",
+   "age": 32,
+   "anchor": "2019-09-12",
+   "year": 1987,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "32 years old at the time of the arrest"
+  },
+  {
+   "slug": "christopher-kent-podlesnik",
+   "age": 52,
+   "anchor": "2021-03-23",
+   "year": 1968,
+   "share": 0.775,
+   "kind": "appositive",
+   "phrase": "Christopher Kent Podlesnik, age 52,"
+  },
+  {
+   "slug": "christopher-reynolds",
+   "age": 31,
+   "anchor": "2023-01-18",
+   "year": 1991,
+   "share": 0.951,
+   "kind": "explicit",
+   "phrase": "Age 31 at the time of arrest"
+  },
+  {
+   "slug": "clare-grady",
+   "age": 59,
+   "anchor": "2018-05-01",
+   "year": 1958,
+   "share": 0.668,
+   "kind": "appositive",
+   "phrase": "Clare Therese Grady, age 59,"
+  },
+  {
+   "slug": "cole-asher-taylor-martin",
+   "age": 35,
+   "anchor": "2019-09-12",
+   "year": 1984,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Cole Asher Taylor-Martin, age 35,"
+  },
+  {
+   "slug": "dakota-p-schee",
+   "age": 25,
+   "anchor": "2019-09-12",
+   "year": 1994,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "25 years old at the time of the arrest"
+  },
+  {
+   "slug": "david-eli-baghdadi",
+   "age": 36,
+   "anchor": "2013-08-20",
+   "year": 1977,
+   "share": 0.636,
+   "kind": "appositive",
+   "phrase": "David Eli Baghdadi, age 36,"
+  },
+  {
+   "slug": "david-mckay",
+   "age": 22,
+   "anchor": "2008-09-01",
+   "year": 1986,
+   "share": 0.668,
+   "kind": "appositive",
+   "phrase": "David Guy McKay, age 22,"
+  },
+  {
+   "slug": "david-michael-ansberry",
+   "age": 66,
+   "anchor": "2016-10-14",
+   "year": 1950,
+   "share": 0.786,
+   "kind": "appositive",
+   "phrase": "David Michael Ansberry, age 66,"
+  },
+  {
+   "slug": "diego-alfonso-navarrete-beltran",
+   "age": 44,
+   "anchor": "2010-12-13",
+   "year": 1966,
+   "share": 0.951,
+   "kind": "appositive",
+   "phrase": "Diego Alfonso Navarrete Beltran, age 44,"
+  },
+  {
+   "slug": "don-cotton",
+   "age": 24,
+   "anchor": "1968-09-23",
+   "year": 1944,
+   "share": 0.73,
+   "kind": "appositive",
+   "phrase": "Don Cotton was a 24-year-old"
+  },
+  {
+   "slug": "donald-martin",
+   "age": 20,
+   "anchor": "1960-11-22",
+   "year": 1940,
+   "share": 0.893,
+   "kind": "appositive",
+   "phrase": "Donald Martin was a 20-year-old"
+  },
+  {
+   "slug": "donald-zepeda",
+   "age": 35,
+   "anchor": "2024-02-14",
+   "year": 1988,
+   "share": 0.877,
+   "kind": "appositive",
+   "phrase": "Donald Jose-David Zepeda, age 35,"
+  },
+  {
+   "slug": "doug-marvy",
+   "age": 27,
+   "anchor": "1968-09-23",
+   "year": 1941,
+   "share": 0.729,
+   "kind": "appositive",
+   "phrase": "Doug Marvy was a 27-year-old"
+  },
+  {
+   "slug": "douglas-joshua-ellerman",
+   "age": 19,
+   "anchor": "1997-06-18",
+   "year": 1977,
+   "share": 0.537,
+   "kind": "appositive",
+   "phrase": "Douglas Joshua 'Josh' Ellerman was a 19-year-old"
+  },
+  {
+   "slug": "edilberto-berrio-ortiz",
+   "age": 34,
+   "anchor": "2009-09-27",
+   "year": 1975,
+   "share": 0.74,
+   "kind": "appositive",
+   "phrase": "Edilberto Berrio Ortiz, age 34,"
+  },
+  {
+   "slug": "edward-zabo",
+   "age": 49,
+   "anchor": "1997-06-10",
+   "year": 1947,
+   "share": 0.557,
+   "kind": "appositive",
+   "phrase": "Edward Zabo, age 49,"
+  },
+  {
+   "slug": "elliott-white-haskins",
+   "age": 25,
+   "anchor": "1973-10-03",
+   "year": 1948,
+   "share": 0.757,
+   "kind": "appositive",
+   "phrase": "Elliott White Haskins was a 25-year-old"
+  },
+  {
+   "slug": "eugene-huelsman",
+   "age": 58,
+   "anchor": "2021-05-17",
+   "year": 1962,
+   "share": 0.625,
+   "kind": "appositive",
+   "phrase": "Eugene Huelsman, age 58,"
+  },
+  {
+   "slug": "eva-rose-holland",
+   "age": 25,
+   "anchor": "2005-05-09",
+   "year": 1979,
+   "share": 0.645,
+   "kind": "appositive",
+   "phrase": "Eva Rose Holland, age 25,"
+  },
+  {
+   "slug": "fabio-simon-younes-arboleda",
+   "age": 72,
+   "anchor": "2018-04-12",
+   "year": 1945,
+   "share": 0.721,
+   "kind": "appositive",
+   "phrase": "Fabio Simon Younes Arboleda, age 72,"
+  },
+  {
+   "slug": "faouzi-jaber",
+   "age": 61,
+   "anchor": "2017-04-05",
+   "year": 1955,
+   "share": 0.738,
+   "kind": "appositive",
+   "phrase": "Faouzi Jaber, age 61,"
+  },
+  {
+   "slug": "felix-singer",
+   "age": 32,
+   "anchor": "1961-06-02",
+   "year": 1928,
+   "share": 0.581,
+   "kind": "appositive",
+   "phrase": "Felix Singer was a 32-year-old"
+  },
+  {
+   "slug": "francisco-joseph-arcila-ramirez",
+   "age": 36,
+   "anchor": "2019-03-28",
+   "year": 1982,
+   "share": 0.762,
+   "kind": "appositive",
+   "phrase": "Francisco Joseph Arcila Ramirez, age 36,"
+  },
+  {
+   "slug": "fred-ojile",
+   "age": 23,
+   "anchor": "1968-09-23",
+   "year": 1945,
+   "share": 0.729,
+   "kind": "appositive",
+   "phrase": "Fred Ojile was a 23-year-old"
+  },
+  {
+   "slug": "gabriela-saldana",
+   "age": 23,
+   "anchor": "2026-04-16",
+   "year": 2002,
+   "share": 0.71,
+   "kind": "present",
+   "phrase": "Gabriela Saldana is a 23-year-old"
+  },
+  {
+   "slug": "galen-sol-shireman-grabowski",
+   "age": 24,
+   "anchor": "2020-04-27",
+   "year": 1995,
+   "share": 0.678,
+   "kind": "appositive",
+   "phrase": "Galen Sol Shireman-Grabowski, age 24,"
+  },
+  {
+   "slug": "garrett-fitzgerald",
+   "age": 27,
+   "anchor": "2010-10-18",
+   "year": 1983,
+   "share": 0.797,
+   "kind": "appositive",
+   "phrase": "Garrett Fitzgerald, age 27,"
+  },
+  {
+   "slug": "geoffrey-parsons",
+   "age": 20,
+   "anchor": "2023-01-18",
+   "year": 2002,
+   "share": 0.951,
+   "kind": "explicit",
+   "phrase": "Age 20 at the time of arrest"
+  },
+  {
+   "slug": "gregory-william-loel-timm",
+   "age": 27,
+   "anchor": "2021-04-15",
+   "year": 1993,
+   "share": 0.712,
+   "kind": "appositive",
+   "phrase": "Gregory William Loel Timm, age 27,"
+  },
+  {
+   "slug": "harrison-david-burrows",
+   "age": 18,
+   "anchor": "2004-07-27",
+   "year": 1986,
+   "share": 0.57,
+   "kind": "appositive",
+   "phrase": "Harrison David Burrows, age 18,"
+  },
+  {
+   "slug": "hector-rodriguez-acevedo",
+   "age": 49,
+   "anchor": "2005-05-16",
+   "year": 1955,
+   "share": 0.626,
+   "kind": "appositive",
+   "phrase": "Hector Ignacio Rodriguez-Acevedo (Nacho Rodriguez), age 49,"
+  },
+  {
+   "slug": "heidi-nybroten",
+   "age": 26,
+   "anchor": "2019-09-12",
+   "year": 1993,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Heidi Nybroten, age 26,"
+  },
+  {
+   "slug": "henry-trigos-celon",
+   "age": 43,
+   "anchor": "2020-02-11",
+   "year": 1976,
+   "share": 0.885,
+   "kind": "appositive",
+   "phrase": "Henry Trigos-Celon, age 43,"
+  },
+  {
+   "slug": "hunter-mattin",
+   "age": 20,
+   "anchor": "2021-04-14",
+   "year": 2000,
+   "share": 0.715,
+   "kind": "appositive",
+   "phrase": "Hunter Mattin, age 20,"
+  },
+  {
+   "slug": "irene-kim",
+   "age": 26,
+   "anchor": "2019-09-12",
+   "year": 1993,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "26 years old at the time of the arrest"
+  },
+  {
+   "slug": "jackson-george-green",
+   "age": 27,
+   "anchor": "2024-01-31",
+   "year": 1996,
+   "share": 0.915,
+   "kind": "appositive",
+   "phrase": "Jackson George Green, age 27,"
+  },
+  {
+   "slug": "jacob-david-bardwell-sherman",
+   "age": 20,
+   "anchor": "2001-05-31",
+   "year": 1980,
+   "share": 0.586,
+   "kind": "appositive",
+   "phrase": "Jacob David Bardwell Sherman, age 20,"
+  },
+  {
+   "slug": "james-kenneth-gluck",
+   "age": 53,
+   "anchor": "1999-11-04",
+   "year": 1946,
+   "share": 0.844,
+   "kind": "appositive",
+   "phrase": "James Kenneth Gluck, age 53,"
+  },
+  {
+   "slug": "jason-troff",
+   "age": 19,
+   "anchor": "1996-08-24",
+   "year": 1977,
+   "share": 0.647,
+   "kind": "appositive",
+   "phrase": "Jason Troff, age 19,"
+  },
+  {
+   "slug": "jenny-oconnell-nowain",
+   "age": 41,
+   "anchor": "2024-11-19",
+   "year": 1983,
+   "share": 0.885,
+   "kind": "present",
+   "phrase": "Jenny O'Connell-Nowain is a 41-year-old"
+  },
+  {
+   "slug": "jeremiah-dean-colcleasure",
+   "age": 24,
+   "anchor": "2005-05-09",
+   "year": 1980,
+   "share": 0.647,
+   "kind": "appositive",
+   "phrase": "Jeremiah Dean Colcleasure, age 24,"
+  },
+  {
+   "slug": "jeremy-david-rosenbloom",
+   "age": 25,
+   "anchor": "2001-05-31",
+   "year": 1975,
+   "share": 0.585,
+   "kind": "appositive",
+   "phrase": "Jeremy David Rosenbloom, age 25,"
+  },
+  {
+   "slug": "jerry-gardner",
+   "age": 24,
+   "anchor": "1968-09-23",
+   "year": 1944,
+   "share": 0.73,
+   "kind": "appositive",
+   "phrase": "Jerry Gardner was a 24-year-old"
+  },
+  {
+   "slug": "john-subleski",
+   "age": 32,
+   "anchor": "2021-02-22",
+   "year": 1988,
+   "share": 0.855,
+   "kind": "appositive",
+   "phrase": "John Subleski, age 32,"
+  },
+  {
+   "slug": "jon-higgenbotham",
+   "age": 27,
+   "anchor": "1968-09-23",
+   "year": 1941,
+   "share": 0.729,
+   "kind": "appositive",
+   "phrase": "Jon Higgenbotham was a 27-year-old"
+  },
+  {
+   "slug": "jonathan-butler",
+   "age": 29,
+   "anchor": "2019-09-12",
+   "year": 1990,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Jonathan Butler, age 29,"
+  },
+  {
+   "slug": "jordan-magde-ferrand-sapsis",
+   "age": 24,
+   "anchor": "2010-09-12",
+   "year": 1986,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Jordan Magde Ferrand-Sapsis, age 24,"
+  },
+  {
+   "slug": "jorge-abel-ibarguen-palacio",
+   "age": 40,
+   "anchor": "2009-05-13",
+   "year": 1968,
+   "share": 0.636,
+   "kind": "appositive",
+   "phrase": "Jorge Abel Ibarguen-Palacio (Turbo), age 40,"
+  },
+  {
+   "slug": "jose-gabriel-alvarez-ortiz",
+   "age": 26,
+   "anchor": "2020-02-11",
+   "year": 1993,
+   "share": 0.885,
+   "kind": "appositive",
+   "phrase": "Jose Gabriel Alvarez-Ortiz, age 26,"
+  },
+  {
+   "slug": "joseph-mazzuchelli",
+   "age": 42,
+   "anchor": "1997-06-10",
+   "year": 1954,
+   "share": 0.559,
+   "kind": "appositive",
+   "phrase": "Joseph Mazzuchelli, age 42,"
+  },
+  {
+   "slug": "joshua-stephen-demmitt",
+   "age": 18,
+   "anchor": "2004-07-27",
+   "year": 1986,
+   "share": 0.57,
+   "kind": "appositive",
+   "phrase": "Joshua Stephen Demmitt, age 18,"
+  },
+  {
+   "slug": "julie-a-mcelvain",
+   "age": 36,
+   "anchor": "2019-09-12",
+   "year": 1983,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "36 years old at the time of the arrest"
+  },
+  {
+   "slug": "julio-cesar-irungaray",
+   "age": 56,
+   "anchor": "2026-06-24",
+   "year": 1969,
+   "share": 0.521,
+   "kind": "present",
+   "phrase": "Julio Cesar Irungaray is a 56-year-old"
+  },
+  {
+   "slug": "katherine-christianson",
+   "age": 27,
+   "anchor": "2009-07-16",
+   "year": 1982,
+   "share": 0.54,
+   "kind": "appositive",
+   "phrase": "Katherine Christianson, age 27,"
+  },
+  {
+   "slug": "kyle-shaw",
+   "age": 19,
+   "anchor": "2009-05-28",
+   "year": 1989,
+   "share": 0.595,
+   "kind": "appositive",
+   "phrase": "Kyle Shaw, age 19,"
+  },
+  {
+   "slug": "kyle-wagner",
+   "age": 37,
+   "anchor": "2026-02-05",
+   "year": 1988,
+   "share": 0.902,
+   "kind": "present",
+   "phrase": "Kyle Wagner is a 37-year-old"
+  },
+  {
+   "slug": "lili-marie-holland",
+   "age": 20,
+   "anchor": "2005-05-09",
+   "year": 1984,
+   "share": 0.647,
+   "kind": "appositive",
+   "phrase": "Lili Marie Holland, age 20,"
+  },
+  {
+   "slug": "luce-guillen-givins",
+   "age": 24,
+   "anchor": "2010-10-18",
+   "year": 1986,
+   "share": 0.797,
+   "kind": "appositive",
+   "phrase": "Luce Guillen-Givins, age 24,"
+  },
+  {
+   "slug": "luke-harper",
+   "age": 27,
+   "anchor": "2023-03-05",
+   "year": 1995,
+   "share": 0.822,
+   "kind": "explicit",
+   "phrase": "age 27 of Lake Worth, Florida at the time of arrest"
+  },
+  {
+   "slug": "luz-mery-gutierrez-vergara",
+   "age": 32,
+   "anchor": "2007-09-24",
+   "year": 1975,
+   "share": 0.732,
+   "kind": "appositive",
+   "phrase": "Luz Mery Gutierrez Vergara, age 32,"
+  },
+  {
+   "slug": "mariah-de-los-santos",
+   "age": 23,
+   "anchor": "2019-09-12",
+   "year": 1996,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Mariah De Los Santos, age 23,"
+  },
+  {
+   "slug": "mark-klein",
+   "age": 19,
+   "anchor": "1996-08-24",
+   "year": 1977,
+   "share": 0.647,
+   "kind": "appositive",
+   "phrase": "Mark Klein, age 19,"
+  },
+  {
+   "slug": "matthew-ernest-macar",
+   "age": 30,
+   "anchor": "2023-01-18",
+   "year": 1992,
+   "share": 0.951,
+   "kind": "explicit",
+   "phrase": "Age 30 at the time of arrest"
+  },
+  {
+   "slug": "matthew-lee-comiskey",
+   "age": 38,
+   "anchor": "2022-05-25",
+   "year": 1983,
+   "share": 0.601,
+   "kind": "appositive",
+   "phrase": "Matthew Lee Comiskey, age 38,"
+  },
+  {
+   "slug": "matthew-whyte",
+   "age": 18,
+   "anchor": "2001-01-22",
+   "year": 1982,
+   "share": 0.94,
+   "kind": "appositive",
+   "phrase": "Matthew Whyte, age 18,"
+  },
+  {
+   "slug": "max-specktor",
+   "age": 21,
+   "anchor": "2010-10-18",
+   "year": 1989,
+   "share": 0.797,
+   "kind": "appositive",
+   "phrase": "Max Specktor, age 21,"
+  },
+  {
+   "slug": "michael-cullen",
+   "age": 26,
+   "anchor": "1968-09-23",
+   "year": 1942,
+   "share": 0.729,
+   "kind": "appositive",
+   "phrase": "Michael Cullen was a 26-year-old"
+  },
+  {
+   "slug": "michael-herbert",
+   "age": 36,
+   "anchor": "2019-09-12",
+   "year": 1983,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "36 years old at the time of the arrest"
+  },
+  {
+   "slug": "mickael-gedlu",
+   "age": 36,
+   "anchor": "2019-07-08",
+   "year": 1983,
+   "share": 0.518,
+   "kind": "appositive",
+   "phrase": "Mickael Gedlu, age 36,"
+  },
+  {
+   "slug": "milton-eugene-lindsey",
+   "age": 23,
+   "anchor": "1974-07-21",
+   "year": 1951,
+   "share": 0.553,
+   "kind": "appositive",
+   "phrase": "Milton Eugene Lindsey was a 23-year-old"
+  },
+  {
+   "slug": "mohammed-hoque",
+   "age": 20,
+   "anchor": "2025-03-27",
+   "year": 2004,
+   "share": 0.764,
+   "kind": "appositive",
+   "phrase": "Mohammed Hoque was a 20-year-old"
+  },
+  {
+   "slug": "mohammed-rafiq-butt",
+   "age": 55,
+   "anchor": "2001-09-19",
+   "year": 1946,
+   "share": 0.718,
+   "kind": "appositive",
+   "phrase": "Mohammed Rafiq Butt was a 55-year-old"
+  },
+  {
+   "slug": "mylene-vialard",
+   "age": 54,
+   "anchor": "2021-08-20",
+   "year": 1967,
+   "share": 0.636,
+   "kind": "appositive",
+   "phrase": "Mylene Vialard, age 54,"
+  },
+  {
+   "slug": "nancy-conde-rubio",
+   "age": 37,
+   "anchor": "2007-09-24",
+   "year": 1970,
+   "share": 0.732,
+   "kind": "appositive",
+   "phrase": "Nancy Conde Rubio, age 37,"
+  },
+  {
+   "slug": "nathan-pope",
+   "age": 26,
+   "anchor": "2009-02-19",
+   "year": 1982,
+   "share": 0.863,
+   "kind": "appositive",
+   "phrase": "Nathan Pope, age 26,"
+  },
+  {
+   "slug": "nathanael-secor",
+   "age": 28,
+   "anchor": "2010-10-18",
+   "year": 1982,
+   "share": 0.797,
+   "kind": "appositive",
+   "phrase": "Nathanael Secor, age 28,"
+  },
+  {
+   "slug": "nicholas-ryan-entwistle",
+   "age": 19,
+   "anchor": "2010-09-12",
+   "year": 1991,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Nicholas Ryan Entwistle, age 19,"
+  },
+  {
+   "slug": "nicole-aria-rose",
+   "age": 25,
+   "anchor": "2021-06-01",
+   "year": 1995,
+   "share": 0.582,
+   "kind": "appositive",
+   "phrase": "Nicole Aria Rose, age 25,"
+  },
+  {
+   "slug": "patrick-michael-gerola",
+   "age": 56,
+   "anchor": "2021-01-05",
+   "year": 1964,
+   "share": 0.986,
+   "kind": "appositive",
+   "phrase": "Patrick Michael Gerola, age 56,"
+  },
+  {
+   "slug": "paul-douglas-revak",
+   "age": 20,
+   "anchor": "2003-06-08",
+   "year": 1982,
+   "share": 0.564,
+   "kind": "appositive",
+   "phrase": "Paul Douglas Revak, age 20,"
+  },
+  {
+   "slug": "peter-schnell",
+   "age": 21,
+   "anchor": "2001-01-22",
+   "year": 1979,
+   "share": 0.94,
+   "kind": "appositive",
+   "phrase": "Peter Schnell, age 21,"
+  },
+  {
+   "slug": "piper-werle",
+   "age": 29,
+   "anchor": "2019-09-12",
+   "year": 1990,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Piper Werle, age 29,"
+  },
+  {
+   "slug": "randall-duncan-stezer",
+   "age": 17,
+   "anchor": "2010-09-12",
+   "year": 1993,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Randall Duncan Stezer, age 17,"
+  },
+  {
+   "slug": "rebecca-morgan",
+   "age": 24,
+   "anchor": "2025-07-15",
+   "year": 2001,
+   "share": 0.537,
+   "kind": "explicit",
+   "phrase": "24 years old at the time of her arrest"
+  },
+  {
+   "slug": "rene-christopher-bracamonte",
+   "age": 34,
+   "anchor": "2020-11-22",
+   "year": 1986,
+   "share": 0.893,
+   "kind": "appositive",
+   "phrase": "Rene Christopher Bracamonte, age 34,"
+  },
+  {
+   "slug": "richard-a-sisney",
+   "age": 32,
+   "anchor": "2019-09-12",
+   "year": 1987,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "32 years old at the time of the arrest"
+  },
+  {
+   "slug": "richard-timothy-hernandez",
+   "age": 56,
+   "anchor": "2022-10-03",
+   "year": 1966,
+   "share": 0.756,
+   "kind": "appositive",
+   "phrase": "Richard Timothy Hernandez, age 56,"
+  },
+  {
+   "slug": "rickey-johnson",
+   "age": 47,
+   "anchor": "2021-03-21",
+   "year": 1973,
+   "share": 0.781,
+   "kind": "appositive",
+   "phrase": "Rickey Johnson, age 47,"
+  },
+  {
+   "slug": "robert-czernik",
+   "age": 35,
+   "anchor": "2010-10-18",
+   "year": 1975,
+   "share": 0.797,
+   "kind": "appositive",
+   "phrase": "Robert Czernik, age 35,"
+  },
+  {
+   "slug": "ronald-derisi",
+   "age": 74,
+   "anchor": "2018-10-18",
+   "year": 1944,
+   "share": 0.798,
+   "kind": "appositive",
+   "phrase": "Ronald DeRisi, age 74,"
+  },
+  {
+   "slug": "roque-orobio-lobon",
+   "age": 46,
+   "anchor": "2009-09-27",
+   "year": 1963,
+   "share": 0.74,
+   "kind": "appositive",
+   "phrase": "Roque Orobio Lobon, age 46,"
+  },
+  {
+   "slug": "rowan-mcmanigal",
+   "age": 19,
+   "anchor": "2022-04-14",
+   "year": 2002,
+   "share": 0.715,
+   "kind": "appositive",
+   "phrase": "Rowan McManigal, age 19,"
+  },
+  {
+   "slug": "ryan-daniel-lewis",
+   "age": 21,
+   "anchor": "2005-05-09",
+   "year": 1983,
+   "share": 0.645,
+   "kind": "appositive",
+   "phrase": "Ryan Daniel Lewis, age 21,"
+  },
+  {
+   "slug": "ryan-durfee",
+   "age": 19,
+   "anchor": "1996-08-24",
+   "year": 1977,
+   "share": 0.647,
+   "kind": "appositive",
+   "phrase": "Ryan Durfee, age 19,"
+  },
+  {
+   "slug": "ryan-harris",
+   "age": 41,
+   "anchor": "2019-09-12",
+   "year": 1978,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Ryan Harris, age 41,"
+  },
+  {
+   "slug": "salah-sarsour",
+   "age": 53,
+   "anchor": "2026-03-30",
+   "year": 1972,
+   "share": 0.756,
+   "kind": "appositive",
+   "phrase": "Salah Sarsour, age 53,"
+  },
+  {
+   "slug": "sarah-newman",
+   "age": 42,
+   "anchor": "2019-09-12",
+   "year": 1977,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "42 years old at the time of the arrest"
+  },
+  {
+   "slug": "sarah-wasilewski",
+   "age": 35,
+   "anchor": "2023-01-18",
+   "year": 1987,
+   "share": 0.951,
+   "kind": "explicit",
+   "phrase": "Age 35 at the time of arrest"
+  },
+  {
+   "slug": "shamim-mafi",
+   "age": 44,
+   "anchor": "2026-04-18",
+   "year": 1981,
+   "share": 0.704,
+   "kind": "present",
+   "phrase": "Shamim Mafi is a 44-year-old"
+  },
+  {
+   "slug": "shavone-torres",
+   "age": 39,
+   "anchor": "2019-09-12",
+   "year": 1980,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Shavone Torres, age 39,"
+  },
+  {
+   "slug": "spencer-bernard-liberto",
+   "age": 29,
+   "anchor": "2023-01-18",
+   "year": 1993,
+   "share": 0.951,
+   "kind": "explicit",
+   "phrase": "Age 29 at the time of arrest"
+  },
+  {
+   "slug": "susan-marie-parker",
+   "age": 21,
+   "anchor": "1969-04-03",
+   "year": 1947,
+   "share": 0.743,
+   "kind": "appositive",
+   "phrase": "Susan Marie Parker was a 21-year-old"
+  },
+  {
+   "slug": "suzanne-muscara",
+   "age": 37,
+   "anchor": "2019-04-16",
+   "year": 1981,
+   "share": 0.71,
+   "kind": "appositive",
+   "phrase": "Suzanne Muscara, age 37,"
+  },
+  {
+   "slug": "sydney-clifford",
+   "age": 21,
+   "anchor": "2019-09-12",
+   "year": 1998,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "21 years old at the time of the arrest"
+  },
+  {
+   "slug": "tamura-r-seiji",
+   "age": 29,
+   "anchor": "2019-09-12",
+   "year": 1990,
+   "share": 0.699,
+   "kind": "explicit",
+   "phrase": "29 years old at the time of the arrest"
+  },
+  {
+   "slug": "tareq-mousa-al-ghazi",
+   "age": 62,
+   "anchor": "2007-06-21",
+   "year": 1944,
+   "share": 0.529,
+   "kind": "appositive",
+   "phrase": "Tareq Mousa Al Ghazi, age 62,"
+  },
+  {
+   "slug": "teresa-yue-shen",
+   "age": 31,
+   "anchor": "2023-01-18",
+   "year": 1991,
+   "share": 0.951,
+   "kind": "explicit",
+   "phrase": "Age 31 at the time of arrest"
+  },
+  {
+   "slug": "therese-patricia-okoumou",
+   "age": 45,
+   "anchor": "2018-07-04",
+   "year": 1973,
+   "share": 0.507,
+   "kind": "appositive",
+   "phrase": "Therese Patricia Okoumou, age 45,"
+  },
+  {
+   "slug": "thomas-alexander-starks",
+   "age": 30,
+   "anchor": "2021-01-12",
+   "year": 1990,
+   "share": 0.967,
+   "kind": "appositive",
+   "phrase": "Thomas Alexander Starks, age 30,"
+  },
+  {
+   "slug": "thomas-welnicki",
+   "age": 71,
+   "anchor": "2022-01-06",
+   "year": 1950,
+   "share": 0.984,
+   "kind": "appositive",
+   "phrase": "Thomas Welnicki, age 71,"
+  },
+  {
+   "slug": "tiffani-shea-gish",
+   "age": 49,
+   "anchor": "2022-09-26",
+   "year": 1973,
+   "share": 0.737,
+   "kind": "appositive",
+   "phrase": "Tiffani Shea Gish, age 49,"
+  },
+  {
+   "slug": "timothy-adams",
+   "age": 25,
+   "anchor": "1973-10-03",
+   "year": 1948,
+   "share": 0.757,
+   "kind": "appositive",
+   "phrase": "Timothy Adams was a 25-year-old"
+  },
+  {
+   "slug": "timothy-murphy",
+   "age": 25,
+   "anchor": "2023-01-19",
+   "year": 1997,
+   "share": 0.948,
+   "kind": "explicit",
+   "phrase": "Age 25 at the time of arrest"
+  },
+  {
+   "slug": "tommy-lee-hines",
+   "age": 25,
+   "anchor": "1978-05-23",
+   "year": 1952,
+   "share": 0.608,
+   "kind": "appositive",
+   "phrase": "Tommy Lee Hines was a 25-year-old"
+  },
+  {
+   "slug": "tracye-redd",
+   "age": 28,
+   "anchor": "2019-09-12",
+   "year": 1991,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Tracye Redd, age 28,"
+  },
+  {
+   "slug": "vicci-hamlin",
+   "age": 60,
+   "anchor": "2013-07-21",
+   "year": 1953,
+   "share": 0.553,
+   "kind": "appositive",
+   "phrase": "Vicci Hamlin, age 60,"
+  },
+  {
+   "slug": "william-james-viehl",
+   "age": 23,
+   "anchor": "2009-03-03",
+   "year": 1985,
+   "share": 0.83,
+   "kind": "appositive",
+   "phrase": "William James Viehl, age 23,"
+  },
+  {
+   "slug": "wyatt-sherman-allgeier",
+   "age": 19,
+   "anchor": "2010-09-12",
+   "year": 1991,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Wyatt Sherman Allgeier, age 19,"
+  },
+  {
+   "slug": "yaakub-ira-vijandre",
+   "age": 38,
+   "anchor": "2025-10-06",
+   "year": 1987,
+   "share": 0.764,
+   "kind": "present",
+   "phrase": "Yaakub Ira Vijandre is a 38-year-old"
+  },
+  {
+   "slug": "yamit-picon-rodriguez",
+   "age": 36,
+   "anchor": "2020-02-11",
+   "year": 1983,
+   "share": 0.885,
+   "kind": "appositive",
+   "phrase": "Yamit Picon-Rodriguez, age 36,"
+  },
+  {
+   "slug": "yarlei-banol-ramos",
+   "age": 35,
+   "anchor": "2009-05-13",
+   "year": 1973,
+   "share": 0.636,
+   "kind": "appositive",
+   "phrase": "Yarlei Banol-Ramos (Diana), age 35,"
+  },
+  {
+   "slug": "zeph-fishlyn",
+   "age": 52,
+   "anchor": "2019-09-12",
+   "year": 1967,
+   "share": 0.699,
+   "kind": "appositive",
+   "phrase": "Zeph Fishlyn, age 52,"
+  }
+ ],
+ "held_back": [
+  {
+   "slug": "aida-mccray-robinson",
+   "age": 20,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Aida McCray Robinson was a 20-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "ann-morton",
+   "age": 23,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "Ann Morton was a 23-year-old",
+   "raw_dates": [
+    "1934"
+   ]
+  },
+  {
+   "slug": "arsen-yerganian",
+   "age": 67,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Arsen Yerganian was a 67-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "barbara-broxton",
+   "age": 20,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Barbara Broxton was a 20-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "bruce-washington",
+   "age": 26,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Bruce \"Deacon\" Washington was a 26-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "carmen-maria-ponton-caro",
+   "age": 38,
+   "why": "anchor 2006-01-01 is January 1-2, the value a year-precision date collapses to",
+   "phrase": "Carmen Maria Ponton Caro (La Negra), age 38,",
+   "raw_dates": [
+    "2006-01-01"
+   ]
+  },
+  {
+   "slug": "charles-wakefield",
+   "age": 21,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Charles Wakefield was a 21-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "concepcion-estrada-correa",
+   "age": 17,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Concepcion Estrada Correa was a 17-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "connie-wilson",
+   "age": 19,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "A 19-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "david-butler",
+   "age": 17,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "David Butler was a 17-year-old",
+   "raw_dates": [
+    "1938"
+   ]
+  },
+  {
+   "slug": "delia-gonzalez",
+   "age": 39,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "A 39-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "edizon-ramirez-gamboa",
+   "age": 40,
+   "why": "anchor 2006-01-02 is January 1-2, the value a year-precision date collapses to",
+   "phrase": "Edizon Ramirez Gamboa, age 40,",
+   "raw_dates": [
+    "2006-01-02"
+   ]
+  },
+  {
+   "slug": "elizabeth-just",
+   "age": 20,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Elizabeth Just was a 20-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "frank-nubin",
+   "age": 46,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Frank Nubin was a 46-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "george-washington-henson",
+   "age": 65,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "George Washington Henson was a 65-year-old",
+   "raw_dates": [
+    "1935"
+   ]
+  },
+  {
+   "slug": "gus-polites",
+   "age": 59,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Gus Polites was a 59-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "hamish-scott-mackay",
+   "age": 55,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Hamish Scott MacKay was a 55-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "henry-matthews",
+   "age": 17,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Henry Matthews, who used the alias Massio, was a 17-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "james-edward-garrett",
+   "age": 25,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "A 25-year-old",
+   "raw_dates": [
+    "1975"
+   ]
+  },
+  {
+   "slug": "james-reynolds-mendoza",
+   "age": 19,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "James Reynolds Mendoza was a 19-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "jennifer-greenberg",
+   "age": 17,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Jennifer Greenberg was a 17-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "jerome-singleton",
+   "age": 30,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "A 30-year-old",
+   "raw_dates": [
+    "1979"
+   ]
+  },
+  {
+   "slug": "jose-tito-libio-ulloa-melo",
+   "age": 46,
+   "why": "anchor 2006-01-01 is January 1-2, the value a year-precision date collapses to",
+   "phrase": "Jose Tito Libio Ulloa Melo, age 46,",
+   "raw_dates": [
+    "2006-01-01"
+   ]
+  },
+  {
+   "slug": "joseph-e-mulligan",
+   "age": 25,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "A Jesuit seminarian (Society of Jesus) at the time, age 25,",
+   "raw_dates": []
+  },
+  {
+   "slug": "joseph-ybarra",
+   "age": 21,
+   "why": "present tense \"is a 21-year-old\" against a 2020 arrest — that is the age when the entry was written, not at the arrest",
+   "phrase": "Joseph Ybarra is a 21-year-old",
+   "raw_dates": [
+    "2020-07-23"
+   ]
+  },
+  {
+   "slug": "joyce-guerrero",
+   "age": 27,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Joyce Guerrero was a 27-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "leslie-bacon",
+   "age": 19,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Leslie Bacon was a 19-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "linda-rosenstock",
+   "age": 18,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Linda Rosenstock was an 18-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "luis-alfredo-daza-morales",
+   "age": 48,
+   "why": "anchor 2006-01-01 is January 1-2, the value a year-precision date collapses to",
+   "phrase": "Luis Alfredo Daza Morales, age 48,",
+   "raw_dates": [
+    "2006-01-01"
+   ]
+  },
+  {
+   "slug": "naomi-williams",
+   "age": 19,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Naomi Williams was a 19-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "nicolas-tapasco-romero",
+   "age": 45,
+   "why": "anchor 2006-01-02 is January 1-2, the value a year-precision date collapses to",
+   "phrase": "Nicolas Ricardo Tapasco Romero, age 45,",
+   "raw_dates": [
+    "2006-01-02"
+   ]
+  },
+  {
+   "slug": "pedro-antonio-rios",
+   "age": 22,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Pedro Antonio Rios was a 22-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "richard-zink",
+   "age": 20,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Richard Zink was a 20-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "robert-earl-may-jr",
+   "age": 14,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "A 14-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "rose-jackson",
+   "age": 38,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "Rose Jackson was a 38-year-old",
+   "raw_dates": [
+    "1938"
+   ]
+  },
+  {
+   "slug": "thomas-dutton",
+   "age": 70,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Thomas Dutton was a 70-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "victor-daniel-salamanca",
+   "age": 63,
+   "why": "anchor 2006-01-01 is January 1-2, the value a year-precision date collapses to",
+   "phrase": "Victor Daniel Salamanca (El Viejito), age 63,",
+   "raw_dates": [
+    "2006-01-01"
+   ]
+  },
+  {
+   "slug": "welton-armstead",
+   "age": 17,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "Welton \"Butch\" Armstead was a 17-year-old",
+   "raw_dates": []
+  },
+  {
+   "slug": "william-anderson",
+   "age": 19,
+   "why": "no day-precision arrest date to anchor to",
+   "phrase": "William Anderson was a 19-year-old",
+   "raw_dates": [
+    "1940"
+   ]
+  },
+  {
+   "slug": "william-mackie",
+   "age": 49,
+   "why": "no arrest or incarceration date at all",
+   "phrase": "William Mackie was a 49-year-old",
+   "raw_dates": []
+  }
+ ],
+ "note": "Birth years worked back from ages the descriptions already state, for records that carry no birthdate. Stored at circa precision, which renders \"c. 1974\" and means plus or minus one year — the exact uncertainty an age creates. The script recomputes each year from the stored arrest date rather than trusting the payload, and refuses any record that already has a birthdate."
+}
