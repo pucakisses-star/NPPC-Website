@@ -1,0 +1,26 @@
+{
+ "note": "Three curated links added to the dashboard newswire. The feed already carried 1,105 items — 1,052 DashboardLinks and 53 Articles — running from May 7, 2025 (the tracker start) to August 2, 2026, so what was missing was the last few days rather than bulk. Every item here is a real article: the URL came back from a search, was fetched and returned HTTP 200, and the headline, source and date are as published. Nothing is paraphrased into a headline and no URL is constructed. No coordinates are set on any of them, so none produces a map marker — a pin asserts where an event happened, and these are national stories rather than located ones.",
+ "links": [
+  {
+   "title": "The DOJ is increasingly charging ICE protesters with criminal conspiracy",
+   "url": "https://www.nprillinois.org/2026-08-03/the-doj-is-increasingly-charging-ice-protesters-with-criminal-conspiracy",
+   "source": "NPR",
+   "category": "prosecution",
+   "published_at": "2026-08-03 12:00:00"
+  },
+  {
+   "title": "She protested ICE raids. Then agents showed up at her door",
+   "url": "https://www.kpbs.org/news/national/2026/08/03/she-protested-ice-raids-then-agents-showed-up-at-her-door",
+   "source": "KPBS",
+   "category": "arrest",
+   "published_at": "2026-08-03 12:00:00"
+  },
+  {
+   "title": "US Inciting Global Persecution of Dissidents",
+   "url": "https://consortiumnews.com/2026/08/04/us-inciting-global-persecution-of-dissidents/",
+   "source": "Consortium News",
+   "category": "other",
+   "published_at": "2026-08-04 12:00:00"
+  }
+ ]
+}
