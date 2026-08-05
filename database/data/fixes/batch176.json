@@ -1,0 +1,781 @@
+{
+ "source": {
+  "catalog": "Civil Rights Digital Library (CRDL), Mississippi State Sovereignty Commission arrest photographs, with partner records at the Mississippi Department of Archives and History",
+  "scope": "Jackson, Mississippi, 1961 — the Freedom Ride arrests and the March 27 library sit-in",
+  "ledger_entries_read": 1355,
+  "distinct_names_parsed": 377
+ },
+ "partial_dates": {
+  "margaret-winonah-beamer": {
+   "birthdate": [
+    1941
+   ],
+   "death_date": [
+    2018
+   ]
+  },
+  "carol-ruth-silver": {
+   "birthdate": [
+    1938
+   ]
+  },
+  "ralph-edward-washington": {
+   "birthdate": [
+    1936
+   ]
+  },
+  "obadiah-lee-simms": {
+   "birthdate": [
+    1939
+   ],
+   "death_date": [
+    1999
+   ]
+  },
+  "helene-dorothy-wilson": {
+   "birthdate": [
+    1935
+   ]
+  },
+  "jan-leighton-triggs": {
+   "birthdate": [
+    1941
+   ]
+  },
+  "patricia-elaine-bryant": {
+   "birthdate": [
+    1940
+   ]
+  }
+ },
+ "months": {
+  "margaret-winonah-beamer": 6
+ },
+ "tougaloo_backfill": {
+  "slugs": [
+   "alfred-lee-cook",
+   "evelyn-pierce",
+   "meredith-coleman-anding-jr"
+  ],
+  "release_date": "1961-03-28",
+  "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+  "note": "\n\nThe library sit-in cost each of the nine about thirty-two hours in municipal custody. They were released on March 28, 1961 for court, convicted of disturbing the peace, fined $100 each and given thirty-day suspended sentences.",
+  "marker": "released on March 28, 1961 for court",
+  "incarceration_date": "1961-03-27"
+ },
+ "held_back": [
+  {
+   "name": "Lewell A. Cecil",
+   "why": "The archive already holds Lewell A. Woods Jr., arrested in the same June 10, 1961 Jackson group. Lewell A. is not a name two men in one arrest group are likely to share, and the two forms come from separate passes over the catalog rather than from one list naming both. Creating this record risks publishing one man twice under a garbled surname. It needs the item-level catalog record to settle."
+  },
+  {
+   "name": "Jesse James Harris",
+   "why": "Catalogued as a June 2, 1961 arrest, distinct from the July 6 Livingston Park arrest of Jesse Harris — who is already here as Jessie L. Harris. The source asserts they are two people but rates that only moderate, and flags a possible identity overlap needing biographical comparison. One SNCC organiser named Jesse Harris is documented for 1961. Not created."
+  }
+ ],
+ "rows": [
+  {
+   "name": "Janice LaJune Jackson",
+   "first_name": "Janice",
+   "last_name": "Jackson",
+   "description": "Janice LaJune Jackson was one of the Tougaloo Nine, the nine Tougaloo College students who walked into the whites-only main branch of the Jackson public library on March 27, 1961, asked for service and refused a police order to leave. They were arrested for breach of the peace, held about thirty-two hours, and released on March 28 for court. Each was convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence.\n\nThe Mississippi State Sovereignty Commission photographed each of them on arrest, and the Civil Rights Digital Library preserves the individual sit-in mugshots. The catalog does not name the jail that held them.\n\nShe is recorded in later life as Janice Jackson Vails.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961.",
+     "arrest_date": "1961-03-27",
+     "release_date": "1961-03-28",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27 at the main branch of the Jackson public library and held about thirty-two hours. Released 1961-03-28 for court, convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence. The custody was municipal; the Civil Rights Digital Library does not name the facility.",
+     "incarceration_date": "1961-03-27"
+    }
+   ],
+   "middle_name": "LaJune",
+   "gender": "Female",
+   "aka": "Janice Jackson Vails"
+  },
+  {
+   "name": "James Cleo Bradford",
+   "first_name": "James",
+   "last_name": "Bradford",
+   "description": "James Cleo Bradford was one of the Tougaloo Nine, the nine Tougaloo College students who walked into the whites-only main branch of the Jackson public library on March 27, 1961, asked for service and refused a police order to leave. They were arrested for breach of the peace, held about thirty-two hours, and released on March 28 for court. Each was convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence.\n\nThe Mississippi State Sovereignty Commission photographed each of them on arrest, and the Civil Rights Digital Library preserves the individual sit-in mugshots. The catalog does not name the jail that held them.\n\nHe is generally known as James “Sammy” Bradford.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961.",
+     "arrest_date": "1961-03-27",
+     "release_date": "1961-03-28",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27 at the main branch of the Jackson public library and held about thirty-two hours. Released 1961-03-28 for court, convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence. The custody was municipal; the Civil Rights Digital Library does not name the facility.",
+     "incarceration_date": "1961-03-27"
+    }
+   ],
+   "middle_name": "Cleo",
+   "gender": "Male",
+   "aka": "James “Sammy” Bradford"
+  },
+  {
+   "name": "Geraldine Edwards",
+   "first_name": "Geraldine",
+   "last_name": "Edwards",
+   "description": "Geraldine Edwards was one of the Tougaloo Nine, the nine Tougaloo College students who walked into the whites-only main branch of the Jackson public library on March 27, 1961, asked for service and refused a police order to leave. They were arrested for breach of the peace, held about thirty-two hours, and released on March 28 for court. Each was convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence.\n\nThe Mississippi State Sovereignty Commission photographed each of them on arrest, and the Civil Rights Digital Library preserves the individual sit-in mugshots. The catalog does not name the jail that held them.\n\nShe is recorded in later life as Geraldine Edwards Hollis. The Mississippi Department of Archives and History collection history also spells her forename Jeraldine.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961.",
+     "arrest_date": "1961-03-27",
+     "release_date": "1961-03-28",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27 at the main branch of the Jackson public library and held about thirty-two hours. Released 1961-03-28 for court, convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence. The custody was municipal; the Civil Rights Digital Library does not name the facility.",
+     "incarceration_date": "1961-03-27"
+    }
+   ],
+   "gender": "Female",
+   "aka": "Geraldine Edwards Hollis; Jeraldine Edwards"
+  },
+  {
+   "name": "Ethel Sawyer",
+   "first_name": "Ethel",
+   "last_name": "Sawyer",
+   "description": "Ethel Sawyer was one of the Tougaloo Nine, the nine Tougaloo College students who walked into the whites-only main branch of the Jackson public library on March 27, 1961, asked for service and refused a police order to leave. They were arrested for breach of the peace, held about thirty-two hours, and released on March 28 for court. Each was convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence.\n\nThe Mississippi State Sovereignty Commission photographed each of them on arrest, and the Civil Rights Digital Library preserves the individual sit-in mugshots. The catalog does not name the jail that held them.\n\nShe is recorded in later life as Ethel Sawyer Adolphe.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961.",
+     "arrest_date": "1961-03-27",
+     "release_date": "1961-03-28",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27 at the main branch of the Jackson public library and held about thirty-two hours. Released 1961-03-28 for court, convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence. The custody was municipal; the Civil Rights Digital Library does not name the facility.",
+     "incarceration_date": "1961-03-27"
+    }
+   ],
+   "gender": "Female",
+   "aka": "Ethel Sawyer Adolphe"
+  },
+  {
+   "name": "Albert Earl Lassiter",
+   "first_name": "Albert",
+   "last_name": "Lassiter",
+   "description": "Albert Earl Lassiter was one of the Tougaloo Nine, the nine Tougaloo College students who walked into the whites-only main branch of the Jackson public library on March 27, 1961, asked for service and refused a police order to leave. They were arrested for breach of the peace, held about thirty-two hours, and released on March 28 for court. Each was convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence.\n\nThe Mississippi State Sovereignty Commission photographed each of them on arrest, and the Civil Rights Digital Library preserves the individual sit-in mugshots. The catalog does not name the jail that held them.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961.",
+     "arrest_date": "1961-03-27",
+     "release_date": "1961-03-28",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27 at the main branch of the Jackson public library and held about thirty-two hours. Released 1961-03-28 for court, convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence. The custody was municipal; the Civil Rights Digital Library does not name the facility.",
+     "incarceration_date": "1961-03-27"
+    }
+   ],
+   "middle_name": "Earl",
+   "gender": "Male"
+  },
+  {
+   "name": "Joseph Jackson Jr.",
+   "first_name": "Joseph",
+   "last_name": "Jackson",
+   "description": "Joseph Jackson Jr. was one of the Tougaloo Nine, the nine Tougaloo College students who walked into the whites-only main branch of the Jackson public library on March 27, 1961, asked for service and refused a police order to leave. They were arrested for breach of the peace, held about thirty-two hours, and released on March 28 for court. Each was convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence.\n\nThe Mississippi State Sovereignty Commission photographed each of them on arrest, and the Civil Rights Digital Library preserves the individual sit-in mugshots. The catalog does not name the jail that held them.\n\nHe was held on his own for at least part of the thirty-two hours.\n\nNo birth date is recorded. An interview in 2026 described him as eighty-eight, which would put his birth in 1937 or 1938; because that spans two years and rests on a reported age rather than a record, no birth year is stored here.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Tougaloo Nine — sit-in at the main branch of the Jackson public library, arrested March 27, 1961.",
+     "arrest_date": "1961-03-27",
+     "release_date": "1961-03-28",
+     "convicted": "Yes — disturbing the peace; $100 fine and a thirty-day suspended sentence",
+     "sentence": "Arrested 1961-03-27 at the main branch of the Jackson public library and held about thirty-two hours. Released 1961-03-28 for court, convicted of disturbing the peace, fined $100 and given a thirty-day suspended sentence. The custody was municipal; the Civil Rights Digital Library does not name the facility.",
+     "incarceration_date": "1961-03-27"
+    }
+   ],
+   "gender": "Male"
+  },
+  {
+   "name": "Carolyn Yvonne Reed",
+   "first_name": "Carolyn",
+   "last_name": "Reed",
+   "description": "Carolyn Yvonne Reed was arrested in Jackson, Mississippi, on June 2, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nShe was twenty-one and working as a nurse's aide associated with Meharry Hospital. She was taken at the Jackson Trailways terminal, which the Montgomery-to-Jackson group reached at about 6:55 p.m.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 2, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-02. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-02"
+    }
+   ],
+   "middle_name": "Yvonne",
+   "gender": "Female"
+  },
+  {
+   "name": "Elizabeth Porter Wyckoff",
+   "first_name": "Elizabeth",
+   "last_name": "Wyckoff",
+   "description": "Elizabeth Porter Wyckoff was arrested in Jackson, Mississippi, on June 2, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 2, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-02. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-02"
+    }
+   ],
+   "middle_name": "Porter",
+   "gender": "Female"
+  },
+  {
+   "name": "Leslie Word",
+   "first_name": "Leslie",
+   "last_name": "Word",
+   "description": "Leslie Word was arrested in Jackson, Mississippi, on June 2, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nThe catalog records the arrest and the photograph and nothing further; it does not establish gender, dates of birth or death, or any other name form.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 2, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-02. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-02"
+    }
+   ]
+  },
+  {
+   "name": "Richard LeRoy Gleason",
+   "first_name": "Richard",
+   "last_name": "Gleason",
+   "description": "Richard LeRoy Gleason was arrested in Jackson, Mississippi, on June 2, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nThe Sovereignty Commission photograph is filed under his clerical title.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 2, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-02. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-02"
+    }
+   ],
+   "middle_name": "LeRoy",
+   "gender": "Male",
+   "aka": "Reverend Richard Gleason"
+  },
+  {
+   "name": "Harold Andrews",
+   "first_name": "Harold",
+   "last_name": "Andrews",
+   "description": "Harold Andrews was arrested in Jackson, Mississippi, on May 24, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe was twenty-three, a Morehouse College student and a member of the Committee on Appeal for Human Rights, and rode from Montgomery to Jackson.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, May 24, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-05-24. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-05-24"
+    }
+   ],
+   "gender": "Male"
+  },
+  {
+   "name": "Joseph Carter",
+   "first_name": "Joseph",
+   "last_name": "Carter",
+   "description": "Joseph Carter was arrested in Jackson, Mississippi, on May 24, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe was twenty-two and a student at the American Baptist Theological Seminary. He rode from Nashville to Montgomery between May 17 and 21 and went on to Jackson. He sang in the Nashville Quartet with James Bevel, Bernard Lafayette and Samuel Collier.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, May 24, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-05-24. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-05-24"
+    }
+   ],
+   "gender": "Male"
+  },
+  {
+   "name": "Matthew Walker Jr.",
+   "first_name": "Matthew",
+   "last_name": "Walker",
+   "description": "Matthew Walker Jr. was arrested in Jackson, Mississippi, on May 24, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHis person page in the catalog also carries movement photographs unconnected to the arrest; the identification photograph is the Sovereignty Commission item titled as his post-arrest picture.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, May 24, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-05-24. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-05-24"
+    }
+   ],
+   "gender": "Male",
+   "aka": "Reverend Matthew Walker Jr."
+  },
+  {
+   "name": "Alexander Mattahan Anderson",
+   "first_name": "Alexander",
+   "last_name": "Anderson",
+   "description": "Alexander Mattahan Anderson was arrested in Jackson, Mississippi, on May 24, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe was the pastor of an African Methodist Episcopal church in Nashville and rode the Trailways bus from Montgomery to Jackson. The mugshot title is what supplies the middle name Mattahan; he is indexed elsewhere as Alexander M. Anderson.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, May 24, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-05-24. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-05-24"
+    }
+   ],
+   "middle_name": "Mattahan",
+   "gender": "Male",
+   "aka": "Alexander M. Anderson; Reverend Alexander Anderson"
+  },
+  {
+   "name": "William E. Harbour",
+   "first_name": "William",
+   "last_name": "Harbour",
+   "description": "William E. Harbour was arrested in Jackson, Mississippi, on May 28, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, May 28, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-05-28. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-05-28"
+    }
+   ],
+   "middle_name": "E.",
+   "gender": "Male"
+  },
+  {
+   "name": "Heath Cliff Rush",
+   "first_name": "Heath",
+   "last_name": "Rush",
+   "description": "Heath Cliff Rush was arrested in Jackson, Mississippi, on June 9, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nThe catalog titles the photograph Heath Rush; the expanded middle name Cliff comes from the rider roster rather than the catalog, and gender is not recorded.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 9, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-09. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-09"
+    }
+   ],
+   "middle_name": "Cliff",
+   "aka": "Heath Rush"
+  },
+  {
+   "name": "Patricia Elaine Bryant",
+   "first_name": "Patricia",
+   "last_name": "Bryant",
+   "description": "Patricia Elaine Bryant was arrested in Jackson, Mississippi, on June 9, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nShe was one of five riders who came by train from Nashville and were arrested at the Illinois Central terminal in Jackson.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 9, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-09. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-09"
+    }
+   ],
+   "middle_name": "Elaine",
+   "gender": "Female"
+  },
+  {
+   "name": "Jane Ellen Rosett",
+   "first_name": "Jane",
+   "last_name": "Rosett",
+   "description": "Jane Ellen Rosett was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 8, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-08"
+    }
+   ],
+   "middle_name": "Ellen",
+   "gender": "Female"
+  },
+  {
+   "name": "Robert Wesby",
+   "first_name": "Robert",
+   "last_name": "Wesby",
+   "description": "Robert Wesby was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nThe Sovereignty Commission photograph is filed under his clerical title.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 8, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-08"
+    }
+   ],
+   "gender": "Male",
+   "aka": "Reverend Robert Wesby"
+  },
+  {
+   "name": "Helene Dorothy Wilson",
+   "first_name": "Helene",
+   "last_name": "Wilson",
+   "description": "Helene Dorothy Wilson was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nShe was twenty-six, a housewife from Washington, D.C., and travelled up from New Orleans on the Illinois Central Railroad.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 8, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-08"
+    }
+   ],
+   "middle_name": "Dorothy",
+   "gender": "Female"
+  },
+  {
+   "name": "Jan Leighton Triggs",
+   "first_name": "Jan",
+   "last_name": "Triggs",
+   "description": "Jan Leighton Triggs was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe came from New Orleans on the Illinois Central Railroad with nine other riders. The photograph is titled Jan L. Triggs.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 8, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-08"
+    }
+   ],
+   "middle_name": "Leighton",
+   "gender": "Male",
+   "aka": "Jan L. Triggs"
+  },
+  {
+   "name": "Michael J. Audain",
+   "first_name": "Michael",
+   "last_name": "Audain",
+   "description": "Michael J. Audain was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 8, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-08"
+    }
+   ],
+   "middle_name": "J.",
+   "gender": "Male"
+  },
+  {
+   "name": "Gwendolyn Green",
+   "first_name": "Gwendolyn",
+   "last_name": "Green",
+   "description": "Gwendolyn Green was arrested in Jackson, Mississippi, on June 8, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nThe catalog flags her name as questionable — it prints Gwendolyn Green followed by [sic] — so the spelling recorded here is the catalog's own and may not be the form she used. No alternate spelling has been established, and the name is kept as the record gives it rather than quietly corrected.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 8, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-08. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-08"
+    }
+   ],
+   "gender": "Female"
+  },
+  {
+   "name": "Carol Ruth Silver",
+   "first_name": "Carol",
+   "last_name": "Silver",
+   "description": "Carol Ruth Silver was arrested in Jackson, Mississippi, on June 7, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nShe was working as a secretary and clerk at the United Nations and rode Trailways from Nashville through Memphis with five others. Her catalog page also carries an oral history recorded in 2001, which is not an arrest image.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 7, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-07. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-07"
+    }
+   ],
+   "middle_name": "Ruth",
+   "gender": "Female"
+  },
+  {
+   "name": "Ralph Edward Washington",
+   "first_name": "Ralph",
+   "last_name": "Washington",
+   "description": "Ralph Edward Washington was arrested in Jackson, Mississippi, on June 7, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe was twenty-four and worked at St. Louis County Hospital. He flew in from St. Louis with Robert Lee Jenkins and a third rider and was arrested at Jackson Municipal Airport.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 7, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-07. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-07"
+    }
+   ],
+   "middle_name": "Edward",
+   "gender": "Male"
+  },
+  {
+   "name": "Obadiah Lee Simms",
+   "first_name": "Obadiah",
+   "last_name": "Simms",
+   "description": "Obadiah Lee Simms was arrested in Jackson, Mississippi, on June 7, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe was twenty-one and a student at Virginia Union University, and rode Trailways from Nashville through Memphis with five others.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 7, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-06-07. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-06-07"
+    }
+   ],
+   "middle_name": "Lee",
+   "gender": "Male",
+   "aka": "Obadiah Simms"
+  },
+  {
+   "name": "Abraham Bassford",
+   "first_name": "Abraham",
+   "last_name": "Bassford",
+   "description": "Abraham Bassford was arrested in Jackson, Mississippi, in 1961 for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nThe catalog confirms the arrest and holds his individual photograph but did not expose the date. The rider rosters place him in the New Orleans-to-Jackson group of June 6, 1961, alongside Johnny Frank Ashford and Terry John Sullivan; because that is a placement rather than a recorded date, no arrest date is stored.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, 1961; the catalog does not expose the date.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested in Jackson in 1961. The Civil Rights Digital Library establishes the arrest and the identification photograph but neither the date nor the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records."
+    }
+   ],
+   "gender": "Male"
+  },
+  {
+   "name": "Norma Wagner",
+   "first_name": "Norma",
+   "last_name": "Wagner",
+   "description": "Norma Wagner was arrested in Jackson, Mississippi, on July 29, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nShe travelled down from Nashville with the ten-person Greyhound group. The rider roster and the catalog's chronological run of arrest photographs place her among the group's individually photographed arrestees, though the item-level record for her picture was not exposed by the catalog's index.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, July 29, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-07-29. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-07-29"
+    }
+   ],
+   "gender": "Female"
+  },
+  {
+   "name": "Widijonaiko Tjokroadisunatto",
+   "first_name": "Widijonaiko",
+   "last_name": "Tjokroadisunatto",
+   "description": "Widijonaiko Tjokroadisunatto was arrested in Jackson, Mississippi, on July 29, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nHe rode from Nashville to Jackson with the ten-person Greyhound group. The archival and secondary spellings of his name vary considerably — Widjonarko Tjokroadissumarto is the other form on record — and the version used here is the one the catalog gives.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, July 29, 1961.",
+     "convicted": "Unresolved — the arrest is documented; the disposition is not established in the CRDL record",
+     "sentence": "Arrested 1961-07-29. The Civil Rights Digital Library establishes the arrest and the identification photograph but not the disposition, any transfer to Parchman, or the release date — unresolved pending court, jail, or penitentiary records.",
+     "arrest_date": "1961-07-29"
+    }
+   ],
+   "gender": "Male",
+   "aka": "Widjonarko Tjokroadissumarto"
+  },
+  {
+   "name": "Margaret Winonah Beamer",
+   "first_name": "Margaret",
+   "middle_name": "Winonah",
+   "last_name": "Beamer",
+   "gender": "Female",
+   "aka": "Winonah Beamer Myers; Winonah Beamer; Winona Beamer",
+   "description": "Margaret Winonah Beamer was arrested in Jackson, Mississippi, on June 9, 1961, for participating in the Freedom Rides and challenging segregation in interstate transportation — one of the arrests recorded by the Mississippi State Sovereignty Commission and preserved in the Civil Rights Digital Library. The catalog establishes the arrest, the participation, and the individually identified police photograph, but not the court disposition, any transfer to Parchman, or the physical release date; those fields are unresolved pending county-jail, court, or penitentiary records.\n\nWhat is established for her, and is not established for most of the riders, is the length. She was held at the Mississippi State Penitentiary at Parchman for close to six months and served the term out rather than taking the appeal bond that released most of the others within weeks. She is reported to be the 1961 rider who served the longest full term.\n\nThe six months is recorded here as a duration and not as a pair of dates, because the Parchman admission and discharge dates are not established. The claim that hers was the longest full term rests on a secondary source rather than on the catalog.\n\nShe is recorded in later life as Winonah Beamer Myers, and shortened in the rosters to Winonah or Winona Beamer.",
+   "state": "Mississippi",
+   "era": "1960s",
+   "ideologies": [
+    "Civil Rights"
+   ],
+   "released": true,
+   "in_custody": false,
+   "cases": [
+    {
+     "charges": "Freedom Ride participation — arrested Jackson, June 9, 1961; held at the Mississippi State Penitentiary at Parchman for approximately six months.",
+     "arrest_date": "1961-06-09",
+     "convicted": "Yes — the conviction appears to have stood through the full term; the judgment and any appellate history are not established",
+     "institution_name": "Mississippi State Penitentiary (Parchman)",
+     "institution_city": "Parchman",
+     "institution_state": "Mississippi",
+     "sentence": "Arrested 1961-06-09 and held at Parchman for approximately six months, serving the term rather than taking the appeal bond that freed most of the 1961 riders within weeks. The admission and discharge dates are not established, so the duration is recorded without them."
+    }
+   ]
+  }
+ ]
+}
