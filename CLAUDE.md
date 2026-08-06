@@ -14,7 +14,7 @@ Laravel 10 website for the **National Political Prisoner Coalition** (NPPC). Pub
 
 - **Backend:** PHP 8.3, Laravel 10, Filament 3.2
 - **Frontend:** Blade templates, Livewire 3.5, Tailwind CSS 3.4, Vite 5
-- **Database:** MySQL (UUIDs as primary keys on all models)
+- **Database:** SQLite in production (UUIDs as primary keys on all models). Data scripts MUST use portable query-builder helpers — `whereDate()` / `whereYear()`, never raw `YEAR()` / `DATE()` SQL, which crashed batch 183 on the live server.
 - **Payments:** Stripe (donations)
 - **Admin:** Filament at `/admin` (requires `is_admin = true`)
 - **Queue:** sync (runs inline, no worker needed)
