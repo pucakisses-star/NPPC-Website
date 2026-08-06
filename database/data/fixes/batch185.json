@@ -1,0 +1,8 @@
+{
+ "author": {
+  "slug": "nppc",
+  "from": "NPPC",
+  "to": "National Political Prisoner Coalition"
+ },
+ "note": "The curator asked that the author page read National Political Prisoner Coalition rather than NPPC. The page renders the author record, so this is a rename of the record, not a template change: the heading, the page title, the per-article byline rows on /author/nppc, and the bylines on every article credited to this author all follow. The slug does not change — HasSlug generates slugs only on create — so /author/nppc keeps working. The citation partial already used the full name as its fallback, so this brings the record in line with the convention the site already had."
+}
