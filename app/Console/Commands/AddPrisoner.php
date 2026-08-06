@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\PrisonerApiController;
 use App\Models\Institution;
 use App\Models\Prisoner;
 use App\Models\PrisonerCase;
+use App\Support\PrisonerSortOrder;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 
@@ -105,6 +106,16 @@ class AddPrisoner extends Command {
             $num = $i + 1;
             $charges = $cleanCaseData['charges'] ?? 'no charges listed';
             $this->info("  Case #{$num}: {$charges}");
+        }
+
+        // Without an explicit sort_order the column default of 0 would sort
+        // the new record in front of the entire database. Insert it into the
+        // curated sequence next to its peers instead (see PrisonerSortOrder).
+        if (empty($data['sort_order'])) {
+            $prisoner->load('cases');
+            $era = $prisoner->era ?: PrisonerSortOrder::deriveEra($prisoner);
+            $placed = PrisonerSortOrder::place($prisoner, $era);
+            $this->info("  Sort order: {$placed['sort_order']} ({$placed['method']}, after #{$placed['after']})");
         }
 
         // The /database dashboard reads the cached /api/prisoners payload;
