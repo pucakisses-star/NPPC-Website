@@ -79,15 +79,27 @@ final class PrisonerSortOrder
             ->values();
 
         if ($era && $arrestDates->isNotEmpty()) {
+            // whereDate/whereYear, not raw DATE()/YEAR(): the production
+            // connection is SQLite (despite what older docs say), which has
+            // no YEAR() function. Laravel's date-based wheres compile to the
+            // right SQL per grammar — strftime on SQLite, DATE/YEAR on MySQL.
             $anchor = self::peerQuery($prisoner, $era)
-                ->whereIn(DB::raw('DATE(prisoner_cases.arrest_date)'), $arrestDates->all())
+                ->where(function ($q) use ($arrestDates) {
+                    foreach ($arrestDates as $d) {
+                        $q->orWhereDate('prisoner_cases.arrest_date', $d);
+                    }
+                })
                 ->max('prisoners.sort_order');
             $method = 'cohort-date';
 
             if ($anchor === null) {
                 $years = $arrestDates->map(fn ($d) => (int) substr($d, 0, 4))->unique()->values();
                 $anchor = self::peerQuery($prisoner, $era)
-                    ->whereIn(DB::raw('YEAR(prisoner_cases.arrest_date)'), $years->all())
+                    ->where(function ($q) use ($years) {
+                        foreach ($years as $y) {
+                            $q->orWhereYear('prisoner_cases.arrest_date', $y);
+                        }
+                    })
                     ->max('prisoners.sort_order');
                 $method = 'cohort-year';
             }
