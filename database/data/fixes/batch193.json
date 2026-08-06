@@ -1,0 +1,103 @@
+{
+ "server_copies": [
+  {
+   "slug": "leonard-peltier-released-after-nearly-five-decades-of-incarceration",
+   "title": "Leonard Peltier Released After Nearly Five Decades of Incarceration",
+   "from": "prisoners/leonard-peltier.jpg",
+   "to": "articles/leonard-peltier-released.jpg",
+   "was": "articles/01KNHVNNKMBEZYB54GHFJA4448.webp (404 on disk)",
+   "why": "The article is about Peltier and the archive already holds a photograph of him. Copied rather than pointed at, so replacing the prisoner portrait later does not silently change the article."
+  },
+  {
+   "slug": "president-biden-commutes-sentence-of-indigenous-activist-leonard-peltier",
+   "title": "President Biden Commutes Sentence of Indigenous Activist Leonard Peltier",
+   "from": "prisoners/leonard-peltier.jpg",
+   "to": "articles/peltier-commutation.jpg",
+   "was": "articles/01KNHVC0N5Y9ABA5QRXT3707MZ.jpg (404 on disk)",
+   "why": "Same subject, second story. Given its own file so the two articles can diverge later."
+  },
+  {
+   "slug": "trump-administration-creates-chilling-effect-on-free-speech-by-weaponizeing-immigration-enforcement-to-silences-political-opposition",
+   "title": "Trump Administration Creates Chilling Effect on Free Speech by Weaponizing Immigration Enforcement",
+   "from": "prisoners/mahmoud-khalil.jpg",
+   "to": "articles/khalil-chilling-effect.jpg",
+   "was": "articles/01KPMNBSPW5CNG05Y44H3T8JMX.webp (404 on disk)",
+   "why": "Every source cited on the article -- ACLU, the Knight First Amendment Institute, PEN America, FIRE -- is about the arrest and detention of Mahmoud Khalil, and the archive holds his portrait."
+  },
+  {
+   "slug": "maliks-birthday",
+   "title": "Malik's Birthday",
+   "from": "prisoners/malik-fard-muhammad.jpg",
+   "to": "articles/maliks-birthday.jpg",
+   "was": "images/site/default-article.jpg (404 -- a placeholder path that was never created)",
+   "why": "A CLDC post about Malik Fard Muhammad, who is in the archive with a photograph."
+  },
+  {
+   "slug": "support-for-malik-muhammed",
+   "title": "Support for Malik Muhammad",
+   "from": "prisoners/malik-fard-muhammad.jpg",
+   "to": "articles/support-for-malik-muhammad.jpg",
+   "was": "images/site/default-article.jpg (404)",
+   "why": "Same subject. CLDC also carries a photograph of him on the original release; the archive copy is used so the image is not hotlinked to another site."
+  },
+  {
+   "slug": "nppc-launches-online-store",
+   "title": "NPPC Launches Online Store to Fund Political-Prisoner Support",
+   "from": "products/01KW8FYS60Z7KWPE900XRHQQE2.png",
+   "to": "articles/nppc-store.png",
+   "was": "no image",
+   "why": "NPPCs own product photograph, already on this server for the store the release announces. Own work, nothing new licensed."
+  }
+ ],
+ "repo_files": [
+  {
+   "slug": "nppc-launches-the-nppc-quiz",
+   "title": "NPPC Launches the NPPC Quiz, an Interactive Look at Political Repression in America",
+   "file": "nppc-quiz.jpg",
+   "to": "articles/nppc-quiz.jpg",
+   "was": "no image",
+   "why": "A 2x2 composite built from four of the quizs own portrait cards, served from this site at /images/civic-profile/pp-01, pp-05, pp-07 and pp-10. NPPCs own artwork, recomposed; nothing new licensed, and it shows the reader what the quiz actually is."
+  }
+ ],
+ "measurement_note": "Measured, not estimated. All 116 published articles were pulled from /news and every card image was requested: 85 resolve, 22 return 404, and 9 articles carry no image at all -- 31 needing a photograph. The 404s fall into two groups. Seventeen point at images/site/default-article.jpg, a placeholder path that does not exist on the server, so those articles were never given a photograph and the fallback was never created either. Five point at real storage/articles ULID uploads whose files are missing from disk.",
+ "not_a_restoration_note": "The originals were checked before anything was substituted. Of the seventeen press releases republished from cldc.org, fifteen have no photograph on cldc.org either -- their own posts carry no featured image. So for most of these there is nothing to restore; a photograph has to be sourced from somewhere new. That is a different job from fixing a broken link, and it is why this batch stops where it does.",
+ "sourcing_rule": "Every image here comes from something this archive already owns or hosts: its own prisoner portraits, its own product photography, its own quiz artwork. No third-party news photography was copied. That rule is what limits this batch to seven articles, and the twenty-four left are listed below rather than filled with whatever could be found.",
+ "wilansky_note": "One image was found and deliberately not used. The CLDC post behind NORTH DAKOTA COURT RULING DISMISSES THE CIVIL RIGHTS CASE carries two court-exhibit photographs of Sophia Wilanskys arm after it was destroyed at Standing Rock. They are medical-evidence photographs of an open traumatic wound. Putting one into the /news thumbnail grid, where it would appear unannounced next to everything else, is an editorial decision for the curator and not one to make quietly inside a batch. The file is left alone.",
+ "remaining": {
+  "count": 24,
+  "decision_needed": "These have no photograph in the archive and none on the original either. There are three honest options and they are the curators call: (a) the CLDC wordmark on the fifteen CLDC press releases -- the issuing organisations own mark on its own release, which is standard practice, carries no licensing risk, and identifies the source at a glance, but is a logo rather than a photograph; (b) public-domain and Creative-Commons substitutes -- Library of Congress, federal government works, Wikimedia Commons -- which are photographs and are safe to publish, but are illustrative rather than of the actual event; (c) licensed news photography, which is what most of these stories actually depict and which costs money or needs permission from the outlets cited on each article.",
+  "cldc_press_releases": [
+   "cldc-wins-temporary-restraining-order-preliminary-injunction-against-authoritarian-crackdown-on-protest",
+   "for-immediate-release-civil-rights-groups-sue-city-of-medford-for-targeting-public-health-workers-and-retaliating-against-harm-reduction-activists",
+   "morton-county-police-officer-shoots-recent-college-grad-at-standing-rock-protests-from-a-gun-turret-blows-up-her-arm-north-dakota-court-ruling-dismisses-the-civil-rights-case-misses-the-mark",
+   "press-release-activists-sue-trump-regime-noem-and-dhs-for-violating-first-amendment-rights",
+   "press-release-cldc-secures-win-in-activist-subpoena-fight-against-ice",
+   "press-release-civil-liberties-defense-center-files-motion-to-quash-reddit-grand-jury-subpoena-in-washington-d-c",
+   "press-release-court-enjoins-federal-agents-from-arresting-ice-protesters",
+   "press-release-dhs-withdraws-summons-in-resounding-win-for-first-amendment-rights",
+   "press-release-federal-court-rules-in-favor-of-anti-racist-activists-holds-police-to-account",
+   "press-release-federal-court-grants-motion-for-temporary-restraining-order-against-trump",
+   "press-release-reddit-user-pushes-back-against-illegal-dhs-surveillance",
+   "pro-palestine-activists-salem-younes-k-anton-found-not-guilty-at-trial-community-shows-strong-support-of-defendants-challenging-genocide-u-s-complicity",
+   "protecting-free-speech-cldc-challenges-ices-illegal-attempt-to-obtain-activist-information-from-meta",
+   "shining-a-light-on-police-brutality",
+   "us-campaign-for-palestinian-rights-press-release-re-slapp-suit"
+  ],
+  "nppc_originals": [
+   "over-1300-student-visas-by-trump-admin-in-chilling-attack-on-civil-liberties",
+   "trees-give-life-police-take-it-building-and-fighting-for-abolitionist-life-worlds-from-the-weelaunee-forest-to-georgias-jails",
+   "doj-indicts-39-cities-church-anti-ice-protesters-st-paul-2026",
+   "johanna-fernandez-obituary-1970-2026",
+   "mohammad-yousef-hasna-uk-arrest-us-hamas-financing-charges",
+   "wetsuweten-solidarity-defendants-2024-coastal-gaslink",
+   "nppc-announces-mobile-app",
+   "how-the-espionage-act-became-a-tool-of-repression",
+   "political-trials-and-prisoners-in-the-united-states"
+  ],
+  "easy_wins_if_option_b_is_chosen": "Four of the nine NPPC originals have obvious public-domain answers: the Espionage Act piece (1917-era Library of Congress material, or a Debs portrait), Political Trials and Prisoners (a federal courthouse), Johanna Fernandez (a Creative-Commons portrait, if one exists that is genuinely her), and the mobile-app release (a screenshot of the database the app carries). Mohammad Yousef Hasna is in this archive as a prisoner but has no photograph on his record either."
+ },
+ "expected": {
+  "articles_updated": 7,
+  "articles_still_without_a_working_image_after_this": 24
+ }
+}
