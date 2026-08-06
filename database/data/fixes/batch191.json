@@ -1,0 +1,19 @@
+{
+ "author": {
+  "slug": "monsour-owolabi",
+  "name": "Monsour Owolabi",
+  "about": "Monsour Owolabi is a New Afrikan poet, writer and prisoner-organizer serving life without parole in Texas, imprisoned since 2011 on a murder conviction he contests. Politicized inside, he writes on New Afrikan independence and prison abolition, has organized against prison slave labor and around solidarity campaigns, and has published essays and poetry in Scalawag and Texas Letters. He has been held in prolonged isolation his supporters describe as retaliation for that organizing. This archive also documents him as a political prisoner, at /prisoner/monsour-owolabi."
+ },
+ "supersedes": "The shorter about text set by batch 189 when the author record was created: \"Monsour Owolabi is a New Afrikan poet, writer and prisoner-organizer serving life without parole in Texas on a murder conviction he contests. He has organized against prison slave labour and published essays and poetry from inside, and has been held in prolonged isolation his supporters describe as retaliation for that organizing.\"",
+ "source_note": "Rewritten from the description already held on his prisoner record, added by database/data/add-abolition-media-audit.sh -- the fuller of the two accounts the archive holds of him. What that description carried and the batch 189 author text had dropped: the 2011 start of his imprisonment, that he was politicized inside, the two named venues (Scalawag and Texas Letters), and the two ideologies recorded on his prisoner record (New Afrikan independence, prison abolition). Nothing is asserted here that is not already in one of those two records. The prisoner record itself is not modified.",
+ "date_note": "Imprisoned since 2011 is the archive's own figure, from the incarceration_date on his case (recorded at year precision, exact day unknown). Advocacy material circulated by the campaign says nearly twenty years, which cannot be reconciled with the TDCJ-derived date of birth of 1991-10-03 recorded in database/data/currently-imprisoned-dob.json and is most likely an overstatement. Left at 2011 deliberately -- do not raise it to match campaign copy without a source that settles the conflict.",
+ "spelling_note": "labor, not labour: batch 189 wrote the British spelling while his prisoner record uses the American one. Aligned to the prisoner record and to the rest of the site.",
+ "rendering_note": "about is plain escaped text in all three places it renders -- a paragraph on /author/monsour-owolabi, the body of the about-the-author box under each of his articles, and truncated to 60 characters as the role line in the homepage featured-authors card. It is never treated as HTML, so the cross-reference to his prisoner page is written as a bare path rather than a link. Remove that final sentence if a bare path reads badly; it is one field.",
+ "expected": {
+  "author_exists_before": true,
+  "about_replaced": true,
+  "avatar_untouched": true,
+  "articles_untouched": 1,
+  "prisoner_record_untouched": true
+ }
+}
