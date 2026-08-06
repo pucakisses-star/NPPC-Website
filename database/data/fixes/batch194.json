@@ -1,0 +1,89 @@
+{
+ "cldc": {
+  "file": "cldc-press-release.jpg",
+  "to": "articles/cldc-press-release.jpg",
+  "caption": "Civil Liberties Defense Center — the organisation that issued this release.",
+  "slugs": [
+   "cldc-wins-temporary-restraining-order-preliminary-injunction-against-authoritarian-crackdown-on-protest",
+   "for-immediate-release-civil-rights-groups-sue-city-of-medford-for-targeting-public-health-workers-and-retaliating-against-harm-reduction-activists",
+   "morton-county-police-officer-shoots-recent-college-grad-at-standing-rock-protests-from-a-gun-turret-blows-up-her-arm-north-dakota-court-ruling-dismisses-the-civil-rights-case-misses-the-mark",
+   "press-release-activists-sue-trump-regime-noem-and-dhs-for-violating-first-amendment-rights",
+   "press-release-cldc-secures-win-in-activist-subpoena-fight-against-ice",
+   "press-release-civil-liberties-defense-center-files-motion-to-quash-reddit-grand-jury-subpoena-in-washington-d-c",
+   "press-release-court-enjoins-federal-agents-from-arresting-ice-protesters",
+   "press-release-dhs-withdraws-summons-in-resounding-win-for-first-amendment-rights",
+   "press-release-federal-court-rules-in-favor-of-anti-racist-activists-holds-police-to-account",
+   "press-release-federal-court-grants-motion-for-temporary-restraining-order-against-trump",
+   "press-release-reddit-user-pushes-back-against-illegal-dhs-surveillance",
+   "pro-palestine-activists-salem-younes-k-anton-found-not-guilty-at-trial-community-shows-strong-support-of-defendants-challenging-genocide-u-s-complicity",
+   "protecting-free-speech-cldc-challenges-ices-illegal-attempt-to-obtain-activist-information-from-meta",
+   "shining-a-light-on-police-brutality",
+   "us-campaign-for-palestinian-rights-press-release-re-slapp-suit"
+  ],
+  "why": "Fifteen press releases republished from cldc.org, none of which carries a photograph on cldc.org either. The issuing organisations own mark on its own release: unambiguous, impossible to mistake for event photography, no licensing risk, and it visually groups the CLDC republications as the set they are. Sourced from cldc.org and set on a plain card rather than hotlinked."
+ },
+ "individual": [
+  {
+   "slug": "over-1300-student-visas-by-trump-admin-in-chilling-attack-on-civil-liberties",
+   "file": "student-visa-revocations.jpg",
+   "caption": "An “ICE Out of Our Schools” protest in New York City. Photograph by SWinxy, CC BY 4.0, via Wikimedia Commons. Illustrative of the policy this article describes; not of any individual named in it.",
+   "why": "Student visa revocations aimed at campus protest. The nearest freely licensed photograph of the thing itself."
+  },
+  {
+   "slug": "trees-give-life-police-take-it-building-and-fighting-for-abolitionist-life-worlds-from-the-weelaunee-forest-to-georgias-jails",
+   "file": "weelaunee-stop-cop-city.jpg",
+   "caption": "Stop Cop City march, Atlanta, January 2023. Photograph by Tatsoi, CC BY-SA 4.0, via Wikimedia Commons.",
+   "why": "The essay is about the Weelaunee forest movement and the Georgia jails that followed it. This is that movement, in that city, in that period."
+  },
+  {
+   "slug": "doj-indicts-39-cities-church-anti-ice-protesters-st-paul-2026",
+   "file": "cities-church-minnesota.jpg",
+   "caption": "An anti-ICE protest sign in Minneapolis. Photograph by Chad Davis, CC BY 4.0, via Wikimedia Commons. Illustrative; not from the Cities Church protest.",
+   "why": "Minnesota anti-ICE protest imagery for a Minnesota anti-ICE prosecution. The caption says plainly that it is not the event itself."
+  },
+  {
+   "slug": "johanna-fernandez-obituary-1970-2026",
+   "file": "young-lords-panther-21.jpg",
+   "caption": "Panther 21 rally at Hunter College, New York. Photograph by Bill Andrews, public domain, via Wikimedia Commons. The movement Johanna Fernández spent her career documenting — not a photograph of her.",
+   "why": "No freely licensed portrait of her could be found, and an obituary should not carry a picture that pretends to be the person. This is the New York movement history she wrote, captioned as exactly that."
+  },
+  {
+   "slug": "mohammad-yousef-hasna-uk-arrest-us-hamas-financing-charges",
+   "file": "doj-headquarters.jpg",
+   "caption": "U.S. Department of Justice headquarters, Washington, D.C. CC BY-SA 3.0, via Wikimedia Commons.",
+   "why": "An arrest abroad on U.S. federal charges. He is in this archive as a prisoner but has no photograph on his record, and a stand-in face would be worse than none. The prosecuting institution is the honest subject."
+  },
+  {
+   "slug": "wetsuweten-solidarity-defendants-2024-coastal-gaslink",
+   "file": "wetsuweten-solidarity-sf.jpg",
+   "caption": "Wetʼsuwetʼen solidarity rally, San Francisco, February 7, 2020. Photograph by Peg Hunter, CC BY-SA 2.0, via Wikimedia Commons.",
+   "why": "The article is specifically about U.S. solidarity defendants. This is a U.S. solidarity action for the same struggle."
+  },
+  {
+   "slug": "nppc-announces-mobile-app",
+   "file": "nppc-database-app.jpg",
+   "caption": "The NPPC political-prisoner database — what the app puts in a pocket.",
+   "why": "NPPCs own screen, own work. The release announces an app that does not exist to photograph yet, so it shows the thing the app carries rather than a mock-up of a product."
+  },
+  {
+   "slug": "how-the-espionage-act-became-a-tool-of-repression",
+   "file": "debs-canton-1918.jpg",
+   "caption": "Eugene V. Debs speaking at Canton, Ohio, June 16, 1918 — the speech that brought his Espionage Act prosecution. Photograph by James V. McCann, public domain, via Wikimedia Commons.",
+   "why": "Not illustrative but literal: this photograph is of the speech that produced the most famous Espionage Act conviction in American history."
+  },
+  {
+   "slug": "political-trials-and-prisoners-in-the-united-states",
+   "file": "thurgood-marshall-courthouse.jpg",
+   "caption": "Thurgood Marshall United States Courthouse, New York. Photograph by Kidfly182, CC BY-SA 4.0, via Wikimedia Commons.",
+   "why": "An essay on political trials and political defense, over the federal courthouse where such trials are held."
+  }
+ ],
+ "decision_note": "The curator asked me to choose, so: organisational mark for the organisations own releases, freely licensed photographs for everything else, and no licensed news photography anywhere. Nothing here costs money, nothing needs permission, and every third-party image carries its author and licence in the image_caption field rather than in a file nobody reads.",
+ "attribution_note": "Attribution is stored on the article, not in a credits file. Six of the nine individual images are Creative Commons and legally require credit at the point of use; image_caption renders under the photograph, which is the point of use. Two are public domain and are credited anyway. Do not blank these captions.",
+ "honesty_note": "Three captions say outright that the photograph is not of the event or person described — the Minneapolis sign, the Panther 21 rally standing in for Johanna Fernández, and the schools protest for the visa revocations. An illustrative photograph is fine; an illustrative photograph a reader mistakes for documentary evidence is not, and this archive is in the business of the difference.",
+ "wilansky_note": "Still not used, and the reason has not changed: the court-exhibit photographs of Sophia Wilanskys destroyed arm on the CLDC post are medical evidence of an open wound, and putting one in the /news thumbnail grid unannounced is a decision for a person, not a batch. The North Dakota release gets the CLDC mark like the rest.",
+ "expected": {
+  "articles_updated": 24,
+  "articles_still_without_a_working_image_after_this": 0
+ }
+}
