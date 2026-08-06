@@ -1,0 +1,105 @@
+{
+ "article": {
+  "slug": "what-to-the-new-afrikan-is-juneteenth"
+ },
+ "replacements": [
+  {
+   "from": "Juneteenth - is it a reactionary thing",
+   "to": "Juneteenth — is it a reactionary thing",
+   "why": "hyphen standing in for the em dash the rest of the essay uses"
+  },
+  {
+   "from": "strategically, I might add —New Afrikan",
+   "to": "strategically, i might add — New Afrikan",
+   "why": "no space after the em dash; stray capital I"
+  },
+  {
+   "from": "Republican Party — I might add this is",
+   "to": "Republican Party — i might add this is",
+   "why": "stray capital I"
+  },
+  {
+   "from": "</em><a href=\"https://lithub.com/president-lincolns-republican-party-was-the-original-party-of-big-government/\" target=\"_blank\" rel=\"noopener\"> Republican Party</a>",
+   "to": "</em> <a href=\"https://lithub.com/president-lincolns-republican-party-was-the-original-party-of-big-government/\" target=\"_blank\" rel=\"noopener\">Republican Party</a>",
+   "why": "the word space sat inside the link, so the underline ran a character early"
+  },
+  {
+   "from": "Umoja, I believe in the first chapter",
+   "to": "Umoja, i believe in the first chapter",
+   "why": "stray capital I"
+  },
+  {
+   "from": "they began— or continued, i should say— their",
+   "to": "they began — or continued, i should say — their",
+   "why": "em dashes closed on the left, open on the right"
+  },
+  {
+   "from": "this militia—specifically the Black militias",
+   "to": "this militia — specifically the Black militias",
+   "why": "closed em dash where the essay elsewhere spaces them"
+  },
+  {
+   "from": "was not just defeated— it was flawed",
+   "to": "was not just defeated — it was flawed",
+   "why": "em dash closed on the left, open on the right"
+  },
+  {
+   "from": "northern finance capital —that agrarian",
+   "to": "northern finance capital — that agrarian",
+   "why": "no space after the em dash"
+  },
+  {
+   "from": "after Juneteenth— June 19th 1865—the 13th Amendment",
+   "to": "after Juneteenth — June 19th 1865 — the 13th Amendment",
+   "why": "two em dashes, neither spaced like the rest"
+  },
+  {
+   "from": "So the agenda, I believe, is clear",
+   "to": "So the agenda, i believe, is clear",
+   "why": "stray capital I"
+  },
+  {
+   "from": "a good thing. I can only imagine",
+   "to": "a good thing. i can only imagine",
+   "why": "stray capital I"
+  },
+  {
+   "from": "all these things—in Texas, for example",
+   "to": "all these things — in Texas, for example",
+   "why": "closed em dash"
+  },
+  {
+   "from": "successful in that -- that we paint",
+   "to": "successful in that — that we paint",
+   "why": "a literal double hyphen that never became a dash"
+  },
+  {
+   "from": "And I hope these brief comments",
+   "to": "And i hope these brief comments",
+   "why": "stray capital I"
+  },
+  {
+   "from": "His orthography is his own and is left exactly as written.",
+   "to": "His orthography is his own and is preserved — the lowercase first-person singular and the capitalized We, Us and Our are deliberate. Six stray capital Is have been lowered to match his usage, and dash spacing regularized; nothing else in his wording is changed.",
+   "why": "the note has to stop claiming the text is untouched once it is touched"
+  }
+ ],
+ "campaign_name": {
+  "from": "Monsour Owolab Freedom Campaign",
+  "to": "Monsour Freedom Campaign",
+  "why": "Batch 189 de-slugged the Substack URL monsourowolabfreedomcampaign and produced Owolab, dropping the i from his surname. The campaign does not call itself that. Its own name, given in the publication meta author tag, the JSON-LD author record, author_name, primary_profile_name, contributors and publishedBylines on the source post, and in its own self-description (his defense committee, the Monsour Freedom Campaign), is Monsour Freedom Campaign, with no surname at all. Corrected in the body twice and in both citation entries. The URLs keep the original spelling because that is genuinely the address."
+ },
+ "strip_trailing_space_before_p": true,
+ "provenance_note": "Every defect corrected here was checked against the source post before being touched. All of it -- the six stray capital Is, the unspaced em dashes, the hyphen standing in for a dash, the literal double hyphen -- is present in the original on Substack, so none of it was introduced by the batch 189 import. That import was faithful. This is a deliberate light copy-edit of the reproduction, not a repair of a broken one, and the note at the top of the article is rewritten to say so rather than continuing to claim the text is left exactly as written.",
+ "orthography_note": "HIS CONVENTION IS UNTOUCHED AND MUST STAY THAT WAY. The lowercase first-person singular and the capitalized We, Us and Our are a New Afrikan usage that subordinates the individual to the collective, and they are the point. This batch moves capitalization only in one direction -- six standalone capital Is are lowered to i, which strengthens the convention rather than breaking it, and which is almost certainly restoring what he wrote, since a standalone i is exactly what a phone keyboard or word processor auto-capitalizes. Not one lowercase i is raised.",
+ "we_us_our_note": "The lowercase we, us and our left alone deliberately. The essay mixes them with the capitalized forms, and the mix looks like it carries meaning rather than being sloppiness: in socialist and communist parlance we would refer to, and again in our parlance, are a different we from We as New Afrikan / Black people. Deciding which of the remaining lowercase instances he meant as the collective would be interpreting his politics for him, so none were changed. If the campaign wants them normalized, that is their call and a separate pass.",
+ "expected_after": {
+  "standalone_I": 0,
+  "standalone_i": 22,
+  "We": 14,
+  "Us": 3,
+  "Our": 9,
+  "irregular_dashes": 0,
+  "double_hyphen": 0
+ }
+}
