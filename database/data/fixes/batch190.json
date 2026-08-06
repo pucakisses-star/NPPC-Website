@@ -1,0 +1,17 @@
+{
+ "author": {
+  "slug": "monsour-owolabi",
+  "name": "Monsour Owolabi",
+  "avatar": "authors/monsour-owolabi.jpg"
+ },
+ "photo_note": "Supplied by the curator from the Monsour Owolabi Freedom Campaign's Substack post media, the same source as the essay published in batch 189. He is photographed inside, in prison whites at a cell door, wearing a beaded necklace with a red and green pendant, his right fist raised. Cropped to a 540x540 head-and-shoulders square: the site renders author avatars at 32px and 64px circles on bylines, an 84px rounded square in the homepage featured-authors strip, and a 176px circle on the author page, all object-fit cover, and at 32px anything wider than head-and-shoulders stops being a face. The raised fist and the pendant do not survive that framing. The uncropped original is kept in the repository at database/data/files/authors/monsour-owolabi-uncropped.jpg so the full frame stays with the archive if the Substack URL goes away.",
+ "featured_pool_note": "Consequence worth stating before it happens: the homepage featured-authors strip selects every author who has an avatar, at least one published article, and a name that is not an organisation placeholder, then shows four of them at random per page load. Monsour Owolabi already had the published article and the name; the avatar was the only thing keeping him out. Filling it in makes him eligible, taking the pool from ten to eleven. His essay is already filed under Publications by batch 189, so the invariant batch 188 established -- every featured author's work under Publications -- still holds, and batch 188 does not need re-running.",
+ "expected": {
+  "author_exists_before": true,
+  "avatar_before": null,
+  "about_untouched": true,
+  "articles_untouched": 1,
+  "pool_before": 10,
+  "pool_after": 11
+ }
+}
