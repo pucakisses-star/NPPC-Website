@@ -1,0 +1,38 @@
+{
+ "category": {
+  "title": "Publications",
+  "slug": "publications"
+ },
+ "excluded_names": [
+  "National Political Prisoner Coalition",
+  "NPPC",
+  "NPPC Editorial",
+  "NPPC Staff",
+  "Staff",
+  "Editorial",
+  "Editor",
+  "Unknown"
+ ],
+ "expected": {
+  "pool_size": 10,
+  "already_publications": 7,
+  "to_change": [
+   {
+    "author": "Erica Meltzer",
+    "article": "LOOK: Is Colorado in America?",
+    "from": "News"
+   },
+   {
+    "author": "James Ray",
+    "article": "We're All Going to be Called Terrorists Eventually",
+    "from": "News"
+   },
+   {
+    "author": "Priscilla Grim",
+    "article": "31 Days in DeKalb County Hell",
+    "from": "(none)"
+   }
+  ]
+ },
+ "note": "The featured-authors pool is computed, not a list: authors with an avatar, at least one published article, and a name that is not an organisation placeholder. This script recomputes it with the same query the section uses, so it stays correct as authors are added — re-running it later is the maintenance path for newly featured authors. Two of the three moves take articles OUT of the News tab on /news, which is the intended consequence of the request."
+}
