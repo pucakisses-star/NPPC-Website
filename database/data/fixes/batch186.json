@@ -1,0 +1,11 @@
+{
+ "from": {
+  "slug": "nppc",
+  "name": "NPPC"
+ },
+ "into": {
+  "slug": "national-political-prisoner-coalition",
+  "name": "National Political Prisoner Coalition"
+ },
+ "note": "The curator clarified the intent behind batch 185: not a rename — the articles bylined NPPC should be written by National Political Prisoner Coalition, and the NPPC author deleted. Both author records exist on the live site, so this is the batch 159 pattern again, one step further down the same road: 159 merged NPPC Editorial into NPPC; this merges NPPC into National Political Prisoner Coalition. All articles are repointed, the target inherits the avatar and about text if it lacks them, and the NPPC record is deleted only once it owns nothing. /author/nppc will 404 afterwards — same consequence batch 159 recorded, same decision not to add a redirect here, because adding routes is a different kind of change from moving data. Batch 185, if run after this, finds no nppc author and does nothing; it is superseded, not dangerous."
+}
