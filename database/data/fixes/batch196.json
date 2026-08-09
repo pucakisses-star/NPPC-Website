@@ -1,0 +1,19 @@
+{
+ "link": {
+  "url": "https://www.bbc.com/news/articles/cy8mjd19xm7o",
+  "title": "Trump denies US weapons shortage and says information 'leakers' being 'hunted down'",
+  "source": "BBC News",
+  "category": "prosecution",
+  "published_at": "2026-08-06",
+  "lat": 38.8977,
+  "lng": -77.0365,
+  "location_label": "The White House, Washington, D.C."
+ },
+ "supersedes": "Batch 195 added this link with no coordinates, so it ran in the ticker and newswire but stayed off the event map. The curator asked for the White House, so it goes on the map there.",
+ "what_the_marker_means": "The marker is the source of the statement, not the site of an event. Nothing in this story happened at the White House -- the post went up on Truth Social, the pursuit it describes is nationwide, and no arrest or protest has a location. Read the pin as where the threat came from rather than where anything occurred. Every other pin on this map marks a place something happened to somebody, which is why batch 195 left this one off; putting it at the seat of the office that issued the threat is a defensible reading of the same fact, and it is the curators call.",
+ "coordinates_note": "38.8977, -77.0365 is the White House, Washington, D.C. -- the building itself, not the wider federal district, so the marker lands where a reader would expect rather than floating over the Mall.",
+ "self_sufficient_note": "This batch does not depend on 195 having run. It matches on the URL and updates in place if the link is there, and creates it with every field including the coordinates if it is not, so it converges on a server whichever order the two are run in.",
+ "expected": {
+  "on_map_after": true
+ }
+}
