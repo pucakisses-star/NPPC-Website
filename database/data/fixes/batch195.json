@@ -1,0 +1,17 @@
+{
+ "link": {
+  "url": "https://www.bbc.com/news/articles/cy8mjd19xm7o",
+  "title": "Trump denies US weapons shortage and says information 'leakers' being 'hunted down'",
+  "source": "BBC News",
+  "category": "prosecution",
+  "published_at": "2026-08-06"
+ },
+ "why_it_belongs": "The headline leads on munitions, but the half that concerns this archive is the second clause. Trump posted on Truth Social that the leakers of these treasonous statements are being hunted down and that long term jail sentences will be sought. A sitting president announcing that people who passed information to the press are being pursued and that he wants them imprisoned is the front edge of exactly the kind of case this archive documents -- the Espionage Act leak prosecutions already in the database began the same way.",
+ "headline_note": "The BBC headline is used verbatim, which is the convention the existing dashboard links follow. It reads oddly on a political-prisoner dashboard because it leads with the weapons story, but rewriting a source headline into something the source did not print would be worse: the reader clicks through and must find the words they were shown. The BBC also runs a second wording on its social card, Trump denies US munitions shortage and said hed seek to jail leakers; the on-page headline is the one taken here.",
+ "no_coordinates_note": "Deliberately no lat/lng, so this appears in the ticker and the newswire but not on the event map. There is no place to pin. It is a social-media post about a nationwide pursuit, not an arrest or a protest that happened somewhere, and dropping a marker on Washington to make the map look busier would invent a location the story does not have. The map scope requires both coordinates, so leaving them null is the whole mechanism.",
+ "category_note": "Filed under prosecution rather than other. Nobody has been charged, and that is worth being clear about -- what is reported is a threat, not a case. But the four categories are protest, arrest, prosecution and other, and of those, a public vow to hunt people down and seek long jail sentences belongs with prosecution rather than in the catch-all. Move it to other if the archive would rather reserve prosecution for filed charges.",
+ "expected": {
+  "links_after": "one more than before",
+  "on_map": false
+ }
+}
