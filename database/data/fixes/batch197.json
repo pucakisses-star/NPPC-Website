@@ -1,0 +1,20 @@
+{
+ "link": {
+  "url": "https://www.democracynow.org/2026/8/6/headlines/nyt_cia_secretly_established_new_cuba_task_force",
+  "title": "NYT: CIA Secretly Established New Cuba Task Force",
+  "source": "Democracy Now!",
+  "category": "other",
+  "published_at": "2026-08-06",
+  "lat": 38.9517,
+  "lng": -77.1467,
+  "location_label": "CIA Headquarters, Langley, VA"
+ },
+ "why_it_belongs": "This one is further from the archives usual subject than most dashboard links, so the connection is worth stating rather than assuming. The New York Times reports the CIA has stood up a new Cuba task force -- case officers who recruit and run spies, cyber operators, and specialists in covert influence operations. The last time the agency did this, the 1960 Cuba task force, it produced the Bay of Pigs and six decades of covert operations, and those operations put people in prison on both sides. This archive already holds two of them: Antonio Guerrero and René González, of the Cuban Five, checked against the live database rather than assumed. A new task force of the same kind is the upstream of cases this archive will end up documenting.",
+ "category_note": "Filed under other, and that is the honest answer rather than a shrug. Nobody has been arrested, charged or policed here. The four categories are protest, arrest, prosecution and other, and an intelligence reorganisation is none of the first three. Stretching it into prosecution to make it look more relevant would be worse than admitting it is context.",
+ "coordinates_note": "38.9517, -77.1467 is the George Bush Center for Intelligence at Langley, Virginia. Same reading of a pin as batch 196 established for the White House link: the marker is where the thing came from, not where anything happened to anybody. Nothing in this story happened at Langley either -- a task force was stood up there, and its operations are aimed at Cuba, 1,200 miles away. Havana would be the other defensible pin; the agency was chosen over the target because the story is about the CIA acting, not about Cuba being acted upon.",
+ "headline_note": "Democracy Nows headline is used verbatim, including its NYT: prefix, which is the convention the other dashboard links follow. The prefix is accurate -- Democracy Now is reporting the Times reporting -- so it stays.",
+ "self_sufficient_note": "Matched on the URL: updates in place if it is already there, creates it otherwise. Independent of every other batch.",
+ "expected": {
+  "on_map_after": true
+ }
+}
