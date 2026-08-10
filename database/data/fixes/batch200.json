@@ -1,0 +1,31 @@
+{
+ "prisoner": {
+  "slug": "emanuel-bronner",
+  "name": "Emanuel Bronner",
+  "description": "Emanuel Bronner was an entrepreneur and peace activist who created Dr. Bronner's Magic Soaps. After his family was killed in the Holocaust, Bronner began traveling the United States to give lectures on his personal philosophy, which advocated for global unity regardless of race or religion. While he was speaking at the University of Chicago, his lecture was shut down by the school administration, which refused to allow him to continue and had him arrested for trespassing even though a student group had invited him to speak at the school. Bronner was then brought to Elgin State Mental Hospital, where he was civilly committed. He was held for over a year before he escaped from the asylum. He later stated that the electric shock experiments he underwent at the hospital had resulted in his blindness.",
+  "aka": null
+ },
+ "case": {
+  "charges": "Trespassing — arrested at the University of Chicago after the school administration shut down a lecture he had been invited to give by a student group. He was then brought to Elgin State Mental Hospital and civilly committed.",
+  "convicted": "No — never tried on the trespassing arrest; held instead by civil commitment, which required no charge, trial or sentence"
+ },
+ "supplied_text": "Emanuel Bronner was an entrepreneur and peace activist who created the Dr. Bronner's Magic Soaps company. After his family was killed in the Holocaust Bronner began traveling the United States to give lectures on his personal philosophy which advocated for global unity regardless of race or religion. While speaking at the University of Chicago his lecture was shut down by the school administration who refused to allow him to speak and had him arrested for trespassing despite being invited to speak at the school by a student group. Bronner was then brought to the Elgin State Mental Hospital where he was civilly committed. Bronner was held for over a year before he escaped from the asylum and later stated that having undergone electric shock experiments at the hospital resulted in him going blind.",
+ "edits": [
+  "the Dr. Bronner's Magic Soaps company -> Dr. Bronner's Magic Soaps. An article in front of a possessive proper name does not work in English.",
+  "After his family was killed in the Holocaust Bronner began -> ...Holocaust, Bronner began. Comma after the introductory clause.",
+  "his personal philosophy which advocated -> his personal philosophy, which advocated. Non-restrictive clause; without the comma it implies he held several philosophies and this was the one that advocated unity.",
+  "While speaking at the University of Chicago his lecture was shut down -> While he was speaking at the University of Chicago, his lecture was shut down. Fixes a dangling modifier: as written, the lecture was doing the speaking. Comma added after the clause.",
+  "the school administration who refused -> the school administration, which refused. An administration is a which, not a who; comma for the non-restrictive clause.",
+  "refused to allow him to speak and had him arrested ... despite being invited to speak -> refused to allow him to continue ... even though a student group had invited him to speak. Two fixes: despite being invited dangled onto the administration rather than onto Bronner, and speak appeared twice in one sentence.",
+  "the Elgin State Mental Hospital where -> Elgin State Mental Hospital, where. Article dropped from the proper name; comma for the non-restrictive clause.",
+  "Bronner was held ... and later stated that having undergone electric shock experiments at the hospital resulted in him going blind -> He was held ... He later stated that the electric shock experiments he underwent at the hospital had resulted in his blindness. Split a run-on that yoked the escape to the blindness with a bare and; third Bronner in four sentences changed to He; and resulted in him going blind rewritten to avoid the gerund tangle."
+ ],
+ "not_changed": "No fact, claim or hedge was touched. The trespassing charge, the family killed in the Holocaust, the student-group invitation, over a year, the escape, and the attribution of his blindness to the shock experiments all say exactly what the curator wrote. This pass was spelling and grammar only.",
+ "aka_note": "The aka field is cleared. It held Dr. Bronner; born Emanuel Heilbronner, which the prisoner page rendered as an AKA line under the heading and appended to the meta description. With it empty the page shows only Emanuel Bronner, which is what was asked for. The name, first_name, middle_name and last_name columns are untouched -- middle_name stays Theodore, and nothing on the page displays it.",
+ "case_note": "The case row follows the biography again. The previous version carried the bail and the police bringing him to Elgin; the new biography drops both, and research found no source for either, so they come out of the charges field too. What remains is what the new text says: arrested for trespassing at the University of Chicago after the administration shut the lecture down, then brought to Elgin and civilly committed.",
+ "research_note": "Recorded so a later reader knows the ground: no published source names the charge as trespassing. Wikipedia says he was arrested for refusing to leave the deans office; the German Historical Institutes Immigrant Entrepreneurship entry says he was jailed for unknown reasons and that his own account blamed his opposition to the universitys water-fluoridation plans. That entry also states his sister Luise committed him, and that he escaped in 1947 when she visited, taking money from her pocket and leaving through a bathroom window. The curator reviewed this and chose the wording above; the biography now says only that he was brought to Elgin, which does not contradict the sister account.",
+ "expected": {
+  "description_words": 134,
+  "aka": null
+ }
+}
