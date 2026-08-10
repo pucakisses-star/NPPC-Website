@@ -1,0 +1,72 @@
+{
+ "frank": {
+  "slug": "leonard-roy-frank",
+  "clear_affiliation": true,
+  "why": "The curator asked for the Network Against Psychiatric Assault affiliation to come off. It was a researched addition in batch 201, not something supplied, and NAPA post-dates the confinement by eleven years -- he co-founded it in 1973, the record is about 1962-63. Off it comes. NAPA is still named in nothing else on his record, so the fact leaves the database with it; say the word if it should live in the description instead."
+ },
+ "king_update": {
+  "slug": "clennon-king",
+  "name": "Clennon Washington King Jr.",
+  "first_name": "Clennon",
+  "middle_name": "Washington",
+  "last_name": "King",
+  "birthdate": "1920-07-18",
+  "death_date": "2000-02-12",
+  "description": "Clennon Washington King Jr. was a Black college professor who in June 1958 tried to register for graduate study at the all-white University of Mississippi. State authorities seized him and committed him to the state mental hospital at Whitfield for a psychiatric examination — on the theory that any Negro who tried to integrate Ole Miss must be insane. No criminal charge was brought, because a charge would have required a court. A contemporary United Press International report says he was released on June 18, after twelve days, when hospital doctors pronounced him sane. Martin Luther King Jr. protested the confinement to Governor James P. Coleman. King later became the second African American man to run for President of the United States.",
+  "case_dates": {
+   "arrest_date": "1958-06-05",
+   "incarceration_date": "1958-06-06",
+   "release_date": "1958-06-18"
+  },
+  "why": "He was already here, as Clennon King at slug clennon-king with sort_order 3998 -- found only because the duplicate check was run against the live database before writing, and prisoner:add matches on exact name, so Clennon Washington King Jr. would have sailed past the guard and created a second him. The existing record has the right story and no dates at all: imprisoned_for_days sits at 0 and the case carries neither an incarceration nor a release date, with the twelve days stranded in the free-text sentence field where nothing can count them.",
+  "description_note": "The existing description is kept almost whole -- including its best line, that the theory was that any Negro who tried to integrate Ole Miss must be insane -- with the curators new facts added after it: that no charge was brought because a charge would have needed a court, the UPI report of his June 18 release when doctors pronounced him sane, Martin Luther King Jr. protesting to Governor Coleman, and his later presidential run.",
+  "case_note": "Only the three dates are written to the case. The charges, convicted and sentence fields already say the right thing and are left alone -- charges in particular is stored as an array on this record, and rewriting it as a string to say what it already says would be a needless risk.",
+  "slug_note": "The slug stays clennon-king. HasSlug only generates on create, so renaming the record does not move the page and nothing linking to /prisoner/clennon-king breaks."
+ },
+ "prisoners": [
+  {
+   "name": "Elizabeth Packard",
+   "first_name": "Elizabeth",
+   "middle_name": "Parsons Ware",
+   "last_name": "Packard",
+   "description": "Elizabeth Parsons Ware Packard was committed to the Jacksonville Insane Asylum in Illinois on June 18, 1860 by her husband, the Reverend Theophilus Packard, after she disputed his Calvinist theology and insisted on her own religious views. An Illinois statute then in force allowed a husband to commit his wife on his word alone, without the public hearing the law required in every other case. She was held for three years. After her release her husband confined her in their own house, and in 1864 she won a jury trial that declared her sane. She spent the rest of her life campaigning for the legal rights of married women and for reform of the commitment laws, founding the Anti-Insane Asylum Society and winning personal liberty statutes in several states that became known as Packard laws.",
+   "state": "Illinois",
+   "race": "White",
+   "gender": "Female",
+   "birthdate": "1816-12-28",
+   "death_date": "1897-07-25",
+   "ideologies": [
+    "Civil Liberties"
+   ],
+   "era": "1860s",
+   "in_custody": false,
+   "released": true,
+   "cases": [
+    {
+     "institution_name": "Jacksonville Insane Asylum",
+     "institution_city": "Jacksonville",
+     "institution_state": "Illinois",
+     "charges": "None — no charge and no hearing. Committed by her husband, the Reverend Theophilus Packard, under an Illinois statute that let a husband commit his wife on his word alone, without the public hearing the law required in every other case.",
+     "convicted": "No — never charged or tried. A jury declared her sane in 1864, after her release.",
+     "incarceration_date": "1860-06-18",
+     "release_date": "1863-06-18"
+    }
+   ]
+  }
+ ],
+ "photos": [
+  {
+   "slug": "elizabeth-packard",
+   "file": "elizabeth-packard.jpg",
+   "title": "File:Epwpackard.jpg",
+   "note": "Public domain, via Wikimedia Commons; author unknown, a nineteenth-century portrait. 200x392, which is the full size Commons holds. Installed unmodified."
+  }
+ ],
+ "king_no_photo": "No photograph. Wikimedia Commons has nothing for him, the Wikipedia article carries no image, and the Mississippi Encyclopedia entry has none. The 1958 press photographs are all copyrighted, and the rule this archive has been following is that no licensed news photography gets copied in. There is a concrete lead worth chasing: the Mississippi Department of Archives and History holds a photograph of him in the Sovereignty Commission records, catalogued as 1-28-0-94-1-1-1ph. Their online archive needs a session-backed search this batch could not drive, but a request to MDAH would settle it. Better an empty photo field than a face that might be someone else, or one the archive has no right to publish.",
+ "king_date_note": "The June 6 admission date is arithmetic, not a source. What is sourced is the June 5 removal and jailing, and the UPI report that he was released on June 18 after twelve days; 18 minus 12 gives the 6th, and storing it makes the twelve days computable rather than asserted. Anyone who finds the admission record should correct it.",
+ "packard_note": "Three years to the day, 18 June 1860 to 18 June 1863, which is 1095 days. The symmetry is in the sources, not an artefact of rounding.",
+ "expected": {
+  "king_days": 12,
+  "packard_days": 1095
+ }
+}
