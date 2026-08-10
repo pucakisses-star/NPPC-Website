@@ -1,0 +1,47 @@
+{
+ "prisoner": {
+  "name": "Audrey Faye Hendricks",
+  "first_name": "Audrey",
+  "middle_name": "Faye",
+  "last_name": "Hendricks",
+  "description": "Audrey Faye Hendricks was nine years old when she was arrested in Birmingham on May 2, 1963, the first day of the Children's Crusade, which makes her the youngest known person jailed in the American civil rights movement. She had walked out of Center Street Elementary alone — the only child from her school — and marched from the Sixteenth Street Baptist Church singing “Ain't Gonna Let Nobody Turn Me Round.” She was arrested for parading without a permit and held in the Juvenile Hall at the Birmingham city jail, sharing a bathroom with fifteen to twenty other girls. “I didn't have any fresh underwear or a change of clothes or a toothbrush,” she said later. She and some five hundred other children were released on Wednesday, May 8. She went back to school the next day and nobody asked her about it: “I was just one of the kids, as everybody else was. It didn't dawn on me that it was a big deal.” Both her parents were in the movement — her mother, Lola Mae Hendricks, worked out of Fred Shuttlesworth's office and with the Southern Christian Leadership Conference. She became a teacher, and died in Birmingham in 2009.",
+  "state": "Alabama",
+  "race": "Black",
+  "gender": "Female",
+  "birthdate": "1953-01-01",
+  "death_date": "2009-03-01",
+  "ideologies": [
+   "Civil Rights"
+  ],
+  "era": "1960s",
+  "in_custody": false,
+  "released": true,
+  "cases": [
+   {
+    "institution_name": "Birmingham City Jail",
+    "institution_city": "Birmingham",
+    "institution_state": "Alabama",
+    "charges": "Parading without a permit — arrested at nine years old on May 2, 1963, the first day of the Children's Crusade, after marching from the Sixteenth Street Baptist Church. Held in the Juvenile Hall at the city jail.",
+    "convicted": "No — released with about five hundred other children on May 8, 1963",
+    "arrest_date": "1963-05-02",
+    "incarceration_date": "1963-05-02",
+    "release_date": "1963-05-08"
+   }
+  ]
+ },
+ "photo": {
+  "slug": "audrey-faye-hendricks",
+  "file": "audrey-faye-hendricks.jpg",
+  "from": "database/data/photos/nonfree/audrey-faye-hendricks.jpg",
+  "to": "prisoners/audrey-faye-hendricks.jpg",
+  "note": "The National Womens History Museum portrait, taken from their 600x600 original rather than the 300x300 image-style derivative the page displays -- the same trick that got Packard a better scan in batch 205. Converted from PNG to JPEG, otherwise unmodified. It is a later-life colour photograph, not the 1963 child; she died in 2009. Copyrighted, so it goes in photos/nonfree/ with a credits row, on the same basis as the other Birmingham movement portraits already there -- Shuttlesworth, Billups, Woods."
+ },
+ "birthdate_note": "1953 at YEAR precision, so it renders as 1953 rather than a January day nobody claims. No source gives her exact birth date: the museum heads the biography 1953 - 2009, and Wikipedias own infobox computes her age as 55-56, which is what it does when it only has a year. The stored 1953-01-01 is a carrier for the year, and the precision flag is what stops the page asserting a day.",
+ "institution_note": "Birmingham City Jail, which already exists in this database with eighteen cases -- checked before writing. AddPrisoner matches institutions on name alone, so passing that exact name reuses the existing record and puts her on the same institution page as the other Birmingham prisoners, instead of minting an 813th institution called Birmingham Juvenile Hall. The Juvenile Hall detail lives in the charges text, where it belongs.",
+ "six_or_seven_note": "Six days is the arithmetic between the two dates the curator gave, and the National Civil Rights Museum says six. Some accounts say seven, which is the same span counted inclusively -- May 2 and May 8 both included. Nothing is in conflict; the record stores the dates and lets the duration follow from them.",
+ "expected": {
+  "days": 6,
+  "institution": "Birmingham City Jail",
+  "birthdate_precision": "year"
+ }
+}
