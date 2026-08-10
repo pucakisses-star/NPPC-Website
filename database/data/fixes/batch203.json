@@ -1,0 +1,15 @@
+{
+ "photo": {
+  "slug": "clennon-king",
+  "file": "clennon-king.jpg",
+  "from": "database/data/photos/nonfree/clennon-king.jpg",
+  "to": "prisoners/clennon-king.jpg",
+  "source": "https://cdn.face2faceafrica.com/www/wp-content/uploads/2020/05/Clennon-Washington-King-Jr.-via.jpeg",
+  "article": "https://face2faceafrica.com/article/for-daring-to-apply-to-ole-miss-clennon-washington-king-jr-landed-in-an-asylum"
+ },
+ "rationale": "The curator directed that the 1958 press photographs be used under fair use, and that is their call to make as publisher. It also turns out the archive already has a lane for exactly this: photos/nonfree/ holds 293 copyrighted portraits, each credited in CREDITS-nonfree.md under a non-commercial fair-use and political-prisoner memorial rationale, with a standing instruction to remove any image if a rights-holder objects. Batch 202 left his photo field empty on a stricter reading than the archives own practice. This corrects that.",
+ "provenance": "Reproduced by face2faceafrica.com in its 2020 article on the Ole Miss incident, as a scanned print with the film edge and sprocket marks visible down the left side -- so this is a copy of a period photograph rather than a modern portrait, which is what the fair-use rationale rests on. face2faceafrica is already a cited source in CREDITS-nonfree.md for the Pete ONeal portrait.",
+ "crop": "Cropped from the 886x625 scan to 470x440 head-and-shoulders, removing the articles white matte, its drop-shadow frame, and the film border down the left. Low resolution is part of the rationale, not an accident.",
+ "better_source_lead": "Recorded in the credits row as well: the Mississippi Department of Archives and History holds a photograph of King in the Sovereignty Commission records, catalogued 1-28-0-94-1-1-1ph. That would be better provenanced than a press scan reproduced by a news site, and worth requesting.",
+ "path_note": "Written to prisoners/clennon-king.jpg, keyed on the records own slug rather than on Str::slug of the name. The two diverge here: batch 202 renames him to Clennon Washington King Jr. while the slug stays clennon-king, and prisoners/{slug}.jpg is the convention photoUrl documents. The bulk command prisoners:attach-nonfree-photos would have used the name-derived path and put the file somewhere the model does not look."
+}
