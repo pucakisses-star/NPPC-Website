@@ -1,0 +1,89 @@
+{
+ "prisoner": {
+  "name": "Leonard Roy Frank",
+  "first_name": "Leonard",
+  "middle_name": "Roy",
+  "last_name": "Frank",
+  "description": "Leonard Roy Frank was a writer and civil liberties activist who was involuntarily committed to the California state mental hospital system because of his participation in the 1960s counterculture. In his hospital records, doctors cited his Beatnik lifestyle, his long beard, and his vegetarianism as evidence of abnormal behavior, which they used to justify institutionalizing him. During the seven months he was confined, he was subjected to medical experiments that included 50 insulin-induced comas and 35 electroshock treatments.",
+  "state": "California",
+  "race": "White",
+  "gender": "Male",
+  "birthdate": "1932-07-15",
+  "death_date": "2015-01-15",
+  "ideologies": [
+   "Civil Liberties"
+  ],
+  "affiliation": [
+   "Network Against Psychiatric Assault (NAPA)"
+  ],
+  "era": "1960s",
+  "in_custody": false,
+  "released": true,
+  "cases": [
+   {
+    "institution_name": "Mt. Zion Hospital",
+    "institution_city": "San Francisco",
+    "institution_state": "California",
+    "charges": "None — involuntary civil commitment. The three days where the commitment began, before transfer into the state system.",
+    "convicted": "No — never charged or tried; held by involuntary civil commitment",
+    "incarceration_date": "1962-10-17",
+    "release_date": "1962-10-20"
+   },
+   {
+    "institution_name": "Napa State Hospital",
+    "institution_city": "Napa",
+    "institution_state": "California",
+    "charges": "None — involuntary civil commitment, continued in the California state mental hospital system after transfer from Mt. Zion.",
+    "convicted": "No — never charged or tried; held by involuntary civil commitment",
+    "incarceration_date": "1962-10-20",
+    "release_date": "1962-12-15"
+   },
+   {
+    "institution_name": "Twin Pines Hospital",
+    "institution_city": "Belmont",
+    "institution_state": "California",
+    "charges": "None — involuntary civil commitment, continued. The longest of the three confinements, ending with his release in June 1963.",
+    "convicted": "No — never charged or tried; held by involuntary civil commitment",
+    "incarceration_date": "1962-12-15",
+    "release_date": "1963-06-01"
+   }
+  ]
+ },
+ "photo": {
+  "file": "leonard-roy-frank.jpg",
+  "source": "https://www.madinamerica.com/wp-content/uploads/2015/01/frank.jpg",
+  "note": "Supplied by the curator, from Mad in America. Frank in later life, wearing the long white beard his hospital records had entered as evidence of abnormality. Installed unmodified. It is small -- 197x241, and that is the original upload, not a thumbnail: the only larger variants Mad in America serves are 123x150 and 150x184. Worth replacing if a higher-resolution portrait surfaces."
+ },
+ "fact_correction": {
+  "what": "over 50 insulin comas -> 50",
+  "why": "This is the one change here that is not grammar, so it is called out separately rather than buried in the edit list. Every source gives the figure as exactly fifty: Wikipedia, Mad in America, MindFreedom and Frank own testimony all say fifty insulin-coma and thirty-five electroconvulsive procedures. The supplied text said over 50, which overstates the sourced number. Thirty-five was already right. Revert with one word if there is a source for a higher count."
+ },
+ "edits": [
+  "involuntary committed -> involuntarily committed. The word modifies a verb, so it needs the adverb.",
+  "due to his participation -> because of his participation. Due to modifies nouns; because of modifies verbs, and committed is a verb.",
+  "the 60s counter cultural movement -> the 1960s counterculture. The decade written out, counterculture set as the single word it is, and movement dropped as redundant with counterculture.",
+  "In hospital records doctors cited -> In his hospital records, doctors cited. Comma after the introductory phrase; his makes it clear whose records they were.",
+  "cited Frank being a member of the Beatnik lifestyle -> cited his Beatnik lifestyle. Nobody is a member of a lifestyle, and Frank being is a possessive-with-gerund tangle in a sentence that already names him.",
+  "as well as him having a long beard and being a vegetarian -> his long beard, and his vegetarianism. Three parallel nouns instead of a chain of gerunds, which also makes the list of what the doctors counted as symptoms land harder.",
+  "as evidence for abnormal behavior -> as evidence of abnormal behavior. Evidence takes of.",
+  "abnormal behavior which they used -> abnormal behavior, which they used. Non-restrictive clause; without the comma it implies some other abnormal behavior they did not use.",
+  "having him institutionalized -> institutionalizing him. Same meaning, one word shorter, and drops the second having in the sentence.",
+  "During the 7 months he was confined he was subjected -> During the seven months he was confined, he was subjected. Number written out in prose; comma after the clause.",
+  "medical experiments such as being put into an insulin induced coma over 50 times and being subjected to electroshock therapy 35 times -> medical experiments that included 50 insulin-induced comas and 35 electroshock treatments. Removes the second subjected to in a sentence that opens with it, hyphenates the compound modifier insulin-induced, and turns two gerund chains into a parallel pair."
+ ],
+ "not_changed": "The characterisation is the curators and stands: medical experiments, not treatments. Frank spent the rest of his life arguing that what was done to him was assault rather than medicine -- he co-founded the Network Against Psychiatric Assault and edited The History of Shock Treatment -- so the word is his position as much as the curators.",
+ "three_cases_note": "Three institutions, three case rows, because a case belongs to one institution. Mt. Zion for three days, Napa State for fifty-six, Twin Pines for a hundred and sixty-eight. The transfer dates are shared between adjacent rows, which is correct for a transfer and does not double-count: 3 + 56 + 168 is 227, exactly the span from 17 October 1962 to 1 June 1963.",
+ "precision_note": "The Twin Pines release is stored as 1963-06-01 but marked month precision, so it renders as June 1963. The curator gave both forms -- Released: 1963-06-01 in the summary and June 1963 against Twin Pines -- and month precision is the honest reading: the first of the month is a placeholder, not a recorded day.",
+ "researched_note": "Added beyond what was supplied, each verifiable: born 15 July 1932, died 15 January 2015 (Wikipedia, corroborated by Mad in Americas obituary giving January 2015 and age 82); the Network Against Psychiatric Assault, which he co-founded with Wade Hudson in December 1973; and the Civil Liberties ideology tag, which is an existing term in this database and matches the description the curator wrote.",
+ "expected": {
+  "cases": 3,
+  "days": [
+   3,
+   56,
+   168
+  ],
+  "total_days": 227,
+  "description_words": 76,
+  "word_count_note": "Counted with PHP str_word_count, which is what the batch checks. Python split gives 78; str_word_count gives 76 because it does not count 1960s as a word and splits insulin-induced into two. The expected value has to come from the function that will do the comparing or the assertion can never pass."
+ }
+}
