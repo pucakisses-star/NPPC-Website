@@ -1,0 +1,15 @@
+{
+ "photo": {
+  "slug": "elizabeth-packard",
+  "file": "elizabeth-packard.jpg",
+  "to": "prisoners/elizabeth-packard.jpg",
+  "supplied_url": "https://www.womenshistory.org/sites/default/files/styles/main_image/public/images/2022-10/Elizabeth-Packard-square.jpg?itok=Gf-Qqta-",
+  "used_url": "https://www.womenshistory.org/sites/default/files/images/2022-10/Elizabeth-Packard-square.jpg",
+  "size": "600x600"
+ },
+ "why_a_different_url": "The supplied link points at a Drupal image-style derivative -- the /styles/main_image/ path -- which serves the picture at 300x300. Stripping that path gives the original upload at 600x600: the same photograph, the same crop, twice the resolution in each direction. It is what the supplied link is a thumbnail of, so using it is the supplied image rather than a substitute for it.",
+ "replaces": "The Wikimedia Commons portrait File:Epwpackard.jpg at 200x392, which batch 202 installs. Same underlying nineteenth-century photograph -- side by side they are unmistakably the same sitting -- but the Commons copy is a taller, narrower crop with only 200 pixels across, against 600 here. Three times the width on her face, and square, which is the shape the site renders portraits in.",
+ "rights": "Still public domain, and still filed in the free folder rather than photos/nonfree/. The underlying portrait is a mid-nineteenth-century photograph of a woman who died in 1897, so it is out of copyright by age, and a faithful reproduction of a flat public-domain work attracts no new copyright of its own in the United States. The National Womens History Museum is credited as the source of this particular scan as a courtesy, not because it holds a right in it.",
+ "order_note": "Works whether or not batch 202 has run. The repository file is replaced, so a first run of 202 installs this image directly; if 202 already ran with the Commons copy, this batch overwrites it on disk and leaves the photo field alone, since the path does not change.",
+ "quality_note": "Grainy at full size -- it is an old halftone scan and no amount of resolution fixes that. It is still the best copy located. Installed unmodified: no sharpening, no denoise, no crop. Retouching a nineteenth-century scan to look cleaner than it is would be inventing detail."
+}
