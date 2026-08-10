@@ -1,0 +1,24 @@
+{
+ "prisoner": {
+  "slug": "emanuel-bronner",
+  "name": "Emanuel Bronner",
+  "description": "Emanuel Bronner was an entrepreneur and peace activist who created the Dr. Bronner's Magic Soaps company. After his family was killed in the Holocaust Bronner began traveling the United States to give lectures on his personal philosophy which advocated for global unity regardless of race or religion. While speaking at the University of Chicago his lecture was shut down by the school administration who refused to allow him to speak and had him arrested for trespassing despite being invited to speak at the school by a student group. Bronner threatened to return to the school and continue his lecture after he paid bail and so police instead brought Bronner to the Elgin State Mental Hospital where he was civilly committed. Bronner was held for over a year before he escaped from the hospital and later stated that having undergone electric shock therapy at the hospital resulted in him going blind."
+ },
+ "case": {
+  "charges": "Trespassing — arrested at the University of Chicago after the administration shut down a lecture he had been invited to give by a student group. He posted bail; when he said he would return and finish the lecture, police took him to Elgin State Hospital instead, where he was civilly committed.",
+  "convicted": "No — bailed on the trespassing arrest and never tried; held instead by civil commitment, which required no charge, trial or sentence"
+ },
+ "photo": {
+  "file": "emanuel-bronner.jpg",
+  "crop": "Top cropped from the supplied 410x600 frame at y=85, leaving 410x515. There were 128 pixels of sky and awning above his hair -- 21 percent of the frame -- which read as a mis-framed snapshot at the sizes the site renders portraits. The crop leaves about 43 pixels of headroom, roughly 8 percent, which is the ordinary range for a portrait, and keeps the All-One slogan on his sweatshirt in frame. Nothing else about the photograph is altered."
+ },
+ "typo_note": "One character changed in the supplied text: Broner in the last sentence is written Bronner. A man misspelled in his own biography is worse than an unannounced correction, and this is his surname, spelled correctly three times in the same paragraph.",
+ "case_note": "The new biography changes a fact the record asserted, so the case row changes with it. Batch 198 said he was never charged with a crime -- that was written from accounts that describe the commitment and not what came before it. The curators text says he was arrested for trespassing at the University of Chicago and posted bail, which is a charge. The charges and convicted fields are rewritten to match: arrested and bailed on a trespassing charge, never tried, then held by civil commitment instead. Leaving the old wording next to the new biography would have the page contradict itself.",
+ "arrest_date_note": "Still no arrest_date, but for a different reason than in batch 198. That batch left it empty on the reasoning that a civil commitment is not an arrest. There was an arrest -- the trespassing one -- and the date of it is simply not known, so the field stays empty rather than being guessed. Sort-order placement was already made without it and is not disturbed.",
+ "institution_note": "The institution record stays Elgin State Hospital, which is what the place was called. The curators prose says Elgin State Mental Hospital and is left exactly as written; the two name the same hospital and the biography is the curators voice, not a field to normalise.",
+ "escaped_note": "The escape is now stated outright in the biography, which settles the point batch 198 flagged. release_date stays 1947-07-07 -- the schema has no escaped_date, and that is still the day the confinement ended.",
+ "expected": {
+  "description_words": 150,
+  "imprisoned_for_days": 467
+ }
+}
