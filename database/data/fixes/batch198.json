@@ -1,0 +1,48 @@
+{
+ "prisoner": {
+  "name": "Emanuel Bronner",
+  "first_name": "Emanuel",
+  "middle_name": "Theodore",
+  "last_name": "Bronner",
+  "aka": "Dr. Bronner; born Emanuel Heilbronner",
+  "description": "Emanuel Theodore Bronner — born Emanuel Heilbronner in Heilbronn, Germany, in 1908, into a Jewish family of master soapmakers — spent fifteen months in an Illinois state asylum for what he was saying, having never been charged with a crime. He emigrated in 1929 and cut the Heil from the family name after Hitler came to power; the relatives who stayed behind were murdered in the Holocaust. Recently widowed, his three children placed in foster care, he took to lecturing on a one-world creed he called the Moral ABC, or All-One-God-Faith: that humanity is a single tribe and must unite or perish. On March 27, 1946 he was committed to Elgin State Hospital in Illinois, where published accounts describe repeated electroshock treatment. Civil commitment required no charge, no trial and no sentence, and he was given none of the three. He was out by July 7, 1947 — most published accounts describe him escaping rather than being discharged — and made his way to Los Angeles, where he founded Dr. Bronner's Magic Soaps and printed the Moral ABC on every bottle, which is how a philosophy written under confinement ended up in millions of American bathrooms. He went blind in later life. He died in 1997.",
+  "state": "Illinois",
+  "race": "White",
+  "gender": "Male",
+  "birthdate": "1908-02-01",
+  "death_date": "1997-03-07",
+  "ideologies": [
+   "Religious Liberty",
+   "Free Speech"
+  ],
+  "era": "1940s",
+  "in_custody": false,
+  "released": true,
+  "cases": [
+   {
+    "institution_name": "Elgin State Hospital",
+    "institution_city": "Elgin",
+    "institution_state": "Illinois",
+    "charges": "None — involuntary civil commitment to a state asylum over his lectures and religious teaching. He was never charged with a crime.",
+    "convicted": "No — never charged and never tried; held by civil commitment, which required neither",
+    "incarceration_date": "1946-03-27",
+    "release_date": "1947-07-07"
+   }
+  ]
+ },
+ "photo": {
+  "file": "emanuel-bronner.jpg",
+  "source": "https://www.immigrantentrepreneurship.org/wp-content/uploads/2018/08/656.jpg",
+  "note": "Supplied by the curator, from the Immigrant Entrepreneurship project. Bronner in later life, blind, in dark glasses and a sweatshirt carrying his own All-One slogan. Installed unmodified at 410x600: it is already a clean portrait, and cropping a curator-supplied photograph without a reason to is interference, not curation."
+ },
+ "dates_note": "The two dates are the curators: confined March 27, 1946, out July 7, 1947 — 467 days, about fifteen months. imprisoned_for_days is left for the model to compute from them rather than hard-coded, so the record and the arithmetic cannot drift apart.",
+ "escape_note": "Worth flagging rather than smoothing over: most published accounts of Bronner describe him ESCAPING from Elgin, not being discharged. The supplied date is recorded as the release date because that is the field the schema has and July 7, 1947 is when the confinement ended either way, but the description says plainly that accounts describe an escape. If the archive would rather the record state that outright, it is a one-field edit — there is no escaped_date column.",
+ "no_arrest_date_note": "No arrest_date, deliberately. A civil commitment is not an arrest, and inventing one would put him in the wrong cohort for sort-order placement and imply a criminal process that never happened. The placement falls back to era and end-of-run tiers, which is correct for him.",
+ "why_he_belongs": "He is in this archive for the reason the archive exists: he was locked up for what he believed and said, by a mechanism that needed no charge, no trial and no sentence. The absence of a prosecution is the point of the record, not a gap in it. Seventy-one records here already describe psychiatric confinement in one form or another.",
+ "sourcing_note": "The dates and the photograph are the curators. The biography is written from published accounts of Bronner and is deliberately hedged where those accounts vary — the electroshock treatment and the escape are both attributed rather than asserted flatly. The soapmaking family, the emigration in 1929, the dropped Heil, the relatives lost in the Holocaust and the Moral ABC are the well-attested spine of the story.",
+ "ideology_note": "Religious Liberty and Free Speech are both existing terms in this database (15 and 2 records) rather than new ones minted for him. His actual creed, the All-One-God-Faith, is named in the description where it can be explained, not turned into a one-off tag nothing else uses.",
+ "expected": {
+  "cases": 1,
+  "imprisoned_for_days": 467
+ }
+}
