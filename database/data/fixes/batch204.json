@@ -1,0 +1,15 @@
+{
+ "prisoner": {
+  "slug": "clennon-king",
+  "name": "Clennon King",
+  "was": "Clennon Washington King Jr."
+ },
+ "why": "Batch 202 renamed the record to Clennon Washington King Jr. because that is how the entry was titled when it was handed over. The curator wants the displayed name back to Clennon King. This sets it back.",
+ "supersedes": "The rename in batch 202. That batch is merged but has not run on the server, so on a first run 202 will set the long name and this will set it straight back; on a server where 202 already ran, this corrects it. Either order converges. 202 is left alone rather than edited, which is how 186 superseded 185.",
+ "name_parts_note": "first_name, middle_name and last_name stay Clennon / Washington / King. Nothing on the site displays them -- the prisoner page heading, the API and the search all read the name column -- so the record keeps the full form of his name as data while showing the short one, the same treatment Bronner gets with Theodore.",
+ "slug_note": "The slug was never in play. HasSlug generates only on create, so clennon-king has survived both renames untouched and /prisoner/clennon-king has never moved.",
+ "expected": {
+  "name": "Clennon King",
+  "slug": "clennon-king"
+ }
+}
