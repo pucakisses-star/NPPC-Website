@@ -1,0 +1,35 @@
+{
+ "photos": [
+  {
+   "slug": "pete-muselin",
+   "expect_name": "Pete Muselin",
+   "file": "pete-muselin.jpg",
+   "to": "prisoners/pete-muselin.jpg",
+   "caption": "PETER MUSELIN of Woodlawn, Pa., now serving 5 years at Blawnox, Pa., under Pennsylvania Sedition Law.",
+   "position": "oval vignette, upper third of the page"
+  },
+  {
+   "slug": "milan-resetar",
+   "expect_name": "Milan Resetar",
+   "file": "milan-resetar.jpg",
+   "to": "prisoners/milan-resetar.jpg",
+   "caption": "MILAN RESETAR, Woodlawn, Pa., now serving five years at Blawnox, Pa., under Pennsylvania Sedition Law.",
+   "position": "framed panel, lower left"
+  },
+  {
+   "slug": "tom-zima",
+   "expect_name": "Tom Zima",
+   "file": "tom-zima.jpg",
+   "to": "prisoners/tom-zima.jpg",
+   "caption": "TOM ZIMA, Woodlawn, Pa., now serving five years at Blawnox, Pa., under Pennsylvania Sedition Law.",
+   "position": "framed panel, lower right"
+  }
+ ],
+ "why": "All three men were already in the database as the Woodlawn sedition defendants and none had a photograph. The three portraits come from one page of an International Labor Defense pamphlet, each with its own printed caption directly beneath it.",
+ "identification": "Not matched by name similarity. The page prints the three men one above the other with a caption under each, and each crop is taken from the position its own caption sits beneath, so the identification is the printing itself rather than a guess. The database records the first man as Pete Muselin and the pamphlet prints Peter; his own description already names Tom Zima and Milan Resetar as his codefendants, which is the check that the page and the records are about the same three people.",
+ "resolution_note": "Kept at the resolution of the scan, 152x184 to 213x203, and deliberately not upscaled. The halftone screen of the original printing is visible at this size and enlarging it would add dots rather than detail.",
+ "rights": "An International Labor Defense pamphlet of the early 1930s, almost certainly public domain by age and non-renewal, so the files sit in the open photos folder rather than in nonfree. Recorded in CREDITS-woodlawn-sedition.md with two caveats kept rather than glossed: the page carries no date, and the scan is a WordPress upload rather than a library copy.",
+ "expected": {
+  "photos": 3
+ }
+}
