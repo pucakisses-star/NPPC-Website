@@ -1,0 +1,24 @@
+{
+ "prisoner": {
+  "slug": "pio-del-pilar",
+  "expect_name": "Pío del Pilar"
+ },
+ "description": "Pío del Pilar, was a Philippine revolutionary general from Makati whom U.S. Military Governor Gen. Arthur MacArthur Jr. ordered arrested and deported to Guam in 1901 for refusing to swear allegiance to the United States. While incarcerated he was elected leader of the political prisoners held on the island by the other prisoners. After spending over a year and a half imprisoned he eventually agreed to swear an oath of loyalty to the United States and was released.",
+ "case": {
+  "incarceration_date": "1901-01-15",
+  "incarceration_precision": "day",
+  "release_date": "1902-08-27",
+  "release_precision": "day",
+  "days": 589
+ },
+ "why": "The biography was replaced on instruction, and the case dates go from a bare 1901 to 1903 to 15 January 1901 to 27 August 1902.",
+ "replacement_note": "This is a replacement rather than an append, which is the exception to the rule this archive normally follows -- nothing is deleted from descriptions -- because replacing it is what was asked for. The previous 485 characters are printed in full before the write so they are recoverable from the run log, and they are not lost to anything else: the old text said much the same about the deportation and added only that most deportees were released after taking the oath in 1902-1903, which the new text covers for him specifically.",
+ "coherence": "The dates and the new biography agree, which is the check worth having: 15 January 1901 to 27 August 1902 is 589 days, and the biography says over a year and a half. 589 days is one year and about seven and a half months.",
+ "flag_sentence_text": "The case sentence text still reads released to return home after the war (1902-1903) and now sits beside a release of 27 August 1902. It is prose that was not asked about, so it is flagged rather than rewritten.",
+ "flag_comma": "The supplied text reads Pío del Pilar, was a Philippine revolutionary general -- a comma between subject and verb. Written exactly as supplied; no grammar fix was asked for this time, unlike the Bronner and Frank entries. One character to remove if wanted.",
+ "expected": {
+  "chars": 468,
+  "days": 589
+ },
+ "date_note": "Released 27 August 1902, recorded plainly at day precision. Circa was considered and rejected: in this archive circa collapses to a bare year, so it would have thrown the month and the day away and rendered c. 1902."
+}
