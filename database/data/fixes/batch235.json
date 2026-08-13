@@ -1,0 +1,35 @@
+{
+    "prisoner": {
+        "name": "Carlos Cortéz",
+        "slug": "carlos-cortez"
+    },
+    "precision": {
+        "prisoner": {
+            "birthdate": "day",
+            "death_date": "day"
+        },
+        "case": {
+            "incarceration_date": "year",
+            "release_date": "year"
+        }
+    },
+    "imprisoned_for_months": 18,
+    "months_note": "The eighteen months are stored as months, not as a span between two dates, because this model has a column for exactly that case. computeImprisonedForDays gives a documented duration priority over date arithmetic — the comment on it cites Bill Sutherland, whose 38 months are known while his endpoints are not — and walks the day count forward from the start instead. So 1945 plus eighteen months gives 546 days, and the bare years 1945 and 1947 stay years without inflating the sentence to a full two.",
+    "confirmed": "Four of the supplied facts were checked against independent sources and hold. Alfredo is right: his full name was Carlos Alfredo Cortez. The birth of 13 August 1923 is right, in Milwaukee. The eighteen months are right, and so is the two-year sentence the description gives. The years fit too — he joined the IWW in 1947 shortly after finishing the sentence, which puts the release at the end of 1946 or the start of 1947 and the start in 1945, exactly as supplied.",
+    "death_date_conflict": "One supplied fact is contradicted, and this is the one to look at. The date given was 18 January 2005; two independent sources give 19 January 2005. The record is created with the 19th. The age does not settle it — born in August, he was 81 on either day. If the 18th came from a source, it wins and this is a one-line change; the reason for going the other way is only that two published accounts agree and could be cited, while the 18th arrived without one.",
+    "name_spelling": "Both spellings are real and both are institutional. Wikipedia and the IWW write Carlos Cortez; the Smithsonian Archives of American Art and the Chicago Literary Hall of Fame write Carlos Cortéz. The supplied spelling is kept as the name, and the plain Cortez goes in the aka alongside Koyokuikatl, the Nahuatl name he took, so he is findable however he is searched for. The slug is carlos-cortez either way, since slugs strip the accent.",
+    "prison_added": "The prison was not supplied and is added: the federal institution at Sandstone, Minnesota, which is where he served the eighteen months. It already exists in this database and twelve other prisoners are attached to it, so nothing new is created.",
+    "state_left_empty": "The state is deliberately left empty. On this archive the prisoner state is where the case was, not where the prison was — the Sandstone inmates already here sit under Minnesota, Illinois and New York. His draft refusal would have been prosecuted where he lived, in Milwaukee, which makes Wisconsin the likely answer, but likely is not verified and a guessed state shows up on the map as a fact. Say the word and it is one line.",
+    "bio_verbatim": "The biography is written exactly as supplied, including sentenced to 2 years for being a conscientious objectors and an active member of for nearly 60 years. No grammar fix was asked for, and the same call was made for the Pío del Pilar biography.",
+    "institution_duplicate": "Flagged, not touched: this database holds the same prison twice, as FCI Sandstone with twelve cases and as Federal Correctional Institution, Sandstone with one, that one being Oscar Coover. The new case is attached to the twelve so as not to grow the smaller duplicate. Merging the two is a separate batch.",
+    "expected": {
+        "birthdate": "1923-08-13",
+        "death_date": "2005-01-19",
+        "incarceration_date": "1945-01-01",
+        "release_date": "1947-01-01",
+        "months": 18,
+        "days": 546,
+        "institution": "FCI Sandstone",
+        "middle_name": "Alfredo"
+    }
+}
