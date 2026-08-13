@@ -1,0 +1,74 @@
+{
+ "tags": [
+  {
+   "tag": "MOVE 9",
+   "slugs": [
+    "janine-phillips-africa",
+    "janet-holloway-africa",
+    "delbert-africa",
+    "william-phillips-africa"
+   ]
+  },
+  {
+   "tag": "San Quentin Six",
+   "slugs": [
+    "fleeta-drumgo"
+   ]
+  },
+  {
+   "tag": "Soledad Brothers",
+   "slugs": [
+    "george-jackson",
+    "fleeta-drumgo",
+    "john-clutchette"
+   ]
+  },
+  {
+   "tag": "San Francisco 8",
+   "slugs": [
+    "herman-bell",
+    "jalil-muntaqim",
+    "ray-boudreaux",
+    "richard-brown",
+    "hank-jones",
+    "harold-taylor",
+    "richard-oneal",
+    "francisco-torres"
+   ]
+  }
+ ],
+ "aka": [
+  {
+   "slug": "robert-hillary-king",
+   "add": "Robert King Wilkerson",
+   "why": "The name he was tried and imprisoned under. The Angola 3 campaigns used both; his own record carried neither, so a search for Wilkerson found nothing."
+  }
+ ],
+ "append_description": [
+  {
+   "slug": "russell-maroon-shoatz",
+   "text": "He escaped twice. On September 14, 1977 he escaped from SCI Huntingdon and was at large for 27 days before being recaptured that October. In March 1980 he escaped from Fairview State Hospital with another prisoner, after a revolver and a sub-machine gun were smuggled in; all three men involved were captured three days later following a gun battle with local, state and county police and FBI agents.",
+   "why": "The two escapes and recaptures were nowhere on the record. They are the part of his custody history the archive was missing, and the reason his imprisonment is not one unbroken span."
+  }
+ ],
+ "institutions": [
+  {
+   "slug": "robert-hillary-king",
+   "wrong": "FCI Oxford",
+   "to": {
+    "name": "Louisiana State Penitentiary",
+    "city": "Angola",
+    "state": "Louisiana"
+   },
+   "why": "Angola 3, held at Angola for 29 years and released in 2001. FCI Oxford is a federal prison in Wisconsin and is one of the fourteen contaminated institutions. Batch 215 fixed Woodfox and Wallace; King was missed because he is not on the handout that batch worked from."
+  }
+ ],
+ "why": "Tagging gaps found while checking the itsabouttimebpp coverage against the database. Everyone here was already present and correctly described; what was missing was the thread connecting them. Three clusters -- Soledad Brothers, the San Francisco 8 and the San Quentin Six -- had no group tag at all or an incomplete one, so the groups were invisible as groups even though every member had a page.",
+ "not_tagged": "Two groups are deliberately left untagged. The New Haven Panther prosecution has ten plausible members in the database and the New Haven Nine is a specific set of defendants; tagging ten people into a group of nine would be inventing a fact. Panther 21 carries twenty; the twenty-first is likely Sekou Odinga or Kuwasi Balagoon, both present and both untagged, but that should be checked against the indictment rather than guessed.",
+ "expected": {
+  "tag_writes": 16,
+  "aka": 1,
+  "appends": 1,
+  "institutions": 1
+ }
+}

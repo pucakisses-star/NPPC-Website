@@ -1,0 +1,46 @@
+{
+ "prisoner": {
+  "name": "Jack Ivory Johnson",
+  "first_name": "Jack",
+  "middle_name": "Ivory",
+  "last_name": "Johnson",
+  "aka": "Jack Johnson",
+  "description": "Jack Ivory Johnson was a member of the Baltimore chapter of the Black Panther Party. On April 24, 1970 Baltimore police officer Donald W. Sager was shot and killed and a second officer wounded in the 1200 block of Myrtle Avenue. Johnson, then 23, and James E. Powell were found hiding beneath the steps of a nearby house during the manhunt that followed.\n\nBy the account of Nana Njinga Conway, published by the Freedom Archives and circulated by itsabouttimebpp.com, Johnson was beaten after his arrest and coerced into signing a statement, written for him, implicating himself, Powell and Marshall Eddie Conway. He was hurt badly enough that supporters had to go to court to have him taken to hospital, where he remained for some days. Once he had his own counsel he recanted the statement. Prosecutors offered him complete immunity if he would stand by it and testify against Conway. He refused, and Conway went on to serve forty-four years.\n\nHe was the third Black Panther Party member tried in the case. He was released in May 2010. A Campaign to Free Jack Johnson was still filling Baltimore courtrooms for his hearings in June 2009.",
+  "state": "Maryland",
+  "gender": "Male",
+  "race": "Black",
+  "era": "1970s",
+  "affiliation": [
+   "Black Panther Party"
+  ],
+  "in_custody": false,
+  "released": true,
+  "cases": [
+   {
+    "charges": "Charged in the killing of Baltimore police officer Donald W. Sager and the wounding of a second officer on April 24, 1970.",
+    "arrest_date": "1970-04-24",
+    "release_date": "2010-05-01",
+    "convicted": "Yes"
+   }
+  ]
+ },
+ "release_precision": {
+  "field": "release_date",
+  "precision": "month",
+  "why": "Sources give May 2010 without a day. Stored as the first of the month with a month precision flag so the page renders May 2010 and does not assert a date nobody claims."
+ },
+ "name_note": "Filed as Jack Ivory Johnson rather than Jack Johnson, which is what the campaign called him. The database already holds a Jack Johnson: the boxer, John Arthur Johnson, 1878-1946, prosecuted under the Mann Act. Reusing the short name would have produced the slug jack-johnson-2 and two pages a reader could not tell apart. The campaign name is on the aka field, so a search for Jack Johnson finds both.",
+ "omitted": "No birth date. He was 23 on 24 April 1970, which puts his birth between April 1946 and April 1947, and no source found narrows it. No sentence either -- he was convicted and released after four decades, but nothing found states the term. Both are left empty rather than filled with arithmetic.",
+ "institution_note": "No institution. The interview places him at Jessup, but that detail is about the jailhouse informant in Conway case rather than about where Johnson served, and given that fourteen institutions in this database are already contaminated the last thing it needs is another guess.",
+ "sources": [
+  "itsabouttimebpp.com Campaign to Free Jack Johnson page, June 2009",
+  "Freedom Archives, interview with Nana Njinga Conway by POCC Minister of Information JR",
+  "Baltimore Police Museum and ODMP records for Officer Donald W. Sager",
+  "police1.com and officer.com reporting on the May 2010 release"
+ ],
+ "expected": {
+  "slug": "jack-ivory-johnson",
+  "name": "Jack Ivory Johnson",
+  "arrest": "1970-04-24"
+ }
+}

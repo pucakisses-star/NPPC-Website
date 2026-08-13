@@ -1,0 +1,33 @@
+{
+ "merges": [
+  {
+   "keep": "consusuella-dotson-africa",
+   "remove": "consuella-dotson-africa",
+   "rename": "Consuewella Dotson Africa",
+   "death_date": "2021-06-16",
+   "correction": "Correction, added on review: an earlier version of this entry said she died in prison in 1998. That is Merle Africa, who did. Consuewella Dotson Africa was paroled in 1994 after sixteen years and died on 16 June 2021 at the Hospital of the University of Pennsylvania, aged 67. Her conviction is reported as simple assault rather than the third-degree murder the nine received, so the 30 to 100 years recorded above is the MOVE 9 sentence and should be checked against her own.",
+   "why": "Two records for one person, neither spelling her name right. Consuella has the 1990 Tribunal detail and no case; Consusuella has the case and a false claim that she died in prison in 1998. The one with the case is kept, the name is corrected to Consuewella, the other record is folded in and removed."
+  },
+  {
+   "keep": "michael-davis-africa",
+   "remove": "mike-africa-sr",
+   "aka_add": "Mike Africa Sr.",
+   "case_sentence": "30 to 100 years; paroled after 40 years",
+   "clear_institution": "Norfolk County Jail",
+   "why": "Two records for one person, and the kept record says so itself: its description reads Michael Davis Africa, often reported as Mike Africa Sr. The Mike Africa Sr record additionally held two near-identical cases of its own. Michael Davis Africa is kept because it has the photograph, the birth date and the MOVE 9 tag; the sentence text comes across from the other, and its Norfolk County Jail institution -- a Massachusetts jail, one of the fourteen contaminated sets -- is cleared."
+  }
+ ],
+ "renames": [
+  {
+   "slug": "luis-medina",
+   "to": "Ramón Labañino",
+   "why": "Luis Medina was the cover name he worked under; Ramón Labañino Salazar is his name, and it is already on the aka field and in the first sentence of his own description. The alias was the headline and the man was buried underneath it."
+  }
+ ],
+ "slug_note": "No slug moves. HasSlug generates only on create, so luis-medina and consusuella-dotson-africa stay as they are and no existing link breaks. Both are now aliases or misspellings of the displayed name, which is a smaller problem than a dead URL, and the aka field makes both findable.",
+ "deletion_note": "Two prisoner records are deleted. prisoner_cases has onDelete cascade, so their cases go with them -- which is why the case data is copied across first and the whole of both records is printed before anything is removed. Neither model soft-deletes; this is permanent, and the printed output above the deletion is the only remaining record of what was there.",
+ "expected": {
+  "merges": 2,
+  "renames": 1
+ }
+}
