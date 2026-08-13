@@ -14,6 +14,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Infolists;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -429,6 +430,22 @@ class PrisonerResource extends Resource
             ], layout: Tables\Enums\FiltersLayout::AboveContent)
             ->filtersFormColumns(4)
             ->actions([
+                Tables\Actions\Action::make('moveToTop')
+                    ->label('Move to top')
+                    ->icon('heroicon-o-arrow-up-circle')
+                    ->color('gray')
+                    ->requiresConfirmation()
+                    ->modalHeading('Move to the top of the list?')
+                    ->modalDescription('This entry becomes Sort #1. Everything currently above it shifts down one place; the rest of the order is untouched.')
+                    ->modalSubmitActionLabel('Move to top')
+                    ->action(function (Prisoner $record): void {
+                        $moved = static::moveToTop($record);
+
+                        Notification::make()
+                            ->title($moved ? 'Moved to the top' : 'Already at the top')
+                            ->success()
+                            ->send();
+                    }),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -477,6 +494,45 @@ class PrisonerResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    /**
+     * Put one record at the head of the curated sequence.
+     *
+     * The list's invariant is sort_order == list position, 1..N — see
+     * ListPrisoners::reorderTable, which renumbers the whole table on every
+     * drag so duplicates self-heal. Honouring that here the way the bulk
+     * "Move to position…" action does would mean one UPDATE per record ahead
+     * of this one: moving something to the top of 8,500+ rows would rewrite
+     * every one of them. Shifting that whole block down by one in a single
+     * statement produces exactly the same ordering in two queries.
+     *
+     * DB::table rather than the model on purpose, so no model events fire —
+     * the same reasoning as App\Support\PrisonerSortOrder.
+     *
+     * Returns false when the record was already first, so the caller can say
+     * "already at the top" rather than claim a move that did not happen. A
+     * record sitting at 0 counts as first: that is the legacy state batches
+     * 183 and 184 cleaned up, and it is already ahead of everything.
+     */
+    public static function moveToTop(Prisoner $record): bool
+    {
+        $current = (int) $record->sort_order;
+
+        if ($current <= 1) {
+            return false;
+        }
+
+        DB::transaction(function () use ($record, $current): void {
+            DB::table('prisoners')->where('sort_order', '<', $current)->increment('sort_order');
+            DB::table('prisoners')->where('id', $record->getKey())->update(['sort_order' => 1]);
+        });
+
+        $record->refresh();
+
+        Cache::forget(PrisonerApiController::cacheKey());
+
+        return true;
     }
 
     public static function infolist(Infolist $infolist): Infolist
