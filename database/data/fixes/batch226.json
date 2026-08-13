@@ -1,0 +1,17 @@
+{
+ "prisoner": {
+  "slug": "frances-hart",
+  "expect_name": "Frances Hart"
+ },
+ "photo": {
+  "file": "prisoners/frances-hart.jpg",
+  "quarantine_dir": "storage/app/removed-photos"
+ },
+ "why": "The photograph on this record is not of a 1923 prisoner. It is a 2400x3000, 5.4 MB colour studio portrait of a living person, on a record whose subject was sentenced to four years in San Quentin and incarcerated on 12 July 1923.",
+ "evidence": "Everyone else in the same San Quentin cohort carries the right kind of image -- period sepia mugshots with the prison number written on the chest: John Mitchell 4827, John Downs 4843, Roy Davis 4884. A sweep of all 597 records in eras up to the 1920s found nine carrying colour images; the ones inspected were sepia archival scans, which read as colour but are genuine. This one is not.",
+ "action": "The photo field is cleared and the file is moved out of the public disk into storage/app/removed-photos, so it stops being served at /storage/prisoners/frances-hart.jpg. Moved rather than deleted: it is reversible, and whoever it is has a right not to be published on a stranger record either way.",
+ "not_changed": "Three things are flagged and left alone, because none can be settled from the record and nothing found online documents this person at all. The description says he served and his term expired while Gender is Female, so one of the two is wrong and it may be that the name is Francis. The era is 1910s while the incarceration date is 1923. And the charge reads as a federal Espionage Act prosecution while the institution is San Quentin, a California state prison, in the year of the state criminal syndicalism cases.",
+ "expected": {
+  "photo_after": null
+ }
+}
