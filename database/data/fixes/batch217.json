@@ -1,0 +1,73 @@
+{
+ "died_free": [
+  {
+   "slug": "sekou-odinga",
+   "death_date": "2024-01-12",
+   "source": "Died in a Manhattan hospital after months of paralysis from a systemic infection, having been released on 25 November 2014. Peoples Dispatch, Democracy Now and Black Agenda Report all carry the January 2024 date."
+  },
+  {
+   "slug": "russell-maroon-shoatz",
+   "death_date": "2021-12-17",
+   "source": "Died at his sisters home, 52 days after compassionate release for colorectal cancer. NYC Anarchist Black Cross gives 23 August 1943 - 17 December 2021."
+  },
+  {
+   "slug": "delbert-africa",
+   "death_date": "2020-06-15",
+   "source": "Died of prostate and bone cancer in Philadelphia, about six months after release in January 2020. MOVE, the Philadelphia Tribune and BlackPast agree."
+  },
+  {
+   "slug": "herman-wallace",
+   "death_date": "2013-10-04",
+   "source": "Died of liver cancer three days after a federal judge ordered his release. CNN, CBS, ABC and Democracy Now all reported it at the time."
+  },
+  {
+   "slug": "robert-seth-hayes",
+   "death_date": "2019-12-21",
+   "source": "Died more than a year after parole in August 2018. Confirmed against the Jericho Movement profile, which gives the date and states he was free."
+  },
+  {
+   "slug": "mutulu-shakur",
+   "death_date": "2023-07-06",
+   "source": "Died of cancer roughly seven months after release on parole in December 2022."
+  }
+ ],
+ "died_in_custody": [
+  {
+   "slug": "abdul-majid",
+   "death_date": "2016-04-03",
+   "source": "Died of acute cholecystitis at Five Points Correctional Facility. The case row currently records a release on 2016-04-02, the day before, which is the death dressed as a release."
+  },
+  {
+   "slug": "kuwasi-balagoon",
+   "death_date": "1986-12-13",
+   "source": "Died of AIDS-related pneumocystis pneumonia in prison, aged 39. The case row currently records the same date as a release."
+  },
+  {
+   "slug": "teddy-heath",
+   "death_date": "2001-01-21",
+   "source": "Died in prison of colon cancer after nearly thirty years. The record currently marks him released."
+  },
+  {
+   "slug": "basheer-hameed",
+   "death_date": "2008-08-30",
+   "source": "Died in the New York prison system of complications from triple bypass surgery. The case row records a release on 2008-08-29, the day before."
+  },
+  {
+   "slug": "david-rice",
+   "death_date": "2016-03-11",
+   "source": "Died at the Nebraska State Penitentiary. The case row records a release on 2016-03-10, the day before, and the record marks him released."
+  },
+  {
+   "slug": "ed-poindexter",
+   "death_date": "2023-12-07",
+   "source": "Died in Nebraska custody. The prisoner flags are already right; only the false case release on 2023-12-06 needs replacing."
+  }
+ ],
+ "why": "Eight of the twenty-seven had no death date at all, and six records turn a death in prison into a release. The pattern is the one found on Roberto Rivera in batch 210: the case carries a release dated the day before the person died. That is the single worst kind of error this archive can publish, because it erases the fact that the state held them until they died.",
+ "flags_note": "Died in custody is stored the way Prisoner::getIncarcerationYearsArray tests for it -- in_custody false and released FALSE with a death date set, the same shape as Luis Rodriguez and Romaine Fitzgerald. death_in_custody_date goes on the case, where the saving hook mirrors it into release_date and stops the imprisonment clock at the death instead of running it to today.",
+ "not_changed": "Warren Wells is left exactly as he is. The handout lists him under died in custody, 1984-2001, but the record has him arrested 6 April 1968 at Folsom and released, and nothing found resolves it. An unresolved conflict is better left visible than settled by guesswork. Two birth dates are also left alone and noted: Sekou Odinga is 1944-06-14 here against 17 June 1944 in the obituaries, and Teddy Heath is 1943-09-16 here against a Jericho Movement profile headed 1946-2001.",
+ "expected": {
+  "died_free": 6,
+  "died_in_custody": 6
+ }
+}
