@@ -1,0 +1,34 @@
+{
+ "prisoner": {
+  "slug": "dorothy-rose-blumberg",
+  "expect_name": "Dorothy Rose Blumberg"
+ },
+ "existing_case": {
+  "role": "the 1951 pre-trial detention",
+  "arrest_date": "1951-08-08",
+  "arrest_precision": "day",
+  "release_date": "1951-09-01",
+  "release_precision": "month",
+  "sentence": "Held pending trial; released on bond.",
+  "days": 24
+ },
+ "new_case": {
+  "role": "the imprisonment after conviction",
+  "match_on": "1953-01-27",
+  "incarceration_date": "1953-01-27",
+  "incarceration_precision": "day",
+  "release_date": "1955-05-14",
+  "release_precision": "day",
+  "sentence": "Convicted; reversed on later appeal.",
+  "days": 837
+ },
+ "why": "Two separate spells in custody with nineteen months at liberty between them, and her record held one dateless case row. Arrested 8 August 1951 and released on bond that September; incarcerated again 27 January 1953 and released 14 May 1955.",
+ "two_rows_note": "Two rows rather than one span, because one row would have to run from August 1951 to May 1955 and claim 1375 days of imprisonment. She was in custody for 861 of them and on bond for the other 514. The prisoner page sums imprisoned_for_days across cases, so two rows give the right total; a single row would overstate it by more than a year.",
+ "order_note": "The 1951 period goes on the case that already exists and the 1953 imprisonment becomes the new row, rather than the other way round. The cases relation has no ordering, so the page shows them in insertion order -- putting the earlier period on the older row is what makes the page read chronologically.",
+ "sentence_note": "The text Convicted; reversed on later appeal moves with the conviction to the new row, where it belongs; the existing row gets a line describing what it now holds. Nothing is lost -- both rows are printed in full before and after.",
+ "sourcing": "Dates supplied by the curator. Her existing description already had the 1951 arrest and the bail she could not raise, which these dates fit; the 1953 to 1955 imprisonment is new information to this record.",
+ "expected": {
+  "total_days": 861,
+  "cases": 2
+ }
+}
