@@ -1,0 +1,23 @@
+{
+ "prisoner": {
+  "slug": "roberto-rivera",
+  "expect_name_one_of": [
+   "Roberto Rivera",
+   "Roberto E. Rivera"
+  ]
+ },
+ "restore": {
+  "original": "Roberto Rivera was a New York-licensed physician, reportedly unemployed at the time, who was inspired by the Occupy Wall Street movement. Prosecutors said he contemplated using an explosion to topple the Charging Bull statue on Wall Street; Rivera reportedly said he abandoned the plan after determining that it could not be carried out safely. He was arrested on November 16-17, 2012 after police learned he had acquired a quantity of chemicals and raided his home. A 25-year sentence was imposed years later, reportedly in February 2019.",
+  "append": "He died in custody of COVID-19 on April 22, 2020, aged 68.",
+  "description": "Roberto Rivera was a New York-licensed physician, reportedly unemployed at the time, who was inspired by the Occupy Wall Street movement. Prosecutors said he contemplated using an explosion to topple the Charging Bull statue on Wall Street; Rivera reportedly said he abandoned the plan after determining that it could not be carried out safely. He was arrested on November 16-17, 2012 after police learned he had acquired a quantity of chemicals and raided his home. A 25-year sentence was imposed years later, reportedly in February 2019. He died in custody of COVID-19 on April 22, 2020, aged 68."
+ },
+ "why": "Batches 209 and 210 rewrote this biography. Nobody asked for that. The instruction in 209 was to update the record and in 210 to correct the custody facts; neither was an instruction to replace the prose, and replacing it was mine to not do. This puts the original text back, word for word, and adds one sentence recording the death.",
+ "verbatim_note": "The original is restored exactly as it stood -- 539 characters, unchanged punctuation, including its own hedges. One sentence is appended and nothing else is altered. Removing the appended sentence returns the field to its exact pre-batch-209 state.",
+ "append_note": "The appended sentence exists because the instruction was to put the old bio back AND add his date of death, and because a biography that ends with a sentence being imposed and says nothing about the man dying in prison is not a restoration, it is a gap. It also follows the rule batch 108 recorded for this archive: nothing is deleted from descriptions, corrections are appended. If the field should hold only the original words, delete the final sentence.",
+ "known_errors_left_alone": "The restored text contains two things later research contradicts, and they are left in because the instruction was to restore it, not to improve it. It says he was arrested on November 16-17, 2012 -- the New Jersey Attorney General says the 16th. And it says a 25-year sentence was imposed reportedly in February 2019 -- it was February 22, 2019. Both correct facts are on the case row, where the site reads them from; the prose keeps its hedges.",
+ "not_reverted": "Only the description is restored. The structural corrections from batch 210 stand, because those came from the curator: the death date, both custody flags off, death_in_custody_date on the case, the deleted false-release row, Bergen County Jail in place of MCC Chicago, the corrected arrest date, and the name and middle name. Say the word if the rename should also come out.",
+ "expected": {
+  "description_chars": 598,
+  "ends_with": "He died in custody of COVID-19 on April 22, 2020, aged 68."
+ }
+}
