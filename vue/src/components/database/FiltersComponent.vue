@@ -5,6 +5,7 @@
        <a-select
            class="w-full"
            mode="multiple"
+           :value="selectedFilters[key] ?? []"
            :options="formatOptions(options)"
            :placeholder="key"
            @change="updateSelectedFilters(key, $event)"
@@ -20,7 +21,13 @@ import {PrisonerFilters} from "@/@types/types";
 import { ref, defineProps, defineEmits, watch } from 'vue';
 
 const props = defineProps<{ filters: PrisonerFilters, modelValue: PrisonerFilters }>()
-const selectedFilters = ref<Record<string, string[]>>({});
+
+// Seeded from the parent rather than starting empty, so a filter the parent
+// has already set -- a /database/era/1980s deep link -- shows as a selected
+// tag in the dropdown instead of the results being filtered by something the
+// UI does not admit to. The parent remounts this component on Clear Filters
+// (via :key), at which point modelValue is {} and this seeds empty again.
+const selectedFilters = ref<Record<string, string[]>>({ ...(props.modelValue ?? {}) });
 
 const emit = defineEmits<{
   (event: 'update:modelValue', value: any): void;

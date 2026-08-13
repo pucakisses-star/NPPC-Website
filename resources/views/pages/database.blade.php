@@ -1,6 +1,13 @@
 @extends('app')
 
-@section('title', 'Political Prisoner Database | NPPC')
+@php
+    // Arrived via /database/{facet}/{value}. The value here is the raw URL
+    // segment; the Vue app matches it against the real filter options, so
+    // this is only used for the title.
+    $facetLabel = isset($facet) ? ucwords(str_replace('-', ' ', $facetValue)) : null;
+@endphp
+
+@section('title', $facetLabel ? $facetLabel.' | Political Prisoner Database | NPPC' : 'Political Prisoner Database | NPPC')
 
 @section('head')
 <style>
@@ -42,6 +49,18 @@
             <div id="app"></div>
         </main>
     </section>
+
+    @isset($facet)
+        {{-- Deep link into a filter. Set before the Vue bundle runs (it is
+             deferred), so the app can preselect on its first render rather
+             than filtering after the fact and making the list jump. --}}
+        <script>
+            window.__nppcDatabaseFacet = {
+                key: @json($facet),
+                value: @json($facetValue)
+            };
+        </script>
+    @endisset
 
     <script>
         (function () {
