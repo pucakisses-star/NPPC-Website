@@ -1,0 +1,135 @@
+{
+ "sentences": [
+  {
+   "slug": "abdul-majid",
+   "sentence": "33½ years"
+  },
+  {
+   "slug": "sekou-odinga",
+   "sentence": "25 years to life, plus a $25,000 fine on each of nine RICO counts"
+  },
+  {
+   "slug": "ed-poindexter",
+   "sentence": "Life"
+  },
+  {
+   "slug": "david-rice",
+   "sentence": "Life"
+  },
+  {
+   "slug": "sundiata-acoli",
+   "sentence": "Life plus 30 years"
+  },
+  {
+   "slug": "joseph-bowen",
+   "sentence": "Two life sentences"
+  },
+  {
+   "slug": "veronza-bowers",
+   "sentence": "Life. Mandatory parole date of April 7, 2004; a release scheduled for June 14, 2005 was rescinded by the US Attorney without notifying his lawyers."
+  },
+  {
+   "slug": "marshall-conway",
+   "sentence": "Life"
+  },
+  {
+   "slug": "robert-seth-hayes",
+   "sentence": "25 years"
+  },
+  {
+   "slug": "romaine-fitzgerald",
+   "sentence": "Death. Commuted to life after the California Supreme Court struck down the state death penalty in 1972; parole-eligible since 1976."
+  },
+  {
+   "slug": "assata-shakur",
+   "sentence": "Life plus 33 years"
+  }
+ ],
+ "websites": [
+  {
+   "slug": "jalil-muntaqim",
+   "website": "http://www.freejalil.com/"
+  },
+  {
+   "slug": "albert-woodfox",
+   "website": "http://www.angola3.org/"
+  },
+  {
+   "slug": "herman-wallace",
+   "website": "http://www.angola3.org/"
+  },
+  {
+   "slug": "romaine-fitzgerald",
+   "website": "http://freechip.org/"
+  },
+  {
+   "slug": "mutulu-shakur",
+   "website": "http://mutulushakur.com/"
+  }
+ ],
+ "arrest_dates": [
+  {
+   "slug": "abdul-majid",
+   "date": "1982-01-01",
+   "precision": "month",
+   "source": "PDF: captured 1/1982"
+  },
+  {
+   "slug": "sekou-odinga",
+   "date": "1981-10-01",
+   "precision": "month",
+   "source": "PDF: captured 10/1981"
+  },
+  {
+   "slug": "joseph-bowen",
+   "date": "1971-02-01",
+   "precision": "month",
+   "source": "PDF: captured 2/1971"
+  },
+  {
+   "slug": "veronza-bowers",
+   "date": "1973-09-15",
+   "precision": "day",
+   "source": "PDF: captured 9/15/1973"
+  },
+  {
+   "slug": "robert-seth-hayes",
+   "date": "1973-09-17",
+   "precision": "day",
+   "source": "PDF: captured 9/17/1973"
+  },
+  {
+   "slug": "romaine-fitzgerald",
+   "date": "1969-09-01",
+   "precision": "month",
+   "source": "PDF: captured 9/1969"
+  },
+  {
+   "slug": "assata-shakur",
+   "date": "1973-01-01",
+   "precision": "year",
+   "source": "PDF gives only the year 1973"
+  },
+  {
+   "slug": "teddy-heath",
+   "date": "1973-05-02",
+   "precision": "day",
+   "source": "Not from the PDF, which gives only 1973. This record’s own description already says arrested on May 2, 1973; that is better sourced than the handout."
+  },
+  {
+   "slug": "jamil-abdullah-al-amin",
+   "date": "2000-03-01",
+   "precision": "month",
+   "source": "PDF: captured 3/2000. The case currently holds only 2002-03-12, which is the conviction, not the capture."
+  }
+ ],
+ "why": "The itsabouttimebpp.com handout carries facts this archive does not have. Fifteen of the twenty-seven had no sentence recorded at all, fourteen had no arrest date, and nineteen had no campaign website. This batch takes what the handout supports and the database lacks.",
+ "only_fills_blanks": "Every write is conditional on the field being empty. Nothing already recorded is overwritten, so where the archive and the handout disagree the archive wins by default and the disagreement is left for a human.",
+ "dead_links_note": "Ten campaign URLs appear in the handout; each was requested before being written here and only the five that still answer are included. mxgm.org/abdul-majid, sekouodinga.com, freeeddieconway.org, freethesf8.org and kersplebedeb.com/sethhayes are dead or erroring and are left out rather than published as broken links.",
+ "not_included": "Sentences are not written for Woodfox, Wallace, Heath or Hameed because the handout never states one for them, only their years served. Arrest dates are not written for David Rice or Kenneth Whitmore: the handout dates both in ways that contradict what is already on their co-defendant or their own record, and a contradiction is worth more as an open question than as a silent overwrite.",
+ "expected": {
+  "sentences": 11,
+  "websites": 5,
+  "arrest_dates": 9
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "entries": [
+  {
+   "slug": "albert-woodfox",
+   "wrong": "FCI Allenwood",
+   "action": "set",
+   "to": {
+    "name": "Louisiana State Penitentiary",
+    "city": "Angola",
+    "state": "Louisiana"
+   },
+   "why": "Angola 3. He spent nearly 44 years at the Louisiana State Penitentiary, most of it in solitary. FCI Allenwood is a federal complex in Pennsylvania."
+  },
+  {
+   "slug": "herman-wallace",
+   "wrong": "West Tennessee State Penitentiary",
+   "action": "set",
+   "to": {
+    "name": "Louisiana State Penitentiary",
+    "city": "Angola",
+    "state": "Louisiana"
+   },
+   "why": "Angola 3, same case as Woodfox. Moved to Hunt Correctional in March 2010 and released three days before his death in 2013; Angola is where the bulk of the sentence was served. West Tennessee State Penitentiary is in Henning, Tennessee."
+  },
+  {
+   "slug": "ed-poindexter",
+   "wrong": "Lane County Jail",
+   "action": "set",
+   "to": {
+    "name": "Nebraska State Penitentiary",
+    "city": "Lincoln",
+    "state": "Nebraska"
+   },
+   "why": "Omaha Two. Convicted in Nebraska and held there until his death in 2023. Lane County Jail is in Eugene, Oregon."
+  },
+  {
+   "slug": "david-rice",
+   "wrong": "FCI Marianna",
+   "action": "set",
+   "to": {
+    "name": "Nebraska State Penitentiary",
+    "city": "Lincoln",
+    "state": "Nebraska"
+   },
+   "why": "Omaha Two, co-defendant of Poindexter, died in Nebraska custody in 2016. FCI Marianna is a federal prison in Florida."
+  },
+  {
+   "slug": "abdul-majid",
+   "wrong": "FCI Allenwood",
+   "action": "clear",
+   "why": "New York state prisoner; he died at Fishkill in 2016. Which facility held him is not established here, so the false one is removed rather than replaced with a guess."
+  },
+  {
+   "slug": "abdul-majid",
+   "wrong": "FCI Petersburg",
+   "action": "clear",
+   "why": "Second contaminated row on the same person. FCI Petersburg is a federal prison in Virginia."
+  },
+  {
+   "slug": "sekou-odinga",
+   "wrong": "Albany Penitentiary",
+   "action": "clear",
+   "why": "Albany Penitentiary closed in the 1930s; he was captured in 1981. Facility not established, so the row is cleared."
+  },
+  {
+   "slug": "sundiata-acoli",
+   "wrong": "Ashland FCI",
+   "action": "clear",
+   "why": "Federal prisoner held in several facilities over 49 years. Ashland FCI is in Kentucky and is one of the contaminated sets; the correct facility is not established here."
+  },
+  {
+   "slug": "robert-seth-hayes",
+   "wrong": "Lane County Jail",
+   "action": "clear",
+   "why": "New York state prisoner. Lane County Jail is in Eugene, Oregon."
+  },
+  {
+   "slug": "assata-shakur",
+   "wrong": "SCI Dallas",
+   "action": "clear",
+   "why": "Held in New Jersey before escaping in 1979. SCI Dallas is a Pennsylvania state prison."
+  },
+  {
+   "slug": "jamil-abdullah-al-amin",
+   "wrong": "FCI Petersburg",
+   "action": "clear",
+   "why": "Federal prisoner; the source PDF places him at the Florence supermax for over five years, and he was later moved. Not established enough to name one facility, so the false one is removed."
+  },
+  {
+   "slug": "teddy-heath",
+   "wrong": "FCI Marianna",
+   "action": "clear",
+   "why": "New York prisoner who died in custody in 2001. FCI Marianna is in Florida."
+  },
+  {
+   "slug": "basheer-hameed",
+   "wrong": "West Tennessee State Penitentiary",
+   "action": "clear",
+   "why": "New York prisoner who died in custody in 2008. West Tennessee State Penitentiary is in Henning, Tennessee."
+  }
+ ],
+ "why": "Twelve of the twenty-seven people on the Black Panther Political Prisoners list carry an institution that is impossible for them -- a federal prison in the wrong state, a jail in Oregon for a Nebraska prisoner, a Pennsylvania state prison for a woman held in New Jersey. Four are replaced with the facility the record clearly belongs to; the other nine are cleared, because removing a false published fact is right even when the true one is not yet known.",
+ "contamination_note": "These bad values are not random one-offs. Fourteen institutions in this database hold sets of cases that cannot belong together -- people from eight to twelve different states and eras spanning up to three centuries, at facilities that in some cases did not exist yet. FCI Allenwood, FCI Petersburg, FCI Marianna, FCI Waseca, FCI Oxford, Ashland FCI, Albany Penitentiary, Lane County Jail, SCI Dallas, West Tennessee State Penitentiary, MCC Chicago, Edna Mahan, Butler County Prison and Norfolk County Jail. Together they carry about 180 case rows, of which this batch fixes 13. The rest is a separate job.",
+ "method_note": "Each entry matches on the wrong institution name, so the batch is idempotent: once a row is fixed it no longer matches and is skipped. Nothing else on the case is touched -- dates, charges, sentence and conviction text are left exactly as they are.",
+ "expected": {
+  "entries": 13,
+  "prisoners": 12
+ }
+}
