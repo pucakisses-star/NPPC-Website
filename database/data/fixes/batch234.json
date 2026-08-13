@@ -1,0 +1,37 @@
+{
+    "prisoner": {
+        "slug": "james-larkin",
+        "expect_name": "James Larkin"
+    },
+    "institution_name": "Sing Sing Correctional Facility",
+    "case": {
+        "charges": "New York State prosecution under the criminal anarchy law, for his part in publishing and promoting the Left Wing Manifesto.",
+        "convicted": "Yes — convicted April 1920 under the New York criminal anarchy law; sentenced 3 May 1920.",
+        "arrest_date": "1919-11-07",
+        "sentenced_date": "1920-05-03",
+        "incarceration_date": "1920-05-03",
+        "release_date": "1923-01-17",
+        "sentence": "Five to ten years. Sentenced on 3 May 1920 and sent to Sing Sing, with transfers at different points to Clinton Prison at Dannemora and Great Meadow at Comstock. Pardoned by Governor Al Smith on 17 January 1923 and released the same day, having served 989 days of a five-year minimum. Deported from the United States on 21 April 1923, sailing for Southampton, and back in Dublin on 30 April 1923.\n\nHe had been arrested earlier, on 7 November 1919 in the New York raids, and held thirteen days until bail of $15,000 was posted on 20 November 1919. He was at liberty through the trial. The confinement recorded here is the imprisonment that followed conviction, not those thirteen days."
+    },
+    "precision": {
+        "arrest_date": "day",
+        "sentenced_date": "day",
+        "incarceration_date": "day",
+        "release_date": "day"
+    },
+    "charge_fix": "The charge on this record was wrong, and not slightly. It read as a federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918, with a sentence line to match. Larkin was prosecuted by the State of New York under its criminal anarchy law, which is what the supplied account says and what this record's own biography has said all along, twice. A federal wartime speech prosecution and a state criminal anarchy prosecution are different things in different courts under different statutes, so this is replaced rather than appended to. The old text is printed in full before the write, so it stays recoverable from the run log.",
+    "dates_confirmed": "Three of the supplied dates were checked against an independent account and hold exactly: the arrest of 7 November 1919, which was the day of the raids on the second anniversary of the Bolshevik revolution; the five-to-ten-year sentence; and the free pardon granted by Governor Al Smith on 17 January 1923. So do the prisons, all three of them — Sing Sing, Clinton at Dannemora, and Great Meadow at Comstock — and all three already exist in this database.",
+    "trial_conflict": "One supplied date is contradicted and is therefore not recorded anywhere. The account says the trial began on 5 April 1920; two independent sources put the start at 30 January 1920. There is no trial-start column on a case, so nothing is lost by leaving it out, and writing a contested date into the prose instead would have been worse than omitting it. Worth resolving before it is used.",
+    "sentencing_note": "The incarceration date is the sentencing date, 3 May 1920, which comes from the sources rather than from the supplied list — that list gives the conviction as April 1920 and no date for the start of custody. The two fit together: the verdict came in late April and the sentence was passed on 3 May, which is also when he went to Sing Sing. A contemporary article of 14 May 1920 is headlined that Larkin had been hurried to Sing Sing. If he was remanded at the verdict rather than at sentencing, custody began a few days earlier than recorded here.",
+    "bail_note": "The thirteen days between the arrest and the $15,000 bail are described in the case text but are not the recorded confinement, because a case row holds one custody period and this prosecution had two. Recording 7 November 1919 to 17 January 1923 as continuous would have claimed 1,167 days of imprisonment for a man who was at liberty on bail for most of the five months in between. The 989 days recorded run from sentencing to pardon and are the real imprisonment.",
+    "exile_note": "The deportation is in the case text and not in the exile fields. A case can carry in_exile_since and end_of_exile, and it is tempting to put 21 to 30 April 1923 there, but he was not exiled — he was expelled from the United States and delivered home to Ireland, where he spent the rest of his life in public office. Nine days of exile for the crossing would be a false record and would feed a false number into the exile totals. Say so if you want it recorded the other way.",
+    "contamination": "This charge text is not unique to him. 608 case rows in the database carry that same Espionage and Sedition Act boilerplate, and 42 of them are contradicted by the prisoner's own description: Larkin, who was prosecuted for criminal anarchy, and 41 others whose descriptions say criminal syndicalism, which was likewise a state charge and not a federal one. Only Larkin is fixed here, because only Larkin was asked about. The other 41 are a batch of their own if wanted.",
+    "expected": {
+        "arrest_date": "1919-11-07",
+        "sentenced_date": "1920-05-03",
+        "incarceration_date": "1920-05-03",
+        "release_date": "1923-01-17",
+        "days": 989,
+        "institution": "Sing Sing Correctional Facility"
+    }
+}
