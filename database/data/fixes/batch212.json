@@ -1,0 +1,18 @@
+{
+ "prisoner": {
+  "slug": "roberto-rivera",
+  "name": "Roberto Rivera",
+  "first_name": "Roberto",
+  "middle_name": "Epifanio",
+  "last_name": "Rivera"
+ },
+ "why": "Batch 210 renamed the displayed record to Roberto E. Rivera. That was not asked for -- the middle name was supplied as a fact, not as an instruction to change the heading -- and it is the second time in this run that a record was renamed to a longer form unasked, after Clennon King in 202. The display name goes back to Roberto Rivera; Epifanio stays in the middle_name column.",
+ "why_middle_name_stays": "Nothing on the site displays middle_name. The prisoner page heading, the API, the search and the citation partial all read the name column, so the record can hold his full name as data while showing the short one. Bronner keeps Theodore the same way, and Clennon King keeps Washington.",
+ "order_note": "Works whether or not batch 210 has run. If it has, this renames back and leaves the middle name it set. If it has not, the name is already correct and only the middle name is written. Either order converges.",
+ "slug_note": "The slug was never in play. HasSlug generates only on create, so roberto-rivera has survived every rename in this sequence and /prisoner/roberto-rivera has never moved. His photograph is keyed on that slug too.",
+ "expected": {
+  "name": "Roberto Rivera",
+  "middle_name": "Epifanio",
+  "slug": "roberto-rivera"
+ }
+}
