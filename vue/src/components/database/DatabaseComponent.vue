@@ -35,37 +35,68 @@ const slugifyFacet = (value: string): string =>
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
 
-const facetFromPath = (): { key: string, value: string } | null => {
-  const parts = window.location.pathname.split('/').filter(Boolean);
-
-  if (parts.length !== 3 || parts[0] !== 'database' || !FACET_KEYS.includes(parts[1])) return null;
-
+const decode = (value: string): string => {
   try {
-    return { key: parts[1], value: decodeURIComponent(parts[2]) };
+    return decodeURIComponent(value);
   } catch {
     // A malformed escape sequence in the URL is not worth throwing over.
-    return { key: parts[1], value: parts[2] };
+    return value;
   }
 };
 
-// Resolves a URL segment to the actual option string, or null if no option
-// matches -- a link to an ideology that has since been renamed should leave
-// the page unfiltered rather than empty.
-const matchFacetValue = (key: string, value: string): string | undefined => {
-  const options: string[] = (filterFieldsObj as any)[key] ?? [];
-  const wanted = slugifyFacet(value);
+/**
+ * Parses /database/era/1980s/ideology/anarchism into {era: ["1980s"],
+ * ideology: ["anarchism"]}. Facets chain as key/value pairs and several values
+ * in one facet are comma-separated -- no option value in this data contains a
+ * comma, and no two options in a facet share a slug, both checked.
+ */
+const facetsFromPath = (): Record<string, string[]> => {
+  const parts = window.location.pathname.split('/').filter(Boolean);
+  const facets: Record<string, string[]> = {};
 
-  return options.find(option => slugifyFacet(option) === wanted);
+  if (parts[0] !== 'database') return facets;
+
+  for (let i = 1; i + 1 < parts.length; i += 2) {
+    const key = parts[i];
+
+    if (!FACET_KEYS.includes(key)) continue;
+
+    facets[key] = parts[i + 1].split(',').map(decode).filter(Boolean);
+  }
+
+  return facets;
+};
+
+// Resolves URL segments to the actual option strings, dropping any that match
+// nothing -- a link to an ideology that has since been renamed should show the
+// database rather than an empty page.
+const matchFacetValues = (key: string, values: string[]): string[] => {
+  const options: string[] = (filterFieldsObj as any)[key] ?? [];
+
+  return values
+      .map(value => options.find(option => slugifyFacet(option) === slugifyFacet(value)))
+      .filter((match): match is string => Boolean(match));
+};
+
+/** The filters a path asks for, with everything unmatchable already dropped. */
+const filtersFromPath = (): Record<string, string[]> => {
+  const resolved: Record<string, string[]> = {};
+
+  Object.entries(facetsFromPath()).forEach(([key, values]) => {
+    const matches = matchFacetValues(key, values);
+
+    if (matches.length) resolved[key] = matches;
+  });
+
+  return resolved;
 };
 
 const applyFacetFromUrl = () => {
-  const facet = facetFromPath();
-  if (!facet) return;
+  const resolved = filtersFromPath();
 
-  const match = matchFacetValue(facet.key, facet.value);
-  if (!match) return;
+  if (!Object.keys(resolved).length) return;
 
-  filterObject.value = { ...filterObject.value, [facet.key]: [match] };
+  filterObject.value = { ...filterObject.value, ...resolved };
 
   // Someone following a link to an era or an ideology wants to browse it, not
   // to see only the handful of those people still inside. The default status
@@ -249,24 +280,34 @@ watch(filterObject, (newValue, oldValue) => {
 let applyingFromUrl = false;
 
 /**
- * The path that represents the current filters, or /database when they cannot
- * be represented. The scheme holds exactly one facet with exactly one value,
- * so two eras, or an era and an ideology together, have no honest URL -- and
- * an address bar that names only half the filtering is worse than one that
- * claims nothing. Status buttons and the name search are deliberately outside
- * the scheme and never affect the path.
+ * The path representing the current filters. Every combination is expressible:
+ * facets chain as key/value pairs and several values in one facet are joined
+ * with commas, so an era plus an ideology is
+ * /database/era/1980s/ideology/anarchism and two eras is
+ * /database/era/1980s,1990s.
+ *
+ * Both the facet order and the values within a facet are sorted, so the same
+ * selection always produces the same URL however it was arrived at -- which is
+ * what stops the same view having two addresses and what makes the no-change
+ * check below reliable.
+ *
+ * Status buttons and the name search are deliberately outside the scheme and
+ * never affect the path.
  */
 const pathForFilters = (): string => {
-  const active = Object.entries(cleanFilterObject.value)
-      .filter(([key, values]) => FACET_KEYS.includes(key) && Array.isArray(values) && values.length > 0);
+  const parts: string[] = [];
 
-  if (active.length !== 1) return '/database';
+  FACET_KEYS.forEach((key) => {
+    const values = cleanFilterObject.value[key];
 
-  const [key, values] = active[0] as [string, string[]];
+    if (!Array.isArray(values) || !values.length) return;
 
-  if (values.length !== 1) return '/database';
+    const slugs = values.map(slugifyFacet).filter(Boolean).sort();
 
-  return `/database/${key}/${slugifyFacet(values[0])}`;
+    if (slugs.length) parts.push(key, slugs.join(','));
+  });
+
+  return parts.length ? `/database/${parts.join('/')}` : '/database';
 };
 
 watch(cleanFilterObject, () => {
@@ -289,12 +330,14 @@ watch(cleanFilterObject, () => {
 const onPopState = () => {
   applyingFromUrl = true;
 
-  const facet = facetFromPath();
-  const match = facet ? matchFacetValue(facet.key, facet.value) : undefined;
+  // Replaced wholesale rather than merged: the path is the whole truth about
+  // which filters are on, so a facet absent from it has been navigated away
+  // from and must come off.
+  const resolved = filtersFromPath();
 
-  filterObject.value = match && facet ? { [facet.key]: [match] } : {};
+  filterObject.value = resolved;
 
-  if (match) buttonFilter.value = '';
+  if (Object.keys(resolved).length) buttonFilter.value = '';
 
   // Remount FiltersComponent so its dropdowns re-seed from the new value --
   // set after filterObject, so the fresh instance sees the new selection.

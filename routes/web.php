@@ -52,13 +52,18 @@ Route::controller(SiteController::class)
         Route::get('petitions', 'petitionsIndex');
         Route::get('petition/{slug}', 'petitionPage');
         Route::post('petition/{slug}/sign', 'petitionSign');
-        // Deep links into the database's filters: /database/era/1980s,
-        // /database/ideology/anarchism. Three segments, so it has to sit
-        // above the two-segment article route and the page catch-all, both
-        // of which would otherwise 404 it. The facet whitelist matches the
-        // filter keys the Vue app builds its dropdowns from.
-        Route::get('database/{facet}/{value}', 'databaseFacet')
-            ->where(['facet' => 'ideology|era|affiliation|state|race|gender']);
+        // Deep links into the database's filters. One facet:
+        // /database/era/1980s. Several, chained in pairs:
+        // /database/era/1980s/ideology/anarchism. Several values in one
+        // facet, comma-separated: /database/era/1980s,1990s.
+        //
+        // Sits above the two-segment article route and the page catch-all,
+        // both of which would otherwise 404 it. The pattern spells out the
+        // facet keys rather than accepting anything, so a garbage path still
+        // 404s instead of silently rendering the unfiltered database; it
+        // matches the filter keys the Vue app builds its dropdowns from.
+        Route::get('database/{path}', 'databaseFacet')
+            ->where('path', '(?:ideology|era|affiliation|state|race|gender)/[^/]+(?:/(?:ideology|era|affiliation|state|race|gender)/[^/]+)*');
         Route::get('prisoner/{slug}', 'prisoner');
         Route::get('author/{slug}', 'author');
         Route::get('state/{slug}', 'state');

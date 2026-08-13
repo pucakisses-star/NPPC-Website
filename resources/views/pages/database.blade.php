@@ -1,10 +1,22 @@
 @extends('app')
 
 @php
-    // Arrived via /database/{facet}/{value}. The value here is the raw URL
-    // segment; the Vue app matches it against the real filter options, so
-    // this is only used for the title.
-    $facetLabel = isset($facet) ? ucwords(str_replace('-', ' ', $facetValue)) : null;
+    // Arrived via /database/{facet}/{value}, possibly chained. These are the
+    // raw URL segments; the Vue app matches them against the real filter
+    // options, so they are only used for the title here.
+    $facetLabel = null;
+
+    if (! empty($facets)) {
+        $labels = [];
+
+        foreach ($facets as $values) {
+            foreach ($values as $value) {
+                $labels[] = ucwords(str_replace('-', ' ', $value));
+            }
+        }
+
+        $facetLabel = implode(' · ', $labels);
+    }
 @endphp
 
 @section('title', $facetLabel ? $facetLabel.' | Political Prisoner Database | NPPC' : 'Political Prisoner Database | NPPC')
