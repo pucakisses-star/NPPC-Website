@@ -1,0 +1,23 @@
+{
+ "prisoner": {
+  "slug": "albert-blumberg",
+  "expect_name": "Albert Blumberg"
+ },
+ "case": {
+  "arrest_date": "1954-09-30",
+  "arrest_precision": "day",
+  "incarceration_date": "1954-09-30",
+  "incarceration_precision": "day",
+  "release_date": "1954-11-01",
+  "release_precision": "month"
+ },
+ "why": "His case row carried no dates at all -- only the sentence text, Held on $40,000 bail. These are the custody dates supplied by the curator: arrested and incarcerated 30 September 1954, released November 1954.",
+ "sourcing": "Supplied by the curator and recorded as such. A search turned up nothing that contradicts them and nothing that confirms the specific days either; the 1954 Smith Act membership-clause prosecution itself is well attested, the day-level detail is not something the public sources carry.",
+ "precision_note": "The release is stored as 1954-11-01 with month precision, so the page renders November 1954 rather than asserting the first. The consequence worth knowing: imprisoned_for_days is computed from the stored date, so the duration comes out at 32 days, which is a floor. If he was released later in November the real figure is up to thirty days more. Storing the first of the month is the archive convention for a month-precision date -- the same as Audrey Hendricks in batch 206 -- and the precision flag is what stops the page claiming a day nobody claims.",
+ "not_touched": "The sentence text, the empty institution and the released and in_custody flags are left alone. So are the birth and death dates from batch 223, which this batch prints back so a case write cannot quietly disturb them.",
+ "expected": {
+  "days": 32,
+  "arrest": "1954-09-30",
+  "release": "1954-11-01"
+ }
+}
