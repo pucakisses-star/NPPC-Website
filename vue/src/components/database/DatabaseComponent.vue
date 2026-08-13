@@ -16,6 +16,47 @@ const buttonFilter = ref<string>('imprisonedOrExiled')
 
 const {checkPrisonerFilter} = useFilter()
 
+// Deep links: /database/era/1980s, /database/ideology/anarchism. The server
+// sets window.__nppcDatabaseFacet on those routes and nothing otherwise.
+//
+// The URL segment is matched against the real filter options rather than used
+// as-is, because the option is "Black Panther Party" and the URL is
+// "black-panther-party". Matching on a slug of both sides means the link works
+// however it was written -- Anarchism, anarchism, ANARCHISM all land.
+const slugifyFacet = (value: string): string =>
+    (value ?? '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+const applyFacetFromUrl = () => {
+  const facet = (window as any).__nppcDatabaseFacet;
+  if (!facet || !facet.key || !facet.value) return;
+
+  const options: string[] = (filterFieldsObj as any)[facet.key] ?? [];
+  const wanted = slugifyFacet(String(facet.value));
+  const match = options.find(option => slugifyFacet(option) === wanted);
+
+  // An unknown value leaves the page unfiltered rather than empty. A link to
+  // an ideology that has since been renamed should still show the database.
+  if (!match) return;
+
+  filterObject.value = { ...filterObject.value, [facet.key]: [match] };
+
+  // Someone following a link to an era or an ideology wants to browse it, not
+  // to see only the handful of those people still inside. The default status
+  // filter would leave most of these links looking almost empty, so a deep
+  // link opens on All Cases.
+  buttonFilter.value = '';
+};
+
+// Runs during setup, after the top-level await on fetchRecords above, so the
+// option lists are already populated and FiltersComponent is created with the
+// selection in place.
+applyFacetFromUrl();
+
 const visibleCount = ref(20);
 const loadMoreTrigger = ref<HTMLElement | null>(null);
 let observer: IntersectionObserver | null = null;
@@ -170,7 +211,11 @@ watch(filterObject, (newValue, oldValue) => {
   })
 
   cleanFilterObject.value = _filters
-}, { deep: true });
+  // immediate, because a deep link sets filterObject during setup -- before
+  // this watcher exists. Without it the dropdown would show the era selected
+  // and the list would ignore it, since cleanFilterObject is what the filter
+  // actually reads. Harmless on a normal load, where it derives {} from {}.
+}, { deep: true, immediate: true });
 
 
 </script>

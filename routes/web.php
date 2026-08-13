@@ -52,6 +52,13 @@ Route::controller(SiteController::class)
         Route::get('petitions', 'petitionsIndex');
         Route::get('petition/{slug}', 'petitionPage');
         Route::post('petition/{slug}/sign', 'petitionSign');
+        // Deep links into the database's filters: /database/era/1980s,
+        // /database/ideology/anarchism. Three segments, so it has to sit
+        // above the two-segment article route and the page catch-all, both
+        // of which would otherwise 404 it. The facet whitelist matches the
+        // filter keys the Vue app builds its dropdowns from.
+        Route::get('database/{facet}/{value}', 'databaseFacet')
+            ->where(['facet' => 'ideology|era|affiliation|state|race|gender']);
         Route::get('prisoner/{slug}', 'prisoner');
         Route::get('author/{slug}', 'author');
         Route::get('state/{slug}', 'state');

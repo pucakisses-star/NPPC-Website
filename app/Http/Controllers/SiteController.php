@@ -42,6 +42,25 @@ final class SiteController extends Controller {
         abort(404);
     }
 
+    /**
+     * The database page, arrived at through a filter deep link such as
+     * /database/era/1980s or /database/ideology/anarchism.
+     *
+     * The same view as /database — the filtering itself belongs to the Vue
+     * app, so all this does is hand it the facet to preselect and give the
+     * page a title that says what you are looking at, which is what makes
+     * these URLs worth sharing. The value is matched against the real filter
+     * options client-side; an unknown one simply leaves the page unfiltered
+     * rather than 404ing, because a stale link to a renamed ideology should
+     * still show the database.
+     */
+    public function databaseFacet(string $facet, string $value) {
+        return view('pages.database', [
+            'facet' => $facet,
+            'facetValue' => $value,
+        ]);
+    }
+
     public function timeline() {
         return view('pages.timeline', ['timelines' => Timeline::query()->orderBy('year')->get()]);
     }
