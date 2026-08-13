@@ -54,11 +54,17 @@ final class SiteController extends Controller {
      * rather than 404ing, because a stale link to a renamed ideology should
      * still show the database.
      */
-    public function databaseFacet(string $facet, string $value) {
-        return view('pages.database', [
-            'facet' => $facet,
-            'facetValue' => $value,
-        ]);
+    public function databaseFacet(string $path) {
+        $segments = explode('/', trim($path, '/'));
+        $facets = [];
+
+        // Pairs: key, value, key, value. The route pattern has already
+        // guaranteed the shape and the key names, so this only has to split.
+        for ($i = 0; $i + 1 < count($segments); $i += 2) {
+            $facets[$segments[$i]] = array_values(array_filter(explode(',', $segments[$i + 1])));
+        }
+
+        return view('pages.database', ['facets' => $facets]);
     }
 
     public function timeline() {
