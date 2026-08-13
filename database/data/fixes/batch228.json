@@ -1,0 +1,54 @@
+{
+ "people": [
+  {
+   "slug": "david-eichel",
+   "expect_name": "David Eichel",
+   "fields": {
+    "incarceration_date": "1919-07-16",
+    "release_date": "1920-04-30"
+   },
+   "precision": {
+    "incarceration_date": "day",
+    "release_date": "day"
+   },
+   "days": 289
+  },
+  {
+   "slug": "bruno-grunzig",
+   "expect_name": "Bruno Grunzig",
+   "prisoner": {
+    "middle_name": "F.",
+    "birthdate": "1896-01-13",
+    "death_date": "1965-03-01"
+   },
+   "prisoner_precision": {
+    "birthdate": "day",
+    "death_date": "month"
+   },
+   "fields": {
+    "incarceration_date": "1918-08-01",
+    "release_date": "1920-04-30"
+   },
+   "precision": {
+    "incarceration_date": "month",
+    "release_date": "day"
+   },
+   "days": 638
+  }
+ ],
+ "why": "Confinement dates for both men, and Grunzig middle initial, birth date and death date. Both records previously put the release at 1 May 1920; it was 30 April. Their records already tie the two men together -- Grunzig description says he was released the same day as David Eichel -- so the correction has to move on both or neither.",
+ "flag_may_first": "Three pieces of prose still say May 1 and are deliberately not edited: Eichel biography, Eichel case sentence text, and Grunzig case sentence text, which reads Released 1920 (May 1). They now contradict the dates beside them. Rewriting prose that was not asked about has gone wrong on this branch before, so they are flagged instead. Say the word and it is a one-line follow-up on each.",
+ "flag_eichel_span": "This shortens Eichel recorded imprisonment from 851 days to 289. His case previously held a bare 1918 as the incarceration date, and his biography describes custody running through the Tombs, Camp Upton, Fort Riley, Fort Leavenworth and Fort Douglas -- an arc that starts well before July 1919. The supplied dates look like the Fort Douglas confinement specifically rather than his whole time inside. Applied as given, and flagged rather than reconciled, because which reading is right is a curator call.",
+ "flag_places": "New York City and Avenel, New Jersey cannot be stored. The prisoner table has state but no birthplace or place-of-death column, and state is for the case. Grunzig state is currently empty; it is left that way rather than filled with a guess about which state the record should belong to, given he was born in New York, court-martialled toward Camp Meade in Maryland, held at Fort Douglas in Utah and died in New Jersey.",
+ "expected": {
+  "people": 2
+ },
+ "photo": {
+  "slug": "bruno-grunzig",
+  "file": "bruno-grunzig.jpg",
+  "to": "prisoners/bruno-grunzig.jpg",
+  "source": "Photograph: Big Four, The — Swarthmore College Peace Collection, CDGA.NYBLA.photo-003, 18 October 1919",
+  "position": "leftmost of four, standing raised above the others; identified as Grunzig by the site owner"
+ },
+ "photo_note": "Cropped to him alone at 300x400 from the 1600x2054 IIIF derivative, not upscaled, and the rest of the group is not reproduced. It goes in the nonfree folder rather than the open one: the creator is recorded as unidentified and the collection rights statement says copyright is retained by the authors of items in these papers, or their descendants, so an unpublished anonymous work of 1919 is treated as still in copyright rather than public domain by age. Credited in CREDITS-nonfree.md under the same non-commercial fair-use and memorial rationale as the rest of that folder."
+}
