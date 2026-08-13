@@ -1,0 +1,25 @@
+{
+ "prisoner": {
+  "slugs": [
+   "roberto-e-rivera",
+   "roberto-rivera"
+  ],
+  "expect_name_one_of": [
+   "Roberto E. Rivera",
+   "Roberto Rivera"
+  ]
+ },
+ "restore": {
+  "original": "Roberto Rivera was a New York-licensed physician, reportedly unemployed at the time, who was inspired by the Occupy Wall Street movement. Prosecutors said he contemplated using an explosion to topple the Charging Bull statue on Wall Street; Rivera reportedly said he abandoned the plan after determining that it could not be carried out safely. He was arrested on November 16-17, 2012 after police learned he had acquired a quantity of chemicals and raided his home. A 25-year sentence was imposed years later, reportedly in February 2019.",
+  "append": "He died in custody of COVID-19 on April 22, 2020, aged 68.",
+  "description": "Roberto Rivera was a New York-licensed physician, reportedly unemployed at the time, who was inspired by the Occupy Wall Street movement. Prosecutors said he contemplated using an explosion to topple the Charging Bull statue on Wall Street; Rivera reportedly said he abandoned the plan after determining that it could not be carried out safely. He was arrested on November 16-17, 2012 after police learned he had acquired a quantity of chemicals and raided his home. A 25-year sentence was imposed years later, reportedly in February 2019. He died in custody of COVID-19 on April 22, 2020, aged 68."
+ },
+ "why": "Batch 211 was supposed to do this and never did. It looks the record up by the slug roberto-rivera, and the slug on the live server is roberto-e-rivera. The lookup returns nothing, the script prints its no-prisoner line, and the biography batch 210 wrote is still on the page. Batch 212 has the same defect and is the same no-op. This batch tries both slugs and confirms the name before writing.",
+ "slug_note": "How the slug moved is not established. The Prisoner admin form has no slug field, and HasSlug generates only on creating, so neither the panel nor the model did it. Batch 210 ran successfully against roberto-rivera -- its biography, its Bergen County Jail case and its deleted MCC Chicago row are all live -- so the slug changed after that, by some edit outside these batches. Flagging it rather than guessing.",
+ "name_note": "The name is not touched. The live record shows Roberto E. Rivera with the slug to match, and the instruction here was about the description alone. Batch 212 would rename it to Roberto Rivera; that batch is inert while the slug is roberto-e-rivera, and it should not be made live without a decision on which name the page should carry.",
+ "verbatim_note": "The restored text is the pre-210 description word for word, taken from the was field batch 207 recorded before it changed anything, plus the one sentence recording the death. It says arrested on November 16-17, 2012 and sentenced reportedly in February 2019, which is looser than the structured fields on the same page. That is what the original said and the instruction was to put the original back, so it goes back as it stands.",
+ "expected": {
+  "chars": 598,
+  "ends_with": "He died in custody of COVID-19 on April 22, 2020, aged 68."
+ }
+}
