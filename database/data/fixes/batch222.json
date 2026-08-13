@@ -1,0 +1,67 @@
+{
+ "photos": [
+  {
+   "slug": "luis-talamantez",
+   "file": "luis-talamantez.jpg",
+   "to": "prisoners/luis-talamantez.jpg",
+   "source": "San Quentin Six press grid, upper-right panel"
+  },
+  {
+   "slug": "willie-tate",
+   "file": "willie-tate.jpg",
+   "to": "prisoners/willie-tate.jpg",
+   "source": "San Quentin Six press grid, lower-right panel"
+  },
+  {
+   "slug": "david-johnson",
+   "file": "david-johnson.jpg",
+   "to": "prisoners/david-johnson.jpg",
+   "source": "San Quentin Six press grid, lower-middle panel"
+  },
+  {
+   "slug": "johnny-spain",
+   "file": "johnny-spain.jpg",
+   "to": "prisoners/johnny-spain.jpg",
+   "source": "San Quentin Six press grid, lower-left panel"
+  },
+  {
+   "slug": "lumumba-shakur",
+   "file": "lumumba-shakur.jpg",
+   "to": "prisoners/lumumba-shakur.jpg",
+   "source": "The Black Panther, 12 July 1969, p6 — captioned LUMUMBA SHAKUR"
+  },
+  {
+   "slug": "ali-bey-hassan",
+   "file": "ali-bey-hassan.jpg",
+   "to": "prisoners/ali-bey-hassan.jpg",
+   "source": "The Black Panther, 12 July 1969, p6 — captioned ALIBY HASSAN"
+  },
+  {
+   "slug": "jamal-joseph",
+   "file": "jamal-joseph.jpg",
+   "to": "prisoners/jamal-joseph.jpg",
+   "source": "The Black Panther, 12 July 1969, p6 — captioned EDWARD JOSEPH"
+  },
+  {
+   "slug": "joan-bird",
+   "file": "joan-bird.jpg",
+   "to": "prisoners/joan-bird.jpg",
+   "source": "The Black Panther, 12 July 1969, p6 — captioned JOAN BIRD"
+  },
+  {
+   "slug": "robert-collier",
+   "file": "robert-collier.jpg",
+   "to": "prisoners/robert-collier.jpg",
+   "source": "The Black Panther, 12 July 1969, p6 — captioned ROBERT COLLIER"
+  }
+ ],
+ "why": "Nine of the thirty-four people with no photograph, taken from two captioned group images on itsabouttimebpp.com. Both source PDFs are image-only with no text layer, so the pages were rendered and the panels cropped; the captions were read off the rendered page.",
+ "identification_note": "Neither set was matched by name similarity. The San Quentin Six grid is captioned clockwise from upper left, and that reading is anchored by the upper-left panel being the same photograph as the Fleeta Drumgo portrait already in this archive -- so the other five positions follow from a checked starting point rather than an assumption. The Panther 21 mugshots are captioned individually under each face, and each was matched to a record through that record’s own alias or description field, not from memory: EDWARD JOSEPH to Jamal Joseph because his description gives his birth name as Eddie Joseph, ALIBY HASSAN to Ali Bey Hassan.",
+ "not_taken": "Three faces on the Panther 21 page were left alone because the archive does not record the aliases that would justify the match. ALEX McKIEVER is very likely Abayama Katara and WALTER JOHNSON very likely Baba Odinga, but neither record carries an alias, and KENNSIE SOANES cannot be Kwando Kinshasa, whose record gives his birth name as William King. Attaching a face to a record on an alias the archive has never recorded is how a photograph ends up on the wrong person.",
+ "people_absent": "Four defendants captioned on that 1969 page have no record here at all: ALBERT NIEVES, ROSELAND BENNITT, SHARON WILLIAMS and RAYMOND QUINONES. The page also shows that this database holds nineteen Panther 21 records against twenty-one defendants.",
+ "contradiction": "Two records both claim the same thing. Abayama Katara is described as the youngest of the New York Panther 21 defendants, a teenager; Jamal Joseph is described as at age 16 the youngest defendant. Both cannot be right, and neither is touched here.",
+ "resolution_note": "The Panther 21 faces are about 70 by 120 pixels in the source strip and cannot be had larger; they are enlarged twice, which adds no detail but puts them at the same scale as the portraits already here. The San Quentin Six panels are better, rendered at 300 dpi and reduced.",
+ "expected": {
+  "photos": 9
+ }
+}
