@@ -1,0 +1,34 @@
+{
+    "name": "Carlos Cortéz",
+    "first_name": "Carlos",
+    "middle_name": "Alfredo",
+    "last_name": "Cortéz",
+    "aka": "Carlos Cortez / Koyokuikatl",
+    "description": "Carlos Cortéz was an anarchist poet, artist and activist who primarily organized with the IWW for which he was an active member of for nearly 60 years. During the Second World War Cortéz objected to serving in the armed forces due to his pacifist beliefs. He was sentenced to 2 years for being a conscientious objectors and released after a year and a half.",
+    "gender": "Male",
+    "birthdate": "1923-08-13",
+    "death_date": "2005-01-19",
+    "era": "1940s",
+    "ideologies": [
+        "Anarchism",
+        "Conscientious Objection",
+        "Anti-War"
+    ],
+    "affiliation": [
+        "Industrial Workers of the World (IWW)"
+    ],
+    "in_custody": false,
+    "released": true,
+    "cases": [
+        {
+            "institution_name": "FCI Sandstone",
+            "institution_city": "Sandstone",
+            "institution_state": "Minnesota",
+            "charges": "Refusing induction into the armed forces during the Second World War, on pacifist grounds.",
+            "convicted": "Yes — convicted of refusing induction and sentenced to two years.",
+            "sentence": "Two years, of which eighteen months were served at the federal prison at Sandstone, Minnesota. He joined the IWW in 1947, shortly after completing the sentence, and remained a member for the rest of his life.",
+            "incarceration_date": "1945-01-01",
+            "release_date": "1947-01-01"
+        }
+    ]
+}
