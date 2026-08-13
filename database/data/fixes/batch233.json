@@ -1,0 +1,26 @@
+{
+    "prisoner": {
+        "slug": "mortimer-downing",
+        "expect_name": "Mortimer Downing"
+    },
+    "middle_name": "A.",
+    "birthdate": {
+        "value": "1862-08-27",
+        "precision": "day"
+    },
+    "death_date": {
+        "value": "1948-06-22",
+        "precision": "day"
+    },
+    "age_check": "The supplied age at death is its own check and it holds: 27 August 1862 to 22 June 1948 is 85, since he died two months short of his eighty-sixth birthday. The dates also sit sensibly against the case already on the record — he was 55 when Leavenworth took him in November 1917, 61 when he walked out on 22 December 1923, and he lived twenty-four more years after that.",
+    "slug_note": "Setting the middle name does not move the slug. The model regenerates a slug only when the name itself is dirty, and the name is untouched here, so this stays at /prisoner/mortimer-downing. Worth stating rather than assuming: a slug that moved silently is what made batches 211 and 212 write nothing at all.",
+    "places": "Newark and Los Angeles cannot be recorded. The prisoner table has a state column but no birthplace and no place of death, and state is for the case — his reads California, which is where he was organising and where he was prosecuted, and it is left alone. So the New Jersey birth and the Los Angeles death are in this batch and in this commit, and nowhere on the page.",
+    "flag_typo": "Flagged and not touched: his biography ends mid-sentence, with the paper he was elected to edit given as The Industrial Worker?* — a stray question mark and asterisk carried in from whatever the text was scraped out of. Not asked about, and rewriting prose nobody asked about has gone wrong on this branch before, so it is left standing. A one-line follow-up if wanted.",
+    "expected": {
+        "middle_name": "A.",
+        "birthdate": "1862-08-27",
+        "death_date": "1948-06-22",
+        "age": 85,
+        "slug": "mortimer-downing"
+    }
+}
