@@ -50,17 +50,11 @@
         </main>
     </section>
 
-    @isset($facet)
-        {{-- Deep link into a filter. Set before the Vue bundle runs (it is
-             deferred), so the app can preselect on its first render rather
-             than filtering after the fact and making the list jump. --}}
-        <script>
-            window.__nppcDatabaseFacet = {
-                key: @json($facet),
-                value: @json($facetValue)
-            };
-        </script>
-    @endisset
+    {{-- The Vue app reads the filter deep link straight off location.pathname,
+         so nothing needs handing to it here. It has to work that way round:
+         the Back button delivers a path and nothing else, so the path is the
+         only thing that can be the source of truth in both directions. $facet
+         is still used above, for the page title. --}}
 
     <script>
         (function () {

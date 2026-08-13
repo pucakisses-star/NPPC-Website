@@ -1,7 +1,7 @@
 
 <script lang="ts" async setup>
 import useAirtable from '../../composables/useAirtable';
-import {ref, watch, computed, onMounted, onUnmounted} from "vue";
+import {ref, watch, computed, onMounted, onUnmounted, nextTick} from "vue";
 import {PrisonerRecord} from "@/@types/types";
 import CardComponent from "@/components/database/CardComponent.vue";
 import FiltersComponent from "@/components/database/FiltersComponent.vue";
@@ -16,13 +16,17 @@ const buttonFilter = ref<string>('imprisonedOrExiled')
 
 const {checkPrisonerFilter} = useFilter()
 
-// Deep links: /database/era/1980s, /database/ideology/anarchism. The server
-// sets window.__nppcDatabaseFacet on those routes and nothing otherwise.
-//
+// The URL and the filters stay in step both ways: /database/era/1980s opens
+// with that era selected, and selecting an era rewrites the address bar to
+// match. The path is the single source of truth for both directions, which is
+// what makes the Back button work -- popstate gives us a new path and nothing
+// else, so anything the path cannot express would be lost on the way back.
+const FACET_KEYS = ['ideology', 'era', 'affiliation', 'state', 'race', 'gender'];
+
 // The URL segment is matched against the real filter options rather than used
 // as-is, because the option is "Black Panther Party" and the URL is
-// "black-panther-party". Matching on a slug of both sides means the link works
-// however it was written -- Anarchism, anarchism, ANARCHISM all land.
+// "black-panther-party". Slugging both sides means a link works however it was
+// written -- Anarchism, anarchism, ANARCHISM all land on the same page.
 const slugifyFacet = (value: string): string =>
     (value ?? '')
         .normalize('NFD')
@@ -31,16 +35,34 @@ const slugifyFacet = (value: string): string =>
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
 
+const facetFromPath = (): { key: string, value: string } | null => {
+  const parts = window.location.pathname.split('/').filter(Boolean);
+
+  if (parts.length !== 3 || parts[0] !== 'database' || !FACET_KEYS.includes(parts[1])) return null;
+
+  try {
+    return { key: parts[1], value: decodeURIComponent(parts[2]) };
+  } catch {
+    // A malformed escape sequence in the URL is not worth throwing over.
+    return { key: parts[1], value: parts[2] };
+  }
+};
+
+// Resolves a URL segment to the actual option string, or null if no option
+// matches -- a link to an ideology that has since been renamed should leave
+// the page unfiltered rather than empty.
+const matchFacetValue = (key: string, value: string): string | undefined => {
+  const options: string[] = (filterFieldsObj as any)[key] ?? [];
+  const wanted = slugifyFacet(value);
+
+  return options.find(option => slugifyFacet(option) === wanted);
+};
+
 const applyFacetFromUrl = () => {
-  const facet = (window as any).__nppcDatabaseFacet;
-  if (!facet || !facet.key || !facet.value) return;
+  const facet = facetFromPath();
+  if (!facet) return;
 
-  const options: string[] = (filterFieldsObj as any)[facet.key] ?? [];
-  const wanted = slugifyFacet(String(facet.value));
-  const match = options.find(option => slugifyFacet(option) === wanted);
-
-  // An unknown value leaves the page unfiltered rather than empty. A link to
-  // an ideology that has since been renamed should still show the database.
+  const match = matchFacetValue(facet.key, facet.value);
   if (!match) return;
 
   filterObject.value = { ...filterObject.value, [facet.key]: [match] };
@@ -161,6 +183,8 @@ watch(buttonFilter, (value) => {
 });
 
 onMounted(() => {
+  window.addEventListener('popstate', onPopState);
+
   observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && hasMore.value) {
       visibleCount.value += 20;
@@ -169,6 +193,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  window.removeEventListener('popstate', onPopState);
   observer?.disconnect();
 });
 
@@ -216,6 +241,69 @@ watch(filterObject, (newValue, oldValue) => {
   // and the list would ignore it, since cleanFilterObject is what the filter
   // actually reads. Harmless on a normal load, where it derives {} from {}.
 }, { deep: true, immediate: true });
+
+// --- keeping the address bar in step -------------------------------------
+//
+// Set while the filters are being changed BY the URL (a Back button press), so
+// that reacting to the URL does not immediately push the URL again.
+let applyingFromUrl = false;
+
+/**
+ * The path that represents the current filters, or /database when they cannot
+ * be represented. The scheme holds exactly one facet with exactly one value,
+ * so two eras, or an era and an ideology together, have no honest URL -- and
+ * an address bar that names only half the filtering is worse than one that
+ * claims nothing. Status buttons and the name search are deliberately outside
+ * the scheme and never affect the path.
+ */
+const pathForFilters = (): string => {
+  const active = Object.entries(cleanFilterObject.value)
+      .filter(([key, values]) => FACET_KEYS.includes(key) && Array.isArray(values) && values.length > 0);
+
+  if (active.length !== 1) return '/database';
+
+  const [key, values] = active[0] as [string, string[]];
+
+  if (values.length !== 1) return '/database';
+
+  return `/database/${key}/${slugifyFacet(values[0])}`;
+};
+
+watch(cleanFilterObject, () => {
+  if (applyingFromUrl) return;
+
+  const next = pathForFilters();
+
+  // Nothing to say. Also the case on first load, where the path already
+  // matches the filters a deep link just applied.
+  if (next === window.location.pathname) return;
+
+  window.history.pushState({ nppcDatabaseFacet: true }, '', next + window.location.search);
+}, { deep: true });
+
+/**
+ * Back and Forward. The path is all popstate gives us, so the filters are
+ * rebuilt from it rather than from any remembered state: an unrepresentable
+ * combination was never pushed, so there is nothing to restore.
+ */
+const onPopState = () => {
+  applyingFromUrl = true;
+
+  const facet = facetFromPath();
+  const match = facet ? matchFacetValue(facet.key, facet.value) : undefined;
+
+  filterObject.value = match && facet ? { [facet.key]: [match] } : {};
+
+  if (match) buttonFilter.value = '';
+
+  // Remount FiltersComponent so its dropdowns re-seed from the new value --
+  // set after filterObject, so the fresh instance sees the new selection.
+  filterKey.value++;
+
+  // Released on the next tick, once the cleanFilterObject watcher above has
+  // run for this change and declined to push it back.
+  nextTick(() => { applyingFromUrl = false; });
+};
 
 
 </script>
