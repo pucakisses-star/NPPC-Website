@@ -1,0 +1,21 @@
+{
+ "prisoner": {
+  "slug": "carolyn-hart",
+  "expect_name": "Carolyn Hart"
+ },
+ "aka": "Alice C. Burkhart",
+ "case": {
+  "arrest_date": "1934-09-01",
+  "arrest_precision": "day"
+ },
+ "why": "The birth year turned out to be right and needed no change. What was wrong is the thing that made it look wrong: the case is dated 1937 on this record, and 1937 is the year of her pardon, not of her arrest. She was arrested at McKeesport on 1 September 1934.",
+ "arithmetic": "Aged 22 at the demonstration of 1 September 1934 puts her birth in 1911 or 1912, so the supplied 1912 stands. Read against the record as it stood -- a twenty-two-year-old in a case OF 1937 -- the same age implied 1915, which is where the apparent conflict came from. The age was right and the year was wrong.",
+ "sources": "Two independent pages agree and were read rather than skimmed from search results: the University of Pittsburgh Labor Legacy exhibit, which gives her real name as Alice C. Burkhart and her age as 22 at arrest, and Red Pittsburgh, which dates the McKeesport gathering to 1 September 1934, puts the crowd at about 2,000, has twenty defendants convicted of riot in spring 1935, and gives her birth as about 1912 in Pennsylvania.",
+ "aka_note": "Alice C. Burkhart was not asked for and is added anyway, because Carolyn Hart is a pseudonym and her real name was not on the record at all. This archive matches people across sources through the aka field -- it is how William J. Turk was found to be Sekou Kambui -- so a missing real name is a person who cannot be found.",
+ "not_changed": "The description is left alone and flagged. It calls the McKeesport case a case of 1937, which is the pardon; the arrest was 1934 and the convictions spring 1935. It also says she was sentenced to two years where both sources describe a minimum of eighteen months. Rewriting prose nobody asked about has gone wrong on this branch before.",
+ "custody_caveat": "One thing the sources do not settle. Red Pittsburgh says she had served more than two years from her initial conviction, which would reach back to 1935, while the Pittsburgh exhibit says she was sent to Muncy late in 1936 -- consistent with the 6 October 1936 date already recorded. Whether she was held somewhere else between conviction and Muncy is not established, so the incarceration date is left as it is and the 234 days stands as the Muncy confinement rather than as her whole time in custody.",
+ "expected": {
+  "arrest": "1934-09-01",
+  "aka": "Alice C. Burkhart"
+ }
+}
