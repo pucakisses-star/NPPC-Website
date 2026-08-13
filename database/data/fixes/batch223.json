@@ -1,0 +1,36 @@
+{
+ "people": [
+  {
+   "slug": "dorothy-rose-blumberg",
+   "name": "Dorothy Rose Blumberg",
+   "first_name": "Dorothy",
+   "middle_name": "Rose",
+   "last_name": "Blumberg",
+   "birthdate": "1904-03-03",
+   "death_date": "1988-06-11",
+   "born": "Baltimore, Maryland",
+   "died": "Manhattan, New York",
+   "age": 84
+  },
+  {
+   "slug": "albert-blumberg",
+   "name": "Albert Blumberg",
+   "first_name": "Albert",
+   "middle_name": "Emanuel",
+   "last_name": "Blumberg",
+   "birthdate": "1906-08-10",
+   "death_date": "1997-10-08",
+   "born": "Baltimore, Maryland",
+   "died": "Manhattan, New York",
+   "age": 91
+  }
+ ],
+ "why": "Both were already in the database as Maryland Smith Act defendants and both were missing every date. This fills them in from the dates supplied by the curator.",
+ "verification": "Albert Emanuel Blumberg, 10 August 1906 to 8 October 1997, born in Baltimore, is confirmed independently against Wikipedia and the Rutgers philosophy department memorial, which agree on both dates and the middle name. Dorothy Rose Blumberg was not separately confirmed; her dates are as supplied. Given that the Albert dates matched to the day, the source looks reliable, but that is one checked and one taken on trust and the difference is recorded here rather than smoothed over.",
+ "name_note": "Neither displayed name changes. Albert stays Albert Blumberg with Emanuel in the middle_name column, which is where the site puts a middle name it does not display -- the same treatment as Roberto Epifanio Rivera, Emanuel Theodore Bronner and Clennon Washington King. Dorothy already carries Rose in her displayed name; the split fields are filled in to match.",
+ "flags_note": "death_date only. Both were released and both died decades later at liberty, so in_custody and released are untouched -- this is the shape batch 217 used for the six who died free, not the died-in-custody shape.",
+ "not_done": "Three things are left for a decision rather than written in. They were married to each other and neither description says so. Albert is filed under the state New York while Dorothy is under Maryland, which is defensible -- he was a Manhattan Democratic district leader by the end -- but it makes a married pair from the same Baltimore case sit in two different states. And Dorothy has no photograph, while Albert does.",
+ "expected": {
+  "people": 2
+ }
+}
