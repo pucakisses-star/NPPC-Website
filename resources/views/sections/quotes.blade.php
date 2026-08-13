@@ -20,10 +20,17 @@
             <div class="quote-slide" style="position:{{ $i === 0 ? 'relative' : 'absolute' }}; top:0; left:0; right:0; opacity:{{ $i === 0 ? '1' : '0' }}; transition:opacity 0.8s ease; padding:0 24px;">
                 <div class="quote-row">
 
-                    {{-- Author image — fixed height so portraits visually match; width is allowed to vary so portraits aren't cropped --}}
+                    {{-- Author image — fixed height so portraits visually match; width is allowed to vary so portraits aren't cropped.
+
+                         The box is removed outright if the file will not load. It
+                         is 400px tall whether or not the image arrives, so a
+                         missing file used to leave the quote sitting beside a
+                         column of empty black rather than simply going without a
+                         portrait. Dropping the box lets the text take the width. --}}
                     @if($quote->author_image)
                         <div class="quote-img-box">
-                            <img class="quote-img" src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}" loading="lazy" decoding="async">
+                            <img class="quote-img" src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}" loading="lazy" decoding="async"
+                                 onerror="var b=this.closest('.quote-img-box'); if(b){b.remove();}">
                         </div>
                     @endif
 
