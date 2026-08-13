@@ -18,6 +18,29 @@ const textValue = 'italic'
 
 
 
+/**
+ * Whether a field has anything worth printing a heading for.
+ *
+ * The check this replaces treated any non-empty array as a value, and the
+ * data is full of arrays holding a single null: 3,767 case rows carry
+ * ["Institution security" => [null]] against 4,974 that carry a genuinely
+ * empty []. Both mean the same thing -- nothing recorded -- but only the
+ * second was being caught, so thousands of cards printed an INSTITUTION
+ * SECURITY heading with blank space under it.
+ *
+ * An array counts only if some element survives trimming; a scalar only if
+ * it is not blank.
+ */
+const hasValue = (value: any): boolean => {
+  if (value === null || value === undefined) return false;
+
+  if (Array.isArray(value)) {
+    return value.some(item => item !== null && item !== undefined && String(item).trim() !== '');
+  }
+
+  return String(value).trim() !== '';
+};
+
 const parseValueForOutput = (value: any, fieldKey: string = ''): any => {
 
   if (typeof value === 'string' && value.includes('error')) {
@@ -113,7 +136,7 @@ const mainCase = props.record.cases[0]
 
         <div class="grid grid-cols-2 md:grid-cols-5 text-left">
           <template v-for="field in prisonerCardFields" :key="field.title">
-            <div v-if="record[field.fieldKey] != null && record[field.fieldKey] !== '' && !(Array.isArray(record[field.fieldKey]) && record[field.fieldKey].length === 0)" class="mb-4">
+            <div v-if="hasValue(record[field.fieldKey])" class="mb-4">
               <div :class="heading5">{{field.title}}</div>
               <div :class="textValue">{{parseValueForOutput(record[field.fieldKey], field.fieldKey) ?? ''}}<sup
                 v-if="field.title === 'Age' && record['Death date']"
@@ -133,7 +156,7 @@ const mainCase = props.record.cases[0]
           <div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 text-left">
               <template v-for="field in caseCardFields">
-                <div v-if="criminalCase[field.fieldKey] != null && criminalCase[field.fieldKey] !== '' && !(Array.isArray(criminalCase[field.fieldKey]) && criminalCase[field.fieldKey].length === 0)" :key="field.title" class="mb-4">
+                <div v-if="hasValue(criminalCase[field.fieldKey])" :key="field.title" class="mb-4">
                   <div :class="heading5">{{field.title}}</div>
                   <div :class="textValue" v-if="field.asTags">
                     <span class="tagg" v-for="i in criminalCase[field.fieldKey]">{{i}}</span>
