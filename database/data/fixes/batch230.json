@@ -1,0 +1,35 @@
+{
+ "prisoner": {
+  "slug": "carolyn-hart",
+  "expect_name": "Carolyn Hart"
+ },
+ "birthdate": {
+  "value": "1912-01-01",
+  "precision": "year"
+ },
+ "photo": {
+  "file": "carolyn-hart.jpg",
+  "to": "prisoners/carolyn-hart.jpg",
+  "source": "The Pittsburgh Press, Friday 28 May 1937, page scan via redpgh.com"
+ },
+ "why": "A birth year and a face for a record that had neither. The photograph is the one that ran with her release: a single full-length studio picture of her, captioned with her name, under a headline about her being freed by pardon.",
+ "identification": "No ambiguity to resolve. The page carries one photograph of one person and captions it with her name, so nothing here rests on matching a face to a list.",
+ "birthdate_note": "1912 is stored at year precision, so the page renders 1912 rather than asserting a January day nobody claims.",
+ "age_conflict": "This contradicts her own description, and the contradiction is left standing rather than quietly resolved. The description calls her a twenty-two-year-old in the 1937 case, which puts her birth around 1914 or 1915; a birth year of 1912 would make her twenty-four or twenty-five in 1937. The year was supplied and is applied as given, but one of the two is wrong and only a source can settle which.",
+ "crop_note": "Cropped to head and shoulders and reduced to 400x447. The headline, the caption and the article text are not reproduced.",
+ "rights": "Published in 1937, so its copyright turns on renewal, which is not established here. Filed non-free on that uncertainty rather than assumed public domain by age -- the same call made for the Aurelio Tolentino portrait -- and credited in CREDITS-nonfree.md under the rationale governing that folder.",
+ "expected": {
+  "birthdate": "1912-01-01",
+  "precision": "year",
+  "days": 234
+ },
+ "case": {
+  "incarceration_date": "1936-10-06",
+  "incarceration_precision": "day",
+  "release_date": "1937-05-28",
+  "release_precision": "day",
+  "days": 234
+ },
+ "case_note": "The release date is confirmed by the source itself: the newspaper page carrying her photograph is dated Friday 28 May 1937 and its headline is that she has been freed by pardon. The dates give 234 days, about seven and a half months of a two-year sentence.",
+ "arrest_conflict": "The case row already holds an arrest date of 1937, which would fall after an incarceration beginning in October 1936. The bare 1937 looks like the year of the trial or the appeal rather than of the arrest. It is left exactly as it is and flagged, because guessing which of the two it means is not something the record supports."
+}
