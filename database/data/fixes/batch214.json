@@ -1,0 +1,26 @@
+{
+ "prisoner": {
+  "slugs": [
+   "roberto-e-rivera",
+   "roberto-rivera"
+  ],
+  "expect_name_one_of": [
+   "Roberto E. Rivera",
+   "Roberto Rivera"
+  ]
+ },
+ "restore": {
+  "original": "Roberto Rivera was an E.R hospital doctor who after becoming inspired by the Occupy Wall Street movement began stockpiling chemicals which he planned to use to vandalize and destroy the Wall Street Bull statue as an act of nonviolent protest. Police became aware he had purchased a large amount of chemicals and raided his home, arresting him for possessing items capable of being used to create explosives. Rivera admitted to his plan though maintains he had changed his mind about intending to go through with it. Despite this he was convicted on charges of possessing explosives and sentenced to 25 years in prison.",
+  "append": "He died in custody of COVID-19 on April 22, 2020, aged 68.",
+  "description": "Roberto Rivera was an E.R hospital doctor who after becoming inspired by the Occupy Wall Street movement began stockpiling chemicals which he planned to use to vandalize and destroy the Wall Street Bull statue as an act of nonviolent protest. Police became aware he had purchased a large amount of chemicals and raided his home, arresting him for possessing items capable of being used to create explosives. Rivera admitted to his plan though maintains he had changed his mind about intending to go through with it. Despite this he was convicted on charges of possessing explosives and sentenced to 25 years in prison. He died in custody of COVID-19 on April 22, 2020, aged 68."
+ },
+ "why": "The bio the curator wants back is the one that calls him an E.R hospital doctor. That is the Airtable summary batch 207 wrote into the record, and it is what stood on the page immediately before batches 209 and 210 replaced it. Batch 213 restored the wrong thing -- the pre-207 text, taken from the was field in batch 207 -- because I read old bio as the oldest one rather than the one that was actually showing.",
+ "supersedes": "Supersedes batch 213, which is merged and writes the 598-character pre-207 text. If 213 has already run this overwrites it. If neither has run, run this one and skip 213 entirely; if both are run, 214 must run last.",
+ "verbatim_note": "Restored exactly as batch 207 wrote it, including E.R with the second period missing and the tense slip in admitted to his plan though maintains. The instruction was to put it back, not to improve it. Say the word and those two are a one-line follow-up.",
+ "append_note": "The closing sentence is the death, kept from the standing instruction to put the old bio back AND add his date of death, and from the rule batch 108 recorded for this archive that nothing is deleted from descriptions. Delete that sentence if the field should hold only the Airtable words.",
+ "expected": {
+  "chars": 677,
+  "starts_with": "Roberto Rivera was an E.R hospital doctor",
+  "ends_with": "He died in custody of COVID-19 on April 22, 2020, aged 68."
+ }
+}
