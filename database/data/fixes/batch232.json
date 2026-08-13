@@ -1,0 +1,24 @@
+{
+    "prisoner": {
+        "slug": "timothy-adams",
+        "expect_name": "Timothy Adams"
+    },
+    "birthdate": {
+        "value": "1948-03-22",
+        "precision": "day"
+    },
+    "death_date": {
+        "value": "1982-06-22",
+        "precision": "day"
+    },
+    "name_note": "The request said Timothy Adam; the record is Timothy Adams, and it is the only Timothy Adam-anything in the database. Applied to that record, with a guard that stops the batch if the slug ever stops holding a prisoner named Timothy Adams.",
+    "corroboration": "The dates check out against the record's own description, which is worth more here than any search result. It calls him a 25-year-old at the Bushwick raid of 3 October 1973. Born 22 March 1948, he was 25 on that day — he had turned 25 six months earlier. A birth date anywhere from October 1948 onward would have made him 24, and anything before October 1947 would have made him 26.",
+    "age_fix": "This is also why the record has been quietly wrong on the front end. Age is a stored column, recomputed on every save as birthdate to death_date, or to today when there is no death date. It read 78 — which is 1948 measured against 2026. The site has been presenting a man who died in 1982 as a living 78-year-old. With the death date recorded it recomputes to 34, his age when he died.",
+    "died_free": "He is flagged released, so the timeline treats this as a death out of custody rather than a death in prison, which is right: the record has no incarceration date and states plainly that the outcome of the charges is not documented.",
+    "unsourced": "Where the dates come from is not established here. A search for this man against the Black Liberation Army turned up nothing — he is an obscure figure whose own record admits the case outcome is unknown. They are recorded as supplied, corroborated by the age arithmetic above and by nothing else.",
+    "expected": {
+        "birthdate": "1948-03-22",
+        "death_date": "1982-06-22",
+        "age": 34
+    }
+}
