@@ -1,0 +1,27 @@
+{
+ "prisoner": {
+  "slug": "roberto-rivera",
+  "name": "Roberto Rivera",
+  "state": "New Jersey",
+  "birthdate": "1952-01-01",
+  "birthdate_precision": "year",
+  "description": "Roberto Rivera was a New York-licensed physician living in Ridgewood, New Jersey, who told investigators he had wanted to plant explosives at the feet of the Charging Bull statue in the Wall Street financial district and topple it — an idea prosecutors traced to his involvement with Occupy Wall Street around August 2011. He said he abandoned the plan after concluding it could not be carried out safely.\n\nPolice raided his apartment on the night of November 16, 2012 after learning what he had been buying. In the basement they found 2.5 litres of nitric acid in a freezer, along with hydrogen peroxide, glycerin, sulfuric acid, calcium hypochlorite and potassium perchlorate, roughly ten pounds of thermite, unlicensed high-powered firearms, trigger mechanisms and disguises. Neighbours described a constant flow of packages arriving at his door.\n\nHe was 60 at his arrest and 66 when he was sentenced on February 22, 2019 to 25 years, on separate convictions for the explosive materials and for the assault weapons. He is eligible for parole after seven years."
+ },
+ "case": {
+  "match_on": "sentenced_date",
+  "sentenced_date_from": "2019-02",
+  "sentenced_date_to": "2019-02-22",
+  "charges": "Unlawful possession of explosive materials and unlawful possession of assault firearms — chemicals, roughly ten pounds of thermite, trigger mechanisms and unlicensed high-powered weapons found in his Ridgewood, New Jersey apartment on November 16, 2012. He told investigators he had considered using explosives to topple the Charging Bull statue on Wall Street and had abandoned the plan."
+ },
+ "which_rivera": "There are two. This updates roberto-rivera, the Occupy Wall Street physician, which is the exact-name match. The other is roberto-jose-maldonado-rivera, the Puerto Rican attorney convicted in the 1985 Macheteros roundup and commuted by Clinton in 1999 -- a different man and a different record, untouched here. Say so if that was the one meant.",
+ "state_note": "State was empty and is set to New Jersey. He lived in Ridgewood and the raid, the charges and the sentence were all New Jersey. The record previously carried no state at all, which kept him off every state filter and off the map.",
+ "birthdate_note": "1952 at year precision, derived rather than sourced: he was reported as 60 at his arrest in November 2012 and 66 at his sentencing in February 2019. Those two windows intersect only between February and November 1952, so the year is solid and the day is not. The stored 1952-01-01 is a carrier for the year and the precision flag stops the page claiming a January day.",
+ "parole_note": "Eligible for parole after seven years, which is worth noticing for two reasons. It dates his first parole eligibility to February 2026 -- now -- so this record may be about to go stale. And it is the tell that this was a New Jersey STATE prosecution rather than a federal one: federal sentences have carried no parole since 1987.",
+ "not_touched_mcc": "The case says MCC Chicago -- a federal jail in Illinois attached to a New Jersey state prisoner, which is the same shape as the FCI Allenwood entry on Fran Thompson. Fourteen records here carry it, among them Bartolomeo Vanzetti, who was executed in 1927 and never saw the inside of a twentieth-century federal jail in Chicago. It is wrong, but replacing it means deciding what it should be for all fourteen, and guessing a New Jersey facility for this one man would just be a better-looking error. Left alone and flagged.",
+ "not_touched_second_case": "His second case row says arrested and incarcerated November 15, 2012 and released April 21, 2020, with no charge and no conviction. It contradicts the first row by a day on the arrest and contradicts the 25-year sentence outright on the release. It is probably one event recorded twice, but deleting a case row is destructive and which row is the real one is not something the sources settle. Left alone and flagged. Note the knock-on: the record is flagged In Custody while carrying a 2020 release date, and both cannot be true.",
+ "expected": {
+  "state": "New Jersey",
+  "sentenced_date": "2019-02-22",
+  "birthdate_precision": "year"
+ }
+}
