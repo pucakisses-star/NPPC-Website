@@ -1,0 +1,68 @@
+{
+    "entries": [
+        {
+            "month": 3, "day": 3,
+            "expect_title": "Suffrage parade attacked in Washington",
+            "file": "suffrage-parade-attacked-in-washington.jpg",
+            "expect_current": "empty",
+            "note": "Pennsylvania Avenue closed over by the crowd, 3 March 1913."
+        },
+        {
+            "month": 3, "day": 10,
+            "expect_title": "Supreme Court upholds Debs conviction",
+            "file": "supreme-court-upholds-debs-conviction.jpg",
+            "expect_current": "empty",
+            "note": "A portrait of Debs rather than the courtroom; the decision was not photographed."
+        },
+        {
+            "month": 5, "day": 4,
+            "expect_title": "Haymarket bombing and police riot in Chicago",
+            "file": "haymarket-bombing-and-police-riot-in-chicago.jpg",
+            "expect_current": "empty",
+            "note": "The Harpers Weekly engraving of 15 May 1886."
+        },
+        {
+            "month": 6, "day": 27,
+            "expect_title": "Industrial Workers of the World founded in Chicago",
+            "file": "industrial-workers-of-the-world-founded-in-chicago.jpg",
+            "expect_current": "empty",
+            "note": "An IWW committee, named on the print itself, rather than the founding convention."
+        },
+        {
+            "month": 8, "day": 8,
+            "expect_title": "IWW general strike against Sacco-Vanzetti executions",
+            "file": "iww-general-strike-against-sacco-vanzetti-executions.jpg",
+            "expect_current": "empty",
+            "note": "The Boston State House picket being broken up, not the western walkout — see the credits."
+        },
+        {
+            "month": 8, "day": 23,
+            "expect_title": "Sacco and Vanzetti executed",
+            "file": "sacco-and-vanzetti-executed.jpg",
+            "expect_current": "empty",
+            "note": "Union Square on the day of the executions."
+        },
+        {
+            "month": 9, "day": 30,
+            "expect_title": "Elaine massacre begins in Arkansas",
+            "file": "elaine-massacre-begins-in-arkansas.jpg",
+            "expect_current": "empty",
+            "note": "Troops at Elaine, 1919."
+        },
+        {
+            "month": 8, "day": 7,
+            "expect_title": "Marin County courthouse incident kills Jonathan Jackson",
+            "file": "marin-county-courthouse-incident-kills-jonathan-jackson.jpg",
+            "expect_current": "replaced",
+            "note": "Replaces a Soledad Brothers picket photograph, which was not the courthouse."
+        }
+    ],
+    "replacement": "The Marin entry was the only one carrying a picture already, and the picture was of something else — two people at a Save the Soledad Brothers picket. Asked for the famous photograph of them with the judge, and that is what goes in: James McClain leading the hostages out with a pistol extended, Judge Haley in his robe with a sawed-off shotgun taped under his chin, Ruchell Magee at the right. Roger Bockrath, front page of the Daily Independent Journal the same day. The picket photograph is not deleted from disk, only detached.",
+    "why_blank": "These entries were not simply neglected. The July 2026 audit recorded in calendar-fixes/CREDITS.md cleared several of them on purpose rather than leave a wrong picture standing — a maile vine had been illustrating the arrest of Maile Hampton, an Anubis statue was standing in for Bunchy Carter and John Huggins, and six more had paths pointing at files that had gone missing. Four of the entries filled here are on that audit list of things it could not find a free image for.",
+    "rights": "Five come from the Library of Congress under No known restrictions on publication. One is a Wikimedia Commons public domain file. Two are from the New York World-Telegram and Sun collection, which carries a publication advisory rather than a clearance, so they are staged under nonfree and credited there — the same call made for the Carolyn Hart and Bruno Grunzig portraits.",
+    "not_filled": "Three gaps were left open on purpose. The free Selma photographs at the Library of Congress are of the successful march of 21 to 25 March, not of the beating on 7 March, and using one would misrepresent the day exactly as the Soledad picket misrepresented Marin. The free Greensboro image is a 2017 photograph of the preserved Woolworth counter, which is the museum-piece-for-event fault already corrected on the Frances Hart record. And the obvious image for the recovery of Chaney, Goodman and Schwerner is the FBI missing poster, which this calendar already uses on 22 June for the day they disappeared.",
+    "expected": {
+        "installed": 8,
+        "dir": "calendar"
+    }
+}
