@@ -1,0 +1,79 @@
+{
+ "people": [
+  {
+   "slug": "harry-williams",
+   "expect_name": "Harry Williams",
+   "before_chars": 226,
+   "after_chars": 165,
+   "after": "Harry Williams, an IWW member from Scrotia, received a one- to fourteen-year prison sentence, which he served in San Quentin from February 10, 1920, to May 10, 1924.",
+   "removed": [
+    "one- to four- State Anti-Sedition and Criminal Syndicalism Prisoners 169 teen-year"
+   ]
+  },
+  {
+   "slug": "carl-sklar",
+   "expect_name": "Carl Sklar",
+   "before_chars": 392,
+   "after_chars": 332,
+   "after": "Carl Sklar a Communist Party organizer and a leader of the Imperial Valley farm workers strike, from Los Angeles, received a three- to thirty-three-year prison sentence for violating the California Criminal Syndicalism Act and served in Folsom State Prison from June 1930 to October 3, 1932. (See also the entry for Lawrence Emery.)",
+   "removed": [
+    "California Criminal SyndicalStale Anti-Sedition and Criminal Syndicalism Prisoners \u2022 167 ism Act",
+    "Carl Sklar aCommunist Party organizer"
+   ]
+  },
+  {
+   "slug": "robert-poe",
+   "expect_name": "Robert Poe",
+   "before_chars": 226,
+   "after_chars": 175,
+   "after": "Robert Poe was sentenced to three years and six months in prison. He served in Leavenworth Penitentiary from December 18, 1919, to June 17, 1920, when he was released on bond.",
+   "removed": [
+    "He Fedeial Espionage and Sedition Act Prisoners \u2022 125 served"
+   ]
+  },
+  {
+   "slug": "daniel-h-wallace",
+   "expect_name": "Daniel H. Wallace",
+   "before_chars": 705,
+   "after_chars": 654,
+   "after": "Daniel H. Wallace was arrested under the Espionage Act for delivering a speech critical of World War I before two thousand people at the Grand Opera House in Davenport, Iowa. Wallace, who had been wounded and gassed while fighting for Britain before the United States' entry into the war, was a staunch opponent of the war. Upon coming to the United States Wallace told the \"terrible truth about the trenches and warfare\" in lectures and published materials, and he became organizer-general for the anti-war League of Humanity. Wallace was convicted and sentenced to twenty years of imprisonment on October 4, 1917. In prison he went \" insane \" and died.",
+   "removed": [
+    "wounded and Political Prisoners Who Died While Incarcerated \u2022 189 gassed",
+    "Uponcoming to the United States",
+    "andhebecame organizer-general"
+   ]
+  },
+  {
+   "slug": "w-t-walker",
+   "expect_name": "W. T. Walker",
+   "before_chars": 208,
+   "after_chars": 173,
+   "after": "W. T. Walker, a Choctaw Indian from Taft, New Mexico, received a prison sentence of two years, which was commuted to a year and a day. He served in Leavenworth Penitentiary.",
+   "removed": [
+    "received a 138 \u2022 Ameiican Political Prisoners prison sentence"
+   ]
+  },
+  {
+   "slug": "charles-sauer",
+   "expect_name": "Charles Sauer",
+   "before_chars": 690,
+   "after_chars": 687,
+   "after": "Charles Sauer appears in the National Civil Liberties Bureau's March 1919 compilation \"War-Time Prosecutions and Mob Violence\" among people convicted and jailed under World War I\u2013era free-speech statutes \u2014 chiefly the Espionage Act, the Sedition Act, draft-obstruction charges, or wartime state and local laws. Per that record, on August 7, 1918 in Milwaukee, Wisconsin, he was sentenced: 9 months for alleged disparaging remarks about the U. S. government. The NCLB \u2014 the direct predecessor of the American Civil Liberties Union \u2014 compiled these cases from April 1, 1917 to March 1, 1919 as a public record of the wartime suppression of free speech, a free press, and peaceful assembly.",
+   "removed": [
+    "about the U. S. government. \u2022. The NCLB"
+   ]
+  }
+ ],
+ "what_this_is": "Six descriptions with a printed page running header dropped into the middle of a sentence, and in most cases into the middle of a word. These are scanning artifacts, not authored text. Harry Williams read: received a one- to four- State Anti-Sedition and Criminal Syndicalism Prisoners 169 teen-year prison sentence. The header sits between four- and teen, splitting fourteen across a page turn.",
+ "not_a_deletion_of_content": "This archive rule is that nothing is deleted from descriptions, and nothing is here. What comes out is a printers running header and a page number that a scanner inserted; what changes besides is that words the page break split are rejoined \u2014 fourteen, Syndicalism, a Communist, Upon coming, and he became. No sentence, clause or fact is removed. Every before and after is printed in full by the batch so the change is auditable from the run log.",
+ "the_headers_name_chapters": "The five headers are worth reading as evidence in their own right. They are State Anti-Sedition and Criminal Syndicalism Prisoners at pages 167 and 169, Federal Espionage and Sedition Act Prisoners at 125, Political Prisoners Who Died While Incarcerated at 189, and American Political Prisoners at 138. Those are chapter titles and a book title. So a substantial part of this archive was taken from one printed book, and that book kept federal Espionage Act prisoners and state criminal syndicalism prisoners in separate chapters.",
+ "which_explains_batch_240": "That is very likely how 608 case rows came to carry Federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918. One chapters framing looks to have been applied to the whole book at import, which is exactly the error corrected on fifteen state syndicalism records in batch 240 and on James Larkin in batch 234. Carl Sklar is the proof in a single record: the header naming the state chapter is embedded in his own description, and his charge field said federal.",
+ "how_they_were_found": "Not by the pattern first proposed. A sweep for spliced headers by shape returned thousands of false positives \u2014 ordinary prose with numbers in it, May Day 2012, IRS Form 1096, Akron Police Officer Badge 1518. What found them was the bullet character used as a page-number separator, which occurs in five descriptions in the entire database and is a printers mark in four of them.",
+ "flags": [
+  "Harry Williams is recorded as an IWW member from Scrotia. There is no such place; Scotia, California is a Humboldt County lumber town, and other IWW records in this cohort come from Eureka in the same county. It looks like the same scan, but it is an inference rather than a repair and it is left alone.",
+  "Carl Sklar still reads Carl Sklar a Communist Party organizer where the sense wants was a Communist Party organizer. Only the run-together aCommunist is separated here; the missing verb is not supplied, because inserting a word is not the same as undoing a scan."
+ ],
+ "expected": {
+  "count": 6
+ }
+}
