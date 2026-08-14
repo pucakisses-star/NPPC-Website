@@ -1,0 +1,82 @@
+{
+ "judge": "Dal M. Lemmon",
+ "people": [
+  {
+   "slug": "a-g-ford",
+   "expect_name": "A. G. Ford"
+  },
+  {
+   "slug": "albert-hougardy",
+   "expect_name": "Albert Hougardy"
+  },
+  {
+   "slug": "arthur-mini",
+   "expect_name": "Arthur Mini"
+  },
+  {
+   "slug": "caroline-decker",
+   "expect_name": "Caroline Decker"
+  },
+  {
+   "slug": "fred-kirkwood",
+   "expect_name": "Fred Kirkwood"
+  },
+  {
+   "slug": "harry-collentz",
+   "expect_name": "Harry Collentz"
+  },
+  {
+   "slug": "jack-crane",
+   "expect_name": "Jack Crane"
+  },
+  {
+   "slug": "jack-warnick",
+   "expect_name": "Jack Warnick"
+  },
+  {
+   "slug": "john-fisher",
+   "expect_name": "John Fisher"
+  },
+  {
+   "slug": "lee-hung",
+   "expect_name": "Lee Hung"
+  },
+  {
+   "slug": "lorine-norman",
+   "expect_name": "Lorine Norman"
+  },
+  {
+   "slug": "luther-mincy",
+   "expect_name": "Luther Mincy"
+  },
+  {
+   "slug": "martin-wilson",
+   "expect_name": "Martin Wilson"
+  },
+  {
+   "slug": "mike-plesh",
+   "expect_name": "Mike Plesh"
+  },
+  {
+   "slug": "nora-conklin",
+   "expect_name": "Nora Conklin"
+  },
+  {
+   "slug": "pat-chambers",
+   "expect_name": "Pat Chambers"
+  },
+  {
+   "slug": "w-h-huffine",
+   "expect_name": "W. H. Huffine"
+  }
+ ],
+ "source": "Evening Star, Washington D.C., 2 April 1935, page 2, an Associated Press dispatch datelined SACRAMENTO, Calif., April 2. Read from the Library of Congress newspaper full text, not from a search summary. It reads: Conviction of eight Communists of conspiracy to violate Californias criminal syndicalism law was expected today to stimulate action on proposed amendments to that law in the State Legislature as the defense pressed for a new trial. Superior Judge Dal M. Lemmon will hear tomorrow the retrial motion on behalf of the eight, convicted yesterday by a Jury that freed six other Communists of the same charge.",
+ "what_it_settles": "The judge, and only the judge. He presided over the trial these records already describe \u2014 the archive text says the eighteen were tried at Sacramento \u2014 so the name applies to every defendant in it whatever the verdict. The judge field is the emptiest column in the database: 8,671 of 9,037 case rows have nothing in it. This fills seventeen of them from one primary source.",
+ "what_it_does_not_settle": "Which eight were convicted. The dispatch gives the count and not the names: eight convicted of conspiracy, six acquitted of the same charge, out of the fourteen who reached a verdict. Our seventeen records all carry the same generic line \u2014 tried for criminal syndicalism, 1934 to 1935, convictions reversed on appeal in 1937 \u2014 and none of them says which side of that split its subject fell on. So no conviction date and no sentence is written here. Marking an acquitted organiser as convicted to fill a column would be worse than leaving the column empty.",
+ "dates_found_not_written": "The dispatch also fixes the verdict at 1 April 1935 \u2014 convicted yesterday, in a paper of the 2nd \u2014 and the retrial motion at the 3rd. Those are real dates and they are recorded here rather than written to any record, because both attach to the eight and the six respectively, and this batch cannot tell them apart.",
+ "method": "This is the newspaper route piloted end to end: search the Library of Congress newspaper collection for the name plus a pin taken from our own record, fetch the OCR of the matching page, and read it. The pin matters. Searching a name alone is what produced Rev Mortimer Downing of Cork for the IWW organiser of the same name in batch 237.",
+ "expected": {
+  "count": 17,
+  "judge": "Dal M. Lemmon"
+ }
+}
