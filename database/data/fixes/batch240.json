@@ -1,0 +1,107 @@
+{
+ "people": [
+  {
+   "slug": "braulio-orosco",
+   "expect_name": "Braulio Orosco",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "fred-suttle",
+   "expect_name": "Fred Suttle",
+   "charges": "Washington prosecution under the state criminal syndicalism law of 1919.",
+   "prison": "Washington State Penitentiary at Walla Walla"
+  },
+  {
+   "slug": "tom-connors",
+   "expect_name": "Tom Connors",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison",
+   "sentence": "Three years in prison (California criminal syndicalism conviction)."
+  },
+  {
+   "slug": "fred-w-thompson",
+   "expect_name": "Fred W. Thompson",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "c-f-payne",
+   "expect_name": "C. F. Payne",
+   "charges": "Washington prosecution under the state criminal syndicalism law of 1919.",
+   "prison": "Washington State Penitentiary at Walla Walla"
+  },
+  {
+   "slug": "j-a-casdorf",
+   "expect_name": "J. A. Casdorf",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "abraham-shocker",
+   "expect_name": "Abraham Shocker",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "charles-lesse",
+   "expect_name": "Charles Lesse",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "harry-williams",
+   "expect_name": "Harry Williams",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "leo-ellis",
+   "expect_name": "Leo Ellis",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "nick-steelik",
+   "expect_name": "Nick Steelik",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison",
+   "sentence": "Five years in prison (California criminal syndicalism conviction)."
+  },
+  {
+   "slug": "r-a-gibson",
+   "expect_name": "R. A. Gibson",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "r-v-lewis",
+   "expect_name": "R. V. Lewis",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "eduardo-herera",
+   "expect_name": "Eduardo Herera",
+   "charges": "California prosecution under the state Criminal Syndicalism Act of 1919.",
+   "prison": "San Quentin State Prison"
+  },
+  {
+   "slug": "tom-nash",
+   "expect_name": "Tom Nash",
+   "charges": "Washington prosecution under the state criminal syndicalism law of 1919.",
+   "prison": "Washington State Penitentiary at Walla Walla"
+  }
+ ],
+ "evidence": "Two independent signals contradict the stored charge on every one of these fifteen, which is why they are the ones being changed and not the other 593 rows carrying the same boilerplate. Each record's own description says the person was convicted under a state criminal syndicalism law \u2014 several name the California Criminal Syndicalism Act outright \u2014 and each was held in a state prison, San Quentin or the Washington State Penitentiary at Walla Walla, not in a federal one. A federal Espionage Act conviction does not send a man to San Quentin.",
+ "what_was_there": "All fifteen read: Federal prosecution under the Espionage Act of 1917 and/or the Sedition Act of 1918. That is the same boilerplate corrected on James Larkin in batch 234, where the record described a New York criminal anarchy prosecution. It sits on 608 case rows in this database.",
+ "sentence_text_too": "Two of them carried the error twice. Tom Connors read Three years in prison (Espionage/Sedition Act conviction) and Nick Steelik Five years in prison (Espionage/Sedition Act conviction). The term is left exactly as it was; only the parenthesis naming the wrong statute is corrected.",
+ "not_the_other_593": "The remaining rows with this boilerplate are not touched. 170 of them are in federal prisons \u2014 Leavenworth, McNeil Island \u2014 where the charge is plausible and may well be right. 331 record no institution at all, so there is nothing to check the charge against. Changing those would be guessing, and guessing wholesale is how the wrong charge got there in the first place.",
+ "flags": [
+  "Fred Suttle has California in his state field and the Washington State Penitentiary at Walla Walla as his prison, and his description says the state criminal syndicalism law and describes a transfer from Walla Walla. The charge here follows the prison. The state field is left alone but one of the two is wrong.",
+  "Eduardo Herera and Eduardo Herrera are both in this database with near-identical Imperial Valley strike descriptions and San Quentin sentences. Only the single-r spelling is in this batch. If they are one man this is a duplicate that needs merging, not two corrections."
+ ],
+ "expected": {
+  "count": 15
+ }
+}
