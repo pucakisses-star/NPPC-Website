@@ -1,0 +1,26 @@
+{
+ "people": [
+  {
+   "slug": "bert-bland",
+   "expect_name": "Bert Bland"
+  },
+  {
+   "slug": "o-c-bland",
+   "expect_name": "O.C. Bland"
+  }
+ ],
+ "sentenced_date": "1920-03-13",
+ "precision": "day",
+ "source": "Alaska Daily Empire, Juneau, Monday 15 March 1920, page 1, an Associated Press dispatch datelined MONTESANO, Wash., March 15. Fetched from the Library of Congress newspaper full text and read. It reads: The jury in the case of I. W. W. members tried for the murder of Warren O. Grimm at Centralia on Armistice Day, returned a verdict at 9:25 p. m. Saturday night, acquitting Elmer Smith, Mike Sheehan and Loren Roberts, and finding the other defendants guilty of murder in the second degree. A later paragraph names them: James McInerney, Ray Becker, O. C. Bland, Bert Bland and Britt Smith found guilty of murder in the second degree.",
+ "why_the_date": "Saturday night before a Monday paper of 15 March 1920 is Saturday 13 March 1920. That is the date five of their seven codefendants already carry in this archive \u2014 Britt Smith, Eugene Barnett, John Lamb, Loren Roberts and Ray Becker \u2014 and the two Blands were the only convicted Centralia defendants without it. The date is not inferred from the codefendants: the dispatch names both Blands among the men found guilty.",
+ "no_judge": "No judge is added. The dispatch says the Court and does not name him, and this batch writes only what the source states. The Centralia trial judge remains an open field on all fourteen related records.",
+ "flags": [
+  "Loren Roberts is recorded here as convicted, with a sentence of 25 to 40 years and a jury finding of insanity. The dispatch says the opposite \u2014 that he was acquitted because the jury found him insane, with a recommendation that he be confined. Contemporary first-day reports get this kind of thing wrong, and so do later summaries, so nothing is changed; but one of the two is mistaken and a second source would settle it.",
+  "Elmer Smith carries a sentencing date of 5 April 1920 on a record whose disposition reads acquitted. The dispatch confirms he was acquitted. A sentencing date on an acquittal is a contradiction on its face, whatever the 5 April date actually refers to.",
+  "James McInerney is named in this dispatch among the men convicted at Centralia, but the only McInerney record in this archive holds the Everett case \u2014 arrested 5 November 1916, Snohomish County jail, charges dismissed in 1917. If they are the same man, and the dates allow it, he is missing an entire second case."
+ ],
+ "expected": {
+  "count": 2,
+  "date": "1920-03-13"
+ }
+}
