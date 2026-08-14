@@ -1,0 +1,840 @@
+{
+ "people": [
+  {
+   "slug": "clement-vallandigham",
+   "expect_name": "Clement Vallandigham",
+   "era": "1800s",
+   "qid": "Q2978886",
+   "findagrave": "2526",
+   "birthdate": {
+    "value": "1820-07-29",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1871-06-17",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "d-m-bennett",
+   "expect_name": "D. M. Bennett",
+   "era": "1800s",
+   "qid": "Q5203720",
+   "findagrave": "11768082",
+   "birthdate": {
+    "value": "1818-12-23",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1882-12-06",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "david-levy-yulee",
+   "expect_name": "David Levy Yulee",
+   "era": "1800s",
+   "qid": "Q2045896",
+   "findagrave": "8803903",
+   "birthdate": {
+    "value": "1810-06-12",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1886-10-10",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "john-ruggles",
+   "expect_name": "John Ruggles",
+   "era": "1800s",
+   "qid": "Q6083063",
+   "findagrave": "7232998",
+   "birthdate": {
+    "value": "1789-10-08",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1874-06-20",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "hippolyte-havel",
+   "expect_name": "Hippolyte Havel",
+   "era": "1900s",
+   "qid": "Q1620028",
+   "birthdate": {
+    "value": "1871-08-13",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1950-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "lillian-ascough",
+   "expect_name": "Lillian Ascough",
+   "era": "1910s",
+   "qid": "Q56062461",
+   "birthdate": {
+    "value": "1880-05-14",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1974-12-26",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "maud-malone",
+   "expect_name": "Maud Malone",
+   "era": "1910s",
+   "qid": "Q26998297",
+   "birthdate": {
+    "value": "1873-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "1951-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "sue-shelton-white",
+   "expect_name": "Sue Shelton White",
+   "era": "1910s",
+   "qid": "Q15430374",
+   "findagrave": "45686758",
+   "birthdate": {
+    "value": "1887-05-25",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1943-05-06",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "albert-weisbord",
+   "expect_name": "Albert Weisbord",
+   "era": "1920s",
+   "qid": "Q4711448",
+   "birthdate": {
+    "value": "1900-12-09",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1977-04-01",
+    "precision": "month"
+   }
+  },
+  {
+   "slug": "clarence-hathaway",
+   "expect_name": "Clarence Hathaway",
+   "era": "1920s",
+   "qid": "Q5126568",
+   "birthdate": {
+    "value": "1892-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "1963-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "paul-crouch",
+   "expect_name": "Paul Crouch",
+   "era": "1920s",
+   "qid": "Q24845977",
+   "birthdate": {
+    "value": "1903-06-24",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1955-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "robert-minor",
+   "expect_name": "Robert Minor",
+   "era": "1920s",
+   "qid": "Q5988636",
+   "findagrave": "247992746",
+   "birthdate": {
+    "value": "1884-07-15",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1952-01-26",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "rothschild-francis",
+   "expect_name": "Rothschild Francis",
+   "era": "1920s",
+   "qid": "Q123643821",
+   "birthdate": {
+    "value": "1891-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "1963-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "vincent-saint-john",
+   "expect_name": "Vincent Saint John",
+   "era": "1920s",
+   "qid": "Q7932041",
+   "birthdate": {
+    "value": "1876-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "1929-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "theodore-dreiser",
+   "expect_name": "Theodore Dreiser",
+   "era": "1930s",
+   "qid": "Q486096",
+   "findagrave": "299",
+   "birthdate": {
+    "value": "1871-08-27",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1945-12-28",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "oscar-coover",
+   "expect_name": "Oscar Coover",
+   "era": "1940s",
+   "qid": "Q136166346",
+   "birthdate": {
+    "value": "1887-10-07",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1950-05-03",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "alden-whitman",
+   "expect_name": "Alden Whitman",
+   "era": "1950s",
+   "qid": "Q4713590",
+   "birthdate": {
+    "value": "1913-10-27",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1990-09-04",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "claude-lightfoot",
+   "expect_name": "Claude Lightfoot",
+   "era": "1950s",
+   "qid": "Q5128935",
+   "birthdate": {
+    "value": "1910-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "1991-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "clinton-jencks",
+   "expect_name": "Clinton Jencks",
+   "era": "1950s",
+   "qid": "Q5134162",
+   "birthdate": {
+    "value": "1918-03-01",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2005-12-15",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "corliss-lamont",
+   "expect_name": "Corliss Lamont",
+   "era": "1950s",
+   "qid": "Q2478543",
+   "findagrave": "183472062",
+   "birthdate": {
+    "value": "1902-03-28",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1995-04-26",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "cesar-andreu-iglesias",
+   "expect_name": "C\u00e9sar Andreu Iglesias",
+   "era": "1950s",
+   "qid": "Q5202496",
+   "birthdate": {
+    "value": "1915-07-31",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1976-04-17",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "daisy-bates",
+   "expect_name": "Daisy Bates",
+   "era": "1950s",
+   "qid": "Q2013359",
+   "findagrave": "6429311",
+   "birthdate": {
+    "value": "1914-11-11",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1999-11-04",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "earle-l-reynolds",
+   "expect_name": "Earle L. Reynolds",
+   "era": "1950s",
+   "qid": "Q5326447",
+   "birthdate": {
+    "value": "1910-10-18",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1998-01-11",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "homer-chase",
+   "expect_name": "Homer Chase",
+   "era": "1950s",
+   "qid": "Q77620639",
+   "birthdate": {
+    "value": "1917-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "1985-10-29",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "jacob-burck",
+   "expect_name": "Jacob Burck",
+   "era": "1950s",
+   "qid": "Q6118434",
+   "birthdate": {
+    "value": "1907-01-10",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1982-05-11",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "john-w-powell",
+   "expect_name": "John W. Powell",
+   "era": "1950s",
+   "qid": "Q6262476",
+   "birthdate": {
+    "value": "1919-07-03",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2008-12-15",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "michael-quill",
+   "expect_name": "Michael Quill",
+   "era": "1950s",
+   "qid": "Q6848486",
+   "findagrave": "846",
+   "birthdate": {
+    "value": "1905-09-18",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1966-01-28",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "olga-viscal-garriga",
+   "expect_name": "Olga Viscal Garriga",
+   "era": "1950s",
+   "qid": "Q7086705",
+   "birthdate": {
+    "value": "1929-05-05",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1995-06-02",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "paul-novick",
+   "expect_name": "Paul Novick",
+   "era": "1950s",
+   "qid": "Q16681167",
+   "birthdate": {
+    "value": "1891-09-07",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1989-08-21",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "rosa-parks",
+   "expect_name": "Rosa Parks",
+   "era": "1950s",
+   "qid": "Q41921",
+   "findagrave": "12149998",
+   "birthdate": {
+    "value": "1913-02-04",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2005-10-24",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "vincent-hallinan",
+   "expect_name": "Vincent Hallinan",
+   "era": "1950s",
+   "qid": "Q7931835",
+   "birthdate": {
+    "value": "1896-12-16",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1992-10-02",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "william-albertson",
+   "expect_name": "William Albertson",
+   "era": "1950s",
+   "qid": "Q51816376",
+   "birthdate": {
+    "value": "1910-05-07",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1972-02-19",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "william-schneiderman",
+   "expect_name": "William Schneiderman",
+   "era": "1950s",
+   "qid": "Q91529872",
+   "birthdate": {
+    "value": "1905-12-14",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1985-01-29",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "william-z-foster",
+   "expect_name": "William Z. Foster",
+   "era": "1950s",
+   "qid": "Q1382452",
+   "findagrave": "15712660",
+   "birthdate": {
+    "value": "1881-02-25",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1961-09-01",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "allan-levine",
+   "expect_name": "Allan Levine",
+   "era": "1960s",
+   "qid": "Q22324569",
+   "birthdate": {
+    "value": "1932-01-01",
+    "precision": "year"
+   },
+   "death_date": {
+    "value": "2016-01-24",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "amos-cleophilus-brown",
+   "expect_name": "Amos Cleophilus Brown",
+   "era": "1960s",
+   "qid": "Q28445497",
+   "birthdate": {
+    "value": "1941-02-20",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "bobby-hutton",
+   "expect_name": "Bobby Hutton",
+   "era": "1960s",
+   "qid": "Q4935164",
+   "findagrave": "124317710",
+   "birthdate": {
+    "value": "1950-04-21",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1968-04-06",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "charles-mcdew",
+   "expect_name": "Charles McDew",
+   "era": "1960s",
+   "qid": "Q16989096",
+   "birthdate": {
+    "value": "1938-06-23",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2018-04-03",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "dion-diamond",
+   "expect_name": "Dion Tyrone Diamond",
+   "era": "1960s",
+   "qid": "Q58810577",
+   "birthdate": {
+    "value": "1941-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "fannie-lou-hamer",
+   "expect_name": "Fannie Lou Hamer",
+   "era": "1960s",
+   "qid": "Q438438",
+   "findagrave": "19859",
+   "birthdate": {
+    "value": "1917-10-06",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1977-03-14",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "george-mische",
+   "expect_name": "George Mische",
+   "era": "1960s",
+   "qid": "Q137300616",
+   "birthdate": {
+    "value": "1937-07-30",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "henry-schwarzschild",
+   "expect_name": "Henry Schwarzschild",
+   "era": "1960s",
+   "qid": "Q5728116",
+   "birthdate": {
+    "value": "1925-11-02",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1996-06-01",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "margaret-burr-leonard",
+   "expect_name": "Margaret Burr Leonard",
+   "era": "1960s",
+   "qid": "Q124634613",
+   "birthdate": {
+    "value": "1942-01-05",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2022-11-14",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "meryle-joy-reagon",
+   "expect_name": "Meryle Joy Reagon",
+   "era": "1960s",
+   "qid": "Q50345631",
+   "birthdate": {
+    "value": "1942-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "travis-o-britt",
+   "expect_name": "Travis O. Britt",
+   "era": "1960s",
+   "qid": "Q104187291",
+   "findagrave": "142094366",
+   "birthdate": {
+    "value": "1934-03-28",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2014-12-26",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "ashanti-alston",
+   "expect_name": "Ashanti Alston",
+   "era": "1970s",
+   "qid": "Q3395089",
+   "birthdate": {
+    "value": "1954-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "ramona-bennett",
+   "expect_name": "Ramona Bennett",
+   "era": "1970s",
+   "qid": "Q98593492",
+   "birthdate": {
+    "value": "1938-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "edwin-cortes",
+   "expect_name": "Edwin Cortes",
+   "era": "1980s",
+   "qid": "Q5346317",
+   "birthdate": {
+    "value": "1957-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "kuwasi-balagoon",
+   "expect_name": "Kuwasi Balagoon",
+   "era": "1980s",
+   "qid": "Q3200724",
+   "birthdate": {
+    "value": "1946-12-22",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "1986-12-13",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "ciaron-oreilly",
+   "expect_name": "Ciaron O'Reilly",
+   "era": "1990s",
+   "qid": "Q5119159",
+   "birthdate": {
+    "value": "1960-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "ellen-moxley",
+   "expect_name": "Ellen Moxley",
+   "era": "1990s",
+   "qid": "Q138504823",
+   "birthdate": {
+    "value": "1935-03-12",
+    "precision": "day"
+   },
+   "death_date": {
+    "value": "2019-07-08",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "keith-mchenry",
+   "expect_name": "Keith McHenry",
+   "era": "1990s",
+   "qid": "Q19892924",
+   "birthdate": {
+    "value": "1957-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "angie-zelter",
+   "expect_name": "Angie Zelter",
+   "era": "2000s",
+   "qid": "Q444350",
+   "birthdate": {
+    "value": "1951-06-05",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "jake-conroy",
+   "expect_name": "Jake Conroy",
+   "era": "2000s",
+   "qid": "Q105344244",
+   "birthdate": {
+    "value": "1976-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "patrice-lumumba-ford",
+   "expect_name": "Patrice Lumumba Ford",
+   "era": "2000s",
+   "qid": "Q7145388",
+   "birthdate": {
+    "value": "1971-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "tre-arrow",
+   "expect_name": "Tre Arrow",
+   "era": "2000s",
+   "qid": "Q7836514",
+   "birthdate": {
+    "value": "1974-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "jacob-appelbaum",
+   "expect_name": "Jacob Appelbaum",
+   "era": "2010s",
+   "qid": "Q10070",
+   "birthdate": {
+    "value": "1983-04-01",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "jordan-halliday",
+   "expect_name": "Jordan Halliday",
+   "era": "2010s",
+   "qid": "Q6276587",
+   "birthdate": {
+    "value": "1987-08-11",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "rasmea-odeh",
+   "expect_name": "Rasmea Odeh",
+   "era": "2010s",
+   "qid": "Q18711628",
+   "birthdate": {
+    "value": "1948-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "therese-patricia-okoumou",
+   "expect_name": "Therese Patricia Okoumou",
+   "era": "2010s",
+   "qid": "Q119528826",
+   "birthdate": {
+    "value": "1974-01-01",
+    "precision": "year"
+   }
+  },
+  {
+   "slug": "kat-abughazaleh",
+   "expect_name": "Kat Abughazaleh",
+   "era": "2020s",
+   "qid": "Q133510781",
+   "birthdate": {
+    "value": "1999-03-24",
+    "precision": "day"
+   }
+  },
+  {
+   "slug": "mohsen-mahdawi",
+   "expect_name": "Mohsen Mahdawi",
+   "era": "2020s",
+   "qid": "Q133873147",
+   "birthdate": {
+    "value": "1990-09-01",
+    "precision": "month"
+   }
+  },
+  {
+   "slug": "sami-hamdi",
+   "expect_name": "Sami Hamdi",
+   "era": "2020s",
+   "qid": "Q134549734",
+   "birthdate": {
+    "value": "1990-07-01",
+    "precision": "month"
+   }
+  },
+  {
+   "slug": "zoe-rosenberg",
+   "expect_name": "Zoe Rosenberg",
+   "era": "2020s",
+   "qid": "Q47359658",
+   "birthdate": {
+    "value": "2002-06-13",
+    "precision": "day"
+   }
+  }
+ ],
+ "findagrave": "Find a Grave itself cannot be read from this server or from here. Every request to it \u2014 the site root, a search, a memorial page \u2014 comes back 403 behind a Cloudflare challenge, for a plain fetch and for the fetching tool alike. No attempt was made to get around that. The dates below come from Wikidata, which carries the Find a Grave memorial ID as a property, so where a memorial exists the identifier travels with the record and the link back to the site is preserved: 15 of the 64 have one.",
+ "why_not_by_name": "Searching Find a Grave by name is the obvious approach and it is the wrong one, which is worth stating because it looks right. Mortimer Downing is the proof. His dates were supplied and applied in batch 233 \u2014 born 27 August 1862, died 22 June 1948 \u2014 and the first Find a Grave result for that name is Rev Mortimer Downing, 1863 to 1942, a Cork-born priest buried in Massachusetts. Same name, adjacent dates, different man. A name-matching audit would have quietly overwritten a correct record with a wrong one.",
+ "how_matched": "Each name was matched against Wikidata people, then filtered three ways: the person had to be alive and adult in the decade of the case, the name had to resolve to exactly one such person, and the stated occupation had to be consistent with the archive account. That took 2,986 raw candidates down to 67, and three of those were rejected by eye \u2014 an Air Force Chief of Chaplains standing in for one of the Episcopal clergymen arrested in Jackson, and two poets who happened to share a name with a Freedom Rider and a Baltimore defendant.",
+ "precision_matters": "A quarter of these dates are year-only in Wikidata and are stored that way. Taken as plain ISO values they would have arrived as 1 January \u2014 nineteen invented birthdays and seven invented death days, on records that had nothing at all before. Precision is read from the Wikidata statement itself, not guessed from the shape of the string.",
+ "only_fills_blanks": "Nothing is overwritten. Every field is written only where the record currently holds nothing, so a date already curated by hand \u2014 including the ones supplied for Timothy Adams, Mortimer Downing and Carlos Cort\u00e9z in the last few batches \u2014 cannot be touched by this batch even if Wikidata disagrees.",
+ "scale": "This closes 64 of a very large gap. Of 8,598 records, 7,255 have no birth date and 7,516 no death date; 6,908 have neither. The bulk of that is not going to be closed this way: 14 percent of the undated records are initials and a surname \u2014 A. S. Embree, F. A. Brown, H. V. Taylor \u2014 and most of the rest are rank-and-file defendants from the IWW mass trials of the 1910s and 1920s, who are named in a court list and nowhere else. The 1910s alone account for 2,137 missing birth dates.",
+ "expected": {
+  "count": 64
+ }
+}
