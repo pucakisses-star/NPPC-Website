@@ -1,0 +1,260 @@
+{
+ "people": [
+  {
+   "slug": "tom-connors",
+   "expect_name": "Tom Connors",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "alex-nicholson",
+   "expect_name": "Alex Nicholson",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "h-v-taylor",
+   "expect_name": "H. V. Taylor",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "j-c-allen",
+   "expect_name": "J. C. Allen",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "john-bruns",
+   "expect_name": "John Bruns",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "john-mcrae",
+   "expect_name": "John McRae",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "l-v-french",
+   "expect_name": "L. V. French",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "william-longstreth",
+   "expect_name": "William Longstreth",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "a-e-anderson",
+   "expect_name": "A. E. Anderson",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "b-johansen",
+   "expect_name": "B. Johansen",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "bert-kyler",
+   "expect_name": "Bert Kyler",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "c-a-drew",
+   "expect_name": "C. A. Drew",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "charles-crowley",
+   "expect_name": "Charles Crowley",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "cris-pedersen",
+   "expect_name": "Cris Pedersen",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "e-d-mcnassor",
+   "expect_name": "E. D. McNassor",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "ed-dawe",
+   "expect_name": "Ed Dawe",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "ernest-erickson",
+   "expect_name": "Ernest Erickson",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "frances-hart",
+   "expect_name": "Frances Hart",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "francis-j-nash",
+   "expect_name": "Francis J. Nash",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "fred-bamman",
+   "expect_name": "Fred Bamman",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "fred-w-thompson",
+   "expect_name": "Fred W. Thompson",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "h-r-hanson",
+   "expect_name": "H. R. Hanson",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "harold-bird",
+   "expect_name": "Harold Bird",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "hugo-cederholm",
+   "expect_name": "Hugo Cederholm",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "j-b-childs",
+   "expect_name": "J. B. Childs",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "j-l-hollis",
+   "expect_name": "J. L. Hollis",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "james-la-londe",
+   "expect_name": "James La Londe",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "pierre-jans",
+   "expect_name": "Pierre Jans",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "r-kuilmen",
+   "expect_name": "R. Kuilmen",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "robert-woods",
+   "expect_name": "Robert Woods",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "t-o-kleiberg",
+   "expect_name": "T. O. Kleiberg",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "thomas-lyons",
+   "expect_name": "Thomas Lyons",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "wilt-wright",
+   "expect_name": "Wilt Wright",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "j-a-casdorf",
+   "expect_name": "J. A. Casdorf",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "omar-j-eaton",
+   "expect_name": "Omar J. Eaton",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "abraham-shocker",
+   "expect_name": "Abraham Shocker",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "harry-williams",
+   "expect_name": "Harry Williams",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "john-craig",
+   "expect_name": "John Craig",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "thomas-hooker",
+   "expect_name": "Thomas Hooker",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "mickey-j-dunn",
+   "expect_name": "Mickey J. Dunn",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  },
+  {
+   "slug": "john-g-weiler",
+   "expect_name": "John G. Weiler",
+   "institution": "San Quentin State Prison",
+   "convicted": "Yes \u2014 the record states a sentence received and a term served at San Quentin State Prison."
+  }
+ ],
+ "evidence": "None of these forty-one had any disposition recorded, and all forty-one already carried the facts that settle it. Each one describes a sentence in its own words \u2014 received a three-year prison sentence, received a four-year prison sentence, and so on \u2014 and each has an entry date, a release date and a state penitentiary. A term served in a state penitentiary follows a conviction; county jails are where the unconvicted wait. Nothing here comes from outside the record.",
+ "no_research_needed": "This was the thread that looked like it needed a newspaper for every name. It did not. The prior question \u2014 was this person convicted \u2014 was already answered inside the archive, in prose that had never been carried across into the field that the site actually reads. Forty-one rows of the disposition column were empty next to descriptions that said plainly what the disposition was.",
+ "wording": "The value written says what the evidence is rather than asserting more than it: the record states a sentence received and a term served at the named prison. It does not invent a charge, a date or a court.",
+ "flags": [
+  "Harry Williams has a book page header spliced into the middle of his biography \u2014 received a one- to four- State Anti-Sedition and Criminal Syndicalism Prisoners 169 teen-year prison sentence. The sentence is a one to fourteen years, broken across a page in whatever was scanned. He is included because the meaning is recoverable, but the description itself needs repair and he is not the only record likely to carry that artifact.",
+  "Frances Hart appears in this set. Her photograph was cleared in batch 226 as the wrong person; this touches only her disposition and leaves that alone."
+ ],
+ "expected": {
+  "count": 41
+ }
+}
