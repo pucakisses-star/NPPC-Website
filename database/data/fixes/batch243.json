@@ -1,0 +1,123 @@
+{
+ "people": [
+  {
+   "slug": "ana-maria-gelabert",
+   "expect_name": "Ana Mar\u00eda Gelabert",
+   "prisoner": {
+    "aka": "Ana Lucia Gelabert",
+    "inmate_number": "384484",
+    "state": "Texas"
+   },
+   "case": {
+    "charges": "Two counts of attempted capital murder of a police officer.",
+    "convicted": "Yes \u2014 convicted on two counts; the jury imposed life imprisonment on each.",
+    "arrest_date": "1983-12-26",
+    "sentence": "Life imprisonment on each of two counts, arising from a shooting on 26 December 1983 at a Houston residence where police had responded to a suicide threat. Both Gelabert and an officer were wounded. The appeal is reported as Gelabert v. State.",
+    "institution": "Mountain View Unit, Gatesville"
+   },
+   "precision": {
+    "arrest_date": "day"
+   }
+  },
+  {
+   "slug": "dorothy-eber",
+   "expect_name": "Dorothy Eber",
+   "prisoner": {
+    "state": "Missouri"
+   },
+   "case": {
+    "charges": "Entering a Minuteman nuclear missile installation in Missouri, in the Missouri Peace Planting campaign against the silos.",
+    "convicted": "Yes \u2014 serving a two-year federal sentence as of early February 1989.",
+    "sentence": "Two years in federal prison. Contemporary syndicated coverage describes her as a 64-year-old anti-nuclear activist from suburban Chicago who had gone through a fence into a nuclear missile installation, and places her at the federal prison at Lexington, Kentucky by early February 1989. The federal docket, arrest date, conviction date and statutory counts are not yet established.",
+    "institution": "FCI Lexington"
+   },
+   "precision": {}
+  },
+  {
+   "slug": "jennifer-haines",
+   "expect_name": "Jennifer Haines",
+   "prisoner": {
+    "state": "Colorado"
+   },
+   "case": {
+    "charges": "Violating a federal court injunction, at the Rocky Flats nuclear weapons plant.",
+    "convicted": "Yes \u2014 found guilty on 1 March 1982.",
+    "arrest_date": "1981-12-25",
+    "sentenced_date": "1982-03-03",
+    "judge": "Zita Weinshienk",
+    "sentence": "Suspended sentence. On Christmas Day 1981 she and four other Christian peace activists entered the gates of the Rocky Flats nuclear weapons plant near Denver to deliver a message asking workers to choose peaceful employment, and were arrested inside. Arraigned 4 January 1982; found guilty by Judge Zita Weinshienk on 1 March 1982; sentence suspended two days later."
+   },
+   "precision": {
+    "arrest_date": "day",
+    "sentenced_date": "day"
+   }
+  },
+  {
+   "slug": "raphael-kwesi-joseph",
+   "expect_name": "Raphael Kwesi Joseph",
+   "prisoner": {
+    "state": "Virgin Islands"
+   },
+   "case": {
+    "charges": "Murder and related counts arising from the 1972 Fountain Valley Golf Course killings on St. Croix \u2014 the Virgin Islands Five.",
+    "convicted": "Yes \u2014 convicted 13 August 1973 with four codefendants.",
+    "sentenced_date": "1973-08-13",
+    "release_date": "1992-01-01",
+    "sentence": "Eight consecutive life terms, imposed on each of the five defendants. Pardoned by the governor in 1992. Movement sources and later histories allege that confessions used in the prosecution were obtained through torture; that is recorded as an allegation and stands separate from the formal conviction."
+   },
+   "precision": {
+    "sentenced_date": "day",
+    "release_date": "year"
+   }
+  },
+  {
+   "slug": "yvonne-small",
+   "expect_name": "Yvonne Small",
+   "prisoner": {
+    "state": "Pennsylvania"
+   },
+   "case": {
+    "charges": "Anti-nuclear civil disobedience at Site R, the Raven Rock military command complex on the Pennsylvania-Maryland border.",
+    "convicted": "Yes \u2014 sentenced 25 October 1990.",
+    "arrest_date": "1990-08-05",
+    "sentenced_date": "1990-10-25",
+    "sentence": "Six to twelve months in jail, imposed by a Pennsylvania Court of Common Pleas on 25 October 1990 for the protest of 5 August 1990 marking the approaching forty-fifth anniversary of Hiroshima. She was sentenced about six weeks before the December 1990 tribunal that listed her."
+   },
+   "precision": {
+    "arrest_date": "day",
+    "sentenced_date": "day"
+   }
+  }
+ ],
+ "identifiers": [
+  {
+   "slug": "consuella-dotson-africa",
+   "expect_name": "Consuella Dotson Africa",
+   "inmate_number": "006434"
+  },
+  {
+   "slug": "sue-leon-africa",
+   "expect_name": "Sue Leon Africa",
+   "inmate_number": "006325"
+  },
+  {
+   "slug": "carlos-perez-africa",
+   "expect_name": "Carlos Perez Africa",
+   "inmate_number": "M-7400"
+  }
+ ],
+ "provenance": "All eleven of these records entered the archive the same way: as bare names on the petitioner list of the 1990 Special International Tribunal on Political Prisoners and Prisoners of War in the United States. No case, no alias, no inmate number, in most cases no state. The tribunal named them as political prisoners; it did not record what they had been prosecuted for. Five of those prosecutions are now identified and are attached here.",
+ "not_attached": "Six records are deliberately left without a case. Robert Taylor is genuinely unresolved: a 1989 directory gives him as #88-A-8613 at Downstate in New York, a 1990 New Afrikan pamphlet gives #10376-054 at FCI Otisville, and a 1993 list ties that federal number to Attica. Those may be one man moving between state and federal custody, a list-maintenance error, or two different Robert Taylors, and merging them blind would manufacture a person. The five MOVE members need individual case research and get identifiers only.",
+ "not_the_move_9": "The single most important thing in this batch is a case NOT attached. Alberta Wicker Africa, Carlos Perez Africa, Consuella Dotson Africa, Michael Hill Africa and Sue Leon Africa are not five alternative names for members of the MOVE 9, and must not be swept into the 8 August 1978 case. A 1989 directory lists them separately and in different prisons \u2014 Consuella Dotson and Alberta Wicker at Muncy, Carlos Perez at Dallas, a Michael Africa at Huntingdon. Michael Hill Africa in particular should not be conflated with Michael Davis Africa of the MOVE 9. Any future automated enrichment of MOVE records needs to start from that.",
+ "flags": [
+  "The Gelabert identification is applied as supplied and could not be independently corroborated here \u2014 searches for the Texas prisoner number and the 1983 Houston case returned nothing, which for an obscure 1983 state case is weak evidence either way. More to the point, this archive own description calls her a Puerto Rican independentista, which does not obviously describe a shooting at officers responding to a suicide call in Houston. The description is left untouched and the name is left as the tribunal transcribed it, with Ana Lucia Gelabert recorded as an alias, exactly as asked. But one of those two characterisations is wrong.",
+  "This Dorothy Eber is not Dorothy Harley Eber, the Canadian author and oral historian. Web results mix the two heavily and any later research on this record should start from that.",
+  "Yvonne Small is filed under the 1980s while her case runs from August to October 1990. The era field drives the public database filters, so it is worth correcting, but it is not changed here because era is a curatorial category rather than a fact from the source.",
+  "Raphael Kwesi Joseph is given the state Virgin Islands, which 2 records already use; 1 other record uses U.S. Virgin Islands. The two spellings should be merged at some point.",
+  "Michael Hill Africa and Alberta Wicker Africa get nothing in this batch \u2014 no number is documented for either beyond a prison placement, and a placement is not an identifier."
+ ],
+ "expected": {
+  "cases": 5,
+  "identifiers": 3
+ }
+}
