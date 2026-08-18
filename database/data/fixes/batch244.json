@@ -1,0 +1,19 @@
+{
+ "prisoner": {
+  "slug": "david-webb",
+  "expect_name": "David Webb"
+ },
+ "release_date": "2026-08-18",
+ "precision": "day",
+ "flags_follow": {
+  "in_custody": false,
+  "released": true
+ },
+ "why_the_flags": "The release date is what was asked for, and the two flags are what it means. Left as they were, this record would carry a release date while still reading in custody, and would keep appearing in the currently-imprisoned lists the site builds from those flags. imprisoned_or_exiled is not written here because the prisoner model derives it on every save from in_custody and currently_in_exile.",
+ "duration": "He was taken into custody on 18 June 2026, so a release today makes 61 days. imprisoned_for_days is not written either \u2014 the case model recomputes it from the two dates whenever the row is saved.",
+ "no_disposition": "Flagged rather than filled: the case still records no disposition. There is no conviction, no plea and no sentence on it, and the description has jury trials in several of the cases scheduled for mid-June 2026. A release with nothing recorded about the outcome is a normal state for a case that ended in dismissal, acquittal, or time served \u2014 but which of those it was is not in this record.",
+ "expected": {
+  "release_date": "2026-08-18",
+  "days": 61
+ }
+}
