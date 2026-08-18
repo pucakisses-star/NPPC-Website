@@ -2,8 +2,13 @@
 #
 # BATCH 244 -- David Webb is released.
 #
-#   RELEASE DATE 18 AUGUST 2026, at day precision. He was taken into
-#   custody on 18 June 2026, which makes 61 days.
+#   RELEASE DATE 17 AUGUST 2026, at day precision. He was taken into
+#   custody on 18 June 2026, which makes 60 days.
+#
+#   THIS BATCH FIRST CARRIED 18 AUGUST and was corrected to the 17th. The
+#   release date is overwritten whenever it differs rather than only filled
+#   when blank, so running this also corrects a server where the earlier
+#   version had already been applied.
 #
 #   THE TWO FLAGS FOLLOW THE DATE. in_custody goes false and released goes
 #   true. Left as they were, this record would carry a release date while
@@ -45,7 +50,7 @@ run_tinker() {
 }
 
 echo "==================================================================="
-echo "  Batch 244 — David Webb released"
+echo "  Batch 244 — David Webb released, 17 August 2026"
 echo "==================================================================="
 
 WEBB_CODE='
@@ -115,6 +120,7 @@ echo "    state / era         ", $p->state, "   ", $p->era, "   (untouched)\n";
 
 echo "\n  ", wordwrap($payload["why_the_flags"], 72, "\n  "), "\n";
 echo "\n  ", wordwrap($payload["duration"], 72, "\n  "), "\n";
+echo "\n  ", wordwrap($payload["corrected"], 72, "\n  "), "\n";
 echo "\n  ", wordwrap($payload["no_disposition"], 72, "\n  "), "\n";
 
 $e = $payload["expected"];
