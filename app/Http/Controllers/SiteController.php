@@ -1454,7 +1454,103 @@ final class SiteController extends Controller {
             return redirect('/prisoner/'.$prisoner->slug, 301);
         }
 
-        return view('pages.prisoner', compact('prisoner'));
+        $related = $this->relatedPrisoners($prisoner);
+
+        return view('pages.prisoner', compact('prisoner', 'related'));
+    }
+
+    /**
+     * Prisoners related to this one, for the grid at the bottom of the page.
+     *
+     * Relatedness is scored from what the records themselves share, in
+     * decreasing order of meaning: the same affiliation (the same
+     * organization), a case at the same institution (codefendants and fellow
+     * inmates), the same era, a shared ideology, the same state. Weak
+     * matches are dropped rather than padded — a record that shares only an
+     * era with 2,000 others has no meaningful neighbors, and showing eight
+     * near-strangers would dilute the pages where the grid is real (the
+     * co-defendants of a mass trial, the members of one organization).
+     *
+     * Candidate pools are bounded so a page render never scans the whole
+     * table. Uses the default query scope, so under-review records never
+     * surface here.
+     */
+    private function relatedPrisoners(Prisoner $prisoner, int $limit = 8)
+    {
+        $cols = ['id', 'name', 'slug', 'photo', 'era', 'state', 'affiliation', 'ideologies', 'sort_order'];
+        $pool = collect();
+
+        // Fellow inmates / codefendants: anyone with a case at one of this
+        // prisoner's institutions.
+        $instIds = $prisoner->cases->pluck('institution_id')->filter()->unique();
+        $instMates = collect();
+        if ($instIds->isNotEmpty()) {
+            $instMates = PrisonerCase::whereIn('institution_id', $instIds)
+                ->where('prisoner_id', '!=', $prisoner->id)
+                ->limit(600)
+                ->pluck('prisoner_id')
+                ->unique();
+            $pool = $pool->merge(Prisoner::whereIn('id', $instMates)->limit(250)->get($cols));
+        }
+
+        // Same organization. The affiliation column is a JSON array; matching
+        // on the JSON-encoded value keeps the query portable across SQLite
+        // and MySQL (no whereJsonContains), and the PHP scoring below
+        // re-verifies the overlap so a LIKE false positive cannot rank.
+        foreach ((array) $prisoner->affiliation as $aff) {
+            if (! is_string($aff) || $aff === '') {
+                continue;
+            }
+            $needle = str_replace(['%', '_'], ['\\%', '\\_'], json_encode($aff));
+            $pool = $pool->merge(
+                Prisoner::where('id', '!=', $prisoner->id)
+                    ->where('affiliation', 'like', '%'.$needle.'%')
+                    ->limit(150)
+                    ->get($cols)
+            );
+        }
+
+        // Filler pool: same era, photo first, so thin records still get
+        // era-plus-something matches to consider.
+        if ($prisoner->era) {
+            $pool = $pool->merge(
+                Prisoner::where('id', '!=', $prisoner->id)
+                    ->where('era', $prisoner->era)
+                    ->when($prisoner->state, fn ($q) => $q->where('state', $prisoner->state))
+                    ->orderByRaw("(photo is null or photo = '') asc")
+                    ->orderBy('sort_order')
+                    ->limit(80)
+                    ->get($cols)
+            );
+        }
+
+        $myAff = collect((array) $prisoner->affiliation)->filter();
+        $myIdeo = collect((array) $prisoner->ideologies)->filter();
+        $instSet = $instMates->flip();
+
+        return $pool->unique('id')
+            ->map(function ($p) use ($prisoner, $myAff, $myIdeo, $instSet) {
+                $score = 0;
+                $score += 4 * $myAff->intersect((array) $p->affiliation)->count();
+                $score += 2 * ($instSet->has($p->id) ? 1 : 0);
+                $score += 2 * ($prisoner->era && $p->era === $prisoner->era ? 1 : 0);
+                $score += min(2, $myIdeo->intersect((array) $p->ideologies)->count());
+                $score += ($prisoner->state && $p->state === $prisoner->state) ? 1 : 0;
+                $p->related_score = $score;
+
+                return $p;
+            })
+            // One shared fact is not a relationship: era alone (2) or an
+            // institution alone (2) does not clear the bar; era+state,
+            // era+ideology, any shared affiliation, institution+era all do.
+            ->filter(fn ($p) => $p->related_score >= 3)
+            ->sortBy([
+                ['related_score', 'desc'],
+                fn ($a, $b) => (filled($b->photo) <=> filled($a->photo)),
+                ['sort_order', 'asc'],
+            ])
+            ->take($limit)
+            ->values();
     }
 
     public function home() {
