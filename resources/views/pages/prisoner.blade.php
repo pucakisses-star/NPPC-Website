@@ -109,14 +109,36 @@
     .prisoner-related-tile { position: relative; display: block; aspect-ratio: 1/1; border-radius: 4px; overflow: hidden; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); }
     .prisoner-related-tile img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(45%); transition: filter 0.25s; }
     .prisoner-related-tile::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); opacity: 0; transition: opacity 0.25s; }
-    .prisoner-related-name { position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 1; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; opacity: 0; transition: opacity 0.25s; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+    /* The name, matching the reference video: serif spaced caps centered on
+       the tile, sliding in with a brief RGB channel-split glitch — red
+       fringing one side, cyan the other, jumping for a few frames before
+       settling clean — and dimming away with a blur on mouse-out. The
+       discrete jumps come from steps(1,end): each keyframe holds, then
+       snaps, rather than tweening the shadows smoothly. */
+    .prisoner-related-name { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; overflow-wrap: anywhere; opacity: 0; filter: blur(4px); transform: translateY(5px); transition: opacity 0.3s, filter 0.3s, transform 0.3s; }
     .prisoner-related-tile:hover::after, .prisoner-related-tile:focus-visible::after { opacity: 1; }
-    .prisoner-related-tile:hover .prisoner-related-name, .prisoner-related-tile:focus-visible .prisoner-related-name { opacity: 1; }
+    .prisoner-related-tile:hover .prisoner-related-name, .prisoner-related-tile:focus-visible .prisoner-related-name {
+        opacity: 1; filter: blur(0); transform: translateY(0);
+        animation: prisoner-name-glitch 0.5s steps(1, end) both;
+    }
     .prisoner-related-tile:hover img { filter: grayscale(0%); }
-    /* No photo: name always shown, centered on the gradient. */
-    .prisoner-related-tile.no-photo .prisoner-related-name { opacity: 0.85; top: 10px; display: flex; align-items: center; justify-content: center; text-align: center; }
+    @keyframes prisoner-name-glitch {
+        0%   { opacity: 0.6; transform: translateY(-6px); text-shadow: -3px 0 rgba(255,45,85,0.95), 3px 0 rgba(0,225,255,0.95); }
+        18%  { opacity: 1; transform: translateY(0); text-shadow: 3px 0 rgba(255,45,85,0.9), -3px 0 rgba(0,225,255,0.9); }
+        36%  { text-shadow: -2px 0 rgba(255,45,85,0.85), 2px 0 rgba(0,225,255,0.85); }
+        55%  { text-shadow: 2px -1px rgba(255,45,85,0.6), -2px 1px rgba(0,225,255,0.6); }
+        75%  { text-shadow: -1px 0 rgba(255,45,85,0.35), 1px 0 rgba(0,225,255,0.35); }
+        100% { text-shadow: none; }
+    }
+    /* No photo: name always shown, static, on the gradient. */
+    .prisoner-related-tile.no-photo .prisoner-related-name { opacity: 0.85; filter: none; transform: none; }
+    .prisoner-related-tile.no-photo:hover .prisoner-related-name { animation: none; opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
-        .prisoner-related-tile img, .prisoner-related-tile::after, .prisoner-related-name { transition: none; }
+        /* A plain fade: no glitch, no slide, no blur. The image keeps its
+           grayscale treatment — that is color, not motion. */
+        .prisoner-related-tile img, .prisoner-related-tile::after { transition: none; }
+        .prisoner-related-name { transition: opacity 0.25s; filter: none; transform: none; }
+        .prisoner-related-tile:hover .prisoner-related-name, .prisoner-related-tile:focus-visible .prisoner-related-name { animation: none; filter: none; transform: none; }
     }
 
     @media (max-width: 768px) {
