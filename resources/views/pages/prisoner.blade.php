@@ -116,7 +116,7 @@
        lingers. Pure opacity: no slide, no blur, no glitch. Each word span
        carries its own in/out transition delays (--di / --do) from the
        template. */
-    .prisoner-related-name { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; padding: 10px 10px 10px 12%; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: 400; letter-spacing: 0.08em; line-height: 1.2; text-transform: uppercase; color: #fff; overflow-wrap: anywhere; }
+    .prisoner-related-name { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10px; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; font-weight: 400; letter-spacing: 0.08em; line-height: 1.2; text-transform: uppercase; color: #fff; overflow-wrap: anywhere; }
     .prisoner-related-name .w { display: block; max-width: 100%; opacity: 0; transition: opacity 0.28s ease; transition-delay: var(--do, 0s); }
     .prisoner-related-tile:hover::after, .prisoner-related-tile:focus-visible::after { opacity: 1; }
     .prisoner-related-tile:hover .prisoner-related-name .w, .prisoner-related-tile:focus-visible .prisoner-related-name .w { opacity: 1; transition-delay: var(--di, 0s); }
