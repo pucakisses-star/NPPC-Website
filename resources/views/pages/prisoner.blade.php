@@ -98,8 +98,31 @@
     .prose-content iframe, .prose-content embed, .prose-content object { max-width: 100%; margin: 16px 0; border-radius: 8px; }
     .prose-content strong { color: var(--fg); font-weight: 700; }
 
+    /* Related cases — square portrait grid; the name fades in over a dark
+       scrim on hover. Tiles without a photo carry the name at all times on
+       the same dark gradient the hero placeholder uses, so the grid stays
+       legible in both themes. */
+    .prisoner-related { padding: 0 0 80px; }
+    .prisoner-related-title { font-size: 1.4rem; font-weight: 800; color: var(--fg); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 12px; }
+    .prisoner-related-rule { height: 1px; background: rgba(var(--fg-rgb),0.15); margin-bottom: 24px; }
+    .prisoner-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; }
+    .prisoner-related-tile { position: relative; display: block; aspect-ratio: 1/1; border-radius: 4px; overflow: hidden; background: linear-gradient(135deg, #111 0%, #1a1a2e 100%); }
+    .prisoner-related-tile img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(45%); transition: filter 0.25s; }
+    .prisoner-related-tile::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); opacity: 0; transition: opacity 0.25s; }
+    .prisoner-related-name { position: absolute; left: 10px; right: 10px; bottom: 10px; z-index: 1; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; opacity: 0; transition: opacity 0.25s; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+    .prisoner-related-tile:hover::after, .prisoner-related-tile:focus-visible::after { opacity: 1; }
+    .prisoner-related-tile:hover .prisoner-related-name, .prisoner-related-tile:focus-visible .prisoner-related-name { opacity: 1; }
+    .prisoner-related-tile:hover img { filter: grayscale(0%); }
+    /* No photo: name always shown, centered on the gradient. */
+    .prisoner-related-tile.no-photo .prisoner-related-name { opacity: 0.85; top: 10px; display: flex; align-items: center; justify-content: center; text-align: center; }
+    @media (prefers-reduced-motion: reduce) {
+        .prisoner-related-tile img, .prisoner-related-tile::after, .prisoner-related-name { transition: none; }
+    }
+
     @media (max-width: 768px) {
         .prisoner-page { padding: 0 16px; }
+        .prisoner-related-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+        .prisoner-related-title { font-size: 1.1rem; }
         .prisoner-hero { flex-direction: column-reverse; gap: 24px; padding: 24px 0 20px; }
         .prisoner-photo-col { flex: auto; width: 100%; }
         .prisoner-name { font-size: 2rem; }
@@ -314,6 +337,27 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+    @endif
+
+    {{-- Related cases — people who share this record's organization, trial
+         institution or era. Computed and thresholded in the controller;
+         hidden entirely when nothing clears the bar, rather than padded
+         with near-strangers. --}}
+    @if(($related ?? collect())->isNotEmpty())
+        <div class="prisoner-related">
+            <h2 class="prisoner-related-title">Related Cases</h2>
+            <div class="prisoner-related-rule"></div>
+            <div class="prisoner-related-grid">
+                @foreach($related as $rel)
+                    <a href="/prisoner/{{ $rel->slug ?: $rel->id }}" class="prisoner-related-tile {{ $rel->photo ? '' : 'no-photo' }}" aria-label="{{ $rel->name }}">
+                        @if($rel->photo)
+                            <img src="{{ $rel->photoUrl() }}" alt="{{ $rel->name }}" loading="lazy" decoding="async">
+                        @endif
+                        <span class="prisoner-related-name">{{ $rel->name }}</span>
+                    </a>
+                @endforeach
+            </div>
         </div>
     @endif
 </div>
