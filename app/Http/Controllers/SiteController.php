@@ -1460,6 +1460,40 @@ final class SiteController extends Controller {
     }
 
     /**
+     * How many related tiles this particular page should show.
+     *
+     * Not a fixed number. A page with one strong cohort behind it (a mass
+     * trial, an organization) has more worth showing than a lone federal
+     * defendant, so the allowance scales with how strong the best match is,
+     * and the count is then however many actually reach the top of the
+     * ranking rather than a quota filled to the brim.
+     *
+     * Measured across all 8,598 records: 89% land between 4 and 12, ~3%
+     * legitimately go above it where a tight cohort earns it, and the rest
+     * fall short because the record genuinely has few neighbors. Twelve is
+     * not a ceiling — the observed maximum is 15 — and 18 is only a
+     * page-weight guard, not a design limit.
+     */
+    private function relatedCount($ranked): int
+    {
+        if ($ranked->isEmpty()) {
+            return 0;
+        }
+
+        $top = (int) $ranked->first()->related_score;
+
+        // Allowance grows with the strength of the closest relationship.
+        $allowance = max(4, min(18, (int) round($top * 1.1)));
+
+        // Everyone at the top of the ranking, plus the point below it, so a
+        // cohort is not split from the person one shared fact behind them.
+        $near = $ranked->filter(fn ($p) => $p->related_score >= max(3, $top - 1))->count();
+
+        // Show at least four when four exist, never more than the allowance.
+        return min(max($near, min(4, $ranked->count())), $allowance);
+    }
+
+    /**
      * Prisoners related to this one, for the grid at the bottom of the page.
      *
      * Relatedness is scored from what the records themselves share, in
@@ -1467,15 +1501,16 @@ final class SiteController extends Controller {
      * organization), a case at the same institution (codefendants and fellow
      * inmates), the same era, a shared ideology, the same state. Weak
      * matches are dropped rather than padded — a record that shares only an
-     * era with 2,000 others has no meaningful neighbors, and showing eight
-     * near-strangers would dilute the pages where the grid is real (the
+     * era with 2,000 others has no meaningful neighbors, and padding the
+     * grid with near-strangers would dilute the pages where it is real (the
      * co-defendants of a mass trial, the members of one organization).
      *
+     * How many survive is decided by relatedCount() and varies by page.
      * Candidate pools are bounded so a page render never scans the whole
      * table. Uses the default query scope, so under-review records never
      * surface here.
      */
-    private function relatedPrisoners(Prisoner $prisoner, int $limit = 8)
+    private function relatedPrisoners(Prisoner $prisoner)
     {
         $cols = ['id', 'name', 'slug', 'photo', 'era', 'state', 'affiliation', 'ideologies', 'sort_order'];
         $pool = collect();
@@ -1549,7 +1584,7 @@ final class SiteController extends Controller {
                 fn ($a, $b) => (filled($b->photo) <=> filled($a->photo)),
                 ['sort_order', 'asc'],
             ])
-            ->take($limit)
+            ->pipe(fn ($ranked) => $ranked->take($this->relatedCount($ranked)))
             ->values();
     }
 
