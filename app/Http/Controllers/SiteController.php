@@ -1531,9 +1531,14 @@ final class SiteController extends Controller {
             }
         }
 
-        // "Show new": the most recently added records, by the same 90-day
-        // window the tiles use for their badge.
-        $newSince = Carbon::now()->subDays(90);
+        // "Show new": the most recently added records, by the same two-week
+        // window the tiles use for their badge. Rolling, not a stored flag —
+        // a record ages out of it on its own.
+        //
+        // The date is when the row was written here, not when the person was
+        // arrested, so a bulk import can light up the badge on everything it
+        // touches. Two weeks keeps that blast radius small.
+        $newSince = Carbon::now()->subDays(14);
         $showNew = $request->boolean('new');
 
         if ($showNew) {
