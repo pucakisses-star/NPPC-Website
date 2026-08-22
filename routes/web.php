@@ -34,6 +34,7 @@ Route::controller(SiteController::class)
         Route::get('annual-report', 'annualReport');
         Route::get('topics/{slug?}', 'topics');
         Route::get('memorial', 'memorial');
+        Route::get('icons', 'icons');
         Route::get('museum', 'museum');
         Route::get('thumb/{w}/{path}', 'imageThumb')->where(['w' => '[0-9]+', 'path' => '.*']);
         Route::get('calendar', 'calendar');
