@@ -1460,6 +1460,103 @@ final class SiteController extends Controller {
     }
 
     /**
+     * The portrait wall: every prisoner in the archive who has a photograph.
+     *
+     * Deliberately not a second /database. That page is the Vue data browser
+     * — cards, counters, a table of facts. This one is only the faces, at a
+     * size where a era or a movement can be taken in at a glance, and it
+     * exists because 2,198 photographs are otherwise reachable only one
+     * record at a time.
+     *
+     * Filtering is server-side on plain query parameters, so the page works
+     * without JavaScript, deep-links, and can be shared. Options are built
+     * from the photographed set rather than the whole table, so a filter can
+     * never lead to an empty wall.
+     */
+    public function icons(Request $request)
+    {
+        $base = Prisoner::whereNotNull('photo')->where('photo', '!=', '');
+
+        // Facet options, counted over the photographed set only.
+        $options = Cache::remember('icons.options.v1', 3600, function () {
+            $rows = Prisoner::whereNotNull('photo')->where('photo', '!=', '')
+                ->get(['era', 'state', 'ideologies', 'affiliation']);
+
+            $tally = function ($values) {
+                $c = [];
+                foreach ($values as $v) {
+                    foreach ((array) $v as $item) {
+                        $item = is_string($item) ? trim($item) : '';
+                        if ($item !== '') {
+                            $c[$item] = ($c[$item] ?? 0) + 1;
+                        }
+                    }
+                }
+                ksort($c);
+
+                return $c;
+            };
+
+            return [
+                'era' => $tally($rows->pluck('era')),
+                'ideology' => $tally($rows->pluck('ideologies')),
+                'affiliation' => $tally($rows->pluck('affiliation')),
+                'state' => $tally($rows->pluck('state')),
+            ];
+        });
+
+        // Selected values, kept only when they are real options — a junk
+        // query string filters nothing rather than emptying the page.
+        $selected = [];
+        foreach (['era', 'ideology', 'affiliation', 'state'] as $facet) {
+            $value = trim((string) $request->query($facet, ''));
+            $selected[$facet] = ($value !== '' && isset($options[$facet][$value])) ? $value : null;
+        }
+
+        if ($selected['era']) {
+            $base->where('era', $selected['era']);
+        }
+
+        if ($selected['state']) {
+            $base->where('state', $selected['state']);
+        }
+
+        // ideologies and affiliation are JSON arrays. LIKE on the encoded
+        // value keeps this portable across SQLite and MySQL, the same call
+        // made for the related-cases query.
+        foreach (['ideology' => 'ideologies', 'affiliation' => 'affiliation'] as $facet => $column) {
+            if ($selected[$facet]) {
+                $needle = str_replace(['%', '_'], ['\%', '\_'], json_encode($selected[$facet]));
+                $base->where($column, 'like', '%'.$needle.'%');
+            }
+        }
+
+        // "Show new": the most recently added records, by the same 90-day
+        // window the tiles use for their badge.
+        $newSince = Carbon::now()->subDays(90);
+        $showNew = $request->boolean('new');
+
+        if ($showNew) {
+            $base->where('created_at', '>=', $newSince);
+        }
+
+        $prisoners = $base
+            ->orderByRaw('case when created_at >= ? then 0 else 1 end', [$newSince])
+            ->orderBy('sort_order')
+            ->paginate(180)
+            ->withQueryString();
+
+        return view('pages.icons', [
+            'prisoners' => $prisoners,
+            'options' => $options,
+            'selected' => $selected,
+            'showNew' => $showNew,
+            'newSince' => $newSince,
+            'total' => $prisoners->total(),
+        ]);
+    }
+
+    /**
      * How many related tiles this particular page should show.
      *
      * Not a fixed number. A page with one strong cohort behind it (a mass
