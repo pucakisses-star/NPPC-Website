@@ -131,6 +131,9 @@
         </div>
     </form>
 
+    {{-- Everything the filters change lives in here, so the enhancement
+         below can swap it in one move. --}}
+    <div id="icons-results">
     @if($prisoners->isEmpty())
         <div class="icons-empty">No portraits match that combination.</div>
     @else
@@ -155,5 +158,128 @@
 
         <div class="icons-pager">{{ $prisoners->links('vendor.pagination.nppc') }}</div>
     @endif
+    </div>
 </div>
+
+{{-- Progressive enhancement. Without this the form and links above still
+     work by full page load — this only replaces the reload with a fade, by
+     fetching the same URL and swapping the results region.
+
+     Deliberately no framework and no separate JSON endpoint: the page it
+     fetches is the page it would have navigated to, so the two paths can
+     never render different results. --}}
+<script>
+(function () {
+    var page = document.querySelector('.icons-page');
+    if (!page || !window.fetch || !window.DOMParser || !window.history.pushState) return;
+
+    var results = document.getElementById('icons-results');
+    var form = page.querySelector('.icons-filters');
+    var count = page.querySelector('.icons-count');
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var token = 0;
+
+    results.style.transition = 'opacity .22s ease';
+
+    function fade(to) {
+        return new Promise(function (done) {
+            if (calm.matches) { results.style.opacity = to; return done(); }
+            results.style.opacity = to;
+            setTimeout(done, 230);
+        });
+    }
+
+    function go(url, push) {
+        var mine = ++token;
+
+        fade(0).then(function () {
+            return fetch(url, { headers: { 'X-Requested-With': 'fetch' } });
+        }).then(function (r) {
+            if (!r.ok) throw new Error(r.status);
+            return r.text();
+        }).then(function (html) {
+            // A newer click landed while this was in flight — drop this one.
+            if (mine !== token) return;
+
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            var fresh = doc.getElementById('icons-results');
+            if (!fresh) throw new Error('no results region');
+
+            results.innerHTML = fresh.innerHTML;
+
+            var freshCount = doc.querySelector('.icons-count');
+            if (freshCount && count) count.innerHTML = freshCount.innerHTML;
+
+            var freshActions = doc.querySelector('.icons-actions');
+            var actions = page.querySelector('.icons-actions');
+            if (freshActions && actions) actions.innerHTML = freshActions.innerHTML;
+
+            // Keep the selects and their set/unset rules in step with the
+            // URL, so a back button or a Clear reflects in the controls.
+            doc.querySelectorAll('.icons-filters select').forEach(function (fresh) {
+                var here = form.querySelector('select[name="' + fresh.name + '"]');
+                if (!here) return;
+                here.value = fresh.value;
+                here.parentNode.classList.toggle('is-set', !!fresh.value);
+            });
+
+            var hidden = form.querySelector('input[name="new"]');
+            var isNew = url.indexOf('new=1') !== -1;
+            if (isNew && !hidden) {
+                hidden = document.createElement('input');
+                hidden.type = 'hidden'; hidden.name = 'new'; hidden.value = '1';
+                form.insertBefore(hidden, form.firstChild);
+            } else if (!isNew && hidden) {
+                hidden.parentNode.removeChild(hidden);
+            }
+
+            if (push) window.history.pushState({ icons: true }, '', url);
+            if (page.getBoundingClientRect().top < 0) page.scrollIntoView({ behavior: calm.matches ? 'auto' : 'smooth' });
+
+            return fade(1);
+        }).catch(function () {
+            // Anything unexpected: fall back to the navigation this replaced.
+            window.location.href = url;
+        });
+    }
+
+    function urlFromForm() {
+        var params = new URLSearchParams(new FormData(form));
+        var kept = new URLSearchParams();
+        params.forEach(function (v, k) { if (v !== '') kept.append(k, v); });
+        var q = kept.toString();
+
+        return '/icons' + (q ? '?' + q : '');
+    }
+
+    form.addEventListener('change', function (e) {
+        if (e.target.tagName !== 'SELECT') return;
+        go(urlFromForm(), true);
+    });
+
+    // Show new, Clear, and the pager — all plain links to the same page.
+    page.addEventListener('click', function (e) {
+        var a = e.target.closest('a');
+        if (!a || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank') return;
+
+        // The paginator emits absolute URLs while Show new and Clear emit
+        // relative ones, so resolve before comparing. Anything that is not
+        // this page — a portrait, the nav — navigates normally.
+        var url;
+        try { url = new URL(a.href, window.location.origin); } catch (err) { return; }
+        if (url.origin !== window.location.origin || url.pathname !== '/icons') return;
+
+        e.preventDefault();
+        go(url.pathname + url.search, true);
+    });
+
+    window.addEventListener('popstate', function () {
+        go(window.location.pathname + window.location.search, false);
+    });
+
+    // The selects submit the form without JS; with JS the change handler
+    // above owns them, so drop the inline fallback to avoid a double load.
+    form.querySelectorAll('select[onchange]').forEach(function (s) { s.onchange = null; });
+})();
+</script>
 @endsection
