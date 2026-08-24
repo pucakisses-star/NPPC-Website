@@ -16,8 +16,8 @@
         <div class="faqx-list">
             @foreach($faqs as $faq)
                 <div class="faqx-entry">
-                    {{-- The accent sweep sits behind the row and bleeds past
-                         the text column, as in the reference. --}}
+                    {{-- The accent bar sits behind the row, spanning the
+                         column so it ends where the hairlines end. --}}
                     <span class="faqx-sweep" aria-hidden="true"></span>
 
                     <button type="button" class="faqx-q" aria-expanded="false" aria-controls="{{ $uid }}-a{{ $loop->index }}">
