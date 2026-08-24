@@ -39,42 +39,63 @@
 
 @once
 <style>
-    /* FAQ — accordion in the shape of the reference: hairline-separated
-       rows, question left and arrow right, the question and the arrow
-       picking up the accent on hover while a bar of accent sweeps in behind
-       the row and bleeds past the text column. The answer is set in a serif
-       with an indented first line and opens by height.
+    /* FAQ, matching the reference video rather than my first reading of it.
+
+       Rows are hairline-separated, the question set in wide uppercase with a
+       chevron opposite. Hovering fills the whole row with a solid bar of
+       accent that bleeds past the text column, and the question and chevron
+       go to the on-accent colour. An open row is not filled: its question
+       and chevron simply take the accent colour and the answer sits on the
+       page background, in a serif with an indented first line.
+
+       More than one row can be open at a time — the video shows several open
+       together, which is the behaviour, not an accordion.
 
        Uses the theme variables rather than hard-coded black and white, so
        the block survives the light theme the old markup broke in. */
     .faqx { padding: 96px 0; }
-    .faqx-inner { max-width: 940px; margin: 0 auto; padding: 0 24px; }
-    .faqx-title { font-size: 2rem; font-weight: 900; letter-spacing: 0.02em; color: var(--fg); margin: 0 0 48px; }
+    .faqx-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .faqx-title { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 300; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; color: var(--fg); margin: 0 0 48px; }
 
     /* -1px so adjacent rules collapse into a single hairline. */
-    .faqx-entry { position: relative; margin-bottom: -1px; border-top: 1px solid rgba(var(--fg-rgb),0.22); border-bottom: 1px solid rgba(var(--fg-rgb),0.22); }
+    .faqx-entry { position: relative; margin-bottom: -1px; border-top: 1px solid rgba(var(--fg-rgb),0.18); border-bottom: 1px solid rgba(var(--fg-rgb),0.18); }
 
-    .faqx-sweep { position: absolute; inset: 0 auto 0 -60px; width: calc(100% + 120px); background: var(--accent); opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 0; }
-    .faqx-entry:hover .faqx-sweep, .faqx-entry:focus-within .faqx-sweep { opacity: 0.12; }
-    .faqx-entry.is-open .faqx-sweep { opacity: 0.16; }
+    /* The hover bar: solid, and wider than the column it sits in. */
+    .faqx-sweep { position: absolute; left: -60px; right: -60px; top: 0; bottom: 0; background: var(--accent); opacity: 0; transition: opacity 0.18s ease; pointer-events: none; z-index: 0; }
+    .faqx-entry:hover > .faqx-sweep { opacity: 1; }
+    /* Keyboard focus lights the bar too, but a mouse click must not: a
+       button keeps focus after it is clicked, and :focus-within would leave
+       the row you just opened stuck under a solid bar. Kept in its own rule
+       so a browser without :has() still gets the hover bar. */
+    .faqx-entry:has(.faqx-q:focus-visible) > .faqx-sweep { opacity: 1; }
+    /* Only the question row is covered, never the open answer. */
+    .faqx-entry.is-open > .faqx-sweep { bottom: auto; height: var(--faqx-row, 0px); }
 
-    .faqx-q { position: relative; z-index: 1; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; background: none; border: 0; text-align: left; cursor: pointer; color: rgba(var(--fg-rgb),0.85); font: inherit; transition: color 0.2s ease; }
-    .faqx-q-text { font-size: 21px; font-weight: 500; line-height: 1.3; }
-    .faqx-q:hover, .faqx-q:focus-visible { color: var(--accent-2); }
+    .faqx-q { position: relative; z-index: 1; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; background: none; border: 0; text-align: left; cursor: pointer; color: rgba(var(--fg-rgb),0.88); font: inherit; transition: color 0.18s ease; }
+    .faqx-q-text { font-size: 21px; font-weight: 400; line-height: 1.25; letter-spacing: 0.015em; text-transform: uppercase; }
+    /* --accent-2 rather than --accent: this is text on the page background,
+       and --accent-2 is the triplet tuned per theme for exactly that. Plain
+       --accent clears AA by a hair on both grounds; --accent-2 clears it
+       comfortably. The bar below stays --accent, which is a fill. */
     .faqx-entry.is-open .faqx-q { color: var(--accent-2); }
-    .faqx-q:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 4px; }
+    /* Wherever the bar is lit the question has to be on-accent — including
+       on a row that is already open, whose accent text would otherwise be
+       accent on accent and invisible. Both selectors are written to outweigh
+       the .is-open rule above. */
+    .faqx-entry:hover .faqx-q, .faqx-entry .faqx-q:focus-visible { color: var(--on-accent); }
+    .faqx-q:focus-visible { outline: 2px solid var(--on-accent); outline-offset: -4px; }
 
-    .faqx-arrow { flex: 0 0 auto; width: 30px; height: 30px; transition: transform 0.25s ease, color 0.2s ease; }
+    .faqx-arrow { flex: 0 0 auto; width: 30px; height: 30px; transition: transform 0.25s ease; }
     .faqx-entry.is-open .faqx-arrow { transform: rotate(180deg); }
 
     /* Height is animated by the script; overflow keeps the text clipped
-       while it moves. */
+       while it moves. No background of its own. */
     .faqx-a { position: relative; z-index: 1; height: 0; overflow: hidden; transition: height 0.3s ease; }
-    .faqx-a-inner { padding: 0 0 28px; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; line-height: 1.75; color: rgba(var(--fg-rgb),0.62); text-indent: 1.6em; max-width: 68ch; }
+    .faqx-a-inner { padding: 0 0 26px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; color: rgba(var(--fg-rgb),0.6); text-indent: 1.6em; max-width: 62ch; }
 
     @media (max-width: 900px) {
         .faqx { padding: 64px 0; }
-        .faqx-sweep { inset: 0 auto 0 -24px; width: calc(100% + 48px); }
+        .faqx-sweep { left: -24px; right: -24px; }
         .faqx-q-text { font-size: 18px; }
         .faqx-arrow { width: 24px; height: 24px; }
     }
@@ -82,9 +103,13 @@
     @media (max-width: 600px) {
         .faqx { padding: 48px 0; }
         .faqx-inner { padding: 0 16px; }
-        .faqx-title { font-size: 1.5rem; margin-bottom: 28px; }
-        .faqx-q { padding: 20px 0; gap: 14px; }
-        .faqx-q-text { font-size: 16px; }
+        /* The bleed has to track the padding exactly: at 24px against a
+           16px gutter the bar hangs 8px off each edge and the page picks up
+           a horizontal scrollbar. */
+        .faqx-sweep { left: -16px; right: -16px; }
+        .faqx-title { margin-bottom: 28px; }
+        .faqx-q { padding: 18px 0; gap: 14px; }
+        .faqx-q-text { font-size: 15px; }
         .faqx-arrow { width: 20px; height: 20px; }
         .faqx-a-inner { font-size: 15px; line-height: 1.65; text-indent: 1.2em; }
     }
@@ -96,9 +121,14 @@
 
 <script>
 (function () {
-    // Delegated and scoped per section, so two FAQ blocks on one page (the
-    // about and map pages each carry one) never toggle each other.
     var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // The hover bar must cover the question row and stop there, never the
+    // open answer beneath it, so the row height is published to the CSS.
+    function measure(entry) {
+        var q = entry.querySelector('.faqx-q');
+        entry.style.setProperty('--faqx-row', q.offsetHeight + 'px');
+    }
 
     function close(entry) {
         var a = entry.querySelector('.faqx-a');
@@ -116,6 +146,7 @@
         var a = entry.querySelector('.faqx-a');
         var q = entry.querySelector('.faqx-q');
         a.hidden = false;
+        measure(entry);
         entry.classList.add('is-open');
         q.setAttribute('aria-expanded', 'true');
         a.style.height = calm.matches ? 'auto' : a.scrollHeight + 'px';
@@ -128,13 +159,15 @@
         var q = e.target.closest && e.target.closest('.faqx-q');
         if (!q) return;
 
-        var section = q.closest('.faqx');
         var entry = q.closest('.faqx-entry');
-        var isOpen = entry.classList.contains('is-open');
 
-        // One at a time, within this section only.
-        section.querySelectorAll('.faqx-entry.is-open').forEach(close);
-        if (!isOpen) open(entry);
+        // Any number of rows may be open at once — the reference shows
+        // several open together, so opening one does not close the others.
+        if (entry.classList.contains('is-open')) {
+            close(entry);
+        } else {
+            open(entry);
+        }
     });
 
     // A row that has finished opening settles to its natural height, so a
