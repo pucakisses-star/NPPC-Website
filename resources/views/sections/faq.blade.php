@@ -95,7 +95,10 @@
     /* Full-strength --fg, not a muted rgba: white on the dark theme, and
        still the right colour if the light theme is on, where literal white
        would vanish. No indent — the answer starts flush with the question. */
-    .faqx-a-inner { padding: 0 0 26px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; color: var(--fg); max-width: 62ch; }
+    /* No max-width: the answer runs the full column, the width it had
+       before the redesign, rather than being boxed into a measure narrower
+       than the rule above it. */
+    .faqx-a-inner { padding: 0 0 26px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; color: var(--fg); }
 
     @media (max-width: 900px) {
         .faqx { padding: 64px 0; }
