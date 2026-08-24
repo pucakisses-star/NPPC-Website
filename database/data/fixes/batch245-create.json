@@ -1,0 +1,27 @@
+{
+    "name": "Jesús M. Balzac",
+    "first_name": "Jesús",
+    "middle_name": "María",
+    "last_name": "Balzac",
+    "aka": "Jesús María Balzac y Balzac",
+    "description": "Jesús M. Balzac edited El Baluarte, a newspaper in Arecibo, Puerto Rico. In two articles published on 16 and 23 April 1918, under the byline The Knight-Errant, he attacked Arthur Yager, the American colonial governor of the island, and was prosecuted for criminal libel on two separate informations in the district court for Arecibo.\n\nIn each case he demanded a jury, and in each case he was refused. The Puerto Rico Code of Criminal Procedure allowed juries in felonies but not in misdemeanours, and libel was a misdemeanour; Balzac argued that the Sixth Amendment entitled him to one regardless of what the local code said. His contentions were overruled, he was tried by the court, convicted on both informations, and sentenced to five months in the district jail on the first and four months on the second, with costs in each.\n\nHis appeal became Balzac v. Porto Rico, 258 U.S. 298, decided on 10 April 1922. A unanimous Supreme Court, in an opinion by Chief Justice William Howard Taft, held that the Sixth Amendment right to a jury trial does not extend to an unincorporated territory, and that the United States citizenship conferred on Puerto Ricans by the Jones Act of 1917 had not incorporated the island into the Union. Taft reasoned that a people trained to a judicial system which knows no juries should themselves decide how far to adopt the institution.\n\nBalzac is one of the Insular Cases, and it is still cited for the proposition that the Constitution reaches Puerto Rico, Guam, the U.S. Virgin Islands, American Samoa and the Northern Mariana Islands only in part. The facts underneath that doctrine are nine months in a district jail for a newspaper editor who insulted a governor.",
+    "gender": "Male",
+    "state": "Puerto Rico",
+    "era": "1910s",
+    "ideologies": [
+        "Press Freedom",
+        "Civil Liberties"
+    ],
+    "in_custody": false,
+    "released": true,
+    "cases": [
+        {
+            "institution_name": "District Jail, Arecibo",
+            "institution_city": "Arecibo",
+            "institution_state": "Puerto Rico",
+            "charges": "Criminal libel, on two informations, for articles published in El Baluarte on 16 and 23 April 1918 attacking Arthur Yager, the colonial governor of Puerto Rico.",
+            "convicted": "Yes — convicted on both informations in the district court for Arecibo; affirmed by the U.S. Supreme Court on 10 April 1922.",
+            "sentence": "Five months in the district jail on the first information and four months on the second, with costs in each — nine months in all. He demanded a jury in both cases and was refused, the Puerto Rico Code of Criminal Procedure allowing juries in felonies but not in misdemeanours. The appeal produced Balzac v. Porto Rico, 258 U.S. 298 (10 April 1922), one of the Insular Cases, in which a unanimous Court held that the Sixth Amendment jury right does not reach an unincorporated territory."
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+ "prisoner": {
+  "name": "Jes\u00fas M. Balzac",
+  "expect_slug": "jesus-m-balzac"
+ },
+ "sources": "The case facts are taken from the opinion itself, read at law.cornell.edu/supremecourt/text/258/298, not from a summary: the district court for Arecibo, the two informations over articles of 16 and 23 April 1918, the jury demanded and refused in each case, and the sentence of five months on the first and four on the second with costs. The byline The Knight-Errant, the governor Arthur Yager, and Taft writing for a unanimous Court on 10 April 1922 are from the Wikipedia article on the case, which agrees with the opinion on every point they both cover.",
+ "no_dates": "No dates are recorded on the case. The publications are dated and the Supreme Court decision is dated, and both are in the description, but the arrest, the trial and the nine months actually served are not established by what was read. An arrest date inferred from a publication date would be a guess, and this archive has been bitten by those.",
+ "new_institution": "The prison is entered as a new institution, District Jail, Arecibo. There is already a bare District Jail in this database and it is Katherine Morey, a Silent Sentinel held in Washington. Attaching an Arecibo sentence to a Washington jail because the two share a generic name is exactly the contamination batch 215 spent thirteen rows undoing.",
+ "ideologies": "Filed under Press Freedom and Civil Liberties. Not Puerto Rican Independence: he attacked the colonial governor, which is not the same as evidence that he was an independentista, and 330 records already carry that value on better grounds.",
+ "why_here": "Worth stating why a libel conviction belongs in a political prisoner archive. The prosecution was for insulting the colonial governor in print, and the appeal is the reason the case is remembered: Balzac is one of the Insular Cases, still cited for the proposition that the Constitution reaches the territories only in part.",
+ "expected": {
+  "name": "Jes\u00fas M. Balzac",
+  "slug": "jesus-m-balzac",
+  "cases": 1,
+  "institution": "District Jail, Arecibo"
+ }
+}
