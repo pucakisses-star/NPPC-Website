@@ -42,11 +42,11 @@
     /* FAQ, matching the reference video rather than my first reading of it.
 
        Rows are hairline-separated, the question set in wide uppercase with a
-       chevron opposite. Hovering fills the whole row with a solid bar of
-       accent that bleeds past the text column, and the question and chevron
-       go to the on-accent colour. An open row is not filled: its question
-       and chevron simply take the accent colour and the answer sits on the
-       page background, in a serif with an indented first line.
+       chevron opposite. Hovering fills the row with a solid bar of accent
+       that runs the width of the column, ending where the hairlines end,
+       and the question and chevron go to the on-accent colour. An open row
+       is not filled: its question and chevron simply take the accent colour
+       and the answer sits on the page background, in a serif.
 
        More than one row can be open at a time — the video shows several open
        together, which is the behaviour, not an accordion.
@@ -60,8 +60,9 @@
     /* -1px so adjacent rules collapse into a single hairline. */
     .faqx-entry { position: relative; margin-bottom: -1px; border-top: 1px solid rgba(var(--fg-rgb),0.18); border-bottom: 1px solid rgba(var(--fg-rgb),0.18); }
 
-    /* The hover bar: solid, and wider than the column it sits in. */
-    .faqx-sweep { position: absolute; left: -60px; right: -60px; top: 0; bottom: 0; background: var(--accent); opacity: 0; transition: opacity 0.18s ease; pointer-events: none; z-index: 0; }
+    /* The hover bar: solid, and flush with the column, so it ends exactly
+       where the hairlines above and below it end. */
+    .faqx-sweep { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--accent); opacity: 0; transition: opacity 0.18s ease; pointer-events: none; z-index: 0; }
     .faqx-entry:hover > .faqx-sweep { opacity: 1; }
     /* Keyboard focus lights the bar too, but a mouse click must not: a
        button keeps focus after it is clicked, and :focus-within would leave
@@ -91,11 +92,13 @@
     /* Height is animated by the script; overflow keeps the text clipped
        while it moves. No background of its own. */
     .faqx-a { position: relative; z-index: 1; height: 0; overflow: hidden; transition: height 0.3s ease; }
-    .faqx-a-inner { padding: 0 0 26px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; color: rgba(var(--fg-rgb),0.6); text-indent: 1.6em; max-width: 62ch; }
+    /* Full-strength --fg, not a muted rgba: white on the dark theme, and
+       still the right colour if the light theme is on, where literal white
+       would vanish. No indent — the answer starts flush with the question. */
+    .faqx-a-inner { padding: 0 0 26px; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.7; color: var(--fg); max-width: 62ch; }
 
     @media (max-width: 900px) {
         .faqx { padding: 64px 0; }
-        .faqx-sweep { left: -24px; right: -24px; }
         .faqx-q-text { font-size: 18px; }
         .faqx-arrow { width: 24px; height: 24px; }
     }
@@ -103,15 +106,11 @@
     @media (max-width: 600px) {
         .faqx { padding: 48px 0; }
         .faqx-inner { padding: 0 16px; }
-        /* The bleed has to track the padding exactly: at 24px against a
-           16px gutter the bar hangs 8px off each edge and the page picks up
-           a horizontal scrollbar. */
-        .faqx-sweep { left: -16px; right: -16px; }
         .faqx-title { margin-bottom: 28px; }
         .faqx-q { padding: 18px 0; gap: 14px; }
         .faqx-q-text { font-size: 15px; }
         .faqx-arrow { width: 20px; height: 20px; }
-        .faqx-a-inner { font-size: 15px; line-height: 1.65; text-indent: 1.2em; }
+        .faqx-a-inner { font-size: 15px; line-height: 1.65; }
     }
 
     @media (prefers-reduced-motion: reduce) {
