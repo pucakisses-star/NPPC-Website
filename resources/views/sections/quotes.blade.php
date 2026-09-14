@@ -2,13 +2,13 @@
 @if($quotes->isNotEmpty())
 <style>
     .quote-row { display:flex; align-items:flex-end; gap:24px; }
-    .quote-img-box { flex:0 0 auto; height:400px; }
-    .quote-img { height:100%; width:auto; max-width:none; display:block; filter:grayscale(100%) drop-shadow(0 12px 28px rgba(0,0,0,.55)); }
+    .quote-img-box { flex:0 0 auto; width:320px; height:400px; overflow:hidden; }
+    .quote-img { height:100%; width:100%; display:block; object-fit:cover; object-position:center top; filter:grayscale(100%) drop-shadow(0 12px 28px rgba(0,0,0,.55)); }
     .quote-text { font-size:1.85rem; }
     .quote-mark { width:56px; height:56px; }
     @media (max-width: 768px) {
         .quote-row { flex-direction:column; align-items:flex-start; gap:16px; }
-        .quote-img-box { height:240px; align-self:center; }
+        .quote-img-box { width:192px; height:240px; align-self:center; }
         .quote-text { font-size:1.2rem !important; line-height:1.4 !important; margin-bottom:14px !important; }
         .quote-mark { width:36px !important; height:36px !important; }
     }
@@ -20,16 +20,15 @@
             <div class="quote-slide" style="position:{{ $i === 0 ? 'relative' : 'absolute' }}; top:0; left:0; right:0; opacity:{{ $i === 0 ? '1' : '0' }}; transition:opacity 0.8s ease; padding:0 24px;">
                 <div class="quote-row">
 
-                    {{-- Author image — fixed height so portraits visually match; width is allowed to vary so portraits aren't cropped.
+                    {{-- Equal portrait frames: every portrait fills the same
+                         320x400 box, cropped from the top so faces stay in view.
 
-                         The box is removed outright if the file will not load. It
-                         is 400px tall whether or not the image arrives, so a
-                         missing file used to leave the quote sitting beside a
-                         column of empty black rather than simply going without a
-                         portrait. Dropping the box lets the text take the width. --}}
+                         The box is removed outright if the file will not load,
+                         so a missing portrait never leaves the quote sitting
+                         beside an empty column. --}}
                     @if($quote->author_image)
                         <div class="quote-img-box">
-                            <img class="quote-img" src="/storage/{{ $quote->author_image }}" alt="{{ $quote->author_name }}" loading="lazy" decoding="async"
+                            <img class="quote-img" src="{{ Storage::url($quote->author_image) }}" alt="{{ $quote->author_name }}" width="320" height="400" loading="lazy" decoding="async"
                                  onerror="var b=this.closest('.quote-img-box'); if(b){b.remove();}">
                         </div>
                     @endif
