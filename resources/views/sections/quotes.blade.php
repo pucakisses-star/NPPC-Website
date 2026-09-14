@@ -61,6 +61,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var current = 0;
 
+    // How long each quote holds before it fades to the next one. Raised
+    // from 8s: the longer quotes were fading before they could be read.
+    var hold = 15000;
+
     setInterval(function () {
         var next = (current + 1) % slides.length;
         slides[current].style.position = 'absolute';
@@ -68,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slides[next].style.position = 'relative';
         slides[next].style.opacity = '1';
         current = next;
-    }, 8000);
+    }, hold);
 });
 </script>
 @endif

@@ -16,10 +16,6 @@
         <div class="faqx-list">
             @foreach($faqs as $faq)
                 <div class="faqx-entry">
-                    {{-- The accent bar sits behind the row, spanning the
-                         column so it ends where the hairlines end. --}}
-                    <span class="faqx-sweep" aria-hidden="true"></span>
-
                     <button type="button" class="faqx-q" aria-expanded="false" aria-controls="{{ $uid }}-a{{ $loop->index }}">
                         <span class="faqx-q-text">{{ $faq->question }}</span>
                         <svg class="faqx-arrow" width="30" height="30" viewBox="0 0 24 24" fill="none"
@@ -27,6 +23,13 @@
                             <path d="M6 9l6 6 6-6" stroke-linecap="square"/>
                         </svg>
                     </button>
+
+                    {{-- The accent bar sits behind the row, spanning the
+                         column so it ends where the hairlines end. It comes
+                         after the button, not before it, so the stylesheet
+                         can key it to the button's own hover with a sibling
+                         selector; z-index keeps it underneath either way. --}}
+                    <span class="faqx-sweep" aria-hidden="true"></span>
 
                     <div class="faqx-a" id="{{ $uid }}-a{{ $loop->index }}" role="region" hidden>
                         <div class="faqx-a-inner">{!! nl2br(e($faq->answer)) !!}</div>
@@ -63,12 +66,14 @@
     /* The hover bar: solid, and flush with the column, so it ends exactly
        where the hairlines above and below it end. */
     .faqx-sweep { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--accent); opacity: 0; transition: opacity 0.18s ease; pointer-events: none; z-index: 0; }
-    .faqx-entry:hover > .faqx-sweep { opacity: 1; }
+    /* Lit by the question row alone, not the whole entry: on an open row
+       the cursor resting in the answer must not light the question above
+       it. */
+    .faqx-q:hover ~ .faqx-sweep { opacity: 1; }
     /* Keyboard focus lights the bar too, but a mouse click must not: a
        button keeps focus after it is clicked, and :focus-within would leave
-       the row you just opened stuck under a solid bar. Kept in its own rule
-       so a browser without :has() still gets the hover bar. */
-    .faqx-entry:has(.faqx-q:focus-visible) > .faqx-sweep { opacity: 1; }
+       the row you just opened stuck under a solid bar. */
+    .faqx-q:focus-visible ~ .faqx-sweep { opacity: 1; }
     /* Only the question row is covered, never the open answer. */
     .faqx-entry.is-open > .faqx-sweep { bottom: auto; height: var(--faqx-row, 0px); }
 
@@ -83,7 +88,7 @@
        on a row that is already open, whose accent text would otherwise be
        accent on accent and invisible. Both selectors are written to outweigh
        the .is-open rule above. */
-    .faqx-entry:hover .faqx-q, .faqx-entry .faqx-q:focus-visible { color: var(--on-accent); }
+    .faqx-entry .faqx-q:hover, .faqx-entry .faqx-q:focus-visible { color: var(--on-accent); }
     .faqx-q:focus-visible { outline: 2px solid var(--on-accent); outline-offset: -4px; }
 
     .faqx-arrow { flex: 0 0 auto; width: 30px; height: 30px; transition: transform 0.25s ease; }
