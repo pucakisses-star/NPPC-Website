@@ -214,7 +214,7 @@
     <section class="rr-slide rr-hero is-active">
         <div class="rr-hero-bg" style="@if($hero) background-image: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.72)), url('{{ $hero }}'); @else background: radial-gradient(120% 120% at 62% 32%, #2c313d 0%, #14161d 55%, #08090d 100%); @endif"></div>
         <div class="rr-hero-inner">
-            <h1 class="rr-hero-title">Imam Jamil Al-Amin has spent 22 years in prison for a killing another man confessed to</h1>
+            <h1 class="rr-hero-title">Imam Jamil Al-Amin has spent more than a quarter century in prison for a killing another man confessed to</h1>
             <p class="rr-hero-sub">The civil-rights leader once known as H. Rap Brown insists he did not kill Deputy Ricky Kinchen — and no jury has ever heard the other man's confession. Here's what you need to know.</p>
         </div>
     </section>
@@ -363,7 +363,7 @@
                 </a>
             </div>
         </div>
-        <div class="rr-foot">Sources: NPPC case file for Imam Jamil Al-Amin; Library of Congress (photos). His profile in the NPPC database: <a href="/prisoner/imam-jamil-al-amin" style="color:rgba(255,255,255,0.65);">nppc.org/prisoner/imam-jamil-al-amin</a></div>
+        <div class="rr-foot">Sources: NPPC case file for Imam Jamil Al-Amin; Library of Congress (photos). His profile in the NPPC database: <a href="/prisoner/imam-jamil-al-amin" style="color:rgba(255,255,255,0.65);">politicalprisonercoalition.org/prisoner/imam-jamil-al-amin</a></div>
     </section>
 
     {{-- ===== Nav arrows ===== --}}

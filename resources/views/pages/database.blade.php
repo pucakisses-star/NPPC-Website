@@ -103,7 +103,7 @@
 
             <div class="db-about-inner" style="font-size:17px; line-height:1.7;">
                 <p style="margin:0 0 20px;">
-                    This database of U.S. political prisoners was assembled from public records, including the historical case archives of prisoner-support committees, court files retrieved through the federal judiciary's PACER case-management system and state court records, the federal Bureau of Prisons inmate locator, state Department of Corrections inmate locators, and numerous various other sources. Each prisoner's case data is categorized by ideology, affiliation, era, and current custody status.
+                    This database of U.S. political prisoners was assembled from public records, including the historical case archives of prisoner-support committees, court files retrieved through the federal judiciary's PACER case-management system and state court records, the federal Bureau of Prisons inmate locator, state Department of Corrections inmate locators, and numerous other sources. Each prisoner's case data is categorized by ideology, affiliation, era, and current custody status.
                 </p>
 
                 <p style="margin:0 0 20px;">
